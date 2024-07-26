@@ -1,0 +1,9 @@
+<div class="transition-200 relative mb-6 flex w-full items-center space-x-3 rounded-3xl border-2 border-gray-300 bg-white p-4 shadow-3xl transition-shadow focus-within:shadow-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-gray-400 hover:shadow-none">
+<div class="p-6">
+<p class="mb-2 mt-0 text-2xl font-bold">{{ .Get "title" }}</p>
+{{ if .Get "cost" }}<span class="mb-2 me-2 inline-block rounded-full border-2 border-indigo-300 bg-indigo-50 px-2 py-0 text-sm font-semibold text-indigo-700">{{ .Get "cost" }}</span>{{ end }}
+{{ if .Get "description" }}<p class="mb-3 mt-0">{{ .Get "description" | markdownify }}</p>{{ end }}
+{{ if .Get "languages" }}<div class="mb-2"><span class="text-sm font-semibold">{{ i18n "key.languages" }}</span>: {{ $languages := split (.Get "languages") ", " }}{{ range $index, $lang := $languages }}<span class="mb-0 inline-block text-sm">{{ $lang }}</span>{{ if ne $index (sub (len $languages) 1) }}, {{ end }}{{ end }}{{ end }}</div>
+{{ if .Get "url" }}<a href="{{ .Get "url" }}" target="_blank" rel="noopener noreferrer" class="mt-2 inline-block rounded-lg bg-green-700 px-4 py-2 font-bold text-white no-underline hover:bg-green-800">{{ i18n "key.visit-site" }}</a>{{ end }}
+</div>
+</div>

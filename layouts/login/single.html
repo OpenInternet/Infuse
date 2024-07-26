@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html class="h-full bg-gray-50" lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  {{ partial "head.html" . }}
+</head>
+
+<body class="h-full">
+  <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+  <div id="content" class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+      <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+
+        <div class="mb-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <img class="mx-auto h-10 w-auto" src="/media/images/logomark.svg" alt="Infuse logo">
+          <h2 class="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{{ i18n "key.login-header"
+            }}
+          </h2>
+          <p class="test-sm text-center text-gray-600">{{ i18n "key.login-subheader" }}</p>
+        </div>
+
+        <form id="LoginForm" class="space-y-6" method="dialog">
+          <div>
+            <label for="LoginUsername" class="block text-sm font-medium leading-6 text-gray-900">{{ i18n "key.username"
+              }}</label>
+            <div class="mt-2">
+              <input id="LoginUsername" name="LoginUsername" type="text" autocomplete="" required
+                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-700 sm:text-sm sm:leading-6">
+            </div>
+          </div>
+
+          <span id="languagePrefix" class="hidden">{{ .Site.LanguagePrefix }}</span>
+
+          <div>
+            <button type="submit"
+              class="flex w-full justify-center rounded-md bg-green-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700">{{
+              i18n "key.sign-in" }}</button>
+          </div>
+        </form>
+
+      </div>
+
+      <p class="mt-10 text-center text-sm text-gray-500">
+        {{ i18n "key.have-backup" }}
+        <label class="cursor-pointer font-semibold leading-6 text-green-700 hover:text-green-800" for="importInput">
+          {{ i18n "key.import-data" }}</label>
+        <input type="file" class="sr-only" id="importInput" accept=".json">
+      </p>
+
+      <p class="mt-0 text-center text-sm text-gray-500">
+        {{ i18n "key.no-account" }}
+        <a href="{{ .Site.LanguagePrefix }}/signup" class="font-semibold leading-6 text-green-700 hover:text-green-800">{{
+          i18n "key.signup" }}</a>
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // Event listener for login form submission
+    document
+      .getElementById("LoginForm")
+      .addEventListener("submit", function (event) {
+        event.preventDefault();
+        const username = document.getElementById("LoginUsername").value;
+
+        // Check if username exists in localStorage
+        const storedUser = localStorage.getItem(username);
+        if (storedUser) {
+          const userData = JSON.parse(storedUser);
+          if (userData) {
+            handleSuccessfulLogin(username);
+          } else {
+            alert("Invalid username or password");
+          }
+        } else {
+          alert("User does not exist");
+        }
+      });
+
+    // Function to import user data from JSON
+    function importUserData(file) {
+      const reader = new FileReader();
+      reader.onload = function (event) {
+        const jsonData = event.target.result;
+        const userData = JSON.parse(jsonData);
+        for (const key in userData) {
+          localStorage.setItem(key, userData[key]);
+        }
+        window.location.href = "/"; // Reload the page after import to update the UI
+      };
+      reader.readAsText(file);
+    }
+
+    // Event listener for import input change
+    document
+      .getElementById("importInput")
+      .addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        importUserData(file);
+      });
+
+    // Function to handle successful login
+    function handleSuccessfulLogin(username) {
+      localStorage.setItem("loggedInUser", username);
+      currentLanguage = document.getElementById('languagePrefix').innerText;
+      window.location.href = currentLanguage // Redirect to homepage after login
+    }
+  </script>
+
+  {{ partial "javascript.html" . }}
+
+</body>

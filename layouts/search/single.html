@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html class="bg-gray-50" lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="flex min-h-screen flex-col">
+    <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+    {{ partial "header.html" . }}
+
+    <main id="content" class="content mb-auto">
+
+        <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+            <section class="mx-auto max-w-7xl px-8 lg:flex lg:items-center lg:justify-between lg:px-8">
+                <article class="flex flex-col items-start justify-between">
+                    <h3 class="text-3xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
+                        {{ .Page.Params.title }}
+                    </h3>
+                </article>
+            </section>
+        </div>
+
+        <section class="mx-auto max-w-2xl px-8">
+
+            <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+            <script src="/pagefind/pagefind-ui.js"></script>
+            
+            <div id="search"></div>
+
+            <script>
+                window.addEventListener('DOMContentLoaded', (event) => {
+                    new PagefindUI({
+                        element: "#search",
+                        showSubResults: true,
+                        pageSize: 5,
+                        showImages: false,
+                        highlightParam: "highlight",
+                        excerptLength: 20,
+                        debounceTimeoutMs: 500,
+                    });
+                });
+            </script>
+
+        </section>
+
+    </main>
+
+    {{ partial "footer.html" . }}
+    {{ partial "javascript.html" . }}
+
+</body>

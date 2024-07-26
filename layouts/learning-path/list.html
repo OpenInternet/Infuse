@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html class="bg-gray-50" lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="flex min-h-screen flex-col" x-data="learningPathComponent()" x-init="init()">
+    <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+    {{ partial "header.html" . }}
+
+    <main id="content" class="content mb-auto">
+        {{ partial "breadcrumbs.html" . }}
+        <div class="flex min-h-full flex-col justify-center py-6 sm:px-6 lg:px-8 lg:py-12">
+            <section
+                class="mx-auto max-w-7xl border-b border-gray-300 px-8 pb-8 lg:flex lg:items-center lg:justify-between lg:px-8">
+
+                <article class="flex flex-col items-start justify-between lg:w-2/3">
+                    <h3 class="mt-3 text-3xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
+                        {{ .Page.Params.title }}
+                    </h3>
+
+                    {{ with .Page.Params.categories }}
+                    <div class="mt-4 flex items-center gap-x-2 text-xs">
+                        {{ range .Page.Params.categories }}
+                        <p class="relative z-10 rounded-full bg-green-100 px-3 py-1.5 font-medium text-green-600">
+                            {{ . | humanize }}</p>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <p class="mt-8 text-xl font-semibold leading-6">{{ i18n "key.what-learn" }}</p>
+                    <p class="mb-4 mt-2 line-clamp-3 text-sm leading-6 text-gray-800">{{
+                        .Page.Params.description }}</p>
+
+                    {{ if .GitInfo }}
+                    {{ $day := .GitInfo.AuthorDate.Day }}
+                    {{ $month := .GitInfo.AuthorDate.Month }}
+                    {{ $year := .GitInfo.AuthorDate.Year }}
+                    {{ $localizedMonth := i18n (printf "key.%s" $month) }}
+                    <p class="me-2 inline-block text-sm font-semibold text-green-900">{{ i18n "key.updated-on" }}: {{ printf "%d %s %d" $day $localizedMonth $year }}</p>
+                    {{ else }}
+                    <p class="text-sm text-green-900">{{ i18n "key.git-unavailable" }}</p>
+                    {{ end }}
+                </article>
+
+                <div id="progress-bar" class="mt-6 hidden w-full items-center justify-center lg:w-1/3">
+                    <svg aria-label="{{ i18n "key.progress-bar" }}" class="h-[180px] w-[180px]">
+                        <circle class="text-gray-300" stroke-width="16" stroke="currentColor" fill="transparent" r="70"
+                            cx="90" cy="90" />
+                        <circle class="text-green-600" stroke-width="16" :stroke-dasharray="circumference"
+                            :stroke-dashoffset="circumference - percent / 100 * circumference" stroke-linecap="round"
+                            stroke="currentColor" fill="transparent" r="70" cx="90" cy="90" />
+                        <text x="50%" y="50%" text-anchor="middle" dy=".3em"
+                            class="progress-text text-2xl font-semibold text-gray-800" x-text="`${percent}%`"></text>
+                    </svg>
+                </div>
+
+            </section>
+
+            <section id="modules"
+                class="mx-auto flex w-full max-w-7xl grid-cols-1 flex-col justify-between gap-8 px-8 pb-32 pt-10 lg:flex-row">
+                <div class="order-last grid grid-cols-1 gap-8 lg:order-first lg:w-2/3">
+                    <span class="hidden" id="moduleCount" data-count="{{ len .RegularPagesRecursive }}"></span>
+
+                    <div class="flex flex-col">
+                        <p class="mt-2 text-xl font-semibold leading-6">{{ i18n "key.modules" }}</p>
+                        <p class="mt-2 line-clamp-3 text-sm leading-6 text-gray-500">{{ i18n "key.modules-description" }}
+                        </p>
+                    </div>
+
+                    {{ range where .RegularPagesRecursive "Params.style" "=" "introduction" }}
+                    <div
+                        class="transition-200 relative flex items-center space-x-3 rounded-3xl border-2 border-gray-300 bg-white px-6 py-5 shadow-3xl transition-shadow focus-within:shadow-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-gray-400 hover:shadow-none">
+                        <article class="flex w-full flex-col items-start justify-between">
+                            <div class="w-full">
+                                <div class="group relative">
+                                    <h3
+                                        class="text-2xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
+                                        <a href="{{ .Permalink }}">
+                                            <span class="absolute inset-0"></span>
+                                            {{ .Page.Params.title }}
+                                        </a>
+                                    </h3>
+                                    <p class="mt-2 line-clamp-3 text-sm font-semibold leading-6 text-gray-500">{{
+                                        .Page.Params.description }}</p>
+
+                                    <div class="completion-status text-md mt-4 hidden items-center gap-x-2">
+
+                                        {{ $permalink := .Permalink }}
+                                        {{ $parts := split $permalink "/" }}
+                                        {{ $lastTwoParts := index $parts (sub (len $parts) 3) }}
+                                        {{ $lastPart := index $parts (sub (len $parts) 2) }}
+                                        {{ $url := printf "/%s/%s" $lastTwoParts $lastPart }}
+
+                                        <span class="urlValue hidden">{{ $url }}</span>
+
+                                        <div>
+                                            <div x-show="isModuleCompleted('{{ $url }}')">
+                                                <p
+                                                    class="relative z-10 rounded-full border-2 border-solid border-green-200 bg-green-50 px-3 py-0.5 text-sm font-medium text-green-700">
+                                                    {{ i18n "key.done" }}</p>
+                                            </div>
+                                            <div x-show="isModuleNotCompleted('{{ $url }}')">
+                                                <p
+                                                    class="relative z-10 rounded-full border-2 border-solid border-red-200 bg-red-50 px-3 py-0.5 text-sm font-medium text-red-700">
+                                                    {{ i18n "key.todo" }}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    {{ end }}
+
+                    {{ range where .RegularPagesRecursive "Params.style" "=" "module" }}
+                    <div
+                        class="transition-200 relative flex items-center space-x-3 rounded-3xl border-2 border-gray-300 bg-white px-6 py-5 shadow-3xl transition-shadow focus-within:shadow-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-gray-400 hover:shadow-none">
+                        <article class="flex w-full flex-col items-start justify-between">
+                            <div class="w-full">
+                                <div class="text-md mb-3 flex items-center gap-x-2">
+                                    {{ range .Page.Params.categories }}
+                                    <p class="relative z-10 font-semibold text-green-600">
+                                        {{ . | humanize }}</p>
+                                    {{ end }}
+                                </div>
+                                <div class="group relative">
+                                    <p class="mb-1 text-sm font-bold text-green-700">{{ i18n "key.modules" 1 }} {{
+                                        .Page.Params.weight }}</p>
+                                    <h3
+                                        class="text-2xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
+                                        <a href="{{ .Permalink }}">
+                                            <span class="absolute inset-0"></span>
+                                            {{ .Page.Params.title }}
+                                        </a>
+                                    </h3>
+
+                                    {{ with .Page.Params.description }}
+                                    <p class="mt-2 line-clamp-3 text-sm font-semibold leading-6 text-gray-500">{{ . }}
+                                    </p>
+                                    {{ end }}
+
+                                    <div class="completion-status text-md mt-4 hidden items-center gap-x-2">
+
+                                        {{ $permalink := .Permalink }}
+                                        {{ $parts := split $permalink "/" }}
+                                        {{ $lastTwoParts := index $parts (sub (len $parts) 3) }}
+                                        {{ $lastPart := index $parts (sub (len $parts) 2) }}
+                                        {{ $url := printf "/%s/%s" $lastTwoParts $lastPart }}
+
+                                        <span class="urlValue hidden">{{ $url }}</span>
+
+                                        <div>
+                                            <div x-show="isModuleCompleted('{{ $url }}')">
+                                                <p
+                                                    class="relative z-10 rounded-full border-2 border-solid border-green-200 bg-green-50 px-3 py-0.5 text-sm font-medium text-green-700">
+                                                    {{ i18n "key.done" }}</p>
+                                            </div>
+                                            <div x-show="isModuleNotCompleted('{{ $url }}')">
+                                                <p
+                                                    class="relative z-10 rounded-full border-2 border-solid border-red-200 bg-red-50 px-3 py-0.5 text-sm font-medium text-red-700">
+                                                    {{ i18n "key.todo" }}</p>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </article>
+                    </div>
+                    {{ end }}
+                </div>
+
+                <!-- Badge -->
+                <div id="badge-card"
+                    class="relative mb-8 hidden h-max items-center justify-center space-x-3 rounded-3xl border-2 border-gray-300 bg-white px-12 py-5 shadow-sm focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 lg:order-first lg:mt-20 lg:w-1/3">
+                    <div class="grid place-items-center w-full" x-data="learningPathComponent()" x-init="init()">
+
+                        <svg aria-label="{{ .Page.Params.badge }} {{ i18n "key.badges" 1 }}" class="mt-3" viewBox="0 0 295 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path id="badge-banner"
+                                d="M1.56564 3.73219C0.831114 2.1008 2.02439 0.254883 3.81351 0.254883H290.909C292.698 0.254883 293.891 2.1008 293.157 3.73219L284.971 21.9122C284.681 22.5558 284.681 23.2928 284.971 23.9364L293.157 42.1164C293.891 43.7478 292.698 45.5937 290.909 45.5937H3.81351C2.02439 45.5937 0.831115 43.7478 1.56564 42.1164L9.75107 23.9364C10.0409 23.2928 10.0409 22.5558 9.75107 21.9122L1.56564 3.73219Z"
+                                fill="{{ .Page.Params.color }}" />
+                            <text id="badge-name" class="font-bold" x="50%" y="50%" text-anchor="middle"
+                                dy=".4em" fill="#333">{{ .Page.Params.badge | upper }}</text>
+                        </svg>
+
+                        <img class="mt-4 w-36" :src="badgeImageUrl('{{ .Page.Params.icon }}')" :alt="badgeAltText()"
+                            alt="" />
+
+                        <p id="onlyOneModuleLeft" class="hidden">{{ i18n "key.only-one-module-left" }}</p>
+                        <p id="multipleModulesLeft" class="hidden">{{ i18n "key.multiple-modules-left" }}</p>
+
+                        <p id="motivationMessage" class="hidden">{{ i18n "key.keep-learning" }}</p>
+                        <p id="congratulationsMessage" class="hidden">{{ i18n "key.congratulations" }}</p>
+
+                        <p id="outOf" class="hidden">{{ i18n "key.out-of" }}</p>
+                        <p id="modulesCompleted" class="hidden">{{ i18n "key.modules-completed" }}</p>
+
+                        <p id="badgeCompleted" class="hidden">{{ i18n "key.badge-completed" }}</p>
+                        <p id="badgeName" class="hidden">{{ .Page.Params.badge }}</p>
+
+                        <!-- Completion message -->
+                        <p class="mt-4 text-center text-lg font-semibold" x-text="completionMessage"></p>
+
+                        <!-- Number of completed modules -->
+                        <p class="mt-1 text-center text-sm text-gray-500" x-text="completedModulesMessage"></p>
+                    </div>
+                </div>
+
+            </section>
+
+        </div>
+    </main>
+
+    <script>
+        const learningPathComponent = () => {
+            return {
+                circumference: 70 * 2 * Math.PI,
+                percent: 0,
+                remainingModules: 0,
+                moduleCompletionStates: {},
+                showBadge: true,
+                fullBadge: false,
+                completedModules: 0,
+
+                init() {
+                    this.updateLearningPathProgress();
+                    window.addEventListener("storage", () => {
+                        this.updateLearningPathProgress();
+                    });
+                },
+
+                updateLearningPathProgress() {
+                    const permalinkParts = window.location.pathname.split("/");
+                    const lastItem = "/" + permalinkParts[permalinkParts.length - 2];
+
+                    let completedModules = 0;
+
+                    const username = localStorage.getItem("loggedInUser");
+                    const userDataString = localStorage.getItem(username);
+                    const userData = JSON.parse(userDataString);
+
+                    for (let [key, value] of Object.entries(userData)) {
+                        if (key.startsWith(lastItem)) {
+                            this.moduleCompletionStates[key] = value;
+                            if (value === true) {
+                                completedModules++;
+                            }
+                        }
+                    }
+
+                    const moduleCount = parseInt(document.getElementById("moduleCount").getAttribute("data-count"));
+                    this.percent = ((completedModules / moduleCount) * 100).toFixed(0);
+                    this.remainingModules = moduleCount - completedModules;
+                    this.completedModules = completedModules;
+
+                    userData[`progress_${lastItem}`] = this.percent;
+                    localStorage.setItem(username, JSON.stringify(userData));
+
+                    this.updateProgressContainers();
+                    this.updateBadgeVisibility();
+                },
+
+                isModuleCompleted(urlValue) {
+                    return this.moduleCompletionStates[urlValue] === true;
+                },
+
+                isModuleNotCompleted(urlValue) {
+                    return !this.isModuleCompleted(urlValue);
+                },
+
+                updateBadgeVisibility() {
+                    const badgeBanner = document.getElementById("badge-banner");
+
+                    if (this.remainingModules > 0) {
+                        this.showBadge = true;
+                        this.fullBadge = false;
+                        badgeBanner.setAttribute('fill', 'tranparent');
+                    } else {
+                        this.showBadge = false;
+                        this.fullBadge = true;
+                    }
+                },
+
+                updateProgressContainers() {
+                    const progressBar = document.querySelector('.progress-container .progress');
+                    const progressText = document.querySelector('.progress-container .progress-text');
+                    if (progressBar) {
+                        progressBar.style.width = `${this.percent}%`;
+                    }
+                    if (progressText) {
+                        progressText.innerText = `${this.percent}% completed`;
+                    }
+                },
+
+                badgeImageUrl(icon) {
+                    return `/media/badges/${icon}-${this.fullBadge ? 'badge' : 'badge-incomplete'}.svg`;
+                },
+
+                badgeAltText() {
+                    return this.fullBadge ? "Full Badge Image" : "Incomplete Badge Image";
+                },
+
+                get completionMessage() {
+                    if ((this.remainingModules === 1) || (this.remainingModules > 1)) {
+                        return document.getElementById("motivationMessage").innerText;
+                    } else {
+                        return document.getElementById("congratulationsMessage").innerText;
+                    }
+                },
+
+                get completedModulesMessage() {
+                    const moduleCount = parseInt(document.getElementById("moduleCount").getAttribute("data-count"));
+                    const outOf = document.getElementById("outOf").innerText
+                    const modulesCompleted = document.getElementById("modulesCompleted").innerText
+
+                    if ((this.remainingModules === 1) || (this.remainingModules > 1)) {
+                        return `${this.completedModules} ` + outOf + ` ${moduleCount} ` + modulesCompleted;
+                    } else {
+                        return document.getElementById("badgeCompleted").innerText;
+                    }
+                }
+            };
+        };
+    </script>
+
+    {{ partial "footer.html" . }}
+    {{ partial "javascript.html" . }}
+
+</body>

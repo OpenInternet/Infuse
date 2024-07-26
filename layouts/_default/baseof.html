@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="bg-gray-50">
+    <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+    {{ partial "header.html" . }}
+
+    <main id="content" class="content">
+        {{ block "main" . }}{{ end }}
+    </main>
+
+    {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    {{ partial "javascript.html" . }}
+
+</body>

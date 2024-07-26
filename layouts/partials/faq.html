@@ -1,0 +1,49 @@
+<section id="faq" class="bg-white">
+    <div class="mx-auto max-w-7xl px-6 py-24 sm:pt-32 lg:px-8 lg:py-40">
+        <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+            <div class="lg:col-span-5">
+                <h2 class="text-2xl font-bold leading-10 tracking-tight text-gray-900">{{ i18n "key.faq" }}</h2>
+                <p class="mt-4 text-base leading-7 text-gray-600">{{ i18n "key.faq-description" }} <a href="#" class="font-semibold text-green-700 hover:text-green-800">{{ i18n "key.faq-link" }}</a></p>
+            </div>
+
+            <div class="mt-10 lg:col-span-7 lg:mt-0">
+                <div class="mx-auto grid max-w-xl">
+                    {{ range where .Site.Pages "Section" "faq"  }}
+                    {{ range .Params.questions }}
+                    <div class="mb-4">
+                        <details class="group rounded-lg p-8 transition open:bg-gray-50">
+                            <summary class="flex cursor-pointer list-none items-center justify-between font-medium">
+                                <span class="text-gray-900">{{ .question }}</span>
+                                <span class="transition group-open:hidden">
+                                    <svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M12.5 8.31055V16.3105M8.5 12.3105H16.5M22.5 12.3105C22.5 17.8334 18.0228 22.3105 12.5 22.3105C6.97715 22.3105 2.5 17.8334 2.5 12.3105C2.5 6.7877 6.97715 2.31055 12.5 2.31055C18.0228 2.31055 22.5 6.7877 22.5 12.3105Z"
+                                            stroke="#98A2B3" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </span>
+                                <span class="hidden transition group-open:block">
+                                    <svg aria-hidden="true" width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path
+                                            d="M8.5 12.3105H16.5M22.5 12.3105C22.5 17.8334 18.0228 22.3105 12.5 22.3105C6.97715 22.3105 2.5 17.8334 2.5 12.3105C2.5 6.7877 6.97715 2.31055 12.5 2.31055C18.0228 2.31055 22.5 6.7877 22.5 12.3105Z"
+                                            stroke="#98A2B3" stroke-width="2" stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+
+                                </span>
+                            </summary>
+                            <p class="group-open:animate-fadeIn mt-3 text-neutral-600">
+                                {{ .answer | markdownify }}
+                            </p>
+                        </details>
+                    </div>
+                    {{ end }}
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

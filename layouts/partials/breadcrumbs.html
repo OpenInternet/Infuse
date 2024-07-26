@@ -1,0 +1,74 @@
+<section id="breadcrumb" class="mx-auto max-w-7xl px-8 pt-8 lg:px-8 lg:pt-16">
+    <nav class="mb-5 flex justify-start lg:justify-center" aria-label="Breadcrumb">
+        <ol role="list" class="flex items-center" itemscope itemtype="https://schema.org/BreadcrumbList">
+            {{- $data := newScratch }}
+            {{- $page := . }}
+            {{- $parents := slice }}
+
+            {{- with $page.Parent }}
+                {{- $parents = $parents | append . }}
+                {{- $parent := .Parent }}
+                {{- if $parent }}
+                    {{- $parents = $parents | append $parent }}
+                    {{- $grandparent := $parent.Parent }}
+                    {{- if $grandparent }}
+                        {{- $parents = $parents | append $grandparent }}
+                    {{- end }}
+                {{- end }}
+            {{- end }}
+
+            {{- $parentsReversed := slice }}
+            {{- range $i, $e := $parents }}
+                {{- $parentsReversed = $parentsReversed | append (index $parents (sub (sub (len $parents) 1) $i)) }}
+            {{- end }}
+
+            {{- range $index, $parent := $parentsReversed }}
+            <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                {{- $data.Set "counter" $index }}
+                {{- $data.Add "counter" 1 }}
+                {{ if $parent.IsHome }}
+                <a itemprop="item" href="{{ $parent.Site.LanguagePrefix }}/" class="text-gray-500 hover:text-gray-700">
+                    <span itemprop="name">
+                        <svg class="me-4 h-5 w-5 flex-shrink-0" viewBox="0 0 20 20" fill="none"
+                            xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path
+                                d="M6.66667 14.1668H13.3333M9.18141 2.30345L3.52949 6.69939C3.15168 6.99324 2.96278 7.14017 2.82669 7.32417C2.70614 7.48716 2.61633 7.67078 2.56169 7.866C2.5 8.08639 2.5 8.3257 2.5 8.80433V14.8334C2.5 15.7669 2.5 16.2336 2.68166 16.5901C2.84144 16.9037 3.09641 17.1587 3.41002 17.3185C3.76654 17.5001 4.23325 17.5001 5.16667 17.5001H14.8333C15.7668 17.5001 16.2335 17.5001 16.59 17.3185C16.9036 17.1587 17.1586 16.9037 17.3183 16.5901C17.5 16.2336 17.5 15.7669 17.5 14.8334V8.80433C17.5 8.3257 17.5 8.08639 17.4383 7.866C17.3837 7.67078 17.2939 7.48716 17.1733 7.32417C17.0372 7.14017 16.8483 6.99324 16.4705 6.69939L10.8186 2.30345C10.5258 2.07574 10.3794 1.96189 10.2178 1.91812C10.0752 1.87951 9.92484 1.87951 9.78221 1.91812C9.62057 1.96189 9.47418 2.07574 9.18141 2.30345Z"
+                                stroke="#667085" stroke-width="1.66667" stroke-linecap="round"
+                                stroke-linejoin="round" />
+                        </svg>
+                        <span class="sr-only">{{ i18n "key.home" }}</span>
+                    </span>
+                </a>
+                <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+                {{ else }}
+                <div class="flex items-center">
+                    <svg class="h-5 w-5 flex-shrink-0 text-gray-500 lg:flex" fill="currentColor" viewBox="0 0 20 20"
+                        aria-hidden="true">
+                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                    </svg>
+                    <a class="me-2 ms-3 text-sm font-medium text-gray-500 hover:text-gray-700" aria-current="page"
+                        itemprop="item" href="{{ $parent.Permalink }}">
+                        <span itemprop="name">{{ $parent.Title }}</span>
+                    </a>
+                    <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+                </div>
+                {{- end }}
+            </li>
+            {{ end }}
+            <li class="hidden lg:flex" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+                {{- $data.Add "counter" 1 }}
+                <div class="flex items-center">
+                    <svg class="h-5 w-5 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                        aria-hidden="true">
+                        <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
+                    </svg>
+                    <a class="text-sm font-medium text-gray-500 hover:text-gray-700 sm:ms-2" aria-current="page"
+                        itemprop="item" href="{{ .Permalink }}">
+                        <span itemprop="name">{{ .Title }}</span>
+                    </a>
+                    <meta itemprop="position" content='{{ $data.Get "counter"}}' />
+                </div>
+            </li>
+        </ol>
+    </nav>
+</section>

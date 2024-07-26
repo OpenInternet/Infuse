@@ -1,0 +1,213 @@
+<!doctype html>
+<html
+  class="h-full bg-gray-50"
+  lang="{{ .Site.Language }}"
+  dir="{{ .Site.Language.Params.direction }}"
+  itemscope
+  itemtype="http://schema.org/WebPage"
+>
+  <head>
+    {{ partial "head.html" . }}
+  </head>
+
+  <body class="h-full">
+    <a class="sr-only focus:not-sr-only" href="#content"
+      >{{ i18n "key.skip-link" }}</a
+    >
+
+    <div
+      id="content"
+      class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8"
+    >
+      <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
+        <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
+          <div class="mb-4 sm:mx-auto sm:w-full sm:max-w-md">
+            <img
+              class="mx-auto h-10 w-auto"
+              src="/media/images/logomark.svg"
+              alt="Infuse logo"
+            />
+            <h2
+              class="mb-3 mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900"
+            >
+              {{ i18n "key.create-account" }}
+            </h2>
+            <p class="text-xs text-gray-500">
+              {{ i18n "key.no-password" | markdownify }}
+            </p>
+          </div>
+
+          <form id="SignupForm" class="space-y-6" method="dialog">
+            <div>
+              <label
+                for="SignupUsername"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >{{ i18n "key.username" }}</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="SignupUsername"
+                  id="SignupUsername"
+                  autocomplete=""
+                  required
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-700 sm:text-sm sm:leading-6"
+                  aria-describedby="username-description"
+                />
+              </div>
+              <p class="mt-2 text-xs text-gray-500" id="username-description">
+                {{ i18n "key.username-description" }}
+              </p>
+            </div>
+
+            <div>
+              <label
+                for="SignupName"
+                class="block text-sm font-medium leading-6 text-gray-900"
+                >{{ i18n "key.full-name" }}</label
+              >
+              <div class="mt-2">
+                <input
+                  type="text"
+                  name="SignupName"
+                  id="SignupName"
+                  autocomplete=""
+                  required
+                  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-green-700 sm:text-sm sm:leading-6"
+                  aria-describedby="name-description"
+                />
+              </div>
+              <p class="mt-2 text-xs text-gray-500" id="name-description">
+                {{ i18n "key.name-description" }}
+              </p>
+            </div>
+
+            <div>
+              <p class="block text-sm font-medium leading-6 text-gray-900">
+                {{ i18n "key.avatar-image" }}
+              </p>
+              <div class="mt-2 flex items-center gap-x-3">
+                <label
+                  for="SignupPhoto"
+                  class="block cursor-pointer rounded-md bg-white px-3 py-1 text-sm font-normal leading-6 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                  >{{ i18n "key.upload" }}</label
+                >
+                <img
+                  id="avatarUpload"
+                  class="h-8 w-8 rounded-full object-cover"
+                  src="/media/images/user-pfp.svg"
+                  alt="Avatar image"
+                />
+                <input
+                  id="SignupPhoto"
+                  name="SignupPhoto"
+                  type="file"
+                  accept="image/*"
+                  class="sr-only"
+                  aria-describedby="avatar-description"
+                />
+              </div>
+              <p class="mt-2 text-xs text-gray-500" id="avatar-description">
+                {{ i18n "key.avatar-description" }}
+              </p>
+            </div>
+
+            <span id="languagePrefix" class="hidden"
+              >{{ .Site.LanguagePrefix }}</span
+            >
+
+            <div>
+              <button
+                type="submit"
+                class="flex w-full justify-center rounded-md bg-green-700 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700"
+              >
+                {{ i18n "key.signup" }}
+              </button>
+            </div>
+
+            <p class="text-xs font-normal leading-6 text-gray-500">
+              {{ i18n "key.required" }}
+            </p>
+          </form>
+        </div>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+          {{ i18n "key.have-account" }}
+          <a
+            href="{{ .Site.LanguagePrefix }}/login"
+            class="font-semibold leading-6 text-green-700 hover:text-green-800"
+            >{{ i18n "key.login" }}</a
+          >
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // Event listener for signup form submission
+      document
+        .getElementById("SignupForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          const username = document.getElementById("SignupUsername").value;
+          const name = document.getElementById("SignupName").value;
+          const avatar = document.getElementById("SignupPhoto").files[0];
+
+          const reader = new FileReader();
+          reader.onload = function (event) {
+            let avatarData = null;
+            if (avatar) {
+              avatarData = event.target.result;
+            } else {
+              // Set default avatar image
+              avatarData = "/media/images/user-pfp.svg";
+            }
+
+            // Check if username already exists
+            if (localStorage.getItem(username)) {
+              alert(
+                "Username already exists. Please choose a different username."
+              );
+            } else {
+              const userData = {
+                username: username,
+                name: name,
+                avatar: avatarData,
+              };
+              localStorage.setItem(username, JSON.stringify(userData));
+              handleSuccessfulSignup(username);
+            }
+          };
+          if (avatar) {
+            reader.readAsDataURL(avatar);
+          } else {
+            reader.onload(); // Trigger the onload function immediately if no file is uploaded
+          }
+        });
+
+      function handleFileUpload(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+
+        reader.onload = function () {
+          const imageUploaded = document.getElementById("avatarUpload");
+          imageUploaded.src = reader.result;
+        };
+
+        reader.readAsDataURL(file);
+      }
+
+      // Add event listener to file input
+      const fileInput = document.getElementById("SignupPhoto");
+      fileInput.addEventListener("change", handleFileUpload);
+
+      // Function to handle successful signup
+      function handleSuccessfulSignup(username) {
+        localStorage.setItem("loggedInUser", username);
+        currentLanguage = document.getElementById("languagePrefix").innerText;
+        window.location.href = currentLanguage; // Redirect to homepage after login
+      }
+    </script>
+
+    {{ partial "javascript.html" . }}
+  </body>
+</html>

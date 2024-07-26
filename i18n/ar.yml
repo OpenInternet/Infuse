@@ -1,0 +1,466 @@
+filename: "Translations in Arabic"
+key:
+  - id: hero-title
+    translation:
+      one: null
+      other: "الارتقاء بالخبرة لحماة الأمن الرقمي"
+  - id: hero-subtitle
+    translation:
+      one: null
+      other: "في إنفيوز، نمكّن الأفراد لتحقيق سلامة أكبر على الإنترنت من خلال تعليم شامل في الأمن السيبراني، مزوّدينهم بالمعرفة الضرورية لحماية أنفسهم بفعالية على الإنترنت."
+  - id: feature-one-title
+    translation:
+      one: null
+      other: "تعلم بوتيرة الخاصة مع مسارات تعلم متعددة"
+  - id: feature-one-subtitle
+    translation:
+      one: null
+      other: "يُسلّط هذا التأكيد على المرونة والتحكم من قبل المتعلمين الذين يفضلون التعليم ذات الوتيرة الذاتية."
+  - id: feature-two-title
+    translation:
+      one: null
+      other: "اكتساب شارات وحفظ الشهادات"
+  - id: feature-two-subtitle
+    translation:
+      one: null
+      other: "تُسلّط هذه الميزة الضوء على الإنجازات وتوفير دليل ملموس على الإتقان، مما يمكن أن يكون محفزًا للمستخدمين."
+  - id: feature-three-title
+    translation:
+      one: null
+      other: "متاح بلغات متعددة"
+  - id: feature-three-subtitle
+    translation:
+      one: null
+      other: "الوصول هو أمر بالغ الأهمية، وتقديم المحتوى بلغات متعددة يضمن وصولًا أوسع وشمولية أكبر."
+  - id: learning-paths-title
+    translation:
+      one: null
+      other: "مسارات التعلم"
+  - id: learning-paths-subtitle
+    translation:
+      one: null
+      other: "لوريم إيبسوم دولور سيت أميت بلاه."
+  - id: create-account
+    translation:
+      one: null
+      other: "إنشاء حساب جديد"
+  - id: username
+    translation:
+      one: null
+      other: "اسم المستخدم*"
+  - id: username-description
+    translation:
+      one: null
+      other: "يُستخدم هذا المعلومات كوسيلة رئيسية للمصادقة على صفحة إنفيوز."
+  - id: full-name
+    translation:
+      one: null
+      other: "الاسم الكامل*"
+  - id: name-description
+    translation:
+      one: null
+      other: "يُستخدم هذا المعلومات لإعداد وإصدار الشهادات عند اكتمال كل مسار تعلم."
+  - id: avatar-image
+    translation:
+      one: null
+      other: "صورة الصورة الرمزية"
+  - id: avatar-description
+    translation:
+      one: null
+      other: "هذا الحقل اختياري. يمكنك تعيين صورة رمزية (بصري فقط) أو الاحتفاظ بالصورة الافتراضية."
+  - id: upload
+    translation:
+      one: null
+      other: "تحميل"
+  - id: required
+    translation:
+      one: null
+      other: "العناصر المشار إليها بـ * مطلوبة"
+  - id: no-password
+    translation:
+      one: null
+      other: "نحن لا نستخدم مصادقة كلمة المرور لأن جميع المعلومات تُخزّن محليًا في متصفحك ولا تُرسل إلى أي جهات أولى أو ثالثة."
+  - id: signup
+    translation:
+      one: null
+      other: "الاشتراك"
+  - id: have-backup
+    translation:
+      one: null
+      other: "هل لديك نسخة احتياطية موجودة؟"
+  - id: have-account
+    translation:
+      one: null
+      other: "هل لديك حساب بالفعل؟"
+  - id: import-data
+    translation:
+      one: null
+      other: "استيراد بياناتك"
+  - id: login-header
+    translation:
+      one: null
+      other: "تسجيل الدخول إلى حسابك"
+  - id: login-subheader
+    translation:
+      one: null
+      other: "مرحبًا مجددًا! يرجى إدخال تفاصيلك."
+  - id: sign-in
+    translation:
+      one: null
+      other: "تسجيل الدخول"
+  - id: no-account
+    translation:
+      one: null
+      other: "ليس لديك حساب؟"
+  - id: login
+    translation:
+      one: null
+      other: "تسجيل الدخول"
+  - id: tab-profile
+    translation:
+      one: null
+      other: "بيانات الملف الشخصي"
+  - id: tab-export
+    translation:
+      one: null
+      other: "تصدير البيانات"
+  - id: tab-delete
+    translation:
+      one: null
+      other: "حذف البيانات"
+  - id: profile
+    translation:
+      one: null
+      other: "الملف الشخصي"
+  - id: profile-warning
+    translation:
+      one: null
+      other: "يمكن الوصول إلى هذه المعلومات من قبل مستخدمين آخرين على هذا الكمبيوتر، لذا كن حذرًا فيما تشاركه."
+  - id: unlock
+    translation:
+      one: null
+      other: "إلغاء قفل وتعديل الملف الشخصي"
+  - id: change
+    translation:
+      one: null
+      other: "تغيير"
+  - id: save-changes
+    translation:
+      one: null
+      other: "حفظ التغييرات"
+  - id: export-information
+    translation:
+      one: null
+      other: "تصدير معلوماتك"
+  - id: export-details
+    translation:
+      one: null
+      other: "يمكنك تصدير ملفك الشخصي بالإضافة إلى تقدمك الحالي واستيراده إلى جهاز آخر، لتعلم متسلسل أثناء التنقل."
+  - id: info
+    translation:
+      one: null
+      other: "معلومات"
+  - id: info-export
+    translation:
+      one: null
+      other: "الملف JSON الناتج عن هذا التصدير غير مشفر."
+  - id: export-includes
+    translation:
+      one: null
+      other: "يتضمن هذا التصدير كل معلومات ملفك الشخصي وتقدمك عبر الوحدات."
+  - id: export-data
+    translation:
+      one: null
+      other: "تصدير البيانات"
+  - id: delete-information
+    translation:
+      one: null
+      other: "حذف معلوماتك"
+  - id: delete-details
+    translation:
+      one: null
+      other: "يتم حذف جميع البيانات المخزنة على هذا الجهاز ويؤدي هذا الإجراء إلى عدم القدرة على استردادها."
+  - id: warning
+    translation:
+      one: null
+      other: "تحذير"
+  - id: warning-delete
+    translation:
+      one: null
+      other: "هذا الإجراء لا يمكن التراجع عنه، وسيتم فقدان جميع بياناتك بشكل دائم ما لم تكن لديك نسخة احتياطية."
+  - id: final-confirmation
+    translation:
+      one: null
+      other: "سيُطلب منك التأكيد النهائي قبل المتابعة."
+  - id: delete-account
+    translation:
+      one: null
+      other: "حذف الحساب"
+  - id: your-profile
+    translation:
+      one: null
+      other: "ملفك الشخصي"
+  - id: badges
+    translation:
+      one: "شارة"
+      other: "شارات"
+  - id: settings
+    translation:
+      one: null
+      other: "الإعدادات"
+  - id: sign-out
+    translation:
+      one: null
+      other: "تسجيل الخروج"
+  - id: modules
+    translation:
+      one: "وحدة"
+      other: "وحدات"
+  - id: what-learn
+    translation:
+      one: null
+      other: "ما ستتعلمه"
+  - id: modules-description
+    translation:
+      one: null
+      other: "لوريم إيبسوم دولور سيت أميت بلاه."
+  - id: visit-site
+    translation:
+      one: null
+      other: "زيارة الموقع"
+  - id: out-of
+    translation:
+      one: null
+      other: "من"
+  - id: modules-completed
+    translation:
+      one: null
+      other: "وحدة تم الانتهاء منها"
+  - id: progress-bar
+    translation:
+      one: null
+      other: "شريط التقدم"
+  - id: todo
+    translation:
+      one: null
+      other: "للقيام به"
+  - id: done
+    translation:
+      one: null
+      other: "تم"
+  - id: congratulations-introduction
+    translation:
+      one: null
+      other: "تهانينا على انتهاء المقدمة!"
+  - id: congratulations-module
+    translation:
+      one: null
+      other: "تهانينا على انتهاء"
+  - id: mark-intro-complete
+    translation:
+      one: null
+      other: "وسم المربع لتأكيد قراءتك للمقدمة والمتابعة إلى الوحدة التالية."
+  - id: mark-module-complete
+    translation:
+      one: null
+      other: "وسم المربع لتأكيد اكتمالك والمتابعة إلى الوحدة التالية."
+  - id: mark-as-complete
+    translation:
+      one: null
+      other: "وسم الوحدة كمكتملة"
+  - id: mark-intro-as-complete
+    translation:
+      one: null
+      other: "وسم المقدمة كمكتملة"
+  - id: mark-as-complete-aria
+    translation:
+      one: null
+      other: "يوسم الوحدة الحالية كمكتملة ويحفظ التقدم للمستخدم."
+  - id: mark-intro-as-complete-aria
+    translation:
+      one: null
+      other: "يوسم المقدمة كمكتملة ويحفظ التقدم للمستخدم."
+  - id: only-one-module-left
+    translation:
+      one: null
+      other: "هناك وحدة واحدة فقط متبقية لكسب شارتك"
+  - id: multiple-modules-left
+    translation:
+      one: null
+      other: "انهاء 'count' وحدة أخرى لكسب شارتك"
+  - id: modules-left
+    translation:
+      one: "وحدة واحدة متبقية لكسب شارتك"
+      other: "'count' وحدة أخرى متبقية لكسب شارتك"
+  - id: no-modules
+    translation:
+      one: null
+      other: "لم تكمل أي وحدة حتى الآن!"
+  - id: badge-completed
+    translation:
+      one: null
+      other: "لقد كسبت شارة!"
+  - id: keep-learning
+    translation:
+      one: null
+      other: "استمر في التعلم لكسب شارتك!"
+  - id: congratulations
+    translation:
+      one: null
+      other: "تهانينا!"
+  - id: skip-link
+    translation:
+      one: null
+      other: "التخطي إلى المحتوى"
+  - id: search
+    translation:
+      one: null
+      other: "بحث"
+  - id: table-of-contents
+    translation:
+      one: null
+      other: "جدول المحتويات"
+  - id: faq
+    translation:
+      one: null
+      other: "الأسئلة الشائعة"
+  - id: faq-description
+    translation:
+      one: null
+      other: "لا تستطيع أن تجد الإجابة التي تبحث عنها؟ تواصل مع فريق دعم العملاء لدينا"
+  - id: faq-link
+    translation:
+      one: null
+      other: "هنا"
+  - id: aria-language
+    translation:
+      one: null
+      other: "اللغة الحالية هي "
+  - id: aria-translation
+    translation:
+      one: null
+      other: "تمت الترجمة إلى "
+  - id: previous-module
+    translation:
+      one: null
+      other: "الوحدة السابقة"
+  - id: next-module
+    translation:
+      one: null
+      other: "الوحدة التالية"
+  - id: languages
+    translation:
+      one: null
+      other: "اللغة"
+  - id: for-path
+    translation:
+      one: null
+      other: ل
+  - id: home
+    translation:
+      one: null
+      other: "الرئيسية"
+  - id: close
+    translation:
+      one: null
+      other: "إغلاق"
+  - id: download-badge
+    translation:
+      one: null
+      other: "تحميل الشارة"
+  - id: rights-reserved
+    translation:
+      one: null
+      other: "جميع الحقوق محفوظة."
+  - id: open-language
+    translation:
+      one: null
+      other: "فتح قائمة اللغات"
+  - id: open-user
+    translation:
+      one: null
+      other: "فتح قائمة المستخدم"
+  - id: confirm-delete
+    translation:
+      one: null
+      other: "هل أنت متأكد من رغبتك في حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء."
+  - id: completed
+    translation:
+      one: null
+      other: "مكتمل"
+  - id: readingTime
+    translation:
+      one: "دقيقة واحدة للقراءة"
+      other: "{{ .Count }} دقائق للقراءة"
+  - id: tableOfContents
+    translation:
+      one: null
+      other: "جدول المحتويات"
+  - id: wordCount
+    translation:
+      one: "كلمة واحدة"
+      other: "{{ .Count }} كلمات"
+  - id: publishDate
+    translation:
+      one: null
+      other: "نشرت في"
+  - id: updated-on
+    translation:
+      one: null
+      other: "آخر تحديث في"
+  - id: git-unavailable
+    translation:
+      one: null
+      other: "معلومات Git غير متاحة."
+  - id: edit-github
+    translation:
+      one: null
+      other: "تعديل هذه الصفحة على GitHub"
+  - id: January
+    translation:
+      one: null
+      other: "يناير"
+  - id: February
+    translation:
+      one: null
+      other: "فبراير"
+  - id: March
+    translation:
+      one: null
+      other: "مارس"
+  - id: April
+    translation:
+      one: null
+      other: "أبريل"
+  - id: May
+    translation:
+      one: null
+      other: "مايو"
+  - id: June
+    translation:
+      one: null
+      other: "يونيو"
+  - id: July
+    translation:
+      one: null
+      other: "يوليو"
+  - id: August
+    translation:
+      one: null
+      other: "أغسطس"
+  - id: September
+    translation:
+      one: null
+      other: "سبتمبر"
+  - id: October
+    translation:
+      one: null
+      other: "أكتوبر"
+  - id: November
+    translation:
+      one: null
+      other: "نوفمبر"
+  - id: December
+    translation:
+      one: null
+      other: "ديسمبر"

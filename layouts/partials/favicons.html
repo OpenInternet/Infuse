@@ -1,0 +1,5 @@
+{{- with .Site.Params.favicon.color }}
+<link rel="apple-touch-icon" href="{{"favicons/apple-touch-icon.png" | relURL}}">
+<link rel="mask-icon" href="{{"favicons/safari-pinned-tab.svg" | relURL}}" color="{{ .mask }}">
+<link rel="icon" href="{{"favicons/favicon.svg" | relURL}}">
+{{ end }}

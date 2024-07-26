@@ -1,0 +1,460 @@
+filename: "Translations in Spanish"
+key:
+  - id: hero-title
+    translation:
+      one: null
+      other: "Elevando la Experiencia de los Protectores Digitales"
+  - id: hero-subtitle
+    translation:
+      one: null
+      other: "En Infuse, empoderamos a las personas para lograr una mayor seguridad en línea a través de una educación integral en ciberseguridad, proporcionándoles el conocimiento para protegerse eficazmente en línea."
+  - id: feature-one-title
+    translation:
+      one: null
+      other: "Aprende a tu propio ritmo con diferentes rutas de aprendizaje"
+  - id: feature-one-subtitle
+    translation:
+      one: null
+      other: "Esto enfatiza la flexibilidad y el control del usuario, lo cual es atractivo para los aprendices que prefieren la educación a su propio ritmo."
+  - id: feature-two-title
+    translation:
+      one: null
+      other: "Gana insignias y guarda certificados"
+  - id: feature-two-subtitle
+    translation:
+      one: null
+      other: "Esta función destaca los logros y proporciona pruebas tangibles de dominio, lo cual puede ser motivador para los usuarios."
+  - id: feature-three-title
+    translation:
+      one: null
+      other: "Disponible en múltiples idiomas"
+  - id: feature-three-subtitle
+    translation:
+      one: null
+      other: "La accesibilidad es crucial, y ofrecer contenido en múltiples idiomas asegura un mayor alcance e inclusividad."
+  - id: learning-paths-title
+    translation:
+      one: null
+      other: "Rutas de Aprendizaje"
+  - id: learning-paths-subtitle
+    translation:
+      one: null
+      other: " "
+  - id: create-account
+    translation:
+      one: null
+      other: "Crear una nueva cuenta"
+  - id: username
+    translation:
+      one: null
+      other: "Nombre de usuario*"
+  - id: username-description
+    translation:
+      one: null
+      other: "Esta información se utiliza como su medio principal de autenticación en la página de Infuse."
+  - id: full-name
+    translation:
+      one: null
+      other: "Nombre completo*"
+  - id: name-description
+    translation:
+      one: null
+      other: "Esta información se utiliza para preparar y generar certificados al completar cada ruta de aprendizaje."
+  - id: avatar-image
+    translation:
+      one: null
+      other: "Imagen de avatar"
+  - id: avatar-description
+    translation:
+      one: null
+      other: "Este campo es opcional. Puede establecer una imagen de avatar (solo visual) o mantener la predeterminada."
+  - id: upload
+    translation:
+      one: null
+      other: "Subir"
+  - id: required
+    translation:
+      one: null
+      other: "Los elementos marcados con * son obligatorios"
+  - id: no-password
+    translation:
+      one: null
+      other: "No utilizamos autenticación por contraseña porque toda la información se almacena localmente en su navegador y no se transmite a ninguna fuente de primera o tercera parte."
+  - id: signup
+    translation:
+      one: null
+      other: "Registrarse"
+  - id: have-backup
+    translation:
+      one: null
+      other: "¿Tienes una copia de seguridad existente?"
+  - id: have-account
+    translation:
+      one: null
+      other: "¿Ya tienes una cuenta?"
+  - id: import-data
+    translation:
+      one: null
+      other: "Importar tus datos"
+  - id: login-header
+    translation:
+      one: null
+      other: "Inicia sesión en tu cuenta"
+  - id: login-subheader
+    translation:
+      one: null
+      other: "¡Bienvenido de nuevo! Por favor, introduce tus datos."
+  - id: sign-in
+    translation:
+      one: null
+      other: "Iniciar sesión"
+  - id: no-account
+    translation:
+      one: null
+      other: "¿No tienes una cuenta?"
+  - id: login
+    translation:
+      one: null
+      other: "Iniciar sesión"
+  - id: tab-profile
+    translation:
+      one: null
+      other: "Datos del perfil"
+  - id: tab-export
+    translation:
+      one: null
+      other: "Exportar datos"
+  - id: tab-delete
+    translation:
+      one: null
+      other: "Eliminar datos"
+  - id: profile-information
+    translation:
+      one: null
+      other: "Tu información de perfil"
+  - id: edit-details
+    translation:
+      one: null
+      other: "Puedes ver o editar tus detalles a continuación"
+  - id: profile
+    translation:
+      one: null
+      other: "Perfil"
+  - id: profile-warning
+    translation:
+      one: null
+      other: "Esta información puede ser accesible por otros usuarios en este ordenador, así que ten cuidado con lo que compartes."
+  - id: unlock
+    translation:
+      one: null
+      other: "Desbloquear y editar perfil"
+  - id: change
+    translation:
+      one: null
+      other: "Cambiar"
+  - id: save-changes
+    translation:
+      one: null
+      other: "Guardar Cambios"
+  - id: export-information
+    translation:
+      one: null
+      other: "Exportar tu información"
+  - id: export-details
+    translation:
+      one: null
+      other: "Puedes exportar tu perfil junto con tu progreso actual e importarlo en otro dispositivo, para un aprendizaje continuo en cualquier lugar."
+  - id: info
+    translation:
+      one: null
+      other: "Información"
+  - id: info-export
+    translation:
+      one: null
+      other: "El archivo JSON producido por esta exportación NO está encriptado."
+  - id: export-includes
+    translation:
+      one: null
+      other: "Esta exportación incluye TODA tu información de perfil y progreso en los módulos."
+  - id: export-data
+    translation:
+      one: null
+      other: "Exportar Datos"
+  - id: delete-information
+    translation:
+      one: null
+      other: "Eliminar tu información"
+  - id: delete-details
+    translation:
+      one: null
+      other: "Puedes eliminar tu cuenta actual y todo el progreso asociado en la siguiente sección."
+  - id: warning
+    translation:
+      one: null
+      other: "Advertencia"
+  - id: warning-delete
+    translation:
+      one: null
+      other: "Esta acción NO es reversible, y todos tus datos se perderán permanentemente a menos que tengas una copia de seguridad."
+  - id: final-confirmation
+    translation:
+      one: null
+      other: "Se te pedirá una confirmación final antes de proceder."
+  - id: delete-account
+    translation:
+      one: null
+      other: "Eliminar Cuenta"
+  - id: your-profile
+    translation:
+      one: null
+      other: "Tu perfil"
+  - id: badges
+    translation:
+      one: "Insignia"
+      other: "Insignias"
+  - id: settings
+    translation:
+      one: null
+      other: "Configuraciones"
+  - id: sign-out
+    translation:
+      one: null
+      other: "Cerrar sesión"
+  - id: modules
+    translation:
+      one: "Módulo"
+      other: "Módulos"
+  - id: what-learn
+    translation:
+      one: null
+      other: "Lo que aprenderás"
+  - id: modules-description
+    translation:
+      one: null
+      other: " "
+  - id: visit-site
+    translation:
+      one: null
+      other: "Visitar Sitio"
+  - id: out-of
+    translation:
+      one: null
+      other: "de"
+  - id: modules-completed
+    translation:
+      one: null
+      other: "módulos completados"
+  - id: progress-bar
+    translation:
+      one: null
+      other: "Barra de progreso"
+  - id: todo
+    translation:
+      one: null
+      other: "Por hacer"
+  - id: done
+    translation:
+      one: null
+      other: "Hecho"
+  - id: congratulations-introduction
+    translation:
+      one: null
+      other: "¡Felicidades por terminar la introducción!"
+  - id: congratulations-module
+    translation:
+      one: null
+      other: "¡Felicidades por terminar"
+  - id: mark-intro-complete
+    translation:
+      one: null
+      other: "Marque la casilla para confirmar que ha leído la introducción y continúe al siguiente módulo."
+  - id: mark-module-complete
+    translation:
+      one: null
+      other: "Marque la casilla para confirmar su finalización y continúe al siguiente módulo."
+  - id: mark-as-complete
+    translation:
+      one: null
+      other: "Marcar módulo como completo"
+  - id: mark-intro-as-complete
+    translation:
+      one: null
+      other: "Marcar introducción como completa"
+  - id: mark-as-complete-aria
+    translation:
+      one: null
+      other: "Marca el módulo actual como completado y guarda el progreso para el usuario."
+  - id: mark-intro-as-complete-aria
+    translation:
+      one: null
+      other: "Marca la introducción como completada y guarda el progreso para el usuario."
+  - id: only-one-module-left
+    translation:
+      one: null
+      other: "Solo 1 módulo más para ganar tu insignia"
+  - id: multiple-modules-left
+    translation:
+      one: null
+      other: "Termina 'count' módulos más para ganar tu insignia"
+  - id: modules-left
+    one: "1 módulo más para ganar tu insignia"
+    other: "'count' módulos más para ganar tu insignia"
+  - id: no-modules
+    translation:
+      one: null
+      other: "¡Aún no has completado ningún módulo!"
+  - id: badge-completed
+    translation:
+      one: null
+      other: "¡Has ganado una insignia!"
+  - id: keep-learning
+    translation:
+      one: null
+      other: "¡Sigue aprendiendo para ganar tu insignia!"
+  - id: congratulations
+    translation:
+      one: null
+      other: "¡Felicidades!"
+  - id: skip-link
+    translation:
+      one: null
+      other: "Saltar al contenido"
+  - id: search
+    translation:
+      one: null
+      other: "Buscar"
+  - id: table-of-contents
+    translation:
+      one: null
+      other: "Tabla de contenidos"
+  - id: faq
+    translation:
+      one: null
+      other: "Preguntas Frecuentes"
+  - id: faq-description
+    translation:
+      one: null
+      other: "¿No encuentras la respuesta que buscas? Comunícate con nuestro"
+  - id: faq-link
+    translation:
+      one: null
+      other: "equipo de soporte al cliente"
+  - id: aria-language
+    translation:
+      one: null
+      other: "El idioma actual es "
+  - id: aria-translation
+    translation:
+      one: null
+      other: "Traducido en "
+  - id: previous-module
+    translation:
+      one: null
+      other: "Módulo anterior"
+  - id: next-module
+    translation:
+      one: null
+      other: "Próximo módulo"
+  - id: languages
+    one: "Idioma"
+    other: "Idiomas"
+  - id: for-path
+    translation:
+      one: null
+      other: para
+  - id: home
+    translation:
+      one: null
+      other: "Inicio"
+  - id: close
+    translation:
+      one: null
+      other: "Cerrar"
+  - id: download-badge
+    translation:
+      one: null
+      other: "Descargar insignia"
+  - id: rights-reserved
+    translation:
+      one: null
+      other: "Todos los derechos reservados."
+  - id: open-language
+    translation:
+      one: null
+      other: "Abrir menú de idiomas"
+  - id: open-user
+    translation:
+      one: null
+      other: "Abrir menú de usuario"
+  - id: confirm-delete
+    translation:
+      one: null
+      other: "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
+  - id: completed
+    translation:
+      one: null
+      other: "completado"
+  - id: readingTime
+    one: "1 min de lectura"
+    other: "{{ .Count }} min de lectura"
+  - id: tableOfContents
+    other: "Tabla de Contenidos"
+  - id: wordCount
+    one: "Una Palabra"
+    other: "{{ .Count }} Palabras"
+  - id: publishDate
+    other: "Publicado en"
+  - id: updated-on
+    other: "Última actualización en"
+  - id: git-unavailable
+    other: "La información de Git no está disponible."
+  - id: edit-github
+    other: "Editar esta página en GitHub"
+  - id: January
+    translation:
+      one: null
+      other: "Enero"
+  - id: February
+    translation:
+      one: null
+      other: "Febrero"
+  - id: March
+    translation:
+      one: null
+      other: "Marzo"
+  - id: April
+    translation:
+      one: null
+      other: "Abril"
+  - id: May
+    translation:
+      one: null  
+      other: "Mayo"
+  - id: June
+    translation:
+      one: null
+      other: "Junio"
+  - id: July
+    translation:
+      one: null
+      other: "Julio"
+  - id: August
+    translation:
+      one: null
+      other: "Agosto"
+  - id: September
+    translation:
+      one: null
+      other: "Septiembre"
+  - id: October
+    translation:
+      one: null
+      other: "Octubre"
+  - id: November
+    translation:
+      one: null
+      other: "Noviembre"
+  - id: December
+    translation:
+      one: null
+      other: "Diciembre"

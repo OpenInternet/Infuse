@@ -1,0 +1,169 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    font-family: "Inter", sans-serif;
+    font-feature-settings:
+      "liga" 1,
+      "calt" 1; /* fix for Chrome */
+  }
+
+  @supports (font-variation-settings: normal) {
+    :root {
+      font-family: "InterVariable", sans-serif;
+      font-optical-sizing: auto;
+    }
+  }
+
+  @font-face {
+    font-family: InterVariable;
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/inter/InterVariable.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: InterVariable;
+    font-style: italic;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/inter/InterVariable-Italic.woff2") format("woff2");
+  }
+
+  @font-face {
+    font-family: "Outfit";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src:
+      url("/fonts/outfit/OutfitVariable.woff2")
+        format("woff2 supports variations"),
+      url("/fonts/outfit/OutfitVariable.woff2") format("woff2-variations");
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: Outfit;
+  }
+
+  ::file-selector-button {
+    @apply hidden;
+  }
+}
+
+body {
+  --pagefind-ui-scale: 0.75;
+  --pagefind-ui-primary: #087443;
+  --pagefind-ui-text: #1c1917;
+  --pagefind-ui-background: #ffffff;
+  --pagefind-ui-border: #eeeeee;
+  --pagefind-ui-tag: #eeeeee;
+  --pagefind-ui-border-width: 2px;
+  --pagefind-ui-border-radius: 8px;
+  --pagefind-ui-image-border-radius: 8px;
+  --pagefind-ui-image-box-ratio: 2/1;
+  --pagefind-ui-font: "Inter";
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  @apply relative;
+}
+
+.anchor-link {
+  top: 0.2em;
+  left: -2rem;
+  @apply absolute m-auto flex items-center justify-center opacity-0;
+}
+
+.prose h1:hover .anchor-link,
+.prose h2:hover .anchor-link,
+.prose h3:hover .anchor-link,
+.prose h4:hover .anchor-link,
+.prose h5:hover .anchor-link,
+.prose h6:hover .anchor-link {
+  @apply opacity-100;
+}
+
+.anchor-link:hover {
+  @apply visible;
+}
+
+nav#TableOfContents ul {
+  @apply list-none;
+}
+
+nav#TableOfContents li {
+  @apply my-0 ps-0;
+}
+
+nav#TableOfContents li a {
+  @apply block border-b-2 border-l-8 border-r-2 border-t-2 border-transparent px-3 py-1 no-underline;
+}
+
+nav#TableOfContents li a.active-element {
+  @apply rounded-lg border-green-700 bg-green-50 text-green-700;
+}
+
+nav#TableOfContents ul:first-child {
+  @apply ps-0;
+}
+
+.prose
+  nav#TableOfContents
+  :where(ul):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply ps-4;
+}
+
+.prose :where(pre):not(:where([class~=not-prose],[class~=not-prose] *)) {
+  @apply max-w-full overflow-x-auto;
+}
+
+details summary::-webkit-details-marker {
+  @apply hidden;
+}
+
+details summary::marker {
+  @apply hidden;
+}
+
+.prose article {
+  * + * {
+   @apply mt-0.5;
+  }
+}
+
+.prose
+  :where(ul > li):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::marker {
+  @apply text-gray-700;
+}
+
+.toc-container {
+  max-height: calc(100vh - 5rem);
+}
+
+.toc-scrollbar::-webkit-scrollbar {
+  @apply hidden;
+}
+
+.toc-scrollbar {
+  -ms-overflow-style: none; 
+  scrollbar-width: none;
+}
+
+.highlight {
+  @apply max-w-full;
+}

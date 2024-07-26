@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="bg-gray-50" lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+<body class="flex min-h-screen flex-col">
+    <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+    {{ partial "header.html" . }}
+
+    <div id="content" class="mb-auto flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="max-w-4xl px-8 sm:mx-auto sm:w-full lg:px-3">
+            <h2 class="mt-6 border-b border-gray-200 pb-6 text-3xl font-bold leading-9 tracking-tight text-gray-900">{{ i18n "key.settings" }}</h2>
+        </div>
+
+        <div x-data="{ openTab: 1 }" class="flex max-w-4xl flex-col justify-between sm:mx-auto sm:w-full lg:flex-row">
+            <nav class="mt-10 flex flex-col px-6 lg:px-3" aria-label="Sidebar">
+                <ul role="list" class="space-y-1">
+                    <li>
+                        <button x-on:click="openTab = 1" :class="{ 'bg-gray-50 text-green-700': openTab === 1 }"
+                            class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-green-800">
+                            <svg :class="{ 'text-green-700' : openTab===1 }" 
+                                class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-green-800" fill="none" 
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 12l8.954-8.955c.44-.439 1.152-.439 1.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
+                            </svg>
+                            {{ i18n "key.tab-profile" }}
+                        </button>
+                    </li>
+                    <li>
+                        <button x-on:click="openTab = 2" :class="{ 'bg-gray-50 text-green-700': openTab === 2 }"
+                            class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-green-800">
+                            <svg :class="{ 'text-green-700' : openTab===2 }"
+                                class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-green-800" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
+                            </svg>
+                            {{ i18n "key.tab-export" }}
+                        </button>
+                    </li>
+                    <li>
+                        <button x-on:click="openTab = 3" :class="{ 'bg-gray-50 text-green-700': openTab === 3 }"
+                            class="group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6 text-gray-700 hover:bg-gray-50 hover:text-green-800">
+                            <svg :class="{ 'text-green-700' : openTab===3 }"
+                                class="h-6 w-6 shrink-0 text-gray-400 group-hover:text-green-800" fill="none"
+                                viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M2.25 12.75V12A2.25 2.25 0 014.5 9.75h15A2.25 2.25 0 0121.75 12v.75m-8.69-6.44l-2.12-2.12a1.5 1.5 0 00-1.061-.44H4.5A2.25 2.25 0 002.25 6v12a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9a2.25 2.25 0 00-2.25-2.25h-5.379a1.5 1.5 0 01-1.06-.44z" />
+                            </svg>
+                            {{ i18n "key.tab-delete" }}
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-[520px]">
+
+                <div x-show="openTab === 1" class="mb-6 bg-white px-8 py-12 shadow sm:rounded-lg sm:px-12">
+                    <form id="profilePage">
+                        <h2 class="text-base font-semibold leading-7 text-gray-900">{{ i18n "key.profile" }}</h2>
+                        <p class="mb-4 mt-1 text-sm leading-6 text-gray-600">{{ i18n "key.profile-warning" }}</p>
+
+                        <button type="button"
+                            class="rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+                            onclick="editProfile()">{{ i18n "key.unlock" }}</button>
+
+                        <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                            <div class="sm:col-span-4">
+                                <label for="profileUsername"
+                                    class="block text-sm font-medium leading-6 text-gray-900">{{
+                                    i18n "key.username"
+                                    }}</label>
+                                <div class="mt-2">
+                                    <div
+                                        class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-600 sm:max-w-md">
+                                        <input type="text" name="profileUsername" id="profileUsername"
+                                            autocomplete="username"
+                                            class="block flex-1 border-0 bg-transparent py-1.5 ps-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6"
+                                            disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="profileName" class="block text-sm font-medium leading-6 text-gray-900">{{
+                                    i18n "key.full-name"
+                                    }}</label>
+                                <div class="mt-2">
+                                    <div
+                                        class="flex rounded-md shadow-sm ring-1 ring-inset ring-gray-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-green-600 sm:max-w-md">
+                                        <input type="text" name="profileName" id="profileName" autocomplete="name"
+                                            class="block flex-1 border-0 bg-transparent py-1.5 ps-2 text-gray-900 placeholder:text-gray-400 focus:ring-0 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200 sm:text-sm sm:leading-6"
+                                            disabled>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-span-full">
+                                <p class="block text-sm font-medium leading-6 text-gray-900">{{ i18n "key.avatar-image"
+                                    }}</p>
+                                <div class="mt-2 flex items-center gap-x-3">
+                                    <label for="profileAvatar"
+                                        class="cursor-pointer rounded-md bg-white px-2.5 py-1.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-500 disabled:ring-gray-200"
+                                        disabled>{{
+                                        i18n "key.change" }}</label>
+                                    <img id="avatarPreview" class="h-10 w-10 rounded-full"
+                                        src="/media/images/user-pfp.svg" alt="Avatar">
+                                    <input class="sr-only" type="file" id="profileAvatar" accept="image/*" disabled>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex items-center justify-start gap-x-6">
+                            <button type="button"
+                                class="rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600 disabled:bg-gray-200 disabled:text-gray-600"
+                                onclick="saveProfile()" disabled>{{ i18n "key.save-changes" }}</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div x-show="openTab === 2" class="mb-6 bg-white px-8 py-12 shadow sm:rounded-lg sm:px-12">
+                    <h2 class="text-base font-semibold leading-7 text-gray-900">{{ i18n "key.export-information" }}</h2>
+                    <p class="mt-1 text-sm leading-6 text-gray-600">{{ i18n "key.export-details" }}</p>
+
+                    <div class="my-4 rounded-md border-l-4 border-blue-600 bg-blue-50 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-blue-600" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ms-3">
+                                <h3 class="text-sm font-medium text-blue-800">{{ i18n "key.info" }}</h3>
+                                <div class="mt-2 text-sm text-blue-700">
+                                    <p>{{ i18n "key.info-export" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <p class="mb-3 mt-1 text-sm leading-6 text-gray-600">{{ i18n "key.export-includes" }}</p>
+
+                    <button id="exportButton"
+                        class="rounded-md bg-blue-700 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">{{
+                        i18n "key.export-data" }}</button>
+
+                </div>
+
+                <div x-show="openTab === 3" class="bg-white px-8 py-12 shadow sm:rounded-lg sm:px-12">
+                    <h2 class="text-base font-semibold leading-7 text-gray-900">{{ i18n "key.delete-information" }}</h2>
+                    <p class="mt-1 text-sm leading-6 text-gray-600">{{ i18n "key.delete-details" }}</p>
+
+                    <div class="my-4 rounded-md border-l-4 border-yellow-400 bg-yellow-50 p-4">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <svg class="h-5 w-5 text-yellow-400" viewBox="0 0 20 20" fill="currentColor"
+                                    aria-hidden="true">
+                                    <path fill-rule="evenodd"
+                                        d="M8.485 2.495c.673-1.167 2.357-1.167 3.03 0l6.28 10.875c.673 1.167-.17 2.625-1.516 2.625H3.72c-1.347 0-2.189-1.458-1.515-2.625L8.485 2.495zM10 5a.75.75 0 01.75.75v3.5a.75.75 0 01-1.5 0v-3.5A.75.75 0 0110 5zm0 9a1 1 0 100-2 1 1 0 000 2z"
+                                        clip-rule="evenodd" />
+                                </svg>
+                            </div>
+                            <div class="ms-3">
+                                <h3 class="text-sm font-medium text-yellow-800">{{ i18n "key.warning" }}</h3>
+                                <div class="mt-2 text-sm text-yellow-700">
+                                    <p>{{ i18n "key.warning-delete" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="mb-3 mt-1 text-sm leading-6 text-gray-600">{{ i18n "key.final-confirmation" }}</p>
+
+                    <span id="confirmDeleteMessage" class="hidden">{{ i18n "key.confirm-delete" }}</span>
+
+                    <button id="deleteButton"
+                        class="rounded-md bg-orange-500 px-3 py-2 text-sm font-semibold text-gray-800 shadow-sm hover:bg-orange-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-500">{{
+                        i18n "key.delete-account" }}</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to populate profile page with user information
+        function populateProfile() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (!loggedInUser) {
+                console.error("No logged-in user found.");
+                return;
+            }
+
+            const userDataString = localStorage.getItem(loggedInUser);
+            if (!userDataString) {
+                console.error("User data not found in LocalStorage for logged-in user.");
+                return;
+            }
+
+            const userData = JSON.parse(userDataString);
+            document.getElementById("profileUsername").value = userData.username;
+            document.getElementById("profileName").value = userData.name;
+            document.getElementById("avatarPreview").src = userData.avatar;
+        }
+
+        // Function to enable editing of profile fields
+        function editProfile() {
+            const profileInputs = document.querySelectorAll("#profilePage input");
+            profileInputs.forEach(input => {
+                input.disabled = false;
+            });
+
+            // Enable the save button
+            const saveButtons = document.querySelectorAll("#profilePage button");
+            saveButtons.forEach(button => {
+                button.removeAttribute('disabled');
+            });
+
+            // Enable the avatar input
+            const avatarInput = document.querySelector("#profileAvatar");
+            avatarInput.removeAttribute('disabled');
+        }
+
+        // Function to save changes made to the profile
+        function saveProfile() {
+            event.preventDefault();
+            const profileUsername = document.getElementById("profileUsername").value;
+            const profileName = document.getElementById("profileName").value;
+            const profileAvatar = document.getElementById("profileAvatar").files[0];
+
+            // Retrieve the currently logged-in user
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (!loggedInUser) {
+                alert("No logged-in user found.");
+                return;
+            }
+
+            // Retrieve user data from LocalStorage
+            const userDataString = localStorage.getItem(loggedInUser);
+            if (!userDataString) {
+                alert("User data not found in LocalStorage for logged-in user.");
+                return;
+            }
+
+            // Parse user data
+            const userData = JSON.parse(userDataString);
+
+            // Check if the new username already exists in LocalStorage
+            if (profileUsername !== loggedInUser && localStorage.getItem(profileUsername)) {
+                alert("Username already exists. Please choose a different username.");
+                return;
+            }
+
+            // Remove the current username key/value pair from localStorage
+            localStorage.removeItem(loggedInUser);
+
+            // Update user data with new values
+            userData.username = profileUsername;
+            userData.name = profileName;
+            if (profileAvatar) {
+                const reader = new FileReader();
+                reader.onload = function (event) {
+                    userData.avatar = event.target.result;
+                    document.getElementById("avatarPreview").src = userData.avatar;
+                    localStorage.setItem(profileUsername, JSON.stringify(userData)); // Update user data with new username
+                    localStorage.setItem("loggedInUser", profileUsername); // Update loggedInUser with new username
+                };
+                reader.readAsDataURL(profileAvatar);
+                location.reload();
+            } else {
+                localStorage.setItem(profileUsername, JSON.stringify(userData)); // Update user data with new username
+                localStorage.setItem("loggedInUser", profileUsername); // Update loggedInUser with new username
+                location.reload();
+            }
+
+            // Disable profile inputs after saving
+            const profileInputs = document.querySelectorAll("#profilePage input");
+            profileInputs.forEach(input => {
+                input.disabled = true;
+            });
+        }
+
+        // Populate profile page with user information on page load
+        window.addEventListener("load", function () {
+            populateProfile();
+        });
+
+        // Function to handle file input change and update image preview
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function () {
+                const imagePreview = document.getElementById('avatarPreview');
+                imagePreview.src = reader.result;
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        // Add event listener to file input
+        const fileInput = document.getElementById('profileAvatar');
+        fileInput.addEventListener('change', handleFileUpload);
+
+        // Function to export user data as JSON
+        function exportUserData() {
+            event.preventDefault();
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (!loggedInUser) {
+                alert("No logged-in user found.");
+                return;
+            }
+
+            const userDataKey = loggedInUser; // Use the username as the key for the user data
+            const userDataString = localStorage.getItem(userDataKey);
+            if (!userDataString) {
+                alert("User data not found in LocalStorage for logged-in user.");
+                return;
+            }
+
+            const userData = {
+                loggedInUser: loggedInUser, // Include the logged-in user key
+                [userDataKey]: userDataString // Include the user data
+            };
+            const jsonData = JSON.stringify(userData);
+
+            const blob = new Blob([jsonData], { type: "application/json" });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement("a");
+            a.href = url;
+            a.download = "infuse-account-userdata.json";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Event listener for export button click
+        document.getElementById("exportButton").addEventListener("click", function () {
+            exportUserData();
+        });
+
+        // Function to delete user data from localStorage
+        function deleteUser() {
+            const loggedInUser = localStorage.getItem("loggedInUser");
+            if (!loggedInUser) {
+                alert("No logged-in user found.");
+                return;
+            }
+
+            // Remove user data from localStorage
+            localStorage.removeItem(loggedInUser);
+
+            // Clear the loggedInUser value
+            localStorage.removeItem("loggedInUser");
+
+            // Redirect the user to the homepage
+            window.location.href = "/";
+        }
+
+        // Add event listener to the delete button
+        document.getElementById("deleteButton").addEventListener("click", function () {
+            event.preventDefault();
+            const confirmMessage = document.getElementById("confirmDeleteMessage").innerText;
+            if (confirm(confirmMessage)) {
+                deleteUser();
+            }
+        });
+    </script>
+
+    {{ block "footer" . }}
+    {{ partial "footer.html" . }}
+    {{ end }}
+
+    {{ partial "javascript.html" . }}
+
+</body>

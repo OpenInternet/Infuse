@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language }}" dir="{{ .Site.Language.Params.direction }}" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+    {{ partial "head.html" . }}
+</head>
+
+
+<body class="flex min-h-screen flex-col">
+    <a class="sr-only focus:not-sr-only" href="#content">{{ i18n "key.skip-link" }}</a>
+
+    {{ partial "header.html" . }}
+
+    <main id="content" class="content mb-auto">
+        <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+            <section
+                class="prose prose-stone mx-auto w-full max-w-3xl flex-col px-8 prose-hr:w-full lg:flex lg:items-center lg:justify-between lg:px-8">
+
+                <article class="flex w-full flex-col items-start justify-between border-b border-gray-300">
+                    <h1 class="mb-0 mt-2 text-3xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
+                        {{ .Page.Params.title }}
+                    </h1>
+
+                    {{ if .GitInfo }}
+                    {{ $day := .GitInfo.AuthorDate.Day }}
+                    {{ $month := .GitInfo.AuthorDate.Month }}
+                    {{ $year := .GitInfo.AuthorDate.Year }}
+                    {{ $localizedMonth := i18n (printf "key.%s" $month) }}
+                    <p class="me-2 inline-block text-sm font-semibold text-green-900">{{ i18n "key.updated-on" }}: {{ printf "%d %s %d" $day $localizedMonth $year }}</p>
+                    {{ else }}
+                    <p class="text-sm text-green-900">{{ i18n "key.git-unavailable" }}</p>
+                    {{ end }}
+                </article>
+
+                <article class="flex w-full flex-col items-start justify-between">
+                    {{ $content := .Content }}
+                    {{ $content = replaceRE `(<h[1-6] id=\"(.+)\".*>)(.*)(</h[1-6]>)` `${1}${3} <a aria-label="#${2}" href="#${2}"
+                        class="anchor-link no-underline">
+                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="h-6">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
+                        </svg>
+                    </a>${4}` $content | safeHTML }}
+                    {{ $content | safeHTML }}
+                </article>
+
+            </section>
+        </div>
+    </main>
+
+    {{ partial "footer.html" . }}
+    {{ partial "javascript.html" . }}
+
+</body>

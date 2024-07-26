@@ -1,0 +1,125 @@
+title = "Infuse"
+
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = true
+
+rssLimit  = 300
+
+archetypeDir = "archetypes"
+contentDir   = "content"
+dataDir      = "data"
+layoutDir    = "layouts"
+publishDir   = "public"
+
+buildDrafts  = false
+buildFuture  = false
+buildExpored = false
+canonifyURLs = true
+
+enableRobotsTXT = true
+enableGitInfo   = true
+enableEmoji     = true
+enableMissingTranslationPlaceholders = true
+disableRSS     = false
+disableSitemap = false
+disable404     = false
+disableHugoGeneratorInject = true
+
+pluralizeListTitles = false
+
+[permalinks]
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+    [markup.goldmark.extensions]
+      definitionList = true
+      footnote = true
+    [markup.tableOfContents]
+      startLevel = 2
+      endLevel = 4
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[params]
+  # Metadata mostly used in document's head
+  description = ""
+  keywords = ""
+  images = ["media/images/thumbnail.png"]
+
+  # Prefix of link to the git commit detail page. GitInfo must be enabled.
+  gitUrl = "https://github.com/AnXh3L0/infuse/commit/"
+
+  githubRepo = "https://github.com/AnXh3L0/infuse"
+  githubBranch = "main"
+
+  # Integrate Javascript files or stylesheets by adding the url to the external assets or by
+  # linking local files with their path relative to the static folder, e.g. "css/styles.css"
+  customCSS = []
+  customJS  = []
+
+  # Colors for favicons
+  [params.favicon.color]
+    mask = "#194E80"
+    msapplication = "#194E80"
+
+  # Social icons
+  [[params.social]]
+    name = "github"
+    url  = "https://github.com/"
+
+  [[params.social]]
+    name = "twitter"
+    url  = "https://twitter.com/"
+  
+  [[params.social]]
+    name = "linkedin"
+    url  = "https://www.linkedin.com/products/x/"
+
+[languages]
+  [languages.en]
+  languageName = "English"
+  weight    = 1
+  [languages.en.params]
+    languageName = "English"
+    direction = "ltr"
+
+  [languages.fr]
+  languageName = "French"
+  weight    = 2
+  [languages.fr.params]
+    languageName = "French"
+    direction = "ltr"
+
+  [languages.es]
+  languageName = "Spanish"
+  weight    = 3
+  [languages.es.params]
+    languageName = "Spanish"
+    direction = "ltr"
+  
+  [languages.ar]
+  languageName = "Arabic"
+  weight    = 4
+  [languages.ar.params]
+    languageName = "Arabic"
+    direction = "rtl"
+
+[privacy]
+  [privacy.instagram]
+    disable = false
+    simple = true
+  [privacy.twitter]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.vimeo]
+    disable = false
+    enableDNT = true
+    simple = false
+  [privacy.youtube]
+    disable = false
+    privacyEnhanced = true

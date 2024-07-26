@@ -1,0 +1,487 @@
+filename: Translations in English
+key:
+  - id: hero-title
+    translation:
+      one: null
+      other: Elevating Expertise for Digital Protectors test
+  - id: hero-subtitle
+    translation:
+      one: null
+      other: At Infuse, we empower individuals to achieve greater online safety
+        through comprehensive cybersecurity education, equipping them with the
+        knowledge to effectively protect themselves online.
+  - id: feature-one-title
+    translation:
+      one: null
+      other: Learn at your own pace with different learning paths
+  - id: feature-one-subtitle
+    translation:
+      one: null
+      other: This emphasizes flexibility and user control, which is appealing to
+        learners who prefer self-paced education.
+  - id: feature-two-title
+    translation:
+      one: null
+      other: Earn badges and save certificates
+  - id: feature-two-subtitle
+    translation:
+      one: null
+      other: This feature highlights achievements and provides tangible proof of
+        mastery, which can be motivating for users.
+  - id: feature-three-title
+    translation:
+      one: null
+      other: Available in multiple languages
+  - id: feature-three-subtitle
+    translation:
+      one: null
+      other: Accessibility is crucial, and offering content in multiple languages
+        ensures a broader reach and inclusivity.
+  - id: learning-paths-title
+    translation:
+      one: null
+      other: Learning Paths
+  - id: learning-paths-subtitle
+    translation:
+      one: null
+      other: Choose where to begin your journey with these curated Infuse learning
+        paths.
+  - id: create-account
+    translation:
+      one: null
+      other: Create a new account
+  - id: username
+    translation:
+      one: null
+      other: Username*
+  - id: username-description
+    translation:
+      one: null
+      other: This information is used as your primary means of authentication to the
+        Infuse page.
+  - id: full-name
+    translation:
+      one: null
+      other: Full name*
+  - id: name-description
+    translation:
+      one: null
+      other: This information is used to prepare and generate certificates upon the
+        completion of each learning path.
+  - id: avatar-image
+    translation:
+      one: null
+      other: Avatar image
+  - id: avatar-description
+    translation:
+      one: null
+      other: This field is optional. You can either set an avatar image (visual only)
+        or keep the default one.
+  - id: upload
+    translation:
+      one: null
+      other: Upload
+  - id: required
+    translation:
+      one: null
+      other: Items marked with * are required
+  - id: no-password
+    translation:
+      one: null
+      other: We do not use password authentication because all information is stored
+        locally in your browser and is not transmitted to any 1st or 3rd party
+        sources.
+  - id: signup
+    translation:
+      one: null
+      other: Sign up
+  - id: have-backup
+    translation:
+      one: null
+      other: Have an existing backup?
+  - id: have-account
+    translation:
+      one: null
+      other: Already have an account?
+  - id: import-data
+    translation:
+      one: null
+      other: Import your data
+  - id: login-header
+    translation:
+      one: null
+      other: Log in to your account
+  - id: login-subheader
+    translation:
+      one: null
+      other: Welcome back! Please enter your details.
+  - id: sign-in
+    translation:
+      one: null
+      other: Sign in
+  - id: no-account
+    translation:
+      one: null
+      other: Don't have an account?
+  - id: login
+    translation:
+      one: null
+      other: Log in
+  - id: tab-profile
+    translation:
+      one: null
+      other: Profile data
+  - id: tab-export
+    translation:
+      one: null
+      other: Export data
+  - id: tab-delete
+    translation:
+      one: null
+      other: Delete data
+  - id: profile
+    translation:
+      one: null
+      other: Profile
+  - id: profile-warning
+    translation:
+      one: null
+      other: This information can be accessed by other users on this computer, so be
+        mindful of what you share.
+  - id: unlock
+    translation:
+      one: null
+      other: Unlock and edit profile
+  - id: change
+    translation:
+      one: null
+      other: Change
+  - id: save-changes
+    translation:
+      one: null
+      other: Save Changes
+  - id: export-information
+    translation:
+      one: null
+      other: Export your information
+  - id: export-details
+    translation:
+      one: null
+      other: You can export your profile along with your current progress and import
+        it onto another device, for seamless learning on the go.
+  - id: info
+    translation:
+      one: null
+      other: Information
+  - id: info-export
+    translation:
+      one: null
+      other: The JSON file produced by this export is NOT encrypted.
+  - id: export-includes
+    translation:
+      one: null
+      other: This export includes ALL your profile information and progress across
+        modules.
+  - id: export-data
+    translation:
+      one: null
+      other: Export Data
+  - id: delete-information
+    translation:
+      one: null
+      other: Delete your information
+  - id: delete-details
+    translation:
+      one: null
+      other: You can delete your current account and all associated progress in the
+        following section.
+  - id: warning
+    translation:
+      one: null
+      other: Warning
+  - id: warning-delete
+    translation:
+      one: null
+      other: This action is NOT reversible, and all your data will be permanently lost
+        unless you have a backup.
+  - id: final-confirmation
+    translation:
+      one: null
+      other: You will be prompted for final confirmation before proceeding.
+  - id: delete-account
+    translation:
+      one: null
+      other: Delete Account
+  - id: your-profile
+    translation:
+      one: null
+      other: Your profile
+  - id: badges
+    translation:
+      one: Badge
+      other: Badges
+  - id: settings
+    translation:
+      one: null
+      other: Settings
+  - id: sign-out
+    translation:
+      one: null
+      other: Sign out
+  - id: modules
+    translation:
+      one: Module
+      other: Modules
+  - id: what-learn
+    translation:
+      one: null
+      other: What you'll learn
+  - id: modules-description
+    translation:
+      one: null
+      other: " "
+  - id: visit-site
+    translation:
+      one: null
+      other: Visit Site
+  - id: out-of
+    translation:
+      one: null
+      other: out of
+  - id: modules-completed
+    translation:
+      one: null
+      other: modules completed
+  - id: progress-bar
+    translation:
+      one: null
+      other: Progress bar
+  - id: todo
+    translation:
+      one: null
+      other: To do
+  - id: done
+    translation:
+      one: null
+      other: Done
+  - id: congratulations-introduction
+    translation:
+      one: null
+      other: Congratulations on finishing the introduction!
+  - id: congratulations-module
+    translation:
+      one: null
+      other: Congratulations on finishing
+  - id: mark-intro-complete
+    translation:
+      one: null
+      other: Mark the checkbox to confirm you have read the introduction and continue
+        to the next module.
+  - id: mark-module-complete
+    translation:
+      one: null
+      other: Mark the checkbox to confirm your completion and continue to the next
+        module.
+  - id: mark-as-complete
+    translation:
+      one: null
+      other: Mark module as complete
+  - id: mark-intro-as-complete
+    translation:
+      one: null
+      other: Mark introduction as complete
+  - id: mark-as-complete-aria
+    translation:
+      one: null
+      other: Marks the current module as completed and saves the progress for the
+        user.
+  - id: mark-intro-as-complete-aria
+    translation:
+      one: null
+      other: Marks the introduction as completed and saves the progress for the user.
+  - id: only-one-module-left
+    translation:
+      one: null
+      other: Only 1 module left to earn your badge
+  - id: multiple-modules-left
+    translation:
+      one: null
+      other: Finish 'count' more modules to earn your badge
+  - id: modules-left
+    translation:
+      one: 1 module left to earn your badge
+      other: "'count' more modules to earn your badge"
+  - id: no-modules
+    translation:
+      one: null
+      other: You haven't completed any module yet!
+  - id: badge-completed
+    translation:
+      one: null
+      other: You've earned a badge!
+  - id: keep-learning
+    translation:
+      one: null
+      other: Keep learning to earn your badge!
+  - id: congratulations
+    translation:
+      one: null
+      other: Congratulations!
+  - id: skip-link
+    translation:
+      one: null
+      other: Skip to content
+  - id: search
+    translation:
+      one: null
+      other: Search
+  - id: table-of-contents
+    translation:
+      one: null
+      other: Table of Contents
+  - id: faq
+    translation:
+      one: null
+      other: Frequently Asked Questions
+  - id: faq-description
+    translation:
+      one: null
+      other: Can't find the answer you're looking for? Reach out to our customer
+        support team
+  - id: faq-link
+    translation:
+      one: null
+      other: customer support team
+  - id: aria-language
+    translation:
+      one: null
+      other: "Current language is "
+  - id: aria-translation
+    translation:
+      one: null
+      other: "Translated in "
+  - id: previous-module
+    translation:
+      one: null
+      other: Previous module
+  - id: next-module
+    translation:
+      one: null
+      other: Next module
+  - id: languages
+    translation:
+      one: Language
+      other: Languages
+  - id: for-path
+    translation:
+      one: null
+      other: for
+  - id: home
+    translation:
+      one: null
+      other: Home
+  - id: close
+    translation:
+      one: null
+      other: Close
+  - id: download-badge
+    translation:
+      one: null
+      other: Download badge
+  - id: rights-reserved
+    translation:
+      one: null
+      other: All rights reserved.
+  - id: open-language
+    translation:
+      one: null
+      other: Open language menu
+  - id: open-user
+    translation:
+      one: null
+      other: Open user menu
+  - id: confirm-delete
+    translation:
+      one: null
+      other: Are you sure you want to delete your account? This action cannot be
+        undone.
+  - id: completed
+    translation:
+      one: null
+      other: completed
+  - id: readingTime
+    translation:
+      one: 1 min read
+      other: "{{ .Count }} min read"
+  - id: tableOfContents
+    translation:
+      one: null
+      other: Table of Contents
+  - id: wordCount
+    translation:
+      one: One Word
+      other: "{{ .Count }} Words"
+  - id: publishDate
+    translation:
+      one: null
+      other: Published on
+  - id: updated-on
+    translation:
+      one: null
+      other: Last updated on
+  - id: git-unavailable
+    translation:
+      one: null
+      other: Git information is not available.
+  - id: edit-github
+    translation:
+      one: null
+      other: Edit this page on GitHub
+  - id: January
+    translation:
+      one: null
+      other: January
+  - id: February
+    translation:
+      one: null
+      other: February
+  - id: March
+    translation:
+      one: null
+      other: March
+  - id: April
+    translation:
+      one: null
+      other: April
+  - id: May
+    translation:
+      one: null
+      other: May
+  - id: June
+    translation:
+      one: null
+      other: June
+  - id: July
+    translation:
+      one: null
+      other: July
+  - id: August
+    translation:
+      one: null
+      other: August
+  - id: September
+    translation:
+      one: null
+      other: September
+  - id: October
+    translation:
+      one: null
+      other: October
+  - id: November
+    translation:
+      one: null
+      other: November
+  - id: December
+    translation:
+      one: null
+      other: December

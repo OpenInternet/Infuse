@@ -1,0 +1,357 @@
+filename: "Translations in French"
+key:
+  - id: hero-title
+    one: null
+    other: "Élever l'expertise pour les protecteurs numériques"
+  - id: hero-subtitle
+    one: null
+    other: "Chez Infuse, nous permettons aux individus d'atteindre une plus grande sécurité en ligne grâce à une éducation complète en cybersécurité, en les dotant des connaissances nécessaires pour se protéger efficacement en ligne."
+  - id: feature-one-title
+    one: null
+    other: "Apprenez à votre rythme avec différents parcours d'apprentissage"
+  - id: feature-one-subtitle
+    one: null
+    other: "Cela met en avant la flexibilité et le contrôle de l'utilisateur, ce qui est attrayant pour les apprenants qui préfèrent l'éducation à leur propre rythme."
+  - id: feature-two-title
+    one: null
+    other: "Gagnez des badges et enregistrez des certificats"
+  - id: feature-two-subtitle
+    one: null
+    other: "Cette fonctionnalité met en valeur les réalisations et fournit une preuve tangible de la maîtrise, ce qui peut être motivant pour les utilisateurs."
+  - id: feature-three-title
+    one: null
+    other: "Disponible en plusieurs langues"
+  - id: feature-three-subtitle
+    one: null
+    other: "L'accessibilité est cruciale, et offrir du contenu en plusieurs langues garantit une plus grande portée et inclusivité."
+  - id: learning-paths-title
+    one: null
+    other: "Parcours d'apprentissage"
+  - id: learning-paths-subtitle
+    one: null
+    other: " "
+  - id: create-account
+    one: null
+    other: "Créer un nouveau compte"
+  - id: username
+    one: null
+    other: "Nom d'utilisateur*"
+  - id: username-description
+    one: null
+    other: "Cette information est utilisée comme votre principal moyen d'authentification sur la page Infuse."
+  - id: full-name
+    one: null
+    other: "Nom complet*"
+  - id: name-description
+    one: null
+    other: "Cette information est utilisée pour préparer et générer des certificats à l'issue de chaque parcours d'apprentissage."
+  - id: avatar-image
+    one: null
+    other: "Image d'avatar"
+  - id: avatar-description
+    one: null
+    other: "Ce champ est facultatif. Vous pouvez soit définir une image d'avatar (uniquement visuelle) soit conserver l'image par défaut."
+  - id: upload
+    one: null
+    other: "Télécharger"
+  - id: required
+    one: null
+    other: "Les éléments marqués d'un * sont obligatoires"
+  - id: no-password
+    one: null
+    other: "Nous n'utilisons pas l'authentification par mot de passe car toutes les informations sont stockées localement dans votre navigateur et ne sont pas transmises à des sources internes ou externes."
+  - id: signup
+    one: null
+    other: "S'inscrire"
+  - id: have-backup
+    one: null
+    other: "Avez-vous déjà une sauvegarde existante?"
+  - id: have-account
+    one: null
+    other: "Vous avez déjà un compte?"
+  - id: import-data
+    one: null
+    other: "Importer vos données"
+  - id: login-header
+    one: null
+    other: "Connectez-vous à votre compte"
+  - id: login-subheader
+    one: null
+    other: "Bon retour ! Veuillez entrer vos coordonnées."
+  - id: sign-in
+    one: null
+    other: "Se connecter"
+  - id: no-account
+    one: null
+    other: "Vous n'avez pas de compte?"
+  - id: login
+    one: null
+    other: "Se connecter"
+  - id: tab-profile
+    one: null
+    other: "Données de profil"
+  - id: tab-export
+    one: null
+    other: "Exporter des données"
+  - id: tab-delete
+    one: null
+    other: "Supprimer des données"
+  - id: profile-information
+    one: null
+    other: "Vos informations de profil"
+  - id: edit-details
+    one: null
+    other: "Vous pouvez consulter ou modifier vos informations ci-dessous"
+  - id: profile
+    one: null
+    other: "Profil"
+  - id: profile-warning
+    one: null
+    other: "Ces informations peuvent être consultées par d'autres utilisateurs sur cet ordinateur, soyez donc attentif à ce que vous partagez."
+  - id: unlock
+    one: null
+    other: "Déverrouiller et éditer le profil"
+  - id: change
+    one: null
+    other: "Modifier"
+  - id: save-changes
+    one: null
+    other: "Enregistrer les modifications"
+  - id: export-information
+    one: null
+    other: "Exporter vos informations"
+  - id: export-details
+    one: null
+    other: "Vous pouvez exporter votre profil ainsi que vos progrès actuels et les importer sur un autre appareil, pour un apprentissage fluide en déplacement."
+  - id: info
+    one: null
+    other: "Information"
+  - id: info-export
+    one: null
+    other: "Le fichier JSON produit par cette exportation n'est PAS crypté."
+  - id: export-includes
+    one: null
+    other: "Cette exportation inclut TOUTES vos informations de profil et votre progression à travers les modules."
+  - id: export-data
+    one: null
+    other: "Exporter des données"
+  - id: delete-information
+    one: null
+    other: "Supprimer vos informations"
+  - id: delete-details
+    one: null
+    other: "Vous pouvez supprimer votre compte actuel et tous les progrès associés dans la section suivante."
+  - id: warning
+    one: null
+    other: "Avertissement"
+  - id: warning-delete
+    one: null
+    other: "Cette action est IRRÉVERSIBLE, et toutes vos données seront définitivement perdues à moins que vous n'ayez une sauvegarde."
+  - id: final-confirmation
+    one: null
+    other: "Une confirmation finale vous sera demandée avant de continuer."
+  - id: delete-account
+    one: null
+    other: "Supprimer le compte"
+  - id: your-profile
+    one: null
+    other: "Votre profil"
+  - id: badges
+    one: "Badge"
+    other: "Badges"
+  - id: settings
+    one: null
+    other: "Paramètres"
+  - id: sign-out
+    one: null
+    other: "Se déconnecter"
+  - id: modules
+    one: "Module"
+    other: "Modules"
+  - id: what-learn
+    one: null
+    other: "Ce que vous apprendrez"
+  - id: modules-description
+    one: null
+    other: " "
+  - id: visit-site
+    one: null
+    other: "Visitez le site"
+  - id: out-of
+    one: null
+    other: "sur"
+  - id: modules-completed
+    one: null
+    other: "modules terminés"
+  - id: progress-bar
+    one: null
+    other: "Barre de progression"
+  - id: todo
+    one: null
+    other: "À faire"
+  - id: done
+    one: null
+    other: "Fait"
+  - id: congratulations-introduction
+    one: null
+    other: "Félicitations pour avoir terminé l'introduction !"
+  - id: congratulations-module
+    one: null
+    other: "Félicitations pour avoir terminé"
+  - id: mark-intro-complete
+    one: null
+    other: "Cochez la case pour confirmer que vous avez lu l'introduction et continuez vers le module suivant."
+  - id: mark-module-complete
+    one: null
+    other: "Cochez la case pour confirmer votre achèvement et continuez vers le module suivant."
+  - id: mark-as-complete
+    one: null
+    other: "Marquer le module comme terminé"
+  - id: mark-intro-as-complete
+    one: null
+    other: "Marquer l'introduction comme terminée"
+  - id: mark-as-complete-aria
+    one: null
+    other: "Marque le module actuel comme terminé et enregistre la progression de l'utilisateur."
+  - id: mark-intro-as-complete-aria
+    one: null
+    other: "Marque l'introduction comme terminée et enregistre la progression de l'utilisateur."
+  - id: only-one-module-left
+    one: null
+    other: "Il ne reste qu'un module pour obtenir votre badge"
+  - id: multiple-modules-left
+    one: null
+    other: "Terminez encore 'count' modules pour obtenir votre badge"
+  - id: modules-left
+    one: "1 module restant pour obtenir votre badge"
+    other: "'count' modules restants pour obtenir votre badge"
+  - id: no-modules
+    one: null
+    other: "Vous n'avez encore complété aucun module!"
+  - id: badge-completed
+    one: null
+    other: "Vous avez obtenu un badge!"
+  - id: keep-learning
+    one: null
+    other: "Continuez à apprendre pour obtenir votre badge!"
+  - id: congratulations
+    one: null
+    other: "Félicitations !"
+  - id: skip-link
+    one: null
+    other: "Passer au contenu"
+  - id: search
+    one: null
+    other: "Rechercher"
+  - id: table-of-contents
+    one: null
+    other: "Table des matières"
+  - id: faq
+    one: null
+    other: "Questions fréquemment posées"
+  - id: faq-description
+    one: null
+    other: "Vous ne trouvez pas la réponse que vous cherchez? Contactez notre"
+  - id: faq-link
+    one: null
+    other: "équipe de support client"
+  - id: aria-language
+    one: null
+    other: "La langue actuelle est "
+  - id: aria-translation
+    one: null
+    other: "Traduit en "
+  - id: previous-module
+    one: null
+    other: "Module précédent"
+  - id: next-module
+    one: null
+    other: "Module suivant"
+  - id: languages
+    one: "Langue"
+    other: "Langues"
+  - id: for-path
+    translation:
+      one: null
+      other: pour
+  - id: home
+    one: null
+    other: "Accueil"
+  - id: close
+    one: null
+    other: "Fermer"
+  - id: download-badge
+    one: null
+    other: "Télécharger le badge"
+  - id: rights-reserved
+    one: null
+    other: "Tous droits réservés."
+  - id: open-language
+    one: null
+    other: "Ouvrir le menu des langues"
+  - id: open-user
+    one: null
+    other: "Ouvrir le menu utilisateur"
+  - id: confirm-delete
+    one: null
+    other: "Êtes-vous sûr de vouloir supprimer votre compte? Cette action ne peut pas être annulée."
+  - id: completed
+    one: null
+    other: "terminé"
+  - id: readingTime
+    one: "1 min de lecture"
+    other: "{{ .Count }} min de lecture"
+  - id: tableOfContents
+    one: null
+    other: "Table des matières"
+  - id: wordCount
+    one: "Un mot"
+    other: "{{ .Count }} mots"
+  - id: publishDate
+    one: null
+    other: "Publié le"
+  - id: updated-on
+    one: null
+    other: "Dernière mise à jour le"
+  - id: git-unavailable
+    one: null
+    other: "Les informations Git ne sont pas disponibles."
+  - id: edit-github
+    one: null
+    other: "Modifier cette page sur GitHub"
+  - id: January
+    one: null
+    other: "Janvier"
+  - id: February
+    one: null
+    other: "Février"
+  - id: March
+    one: null
+    other: "Mars"
+  - id: April
+    one: null
+    other: "Avril"
+  - id: May
+    one: null
+    other: "Mai"
+  - id: June
+    one: null
+    other: "Juin"
+  - id: July
+    one: null
+    other: "Juillet"
+  - id: August
+    one: null
+    other: "Août"
+  - id: September
+    one: null
+    other: "Septembre"
+  - id: October
+    one: null
+    other: "Octobre"
+  - id: November
+    one: null
+    other: "Novembre"
+  - id: December
+    one: null
+    other: "Décembre"

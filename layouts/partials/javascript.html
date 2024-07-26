@@ -1,0 +1,54 @@
+{{ $main := resources.Get "js/main.js" }}
+{{ $alpine := resources.Get "js/alpine.min.js" }}
+{{ $secureJS := slice $main $alpine | resources.Concat "bundle.js" | resources.Minify | resources.Fingerprint "sha256" }}
+<script src="{{ $secureJS.RelPermalink }}" integrity="{{ $secureJS.Data.Integrity }}"></script>
+
+{{ range $val := $.Site.Params.customJS }}
+{{ if gt (len $val) 0 }}
+<script src="{{ $val }}"></script>
+{{ end }}
+{{ end }}
+
+{{ $instant := resources.Get "js/instantpage.js" }}
+{{ $instantpage := slice $instant | resources.Concat "instant.js" | resources.Minify }}
+<script type="module" defer src="{{ $instantpage.RelPermalink }}"></script>
+
+{{ $insights := resources.Get "js/clean-insights.js" }}
+{{ $cleaninsights := slice $insights | resources.Concat "clean-insights.js" | resources.Minify }}
+<script src="{{ $cleaninsights.RelPermalink }}"></script>
+
+<script>
+const ci = CleanInsights({
+    "server": "https://metrics.cleaninsights.org/cleaninsights.php",
+    "siteId": 34,
+    "campaigns": {
+    }
+})
+
+// Ask for consent:
+// ci.requestConsentForCampaign("test", ConsentRequestUi())
+
+// Make sure to persist the locally cached data. E.g. `onunload`.
+ci.persist()
+</script>
+
+<!-- Matomo 
+<script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//metrics.cleaninsights.org/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '34']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
+  End Matomo Code -->
+
+<script type="module">
+    await import('/pagefind/pagefind-highlight.js');
+    new PagefindHighlight({ highlightParam: "highlight" });
+</script>
