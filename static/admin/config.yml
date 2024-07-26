@@ -1,15 +1,15 @@
 locale: "en"
 logo_url: ./cms-logo.svg
 
-site_url: https://infuse-preview.netlify.app
-display_url: https://infuse-preview.netlify.app
+site_url: https://infuse.quest
+display_url: https://infuse.quest
 
 backend:
   name: git-gateway
-  #repo: AnXh3L0/infuse
-  #branch: main
+  repo: OpenInternet/Infuse
+  branch: main
 
-local_backend: true
+local_backend: false
 
 publish_mode: editorial_workflow
 media_folder: static/media/uploads
