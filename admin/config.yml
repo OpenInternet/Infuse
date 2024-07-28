@@ -1,0 +1,327 @@
+locale: "en"
+logo_url: ./cms-logo.svg
+
+site_url: https://infuse.quest
+display_url: https://infuse.quest
+
+backend:
+  name: git-gateway
+  repo: OpenInternet/Infuse
+  branch: main
+
+local_backend: false
+
+publish_mode: editorial_workflow
+media_folder: static/media/uploads
+public_folder: /media/uploads
+
+i18n:
+  # Required and can be one of multiple_folders, multiple_files or single_file
+  # multiple_folders - persists files in `<folder>/<locale>/<slug>.<extension>`
+  # multiple_files - persists files in `<folder>/<slug>.<locale>.<extension>`
+  # single_file - persists a single file in `<folder>/<slug>.<extension>`
+  structure: multiple_files
+
+  # Required - a list of locales to show in the editor UI
+  locales: ["en", "ar", "es", "fr"]
+
+slug:
+  encoding: "ascii"
+  clean_accents: true
+  sanitize_replacement: "-"
+
+collections:
+  - name: "learning_paths"
+    label: "Learning Paths"
+    folder: "content/learning-path"
+    identifier_field: "{{ title }}"
+    create: false
+    delete: false
+    nested:
+      depth: 2
+    i18n: true
+    summary: "{{title}}"
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: "duplicate"
+      - name: "thumbnail"
+        label: "Thumbnail image"
+        widget: "string"
+        i18n: "duplicate"
+      - name: "icon"
+        label: "Icon"
+        widget: "string"
+        i18n: "duplicate"
+      - name: "badge"
+        label: "Badge name"
+        widget: "string"
+        i18n: true
+      - name: "color"
+        label: "Color"
+        widget: "color"
+        i18n: "duplicate"
+    filter:
+      field: "type"
+      value: "learning-path"
+  - name: "learning_path_1"
+    label: "Learning Path 1 Modules"
+    folder: "content/learning-path/1"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "learning_path_2"
+    label: "Learning Path 2 Modules"
+    folder: "content/learning-path/2"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "learning_path_3"
+    label: "Learning Path 3 Modules"
+    folder: "content/learning-path/3"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "learning_path_4"
+    label: "Learning Path 4 Modules"
+    folder: "content/learning-path/4"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "learning_path_5"
+    label: "Learning Path 5 Modules"
+    folder: "content/learning-path/5"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "learning_path_6"
+    label: "Learning Path 6 Modules"
+    folder: "content/learning-path/6"
+    identifier_field: "title"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "description"
+        label: "Description"
+        widget: "text"
+        required: false
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        i18n: true
+  - name: "i18n_entries"
+    label: "UI Translation Entries"
+    folder: "i18n"
+    create: false
+    delete: false
+    i18n: false
+    identifier_field: "filename"
+    editor:
+      preview: false
+    format: "yaml"
+    extension: "yml"
+    fields:
+      - label: "Filename"
+        name: filename
+        widget: "string"
+      - label: "Translations"
+        name: "key"
+        widget: "list"
+        fields:
+          - label: "ID"
+            name: "id"
+            widget: "string"
+          - label: "Translation"
+            name: "translation"
+            widget: "object"
+            fields:
+              - label: "One"
+                name: "one"
+                widget: "string"
+                required: false
+              - label: "Other"
+                name: "other"
+                widget: "string"
+                required: false
+  - name: "badges"
+    label: "Badges"
+    folder: "content/badges"
+    identifier_field: "title"
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+        required: false
+  - name: "page"
+    label: "Single page"
+    folder: "content"
+    create: true
+    delete: true
+    i18n: true
+    fields:
+      - name: "title"
+        label: "Title"
+        widget: "string"
+        i18n: true
+      - name: "weight"
+        label: "Order"
+        widget: "number"
+        required: false
+        i18n: duplicate
+      - name: "navbar"
+        label: "Is part of the top navigation?"
+        widget: "boolean"
+        default: false
+        required: false
+        i18n: duplicate
+      - name: "footer"
+        label: "Is part of the footer navigation?"
+        widget: "boolean"
+        default: false
+        required: false
+        i18n: duplicate
+      - name: "body"
+        label: "Body"
+        widget: "markdown"
+        required: false
+        i18n: true
+  - name: "faq"
+    label: "FAQs"
+    folder: "content/faq"
+    create: false
+    delete: false
+    i18n: true
+    fields:
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        i18n: true
+      - label: "Questions"
+        name: "questions"
+        widget: "list"
+        i18n: true
+        fields:
+          - label: "Question"
+            name: "question"
+            widget: "string"
+            i18n: true
+          - label: "Answer"
+            name: "answer"
+            widget: "markdown"
+            i18n: true
