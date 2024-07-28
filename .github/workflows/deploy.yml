@@ -1,0 +1,60 @@
+name: Deploy Hugo Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.16.0'
+        cache: 'npm'
+
+    - name: Cache Hugo
+      uses: actions/cache@v2
+      with:
+        path: ~/.hugo_cache
+        key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-
+
+    - name: Install Hugo
+      run: |
+        HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r .tag_name)
+        echo "Latest Hugo version: $HUGO_VERSION"
+        wget https://github.com/gohugoio/hugo/releases/download/$HUGO_VERSION/hugo_extended_${HUGO_VERSION#v}_Linux-64bit.tar.gz
+        tar -xzf hugo_extended_${HUGO_VERSION#v}_Linux-64bit.tar.gz
+        mkdir -p ~/.hugo_cache
+        mv hugo ~/.hugo_cache/hugo
+        echo "::add-path::~/.hugo_cache"
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Build TailwindCSS
+      run: npm run build-tw
+
+    - name: Build Hugo site
+      env:
+        HUGO_ENVIRONMENT: production
+        HUGO_ENV: production
+      run: ~/.hugo_cache/hugo --minify
+
+    - name: Build Pagefind index
+      run: npx pagefind --site "public"
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
