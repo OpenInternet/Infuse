@@ -36,7 +36,7 @@ jobs:
         tar -xzf hugo_extended_${HUGO_VERSION#v}_Linux-64bit.tar.gz
         mkdir -p ~/.hugo_cache
         mv hugo ~/.hugo_cache/hugo
-        echo "::add-path::~/.hugo_cache"
+        echo "~/.hugo_cache" >> $GITHUB_PATH
 
     - name: Install dependencies
       run: npm install
@@ -48,7 +48,7 @@ jobs:
       env:
         HUGO_ENVIRONMENT: production
         HUGO_ENV: production
-      run: ~/.hugo_cache/hugo --minify
+      run: hugo --minify
 
     - name: Build Pagefind index
       run: npx pagefind --site "public"
