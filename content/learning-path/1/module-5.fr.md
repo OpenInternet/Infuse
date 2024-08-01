@@ -51,7 +51,7 @@ Lisez les ressources et documents ci-dessous pour vous familiariser avec (ou ré
   - Découvrez DomainKeys Identified Mail (DKIM) et comment, en tant que norme d'authentification, elle est utilisée pour empêcher l'usurpation d'adresses e-mail.
     - [https://docs.sendgrid.com/ui/account-and-settings/dkim-records](https://docs.sendgrid.com/ui/account-and-settings/dkim-records)
     - Utilisez [https://mxtoolbox.com/dkim.aspx](https://mxtoolbox.com/dkim.aspx) pour effectuer une recherche sur un domaine authentifié DKIM. Vous pouvez rechercher les enregistrements de votre propre organisation, par exemple, en vérifiant son domaine principal.
-- **(Avancé) **Familiarisez-vous avec les diverses techniques et mécanismes que les filtres antispam utilisent pour repérer les courriers indésirables et les adresses e-mail falsifiées.
+- **(Avancé)** Familiarisez-vous avec les diverses techniques et mécanismes que les filtres antispam utilisent pour repérer les courriers indésirables et les adresses e-mail falsifiées.
   - Consultez la liste des modules disponibles (et des sélecteurs) pris en charge par RSPAMD [https://rspamd.com/doc/modules/](https://rspamd.com/doc/modules/)
 
 ## Section Principale

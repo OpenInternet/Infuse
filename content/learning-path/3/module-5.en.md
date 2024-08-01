@@ -86,7 +86,7 @@ At this point, you should know how you acquired the malware, what it does, and h
 
 Attributing malware to a particular threat actor is a popular activity among malware analysts. However, it is difficult to get accurate results. Don’t feel as if you need to perform attribution if you’re not sure, the most important thing is publishing IoCs.
 
-In the Detecting, Investigating and Tracking Malicious Infrastructure learning path, we’ve also[ created a section on write-ups and reports](https://docs.google.com/document/d/1Qhka7uQYCBye-EQRQrrETo-ptik2yDAGDZg5DrncYF4/edit) that could be of help.
+In the Detecting, Investigating and Tracking Malicious Infrastructure learning path, we’ve also[ created a section on write-ups and reports](/en/learning-path/1/module-8/) that could be of help.
 
 The following public blog posts might give you some inspiration for your own reports. All of them use different tones and formats but all also contain IoCs.
 
