@@ -110,7 +110,7 @@ which would display like this
 
 Output encoding is dependent on the context that the data will be used in. For HTML, you would encode HTML entities in the data. For data that was going to be included into a block of JavaScript, a different encoding would be used. If user data was going to be used in a database query yet another type of encoding would be used. Web frameworks and libraries should have functions to perform output encoding for you; it’s better to use those (hopefully) mature functions than to try to write them yourself from first principles.
 
-For a bit more on XSS, see [the OWASP guide on XSS](https://owasp.org/www-community/attacks/xss/). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+For a bit more on XSS, see [the OWASP guide on XSS](https://owasp.org/www-community/attacks/xss/). For an in-depth exploration, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 ### SQL injection (SQLi)
 
@@ -159,7 +159,7 @@ Unlike with XSS, output encoding is not a reliable way to prevent SQL injection.
 
 Instead, we can use a feature of every database engine that skips some of the initial parsing of the query entirely. This type of query is called a parameterized query, and using it is frequently called parameter binding. Instead of sending the database a string of text that contains both the structure of the query and the user’s data, we send one string that contains the structure of the query with placeholders in it for the data. Along with that string, we send the data for each placeholder. In this way, the user’s data is never parsed in a SQL context; no matter what they send, it will be treated exclusively as data. Not only does this protect against SQL injection, it makes the database queries slightly faster.
 
-For a bit more on SQL injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/SQL_Injection). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+For a bit more on SQL injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/SQL_Injection). For an in-depth exploration, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 ### Path injection/directory traversal/local file inclusion
 
@@ -244,7 +244,7 @@ To a large extent, the best advice for preventing this sort of attack is “don�
 
 If this isn’t feasible, the site should only use and accept a very limited set of characters (such as letters and numbers) for user-specified filename components. This will still likely allow users to read or write arbitrary files within a specified directory, so the application developers must ensure that files in that directory aren’t executable by the web server, and that there is no sensitive data or important configuration information in that directory.
 
-For a bit more on path injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Path_Traversal). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+For a bit more on path injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Path_Traversal). For an in-depth exploration, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 ### Shell injection/command injection
 
@@ -344,7 +344,7 @@ Log into your DVWA and make sure the security level is set to low. Navigate to t
 
 As with path injection, the best way to prevent shell injection is “don’t do that.” Unlike with path injection, the advice to not run shell commands from the web server should not be given full consideration. The other alternatives (such as input data validation) are difficult to implement correctly, and may be impossible if the application needs to allow any sort of non-trivial input.
 
-For a bit more on shell injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Command_Injection) and the [OWASP guide on preventing it](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+For a bit more on shell injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Command_Injection) and the [OWASP guide on preventing it](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 ## Skill Check
 
