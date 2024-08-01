@@ -49,7 +49,7 @@ Read the resources and documents below to familiarize yourself a bit with (or re
   - Learn about DomainKeys Identified Mail (DKIM) and how, as an authentication standard, it is used to prevent email spoofing.
     - [https://docs.sendgrid.com/ui/account-and-settings/dkim-records](https://docs.sendgrid.com/ui/account-and-settings/dkim-records)
     - Use [https://mxtoolbox.com/dkim.aspx](https://mxtoolbox.com/dkim.aspx) to conduct a lookup on a DKIM authenticated domain. You can look up the records for your own organization, for example, by checking its main domain.
-- **(Advanced) **Familiarize yourself with various techniques and mechanisms spam filters use to identify spam / spoofed emails.
+- **(Advanced)** Familiarize yourself with various techniques and mechanisms spam filters use to identify spam / spoofed emails.
   - Look at the list of available modules (and selectors) supported by RSPAMD [https://rspamd.com/doc/modules/](https://rspamd.com/doc/modules/)
 
 ## Main Section

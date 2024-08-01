@@ -87,7 +87,7 @@ Lorsque vous envisagez de créer des IoC, vous devez considérer ce qui est intr
 
 L'attribution de logiciels malveillants à un acteur de menace particulier est une activité populaire parmi les analystes de logiciels malveillants. Cependant, il est difficile d'obtenir des résultats précis. Ne vous obligez pas à effectuer l'attribution si vous avez des doutes, la chose la plus importante est la publication des IoC.
 
-Dans le parcours d'apprentissage Détection, enquête et suivi des infrastructures malveillantes, nous avons également [créé une section sur les articles et les rapports](https://docs.google.com/document/d/1Qhka7uQYCBye-EQRQrrETo-ptik2yDAGDZg5DrncYF4/edit) qui pourraient être utiles.
+Dans le parcours d'apprentissage Détection, enquête et suivi des infrastructures malveillantes, nous avons également [créé une section sur les articles et les rapports](/fr/learning-path/1/module-8/) qui pourraient être utiles.
 
 Les articles de blog publics suivants pourraient vous inspirer pour vos propres rapports. Tous utilisent des tons et des formats différents, mais tous contiennent également des IoC.
 
