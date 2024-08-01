@@ -1,4 +1,5 @@
 title = "Infuse"
+baseURL = "https://openinternet.github.io/infuse"
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
