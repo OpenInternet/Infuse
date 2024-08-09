@@ -68,7 +68,7 @@ As noted above, the two root causes for authorization vulnerabilities tend to be
 - For extremely powerful users, consider using a separate website entirely. For example, www.example.com for regular users, and admin.example.com for administrative users.
 - For data-level permissions checks, having consistent developer guidelines can reduce errors. For instance, a rule that all data access must go through API calls, every API function must include a user id parameter, and every API that takes a user ID must use it in database calls. Having consistent rules like this makes it easier to avoid, and to find, authorization errors.
 
-For a bit more authentication, see [the OWASP authorization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+For a bit more authentication, see [the OWASP authorization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 
 ## Practice
