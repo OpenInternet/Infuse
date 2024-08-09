@@ -50,6 +50,9 @@ jobs:
         HUGO_ENV: production
       run: hugo --minify
 
+    - name: Create CNAME file
+      run: echo 'infuse.quest' > public/CNAME
+
     - name: Build Pagefind index
       run: npx pagefind --site "public"
 
