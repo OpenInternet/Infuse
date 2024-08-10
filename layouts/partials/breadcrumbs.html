@@ -1,5 +1,5 @@
 <section id="breadcrumb" class="mx-auto max-w-7xl px-8 pt-8 lg:px-8 lg:pt-16">
-    <nav class="mb-5 flex justify-start lg:justify-center" aria-label="Breadcrumb">
+    <nav class="mb-5 flex justify-start" aria-label="Breadcrumb">
         <ol role="list" class="flex items-center" itemscope itemtype="https://schema.org/BreadcrumbList">
             {{- $data := newScratch }}
             {{- $page := . }}
@@ -46,7 +46,7 @@
                         aria-hidden="true">
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                     </svg>
-                    <a class="me-2 ms-3 text-sm font-medium text-gray-500 hover:text-gray-700" aria-current="page"
+                    <a class="me-2 ms-3 text-sm font-medium underline hover:no-underline text-gray-500 hover:text-gray-700" aria-current="page"
                         itemprop="item" href="{{ $parent.Permalink }}">
                         <span itemprop="name">{{ $parent.Title }}</span>
                     </a>
@@ -58,11 +58,11 @@
             <li class="hidden lg:flex" itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
                 {{- $data.Add "counter" 1 }}
                 <div class="flex items-center">
-                    <svg class="h-5 w-5 flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
+                    <svg class="h-5 w-5 underline flex-shrink-0 text-gray-500" fill="currentColor" viewBox="0 0 20 20"
                         aria-hidden="true">
                         <path d="M5.555 17.776l8-16 .894.448-8 16-.894-.448z" />
                     </svg>
-                    <a class="text-sm font-medium text-gray-500 hover:text-gray-700 sm:ms-2" aria-current="page"
+                    <a class="text-sm font-medium underline hover:no-underline text-gray-500 hover:text-gray-700 sm:ms-2" aria-current="page"
                         itemprop="item" href="{{ .Permalink }}">
                         <span itemprop="name">{{ .Title }}</span>
                     </a>

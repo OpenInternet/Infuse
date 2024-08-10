@@ -397,6 +397,14 @@ key:
   - id: readingTime
     one: "1 min de lectura"
     other: "{{ .Count }} min de lectura"
+  - id: eta
+    translation:
+      one: null
+      other: Tiempo de lectura estimado
+  - id: minutes
+    translation:
+      one: minuto
+      other: minutos
   - id: tableOfContents
     other: "Tabla de Contenidos"
   - id: wordCount

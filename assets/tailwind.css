@@ -165,5 +165,5 @@ details summary::marker {
 }
 
 .highlight {
-  @apply max-w-full;
+  @apply max-w-full w-full;
 }

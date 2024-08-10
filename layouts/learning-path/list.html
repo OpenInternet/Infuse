@@ -31,7 +31,7 @@
                     {{ end }}
 
                     <p class="mt-8 text-xl font-semibold leading-6">{{ i18n "key.what-learn" }}</p>
-                    <p class="mb-4 mt-2 line-clamp-3 text-sm leading-6 text-gray-800">{{
+                    <p class="mb-4 mt-2 text-sm leading-6 text-gray-800">{{
                         .Page.Params.description }}</p>
 
                     {{ if .GitInfo }}
@@ -66,7 +66,7 @@
 
                     <div class="flex flex-col">
                         <p class="mt-2 text-xl font-semibold leading-6">{{ i18n "key.modules" }}</p>
-                        <p class="mt-2 line-clamp-3 text-sm leading-6 text-gray-500">{{ i18n "key.modules-description" }}
+                        <p class="mt-2 text-sm leading-6 text-gray-500">{{ i18n "key.modules-description" }}
                         </p>
                     </div>
 
@@ -83,7 +83,7 @@
                                             {{ .Page.Params.title }}
                                         </a>
                                     </h3>
-                                    <p class="mt-2 line-clamp-3 text-sm font-semibold leading-6 text-gray-500">{{
+                                    <p class="mt-2 text-sm font-semibold leading-6 text-gray-500">{{
                                         .Page.Params.description }}</p>
 
                                     <div class="completion-status text-md mt-4 hidden items-center gap-x-2">
@@ -141,7 +141,7 @@
                                     </h3>
 
                                     {{ with .Page.Params.description }}
-                                    <p class="mt-2 line-clamp-3 text-sm font-semibold leading-6 text-gray-500">{{ . }}
+                                    <p class="mt-2 text-sm font-semibold leading-6 text-gray-500">{{ . }}
                                     </p>
                                     {{ end }}
 

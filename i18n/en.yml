@@ -3,7 +3,7 @@ key:
   - id: hero-title
     translation:
       one: null
-      other: Elevating Expertise for Digital Protectors test
+      other: Elevating Expertise for Digital Protectors
   - id: hero-subtitle
     translation:
       one: null
@@ -413,6 +413,14 @@ key:
     translation:
       one: 1 min read
       other: "{{ .Count }} min read"
+  - id: eta
+    translation:
+      one: null
+      other: Estimated reading time
+  - id: minutes
+    translation:
+      one: minute
+      other: minutes
   - id: tableOfContents
     translation:
       one: null

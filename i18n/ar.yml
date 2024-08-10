@@ -392,6 +392,14 @@ key:
     translation:
       one: "دقيقة واحدة للقراءة"
       other: "{{ .Count }} دقائق للقراءة"
+  - id: eta
+    translation:
+      one: null
+      other: الوقت المقدر للقراءة
+  - id: minutes
+    translation:
+      one: دقيقة
+      other: دقائق
   - id: tableOfContents
     translation:
       one: null

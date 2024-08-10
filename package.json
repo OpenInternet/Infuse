@@ -4,10 +4,10 @@
     "watch-tw": "npx tailwindcss -i ./assets/tailwind.css -o ./assets/style.css -w --minify"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
+    "@tailwindcss/typography": "^0.5.14",
     "prettier": "^3.3.3",
-    "prettier-plugin-tailwindcss": "^0.6.5",
-    "tailwindcss": "^3.4.7"
+    "prettier-plugin-tailwindcss": "^0.6.6",
+    "tailwindcss": "^3.4.9"
   },
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7"
