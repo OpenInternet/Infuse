@@ -63,7 +63,7 @@
                                         {{ range .RegularPagesRecursive }}
                                             {{ $totalReadingTime = add $totalReadingTime .ReadingTime }}
                                         {{ end }}
-                                        {{ i18n "key.eta" }}: {{ printf "%d" $totalReadingTime }} {{ i18n "key.minutes" }}
+                                        <!-- {{ i18n "key.eta" }}: {{ printf "%d" $totalReadingTime }} {{ i18n "key.minutes" }} -->
                                         </span>
                                     </p>
                                     <p class="mt-2 text-sm leading-6 text-gray-600">{{
