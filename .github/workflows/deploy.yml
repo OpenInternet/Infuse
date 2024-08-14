@@ -13,6 +13,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
@@ -29,14 +31,9 @@ jobs:
           ${{ runner.os }}-hugo-
 
     - name: Install Hugo
-      run: |
-        HUGO_VERSION=$(curl -s https://api.github.com/repos/gohugoio/hugo/releases/latest | jq -r .tag_name)
-        echo "Latest Hugo version: $HUGO_VERSION"
-        wget https://github.com/gohugoio/hugo/releases/download/$HUGO_VERSION/hugo_extended_${HUGO_VERSION#v}_Linux-64bit.tar.gz
-        tar -xzf hugo_extended_${HUGO_VERSION#v}_Linux-64bit.tar.gz
-        mkdir -p ~/.hugo_cache
-        mv hugo ~/.hugo_cache/hugo
-        echo "~/.hugo_cache" >> $GITHUB_PATH
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest'
 
     - name: Install dependencies
       run: npm install
