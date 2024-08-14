@@ -32,7 +32,7 @@
                     {{ end }}
                 </article>
 
-                <article class="flex w-full flex-col items-start justify-between">
+                <article class="flex w-full flex-col items-start justify-between visited:prose-a:text-purple-800">
                     {{ $content := .Content }}
                     {{ $content = replaceRE `(<h[1-6] id=\"(.+)\".*>)(.*)(</h[1-6]>)` `${1}${3} <a aria-label="#${2}" href="#${2}"
                         class="anchor-link no-underline">

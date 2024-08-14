@@ -51,7 +51,9 @@
                                 d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" />
                         </svg>
                     </a>${4}` $content | safeHTML }}
-                    {{ $content | safeHTML }}
+                    <div class="visited:prose-a:text-purple-800">
+                        {{ $content | safeHTML }}
+                    </div>
 
                     <!-- Table of Contents (ToC) Panel -->
                     <div class="absolute mt-8 hidden h-full -left-64 2xl:max-w-full xl:max-w-64 2xl:-left-96 xl:block">
