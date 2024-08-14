@@ -1,6 +1,6 @@
 {{ $title := .Get "title" }}
 {{ $open := .Get "open" }}
-<details class="group mb-6 w-full rounded-lg p-6 transition open:bg-white open:shadow-lg open:ring-1 open:ring-black/5 dark:open:bg-slate-900 dark:open:ring-white/10"
+<details class="group mb-6 w-full rounded-lg p-6 transition open:bg-white open:shadow-lg open:ring-1 open:ring-black/5"
 {{ if eq $open "true" }} open{{ end }}>
 <summary class="flex cursor-pointer list-none items-center justify-between font-medium"><span class="text-gray-900">{{ $title }}</span>
 <span class="transition group-open:hidden">

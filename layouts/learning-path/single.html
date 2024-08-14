@@ -68,54 +68,74 @@
 
                 <script>
                 document.addEventListener('DOMContentLoaded', function () {
-                const tocLinks = document.querySelectorAll('#TableOfContents a');
-                const tocItems = Array.from(tocLinks);
+                    const tocLinks = document.querySelectorAll('#TableOfContents a');
+                    const tocItems = Array.from(tocLinks);
 
-                const scrollOffsets = tocItems.map(link => {
-                    const target = document.getElementById(link.getAttribute('href').slice(1));
-                    return target ? target.offsetTop - 30 : 0; // Adjust offset as needed
-                });
-
-                // Smooth scrolling and setting active state on click
-                tocItems.forEach((item, index) => {
-                    item.addEventListener('click', function (event) {
-                        // event.preventDefault();
-                        const targetId = item.getAttribute('href').slice(1);
-                        const targetElement = document.getElementById(targetId);
-
-                        if (targetElement) {
-                            targetElement.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start'
-                            });
-                            tocItems.forEach(link => link.classList.remove('active-element'));
-                            item.classList.add('active-element');
-                        }
+                    // Get header elements linked by the ToC
+                    const headerElements = tocItems.map(link => {
+                        const targetId = link.getAttribute('href').slice(1);
+                        return document.getElementById(targetId);
                     });
-                });
 
-                window.addEventListener('scroll', function () {
-                        const currentScroll = window.scrollY;
-                        let currentIndex = scrollOffsets.findIndex(offset => offset > currentScroll);
+                    function onScroll() {
+                        const scrollPosition = window.scrollY + window.innerHeight / 5; // Adjust this value to target the middle of the viewport
 
-                        if (currentIndex === -1) {
-                            currentIndex = tocLinks.length - 1;
-                        } else if (currentIndex > 0) {
-                            currentIndex--;
+                        let activeIndex = -1;
+                        for (let i = 0; i < headerElements.length; i++) {
+                            const header = headerElements[i];
+                            if (header && header.getBoundingClientRect().top + window.scrollY <= scrollPosition) {
+                                activeIndex = i;
+                            } else {
+                                break;
+                            }
                         }
 
-                        tocItems.forEach(item => item.classList.remove('active-element'));
-
-                        if (currentIndex !== -1) {
-                            tocItems[currentIndex].classList.add('active-element');
+                        // Update active class on ToC links
+                        tocItems.forEach(link => link.classList.remove('active-element'));
+                        if (activeIndex !== -1) {
+                            tocItems[activeIndex].classList.add('active-element');
 
                             // Scroll the toc-container to make the active item visible
                             const tocContainer = document.querySelector('.toc-container');
-                            const activeItem = tocItems[currentIndex];
+                            const activeItem = tocItems[activeIndex];
 
                             tocContainer.scrollTop = activeItem.offsetTop - tocContainer.offsetTop - tocContainer.clientHeight / 2 + activeItem.clientHeight / 2;
                         }
+                    }
+
+                    // Smooth scrolling and setting active state on click
+                    tocItems.forEach((item) => {
+                        item.addEventListener('click', function (event) {
+                            const targetId = item.getAttribute('href').slice(1);
+                            const targetElement = document.getElementById(targetId);
+
+                            if (targetElement) {
+                                event.preventDefault();
+                                targetElement.scrollIntoView({
+                                    // behavior: 'smooth',
+                                    block: 'start'
+                                });
+
+                                tocItems.forEach(link => link.classList.remove('active-element'));
+                                item.classList.add('active-element');
+                            }
+                        });
                     });
+                    
+                    // Throttle the scroll event
+                    let isScrolling = false;
+                    window.addEventListener('scroll', function () {
+                        if (!isScrolling) {
+                            window.requestAnimationFrame(function () {
+                                onScroll();
+                                isScrolling = false;
+                            });
+                            isScrolling = true;
+                        }
+                    });
+                    
+                    // Initial check to set the active element on page load
+                    onScroll();
                 });
                 </script>
 
