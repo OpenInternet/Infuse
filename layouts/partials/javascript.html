@@ -17,36 +17,43 @@
 {{ $cleaninsights := slice $insights | resources.Concat "clean-insights.js" | resources.Minify }}
 <script src="{{ $cleaninsights.RelPermalink }}"></script>
 
+<div id="tracking-banner" class="pointer-events-none fixed inset-x-0 bottom-0 px-6 pb-6">
+  <div class="pointer-events-auto mx-auto max-w-xl rounded-xl bg-white p-6 shadow-lg ring-1 ring-gray-900/10">
+    <p class="text-sm leading-6 text-gray-900">Is it ok to track your page visits and record your language and user agent?</p>
+    <div class="mt-4 flex items-center gap-x-5">
+      <button id="accept-consent" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">
+        Accept
+      </button>
+    </div>
+  </div>
+</div>
+
 <script>
-const ci = CleanInsights({
-    "server": "https://metrics.cleaninsights.org/cleaninsights.php",
-    "siteId": 34,
-    "campaigns": {
-    }
-})
+document.addEventListener('DOMContentLoaded', () => {
+  const ci = CleanInsightsAutoTracker("https://metrics.cleaninsights.org/cleaninsights.php", 34);
+  console.log(ci);
 
-// Ask for consent:
-// ci.requestConsentForCampaign("test", ConsentRequestUi())
+  const banner = document.getElementById('tracking-banner');
+  const acceptButton = document.getElementById('accept-consent');
 
-// Make sure to persist the locally cached data. E.g. `onunload`.
-ci.persist()
+  // Function to handle consent
+  const handleConsent = () => {
+    banner.style.display = 'none';
+
+    ci.grantCampaign('visits');
+    ci.grantFeature(CleanInsightsFeature.ua);
+    ci.grantFeature(CleanInsightsFeature.lang);
+  };
+
+  // Set up button click event
+  acceptButton.addEventListener('click', handleConsent);
+
+  // Show banner if consent is not given
+  if (!ci.campaignConsents.some(item => item === 'visits')) {
+    banner.style.display = 'flex';
+  }
+});
 </script>
-
-<!-- Matomo 
-<script>
-    var _paq = window._paq = window._paq || [];
-    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-    _paq.push(['trackPageView']);
-    _paq.push(['enableLinkTracking']);
-    (function() {
-      var u="//metrics.cleaninsights.org/";
-      _paq.push(['setTrackerUrl', u+'matomo.php']);
-      _paq.push(['setSiteId', '34']);
-      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-    })();
-  </script>
-  End Matomo Code -->
 
 <script type="module">
     await import('/pagefind/pagefind-highlight.js');
