@@ -79,19 +79,33 @@ Find an email in your inbox or spam folder. Alternatively, ask for a peer or men
 
 {{% resource title="How to check and read a Sender Policy Framework record for a domain" languages="English" cost="Free" description="This piece shows how to check SPF headers using nslookup, an alternative tool to dig, and describes how to interpret the results." url="https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain" %}}
 
-{{% resource title="The Nebraska GenCyber Team course on email headers" languages="English" cost="Free" description="A comprehensive course on how to analyze email headers when investigating potential cases of phishing." url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" additional_urls="Samples for exercises: https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
+{{% resource title="The Nebraska GenCyber Team course on email headers" languages="English" cost="Free" description="A comprehensive course on how to analyze email headers when investigating potential cases of phishing." url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" %}}
+
+{{% resource title="Nebraska GenCyber Team course sample exercises" languages="English" cost="Free" description="Sample exercises for the above course." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
 
 {{% resource title="Checking email headers in Proton Mail" languages="English" cost="Free" description="A guide on how to check email headers in Proton Mail." url="https://proton.me/support/check-email-headers" %}}
 
 {{% resource title="Viewing email headers on Zoho" languages="English" cost="Free" description="A guide on how to view email headers on Zoho." url="https://www.zoho.com/mail/help/mail-options.html#alink1" %}}
 
-{{% resource title="Tools for analyzing email headers" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://mxtoolbox.com/EmailHeaders.aspx" additional_urls="https://github.com/keraattin/EmailAnalyzer, https://github.com/umair9747/headmail, https://github.com/cyberdefenders/email-header-analyzer" %}}
+{{% resource title="Tools for analyzing email headers, part 1" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://mxtoolbox.com/EmailHeaders.aspx" %}}
 
-{{% resource title="Introduction to email spoofing" languages="Multiple" cost="Free" description="Several articles describing email spoofing basics." url="https://en.wikipedia.org/wiki/Email_spoofing" additional_urls="https://docs.sendgrid.com/glossary/spoofing, https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
+{{% resource title="Tools for analyzing email headers, part 2" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/keraattin/EmailAnalyzer" %}}
+
+{{% resource title="Tools for analyzing email headers, part 3" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/umair9747/headmail" %}}
+
+{{% resource title="Tools for analyzing email headers, part 4" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/cyberdefenders/email-header-analyzer" %}}
+
+{{% resource title="Introduction to email spoofing, article 1" languages="Multiple" cost="Free" description="Several articles describing email spoofing basics." url="https://en.wikipedia.org/wiki/Email_spoofing" %}}
+
+{{% resource title="Introduction to email spoofing, article 2" languages="English" cost="Free" description="Several articles describing email spoofing basics." url="https://docs.sendgrid.com/glossary/spoofing" %}}
+
+{{% resource title="Introduction to email spoofing, article 3" languages="English" cost="Free" description="Several articles describing email spoofing basics." url=", https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
 
 {{% resource title="Evaluating 'Received' headers" languages="English" cost="Free" description="How to use email headers to find the server that sent the email." url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
 
-{{% resource title="Analyzing potentially forged 'Received' headers" languages="English" cost="Free" description="How to identify fake 'received' headers." url="https://luxsci.com/blog/analyzing-forged-email-message.html" additional_urls="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
+{{% resource title="Analyzing potentially forged 'Received' headers" languages="English" cost="Free" description="How to identify fake 'received' headers." url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
+
+{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="A deeper look at header analysis." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
 
 {{% resource title="Find messages with Email Log Search" languages="English" cost="Documentation free, tools only available to business & enterprise users" description="Describes how administrators of Google business and enterprise accounts can monitor message logs." url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
 
