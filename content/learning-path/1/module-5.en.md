@@ -81,7 +81,7 @@ Find an email in your inbox or spam folder. Alternatively, ask for a peer or men
 
 {{% resource title="The Nebraska GenCyber Team course on email headers" languages="English" cost="Free" description="A comprehensive course on how to analyze email headers when investigating potential cases of phishing." url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" %}}
 
-{{% resource title="Nebraska GenCyber Team course sample exercises" languages="English" cost="Free" description="Sample exercises for the above course." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
+{{% resource title="Exemples d'exercices pour le cours ci-dessus." languages="English" cost="Free" description="Exercices hébergés sur GitHub." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
 
 {{% resource title="Checking email headers in Proton Mail" languages="English" cost="Free" description="A guide on how to check email headers in Proton Mail." url="https://proton.me/support/check-email-headers" %}}
 
@@ -105,7 +105,7 @@ Find an email in your inbox or spam folder. Alternatively, ask for a peer or men
 
 {{% resource title="Analyzing potentially forged 'Received' headers" languages="English" cost="Free" description="How to identify fake 'received' headers." url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
 
-{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="A deeper look at header analysis." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
+{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="Un regard plus approfondi sur l’analyse des en-têtes." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
 
 {{% resource title="Find messages with Email Log Search" languages="English" cost="Documentation free, tools only available to business & enterprise users" description="Describes how administrators of Google business and enterprise accounts can monitor message logs." url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
 
