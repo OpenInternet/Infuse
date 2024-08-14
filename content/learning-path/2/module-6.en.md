@@ -115,7 +115,7 @@ Set up PiRogue on a Raspberry Pi and check the traffic from one device. Ideally,
 
 {{% resource title="SpyGuard wiki" languages="English" cost="Free" description="The documentation for SpyGuard." url="https://github.com/SpyGuard/SpyGuard/wiki" %}}
 
-{{% resource title="Malware Traffic Analysis" languages="English" cost="" description="Advanced resource with sample PCAP files for those who wish to develop traffic analysis skills." url="https://www.malware-traffic-analysis.net/" %}}
+{{% resource title="Malware Traffic Analysis" languages="English" cost="Free" description="Advanced resource with sample PCAP files for those who wish to develop traffic analysis skills." url="https://www.malware-traffic-analysis.net/" %}}
 
 {{% resource title="Emergency VPN" languages="English" cost="Free" description="A project by CivilSphere, which allows you to connect to a special VPN collecting your device’s internet data for detailed reports." url="https://www.civilsphereproject.org/emergency-vpn" %}}
 
@@ -123,7 +123,7 @@ Set up PiRogue on a Raspberry Pi and check the traffic from one device. Ideally,
 
 {{% resource title="Course on network security monitoring with Suricata" languages="English" cost="Free" description="A free course on how to use Suricata, a commonly used open source threat detection tool." url="https://www.pluralsight.com/courses/network-security-monitoring-suricata" %}}
 
-{{% resource title="Outbound firewalls" languages="Various" cost="Most are either free or have free versions available" description="An outbound firewall analyzes outbound traffic and connects to servers. Includes tools like LuLu, Little Snitch, PortMaster, GlassWire, NetGuard, AFWall+, and OpenSnitch." url="" %}}
+{{% resource title="Outbound firewalls" languages="Various" cost="Most are either free or have free versions available" description="An outbound firewall analyzes outbound traffic and connects to servers. Includes tools like LuLu, Little Snitch, PortMaster, GlassWire, NetGuard, AFWall+, and OpenSnitch." url="https://" %}}
 
 <ul>
 <li>macOS:
@@ -151,7 +151,7 @@ Set up PiRogue on a Raspberry Pi and check the traffic from one device. Ideally,
 </li>
 </ul>
 
-{{% resource title="Threat hunting platforms" languages="Several" cost="" description="Several platforms using network data to detect threats within systems, including Security Onion, pfSense, OPNsense, AC Hunter Community Edition, RITA, Wazuh, and Suricata." url="" %}}
+{{% resource title="Threat hunting platforms" languages="Several" cost="Free" description="Several platforms using network data to detect threats within systems, including Security Onion, pfSense, OPNsense, AC Hunter Community Edition, RITA, Wazuh, and Suricata." url="https://" %}}
 
 <ul>
   <li><a href="https://github.com/Security-Onion-Solutions/securityonion">Security Onion</a></li>
