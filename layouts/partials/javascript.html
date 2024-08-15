@@ -15,43 +15,72 @@
 
 {{ $insights := resources.Get "js/clean-insights.js" }}
 {{ $cleaninsights := slice $insights | resources.Concat "clean-insights.js" | resources.Minify }}
-<script src="{{ $cleaninsights.RelPermalink }}"></script>
+<script src="{{ $cleaninsights.RelPermalink }}" defer></script>
 
-<div id="tracking-banner" class="pointer-events-none fixed inset-x-0 bottom-0 px-6 pb-6">
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const storedConsent = localStorage.getItem('trackingConsent');
+    if (storedConsent === 'granted') {
+      // Automatically grant consent if already stored
+      const ci = CleanInsightsAutoTracker("https://metrics.cleaninsights.org/cleaninsights.php", 34);
+      ci.grantCampaign('visits');
+      ci.grantFeature(CleanInsightsFeature.ua);
+      ci.grantFeature(CleanInsightsFeature.lang);
+      return; // Exit if consent is already granted
+    } else if (storedConsent === 'denied') {
+      // If consent is denied, hide the banner and do not initialize CleanInsights
+      document.getElementById('tracking-banner').style.display = 'none';
+      return;
+    }
+    
+    // Show banner if consent is not given
+    document.getElementById('tracking-banner').style.display = 'flex';
+  });
+</script>
+
+<div id="tracking-banner" class="hidden pointer-events-none fixed inset-x-0 bottom-0 px-6 pb-6">
   <div class="pointer-events-auto mx-auto max-w-xl rounded-xl bg-white p-6 shadow-lg ring-1 ring-gray-900/10">
-    <p class="text-sm leading-6 text-gray-900">This website uses <a href="https://cleaninsights.org/">Clean Insights</a> for privacy-preserving web analytics. By using the site you agree to allow the collection of basic country, language, navigation, and user-agent information.</p>
+    <p class="text-sm leading-6 text-gray-900 prose">{{ i18n "key.cookie-banner" | markdownify }}</p>
     <div class="mt-4 flex items-center gap-x-5">
       <button id="accept-consent" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900">
-        Accept
+        {{ i18n "key.accept" }}
       </button>
+      <button id="reject-consent" class="text-sm font-semibold leading-6 text-gray-900">{{ i18n "key.reject" }}</button>
     </div>
   </div>
 </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-  const ci = CleanInsightsAutoTracker("https://metrics.cleaninsights.org/cleaninsights.php", 34);
-  console.log(ci);
+    const ci = CleanInsightsAutoTracker("https://metrics.cleaninsights.org/cleaninsights.php", 34);
 
-  const banner = document.getElementById('tracking-banner');
-  const acceptButton = document.getElementById('accept-consent');
+    const banner = document.getElementById('tracking-banner');
+    const acceptButton = document.getElementById('accept-consent');
+    const rejectButton = document.getElementById('reject-consent');
 
-  // Function to handle consent
-  const handleConsent = () => {
-    banner.style.display = 'none';
+    // Function to handle consent
+    const handleConsent = () => {
+      banner.style.display = 'none';
 
-    ci.grantCampaign('visits');
-    ci.grantFeature(CleanInsightsFeature.ua);
-    ci.grantFeature(CleanInsightsFeature.lang);
-  };
+      ci.grantCampaign('visits');
+      ci.grantFeature(CleanInsightsFeature.ua);
+      ci.grantFeature(CleanInsightsFeature.lang);
 
-  // Set up button click event
-  acceptButton.addEventListener('click', handleConsent);
+      // Store consent in localStorage
+      localStorage.setItem('trackingConsent', 'granted');
+    };
 
-  // Show banner if consent is not given
-  if (!ci.campaignConsents.some(item => item === 'visits')) {
-    banner.style.display = 'flex';
-  }
+    // Function to handle rejection
+    const handleRejection = () => {
+      banner.style.display = 'none';
+
+      // Store rejection in localStorage
+      localStorage.setItem('trackingConsent', 'denied');
+    };
+
+    // Set up button click events
+    acceptButton.addEventListener('click', handleConsent);
+    rejectButton.addEventListener('click', handleRejection);
 });
 </script>
 

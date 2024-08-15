@@ -424,6 +424,18 @@ key:
     translation:
       one: null
       other: "تعديل هذه الصفحة على GitHub"
+  - id: cookie-banner
+    translation:
+      one: null
+      other: يستخدم هذا الموقع [Clean Insights](https://cleaninsights.org/) لتحليلات الويب التي تحافظ على الخصوصية. باستخدامك للموقع، فإنك توافق على السماح بجمع المعلومات الأساسية مثل البلد، واللغة، والتنقل، ووكيل المستخدم.
+  - id: accept
+    translation:
+      one: null
+      other: قبول
+  - id: reject
+    translation:
+      one: null
+      other: رفض
   - id: January
     translation:
       one: null
