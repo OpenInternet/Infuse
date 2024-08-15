@@ -391,6 +391,7 @@ D) A security flaw that enables attackers to intercept communication between the
 
 {{< question title="Answer" >}}
 1. B) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.
+{{< /question >}}
 
 **Question 2**. What are the potential risks associated with broken authentication vulnerabilities?
 
