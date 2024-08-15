@@ -457,6 +457,18 @@ key:
     translation:
       one: null
       other: Reject
+  - id: upload-file
+    translation:
+      one: null
+      other: Upload a file
+  - id: drag-drop
+    translation:
+      one: null
+      other: or drag and drop
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, up to 2MB
   - id: January
     translation:
       one: null

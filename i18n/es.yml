@@ -430,6 +430,18 @@ key:
     translation:
       one: null
       other: Rechazar
+  - id: upload-file
+    translation:
+      one: null
+      other: Subir un archivo
+  - id: drag-drop
+    translation:
+      one: null
+      other: o arrastra y suelta
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, hasta 2 MB
   - id: January
     translation:
       one: null

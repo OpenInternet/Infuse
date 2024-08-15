@@ -42,14 +42,32 @@
 
       </div>
 
-      <p class="mt-10 text-center text-sm text-gray-500">
-        {{ i18n "key.have-backup" }}
-        <label class="cursor-pointer font-semibold leading-6 text-green-700 hover:text-green-800" for="importInput">
-          {{ i18n "key.import-data" }}</label>
-        <input type="file" class="sr-only" id="importInput" accept=".json">
-      </p>
+      <div class="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12 mt-6 mb-4">
+        <div class="mb-8 sm:mx-auto sm:w-full sm:max-w-md">
+          <h2 class="text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">{{ i18n "key.have-backup" }}</h2>
+          <p class="test-sm text-center text-gray-600">{{ i18n "key.import-data" }}</p>
+        </div>
+      
+        <div class="col-span-full">
+          <div id="dropZone" class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+            <div class="text-center">
+              <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke="currentColor" aria-hidden="true">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7.5 7.5h-.75A2.25 2.25 0 0 0 4.5 9.75v7.5a2.25 2.25 0 0 0 2.25 2.25h7.5a2.25 2.25 0 0 0 2.25-2.25v-7.5a2.25 2.25 0 0 0-2.25-2.25h-.75m0-3-3-3m0 0-3 3m3-3v11.25m6-2.25h.75a2.25 2.25 0 0 1 2.25 2.25v7.5a2.25 2.25 0 0 1-2.25 2.25h-7.5a2.25 2.25 0 0 1-2.25-2.25v-.75" />
+              </svg>
+              <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                <label for="importInput" class="relative cursor-pointer rounded-md bg-white font-semibold text-green-700 focus-within:outline-none focus-within:ring-2 focus-within:ring-green-800 focus-within:ring-offset-2 hover:text-green-800">
+                  <span>{{ i18n "key.upload-file" }}</span>
+                  <input id="importInput" type="file" class="sr-only" accept=".json">
+                </label>
+                <p class="ps-1">{{ i18n "key.drag-drop" }}</p>
+              </div>
+              <p class="text-xs leading-5 text-gray-600">{{ i18n "key.json-size" }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p class="mt-0 text-center text-sm text-gray-500">
+      <p class="text-center text-sm text-gray-500">
         {{ i18n "key.no-account" }}
         <a href="{{ .Site.LanguagePrefix }}/signup" class="font-semibold leading-6 text-green-700 hover:text-green-800">{{
           i18n "key.signup" }}</a>
@@ -64,7 +82,7 @@
       .addEventListener("submit", function (event) {
         event.preventDefault();
         const username = document.getElementById("LoginUsername").value;
-
+  
         // Check if username exists in localStorage
         const storedUser = localStorage.getItem(username);
         if (storedUser) {
@@ -78,7 +96,7 @@
           alert("User does not exist");
         }
       });
-
+  
     // Function to import user data from JSON
     function importUserData(file) {
       const reader = new FileReader();
@@ -92,21 +110,51 @@
       };
       reader.readAsText(file);
     }
-
+  
     // Event listener for import input change
     document
       .getElementById("importInput")
       .addEventListener("change", function (event) {
         const file = event.target.files[0];
-        importUserData(file);
+        if (file) {
+          importUserData(file);
+        }
       });
-
-    // Function to handle successful login
+  
+    // Handle successful login
     function handleSuccessfulLogin(username) {
       localStorage.setItem("loggedInUser", username);
       currentLanguage = document.getElementById('languagePrefix').innerText;
-      window.location.href = currentLanguage // Redirect to homepage after login
+      window.location.href = currentLanguage; // Redirect to homepage after login
     }
+  
+    // Get the drop zone element
+    const dropZone = document.getElementById('dropZone');
+  
+    // Prevent default drag behaviors
+    dropZone.addEventListener('dragover', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      dropZone.classList.add('bg-gray-100');
+    });
+  
+    dropZone.addEventListener('dragleave', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      dropZone.classList.remove('bg-gray-100');
+    });
+  
+    // Handle dropped files
+    dropZone.addEventListener('drop', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      dropZone.classList.remove('bg-gray-100');
+  
+      const file = event.dataTransfer.files[0];
+      if (file) {
+        importUserData(file);
+      }
+    });
   </script>
 
   {{ partial "javascript.html" . }}

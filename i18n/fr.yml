@@ -339,6 +339,18 @@ key:
     translation:
       one: null
       other: Rejeter
+  - id: upload-file
+    translation:
+      one: null
+      other: Télécharger un fichier
+  - id: drag-drop
+    translation:
+      one: null
+      other: ou faites glisser-déposer
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, jusqu'à 2 Mo
   - id: January
     one: null
     other: "Janvier"
