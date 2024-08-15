@@ -71,6 +71,8 @@ There are several ways of running DVWA. The best current installation instructio
 
 Before starting any of the exercises, remember to log into DVWA (the default credentials are admin / password) and make sure that the security level is set to “Low”.
 
+![DVWA with Low security level configuration](/media/uploads/dvwa-setting1.png "image_tooltip")
+
 One practice exercise requires you to install and use a tool known as rainbowcrack. Due to its high system requirements and the fact that the tool only works on Linux and Windows, we have opted to make this exercise optional. Since the main purpose of this exercise is to illustrate a security concept, learners who cannot or do not want to complete it will still be able to finish the whole learning path.
 
 One optional exercise requires working knowledge of basic Python and a Python installation. This exercise can be skipped for learners who are not familiar with Python or who do not have it installed on their systems.
