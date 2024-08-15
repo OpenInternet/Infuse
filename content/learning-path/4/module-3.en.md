@@ -389,12 +389,19 @@ B) An exploit that grants unauthorized access to restricted parts of a web appli
 C) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.\
 D) A security flaw that enables attackers to intercept communication between the client and server.
 
-Question 2. What are the potential risks associated with broken authentication vulnerabilities?
+{{< question title="Answer" >}}
+1. B) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.
+
+**Question 2**. What are the potential risks associated with broken authentication vulnerabilities?
 
 A) Unauthorized access to sensitive data and user accounts.\
 B) Exposure of session tokens, leading to session hijacking attacks.\
 C) Compromise of user credentials, including passwords and authentication tokens.\
 D) All of the above.
+
+{{< question title="Answer" >}}
+2. D) All of the above.
+{{< /question >}}
 
 **Question 3**. Which of the following is NOT an example of a mitigation mechanism for broken authentication vulnerabilities?
 
@@ -403,12 +410,20 @@ B) Enforcing strong password policies, including regular password rotation.\
 C) Disabling HTTPS to prevent interception of authentication credentials.\
 D) Implementing account lockout mechanisms to prevent brute force attacks.
 
+{{< question title="Answer" >}}
+3. C) Disabling HTTPS to prevent interception of authentication credentials.
+{{< /question >}}
+
 **Question 4**. Which type of flaw may lead to compromised authentication mechanisms by allowing attackers to guess or crack user passwords?
 
 A) Session Fixation\
 B) Cross-Site Request Forgery (CSRF)\
 C) Insufficient Password Complexity\
 D) Cross-Site Scripting (XSS)
+
+{{< question title="Answer" >}}
+4. C) Insufficient Password Complexity
+{{< /question >}}
 
 **Question 5**. What is a specific example of a mitigation strategy for addressing the flaw of insufficient password complexity?
 
@@ -417,12 +432,20 @@ B) Enforcing password length and complexity requirements.\
 C) Encrypting authentication tokens to prevent interception.\
 D) Whitelisting trusted IP addresses for accessing the login page.
 
+{{< question title="Answer" >}}
+5. B) Enforcing password length and complexity requirements.
+{{< /question >}}
+
 **Question 6**. Which mitigation strategy aims to prevent attackers from exploiting session fixation vulnerabilities?
 
 A) Implementing session timeout mechanisms.\
 B) Encrypting session cookies using HTTPS.\
 C) Regenerating session identifiers after successful authentication.\
 D) Enforcing strong password policies for user accounts.
+
+{{< question title="Answer" >}}
+6. C) Regenerating session identifiers after successful authentication.
+{{< /question >}}
 
 **Question 7**. What type of flaw may lead to compromised authentication mechanisms by allowing attackers to hijack active user sessions?
 
@@ -431,12 +454,20 @@ B) Insecure Token Storage\
 C) Cross-Site Scripting (XSS)\
 D) Cross-Site Request Forgery (CSRF)
 
+{{< question title="Answer" >}}
+7. A) Insufficient Session Expiration
+{{< /question >}}
+
 **Question 8**. Which mitigation strategy addresses the flaw of insecure token storage by securely managing authentication tokens?
 
 A) Storing tokens in plaintext within client-side cookies.\
 B) Encrypting tokens using a symmetric encryption algorithm.\
 C) Implementing secure password hashing algorithms.\
 D) Using HTTP headers for transmitting authentication tokens.
+
+{{< question title="Answer" >}}
+8. B) Encrypting tokens using a symmetric encryption algorithm.
+{{< /question >}}
 
 **Question 9**. What is a specific example of a mitigation strategy for preventing session fixation attacks?
 
@@ -445,6 +476,10 @@ B) Implementing multi-factor authentication (MFA).\
 C) Using CAPTCHA challenges to verify user authenticity.\
 D) Enforcing strict input validation on the login form.
 
+{{< question title="Answer" >}}
+9. A) Rotating session identifiers after a successful login.
+{{< /question >}}
+
 **Question 10**. What type of flaw may lead to compromised authentication mechanisms by allowing attackers to forge requests to the web application while authenticated as another user?
 
 A) Insufficient Session Expiration\
@@ -452,18 +487,16 @@ B) Insufficient Transport Layer Protection\
 C) Cross-Site Scripting (XSS)\
 D) Cross-Site Request Forgery (CSRF)
 
-#### Answer key
-
-1. B) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.
-2. D) All of the above.
-3. C) Disabling HTTPS to prevent interception of authentication credentials.
-4. C) Insufficient Password Complexity
-5. B) Enforcing password length and complexity requirements.
-6. C) Regenerating session identifiers after successful authentication.
-7. A) Insufficient Session Expiration
-8. B) Encrypting tokens using a symmetric encryption algorithm.
-9. A) Rotating session identifiers after a successful login.
+{{< question title="Answer" >}}
 10. D) Cross-Site Request Forgery (CSRF)
+{{< /question >}}
+
+
+
+
+
+
+
 
 
 ## Learning Resources
