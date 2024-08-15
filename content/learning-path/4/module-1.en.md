@@ -48,7 +48,7 @@ Infrastructure software with vulnerabilities is usually discovered via vulnerabi
 
 ## Skill Check
 
-Look up 2 CVEs which are listed on [https://www.opencve.io/cve](https://www.opencve.io/cve) or another CVE database. Pick those which are both described in some depth (CVE databases usually link out to external writeups which contain such details) and have a vulnerability rating. Since CVEs can often be very technical, select those which deal with a topic or technology which you are comfortable with. Answer the following questions: \
+Look up 2 CVEs which are listed on [https://www.opencve.io/cve](https://www.opencve.io/cve) or another CVE database. Pick those which are both described in some depth (CVE databases usually link out to external writeups which contain such details) and have a vulnerability rating. Since CVEs can often be very technical, select those which deal with a topic or technology which you are comfortable with. Answer the following questions:
 
 - Broadly speaking, what is the CVE about? What is the flaw or vulnerability that the attacker could exploit?
 - Do you know of any people or organizations whose systems an adversary could exploit using this CVE? What if this CVE is combined with other vulnerabilities?

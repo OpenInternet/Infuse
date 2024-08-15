@@ -463,7 +463,7 @@ For those exercises, we use nginx log files from [this collection](https://githu
 3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
 4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
 
-#### Practice exercise 4: answers
+{{< question title="Practice exercise 4: answers" >}}
 
 Exercise 1: \
 Correct answer: 113 lines
@@ -492,6 +492,9 @@ Exercise 4:
 Correct answer: `.git/config`
 
 Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
+
+{{< /question >}}
+
 
 ## Skill Check
 
