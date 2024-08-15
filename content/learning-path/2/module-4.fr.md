@@ -118,7 +118,9 @@ Si vous travaillez avec un pair ou un mentor, discutez de vos réponses aux ques
 ## Ressources d'apprentissage
 
 {{% resource title="Windows Defender" description="Une solution anti-malware développée par Microsoft, disponible gratuitement pour tous les utilisateurs de Windows" languages="Multiple" cost="Gratuit avec une licence Windows active" url="https://apps.microsoft.com/detail/9p6pmztm93lr?hl=fr-fr&gl=US" %}}
-{{% resource title="MalwareBytes" description="Un scanner antivirus populaire souvent utilisé au sein de la société civile" languages="Multiple" cost="Gratuit avec des fonctionnalités Premium" url="https://www.malwarebytes.com/<br>Le produit anti-adware : https://support.malwarebytes.com/hc/en-us/articles/360038523194" %}}
+{{% resource title="MalwareBytes" description="Un scanner antivirus populaire souvent utilisé au sein de la société civile" languages="Multiple" cost="Gratuit avec des fonctionnalités Premium" url="https://www.malwarebytes.com/" %}}
+{{% resource title="MalwareBytes anti-adware" description="Un scanner antivirus populaire souvent utilisé au sein de la société civile" languages="Multiple" cost="Gratuit avec des fonctionnalités Premium" url="https://support.malwarebytes.com/hc/en-us/articles/360038523194" %}}
+
 {{% resource title="Avast" description="Un autre scanner antivirus avec une offre gratuite solide" languages="Multiple" cost="Gratuit avec des fonctionnalités Premium" url="https://www.avast.com/fr-fr/free-antivirus-download#pc" %}}
 {{% resource title="ClamAV" description="Un scanner antivirus open source" languages="Multiple" cost="Gratuit" url="https://www.clamav.net/" %}}
 {{% resource title="Lookout" description="Une société bien connue fournissant des services de sécurité Android" languages="Multiple" cost="Plusieurs niveaux de tarification" url="https://www.lookout.com/" %}}
