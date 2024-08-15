@@ -327,6 +327,30 @@ key:
   - id: edit-github
     one: null
     other: "Modifier cette page sur GitHub"
+  - id: cookie-banner
+    translation:
+      one: null
+      other: Ce site utilise [Clean Insights](https://cleaninsights.org/) pour des analyses web respectueuses de la vie privée. En utilisant ce site, vous acceptez la collecte d'informations de base telles que le pays, la langue, la navigation et l'agent utilisateur.
+  - id: accept
+    translation:
+      one: null
+      other: Accepter
+  - id: reject
+    translation:
+      one: null
+      other: Rejeter
+  - id: upload-file
+    translation:
+      one: null
+      other: Télécharger un fichier
+  - id: drag-drop
+    translation:
+      one: null
+      other: ou faites glisser-déposer
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, jusqu'à 2 Mo
   - id: January
     one: null
     other: "Janvier"

@@ -69,77 +69,84 @@
                 </article>
 
                 <script>
-                document.addEventListener('DOMContentLoaded', function () {
-                    const tocLinks = document.querySelectorAll('#TableOfContents a');
-                    const tocItems = Array.from(tocLinks);
-
-                    // Get header elements linked by the ToC
-                    const headerElements = tocItems.map(link => {
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const tocLinks = document.querySelectorAll('#TableOfContents a');
+                      const tocItems = Array.from(tocLinks);
+                  
+                      // Get header elements linked by the ToC
+                      const headerElements = tocItems.map(link => {
                         const targetId = link.getAttribute('href').slice(1);
                         return document.getElementById(targetId);
-                    });
-
-                    function onScroll() {
-                        const scrollPosition = window.scrollY + window.innerHeight / 5; // Adjust this value to target the middle of the viewport
-
+                      });
+                  
+                      let isClicking = false; // Flag to track click events
+                  
+                      function updateActiveState() {
+                        if (isClicking) return; // Skip updating if we are in clicking state
+                  
+                        const scrollPosition = window.scrollY + window.innerHeight / 2; // Center of the viewport
+                  
                         let activeIndex = -1;
                         for (let i = 0; i < headerElements.length; i++) {
-                            const header = headerElements[i];
-                            if (header && header.getBoundingClientRect().top + window.scrollY <= scrollPosition) {
-                                activeIndex = i;
-                            } else {
-                                break;
-                            }
+                          const header = headerElements[i];
+                          if (header && header.getBoundingClientRect().top + window.scrollY <= scrollPosition) {
+                            activeIndex = i;
+                          } else {
+                            break;
+                          }
                         }
-
+                  
                         // Update active class on ToC links
                         tocItems.forEach(link => link.classList.remove('active-element'));
                         if (activeIndex !== -1) {
-                            tocItems[activeIndex].classList.add('active-element');
-
-                            // Scroll the toc-container to make the active item visible
-                            const tocContainer = document.querySelector('.toc-container');
+                          tocItems[activeIndex].classList.add('active-element');
+                  
+                          // Scroll the toc-container to make the active item visible
+                          const tocContainer = document.querySelector('.toc-container');
+                          if (tocContainer) {
                             const activeItem = tocItems[activeIndex];
-
-                            tocContainer.scrollTop = activeItem.offsetTop - tocContainer.offsetTop - tocContainer.clientHeight / 2 + activeItem.clientHeight / 2;
+                            const activeItemRect = activeItem.getBoundingClientRect();
+                            const tocContainerRect = tocContainer.getBoundingClientRect();
+                            const offset = activeItemRect.top - tocContainerRect.top - tocContainer.clientHeight / 2 + activeItem.clientHeight / 2;
+                  
+                            tocContainer.scrollTop = offset;
+                          }
                         }
-                    }
-
-                    // Smooth scrolling and setting active state on click
-                    tocItems.forEach((item) => {
+                      }
+                  
+                      // Smooth scrolling and setting active state on click
+                      tocItems.forEach((item) => {
                         item.addEventListener('click', function (event) {
-                            const targetId = item.getAttribute('href').slice(1);
-                            const targetElement = document.getElementById(targetId);
-
-                            if (targetElement) {
-                                event.preventDefault();
-                                targetElement.scrollIntoView({
-                                    // behavior: 'smooth',
-                                    block: 'start'
-                                });
-
-                                tocItems.forEach(link => link.classList.remove('active-element'));
-                                item.classList.add('active-element');
-                            }
-                        });
-                    });
-                    
-                    // Throttle the scroll event
-                    let isScrolling = false;
-                    window.addEventListener('scroll', function () {
-                        if (!isScrolling) {
-                            window.requestAnimationFrame(function () {
-                                onScroll();
-                                isScrolling = false;
+                          const targetId = item.getAttribute('href').slice(1);
+                          const targetElement = document.getElementById(targetId);
+                  
+                          if (targetElement) {
+                            event.preventDefault();
+                            isClicking = true; // Set flag to true when clicking
+                            targetElement.scrollIntoView({
+                              behavior: 'auto', // No smooth scrolling
+                              block: 'start'
                             });
-                            isScrolling = true;
-                        }
+                  
+                            // Highlight the clicked ToC item
+                            tocItems.forEach(link => link.classList.remove('active-element'));
+                            item.classList.add('active-element');
+                  
+                            // Reset flag after scroll completes
+                            setTimeout(() => isClicking = false, 100); // Short timeout to reset flag
+                          }
+                        });
+                      });
+                  
+                      // Handle scroll events
+                      window.addEventListener('scroll', function () {
+                        updateActiveState();
+                      });
+                  
+                      // Initial check to set the active element on page load
+                      updateActiveState();
                     });
-                    
-                    // Initial check to set the active element on page load
-                    onScroll();
-                });
-                </script>
+                  </script>
 
                 <section id="mark-complete" class="hidden w-full flex-col items-start justify-between">
                     <div class="mx-auto w-full rounded-xl border border-green-400 bg-white shadow-lg">

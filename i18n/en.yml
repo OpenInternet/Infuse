@@ -445,6 +445,30 @@ key:
     translation:
       one: null
       other: Edit this page on GitHub
+  - id: cookie-banner
+    translation:
+      one: null
+      other: This website uses [Clean Insights](https://cleaninsights.org/) for privacy-preserving web analytics. By using the site you agree to allow the collection of basic country, language, navigation, and user-agent information.
+  - id: accept
+    translation:
+      one: null
+      other: Accept
+  - id: reject
+    translation:
+      one: null
+      other: Reject
+  - id: upload-file
+    translation:
+      one: null
+      other: Upload a file
+  - id: drag-drop
+    translation:
+      one: null
+      other: or drag and drop
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, up to 2MB
   - id: January
     translation:
       one: null
