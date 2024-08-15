@@ -384,7 +384,7 @@ Explanation:
 A) Incorrect. Failing to implement proper data validation typically does not lead to increased server performance.\
 B) Incorrect. While proper data validation contributes to a better user experience by preventing errors, its absence does not enhance user experience.\
 C) Correct. Without proper data validation, web applications are vulnerable to SQL injection attacks, where attackers can manipulate database queries by injecting malicious SQL code.\
-D) Incorrect. Data validation helps maintain data integrity, but its absence does not improve data integrity*.
+D) Incorrect. Data validation helps maintain data integrity, but its absence does not improve data integrity.
 {{< /question >}}
 
 **Question 2**
