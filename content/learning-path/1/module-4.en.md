@@ -99,7 +99,7 @@ These and similar services and databases can help you identify the activities an
 Other scanner services also collect **DNS history**, allowing you to peer back in time to learn what other domain _resolutions_ have appeared for a given IP, when they appeared/disappeared, as well as subdomains for a given domain.
 
 - [Security Trails](https://securitytrails.com/)
-- [Microsoft Defender Threat Intelligence ](https://ti.defender.microsoft.com/)(formerly RiskIQ) provides limited DNS history and resolutions data to free-tier customers.
+- [Microsoft Defender XDR](https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr)(formerly RiskIQ) provides limited DNS history and resolutions data to free-tier customers.
 
 #### Enriching IP/DNS information using threat intelligence databases
 
@@ -173,11 +173,21 @@ Sit down with a peer or a mentor who has significant experience in passive inves
 
 {{% resource title="host command in Linux with examples" languages="English" cost="Free" description="A guide on how to use the host command in Linux, another commonly used tool to analyze servers and other types of infrastructure." url="https://www.geeksforgeeks.org/host-command-in-linux-with-examples/" %}}
 
-{{% resource title="Further DNS reconnaissance" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://securitytrails.com/blog/dnsrecon-tool" additional_urls="DNSRecon: https://securitytrails.com/blog/dnsrecon-tool Fierce: https://www.kali.org/tools/fierce/ and https://salsa.debian.org/pkg-security-team/fierce VirusTotal: https://support.virustotal.com/hc/en-us/articles/115002739245-Searching" %}}
+{{% resource title="Further DNS reconnaissance: DNSRecon" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://securitytrails.com/blog/dnsrecon-tool" %}}
+
+{{% resource title="Further DNS reconnaissance: Fierce (resoucrce 1)" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://www.kali.org/tools/fierce/" %}}
+
+{{% resource title="Further DNS reconnaissance: Fierce (resource 2)" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
+
+{{% resource title="Further DNS reconnaissance: VirusTotal" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://docs.virustotal.com/docs/how-it-works" %}}
 
 {{% resource title="GeoIP" languages="English" cost="Free for limited quantities" description="Look up the (likely) physical location of a server by IP address." url="https://www.maxmind.com/en/geoip-demo" %}}
 
-{{% resource title="whois/RDAP" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://who.is/" additional_urls="https://search.arin.net/rdap/, https://lookup.icann.org/en" %}}
+{{% resource title="whois/RDAP: who.is search" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://who.is/" %}}
+
+{{% resource title="whois/RDAP: ARIN RDAP search" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://search.arin.net/rdap/" %}}
+
+{{% resource title="whois/RDAP: ICANN lookup" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://lookup.icann.org/en" %}}
 
 {{% resource title="What is whois and how is it used" languages="English" cost="Free" description="A quick summary of what a whois database is and what its potential limitations are." url="https://www.domain.com/blog/what-is-whois-and-how-is-it-used/" %}}
 
@@ -193,23 +203,29 @@ Sit down with a peer or a mentor who has significant experience in passive inves
 
 {{% resource title="Subdomain enumeration: the ultimate guide" languages="English" cost="Free" description="A guide which contains several techniques on enumerating (figuring out) which subdomains a specific domain contains. It’s worth remembering that not all techniques will work on all domains/servers." url="https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/" %}}
 
-{{% resource title="Threat intelligence services with DNS history" languages="English" cost="Free with premium features (security trails) / Free (Microsoft Defender)" description="Those services perform DNS scans and add history; analysts who use them can therefore see whether certain websites or addresses moved or changed." url="https://securitytrails.com/" additional_urls="https://ti.defender.microsoft.com/" %}}
+{{% resource title="Threat intelligence services with DNS history: Security Trails" languages="English" cost="Free with premium features (security trails) / Free (Microsoft Defender)" description="Those services perform DNS scans and add history; analysts who use them can therefore see whether certain websites or addresses moved or changed." url="https://securitytrails.com/" %}}
+
+{{% resource title="Threat intelligence services with DNS history: Microsoft XDR" languages="English" cost="Free with premium features (security trails) / Free (Microsoft Defender)" description="Those services perform DNS scans and add history; analysts who use them can therefore see whether certain websites or addresses moved or changed." url="https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr" %}}
 
 {{% resource title="Alienvault OTX" languages="English" cost="Free" description="A service that compiles threat intelligence and indicators put forward by the community." url="https://otx.alienvault.com/" %}}
 
 {{% resource title="Mandiant Advantage" languages="English" cost="Some features are available on the free tier" description="Another threat intelligence service, currently owned by Google." url="https://www.mandiant.com/multi-vendor-security-platform-free-access" %}}
 
-{{% resource title="Shodan" languages="English" cost="Free tier\nBasic $49\nMore volume available as monthly subscriptions\n(Free basic for academic emails, occasionally has great discounts, e.g. membership for $5 when they got 5 million users in July 2022, and $4 when they hit 4 million users in March of 2021)" description="Shows information on services running on a server by IP address, can also search for all servers running a service with a particular banner." url="https://www.shodan.io/" additional_urls="Background: https://en.wikipedia.org/wiki/Banner_grabbing\nDocumentation: https://help.shodan.io/" %}}
+{{% resource title="Shodan" languages="English" cost="Free tier\nBasic $49\nMore volume available as monthly subscriptions\n(Free basic for academic emails, occasionally has great discounts, e.g. membership for $5 when they got 5 million users in July 2022, and $4 when they hit 4 million users in March of 2021)" description="Shows information on services running on a server by IP address, can also search for all servers running a service with a particular banner." url="https://www.shodan.io/" %}}
 
 {{% resource title="Censys Search" languages="English" cost="Free" description="A tool which can observe open ports, running services, TLS certificates, and more for a given IP." url="https://search.censys.io/" %}}
 
 {{% resource title="DNS Dumpster" languages="English" cost="Free" description="A tool used to look up the potential attack surfaces of internet facing services." url="https://dnsdumpster.com/" %}}
 
-{{% resource title="DNS Checker & MX ToolBox" languages="English" cost="Free" description="‘Swiss Army Knives’ of DNS and IP lookups - allows various fast searches on domain/DNS, IP, and email records." url="https://mxtoolbox.com/SuperTool.aspx" additional_urls="https://dnschecker.org/all-tools.php" %}}
+{{% resource title="DNS Checker" languages="English" cost="Free" description="‘Swiss Army Knives’ of DNS and IP lookups - allows various fast searches on domain/DNS, IP, and email records." url="https://dnschecker.org/all-tools.php" %}}
+
+{{% resource title="MXToolbox" languages="English" cost="Free" description="‘Swiss Army Knives’ of DNS and IP lookups - allows various fast searches on domain/DNS, IP, and email records." url="https://mxtoolbox.com/SuperTool.aspx" %}}
 
 {{% resource title="How certificate transparency works" languages="English" cost="Free" description="A quick introduction to what certificate transparency is, what issues it addresses, and how it functions." url="https://certificate.transparency.dev/howctworks/" %}}
 
-{{% resource title="Certificates: the OSINT Gift that keeps on giving" languages="English" cost="Free" description="A guide for analysts on how to use tools like Shodan to search for certificates and get good data on web servers they are investigating." url="https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/" additional_urls="Video version: https://www.youtube.com/watch?v=XHltHamQVoA" %}}
+{{% resource title="Certificates: the OSINT Gift that keeps on giving (text version)" languages="English" cost="Free" description="A guide for analysts on how to use tools like Shodan to search for certificates and get good data on web servers they are investigating." url="https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/" %}}
+
+{{% resource title="Certificates: the OSINT Gift that keeps on giving (video version)" languages="English" cost="Free" description="A guide for analysts on how to use tools like Shodan to search for certificates and get good data on web servers they are investigating." url="https://www.youtube.com/watch?v=XHltHamQVoA" %}}
 
 {{% resource title="crt.sh" languages="English" cost="Free" description="A search engine which focuses specifically on certificate search." url="https://crt.sh/" %}}
 
