@@ -107,7 +107,7 @@ C) DNS Spoofing\
 D) UDP Flood
 
 {{< question title="Answer" >}}
-1. C) DNS Spoofing;
+1. C) DNS Spoofing
 {{< /question >}}
 
 2. What is the main objective of a DDoS attack?
@@ -118,7 +118,7 @@ C) To overwhelm a target system or network\
 D) To encrypt files and demand ransom
 
 {{< question title="Answer" >}}
-2. C) To overwhelm a target system or network;
+2. C) To overwhelm a target system or network
 {{< /question >}}
 
 3. Which technique is commonly used to mitigate DNS Amplification DDoS attacks?

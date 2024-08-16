@@ -145,9 +145,18 @@ It’s worth noting that security configurations vary between different versions
 
 {{% resource title="How to look at your command history list in macOS terminal" languages="English" cost="Free" description="A brief guide to browsing through command line history on macOS terminal, which can be useful if you’re trying to figure out what prior commands were typed and if any of them affected security mechanisms." url="https://www.macworld.com/article/351872/how-to-look-at-your-command-history-list-in-macoss-terminal.html" %}}
 
-{{% resource title="iOS security checks and mechanisms" languages="Multiple" cost="Free with macOS and iOS systems" description="Articles describing some security checks you can conduct when doing triage on iOS systems:" url="https://support.apple.com/en-is/guide/iphone/iph6e7d349d1/17.0/ios/17.0" additional_urls="https://support.apple.com/en-is/guide/iphone/iph4f4cbd242/ios, https://support.apple.com/en-is/guide/personal-safety/ips2aad835e1/web" %}}
+{{% resource title="iOS security checks and mechanisms" languages="Multiple" cost="Free with macOS and iOS systems" description="Some security checks you can conduct when doing triage on iOS systems:" url="https://support.apple.com/en-is/guide/iphone/iph6e7d349d1/17.0/ios/17.0" %}}
 
-{{% resource title="Checking for linked devices on WhatsApp, Signal, and Telegram" languages="English, with apps and help guides localized into many other languages as well" cost="Free" description="Articles for:" url="WhatsApp: [https://faq.whatsapp.com/378279804439436?helpref=faq_content](https://faq.whatsapp.com/378279804439436?helpref=faq_content)" additional_urls="Signal: [https://support.signal.org/hc/en-us/articles/360007320551-Linked-Devices](https://support.signal.org/hc/en-us/articles/360007320551-Linked-Devices) Telegram: [https://telegram.org/blog/sessions-and-2-step-verification](https://telegram.org/blog/sessions-and-2-step-verification)" %}}
+{{% resource title="iOS security checks and mechanisms" languages="Multiple" cost="Free with macOS and iOS systems" description="Check for app tracking permissions on iOS systems" url="https://support.apple.com/en-is/guide/iphone/iph4f4cbd242/ios" %}}
+
+{{% resource title="iOS security checks and mechanisms" languages="Multiple" cost="Free with macOS and iOS systems" description="Apple's Safety Check tool" url="https://support.apple.com/en-is/guide/personal-safety/ips2aad835e1/web" %}}
+
+{{% resource title="Checking for linked devices on WhatsApp" languages="English, with apps and help guides localized into many other languages as well" cost="Free" description="Articles for:" url="https://faq.whatsapp.com/378279804439436?helpref=faq_content" %}}
+
+{{% resource title="Checking for linked devices on Signal" languages="English, with apps and help guides localized into many other languages as well" cost="Free" description="Articles for:" url="https://support.signal.org/hc/en-us/articles/360007320551-Linked-Devices" %}}
+
+{{% resource title="Checking for linked devices on Telegram" languages="English, with apps and help guides localized into many other languages as well" cost="Free" description="Articles for:" url="https://telegram.org/blog/sessions-and-2-step-verification" %}}
+
 
 
 ## Notes
