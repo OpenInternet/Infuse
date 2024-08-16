@@ -263,6 +263,6 @@ Th1s_1s_pH1sh1ng_Em3il
 
 {{% resource title="Documentation de la communauté de la ligne d'assistance Access Now pour répondre aux e-mails suspects/phishing" languages="Anglais" cost="Gratuit" description="Client reçoit un e-mail suspect/à caractère de phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
-{{% resource title="Liste de tous les types d'enregistrements DNS" languages="Anglais, Chinois, Japonais, Coréen, Russe, Serbe, Ukrainien, Espéranto, Hongrois, Vietnamien, Italien, Espagnol, Français" cost="Gratuit" description="Inclut (presque?) tous les types d'enregistrements DNS." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
+{{% resource title="Liste de tous les types d'enregistrements DNS" languages="Anglais, Chinois, Japonais, Coréen, Russe, Serbe, Ukrainien, Espéranto, Hongrois, Vietnamien, Italien, Espagnol, Français" cost="Gratuit" description="Inclut (presque?) tous les types d'enregistrements DNS." url="https://fr.wikipedia.org/wiki/Liste_des_enregistrements_DNS" %}}
 
 {{% resource title="Rapports d'Amnesty sur les campagnes de phishing" languages="Multiples, selon le rapport" cost="Gratuit" description="Une liste d'exemples de la façon dont une campagne de phishing ciblée contre les défenseurs des droits humains, les activistes et les journalistes se présente" url="https://www.amnesty.org/en/search/phishing/" %}}
