@@ -20,7 +20,7 @@ Après avoir terminé ce sous-thème, les participants devraient être en mesure
 ---
 ## Section Principale
 
-En général, un logiciel malveillant est un logiciel qui est utilisé pour faire des choses non autorisées sur l'ordinateur ou l'appareil mobile d'un utilisateur. Wikipédia propose une bonne [introduction aux logiciels malveillants en général.](https://en.wikipedia.org/wiki/Malware)
+En général, un logiciel malveillant est un logiciel qui est utilisé pour faire des choses non autorisées sur l'ordinateur ou l'appareil mobile d'un utilisateur. Wikipédia propose une bonne [introduction aux logiciels malveillants en général.](https://fr.wikipedia.org/wiki/Logiciel_malveillant)
 
 ### Que font les logiciels malveillants ?
 
@@ -87,7 +87,7 @@ Pour obtenir une longue discussion sur les IoC et leurs utilisations dans les in
 
 Jetez un coup d'œil aux IoC décrits à la page 52 [de ce rapport d'Amnesty](https://www.amnesty.org/en/documents/act10/7245/2023/en/) d'un puissant logiciel espion commercial : il s'agit principalement des noms de domaines qui ont été utilisés comme infrastructure lors de cette campagne de logiciels malveillants. Ensuite, jetez un œil à [cette page](https://github.com/AmnestyTech/investigations), qui recueille des IoC de diverses enquêtes menées par Amnesty Tech.
 
-Il existe de nombreuses façons de repérer les indicateurs de compromission. Ils incluent la recherche dans les journaux réseau pour voir si un périphérique a essayé de contacter un domaine spécifique et la vérification des fichiers présents sur un périphérique pour voir s'ils correspondent à certains hachages. Si vous souhaitez en savoir un peu plus sur eux, nous vous recommandons de consulter ces articles de [Microsoft](https://www.microsoft.com/en-us/security/business/security-101/what-are-indicators-of-compromise-ioc) et de [Fortinet](https://www.fortinet.com/resources/cyberglossary/indicators-of-compromise).
+Il existe de nombreuses façons de repérer les indicateurs de compromission. Ils incluent la recherche dans les journaux réseau pour voir si un périphérique a essayé de contacter un domaine spécifique et la vérification des fichiers présents sur un périphérique pour voir s'ils correspondent à certains hachages. Si vous souhaitez en savoir un peu plus sur eux, nous vous recommandons de consulter ces articles de [Microsoft](https://www.microsoft.com/fr-fr/security/business/security-101/what-are-indicators-of-compromise-ioc) et de [Fortinet](https://www.fortinet.com/fr/resources/cyberglossary/indicators-of-compromise).
 
 ### Logiciels malveillants connus et inconnus
 
