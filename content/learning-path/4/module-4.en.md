@@ -197,7 +197,7 @@ C) Horizontal Privilege Escalation
 
 
 
-### Exercise 3 (optional, only for those comfortable with basic python): code bug finding challenge
+### Exercise 3 (optional, only for those comfortable with basic Python): code bug finding challenge
 
 The code simulates a vulnerable web application with a horizontal privilege escalation vulnerability. The vulnerability lies in the fact that the delete_profile function only checks for the current user's write permission but does not verify that the current user is authorized to delete other users' profiles. This allows any user with write permission to delete any other user's profile, regardless of their own permissions.
 

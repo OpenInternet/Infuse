@@ -144,12 +144,24 @@ B) Implementing multi-factor authentication for admin accounts\
 C) Using version control systems and automated backups\
 D) Enforcing strict password policies for user accounts
 
+{{< question title="Answer and explanation" >}}
+1. Correct Answer: C) Using version control systems and automated backups
+
+Explanation: Using version control systems (such as Git) and automated backups ensures that the website's codebase and data are securely stored and can be easily restored in case of server failures or data loss. This practice helps maintain the integrity of the website and minimizes downtime.
+{{< /question >}}
+
 2. How can a CDN (Content Delivery Network) help protect a website from Denial of Service (DoS) attacks?
 
 A) By distributing website content across multiple servers to handle traffic spikes\
 B) By encrypting all data transmitted between the server and client\
 C) By providing additional layers of authentication for user logins\
 D) By automatically blocking access to suspicious IP addresses
+
+{{< question title="Answer and explanation" >}}
+2. Correct Answer: A) By distributing website content across multiple servers to handle traffic spikes
+
+Explanation: A CDN (Content Delivery Network) helps protect a website from DoS attacks by distributing its content across multiple servers located in various geographic locations. This distribution helps distribute the incoming traffic load, reducing the impact of DoS attacks and ensuring that the website remains accessible to users even during periods of high traffic.
+{{< /question >}}
 
 3. Which technology can enhance a website's resistance to DoS (Denial of Service) and hacking by serving pre-rendered HTML pages to users?
 
@@ -158,6 +170,12 @@ B) Dynamic web application frameworks\
 C) Content Management Systems (CMS)\
 D) Static site generators
 
+{{< question title="Answer and explanation" >}}
+3. Correct Answer: D) Static site generators
+
+Explanation: Static site generators create websites by generating HTML pages from source files during the build process. Since static sites do not rely on server-side processing or databases, they are inherently more resistant to hacking and DoS attacks. Static sites are also typically faster to load and easier to cache, further enhancing their resilience to attacks.
+{{< /question >}}
+
 4. How do configuration hardeners and WAFs (Web Application Firewalls) contribute to making a website more resistant to hacking?
 
 A) By optimizing server performance and resource usage\
@@ -165,23 +183,11 @@ B) By implementing additional layers of authentication for user logins\
 C) By automatically detecting and blocking known attack patterns and suspicious traffic\
 D) By encrypting all data transmitted between the server and client
 
-Correct answers and explanations:
-
-1. Correct Answer: C) Using version control systems and automated backups
-
-Explanation: Using version control systems (such as Git) and automated backups ensures that the website's codebase and data are securely stored and can be easily restored in case of server failures or data loss. This practice helps maintain the integrity of the website and minimizes downtime.
-
-2. Correct Answer: A) By distributing website content across multiple servers to handle traffic spikes
-
-Explanation: A CDN (Content Delivery Network) helps protect a website from DoS attacks by distributing its content across multiple servers located in various geographic locations. This distribution helps distribute the incoming traffic load, reducing the impact of DoS attacks and ensuring that the website remains accessible to users even during periods of high traffic.
-
-3. Correct Answer: D) Static site generators
-
-Explanation: Static site generators create websites by generating HTML pages from source files during the build process. Since static sites do not rely on server-side processing or databases, they are inherently more resistant to hacking and DoS attacks. Static sites are also typically faster to load and easier to cache, further enhancing their resilience to attacks.
-
+{{< question title="Answer and explanation" >}}
 4. Correct Answer: C) By automatically detecting and blocking known attack patterns and suspicious traffic
 
-_Explanation: Configuration hardeners and WAFs (Web Application Firewalls) help make a website more resistant to hacking by automatically detecting and blocking known attack patterns and suspicious traffic. These security measures act as a barrier between the website and potential attackers, filtering incoming requests and traffic to prevent malicious activities and unauthorized access._
+Explanation: Configuration hardeners and WAFs (Web Application Firewalls) help make a website more resistant to hacking by automatically detecting and blocking known attack patterns and suspicious traffic. These security measures act as a barrier between the website and potential attackers, filtering incoming requests and traffic to prevent malicious activities and unauthorized access.
+{{< /question >}}
 
 ## Learning Resources
 
