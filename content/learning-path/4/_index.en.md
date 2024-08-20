@@ -1,7 +1,7 @@
 +++
 type = "learning-path"
 title = "Web Application Security Fundamentals"
-description = "This learning path will prepare you to start on the journey of analyzing malware. Note that this is one of the hardest areas of security to master, but incremental progress will give results. The general goal of malware analysis is to characterize new malware, both brand new malware and variants of existing ones"
+description = "Dynamic web applications contain a huge amount of features but also many potential security flaws. This learning path teaches you about some common vulnerabilities within web applications, so you can be better able to detect and remedy them."
 weight = 4
 thumbnail = "4"
 icon = "security-sage"

@@ -1,7 +1,7 @@
 +++
 type = "learning-path"
 title = "Web Application Hardening, Forensics, and Incident Response"
-description = "Websites are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By preparing effectively for these sorts of attacks, you can reduce their impact, or in some cases prevent them entirely."
+description = "This learning path looks at Denial of Service attacks against website, how to protect your or your beneficiaries' web applications from them, as well as how to collect and analyze website logs to detect attempted attacks."
 weight = 6
 thumbnail = "6"
 icon = "gateway-guardian"
