@@ -189,7 +189,7 @@ D) Regular users gaining access to administrative features
 A) Missing Authentication\
 B) Vertical Privilege Escalation\
 C) Horizontal Privilege Escalation\
-D) Forced Browsing\
+D) Forced Browsing
 
 {{< question title="Answer" >}}
 C) Horizontal Privilege Escalation
