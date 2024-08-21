@@ -30,6 +30,10 @@ key:
   - id: learning-paths-subtitle
     one: null
     other: " "
+  - id: how-works
+    translation:
+      one: null
+      other: Comment ça fonctionne
   - id: create-account
     one: null
     other: "Créer un nouveau compte"

@@ -40,6 +40,10 @@ key:
     translation:
       one: null
       other: "لوريم إيبسوم دولور سيت أميت بلاه."
+  - id: how-works
+    translation:
+      one: null
+      other: "كيف يعمل"
   - id: create-account
     translation:
       one: null

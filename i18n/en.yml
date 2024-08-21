@@ -46,6 +46,10 @@ key:
       one: null
       other: Choose where to begin your journey with these curated Infuse learning
         paths.
+  - id: how-works
+    translation:
+      one: null
+      other: How it works
   - id: create-account
     translation:
       one: null

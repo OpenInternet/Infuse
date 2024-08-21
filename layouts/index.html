@@ -51,12 +51,17 @@
     </div>
 
     <div class="mx-auto max-w-7xl px-8 lg:px-8 lg:pt-4">
-        <h2 class="text-3xl font-semibold leading-6 text-gray-900">{{ i18n "key.learning-paths-title" }}</h2>
-        <p class="mt-2 max-w-4xl text-md text-gray-500">{{ i18n "key.learning-paths-subtitle" }}</p>
-        <span id="completed" class="hidden">{{ i18n "key.completed" }}</span>
+        <div class="flex flex-wrap justify-between items-center">
+            <div>
+            <h2 class="text-3xl font-semibold leading-6 text-gray-900">{{ i18n "key.learning-paths-title" }}</h2>
+            <p class="mt-2 max-w-4xl text-md text-gray-500">{{ i18n "key.learning-paths-subtitle" }}</p>
+            <span id="completed" class="hidden">{{ i18n "key.completed" }}</span>
+            </div>
+            <a href="{{ .Site.LanguagePrefix }}/how" class="rounded-md bg-green-600 mt-lg-0 mt-4 px-4 py-2 text-md font-semibold text-white shadow-sm hover:bg-green-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-600">{{ i18n "key.how-works" }}</a>
+        </div>
     </div>
 
-    <section class="mx-auto max-w-7xl grid-cols-1 px-8 pb-32 pt-10 lg:grid-cols-3">
+    <section class="mx-auto max-w-7xl grid-cols-1 px-8 py-10 lg:grid-cols-3">
         <div class="grid grid-cols-1 gap-8 sm:grid-cols-2">
             {{ range where (where .Site.Pages "Section" "learning-path" ) "Params.type" "=" "learning-path" }}
             <a aria-label="{{ .Title }}" href="{{ .Permalink }}" class="flex focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2">
@@ -65,7 +70,7 @@
                     <article class="flex flex-col items-start">
                         <div class="relative w-full">
                             <img src="/media/thumbnails/{{ .Page.Params.thumbnail }}.png" alt="{{ .Page.Params.title }}"
-                                class="aspect-[2/1] w-full rounded-xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[2/1]">
+                                class="aspect-[2/1] w-full rounded-xl bg-gray-100 object-cover sm:aspect-[2/1] lg:aspect-[2/1]" loading="lazy">
                         </div>
                         <div class="mb-auto max-w-xl">
                             <div class="group relative mb-auto">
@@ -125,7 +130,9 @@
         });
     </script>
 
-    <!--   {{ partial "faq.html" . }} -->
+    {{ partial "logos.html" . }}
+
+    <!-- {{ partial "faq.html" . }} -->
 
     <script>
         if (typeof window !== 'undefined') {

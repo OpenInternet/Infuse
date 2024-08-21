@@ -40,6 +40,10 @@ key:
     translation:
       one: null
       other: " "
+  - id: how-works
+    translation:
+      one: null
+      other: Cómo funciona
   - id: create-account
     translation:
       one: null
