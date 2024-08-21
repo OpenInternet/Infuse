@@ -1,72 +1,70 @@
 +++
 style = "module"
 weight = 1
-title = "Infrastructure Vulnerabilities"
+title = "Vulnérabilités de l'infrastructure"
+description = "Nous présentons différents types de vulnérabilités d'infrastructure et l'impact qu'elles pourraient avoir."
 +++
 
-## Use Case
+## Cas d'utilisation
 
-While this learning path focuses on web application security, web applications run on top of numerous pieces of software infrastructure. Any vulnerability in the application’s underlying infrastructure will compromise the application. Understanding some infrastructure security is therefore part of understanding application security.
+Bien que ce parcours d'apprentissage se concentre sur la sécurité des applications Web, les applications Web reposent sur de nombreux éléments de l'infrastructure logicielle. Toute vulnérabilité constatée dans l'infrastructure sous-jacente de l'application compromettra également l'application. La sécurité de certaines infrastructures est donc reprise dans la sécurité des applications.
 
-When inspecting a web application either for purposes of vulnerability assessment, security monitoring, or to investigate a compromise, the practitioner must understand the underlying stack of technology which provides the necessary environment for the application to run while looking for vulnerabilities in that stack.
+Lors de l'inspection d'une application Web à des fins d'évaluation de la vulnérabilité, de surveillance de la sécurité ou d'enquête sur une compromission, le participant doit comprendre la technologie sous-jacente qui fournit l'environnement nécessaire à l'exécution de l'application tout en recherchant les vulnérabilités dans cette pile technologique.
 
-## Objectives
+## Objectifs
 
-After completing this subtopic, practitioners should be able to do the following:
+Après avoir terminé ce sous-thème, les participants devraient être en mesure de faire ce qui suit :
 
-- Understand common types of infrastructure software vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand essentials of vulnerability frameworks
+- Comprendre les types courants de vulnérabilités logicielles de l'infrastructure
+- Comprendre les impacts potentiels de ces types de vulnérabilités
+- Comprendre les principes fondamentaux des cadres de vulnérabilité
 
 ---
+## Section Principale
 
-## Foundation Knowledge
+### Connaissances de base
 
-Websites do not exist without some underlying software and hardware that takes care of the low level operations of handling requests serving the web content. This includes the underlying hardware and firmware, operating system, web server software, web application framework(s), and even unrelated software running on the machine. The security of a web application depends on the security of this infrastructure, even if developers of the website may have little visibility into or control over this infrastructure. Infrastructure vulnerabilities typically affect a large number of websites (possibly hundreds of millions), and are often assigned identifiers such as CVEs (for a more general introduction to what CVEs are, check out this [article](https://www.redhat.com/en/topics/security/what-is-cve)). These vulnerabilities could belong to almost any technical class, but from the point of view as a website operator, we only really care about their impact, not the underlying technical details. This is because we do not maintain the infrastructure software, we just deploy and configure it.
+Les sites Web n'existent pas sans certains logiciels et matériels sous-jacents qui prennent en charge les opérations de bas niveau, du traitement des requêtes au service du contenu Web. Cela comprend le matériel et le micrologiciel sous-jacents, le système d'exploitation, le logiciel du serveur Web, le ou les cadres d'application Web et même les logiciels non apparentés exécutés sur la machine. La sécurité d'une application Web dépend de la sécurité de cette infrastructure, même si les développeurs du site Web peuvent avoir peu de visibilité ou de contrôle sur cette infrastructure. Les vulnérabilités de l'infrastructure affectent généralement un grand nombre de sites Web (peut-être des centaines de millions) et sont souvent associées à des identifiants tels que les CVE (pour une introduction plus générale à ce que sont les CVE, consultez cet [article](https://www.redhat.com/en/topics/security/what-is-cve)). Ces vulnérabilités pourraient appartenir à presque n'importe quelle classe technique, mais du point de vue de l'opérateur de site Web, nous ne nous soucions que de leur impact, et non des détails techniques sous-jacents. Cela s'explique par le fait que nous n'assurons pas la maintenance du logiciel d'infrastructure, nous nous contentons de le déployer et de le configurer.
 
-The impact of a vulnerability in infrastructure software can be nearly anything, but some issues and impacts that are likely to pop up include the types below.
+L'impact d'une vulnérabilité dans les logiciels d'infrastructure peut prendre presque n'importe quelle forme, mais certains problèmes et impacts qui sont susceptibles de surgir comprennent les types ci-dessous.
 
-## Denial of service (DoS)
+### Déni de service (DoS)
 
-A vulnerability may allow an attacker to crash a web server or cause it to be unresponsive due to excessive resource consumption. These vulnerabilities are typically exploited to knock a website offline or to extort money from website operators as part of a protection racket. Note that a determined and funded attacker can frequently rent time on a botnet of compromised computers to simply overwhelm a website with a huge number of requests; no vulnerability required. Some examples of DoS vulnerabilities include:
+Une vulnérabilité peut permettre à un cybercriminel de planter un serveur Web ou de le rendre non réactif en raison d'une consommation excessive de ressources. Ces vulnérabilités sont généralement exploitées pour frapper un site Web hors ligne ou pour extorquer de l'argent aux opérateurs de sites Web dans le cadre d'une extorsion contre une protection. Notez qu'un cybercriminel déterminé et financé peut souvent louer du temps sur un botnet d'ordinateurs compromis pour simplement submerger un site Web avec un grand nombre de requêtes, aucune vulnérabilité n'est requise dans ce cas. Voici quelques exemples de vulnérabilités DoS :
 
-- [CVE-2011-3192](https://nvd.nist.gov/vuln/detail/CVE-2011-3192): A vulnerability in Apache where the client can request multiple subsections of a web page, resulting in large memory use on the server.
-- [MS ADV190005](https://msrc.microsoft.com/update-guide/vulnerability/ADV190005): A vulnerability in Microsoft IIS allows an attacker to send a large number of settings variables in a HTTP/2 request, causing 100% CPU consumption on the server.
+- [CVE-2011-3192](https://nvd.nist.gov/vuln/detail/CVE-2011-3192) : une vulnérabilité dans Apache permettant à un client de demander plusieurs sous-sections d'une page Web, entraînant une grande utilisation de la mémoire sur le serveur.
+- [MS ADV190005](https://msrc.microsoft.com/update-guide/vulnerability/ADV190005) : une vulnérabilité dans Microsoft IIS permettant à un cybercriminel d'envoyer un grand nombre de variables de paramètres dans une requête HTTP/2, provoquant une consommation du processeur de 100 % sur le serveur.
 
-## Information leaks
+### Fuites d'informations
 
-Occasionally a web server can be coerced into returning excessive data in a response. Typically this will be due to the server allocating a large chunk of memory, then only partially writing data to that chunk, and sending the whole chunk to the client. This uninitialized memory could contain data from other requests or responses, or even internal memory from the web server. The most famous of these vulnerabilities is likely [Heartbleed (CVE-2014-0160)](https://en.wikipedia.org/wiki/Heartbleed). These vulnerabilities can be used to steal session tokens (allowing attackers to impersonate other users), machine identities in cloud environments (allowing attackers to access other cloud services as the web server), private SSL keys (allowing attackers to impersonate the web server and launch middle-person attacks), and any other data residing in the web server process’ memory.
+Parfois, un serveur Web peut être contraint de renvoyer des données excessives dans une réponse. Généralement, cela sera dû au fait que le serveur allouera une grande partie de la mémoire, puis n'écrira que partiellement les données dans cette partie pour finalement envoyer la portion entière au client. Cette mémoire non initialisée pourrait contenir des données provenant d'autres requêtes ou réponses, ou même de la mémoire interne du serveur Web. La plus célèbre de ces vulnérabilités est probablement [Heartbleed (CVE-2014-0160)](https://en.wikipedia.org/wiki/Heartbleed). Ces vulnérabilités peuvent être utilisées pour voler des jetons de session (permettant aux cybercriminels d'usurper l'identité d'autres utilisateurs), des identités de machines dans des environnements cloud (permettant aux cybercriminels d'accéder à d'autres services cloud en tant que serveur Web), des clés SSL privées (permettant aux cybercriminels d'usurper l'identité du serveur Web et de lancer des attaques de personnes intermédiaires) et toute autre donnée résidant dans la mémoire du processus du serveur Web.
 
-## Remote code execution
+### Exécution de code à distance
 
-This is the most archetypal type of infrastructure vulnerability. It most commonly occurs when an attacker’s request can overwrite data flow control structures in the server’s memory, causing the target to execute attacker-specified machine code. Fortunately, years of testing and subsequent fixing and secure coding practice improvement have made these vulnerabilities rate in the default configurations of extremely mature server infrastructure software like Apache and IIS. However, they are much more common in non-default configurations of common software and in less mature software. Here are two examples from 2023 ([example 1](https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices/), [example 2](https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html)). Note that while buffer overflows may be the classic way of achieving remote code execution, there are other ways to do so as well. As with all infrastructure vulnerabilities, for the most part we are mainly concerned with what the impact is and whether a fix is available, and less with the technical details.
+Il s'agit du type de vulnérabilité d'infrastructure le plus typique. Cela se produit le plus souvent lorsque la requête d'un cybercriminel peut écraser des structures de contrôle de flux de données dans la mémoire du serveur, ce qui provoque l'exécution du code machine spécifié par le cybercriminel par la cible. Heureusement, des années de tests et de corrections ultérieures et d'amélioration des pratiques de programmation sécurisée ont rendu ces vulnérabilités peu fréquentes dans les configurations par défaut de logiciels d'infrastructure serveur extrêmement matures comme Apache et IIS. Cependant, elles sont très courantes dans les configurations personnalisées des logiciels communs et dans les logiciels moins matures. Voici deux exemples de 2023 ([exemple 1](https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices/), [exemple 2](https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html)). Notez que si les dépassements de mémoire tampon peuvent être le moyen classique d'exécuter du code à distance, il existe d'autres moyens de le faire également. Comme pour toutes les vulnérabilités de l'infrastructure, nous sommes principalement préoccupés par l'impact et la disponibilité d'un correctif, et moins par les détails techniques.
 
-## Mitigating infrastructure software vulnerabilities
+### Atténuation des vulnérabilités logicielles de l'infrastructure
 
-Infrastructure software with vulnerabilities is usually discovered via vulnerability-scanning software (there are many examples of such software, [check out this list](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), notifications from vendors or configuration management systems, or via manual inspection of the deployed software on a server. Depending on the server environment, this software may be fully managed by a third party, automatically updated by software agents or deploy processes, or manually managed. Typically, if a vulnerability is patched, attackers can reverse-engineer the patch to discover the mechanism of the underlying vulnerability, so it is important to keep infrastructure software up to date.
+Les logiciels d'infrastructure comprenant des vulnérabilités sont généralement découverts via un logiciel de détection de vulnérabilités (il existe de nombreux exemples de tels logiciels, [consultez cette liste](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), des notifications des fournisseurs ou des systèmes de gestion de configuration ou via une inspection manuelle du logiciel déployé sur un serveur. Selon l'environnement du serveur, ce logiciel peut être entièrement géré par un tiers, mis à jour automatiquement par des agents logiciels ou des processus de déploiement, ou géré manuellement. En règle générale, si une vulnérabilité est corrigée, les cybercriminels peuvent inverser l'ingénierie du correctif pour découvrir le mécanisme de la vulnérabilité sous-jacente, il est donc important de garder le logiciel d'infrastructure à jour.
 
-## Learning Resources
+## Contrôle de compétence
 
-{{% resource title="What’s a CVE" languages="English" cost="Free" description="Introduction to CVEs (Common Vulnerabilities and Exposures) and their importance." url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
+Recherchez 2 CVE qui sont répertoriées sur <https://www.opencve.io/cve> ou une autre base de données CVE. Choisissez celles qui sont décrites en profondeur (les bases de données CVE sont généralement liées à des articles externes qui contiennent de tels détails) et ont une cote de vulnérabilité. Étant donné que les CVE peuvent souvent être très techniques, sélectionnez celles qui traitent d'un sujet ou d'une technologie que vous connaissez. Répondez aux questions suivantes :  
 
-{{% resource title="CVEs with a vulnerability score of 9.8" languages="English" cost="Free" description="Examples of CVEs with high vulnerability scores that can cause significant damage." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
+- De façon générale, de quoi parle les CVE ? Quelle est la faille ou la vulnérabilité que les cybercriminels pourraient exploiter ?
+- Connaissez-vous des personnes ou des organisations dont un cybercriminel pourrait exploiter les systèmes en utilisant cette CVE ? Et si cette CVE est combinée avec d'autres vulnérabilités ?
+- Pourquoi pensez-vous que l'on ait attribué ce score à cette CVE ?
 
-{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.opencve.io/welcome" %}}
+Après avoir consulté deux CVE que vous avez trouvé intéressantes, effectuez une recherche dans une base de données CVE pour un produit technologique que vous ou les personnes que vous assistez exécutez, consultez les CVE récentes associées et répondez de nouveau aux questions énumérées ci-dessus.
 
-{{% resource title="SAFETAG vulnerability scanning" languages="English" cost="Free" description="Guide to vulnerability scanning using the SAFETAG methodology." url="https://safetag.org/methods/vulnerability_scanning" %}}
+Si vous hébergez vous-même un serveur Web, recherchez les vulnérabilités récentes. Si vous utilisez quelque chose comme Drupal ou WordPress via un fournisseur tiers, vérifiez également les vulnérabilités de ces services et, via le tableau de bord de votre fournisseur (chaque fournisseur en aura un légèrement différent), assurez-vous que vous exécutez les dernières versions de ces outils.
 
-{{% resource title="Vulnerability Scanning Tools" languages="English" cost="Free" description="List of automated tools for web app vulnerability scanning, with various use cases and pricing models." url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
+Si possible, discutez de vos réponses à ces questions avec un pair ou un mentor qui vous aidera à vérifier que vous avez bien compris le sujet.
 
-## Skill Check
+## Ressources d'apprentissage
+{{% resource title="Qu'est-ce qu'une CVE ?" description="Une bonne introduction à ce que sont les CVE (vulnérabilités et expositions courantes) et pourquoi elles sont importantes" languages="Anglais" cost="Gratuit" url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
+{{% resource title="CVE avec un score de vulnérabilité de 9,8" description="Voici deux exemples de CVE qui avaient des scores de vulnérabilité très élevés, ce qui signifie que les cybercriminels qui les exploitent pourraient faire beaucoup de dégâts" languages="Anglais" cost="Gratuit" url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices <br> https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
+{{% resource title="OpenCVE" description="Un site Web (et un outil autonome) qui vous permet de vous abonner aux CVE affectant différents fournisseurs. Notez que toutes les vulnérabilités ne reçoivent pas de CVE." languages="Anglais" cost="Gratuit" url="https://www.opencve.io/welcome" %}}
+{{% resource title="Analyse de vulnérabilité SAFETAG" description="Un guide d'analyse des vulnérabilités qui utilise la méthodologie SAFETAG et contient de nombreuses activités spécifiques" languages="Anglais" cost="Gratuit" url="https://safetag.org/methods/vulnerability_scanning" %}}
+{{% resource title="Outils d'analyse des vulnérabilités" description="Une liste d'outils automatisés que les protecteurs numériques peuvent utiliser pour rechercher des vulnérabilités dans les applications Web. Les différents outils fonctionnent selon les différents cas d'utilisation et ont différents modèles de prix, beaucoup d'entre eux étant open source." languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
 
-Look up 2 CVEs which are listed on [https://www.opencve.io/cve](https://www.opencve.io/cve) or another CVE database. Pick those which are both described in some depth (CVE databases usually link out to external writeups which contain such details) and have a vulnerability rating. Since CVEs can often be very technical, select those which deal with a topic or technology which you are comfortable with. Answer the following questions: \
-
-- Broadly speaking, what is the CVE about? What is the flaw or vulnerability that the attacker could exploit?
-- Do you know of any people or organizations whose systems an adversary could exploit using this CVE? What if this CVE is combined with other vulnerabilities?
-- Why do you think that the CVE has the score it has?
-
-After you have looked up two CVEs which you found interesting, do a search in a CVE database for a tech product which you or people you are supporting are running, see what recent CVEs it had, and once again answer the questions listed above.
-
-If you are self-hosting a web server, look up recent vulnerabilities. If you are running something like Drupal or Wordpress through a third-party provider, check up the vulnerabilities on those services as well and, through your provider’s dashboard (each provider will have a slightly different one) make sure that you are running the latest versions of those tools.
-
-If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic.

@@ -77,7 +77,8 @@ The application simply takes the input from the user and places it verbatim into
 </form></html>
 {{< / highlight >}}
 
-Note the `">` after `value="Alice"`. That tells the browser that the HTML input’s value attribute is completed, and then that the input tag is completed. Next, the text in blue is a script tag that runs the JavaScript that pops up an alert box. Finally, the `<i q="` is just some cleanup that prevents the web page from displaying the remnants of the original input tag. We can use different color highlighting and formatting to show how the browser interprets the generated web page:
+Note the `">` after `value="Alice"`. That tells the browser that the HTML input’s value attribute is completed, and then that the input tag is completed. Next, the text in blue is a script tag that runs the JavaScript that pops up an alert box. Finally, the `<i q="` is just some cleanup that prevents the web page from displaying the remnants of the original input tag. 
+<!-- We can use different color highlighting and formatting to show how the browser interprets the generated web page: -->
 {{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name" value="Alice"><script>alert("Owned by
