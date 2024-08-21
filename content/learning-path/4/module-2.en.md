@@ -30,7 +30,7 @@ While this attack is powerful, there are limits. The attacker is limited to cont
 
 Mechanically, this attack works by a web application receiving user data, and then integrating that user data directly into a web page. Consider a discussion forum site that allows users to to pick a display name:
 
-![alt_text](/media/uploads/web_fundamentals_empty_box.png)
+![An empty text box on a website where the user can enter text input, with a clickable button labeled "Submit" underneath](/media/uploads/web_fundamentals_empty_box.png)
 
 This rather un-fancy web page has the following HTML code:
 {{< highlight html >}}
