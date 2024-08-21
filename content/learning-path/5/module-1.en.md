@@ -63,27 +63,27 @@ Two popular intercepting web proxies used for security assessments are Portswigg
 
 To get started with Burp, you must first [download it](https://portswigger.net/burp/releases/community/latest). Once you’ve got it downloaded and installed, open the application. Before you start using Burp, it will prompt you to specify a project and a configuration. Projects let you keep track of your progress testing a site between sessions, but are not supported in the free edition, so just select “Temporary project”. You can also specify different sets of configurations, for now just select “Use Burp defaults.”
 
-![alt_text](/media/uploads/web_security_assessment_burp1.png "image_tooltip")
+![A screenshot of one of Burp Suite's first screens, with "Temporary Project in Memory" selected](/media/uploads/web_security_assessment_burp1.png)
 
-![alt_text](/media/uploads/web_security_assessment_burp2.png "image_tooltip")
+![A screenshot of the next Burp Suite screen, with "Use Burp defaults" selected](/media/uploads/web_security_assessment_burp2.png)
 
 This will take you to the main Burp window. The primary tabs that you’ll be using are the “Proxy” and “Intruder” tabs. For now, switch to the Proxy tab and click the “Open Browser” button. This will open a Chromium instance that’s fully configured to use Burp. This embedded browser is configured to use Burp as its proxy and has its TLS configuration changed to allow Burp to intercept encrypted traffic. You can use this browser instance for testing web applications while you use your normal browser for general browsing.
 
-![alt_text](/media/uploads/web_security_assessment_burp3.png "image_tooltip")
+![A screenshot of Burp Suite, with proxy and intercept enabled](/media/uploads/web_security_assessment_burp3.png)
 
-![alt_text](/media/uploads/web_security_assessment_burp4.png "image_tooltip")
+![A screenshot of the Burp Suite intercept. A web browser has loaded the Internews web page, and the intercept is listing all the requests it makes](/media/uploads/web_security_assessment_burp4.png)
 
 For now, type the URL of any website into Burp’s embedded browser and hit enter. You’ll note that nothing happens in the browser. Switch back to Burp, and you’ll see the HTTP request that the browser sent, and a button lit up that says “Intercept is on.” What has happened is that Burp has received the request from your browser but has not forwarded it to the web server. Instead, it’s allowing you to inspect and modify the request. For now, click the “intercept is on” button to turn off interception. If you look at Burp’s embedded Chromium, you should see the web page loaded. Switch back to Burp, and click the “HTTP History” sub-tab of the Proxy tab. You will see a log of all the HTTP requests that your browser has sent. If you click on one, you can see the full request, and also the response from the server.
 
-![alt_text](/media/uploads/web_security_assessment_burp5.png "image_tooltip")
+![A screenshot of the Burp Suite proxy, collecting HTTP history. The Internews website is in the foreground](/media/uploads/web_security_assessment_burp5.png)
 
 If you want to modify a request that’s already been sent, right-click that request and select “Send to Repeater”. Switch to the Repeater tab, and you will see the request on the left. A good practice is to immediately click the “Send” button to get a normal response. You can then edit the request, and send the edited request. You can use the “&lt;” and “>” buttons to see prior requests and responses. Using the repeater tab is extremely important when performing security assessments, as you will see in the later subtopics.
 
-![alt_text](/media/uploads/web_security_assessment_burp6.png "image_tooltip")
+![A screenshot of the Burp Suite proxy, as it has collected an item of HTTP history and is sending that item to the intruder feature](/media/uploads/web_security_assessment_burp6.png)
 
 One important feature of the Repeater interface is the “URL-encode as you type” feature. This will automatically encode characters as you type them, saving you many mistakes and a lot of time. Depending on what you’re modifying, you will either want this feature on or off. To change the setting, right-click on the Request pane and select the menu item.
 
-![alt_text](/media/uploads/web_security_assessment_burp7.png "image_tooltip")
+![A screenshot of the Burp Suite proxy, as it has collected an item of HTTP history and is sending that item to the repeater feature](/media/uploads/web_security_assessment_burp7.png)
 
 This will get you started with Burp Suite. The free Community Edition is enough for this learning path, although most people who get paid to perform security assessments of websites elect to subscribe to the Professional Edition. Both the free and paid version include a large number of features, which are documented on the [Portswigger website](https://portswigger.net/burp/documentation). You’ll be going much more in depth into Burp in most of the following subtopics (though you can use any proxy you want, if you prefer).
 
@@ -93,15 +93,15 @@ For all of the subtopics about vulnerability classes, the vast majority of the r
 
 In the subtopics below, each subtopic will assign a section of reading and labs from the PortSwigger Academy. When you’re completing those assignments, be sure to go through all the pages and complete all of the “apprentice” level labs. You should also attempt all of the “practitioner” level labs, but try not to get hung up on any one lab. If you get stuck on a particular practitioner lab, simply move on, and come back to it before you complete the final skill validation exercise of the learning path.
 
-![alt_text](/media/uploads/web_security_assessment_PortSwigger_screenshot1.png "image_tooltip")
+![A screenshot of PortSwigger academy, demonstrating an XSS proof of concept](/media/uploads/web_security_assessment_PortSwigger_screenshot1.png)
 
 The PortSwigger Academy XSS topic. Be sure to go through all the subtopics. “What is XSS” through “Testing” are all one web page, but each subtopic is its own page.
 
-![alt_text](/media/uploads/web_security_assessment_PortSwigger_screenshot2.png "image_tooltip")
+![A screenshot of PortSwigger academy, demonstrating reflected XSS](/media/uploads/web_security_assessment_PortSwigger_screenshot2.png)
 
 The PortSwigger Academy Reflected XSS subtopic. Note the lab linked towards the bottom of the screenshot.
 
-![alt_text](/media/uploads/web_security_assessment_PortSwigger_screenshot3.png "image_tooltip")
+![A screenshot of PortSwigger academy, demonstrating three labs in the reflected XSS subtopic](/media/uploads/web_security_assessment_PortSwigger_screenshot3.png)
 
 After completing a topic (e.g. XSS), double-check your lab completion by checking the “View all _topic_ labs” link. This will let you see any labs that you missed.
 
