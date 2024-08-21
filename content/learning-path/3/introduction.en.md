@@ -1,7 +1,7 @@
 ---
 style: introduction
 title: Introduction
-description: START HERE. Read the learning path overview, objectives, associated threats, and prerequisites
+description: Read the learning path overview, objectives, associated threats, and prerequisites
 weight: 1
 ---
 

@@ -216,6 +216,10 @@ key:
     translation:
       one: "وحدة"
       other: "وحدات"
+  - id: start-here
+    translation:
+      one: null
+      other: "ابدأ هنا"
   - id: what-learn
     translation:
       one: null

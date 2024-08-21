@@ -72,15 +72,24 @@
 
                     {{ range where .RegularPagesRecursive "Params.style" "=" "introduction" }}
                     <div
-                        class="transition-200 relative flex items-center space-x-3 rounded-3xl border-2 border-gray-300 bg-white px-6 py-5 shadow-3xl transition-shadow focus-within:shadow-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-gray-400 hover:shadow-none">
+                        class="transition-200 relative flex items-center space-x-3 rounded-3xl border-2 border-green-300/50 bg-green-50/45 px-6 py-5 shadow-3xl transition-shadow focus-within:shadow-none focus-within:ring-2 focus-within:ring-green-500 focus-within:ring-offset-2 hover:border-green-400 hover:shadow-none">
                         <article class="flex w-full flex-col items-start justify-between">
                             <div class="w-full">
                                 <div class="group relative">
+                                    <p class="mb-1 text-sm font-bold uppercase text-green-700">{{ i18n "key.start-here" }}</p>
                                     <h3
                                         class="text-2xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
                                         <a href="{{ .Permalink }}">
                                             <span class="absolute inset-0"></span>
                                             {{ .Page.Params.title }}
+                                            <!-- Arrow based on language direction -->
+                                            {{ if in (slice "ar" "he" "fa") .Lang }}
+                                            <!-- Arrow pointing left for RTL languages -->
+                                                <span aria-hidden="true" class="ms-1">&larr;</span>
+                                            {{ else }}
+                                            <!-- Arrow pointing right for LTR languages -->
+                                                <span aria-hidden="true" class="ms-1">&rarr;</span>
+                                            {{ end }}
                                         </a>
                                     </h3>
                                     <p class="mt-2 text-sm font-semibold leading-6 text-gray-500">{{
@@ -137,6 +146,14 @@
                                         <a href="{{ .Permalink }}">
                                             <span class="absolute inset-0"></span>
                                             {{ .Page.Params.title }}
+                                            <!-- Arrow based on language direction -->
+                                            {{ if in (slice "ar" "he" "fa") .Lang }}
+                                            <!-- Arrow pointing left for RTL languages -->
+                                                <span aria-hidden="true" class="ms-1">&larr;</span>
+                                            {{ else }}
+                                            <!-- Arrow pointing right for LTR languages -->
+                                                <span aria-hidden="true" class="ms-1">&rarr;</span>
+                                            {{ end }}
                                         </a>
                                     </h3>
 

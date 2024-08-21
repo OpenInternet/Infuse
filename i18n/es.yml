@@ -224,6 +224,10 @@ key:
     translation:
       one: "Módulo"
       other: "Módulos"
+  - id: start-here
+    translation:
+      one: null
+      other: Empieza aquí
   - id: what-learn
     translation:
       one: null

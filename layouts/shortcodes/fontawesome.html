@@ -1,1 +1,9 @@
-{{ partial "fontawesome.html" ( .Get 0 ) }}
+{{- $iconName := .Get 0 -}}
+{{- $fname:= print "assets/icons/" $iconName ".svg" -}}
+{{- $svg := readFile $fname -}}
+{{- $commentStrippedSvg := replaceRE "<!--[^>]*-->" "" $svg -}}
+{{- $newClass := .Get 1 | default "inline-block ms-1 h-4 w-4" -}} <!-- Default classes if none provided -->
+{{- $classReplacedSvg := replaceRE `<svg([^>]*)class="[^"]*"` (printf `<svg$1class="%s"` $newClass) $commentStrippedSvg -}}
+{{- $classAddedSvg := replaceRE `<svg([^>]*)>` (printf `<svg$1 class="%s">` $newClass) $classReplacedSvg -}}
+{{- $filledPathSvg := replace $classAddedSvg "<path" "<path fill='currentColor' aria-hidden='true'" -}}
+{{ $filledPathSvg | safeHTML }}

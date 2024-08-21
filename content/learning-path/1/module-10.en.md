@@ -11,7 +11,7 @@ We have also designed a capture-the-flag exercise in which learners can analyze 
 
 You are sitting in the bustling Press newsroom where you are working as an IT admin, sitting totally focused on your duties surrounded by glowing monitors. Your colleague Alia from Accounting rushes over with a concerned look on their face, who lets you know they forwarded an email claiming to be from PayPal which urges them to take immediate action due to suspicious account activity. The Press organization relies on PayPal for processing subscription payments. Your interest is instantly piqued as you recognize the potential of a malicious attack, and you get started on an investigation.
 
-*This activity utilizes a sample email and landing page needed for this activity. Download the files here: [CTF Materials](/files/ctf-materials.zip)*
+*This activity utilizes a sample email and landing page needed for this activity. Download the files here: {{< fontawesome "solid/download" >}} [CTF Materials](/files/ctf-materials.zip)*
 
 ### Question 1: What is the sender address of the email?
 

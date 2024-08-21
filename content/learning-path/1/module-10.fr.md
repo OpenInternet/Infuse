@@ -13,7 +13,7 @@ Nous avons également conçu un exercice Capture The Flag dans lequel les appren
 
 Vous êtes assis dans la salle de rédaction animée de la presse où vous travaillez en tant qu'administrateur IT, concentré sur vos tâches entouré de moniteurs lumineux. Votre collègue Alia du service comptable arrive en courant avec une expression préoccupée, vous informant qu'elle a transmis un e-mail prétendant être de PayPal, l'incitant à agir immédiatement en raison d'une activité de compte suspecte. L'organisation de la presse compte sur PayPal pour le traitement des paiements d'abonnement. Votre intérêt est immédiatement attisé lorsque vous reconnaissez le potentiel d'une attaque malveillante, et vous commencez une enquête.
 
-_Cette activité utilise un exemple d'e-mail et de page de destination nécessaires à cette activité. Téléchargez les fichiers ici : [Matériaux CTF](/files/ctf-materials.zip)_
+_Cette activité utilise un exemple d'e-mail et de page de destination nécessaires à cette activité. Téléchargez les fichiers ici: {{< fontawesome "solid/download" >}} [Matériaux CTF](/files/ctf-materials.zip)_
 
 ### Question 1 : Quelle est l'adresse e-mail de l'expéditeur de l'e-mail?
 

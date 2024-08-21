@@ -232,6 +232,10 @@ key:
     translation:
       one: Module
       other: Modules
+  - id: start-here
+    translation:
+      one: null
+      other: Start here
   - id: what-learn
     translation:
       one: null

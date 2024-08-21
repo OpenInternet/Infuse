@@ -2,7 +2,7 @@
 style = "introduction"
 weight = 1
 title = "Introduction"
-description = "START HERE. Read the learning path overview, objectives, associated threats, and prerequisites"
+description = "Read the learning path overview, objectives, associated threats, and prerequisites"
 +++
 
 ## Overview

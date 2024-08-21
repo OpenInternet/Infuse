@@ -1,7 +1,7 @@
 ---
 style: introduction
 title: Introduction
-description: COMMENCEZ ICI. Lisez la présentation du parcours d'apprentissage, les objectifs, les menaces associées et les prérequis.
+description: Lisez la présentation du parcours d'apprentissage, les objectifs, les menaces associées et les prérequis.
 weight: 1
 ---
 

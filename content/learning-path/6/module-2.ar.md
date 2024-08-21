@@ -587,7 +587,7 @@ Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 
 This skill check will be much easier if you’ve first completed the practice exercise above.
 
-You are given an nginx access log from a website under attack to investigate, which you can [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
 
 Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
 

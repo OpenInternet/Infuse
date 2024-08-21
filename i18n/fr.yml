@@ -168,6 +168,10 @@ key:
   - id: modules
     one: "Module"
     other: "Modules"
+  - id: start-here
+    translation:
+      one: null
+      other: Commencez ici
   - id: what-learn
     one: null
     other: "Ce que vous apprendrez"

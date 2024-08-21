@@ -9,7 +9,7 @@ También hemos diseñado un ejercicio de captura de bandera en el cual los estud
 
 Estás sentado en la bulliciosa redacción de la prensa donde trabajas como administrador de IT, totalmente concentrado en tus deberes rodeado de monitores brillantes. Tu colega Alia del departamento de Contabilidad se acerca corriendo con una expresión preocupada, y te informa que reenvió un correo electrónico que afirmaba ser de PayPal y que les urgía a tomar medidas inmediatas debido a una actividad sospechosa en su cuenta. La organización de prensa depende de PayPal para procesar los pagos de suscripción. Tu interés se despierta instantáneamente al reconocer el potencial de un ataque malicioso, y comienzas una investigación.
 
-_Esta actividad utiliza un correo electrónico y una página de destino de muestra necesarios para la actividad. Descarga los archivos aquí: [Materiales CTF](/files/ctf-materials.zip)_
+_Esta actividad utiliza un correo electrónico y una página de destino de muestra necesarios para la actividad. Descarga los archivos aquí: {{< fontawesome "solid/download" >}} [Materiales CTF](/files/ctf-materials.zip)_
 
 ### Pregunta 1: ¿Cuál es la dirección del remitente del correo electrónico?
 

@@ -1,4 +1,4 @@
-{{ $fname:=print "assets/icons/" . ".svg" }}
+{{ $fname:= print "assets/icons/" . ".svg" }}
 {{- $svg := readFile $fname -}}
 {{- $commentStrippedSvg := replaceRE "<!--[^>]*-->" "" $svg -}}
 {{- $filledPathSvg := replace $commentStrippedSvg "<path" "<path fill='currentColor' aria-hidden='true'" -}}
