@@ -104,23 +104,23 @@ ZAP (SSP’s Zed Attack Proxy) is an open-source alternative to Burp. Though mos
 
 For this practice, we’ll be using ZAP’s scanner module. To get a feel for it, first, make sure you’ve got an instance of DIWA running, then simply open ZAP and click “Automated Scan”, put in the URL of your DIWA home page, and click “Attack”.
 
-![alt_text](/media/uploads/web_security_assessment_ZAP1.png)
+![A screenshot of ZAP as it opens](/media/uploads/web_security_assessment_ZAP1.png)
 
-![alt_text](/media/uploads/web_security_assessment_ZAP2.png)
+![A screenshot of ZAP as the user selects an automated scan. The URL to attack is 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP2.png)
 
 Since DIWA is a small app, this scan should complete rather quickly. If nothing went horribly wrong, you’ll note that ZAP’s scanner found some issues. However, unless ZAP has changed significantly, the ZAP results may be somewhat underwhelming. There may be some small issues that ZAP found and you didn’t, but ZAP should’ve missed most of the big issues you found.
 
 Let’s see if we can improve this. Click the “Quick Start” button in the secondary toolbar, and then the “&lt;” in the pane below. From there, click “Manual Explore”, put in the URL of your DIWA, and then click “Launch Browser”.
 
-![alt_text](/media/uploads/web_security_assessment_ZAP3.png)
+![A screenshot of ZAP and the "alerts" box that the service displays at the bottom](/media/uploads/web_security_assessment_ZAP3.png)
 
-![alt_text](/media/uploads/web_security_assessment_ZAP4.png)
+![A screenshot of ZAP as it manually explores the page for vulnerable JS libraries](/media/uploads/web_security_assessment_ZAP4.png)
 
 Click around the site a bit, and make sure that when you’re done you’re logged into the site as an administrative user. Now, go back to ZAP and launch a scan by right-clicking the DIWA site in the left bar and launching an active scan with the default setup.
 
-![alt_text](/media/uploads/web_security_assessment_ZAP5.png)
+![A screenshot of ZAP as the user rights clicks on a site, and selects "attack" and "active scan"](/media/uploads/web_security_assessment_ZAP5.png)
 
-![alt_text](/media/uploads/web_security_assessment_ZAP6.png)
+![A screenshot of ZAP as the user gets ready to run an active scan on 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP6.png)
 
 This scan should take significantly longer and give significantly different better results. Why did this happen? Launching the scan from a site you’ve visited in the “Sites” section gives the scanner a lot more information than the fully automated scan gets. In fact, the results you get from the scanner may differ greatly based on how you manually explore the site prior to running the scan.
 

@@ -46,7 +46,7 @@ If you were testing a forum website that allowed multiple sub-forums, you might 
 
 Once you’ve got the user accounts you need, you can start making a site map. The site map will guide your testing, and will function as your checklist for testing. As as example, you might produce something like this:
 
-![alt_text](/media/uploads/web_security_assessment_testing_table1.png)
+![A big table which lists every item on a webpage that can be accessed by a user, along with its URL and a checklist for who can access it--unauthenticated users, particular authenticated users, moderators, or admins](/media/uploads/web_security_assessment_testing_table1.png)
 
 This shows every page you’ve found in the app (“URL” column), its logical navigation, whether the content of the page changes depending on its parameters (“User-specific?” column), and then whether each user type has access to the URL. There’s also a “notes” column for you to collect important info about the page, e.g., if the profile page shows very different content depending on the user of the person viewing the page or if data input on one page shows up on another. Some sites may not fit nicely into this particular structure. That’s fine, the structure should be specific to the site, so feel free to change it. However, something like this should work for most sites.
 
@@ -64,7 +64,7 @@ Most people elect to keep their notes from these tests in a text file, as oppose
 
 Now that you understand the site, you can dive into the biggest part of testing the site: testing every page (and every input) for the full battery of tests in the rest of the methodology. This is going to be a lot to keep track of, and if you don’t stay focused and keep track, you will miss things. Fortunately, you’ve prepared a spreadsheet. All you need to do is expand that spreadsheet and you’ve got a full checklist:
 
-![alt_text](/media/uploads/web_security_assessment_testing_table2.png)
+![A screenshot of a similar table to the one above except that there are not more columns which allow the person filling it in to check boxes for various authorization, authentication, XSS, and other vulnerabilities they might encounter](/media/uploads/web_security_assessment_testing_table2.png)
 
 This might seem daunting, but every cell in that sheet is a small, discrete chunk of work that should take a bounded amount of time. It’s usually more effective to go through the site filling out rows first; choose a page and go through the entire methodology, rather than performing one test throughout the entire site. As you go, put something like a “√” in cells as you complete them, or something like “n/a” if the tests don’t apply. Over the hours and days, your checklist will get filled in, and you can be confident that you’ve performed complete testing.
 
