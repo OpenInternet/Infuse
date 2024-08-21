@@ -7,9 +7,7 @@ display_url: https://infuse.quest
 backend:
   name: github
   repo: OpenInternet/Infuse
-  open_authoring: true
   branch: main
-  site_domain: infuse.quest
 
 local_backend: false
 
