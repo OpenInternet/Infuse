@@ -372,6 +372,10 @@ key:
     translation:
       one: null
       other: Next module
+  - id: overview-path
+    translation:
+      one: null
+      other: Overview page
   - id: languages
     translation:
       one: Language

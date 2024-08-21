@@ -197,7 +197,7 @@
                     </div>
                 </section>
 
-                <nav class="flex w-full items-center {{ if not .NextInSection }}justify-end{{ else }}justify-between{{ end }} px-4 pt-6 sm:px-6"
+                <nav class="flex w-full items-center justify-between px-4 pt-6 sm:px-6"
                     aria-label="Pagination">
                     {{ with .NextInSection }}
                     <a href="{{ .Permalink }}"
@@ -224,6 +224,23 @@
                             </svg>
                         </span>
                     </a>
+                    {{ end }}
+                    {{ if not .PrevInSection }}
+                    {{ if .Parent }}
+                    <a href="{{ .Parent.Permalink }}"
+                        class="relative flex items-center justify-end rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 no-underline ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus-visible:outline-offset-0">
+                        <span class="flex items-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" 
+                                stroke="currentColor" class="me-2 size-4" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" 
+                                    d="m9 9 6-6m0 0 6 6m-6-6v12a6 6 0 0 1-12 0v-3" />
+                            </svg>
+                            {{ i18n "key.overview-path" }}                     
+                        </span>
+                    </a>
+                    {{ else }}
+                    {{ end }}
+                    {{ else }}
                     {{ end }}
                 </nav>
 

@@ -352,6 +352,10 @@ key:
     translation:
       one: null
       other: "الوحدة التالية"
+  - id: overview-path
+    translation:
+      one: null
+      other: صفحة نظرة عامة
   - id: languages
     translation:
       one: null

@@ -359,6 +359,10 @@ key:
     translation:
       one: null
       other: "Próximo módulo"
+  - id: overview-path
+    translation:
+      one: null
+      other: Página de resumen
   - id: languages
     one: "Idioma"
     other: "Idiomas"
