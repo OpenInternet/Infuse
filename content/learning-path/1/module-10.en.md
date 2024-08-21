@@ -31,11 +31,11 @@ There are multiple ways to view what the email would look like to the recipient.
 
 In this walkthrough we will just open the email (paypal.eml) in an email program
 
-![Windows Right-Click menu showing Open With -> Outlook Option](/media/uploads/CTF1_open_in_mail_program.png "image_tooltip")
+![Windows Right-Click menu showing Open With -> Outlook Option](/media/uploads/CTF1_open_in_mail_program.png)
 
 As we look into the email, we see the visible sender email address
 
-![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CFT2_sender_address.png "image_tooltip")
+![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CFT2_sender_address.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -49,7 +49,7 @@ As we continue to review the email, we look for more characteristics which could
 {{< /question >}}
 
 {{< question title="Hints" >}}
-![alt_text](/media/uploads/CTF3_email_subject.png "image_tooltip")
+![A screenshot of the email in question, highlighting the subject line thereof](/media/uploads/CTF3_email_subject.png)
 
 Here are some key trigger points to watch out for in a phishing email:
 
@@ -70,7 +70,7 @@ When we look at a potentially malicious email, we also need to figure out what t
 {{< /question >}}
 
 {{< question title="Hints" >}}
-![alt_text](/media/uploads/CTF4_email_actions.png "image_tooltip")
+![A screenshot of the email with "detected suspicious activity", "payments have been suspended", "complete account verification" and the call to action link saying "resume payments" all underlined](/media/uploads/CTF4_email_actions.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -90,13 +90,13 @@ You can defang a link in a text editor. Here we will use [CyberChef](gchq.github
 
 As part of this exercise, play around with CyberChef and defang the “please confirm” link from the attached email.
 
-![alt_text](/media/uploads/CTF5_copylink.png "image_tooltip")
+![A screenshot of how to right click on an email and then press "copy link"](/media/uploads/CTF5_copylink.png)
 First, we copy the hyperlink from the email.
 
-![alt_text](/media/uploads/CTF6_defang.png "image_tooltip")
+![A screenshot of CyberChef, with "defang" being typed into its search bar](/media/uploads/CTF6_defang.png)
 Then, we take the “Defang URL” input from CyberChef and drag it into the “Recipe” section
 
-![alt_text](/media/uploads/CTF7_defanged.png "image_tooltip")
+![A screenshot of CyberChef successfully defanging an email](/media/uploads/CTF7_defanged.png)
 
 Once we’ve pasted the URL into the input section in CyberChef, it will automatically output a defanged version thereof.
 {{< /question >}}
@@ -114,7 +114,7 @@ You can use CyberChef to perform a lot of different analysis tasks. This time, f
 {{< question title="Answer" >}}
 You can use a ‘recipe’ – or a series of connected steps –in CyberChef to carry out a more complex analysis. To obtain and defang all the URLs in the message, all you need to do is run a recipe with the “extract URLs” and “defang URLs” workflows and paste the full content of the email (copied from a plain text editor) as input. If you were to tick the “unique” checkbox under “extract URLs”, you will see that the results will differ from those from the screenshot, and it will only output a single URL, the same one you defanged above. The fact that there is just one URL, repeated many times, within the email is great news for us–it will make our analysis much more straightforward. \
 
-![alt_text](/media/uploads/CTF9_cyberchef.png "image_tooltip")
+![A screenshot of a CyberChef recipe which first extracts all the URLs from a text file and then defangs them](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
 
 ## Passive Investigation of URLs, Hostnames, and IP Addresses
@@ -126,7 +126,7 @@ For the next few questions, we will use [VirusTotal](https://www.virustotal.com/
 
 Paste the URL from question 4 into VirusTotal (this time, you need to paste the full URL, not the defanged version). Go to “details” tab and look at the URL capture history.
 
-![alt_text](/media/uploads/CFT9_VirusTotal.png "image_tooltip")
+![A screenshot of VirusTotal history, showing three dates: first submission, last submission, last analysis](/media/uploads/CFT9_VirusTotal.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -138,7 +138,7 @@ Paste the URL from question 4 into VirusTotal (this time, you need to paste the 
 {{< question title="Hints" >}}
 Also looking through the “details” tab in VirusTotal, look up the serving IP address.
 
-![alt_text](/media/uploads/CTF10_VirusTotalIP.png "image_tooltip")
+![A screenshot of VirusTotal showing an HTTP response, with the final URL and serving IP address given](/media/uploads/CTF10_VirusTotalIP.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -164,7 +164,7 @@ In order to look up information related to a domain registration, we can use a w
 {{< question title="Hints" >}}
 Here we use a whois website to extract it
 
-![alt_text](/media/uploads/CTF11_whois.png "image_tooltip")
+![A screenshot of a WHOIS lookup of the d.pr domain](/media/uploads/CTF11_whois.png "image_tooltip")
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -178,7 +178,7 @@ IP addresses are loosely tied to geographical locations, such as cities or distr
 
 It’s worth comparing the information you receive from a whois lookup with that you receive from IP location searches. You might learn that the IP address you are trying to investigate belongs to a VPN provider or a big tech company such as Google–if this is the case, then you will not learn much from those investigations; the IP location will likely correspond to one of those companies’ server farms and might have little to do with the location of the person or entity you’re trying to investigate.
 
-![alt_text](/media/uploads/CTF12_geoIP.png "image_tooltip")
+![A screenshot of a geoIP lookup of an IP address, showing that it originated in Portland, Oregon](/media/uploads/CTF12_geoIP.png "image_tooltip")
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -196,11 +196,11 @@ For the next few questions, we will be using a tool called [MxToolbox](https://m
 {{< question title="Hints" >}}
 First, open the email using a plain text editor of your choice and copy its content. Then, paste them into the MxToolbox’s “Analyze Headers” tool
 
-![alt_text](/media/uploads/CTF8_MX_analyzer.png "image_tooltip")
+![A screenshot of email headers being pasted into MX Toolbox Analyser](/media/uploads/CTF8_MX_analyzer.png)
 
 Once you press “Analyze Header”, you can see the return path
 
-![alt_text](/media/uploads/CTF13_return_path.png "image_tooltip")
+![A screenshot of MX Toolbox giving a complex Return-Path based on the headers it analyzed](/media/uploads/CTF13_return_path.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -212,10 +212,10 @@ paparazi@rjttznyzjjzydnillquh.designclub.uk.com
 {{< question title="Instructions" open="true" >}}
 Go to the file “mx-toolbox-header-analysis”, look into the relay information section.
 
-![alt_text](/media/uploads/CTF14_relay.png "image_tooltip")
+![Another screenshot of the MX Toolbox analytics, with an initial relay highlighted](/media/uploads/CTF14_relay.png)
 The address of the mail server
 
-![alt_text](/media/uploads/CTF15_address.png "image_tooltip")
+![Another screenshot of the MX Toolbox analytics, with the relay address highlighted](/media/uploads/CTF15_address.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -239,18 +239,18 @@ CyberChef can encode and decode Base64 text.
 
 We open once again the code attached of the phishing page (.html)
 
-![alt_text](/media/uploads/CTF16_open_webpage_notepad.png "image_tooltip")
+![A screenshot of an html file being right clicked in Windows Explorer, and then opened in Notepad](/media/uploads/CTF16_open_webpage_notepad.png)
 
 we search for the victimID in the source code
-![alt_text](/media/uploads/CTF17_searchID.png "image_tooltip")
+![A screenshot of someone searching through the plain text file opened in Notepad and finding a data item called "victimID"](/media/uploads/CTF17_searchID.png)
 
 Then we can paste the value we discovered into CyberChef. The tool has a magic wand feature which automatically detects and converts encoding–we could use that!
 
-![alt_text](/media/uploads/CTF18_cyberchef_result.png "image_tooltip")
+![A screenshot of CyberChef decoding Base64 input into plain text](/media/uploads/CTF18_cyberchef_result.png)
 
 Yay! The magic wand detected that the input is encoded with Base64 and decoded it automatically, giving us the answer!
 
-![alt_text](/media/uploads/CTF19_cyberchef_wand.png "image_tooltip")
+![A screenshot of CyberChef's magic wand feature](/media/uploads/CTF19_cyberchef_wand.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
