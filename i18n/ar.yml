@@ -288,6 +288,10 @@ key:
     translation:
       one: null
       other: "يوسم المقدمة كمكتملة ويحفظ التقدم للمستخدم."
+  - id: all-completed
+    translation:
+      one: null
+      other: "لقد أكملت جميع الوحدات في مسار التعلم هذا."
   - id: only-one-module-left
     translation:
       one: null
@@ -316,6 +320,10 @@ key:
     translation:
       one: null
       other: "تهانينا!"
+  - id: get-badge
+    translation:
+      one: null
+      other: "احصل على الشارة!"
   - id: skip-link
     translation:
       one: null

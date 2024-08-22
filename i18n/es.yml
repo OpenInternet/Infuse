@@ -296,6 +296,10 @@ key:
     translation:
       one: null
       other: "Marca la introducción como completada y guarda el progreso para el usuario."
+  - id: all-completed
+    translation:
+      one: null
+      other: Has completado todos los módulos en este camino de aprendizaje.
   - id: only-one-module-left
     translation:
       one: null
@@ -323,6 +327,10 @@ key:
     translation:
       one: null
       other: "¡Felicidades!"
+  - id: get-badge
+    translation:
+      one: null
+      other: "¡Consigue el insignia!"
   - id: skip-link
     translation:
       one: null

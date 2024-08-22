@@ -224,6 +224,10 @@ key:
   - id: mark-intro-as-complete-aria
     one: null
     other: "Marque l'introduction comme terminée et enregistre la progression de l'utilisateur."
+  - id: all-completed
+    translation:
+      one: null
+      other: Vous avez complété tous les modules de ce parcours d'apprentissage.
   - id: only-one-module-left
     one: null
     other: "Il ne reste qu'un module pour obtenir votre badge"
@@ -244,7 +248,11 @@ key:
     other: "Continuez à apprendre pour obtenir votre badge!"
   - id: congratulations
     one: null
-    other: "Félicitations !"
+    other: "Félicitations!"
+  - id: get-badge
+    translation:
+      one: null
+      other: Obtenez le badge!
   - id: skip-link
     one: null
     other: "Passer au contenu"

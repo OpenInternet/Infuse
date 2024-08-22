@@ -307,6 +307,10 @@ key:
     translation:
       one: null
       other: Marks the introduction as completed and saves the progress for the user.
+  - id: all-completed
+    translation:
+      one: null
+      other: You've completed all modules in this learning path.
   - id: only-one-module-left
     translation:
       one: null
@@ -335,6 +339,10 @@ key:
     translation:
       one: null
       other: Congratulations!
+  - id: get-badge
+    translation:
+      one: null
+      other: Get the badge!
   - id: skip-link
     translation:
       one: null
