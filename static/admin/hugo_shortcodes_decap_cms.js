@@ -1,4 +1,34 @@
 CMS.registerEditorComponent({
+    id: "fontawesome",
+    label: "FontAwesome Icon",
+    fields: [
+        { name: "iconName", label: "Icon Name", widget: "string" }
+    ],
+    pattern: /{{< fontawesome "([^"]+)" >}}/,
+    fromBlock: function(match) {
+        return {
+            iconName: match[1]
+        };
+    },
+    toBlock: function(obj) {
+        return `{{< fontawesome "${obj.iconName}" >}}`;
+    },
+    toPreview: function(obj) {
+        const iconName = obj.iconName;
+        const iconPath = `assets/icons/${iconName}.svg`;
+
+        // Load the SVG content directly (simplified for the preview)
+        return fetch(iconPath)
+            .then(response => response.text())
+            .then(svgContent => {
+                return svgContent; // Return the SVG content for rendering
+            })
+            .catch(() => {
+                return `<span>Icon not found</span>`; // Fallback message if the SVG isn't found
+            });
+    }
+});
+CMS.registerEditorComponent({
     id: "resource",
     label: "Resource Card",
     fields: [
