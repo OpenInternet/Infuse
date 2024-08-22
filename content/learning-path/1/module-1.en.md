@@ -61,7 +61,7 @@ Spend some time on the phishing quiz by [Shira](https://shira.app/) until you fe
 
 {{% resource title="CiviCERT" languages="English" cost="Free" description="A network of civil society organizations and rapid response groups which focus on cyberattacks and similar threats" url="https://www.civicert.org/" %}}
 
-{{% resource title="Digital First Aid Kit" languages="Arabic, Spanish, Farsi, French, Indonesian, Armenian, Kyrgyz, Burmese, Portuguese, Russian, Albanian, Thai, Ukrainian" cost="Free" description="A comprehensive guide supporting digital protectors who deal with a variety of different issues" url="https://digitalfirstaid.org/en/index.html" %}}
+{{% resource title="Digital First Aid Kit" languages="Arabic, Spanish, Farsi, French, Indonesian, Armenian, Kyrgyz, Burmese, Portuguese, Russian, Albanian, Thai, Ukrainian" cost="Free" description="A comprehensive guide supporting digital protectors who deal with a variety of different issues" url="https://digitalfirstaid.org/" %}}
 
 {{% resource title="Recover from possible account compromise" languages="Arabic, Indonesian, English, Spanish, Farsi, French, Portuguese, Russian, Thai, Turkish, Vietnamese, Chinese, Tibetan, Khmer, Burmese" cost="Free" description="A guide on what immediate and long-term steps to take when an account has been compromised" url="https://securityinabox.org/en/communication/account-compromise/" %}}
 
