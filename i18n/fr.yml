@@ -347,6 +347,10 @@ key:
   - id: edit-github
     one: null
     other: "Modifier cette page sur GitHub"
+  - id: print-pdf
+    translation:
+      one: null
+      other: "Imprimer au format PDF"
   - id: cookie-banner
     translation:
       one: null

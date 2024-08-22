@@ -444,6 +444,10 @@ key:
     translation:
       one: null
       other: "تعديل هذه الصفحة على GitHub"
+  - id: print-pdf
+    translation:
+      one: null
+      other: "الطباعة بصيغة PDF"
   - id: cookie-banner
     translation:
       one: null

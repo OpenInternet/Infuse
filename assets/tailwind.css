@@ -167,3 +167,28 @@ details summary::marker {
 .highlight {
   @apply max-w-full w-full;
 }
+
+@media print {
+  body * {
+    @apply invisible;
+  }
+
+  #content, #content * {
+    @apply visible;
+  }
+
+  #printButton,
+  #githubEdit,
+  #breadcrumb,
+  #mark-complete,
+  #learning-resources,
+  nav,
+  #other-resources-and-links,
+  .transition-200 {
+    @apply hidden !important;
+  }
+
+  #content {
+    @apply absolute left-0 top-0 w-full bg-white;
+  }
+}

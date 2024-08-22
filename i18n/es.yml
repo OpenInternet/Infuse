@@ -438,6 +438,10 @@ key:
     other: "La información de Git no está disponible."
   - id: edit-github
     other: "Editar esta página en GitHub"
+  - id: print-pdf
+    translation:
+      one: null
+      other: "Imprimir como PDF"
   - id: cookie-banner
     translation:
       one: null

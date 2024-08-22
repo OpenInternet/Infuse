@@ -465,6 +465,10 @@ key:
     translation:
       one: null
       other: Edit this page on GitHub
+  - id: print-pdf
+    translation:
+      one: null
+      other: Print as PDF
   - id: cookie-banner
     translation:
       one: null
