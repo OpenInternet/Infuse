@@ -119,6 +119,14 @@
                           }
                         }
                       }
+
+                      function debounce(func, wait) {
+                            let timeout;
+                            return function (...args) {
+                            clearTimeout(timeout);
+                            timeout = setTimeout(() => func.apply(this, args), wait);
+                            };
+                        }
                   
                       // Smooth scrolling and setting active state on click
                       tocItems.forEach((item) => {
@@ -139,15 +147,15 @@
                             item.classList.add('active-element');
                   
                             // Reset flag after scroll completes
-                            setTimeout(() => isClicking = false, 100); // Short timeout to reset flag
+                            setTimeout(() => isClicking = false, 200); // Timeout to reset flag
                           }
                         });
                       });
                   
                       // Handle scroll events
-                      window.addEventListener('scroll', function () {
+                      window.addEventListener('scroll', debounce(() => {
                         updateActiveState();
-                      });
+                      }, 100)); // Adjust debounce wait time as needed
                   
                       // Initial check to set the active element on page load
                       updateActiveState();
@@ -262,7 +270,7 @@
                         });
                         });
                     document.getElementById('printButton').addEventListener('click', function () {
-                        window.print(); // Triggers the browser's print dialog
+                        window.print();
                     });
                 </script>
 
