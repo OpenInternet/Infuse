@@ -9,7 +9,7 @@ backend:
   repo: OpenInternet/Infuse
   open_authoring: true
   branch: main
-  site_domain: infuse-login.netlify.app
+  site_domain: infuse.quest
 
 local_backend: false
 
