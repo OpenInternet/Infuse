@@ -52,9 +52,9 @@ pluralizeListTitles = false
   images = ["media/images/thumbnail.png"]
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  gitUrl = "https://github.com/AnXh3L0/infuse/commit/"
+  gitUrl = "https://github.com/OpenInternet/Infuse/commit/"
 
-  githubRepo = "https://github.com/AnXh3L0/infuse"
+  githubRepo = "https://github.com/OpenInternet/Infuse"
   githubBranch = "main"
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
