@@ -114,18 +114,18 @@
             document.querySelectorAll('.progress-container').forEach((container) => {
                 const learningPathUrl = container.closest('a').getAttribute('href');
                 const permalinkParts = learningPathUrl.split('/');
-                const lastItem = "/" + permalinkParts[permalinkParts.length - 2];
-                const progressKey = `progress_${lastItem}`;
+                const learningPathId = "/" + permalinkParts[permalinkParts.length - 2];
+                const progressKey = `progress_${learningPathId}`;
     
                 const username = localStorage.getItem("loggedInUser");
                 const userDataString = localStorage.getItem(username);
                 const userData = JSON.parse(userDataString) || {};
 
-                const completed = document.getElementById("completed").innerText;
-    
+                const completedText = document.getElementById("completed").innerText;
                 const progressPercent = userData[progressKey] || 0;
+    
                 container.querySelector('.progress').style.width = `${progressPercent}%`;
-                container.querySelector('.progress-text').innerText = `${progressPercent}% ` + completed;
+                container.querySelector('.progress-text').innerText = `${progressPercent}% ${completedText}`;
             });
         });
     </script>
@@ -135,17 +135,14 @@
     <!-- {{ partial "faq.html" . }} -->
 
     <script>
-        if (typeof window !== 'undefined') {
-        window.netlifyIdentity = window.netlifyIdentity || {};
-        netlifyIdentity.on('init', function (user) {
+        if (window.netlifyIdentity) {
+          window.netlifyIdentity.on("init", (user) => {
             if (!user) {
-            netlifyIdentity.on('login', function (user) {
-                console.log('Logged in as:', user);
-                netlifyIdentity.close();
-            });
+              window.netlifyIdentity.on("login", () => {
+                document.location.href = "/admin/";
+              });
             }
-        });
-        netlifyIdentity.init();
+          });
         }
     </script>
 

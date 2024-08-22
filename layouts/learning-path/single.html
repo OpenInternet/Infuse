@@ -343,20 +343,27 @@
 
                         function updateLearningPathProgress() {
                             const permalinkParts = window.location.pathname.split("/");
-                            const lastItem = "/" + permalinkParts[permalinkParts.length - 3];
+                            const learningPathId = "/" + permalinkParts[permalinkParts.length - 3]; // Unique identifier for the learning path
 
                             let completedModules = 0;
+                            let totalModules = parseInt(document.getElementById("moduleCount").getAttribute("data-count"));
 
                             for (let [key, value] of Object.entries(userData)) {
-                                if (key.startsWith(lastItem) && value === true) {
+                                if (key.startsWith(learningPathId) && value === true) {
                                     completedModules++;
                                 }
                             }
 
-                            const moduleCount = parseInt(document.getElementById("moduleCount").getAttribute("data-count"));
+                            // Calculate the progress percentage
+                            const progressPercent = Math.round((completedModules / totalModules) * 100);
+
+                            // Store the progress percentage in localStorage
+                            const progressKey = `progress_${learningPathId}`;
+                            userData[progressKey] = progressPercent;
+                            localStorage.setItem(username, JSON.stringify(userData));
 
                             // Check if the current module is the last one completed
-                            if (completedModules === moduleCount) {
+                            if (completedModules === totalModules) {
                                 Alpine.store('modal').open = true;
                             }
                         }
