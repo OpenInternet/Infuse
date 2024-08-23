@@ -2,6 +2,7 @@
 style = "module"
 weight = 6
 title = "Refining Your Web Application Testing Process"
+description = "Once you’ve figured out the fundamentals of finding vulnerabilities in websites, this subtopic will teach you a process to find those vulnerabilities more quickly and efficiently"
 +++
 
 ## Use Case
@@ -17,7 +18,7 @@ Once you’ve figured out the fundamentals of finding vulnerabilities in website
 After completing this subtopic, practitioners should be able to understand a methodical approach to web application security assessment that results in finding more vulnerabilities in less time.
 
 ---
-
+## Main Section
 There are a few common pitfalls that trap new web application testers. Think about whether you fell victim to any of these while testing Juice Shop:
 
 - Hopping around through the site
@@ -28,11 +29,11 @@ There are a few common pitfalls that trap new web application testers. Think abo
 
 If you did any of these things, don’t feel bad. Most people struggle with these, often through full careers as professional web application testers. What you can do is develop strategies to avoid these (and other) issues that make your testing slow and unreliable. This subtopic will show you a few strategies to get you started.
 
-## Strategy 1: Testing Process
+### Strategy 1: Testing Process
 
 In the last subtopic, we introduced the concept of a methodology for web applications security assessments,a way of organizing and thinking about testing. Now, we’re going to reframe that framework into a process. The problem with a framework is that it’s too general. You can test any web application using the framework, but for any specific application, you’ll be more successful if you give yourself more structure.
 
-### Getting Started
+#### Getting Started
 
 When testing a website, you’ll usually want two users at each level of access, though this can vary. Consider an online forum. You’ll want two registered users, one or two moderators, and one or two admin users. This will let you fully test the site’s authorization controls. In the above example, things you might want to test include:
 
@@ -45,7 +46,7 @@ If you were testing a forum website that allowed multiple sub-forums, you might 
 
 Once you’ve got the user accounts you need, you can start making a site map. The site map will guide your testing, and will function as your checklist for testing. As as example, you might produce something like this:
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![A big table which lists every item on a webpage that can be accessed by a user, along with its URL and a checklist for who can access it--unauthenticated users, particular authenticated users, moderators, or admins](/media/uploads/web_security_assessment_testing_table1.png)
 
 This shows every page you’ve found in the app (“URL” column), its logical navigation, whether the content of the page changes depending on its parameters (“User-specific?” column), and then whether each user type has access to the URL. There’s also a “notes” column for you to collect important info about the page, e.g., if the profile page shows very different content depending on the user of the person viewing the page or if data input on one page shows up on another. Some sites may not fit nicely into this particular structure. That’s fine, the structure should be specific to the site, so feel free to change it. However, something like this should work for most sites.
 
@@ -53,23 +54,23 @@ In building this spreadsheet, you need to go through all the pages on the site a
 
 ⚠️ This part of the process is extremely important, but can be very dull. To liven it up, do _a little_ ad-hoc testing while you’re going through the site. Maybe check an input for XSS here, do a little authorization check there. This will help keep you engaged while you go through the site.
 
-### Per Site Testing
+#### Per Site Testing
 
 Certain parts of the methodology apply to the entire site, or a few places on the site. Every web server has a configuration, and most websites have 1 to a few logical servers (e.g. [www.example.com](http://www.example.com), api.example.com, static.example.com). Most sites have one (or maybe two) login/registration/account management sections and session management mechanisms. You should do these tests next. Doing so will let you feel productive by completing multiple methodology sections quickly, and will give you a chance to understand the structural underpinnings of the website. As you do these tests, you might find more web pages that you originally missed. If so, that’s fine, but be sure to add them to your spreadsheet!
 
 Most people elect to keep their notes from these tests in a text file, as opposed to their testing spreadsheet, but do whatever feels natural to you.
 
-### Per Page Testing
+#### Per Page Testing
 
 Now that you understand the site, you can dive into the biggest part of testing the site: testing every page (and every input) for the full battery of tests in the rest of the methodology. This is going to be a lot to keep track of, and if you don’t stay focused and keep track, you will miss things. Fortunately, you’ve prepared a spreadsheet. All you need to do is expand that spreadsheet and you’ve got a full checklist:
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![A screenshot of a similar table to the one above except that there are not more columns which allow the person filling it in to check boxes for various authorization, authentication, XSS, and other vulnerabilities they might encounter](/media/uploads/web_security_assessment_testing_table2.png)
 
 This might seem daunting, but every cell in that sheet is a small, discrete chunk of work that should take a bounded amount of time. It’s usually more effective to go through the site filling out rows first; choose a page and go through the entire methodology, rather than performing one test throughout the entire site. As you go, put something like a “√” in cells as you complete them, or something like “n/a” if the tests don’t apply. Over the hours and days, your checklist will get filled in, and you can be confident that you’ve performed complete testing.
 
 ⚠️ It’s a good idea to keep separate notes in your regular notes document while you do this testing, you want to keep your spreadsheet clean and clear.
 
-## Strategy 2: Time-box tests
+### Strategy 2: Time-box tests
 
 Getting fixated on a particular page/input/etc while testing, and spending hours on it is a near-universal mistake among people who test web applications. They tell themselves that they’re at the cusp of a breakthrough, and they’ll be done in 10 minutes. Next thing they know, it’s two hours later and they forgot to eat lunch. (Not everyone does this. But if you do, you’re in good company.) If you have infinite time to test a site, then this isn’t much of a problem (missed meals notwithstanding). Most of the time, though, you have limited time. If you run out of time because you got fixated on one page, you may leave entire swaths of the site, riddled with vulnerabilities, untested.
 
@@ -77,7 +78,7 @@ If you find yourself getting stuck frequently, set a timer every time you start 
 
 This strategy also has good health benefits. The process of resetting the timer per cell also gives you an opportunity to get up and stretch, get a beverage, make sure you break for meals, etc.
 
-## Strategy 3: Document as you go
+### Strategy 3: Document as you go
 
 This strategy was discussed in the previous section, but most people ignore the advice at first. Hopefully, in the process of completing the previous section, you either followed the advice, or you learned that writing the report at the end is not an effective strategy. Many people have to learn this lesson repeatedly through an entire career doing security testing, so don’t feel too bad if you mess up from time to time.
 
@@ -91,50 +92,16 @@ These strategies should set you up for success in testing websites. We’ll put 
 
 Since the OSI model is one of the main ways in which we think about networking, it’s useful to be familiar with it when thinking of and looking for potential vulnerabilities as well.
 
-<table>
-  <tr>
-   <td>layer 1
-   </td>
-   <td>APPLICATION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 2
-   </td>
-   <td>PRESENTATION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 3
-   </td>
-   <td>SESSION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 4
-   </td>
-   <td>TRANSPORT
-   </td>
-  </tr>
-  <tr>
-   <td>layer 5
-   </td>
-   <td>NETWORK
-   </td>
-  </tr>
-  <tr>
-   <td>layer 6
-   </td>
-   <td>DATA LINK 
-   </td>
-  </tr>
-  <tr>
-   <td>layer 7
-   </td>
-   <td>PHYSICAL
-   </td>
-  </tr>
-</table>
+| Layer   | Name        |
+|---------|-------------|
+| layer 1 | APPLICATION |
+| layer 2 | PRESENTATION|
+| layer 3 | SESSION     |
+| layer 4 | TRANSPORT   |
+| layer 5 | NETWORK     |
+| layer 6 | DATA LINK   |
+| layer 7 | PHYSICAL    |
+
 
 The OSI model comprises seven layers:
 

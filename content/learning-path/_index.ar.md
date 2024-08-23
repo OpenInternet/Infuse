@@ -1,4 +1,4 @@
 +++
-title = "مسارات التعلم"
+title = "Learning Paths"
 layout = "unique"
 +++

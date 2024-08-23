@@ -2,6 +2,7 @@
 style = "module"
 weight = 1
 title = "Setting up a malware analysis environment"
+description = "Before you analyzing any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
 +++
 
 ## Use Case
@@ -13,6 +14,7 @@ Before you start analyzing any malware, you need to set up a safe environment to
 After completing this subtopic, the practitioner should be able to set up a virtual machine (VM) and take snapshots therein.
 
 ---
+## Main Section
 
 The exact setup you need depends on your analysis method and the operating system of the malware you’re analyzing. In most cases you can start with a pre-build linux VM like [REMnux](https://remnux.org/). See [Chapter 6 of the Field Guide to Incident Response for Civil Society and Media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for step-by-step instructions on how to configure it. For specific things (for example, dynamic analysis of iOS malware) you will need additional tools (for example, a jailbroken iPhone or iPad). VMs occasionally have vulnerabilities that allow software running in the VM to attack the host operating system. Most malware doesn’t even come close to this level of sophistication, but if in doubt, it’s safest to analyze malware on a separate physical device that is wiped afterwards.
 
@@ -21,16 +23,6 @@ To set up REMnux, we recommend that you follow the steps outlined in [Chapter 6 
 While performing malware analysis, you may find that you want additional tools in your analysis VM. Go ahead and install and configure them, but note what you did. After you’re done with your analysis, you can load up your “clean” VM snapshot, install and configure the tool, and then make a new “clean” snapshot for your next malware analysis adventure.
 
 In order to move malware files around, the standard practice is to put them in encrypted ZIP files. In this case, the encryption quality doesn’t matter. The point is not to keep the malware secret, so much as to prevent inadvertently unleashing it on other systems and to prevent anti-malware systems from detecting or deleting it. Feel free to include the password in the ZIP file name.
-
-## Learning Resources
-
-{{% resource title="Field Guide to incident response for civil society and media" languages="English" cost="Free" description="Guide on analyzing potentially malicious content, setting up virtual machines, and more." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
-
-{{% resource title="REMnux" languages="English" cost="Free" description="Webpage for the REMnux Linux distro, widely used for malware analysis." url="https://remnux.org/" %}}
-
-{{% resource title="Get the virtual appliance" languages="English" cost="Free" description="Guide on installing and running REMnux as a virtual machine." url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
-
-{{% resource title="The difference between snapshots and backups" languages="English" cost="Free" description="Article explaining the distinctions between VM snapshots and backups, crucial for managing and resetting VMs used in malware analysis." url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
 
 ## Practice
 
@@ -43,6 +35,16 @@ In order to move malware files around, the standard practice is to put them in e
 ## Skill check
 
 Go to the folder which your virtual machine uses to share files between the host and guest operating systems. Add a file there and then [compute a cryptographic hash](https://www.sentinelone.com/cybersecurity-101/hashing/) of this file in both operating systems. Make sure that the hashes match.
+
+## Learning Resources
+
+{{% resource title="Field Guide to incident response for civil society and media" languages="English" cost="Free" description="Guide on analyzing potentially malicious content, setting up virtual machines, and more." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+
+{{% resource title="REMnux" languages="English" cost="Free" description="Webpage for the REMnux Linux distro, widely used for malware analysis." url="https://remnux.org/" %}}
+
+{{% resource title="Get the virtual appliance" languages="English" cost="Free" description="Guide on installing and running REMnux as a virtual machine." url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
+
+{{% resource title="The difference between snapshots and backups" languages="English" cost="Free" description="Article explaining the distinctions between VM snapshots and backups, crucial for managing and resetting VMs used in malware analysis." url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
 
 ## Notes
 

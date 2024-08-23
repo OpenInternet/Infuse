@@ -2,6 +2,7 @@
 style = "module"
 weight = 11
 title = "Clean-up, after-care, post-incident risk management, and information sharing"
+description = "Removing malware and supporting people post-infection can prove challenging. We look at some of the best ways to do so"
 +++
 
 ## Use Case
@@ -19,11 +20,11 @@ After completing this subtopic, practitioners should be able to do the following
 
 ---
 
-## Malware removal
+## Main Section
 
 ### Re-enabling operating system security features
 
-Earlier in this learning path we mentioned [some built-in operating system protections](https://docs.google.com/document/d/1ss1nH6RuNscC_3HtySZ-i1W8DI3yEgTf-KB1iArfx1w/edit#heading=h.wgdfkz8hzz6i). If malware was able to run on a targeted person’s system just because some of those protections were disabled, then re-enabling them may help prevent malware from executing or doing any further damage. Some less sophisticated pieces of malware could therefore stop running or even be removed just by going into operating system settings and re-enabling protections. In case you are unable to re-enable these protections or if they are disabled again after some time, this is an indication that the malicious process is preventing the proper functioning of the operating system and further clean-up work or factory reset are required. Do note that in some instances you may find instances that OS protections have been disabled in order to install pirated software, which the user may not immediately communicate to you. It is helpful to know this scenario and to guide the client in risk-management decisions and find safer alternatives which preserve operating system integrity.
+Earlier in this learning path we mentioned [some built-in operating system protections](/en/learning-path/2/module-4/#triagechecklists-to-check-for-missing-protections). If malware was able to run on a targeted person’s system just because some of those protections were disabled, then re-enabling them may help prevent malware from executing or doing any further damage. Some less sophisticated pieces of malware could therefore stop running or even be removed just by going into operating system settings and re-enabling protections. In case you are unable to re-enable these protections or if they are disabled again after some time, this is an indication that the malicious process is preventing the proper functioning of the operating system and further clean-up work or factory reset are required. Do note that in some instances you may find instances that OS protections have been disabled in order to install pirated software, which the user may not immediately communicate to you. It is helpful to know this scenario and to guide the client in risk-management decisions and find safer alternatives which preserve operating system integrity.
 
 ### Factory resets
 
@@ -37,9 +38,9 @@ Sometimes a factory reset is not feasible due to time constraints, technology co
 
 In some cases, malware removal efforts may be ineffective. Built-in Android malware or cracked or jailbroken versions of an operating system are one example (see Android section below for more details). Hardware/firmware attacks are another class of malware which would be resistant to clean-up or factory reset efforts. These are relatively rare however they do occur, mainly only on PCs (Windows/Linux), thus are worth knowing about. Some are detectable by antiviruses, for instance see [ESET on the topic of a UEFI Rootkit discovered in the wild in 2018](https://www.eset.com/int/uefi-rootkit-cyber-attack-discovered/). Additional tips and advice from Microsoft on UEFI rootkit threat hunting is available from [BleepingComputer here](https://www.bleepingcomputer.com/news/security/microsoft-shares-guidance-to-detect-blacklotus-uefi-bootkit-attacks/).
 
-## Platform-Specific Advice
+### Platform-Specific Advice
 
-### Android
+#### Android
 
 - Factory reset is available from the Settings menu or from recovery boot mode.
 - Some malware/adware/spyware is embedded within the factory-provided Android operating system, as in the case of some low-cost and off-brand Android devices. An example of this is detailed in the technical report by [HUMAN Security on the BADBOX ad fraud botnet](https://www.humansecurity.com/hubfs/HUMAN_Report_BADBOX-and-PEACHPIT.pdf). Unfortunately, in most cases these devices cannot be cleaned by factory reset and are unredeemable by the average user and should be replaced with reputable brand devices, alas at a higher price point.
@@ -49,7 +50,7 @@ In some cases, malware removal efforts may be ineffective. Built-in Android malw
 - Ensure Google Play Protect is enabled and check scan results (from Google Play -> Menu -> Play Protect).
 - Ensure that system components are up to date and security updates are installed. You can check the date of the device's security updates by looking in Settings -> About Phone -> Software Information (or Android Version) -> Android Security Patch Level. Check for updates by tapping on Google Play System Update. Note that older devices may receive limited security updates.
 
-### iOS/iPadOS
+#### iOS/iPadOS
 
 - Published research indicates that exploits against iOS live systems (including cases such as Pegasus) do not survive a device reboot (not a factory restart, but a simple power cycling on/off), so conducting a reboot is a good idea. As the threat actor may re-infect the device if using a zero-click exploit, regular rebooting is possibly prudent, as is Lockdown Mode, linked below. Keep in mind that this level of attack is still rare and high-cost. Note that maliciously configured or installed applications (e.g. stalkerware, find my phone functionality) or a compromised Apple ID account would still affect the device safety, so read on for further actions below.
 - Uninstall suspicious or malicious apps.
@@ -59,7 +60,7 @@ In some cases, malware removal efforts may be ineffective. Built-in Android malw
 - Check for (unwanted) enrollment in Mobile Device Management (check under Settings -> General -> Profiles).
 - Conduct a factory reset following [this guide](https://support.apple.com/en-gb/HT201274) (This will remove all photos, messages, and files on the phone. Unless backed up, they will be irretrievably lost).
 
-### Windows
+#### Windows
 
 - Factory reset is the preferable solution. Most devices which were purchased with Windows preinstalled will have a recovery partition from which you can perform a factory reset or a ‘refresh’ of the Operating System
 - Running Antivirus in Windows ‘Safe Mode’ can be more effective at quarantining discovered infections. However, it may also miss ‘fileless’ malware which is in effect during normal OS operation.
@@ -67,17 +68,23 @@ In some cases, malware removal efforts may be ineffective. Built-in Android malw
 - Some Antivirus creators provide a ‘rescue disk’ which allows you to boot into a temporary live system from which to carry out scans and malware removal activities. A list of reputable options is [provided here by TechRadar](https://www.techradar.com/best/best-antivirus-rescue-disk).
 - Beware the many Windows ‘malware removal’ guides found online which appear to be customized for specific malware variants. Many of them are generic guides promoting the use of a proprietary tool which may itself be an unwanted software.
 
-### MacOS
+#### MacOS
 
 - Factory reset is advisable, see [instructions from Apple here](https://support.apple.com/en-ug/HT212749).
 - Commercial antivirus will have a clean-up and quarantine feature.
 - Utilize [Objective-See tools ](https://objective-see.org/tools.html)such as Knock Knock and Kext Viewer to check for and disable unknown and persistent processes and kernel extensions.
 
-## Post-Incident Risk Management and Information Sharing
+### Post-Incident Risk Management and Information Sharing
 
 Sharing your findings with your client and working with them to understand how malware infection may have occurred is an important step which allows them to update their risk management approach and understand the significance (or lack of significance) of the security incident.
 
-Take as many detailed technical notes, screenshots, and samples (or, more likely, hashes thereof) and talk to your client about their threat model and to what degree you could share your findings with the wider community. Sharing your findings is particularly valuable if you found a novel threat or one that targets community members specifically based on certain work that they do; in this case, talking to others about malware hashes, infection vectors, and mitigation mechanisms will help protect those at highest risk from it. You can use some of the information from the [Documenting Findings](https://docs.google.com/document/d/1Qhka7uQYCBye-EQRQrrETo-ptik2yDAGDZg5DrncYF4/edit#heading=h.v971z46vfx88) section of the _Detecting, Investigating and Tracking Malicious Infrastructure_ learning path when authoring a brief report and when you consider disseminating it.
+Take as many detailed technical notes, screenshots, and samples (or, more likely, hashes thereof) and talk to your client about their threat model and to what degree you could share your findings with the wider community. Sharing your findings is particularly valuable if you found a novel threat or one that targets community members specifically based on certain work that they do; in this case, talking to others about malware hashes, infection vectors, and mitigation mechanisms will help protect those at highest risk from it. You can use some of the information from the [Documenting Findings](/en/learning-path/1/module-8/) section of the _Detecting, Investigating and Tracking Malicious Infrastructure_ learning path when authoring a brief report and when you consider disseminating it.
+
+## Skill Check
+
+Build either a flowchart or a checklist which could assist you in removing malware from a device and ensuring that you do not miss any steps. Discuss this flowchart or checklist with a peer or mentor to make sure that it’s accurate and you didn’t miss anything.
+
+Write a brief paragraph explaining in what situations you would recommend that persons who were targeted by a successful malware infection change passwords to their main accounts (email, iCloud, social media, work) afterwards and how you would explain this to a person you are supporting. Run this paragraph by a peer or mentor who will check if your explanation is accurate.
 
 ## Learning Resources
 
@@ -98,9 +105,3 @@ Take as many detailed technical notes, screenshots, and samples (or, more likely
 {{% resource title="Erase your Mac and reset it to factory settings" languages="English" cost="Free" description="Guide on how to completely wipe a macOS device to remove malware or malicious profiles." url="https://support.apple.com/en-ug/102664" %}}
 
 {{% resource title="Objective-See Tools" languages="English" cost="Free" description="Collection of security tools for macOS developed by a reputable security researcher, used for detecting malware." url="https://objective-see.org/tools.html" %}}
-
-## Skill Check
-
-Build either a flowchart or a checklist which could assist you in removing malware from a device and ensuring that you do not miss any steps. Discuss this flowchart or checklist with a peer or mentor to make sure that it’s accurate and you didn’t miss anything.
-
-Write a brief paragraph explaining in what situations you would recommend that persons who were targeted by a successful malware infection change passwords to their main accounts (email, iCloud, social media, work) afterwards and how you would explain this to a person you are supporting. Run this paragraph by a peer or mentor who will check if your explanation is accurate.

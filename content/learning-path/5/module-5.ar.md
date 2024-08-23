@@ -2,23 +2,24 @@
 style = "module"
 weight = 5
 title = "Finding Web Application Vulnerabilities"
+description = "Once you have learned about different types of vulnerabilities, it's time to look for them in the web applications you are testing! To start with and get some initial practice, you will test a deliberately vulnerable web application"
 +++
 
 ## Use Case
 
-One way or another, every web application accepts and processes untrusted input. This input usually comes from end users and their browsers but may also come from other websites or backend systems. Depending on where this information flows, the processing of the data may have undesirable effects on the website or its users.
+Once you have learned about different types of vulnerabilities, it's time to look for them in the web applications you are testing! To start with and get some initial practice, you will test a deliberately vulnerable web application.
 
 ## Objectives
 
 After completing this subtopic, practitioners will be able to find vulnerabilities in a real website, as opposed to understanding individual vulnerabilities in isolation.
 
 ---
-
+## Main Section
 Having completed the previous subtopics, you should have a good understanding of individual vulnerabilities. While this might be enough to guide you in fixing vulnerabilities or perform forensics in a web application breach, it is not enough if you wish to find those vulnerabilities in a web application. While the previous labs were focused puzzles challenging you to activate a vulnerability in a single input, in a real web application most inputs will not be vulnerable to anything. Your challenge will be to find those rare inputs that are vulnerable.
 
 To assist in this, it’s helpful to have a mental framework to guide your testing. This will serve to organize your thoughts and notes about what you’re testing, and can also serve as a checklist. Do not underestimate the power of a checklist! Checklists are the reason air travel is safe, and [introducing checklists to the intensive care units of a US state’s hospitals dropped infections rates by ⅔, and over a year and a half saves over 1,500 lives](https://www.newyorker.com/magazine/2007/12/10/the-checklist). Any complex, error-prone task will benefit highly from a checklist, and testing web applications is extremely complex and extremely error prone.
 
-## Practice targets
+### Practice targets
 
 For this subtopic, you will be testing a deliberately vulnerable web application. You will attempt to find all the vulnerabilities in the application and document those vulnerabilities.
 
@@ -26,7 +27,7 @@ To start with, you will need an application to test. One (bad) option would be t
 
 The solution to this is to practice on a [site that is intentionally vulnerable](https://owasp.org/www-project-vulnerable-web-applications-directory/). These sites are built expressly for people to practice finding and exploiting vulnerabilities. They are ethical and legal to test (most are downloadable for you to test on your own computer), and have certain known vulnerabilities, so that you can evaluate your success. For this subtopic we will be using [the OWASP Juice Shop](https://owasp.org/www-project-juice-shop/) vulnerable web application.
 
-## Organizing your testing
+### Organizing your testing
 
 Next up, you will need a methodology to guide your testing. As you gain experience, you will likely start to develop your own framework and procedures that work well for your preferred work style. However, at first, you will need one to get you started. For this learning path, we will use [a methodology written by Tanner Prynn](https://github.com/tprynn/web-methodology), which is about in line with the standards used by most professional web application penetration testing practices. This methodology document is a good compromise between brevity (compare its 23 printed pages to the 465 of the OWASP testing guide) and completeness. It doesn’t contain every possible vulnerability, nor does it have complete guidance for testing the vulnerabilities it does cover, but it should be enough to let you leverage the expertise you have.
 
@@ -38,7 +39,7 @@ In addition to having a framework and checklist of what you’ve tested, it’s 
 - Always keep notes on any places where the site isn’t working properly. You will need those for your report.
 - Sometimes you’ll be _sure_ that a particular input is vulnerable to something, but you will struggle to find out what or how. Write down what you’ve tried, then move on. A few hours or a night’s rest may give you a new perspective.
 
-## Reporting
+### Reporting
 
 Finally, in order for your hard work to be useful to anyone, you need to document the vulnerabilities that you find. Generally you will be testing someone else’s website and will be producing some sort of report, whether formal or informal. Regardless, some of the primary goals or the report should be to communicate:
 
@@ -83,24 +84,6 @@ While the above represents a reasonable minimum amount of information to include
 
 One last note on reporting: it is very important that you document findings in your report as you test. Typically, new testers will want to keep on testing, thinking that it’ll be easy to write up the report later. This is false. They finish their testing then struggle to complete their report, often needing to go back and do more testing in order to complete their report. It may seem inefficient to stop testing and write up a vulnerability in your report, especially if you have to update that vulnerability later. However, it’s more efficient to do exactly this.
 
-## Learning Resources
-
-{{% resource title="The Checklist" languages="English" cost="Free for first articles from the publication, later ones require subscription" description="An article about the importance of using checklists in various professions." url="https://www.newyorker.com/magazine/2007/12/10/the-checklist" %}}
-
-{{% resource title="OWASP vulnerable web applications directory" languages="English" cost="Free" description="A collection of web applications with known vulnerabilities for testing web assessment and penetration testing skills." url="https://owasp.org/www-project-vulnerable-web-applications-directory/" %}}
-
-{{% resource title="Methodology for high-quality web application security testing" languages="English" cost="Free" description="A comprehensive list of issues to review when assessing the security of web applications." url="https://github.com/tprynn/web-methodology/wiki" %}}
-
-{{% resource title="Samy (worm)" languages="English, Arabic, Chinese, Indonesian, Lombard" cost="Free" description="An example of a malicious code exploiting XSS vulnerabilities." url="https://en.wikipedia.org/wiki/Samy_(computer_worm)" %}}
-
-{{% resource title="An overview of CVSS" languages="Arabic, Bulgarian, Catalan, Czech, Danish, German, Greek, English, Spanish, Finnish, French, Croatian, Hungarian, Italian, Hebrew, Japanese, Korean, Kazakh, Dutch, Norwegian, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Serbian, Swedish, Thai, Turkish, Vietnamese, Chinese Simplified, Chinese Traditional" cost="Free" description="A quick look at the Common Vulnerability Scoring System (CVSS), used to rate the severity of vulnerabilities." url="https://www.ibm.com/docs/en/qsip/7.5?topic=vulnerabilities-common-vulnerability-scoring-system-cvss" %}}
-
-{{% resource title="OWASP risk rating methodology" languages="English" cost="Free" description="Describes OWASP's methodology for rating risks of vulnerabilities and exploits." url="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology" %}}
-
-{{% resource title="Bugcrowd vulnerability taxonomy" languages="English" cost="Free" description="Bugcrowd's approach to tracking risks of vulnerabilities." url="https://bugcrowd.com/vulnerability-rating-taxonomy" %}}
-
-{{% resource title="Public penetration testing reports" languages="English" cost="Free" description="A public repository of penetration testing reports." url="https://github.com/juliocesarfort/public-pentesting-reports/tree/master" %}}
-
 ## Practice
 
 The bulk of this learning path is this practice. Here you will pull together all of the techniques you learned in prior subtopics to find vulnerabilities in a real web application. You should expect this to take you some time. Typically, it would take a skilled practitioner up to a week to fully assess an application like Juice Shop, and you are not yet a skilled practitioner. You may find yourself struggling; that’s normal. Resist the temptation to look up walkthroughs or answer keys, or to look at the following sections of this learning path. The struggle is a natural and important part of the learning process.
@@ -124,3 +107,21 @@ Instead, go through the methodology and try to thoroughly test the website. If y
 If you have a mentor, review your practice report with them. You will probably find it useful to look at one or more of the write-ups that contain vulnerabilities that other people have found, [here's one](https://pwning.owasp-juice.shop/companion-guide/latest/part2/README.html). Note that Juice Shop contains a bunch of challenges. The challenges mainly involve exploiting vulnerabilities. The best thing to do is to have your mentor give you hints on the vulnerabilities you missed, for example what page they’re on, then try to find them yourself. If you’re really stuck, have your mentor walk through the vulnerability with you.
 
 If you don’t have a mentor, you can self mentor for this subtopic. You can simply perform the above activities. Instead of getting a hint from your mentor, briefly glance at the challenges, and try to figure out the associated vulnerability. Again, if you’re really stuck, there are numerous walkthroughs, both written and in video format.
+
+## Learning Resources
+
+{{% resource title="The Checklist" languages="English" cost="Free for first articles from the publication, later ones require subscription" description="An article about the importance of using checklists in various professions." url="https://www.newyorker.com/magazine/2007/12/10/the-checklist" %}}
+
+{{% resource title="OWASP vulnerable web applications directory" languages="English" cost="Free" description="A collection of web applications with known vulnerabilities for testing web assessment and penetration testing skills." url="https://owasp.org/www-project-vulnerable-web-applications-directory/" %}}
+
+{{% resource title="Methodology for high-quality web application security testing" languages="English" cost="Free" description="A comprehensive list of issues to review when assessing the security of web applications." url="https://github.com/tprynn/web-methodology/wiki" %}}
+
+{{% resource title="Samy (worm)" languages="English, Arabic, Chinese, Indonesian, Lombard" cost="Free" description="An example of a malicious code exploiting XSS vulnerabilities." url="https://en.wikipedia.org/wiki/Samy_(computer_worm)" %}}
+
+{{% resource title="An overview of CVSS" languages="Arabic, Bulgarian, Catalan, Czech, Danish, German, Greek, English, Spanish, Finnish, French, Croatian, Hungarian, Italian, Hebrew, Japanese, Korean, Kazakh, Dutch, Norwegian, Polish, Portuguese, Romanian, Russian, Slovak, Slovenian, Serbian, Swedish, Thai, Turkish, Vietnamese, Chinese Simplified, Chinese Traditional" cost="Free" description="A quick look at the Common Vulnerability Scoring System (CVSS), used to rate the severity of vulnerabilities." url="https://www.ibm.com/docs/en/qsip/7.5?topic=vulnerabilities-common-vulnerability-scoring-system-cvss" %}}
+
+{{% resource title="OWASP risk rating methodology" languages="English" cost="Free" description="Describes OWASP's methodology for rating risks of vulnerabilities and exploits." url="https://owasp.org/www-community/OWASP_Risk_Rating_Methodology" %}}
+
+{{% resource title="Bugcrowd vulnerability taxonomy" languages="English" cost="Free" description="Bugcrowd's approach to tracking risks of vulnerabilities." url="https://bugcrowd.com/vulnerability-rating-taxonomy" %}}
+
+{{% resource title="Public penetration testing reports" languages="English" cost="Free" description="A public repository of penetration testing reports." url="https://github.com/juliocesarfort/public-pentesting-reports/tree/master" %}}

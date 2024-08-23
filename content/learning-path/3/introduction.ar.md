@@ -1,10 +1,7 @@
 ---
 style: introduction
 title: Introduction
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+description: Read the learning path overview, objectives, associated threats, and prerequisites
 weight: 1
 ---
 
@@ -37,7 +34,7 @@ Device compromises and data exfiltration through desktop and mobile malware
 This learning path is an advanced one. Prior to undertaking it, learners should:
 
 - Complete the _Detecting Malware_ learning path, which covers the fundamentals of malware. Typically, you would only use the information you will learn below to perform further analysis on suspected malware that was not detected using existing IoCs, so this learning path can be viewed as a continuation of Detecting Malware.
-- Complete the _[Investigating, Tracking, Detecting Malicious Infrastructure](https://docs.google.com/document/d/13if8JvR_TsGxja0Il48NBM-S1LKs29w_R_3LxxiLxS4/edit) learning path_, which teaches fundamentals about DNS, email, and HTTP that you will need to understand malware behavior
+- Complete the _[Investigating, Tracking, Detecting Malicious Infrastructure](/en/learning-path/1/) learning path_, which teaches fundamentals about DNS, email, and HTTP that you will need to understand malware behavior
 - Based on both the platform and malware you’re analyzing, you are likely to need some programming and operating system knowledge. In addition to basic command line skills, you will need to know a bit about the programming languages and security architectures present on major operating systems. Examples may include C/C++ and x86 assembly for Windows, Java or Kotlin for Android, etc.
 - (optional) Depending on the malware, you might also need to be able to read scripting languages such as Perl, PowerShell, bash, etc. The sections for each platform should include links to some resources to support this, but you may need to do research and study outside of the learning path depending on what you’re analyzing.
 

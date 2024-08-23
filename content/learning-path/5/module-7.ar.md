@@ -2,6 +2,7 @@
 style = "module"
 weight = 7
 title = "Automatic Vulnerability Discovery"
+description = "In past subtopics, we looked at how to discover vulnerabilities by hand. Here, we explore tools that can help automate that process"
 +++
 
 ## Use Case
@@ -17,20 +18,20 @@ After completing this subtopic, practitioners will know how and when to appropri
 - WPScan CLI
 
 ---
-
+## Main Section
 This subtopic explores three classes of web application automation tools. It will discuss what they do, what they’re good at, what they’re not good at, and how to get the most out of them. We’ll break the space down into three broad categories:
 
 - Web app automatic testers
 - Exploitation tools
 - Web app vulnerability scanners
 
-## Web application automatic testers
+### Web application automatic testers
 
 This first category is tools that do the same things that humans do to find new vulnerabilities in web applications. They go through the site, find inputs, send malicious data to those inputs, and try to detect when that data has triggered a vulnerability. One example of this type of web app scanner is SSP’s ZAP, but there are numerous others, including Burp Pro’s scanner, HCL AppScan, etc.
 
 Typically, these tools work by first “[spidering](https://en.wikipedia.org/wiki/Web_crawler)” the target website, where they will follow every link on every page and attempt to build a complete map of the site. Then, they find every parameter that is sent to the server, and replace that parameter with various “[fuzz](https://en.wikipedia.org/wiki/Fuzzing)” substitutions. When each response comes back, the scanner will look for features that indicate a successful attack. For example, the scan engine might replace a parameter with <code>&lt;script><em>var</em> xyz<em>=</em>"abc";&lt;/script></code>. When the HTTP response comes back, the scanner will parse the pages’ HTML, and if it sees that script element as a JavaScript block in the page, then it knows that the input is vulnerable to XSS.
 
-### Scanner Strengths
+#### Scanner Strengths
 
 People use web application scanners for good reason. They find vulnerabilities quickly and effectively. Experienced web application security testers will use scanners as part of their assessments, despite their years of experience. There are some things that web application scanners are very good at.
 
@@ -45,11 +46,11 @@ Some scanners even use unique fuzz strings for each input, so that they can dete
 
 Another area where scanners excel is in finding configuration issues, especially ones that exist in only a small subset of the site. If a site uses CSRF tokens in every form, but the developers forgot in one section of the site, a human tester is likely to overlook the error. However, a scanner will almost certainly find and report the missing token. As with data validation, scanners have huge batteries of tests that they run on every request and response.
 
-### Scanner Weaknesses
+#### Scanner Weaknesses
 
 Despite their strengths, scanners also have multiple weaknesses. In some cases, it may not even be appropriate to use a scanner for testing certain sites. Here are some of the biggest problems with web app scanners.
 
-### Scan Completeness
+#### Scan Completeness
 
 There are numerous potential issues with the way scanners work that may cause them to not complete a full test against the site in a timely manner.
 
@@ -61,7 +62,7 @@ On the other hand, there may be pages or parameters that the spider doesn’t de
 
 All of these issues can be worked through with close observation of the scanner behavior and changing scan configurations. While it’s entirely possible to just point a scanner at a website and launch a scan, to get the best results, it’s important to at least complete Discovery and Authentication testing before launching a scan.
 
-### Scanner Destructiveness
+#### Scanner Destructiveness
 
 One of the strengths of a scanner is that it runs very fast. This strength can cause problems, though.
 
@@ -71,7 +72,7 @@ Relatedly, some sites don’t have the resources to keep up with a scanner. Give
 
 Both of these can be partially mitigated through discussions with the site owner and by paying attention during Discovery testing and configuring the scanner correctly. For instance, all major scanners have ways of excluding certain pages from scans and for controlling how fast they scan. However, the risk of a scanner impacting the site or its related systems can never be eliminated.
 
-### Vulnerabilities That Scanners Are Bad At Discovering
+#### Vulnerabilities That Scanners Are Bad At Discovering
 
 While scanners are great at discovering some sorts of vulnerabilities, there are other types that are nearly impossible for them to discover.
 
@@ -79,13 +80,13 @@ Chief among these are true business logic vulnerabilities. Scanners just execute
 
 Relatedly, automated tools do not tend to do a good job at detecting authorization vulnerabilities. While there exist a variety of tools to assist with authorization testing, generally scanners do not automatically detect these sorts of vulnerabilities.
 
-### False Positives and Non-Issues
+#### False Positives and Non-Issues
 
 Scanners may also produce lots of results that aren’t useful. In some cases, the script to detect a vulnerability may be imperfect, resulting in the scanner reporting an issue where none exists. In other cases, the scanner may report things that the tool’s author may think are interesting or valuable, but are not significant in the context of the site you’re testing.
 
 In all cases, you should manually reproduce and fully understand scanner findings before adding them to your report.
 
-### Using Scanners Effectively
+#### Using Scanners Effectively
 
 Generally, web applications security assessment practitioners find that they’re more effective using a scanner than not. Since their strengths are so compelling, it’s worth one’s time to configure and monitor scans.
 
@@ -103,23 +104,23 @@ ZAP (SSP’s Zed Attack Proxy) is an open-source alternative to Burp. Though mos
 
 For this practice, we’ll be using ZAP’s scanner module. To get a feel for it, first, make sure you’ve got an instance of DIWA running, then simply open ZAP and click “Automated Scan”, put in the URL of your DIWA home page, and click “Attack”.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![A screenshot of ZAP as it opens](/media/uploads/web_security_assessment_ZAP1.png)
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![A screenshot of ZAP as the user selects an automated scan. The URL to attack is 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP2.png)
 
 Since DIWA is a small app, this scan should complete rather quickly. If nothing went horribly wrong, you’ll note that ZAP’s scanner found some issues. However, unless ZAP has changed significantly, the ZAP results may be somewhat underwhelming. There may be some small issues that ZAP found and you didn’t, but ZAP should’ve missed most of the big issues you found.
 
 Let’s see if we can improve this. Click the “Quick Start” button in the secondary toolbar, and then the “&lt;” in the pane below. From there, click “Manual Explore”, put in the URL of your DIWA, and then click “Launch Browser”.
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![A screenshot of ZAP and the "alerts" box that the service displays at the bottom](/media/uploads/web_security_assessment_ZAP3.png)
 
-![alt_text](/media/uploads/image4.png "image_tooltip")
+![A screenshot of ZAP as it manually explores the page for vulnerable JS libraries](/media/uploads/web_security_assessment_ZAP4.png)
 
 Click around the site a bit, and make sure that when you’re done you’re logged into the site as an administrative user. Now, go back to ZAP and launch a scan by right-clicking the DIWA site in the left bar and launching an active scan with the default setup.
 
-![alt_text](/media/uploads/image5.png "image_tooltip")
+![A screenshot of ZAP as the user rights clicks on a site, and selects "attack" and "active scan"](/media/uploads/web_security_assessment_ZAP5.png)
 
-![alt_text](/media/uploads/image6.png "image_tooltip")
+![A screenshot of ZAP as the user gets ready to run an active scan on 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP6.png)
 
 This scan should take significantly longer and give significantly different better results. Why did this happen? Launching the scan from a site you’ve visited in the “Sites” section gives the scanner a lot more information than the fully automated scan gets. In fact, the results you get from the scanner may differ greatly based on how you manually explore the site prior to running the scan.
 
@@ -160,6 +161,10 @@ Then use the WPScan CLI to find vulnerabilities on the site. If you installed WP
 
 Although it’s not required, you’ll probably want to [sign up for an API key on the WPScan website](https://wpscan.com/register/) and use the key when scanning. If you don’t specify an API key, WPScan will identify the versions of WordPress and its plugins and let you know which ones are out of date. If you use the API key, it will tell you what vulnerabilities exist in the site.
 
+## Skill Check
+
+Discuss your use of ZAP’s scanner and sqlmap on DIWA with your mentor. Why did you find things that ZAP didn’t, and vice versa? Explain to them how you plan on using automation to help you test websites going forward?
+
 ## Learning Resources
 
 {{% resource title="Web crawler" languages="47 languages" cost="Free" description="An overview of what a web crawler is and what it does." url="https://en.wikipedia.org/wiki/Web_crawler" %}}
@@ -171,7 +176,3 @@ Although it’s not required, you’ll probably want to [sign up for an API key 
 {{% resource title="WPScan" languages="English" cost="Free" description="An automated tool to scan WordPress sites for security flaws." url="https://github.com/wpscanteam/wpscan" %}}
 
 {{% resource title="Damn Vulnerable WordPress" languages="English" cost="Free" description="A specially designed WordPress installation intentionally vulnerable for testing purposes." url="https://github.com/vavkamil/dvwp" %}}
-
-## Skill Check
-
-Discuss your use of ZAP’s scanner and sqlmap on DIWA with your mentor. Why did you find things that ZAP didn’t, and vice versa? Explain to them how you plan on using automation to help you test websites going forward?

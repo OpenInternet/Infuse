@@ -2,6 +2,7 @@
 style = "module"
 weight = 3
 title = "Authentication and Authorization"
+description = "Many web apps will only allow particular users to view certain pieces of content and require them to log in or prove their identity in other ways. This subtopic looks into authentication and authorization, and possible vulnerabilities therein"
 +++
 
 ## Use Case
@@ -18,18 +19,18 @@ They should also be able to find and exploit the following types of vulnerabilit
 - Authorization
 
 ---
-
-## What are authentication and authorization vulnerabilities?
+## Main Section
+### What are authentication and authorization vulnerabilities?
 
 Authentication and authorization are two sides of a coin, and are primarily responsible for protecting the confidentiality and integrity of data in an application. Authentication is the process of validating that a user is who they claim they are, which authorization ensures that the user only has access to the data and capabilities that they are meant to. While data validation attacks may allow an attacker to circumvent an application’s access control mechanisms (e.g., downloading an entire database with SQLi), authentication and authorization features directly implement access controls.
 
-## Authentication
+#### Authentication
 
 For applications that don’t rely on a 3rd party (e.g., sign in with Google/Facebook/etc) for authentication, they usually implement their own authentication systems. Unfortunately, user authentication is quite subtle, and also very important. Thus, there are likely to be subtle and/or catastrophic weaknesses in authentication systems, as developers make the same mistakes over and over. Although the possible range of vulnerabilities is unlimited, there are a few common ones, which we’ll explore in this subtopic.
 
 Head over to the [PortSwigger Academy Authentication topic](https://portswigger.net/web-security/authentication) and complete the reading and labs.
 
-## Authorization
+#### Authorization
 
 It is very rare for web application frameworks to automatically provide authorization services for developers, so those developers have to implement their own systems consistently. Although authorization controls are typically very simple, they are extremely easy to overlook in places. Like implementing authorization controls, testing for authorization controls is simple in concept, but requires very high consistency.
 

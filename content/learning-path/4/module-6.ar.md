@@ -2,6 +2,7 @@
 style = "module"
 weight = 6
 title = "Interpersonal Skills for Web Application Security"
+description = "When working on web application security (or any security!), it's important to check the nature of the digital protector relationship, provide useful advice, not fear-monger, and give solid risk assessments"
 +++
 
 ## Use Case
@@ -19,10 +20,10 @@ After completing this subtopic, practitioners should be able to do the following
 - Conduct a broader risk analysis of a web application based on the political, social, economic, and technical realities which surround it.
 
 ---
-
+## Main Section
 Your work in web application security assessment must remain contextualized within the frame of the organization which operates or hosts the application, the people who utilize it (and of their devices), the interpersonal relationships you have with these people, the nature of the web application itself, the data stored or processed on it, the legal realities which prevail over the application, and a solid risk assessment of all these elements. Let’s unpack these elements and consider a self-critique of your role as a digital protector.
 
-## The Role of digital protector in web application security assessment
+### The Role of digital protector in web application security assessment
 
 Web application security assessment – and especially many of the elements of this and and subsequent linked learning paths which go beyond basic vulnerability scanning, version enumeration, and misconfiguration checks - is a highly technical and rarified skill set with a terminology which is inaccessible and difficult to understand both by lay users and even tech-savvy website administrators. Take a moment to reflect on your own knowledge level and your personal feelings about conducting this assessment and what you hope to communicate with your client. One of the golden rules of working as an effective digital protector: _the goal is not to impress others and make yourself appear superior - it is to provide effective assistance which reduces harm and risk while supporting the advocacy goals of your client_.
 
@@ -36,9 +37,9 @@ Organizations use web applications for various purposes. In some cases these wil
 
 In other cases confidential and mission-critical data may be processed by the application. As you proceed through these learning paths which focus heavily on technical skills, continually do a sense-check on the threat models which prevail over the application itself, the organization and people who operate it as well as those who utilize it, including consideration for the devices which they use to interact with it.
 
-## Reporting and talking about vulnerabilities
+### Reporting and talking about vulnerabilities
 
-Reporting vulnerabilities you’ve discovered can be difficult, especially if you’re new to it. We have created a brief overview of the reporting process in [Subtopic 5 of the Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit#heading=h.3b8ncrmhhmwt) and encourage all learners who need to write up reports to clients to look through it.
+Reporting vulnerabilities you’ve discovered can be difficult, especially if you’re new to it. We have created a brief overview of the reporting process in [Subtopic 5 of the Web Application Security Assessment learning path](/en/learning-path/5/module-5/) and encourage all learners who need to write up reports to clients to look through it.
 
 ## Skill Check
 

@@ -2,6 +2,7 @@
 style = "module"
 weight = 9
 title = "Malicious document analysis"
+description = "We learn how to triage and analyze potentially suspicious malicious documents"
 +++
 
 ## Use Case
@@ -19,7 +20,7 @@ After completing this subtopic, practitioners should be able to do the following
 - Disassemble and analyze Microsoft Office documents
 
 ---
-
+## Main Section
 Many threat actors can use documents with malicious payloads as an attack vector. Read through [this page](https://cyberhub.am/en/blog/2023/10/25/technical-writeup-malware-campaigns-targeting-armenian-infrastructure-and-users/) for a case study thereof.
 
 _Greater Internet Freedom_, an Internews Project, recently created a small course on analyzing malicious documents. Read through all four parts of the course (listed below) in order to complete this subtopic.
@@ -30,6 +31,10 @@ Please note that some of the tools included in this guide require Python to be i
 [Part 2 - PDF Documents](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-02-pdf-documents/)\
 [Part 3 - Microsoft Office Documents](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-03-microsoft-office-documents/)\
 [Part 4 - Defensive Measures and Next Steps](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-04-defensive-measures-next-steps-and-closure/)
+
+## Skill Check
+
+Complete all of the challenges in the course linked above.
 
 ## Learning Resources
 
@@ -44,7 +49,3 @@ Please note that some of the tools included in this guide require Python to be i
 {{% resource title="Analyzing malicious PDFs" languages="English" cost="Free" description="Discusses various tools for in-depth analysis of malicious PDF files." url="https://resources.infosecinstitute.com/topics/hacking/analyzing-malicious-pdf/" %}}
 
 {{% resource title="How to analyze malicious Microsoft Office files" languages="English" cost="Free" description="Provides insights into detecting malicious payloads in Microsoft Office files and methods for analysis." url="https://intezer.com/blog/malware-analysis/analyze-malicious-microsoft-office-files/" %}}
-
-## Skill Check
-
-Complete all of the challenges in the course linked above.

@@ -2,6 +2,7 @@
 style = "module"
 weight = 1
 title = "Interpersonal skills for detecting malware"
+description = "Before you start looking into any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
 +++
 
 ## Use Case
@@ -21,7 +22,8 @@ Practitioners should also be able to do the following:
 
 ---
 
-## Foundation knowledge
+## Main Section
+### Foundational knowledge
 
 The Security Education Companion contains a multitude of advice on thoughtful, careful, harm-reducing ways to interact as a technology helper. If you are not already familiar with this type of content, we highly advise a review at [Security Education 101](https://www.securityeducationcompanion.org/articles).
 
@@ -33,7 +35,7 @@ After reading through the above resources, you should be able to:
 - Understand your own limitations, both in terms of technical ability but also your suitability to support a given person or community and any risks inherent in doing so
 - Avoid injecting preferences for platforms, technology, open-source vs closed-source, etc, into helper interactions.
 
-## 📋 Path-specific Knowledge
+### Path-specific Knowledge
 
 Once you are familiar with the above foundational knowledge, take some time to think about particular interpersonal skills which might be needed for this specific learning path. Every learning path and intervention are slightly different; each one might bring with it different narratives or concerns by learners.
 
@@ -49,7 +51,7 @@ You should be able to:
 
 Note that the other subtopics in this learning path also contain advice on developing interpersonal skills in order to deliver thoughtful, harm-reducing support on this subject.
 
-## Understand: Harm Reduction & Operational Security
+### Understand: Harm Reduction & Operational Security
 
 By the time a malware sample has been shared with you, it is possible that harm has been caused to the targeted person. The malware might have captured data, and the targeted person may also be impacted by the psychosocial impact of being targeted or watched. It’s important to support the intended targeted person while, at the same time, avoiding causing harm to yourself during active interaction with malicious content.
 
@@ -59,7 +61,7 @@ The answers to these questions will both help provide useful harm reduction supp
 
 For operational security to protect yourself while working with malicious emails, complete subtopic 3 (Safe Handling of Links and Infrastructure) of the learning path on detecting, tracking, and investigating malicious infrastructure.
 
-## Understand: Detection, Negative Findings, and Paranoia
+### Understand: Detection, Negative Findings, and Paranoia
 
 Spyware is an extremely invasive attack against individuals, families, communities, and movements. Understand that the information and analysis - whether positive or negative - which you provide to a client may be extremely consequential and inform risk decisions which they take with their devices. As such, it is important to be clear about the true scope and significance of any detection work and determination which you provide to them.
 
@@ -67,7 +69,7 @@ Outside of highly controlled and monitored device environments, modern OS platfo
 
 At the same time, we know that paranoia is a common phenomenon in which the feeling of surveillance (warranted or not) is a persistent negative mental experience for public-facing activists, journalists, leaders, or other clients you may be working with. It is necessary to walk a fine line in determining a balance between providing useful technical evidence to update on the odds and probabilities that surveillance is occuring, while neither stoking a sense of false confidence nor an unfounded fear of personalized surveillance.
 
-## Triage the situation as well as the device
+### Triage the situation as well as the device
 
 Triage is the necessary step in which you gather information and use it to decide when to invest time in further investigation. While effective triage relies on technical knowledge and instincts, it also requires interpersonal skills to empathetically engage a client, take their concerns seriously, listen actively, and understand the situation they are in.
 
@@ -91,10 +93,6 @@ To set up REMnux, we recommend that you follow the steps outlined in [Chapter 6 
 While performing malware analysis, you may find that you want additional tools in your analysis VM. Go ahead and install and configure them, but note what you did. After you’re done with your analysis, you can load up your “clean” VM snapshot, install and configure the tool, and then make a new “clean” snapshot for your next malware analysis adventure.
 
 In order to move malware files around, the standard practice is to put them in encrypted ZIP files. In this case, the encryption quality doesn’t matter. The point is not to keep the malware secret, so much as to prevent inadvertently unleashing it on other systems and to prevent anti-malware systems from detecting or deleting it. Feel free to include the password in the ZIP file name.
-
-## Learning Resources
-
-{{% resource title="Security Education 101" languages="English" cost="Free" description="A popular community resource on how to teach and talk about digital security" url="https://www.securityeducationcompanion.org/articles" %}}
 
 ## Practice
 
@@ -121,6 +119,10 @@ With a Mentor or Peer
   - Informing of a positive finding (malware found)
 - If available, have someone watch your actual interactions and incident response process with a client and provide feedback on how you navigate the interpersonal elements of the interaction
 
+## Learning Resources
+
+{{% resource title="Security Education 101" languages="English" cost="Free" description="A popular community resource on how to teach and talk about digital security" url="https://www.securityeducationcompanion.org/articles" %}}
+
 ## Notes
 
-[^1]: At time of writing, there was no easy way to run this virtual machine on ARM-based processors, such as Raspberry Pi devices or Macs with an Apple Silicon chip
+[^1]: REMnux is not available on ARM processors such as Apple Silicon computers. While it is possible to virtualize across CPU architectures using emulators such as QEMU or UTM (VirtualBox does not currently support ARM architectures), performance will be slow and is not advised. It would make more sense to select another Linux distribution which supports your hardware and install the necessary software packages to complete the activities, if they did not already come with the operating system. Kali Linux is a popular Linux distribution which will include or support many tools also found in REMnux. If you have an Apple Silicon device, you can use UTM (https://mac.getutm.app/) to run the Apple Silicon (ARM64) Kali Installer image. Walkthrough guides are available from both UTM and Kali. At the time of writing, a bug affecting the installer process requires an additional step during installation of attaching a virtual serial terminal display – both walkthroughs describe this process. You can also obtain an ARM version of Kali for the Raspberry Pi, with most models of Raspberry Pi supported. 

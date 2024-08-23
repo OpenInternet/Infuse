@@ -1,10 +1,8 @@
 ---
 style: module
 title: Documenting Findings
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+description: This module teaches you how to write up and share the results of
+  your investigation and include appropriate indicators of compromise (IoCs)
 weight: 8
 ---
 
@@ -24,6 +22,7 @@ After completing this subtopic, practitioners should be able to do the following
 
 ---
 
+## Main Section 
 As you investigate the malicious infrastructure associated with a particular phishing campaign or other threat, it is imperative that you keep detailed notes. You may forget small details that turn out to be important. Furthermore, the threat actors are likely to change their infrastructure (e.g. turn off servers) during your investigation! Therefore, you should keep notes on both what you’re doing and what you discover. Include all information you collect, including things like DNS/whois query results, attacker emails and web pages (full source and screenshots), etc. The exact format of these notes isn’t important, but they should be comprehensive.
 
 As your investigation proceeds, you’ll want to start keeping more distilled analysis notes keeping track of your significant findings. You can also document these in your detailed notes, but it’s good to also track them separately, as your detailed notes are likely to get very long and unwieldy. Your significant findings notes should contain your conclusions about various pieces of infrastructure and the connections between them. Think of it as containing things that you’re likely going to want to keep in your final report. As with your unfiltered notes, the format of these notes isn’t significant, but many people like to use [Maltego](https://www.maltego.com/) to document connections.
@@ -51,14 +50,6 @@ If you are a member of an organization like [CiviCERT](https://www.civicert.org/
 
 You can also publish your findings on a blog or somewhere like GitHub. This requires little effort, but also can be limited in its impact. However, your report may be invaluable to someone who is investigating a similar set of infrastructure.
 
-## Learning Resources
-
-{{% resource title="Maltego" languages="English" cost="There is a community version free for non-commercial use, Pro versions cost 999 USD a year" description="Maltego can be used for visual representation of findings and make it easier to identify connections between different indicators." url="https://www.maltego.com/" %}}
-
-{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="English" cost="Free" description="This is a very thorough report on a major phishing campaign. Don’t feel the need to make yours this complete, but feel free to take inspiration from it." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
-
-{{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="English" cost="Free" description="Another great write-up and a summary of an investigation. Once again, yours will likely be less thorough but this one is a great example." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
-
 ## Skill Check
 
 Take either one of the phishing emails or targeted malicious emails which you discussed in Subtopic 2 or a domain you found on [PhishTank](https://phishtank.org/) (be careful when analyzing the latter, assume that all domains listed there are malicious). You could also use an email or domain you analyzed in a prior subtopic. Imagine and plan out what a report describing the wider campaign behind those emails would look like. Since the report will not be shared with anyone, feel free to make up some details. Afterwards, write down some notes which would summarize/ outline that report.
@@ -68,3 +59,13 @@ If you are working with a peer or a mentor, discuss those notes with them. They 
 - Do the notes accurately describe the type of attack?
 - Does the report contain and present information in a way which could be useful for others in the civil society space, for example by including indicators of compromise (IoC)?
 - Does the report summarize its findings in a responsible way, for example by defanging URLs and redacting sensitive data about targeted persons?
+
+## Learning Resources
+
+{{% resource title="Maltego" languages="English" cost="There is a community version free for non-commercial use, Pro versions cost 999 USD a year" description="Maltego can be used for visual representation of findings and make it easier to identify connections between different indicators." url="https://www.maltego.com/" %}}
+
+{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="English" cost="Free" description="This is a very thorough report on a major phishing campaign. Don’t feel the need to make yours this complete, but feel free to take inspiration from it." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
+
+{{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="English" cost="Free" description="Another great write-up and a summary of an investigation. Once again, yours will likely be less thorough but this one is a great example." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
+
+

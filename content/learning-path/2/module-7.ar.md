@@ -2,6 +2,7 @@
 style = "module"
 weight = 7
 title = "Detecting malware through image acquisition (iOS, Android)"
+description = "Sometimes, we need to take data from the device itself and analyze it in a different environment"
 +++
 
 ## Use Case
@@ -18,10 +19,10 @@ After completing this subtopic, practitioners should be able to do the following
 - Read the results of flagged network flows and be able to triage which results require further investigation or risk-remediating action
 
 ---
-
+## Main Section
 For a broader view of malware detection methods and possible challenges, we recommend that all Learners take a look [at this talk](https://media.ccc.de/v/37c3-11874-einfuhrung_in_smartphone_malware_forensik) (it’s originally in German but also translated into French and English), which is a great introduction to the topic and lasts around 50 minutes (plus questions and answers).
 
-## iOS, Android
+### iOS/Android Image Acquisition
 
 Mobile operating systems are typically more limited/locked down than desktop ones, so creating and working with a full backup is not as straightforward, and you may not be able to easily get all information from a device. A full-featured cross platform tool for mobile data extraction is the Amnesty International Security Lab’s 🧰 [Mobile Verification Toolkit](https://mvt.re) (MVT). Full documentation is available on their web site, but there are also walkthroughs, for example [this one](https://www.youtube.com/watch?v=iLOSlHhGI9U) (English, 6 minute video). Do note that this latter walkthrough also includes materials we will cover in the next subtopic. Alternatively, you can also use [this guide](https://pts-project.org/guides/g4/) which will show you how to do backups on both iOS and Android.
 
@@ -31,7 +32,7 @@ Detecting malware on Android is a little more complicated. You can use a tool ca
 
 You can install MVT on Linux or macOS. Most Linux systems have pip3, a tool used to install Python packages, which makes installing MVT somewhat straightforward. On macOS, you will typically need to install two tools—XCode and Homebrew—first before being able to install MVT. You can follow the instructions in [this guide](https://docs.mvt.re/en/latest/install/) to install MVT.
 
-## iOS, Android
+### Image Scanning with MVT
 
 🧰 For mobile devices, the system architecture makes on-device antimalware software less effective. However, the [Mobile Verification Toolkit](https://mvt.re) (MVT) will scan an Android or iOS device’s extracted data for various malware.
 

@@ -1,10 +1,7 @@
 ---
 style: introduction
 title: Introduction
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+description: "Read the learning path overview, objectives, associated threats, and prerequisites"
 weight: 1
 ---
 
@@ -21,7 +18,7 @@ This learning path covers intermediate-level knowledge and skills needed to dete
 - What to do after malware discovery: Investigation, clean-up, and risk management
 - Clean-up of malware from infected systems
 
-### Background reading
+## Background reading
 
 📕 Adversaries, especially state-based ones, have long used malware to attack civil society groups. Such attacks managed to [shut down a news site](https://www.amnesty.org/en/latest/research/2016/12/how-a-hacking-campaign-helped-shut-down-an-award-winning-news-site/), with hacking-for-hire outfits taking in major state contracts, as shown in those pieces on India’s cyber mercenaries by [The New Yorker](https://www.newyorker.com/news/annals-of-crime/a-confession-exposes-indias-secret-hacking-industry), [Reuters](https://www.reuters.com/investigates/special-report/usa-hackers-litigation/), and [Citizen Lab](https://citizenlab.ca/2020/06/dark-basin-uncovering-a-massive-hack-for-hire-operation/).
 
@@ -70,13 +67,4 @@ Like all of security, this learning path benefits and is benefited by knowledge 
 
 - [Analyzing Malware](/en/learning-path/3/): Taking malware apart to understand how it functions and what it does. In addition, this learning path contains beginner-to-intermediate approaches to static, dynamic, and network-based determination of whether a given sample is malicious; in cases such methods are not sufficient for a determination, additional analysis skills are covered in this subsequent learning path.
 - [Detecting, Investigating and Tracking Malicious Infrastructure](/en/learning-path/1/): Targeted malware generally communicates with command & control, exfiltration, or delivery infrastructure. This learning path will help with investigating and understanding this infrastructure.
-
-Web Application Security Fundamentals: Some malware is delivered as a web application or a browser exploit. Some of the skills covered in this learning path will help you with browser-based malware detection and analysis.
-
-## Other resources and links
-
-{{% resource title="Helpdesk Workflow: Client Receives a Suspicious/Phishing Email" languages="English" cost="Free" description="Access Now helpline community documentation for responding to suspicious/phishing emails" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
-
-{{% resource title="List of all DNS record types" languages="English, Chinese, Japanese, Korean, Russian, Serbian, Ukrainian, Esperanto, Hungarian, Vietnamese, Italian, Spanish, French" cost="Free" description="Includes (almost?) all DNS record types." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
-
-{{% resource title="Amnesty reports on phishing campaigns" languages="Multiple, depending on the report" cost="Free" description="A list of examples of how a targeted phishing campaign against human right defenders, activists and journalists looks" url="https://www.amnesty.org/en/search/phishing/" %}}
+- Web Application Security Fundamentals: Some malware is delivered as a web application or a browser exploit. Some of the skills covered in this learning path will help you with browser-based malware detection and analysis.

@@ -2,6 +2,7 @@
 style = "module"
 weight = 5
 title = "Forensic methods on live Windows and macOS systems"
+description = "Sometimes, it's necessary to dig deeper into a system to figure out what's wrong. We can do this by investigating processes, persistence mechanisms, and network traffic"
 +++
 
 ## Use Case
@@ -17,10 +18,10 @@ After completing this subtopic, practitioners should be able to do the following
 - Inspect network traffic for suspicious communications
 
 ---
-
+## Main Section 
 Forensic methods require more knowledge about the internal operations of an operating system as well as developing an instinct for what is normal vs abnormal findings.
 
-## Windows
+### Windows
 
 The [Guide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/) provides a good introduction to forensic approaches to device inspection. The guide includes an introduction to the important suite of Sysinternals tools made available from Microsoft. Complete the guide sections on [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/windows/processes), and [TCPView](https://pellaeon.gitbook.io/mobile-forensics/windows/network).[^1]
 
@@ -31,9 +32,9 @@ After completing the guided activities, you should be able to:
 - Read and filter results from SysInternals Autoruns tools to identify only non-Microsoft, unsigned binaries, and how to check file hashes against VirusTotal
 - Know how to read and understand results from Process Explorer, including how to check for running processes with unverified file signatures and how to check process hashes against VirusTotal.
 
-Microsoft’s SysInternal tools are widely used and you will be able to find additional tutorials using them around the web, however the [Guide to Quick Forensics ](https://pellaeon.gitbook.io/mobile-forensics/)gives a good targeted introduction.
+Microsoft’s SysInternal tools are widely used and you will be able to find additional tutorials using them around the web, however the [Guide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/) gives a good targeted introduction.
 
-## MacOS
+### MacOS
 
 There are [some macOS tools](https://objective-see.org/tools.html) created by Objective-See which can help detect potentially suspicious activity on a system. Many of the Objective-See tools have an integrated VirusTotal search; this is a tool we will also mention more later on in this learning path. For a quick tutorial on VirusTotal, check out [chapter 7 of the field guide](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf). We recommend that any learners who want to become more familiar with macOS look at the following tools:
 
@@ -41,14 +42,6 @@ There are [some macOS tools](https://objective-see.org/tools.html) created by Ob
 - OverSight: A tool which alerts the user every time the microphone or webcam are enabled. If malware attempts to capture information through the microphone or camera, then the tool should alert a user or analyst thereof.
 - KnockKnock and BlockBlock: Those two applications detect software which starts up when the user logs in to the system. It can therefore alert the user or analyst to malware which has persistence--or starts to run again on every restart. KnockKnock can provide a list of persistent software, while BlockBlock sends an alert every time a new persistent component is installed.
 - KextViewer: A tool to review and inspect kernel extensions, packages which extend the core operating system code and run at the highest privilege level.
-
-## Learning Resources
-
-{{% resource title="Mobile forensics" languages="English" cost="Free" description="A comprehensive guide on how to conduct forensics and triage for many leading operating systems." url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
-
-{{% resource title="Sysinternals" languages="English" cost="Free" description="A series of excellent tools analysts can use to better understand what is happening on a Windows system." url="https://learn.microsoft.com/en-us/sysinternals/" %}}
-
-{{% resource title="Objective-see tools" languages="English" cost="Free" description="Excellent security tools for macOS which can help detect malware infections or attempts to gather/ exfiltrate data." url="https://objective-see.org/tools.html" %}}
 
 ## Practice
 
@@ -68,6 +61,14 @@ Read through this guide: [Beginner guide - How to handle a potentially malicious
    Write down your findings and then discuss them with a mentor or a peer who will make sure that you have performed the exercise correctly. \
    (Note: it may happen that the malware appears to ‘do nothing’. In that case, discuss this with a mentor and peer and try a different kind of malware.)
 2. (Optional, additional exercise) Check out [this analysis](https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html) from security company Trend Micro and compare it with [this report](https://tria.ge/240207-qlmmrahhgr/behavioral1) on Triage. Discuss those two with a mentor or peer, focusing on issues such as the ways in which both reports label TTPs and try to explain the malware. Talk about which format you find more readable and why. (Note: this malware, that Trend Micro calls ‘Earth Preta’, is also known as ‘Mustang Panda’, and has targeted media organizations and NGOs, most notably in Myanmar.)
+
+## Learning Resources
+
+{{% resource title="Mobile forensics" languages="English" cost="Free" description="A comprehensive guide on how to conduct forensics and triage for many leading operating systems." url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
+
+{{% resource title="Sysinternals" languages="English" cost="Free" description="A series of excellent tools analysts can use to better understand what is happening on a Windows system." url="https://learn.microsoft.com/en-us/sysinternals/" %}}
+
+{{% resource title="Objective-see tools" languages="English" cost="Free" description="Excellent security tools for macOS which can help detect malware infections or attempts to gather/ exfiltrate data." url="https://objective-see.org/tools.html" %}}
 
 ## Notes
 

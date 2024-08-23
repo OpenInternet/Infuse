@@ -2,6 +2,7 @@
 style = "module"
 weight = 3
 title = "How malware works and different types of malware"
+description = "Viruses, spyware, backdoors, ransomware, and adware all behave differently. Here, we study different types of malware and understand how infections begin"
 +++
 
 ## Use Case
@@ -18,10 +19,10 @@ After completing this subtopic, the practitioner should be able to do the follow
 - Explain what indicators of compromise are
 
 ---
-
+## Main Section
 In general, malware is any software that is used to do unauthorized things on a user’s computer or mobile device. Wikipedia has a good [introduction to malware in general.](https://en.wikipedia.org/wiki/Malware)
 
-## What does malware do?
+### What does malware do?
 
 Malware can do anything that any software can do, but there are several common capabilities that exist in malware. While some malware is single-purpose, other malware will have multiple capabilities. Frequently-used capabilities include:
 
@@ -46,11 +47,11 @@ We highly recommend reading [Chapter 5](https://internews.org/wp-content/uploads
 - Antivirus programs
 - Vulnerabilities and exploits
 
-## How do targeted devices get infected?
+### How do targeted devices get infected?
 
 Malware has to get on a targeted person’s device somehow. The methods to do this range from users being tricked into running malicious software to exploitation of vulnerable software and services, including true 0-click attacks.
 
-## Methods of infecting Windows, macOS, and Linux
+#### Methods of infecting Windows, macOS, and Linux
 
 1. Directly running (executing) malicious programs received via social engineering attacks
    1. Phishing via email, SMS, WhatsApp, etc.
@@ -62,13 +63,13 @@ Malware has to get on a targeted person’s device somehow. The methods to do th
 
 Once the initial compromise is made, most malware will go through [multiple stages of infection](https://community.fireeye.com/s/article/000002205) (Free, English).
 
-## Methods of infecting iOS and Android
+#### Methods of infecting iOS and Android
 
 Mobile operating systems have a slightly different architecture from desktop ones. They are usually more locked down and restrict what code can be run on them. This means that malware, too, has slightly different infection paths and methods. Check out the [smartphone systems architecture](https://pellaeon.gitbook.io/mobile-forensics/smartphones/smartphone-system-architecture) section of the Mobile Forensics Guide for a good overview.
 
 Standard iOS and Android configurations only allow the user to run software downloaded from the official app stores. Malware for those platforms is either installed through such an app store (which means that it was not discovered during Apple’s or Google’s security audits) or by exploiting holes in iOS and Android which stop unauthorized code from running. Alternatively, some malware authors also use social engineering to convince targeted persons to install malicious profiles or other device configurations.
 
-## Persistence
+### Persistence
 
 Much of the malware you encounter in your work will be persistent, or able to start running automatically every time the targeted person logs in or restarts their system. Each operating system has mechanisms which automatically run certain software at login, at scheduled times, or when something happens (for example, when a new network connection is made or a program is launched).
 
@@ -76,7 +77,7 @@ Malware can use a wide array of persistence techniques; some of them are reasona
 
 Some malware will not aim for persistence. Instead it will run, extract data, and then disappear following a logout or a restart. If attackers want to use the malware’s capabilities again, they simply re-install it on the targeted person’s system. While this can limit the period for which the malware is active on a system and therefore the data it collects, it also makes the malware more difficult to detect, since it leaves fewer traces on a system.
 
-## Indicators of Compromise
+### Indicators of Compromise
 
 In the process of being installed and performing malicious activities, malware leaves IoCs, or Indicators of Compromise. These are frequently used to identify particular pieces of malware. IoCs could include cryptographic hashes (we cover them later on this learning path) which represent specific executable files, but they can also be connections to network services or particular network traffic, patterns of execution, etc.
 
@@ -88,11 +89,36 @@ Check out the IoCs outlined on page 52 [of this Amnesty Report](https://www.amne
 
 There are many different ways to spot indicators of compromise. They include looking through network logs to see if any device tried to contact a specific domain, and checking if any files on a device match certain hashes. If you would like to learn a little more about them, we recommend checking out those articles by [Microsoft](https://www.microsoft.com/en-us/security/business/security-101/what-are-indicators-of-compromise-ioc) and [Fortinet](https://www.fortinet.com/resources/cyberglossary/indicators-of-compromise).
 
-## Known versus unknown malware
+### Known versus unknown malware
 
 The vast majority of malware infections you will encounter in your career will have been caused by malware that the community knows about. This means that somebody else has already found this malware and shared the IoCs or samples thereof with malware scanning engines. Still, cybercriminals continue to write new malware and adapt existing programs. There is therefore always a small chance that the devices you’re investigating have been infected with malware which has not yet been documented. If you worry that this might be the case, we recommend checking out the Malware Analysis Learning Path, which guides you on how to analyze unknown samples to figure out whether they are malicious.
 
 Not all malware that has been recognized has been extensively documented, either. Many of the samples that can be found on websites like MalwareBazaar might have IoCs associated with them and are known to be malicious, but analysts might not have written up what exactly such malware does. If you find a sample that others flagged up as malicious but which is nonetheless under-documented and you would like to learn more about how it functions and what it does, follow some of the guides on the analysis learning path.
+
+## Practice
+
+Take a moment to look through Malware Bazaar’s list of [recently submitted malware](https://bazaar.abuse.ch/browse/). Read through the descriptions and comments of several malware samples and note what form they take, which delivery mechanism they use, and the like. Some of the malware samples have comments attached to them; check those out as well. Note that not all malware samples will contain details such as IoCs or delivery mechanisms.
+
+Do note that Malware Bazaar also contains some details such as hashes which are only covered in later phases of this learning path.
+
+Do not download any samples at this moment. Simply glancing at the sample descriptions is sufficient at this stage.
+
+## Skill Check
+
+Working with a peer or mentor, find two or three reports describing malware infections for a platform of your choice. Make sure that those reports include IoCs. If you cannot find any reports, you can just read through one of those:
+
+- [HotRat: The Risks of Illegal Software Downloads and Hidden AutoHotkey Script Within](https://decoded.avast.io/martinchlumecky/hotrat-the-risks-of-illegal-software-downloads-and-hidden-autohotkey-script-within/)
+- [Earth Preta Spear-Phishing Governments Worldwide](https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html)
+- [New SugarGh0st RAT targets Uzbekistan government and South Korea](https://blog.talosintelligence.com/new-sugargh0st-rat/)
+- (this is a long one, only peruse if you feel particularly ambitious) [Amnesty Tech report on Predator](https://www.amnesty.org/en/documents/act10/7245/2023/en/)
+
+Answer the following questions for one of those reports:
+
+- What does this malware do?
+- How does still malware get on a system? Does it exploit an existing bug to be installed? Does it require user intervention to install?
+- What are the IoCs for this malware? What steps could we take to spot those IoCs on an infected system or network?
+
+Discuss your answers to all those questions with your peer or mentor.
 
 ## Learning Resources
 
@@ -119,28 +145,3 @@ Not all malware that has been recognized has been extensively documented, either
 {{% resource title="Microsoft Security: Indicators of compromise explained" languages="English" cost="Free" description="A summary of what IoCs are and which forms they could take." url="https://www.microsoft.com/en-us/security/business/security-101/what-are-indicators-of-compromise-ioc" %}}
 
 {{% resource title="Fortinet glossary: Indicators of compromise" languages="English" cost="Free" description="One more, very useful, summary of IoCs." url="https://www.fortinet.com/resources/cyberglossary/indicators-of-compromise" %}}
-
-## Practice
-
-Take a moment to look through Malware Bazaar’s list of [recently submitted malware](https://bazaar.abuse.ch/browse/). Read through the descriptions and comments of several malware samples and note what form they take, which delivery mechanism they use, and the like. Some of the malware samples have comments attached to them; check those out as well. Note that not all malware samples will contain details such as IoCs or delivery mechanisms.
-
-Do note that Malware Bazaar also contains some details such as hashes which are only covered in later phases of this learning path.
-
-Do not download any samples at this moment. Simply glancing at the sample descriptions is sufficient at this stage.
-
-## Skill Check
-
-Working with a peer or mentor, find two or three reports describing malware infections for a platform of your choice. Make sure that those reports include IoCs. If you cannot find any reports, you can just read through one of those:
-
-- [HotRat: The Risks of Illegal Software Downloads and Hidden AutoHotkey Script Within](https://decoded.avast.io/martinchlumecky/hotrat-the-risks-of-illegal-software-downloads-and-hidden-autohotkey-script-within/)
-- [Earth Preta Spear-Phishing Governments Worldwide](https://www.trendmicro.com/en_us/research/22/k/earth-preta-spear-phishing-governments-worldwide.html)
-- [New SugarGh0st RAT targets Uzbekistan government and South Korea](https://blog.talosintelligence.com/new-sugargh0st-rat/)
-- (this is a long one, only peruse if you feel particularly ambitious) [Amnesty Tech report on Predator](https://www.amnesty.org/en/documents/act10/7245/2023/en/)
-
-Answer the following questions for one of those reports:
-
-- What does this malware do?
-- How does still malware get on a system? Does it exploit an existing bug to be installed? Does it require user intervention to install?
-- What are the IoCs for this malware? What steps could we take to spot those IoCs on an infected system or network?
-
-Discuss your answers to all those questions with your peer or mentor.

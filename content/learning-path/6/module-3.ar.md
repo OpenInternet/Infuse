@@ -2,11 +2,12 @@
 style = "module"
 weight = 3
 title = "Denial of Service Incident Response"
+description = "If a website comes under a sustained denial of service attack, it may be vital to act quickly to get the site back up and running. This subtopic describes some practices to allow site owners to recover from a DoS attack"
 +++
 
 ## Use Case
 
-If a website comes under a sustained denial of service attack, it may be vital to act quickly to get the site back up and running. This Learning Path describes some practices to allow site owners to recover from a DoS attack.
+If a website comes under a sustained denial of service attack, it may be vital to act quickly to get the site back up and running. This subtopic describes some practices to allow site owners to recover from a DoS attack.
 
 ## Objectives
 
@@ -16,7 +17,7 @@ After completing this subtopic, the practitioner should be able to do the follow
 - Mitigate or neutralize an attack in process
 
 ---
-
+## Main Section
 For some sites (e.g., gambling sites), even a brief DoS can be an existential threat to the site’s survival. Attackers are typically financially motivated, and will use DoS as an extortion threat. For civil society focused sites, the threat model is typically quite different. Attacks are typically controlled by political rivals (often nation-state actors or those linked to or supported by them), and fall into two categories:
 
 - Brief (hours to days) attacks meant to intimidate the site owners
@@ -28,7 +29,7 @@ At the start of an attack, it’s impossible to know which type of attack the si
 2. Mitigate that attack (the site should be operational at this point)
 3. Proactively harden the site against future attacks
 
-## Determining Attack Type
+### Determining Attack Type
 
 Generally, a DoS attack will be noticed when users note that the site becomes unavailable or shows degraded performance. In some cases, performance monitoring systems for the site may proactively notify site owners. In any case, the first step is to determine why the site is down. Note that degraded site performance or a site being unavailable may not be due to an attack, but due to equipment failures, misconfiguration, ill-conceived site changes, and [something on the site going viral](https://en.wikipedia.org/wiki/Slashdot_effect). When investigating site degradation, keep in mind the types of DoS attacks, and their symptoms:
 
@@ -45,19 +46,19 @@ Knowing what kind of attack is happening will help guide site owners’ response
 
 A word of warning, a DoS attack against a website is usually necessarily an attack against that site’s ISP/hosting provider as well. Especially for network level attacks, the ISP may be impacted just as much as the target website. For this reason, [ISPs or hosting providers will sometimes shut down websites that are targeted by DoS attacks](https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/), so as to protect the provider itself. Engaging with the site’s ISP/hosting provider early may hopefully provide you with some negotiation possibilities or coordination if the provider does decide to shut a site down.
 
-## Mitigating the threat
+### Mitigating the threat
 
 Depending on the type of attack, and the hosting service for the site, mitigations can be varied.
 
-### Exploit-based attacks
+#### Exploit-based attacks
 
 For network and protocol level denial of service exploits, generally a software update will need to be applied. As a short-term mitigation, the site’s ISP may block sources of malicious traffic until software updates can be applied.
 
-### Volumetric attacks
+#### Volumetric attacks
 
 For network and protocol level volumetric attacks, the response is generally carried out at the ISP level. Usually, the ISP will analyze incoming network traffic and identify sources of malicious traffic. They will then block those sources at the network level and work with their upstream ISP to block those sources as well. Eventually, the upstream ISPs that are blocking malicious traffic are large enough that they can easily handle the level of malicious traffic being generated, and the downstream ISPs (and target site) are able to resume normal operations.
 
-### Application-level attacks
+#### Application-level attacks
 
 For application-level DoS attacks, mitigation is generally handled by the site owner, as opposed to the ISP or hosting provider. Generally, the attacker will be sending a large volume of requests, often of an unusual nature, to a specific endpoint on the site. This endpoint (i.e., web page) will be consuming a huge amount of resources, slowing down or crashing the site.
 
@@ -69,13 +70,13 @@ If you do manage to find the likely target endpoint, whether by reading logs or 
 
 A better option would be to put limits on the target endpoint to prevent it from consuming so many resources. If it’s a page that resizes images, put in a maximum image size. If it’s a search operation and the attacker is using a very long and complex search query, limit the length of the query. If it’s a search and the attacker has put in a search that returns lots and lots of results, change the query to be in a sub-select that limits the number of rows before any sorting etc is done. Hopefully, a simple change can render the attack ineffective without changing how the site works for non-malicious users.
 
-### If the site is shut down
+#### If the site is shut down
 
 If the DoS attack is successful in shutting down the web site (e.g., the hosting provider turns off the site), getting the site back up may happen several different ways. If the site owners have good development and deployment practices (see subsection 1 of this learning path), they may have a development copy of the site ready to be deployed at another hosting provider. If not, you and the site owners may be able to negotiate with the site’s current hosting provider to get access to the production servers and copy the site data off.
 
 The easiest next step may be to generate a completely static copy of the site and host it on something like GitHub Pages, Amazon S3, or GCP GCS buckets. To generate a static copy of the site from a development version, you can use a tool like [HTTrack](https://www.httrack.com/) to “spider” the web site and download the HTML. The static site hosting services mentioned above are all free or inexpensive (though there may be a cost for TLS), [are DoS resistant](https://www.wired.com/story/github-ddos-memcached/), and can be set up in a matter of minutes. While having a static copy of the site up may not be ideal, it can be a good stopgap measure.
 
-## Recovering from a DoS Attack
+### Recovering from a DoS Attack
 
 Once the attack has been mitigated, the site owner can work on a full recovery. Generally this involves going through the processes of preparing the site described in subsections 1 and 2 of this learning path. Often, once a site is targeted by a DoS attack, it is likely to face similar attacks again in the future. As such, careful preparation is very important. Especially if an application-level attack was used, it’s a good idea to go through the site and its code to find any aspects that could consume a large amount of resources, and modify them to limit the resources they could consume. Also, having an easy way to generate a static copy of the site and a rehearsed procedure to switch the site to static site hosting, could be useful for frequently-targeted sites.
 
@@ -91,19 +92,6 @@ This mini-site is a good overview of making a DoS response plan for a specific s
 
 - [https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan](https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan)
 
-## Learning Resources
-
-{{% resource title="DDoS: the inconvenient business visitor" languages="English" cost="Free" description="A look at how some web hosting providers might want to abandon clients targeted by DDoS attacks" url="https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/" %}}
-
-{{% resource title="GitHub Survived the Biggest DDoS Attack Ever Recorded" languages="English" cost="First articles on WIRED are free, further ones might require a subscription" description="A 2018 piece on how Github took on a massive DDoS attack and continued to operate thereafter" url="https://www.wired.com/story/github-ddos-memcached/" %}}
-
-{{% resource title="Understanding and Responding to Distributed Denial-of-Service Attacks" languages="English" cost="Free" description="A 2022 CISA guide on the topic, looking at what steps to take before, during, and after an attack" url="https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf" %}}
-
-{{% resource title="MS-ISAC Guide to DDoS Attacks" languages="English" cost="Free" description="A guide which provides an overview of common types of DDoS attacks, along with general recommendations on mitigations" url="https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks" %}}
-
-{{% resource title="Denial-of-Service (DoS) Attack Prevention: The Definitive Guide" languages="English" cost="Free" description="This piece outlines a few steps that admins can take to prevent or mitigate the impact of DoS attacks" url="https://www.byos.io/blog/denial-of-service-attack-prevention" %}}
-
-{{% resource title="Denial of Service (DoS) guidance" languages="English" cost="Free" description="The UK National Security Cyber Centre’s guides on DoS attacks and how to defend organizations against them" url="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan" %}}
 
 ## Skill Check
 
@@ -118,12 +106,20 @@ B) Ping Flood\
 C) DNS Spoofing\
 D) UDP Flood
 
+{{< question title="Answer" >}}
+1. C) DNS Spoofing
+{{< /question >}}
+
 2. What is the main objective of a DDoS attack?
 
 A) To steal sensitive data\
 B) To gain unauthorized access to a system\
 C) To overwhelm a target system or network\
 D) To encrypt files and demand ransom
+
+{{< question title="Answer" >}}
+2. C) To overwhelm a target system or network
+{{< /question >}}
 
 3. Which technique is commonly used to mitigate DNS Amplification DDoS attacks?
 
@@ -132,12 +128,20 @@ B) Utilizing rate limiting to control the volume of DNS response packets leaving
 C) Deploying Intrusion Prevention Systems (IPS) to detect and block malicious traffic at the network perimeter\
 D) Conducting regular vulnerability scans to identify and patch DNS server vulnerabilities
 
+{{< question title="Answer" >}}
+3. B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers
+{{< /question >}}
+
 4. Which phase of incident response involves identifying the nature and scope of a DDoS attack?
 
 A) Preparation\
 B) Detection and Analysis\
 C) Containment, Eradication, and Recovery\
 D) Post-Incident Activity
+
+{{< question title="Answer" >}}
+4. B) Detection and Analysis
+{{< /question >}}
 
 5. What is a primary goal during the containment phase of incident response for a DDoS attack?
 
@@ -146,12 +150,20 @@ B) Eliminating the attacker's access\
 C) Identifying vulnerabilities for future attacks\
 D) Restoring affected services while preventing further damage
 
+{{< question title="Answer" >}}
+5. D) Restoring affected services while preventing further damage
+{{< /question >}}
+
 6. In the context of incident response, what does the "Eradication" phase involve regarding DDoS attacks?
 
 A) Restoring data from backups\
 B) Investigating the attack's origin\
 C) Implementing long-term solutions to prevent similar attacks\
 D) Rebooting affected systems
+
+{{< question title="Answer" >}}
+6. C) Implementing long-term solutions to prevent similar attacks
+{{< /question >}}
 
 7. Which action is typically performed during the recovery phase of incident response following a DDoS attack?
 
@@ -160,6 +172,10 @@ B) Applying security patches to vulnerable systems\
 C) Identifying new attack vectors\
 D) Initiating legal action against the attacker
 
+{{< question title="Answer" >}}
+7. B) Applying security patches to vulnerable systems
+{{< /question >}}
+
 8. How can Content Delivery Networks (CDNs) help protect websites from Denial of Service (DoS) attacks?
 
 A) By encrypting all incoming traffic to prevent attacks\
@@ -167,13 +183,21 @@ B) By directly blocking all suspicious incoming traffic\
 C) By distributing website content across multiple servers and data centers\
 D) By increasing the website's processing power
 
-_Correct answers:_
+{{< question title="Answer" >}}
+8. C) By distributing website content across multiple servers and data centers
+{{< /question >}}
 
-_1. C) DNS Spoofing;_\
-_2. C) To overwhelm a target system or network;_\
-_3. B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers;_\
-_4. B) Detection and Analysis;_\
-_5. D) Restoring affected services while preventing further damage;_\
-_6. C) Implementing long-term solutions to prevent similar attacks;_\
-_7. B) Applying security patches to vulnerable systems;_\
-_8. C) By distributing website content across multiple servers and data centers_
+
+## Learning Resources
+
+{{% resource title="DDoS: the inconvenient business visitor" languages="English" cost="Free" description="A look at how some web hosting providers might want to abandon clients targeted by DDoS attacks" url="https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/" %}}
+
+{{% resource title="GitHub Survived the Biggest DDoS Attack Ever Recorded" languages="English" cost="First articles on WIRED are free, further ones might require a subscription" description="A 2018 piece on how Github took on a massive DDoS attack and continued to operate thereafter" url="https://www.wired.com/story/github-ddos-memcached/" %}}
+
+{{% resource title="Understanding and Responding to Distributed Denial-of-Service Attacks" languages="English" cost="Free" description="A 2022 CISA guide on the topic, looking at what steps to take before, during, and after an attack" url="https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf" %}}
+
+{{% resource title="MS-ISAC Guide to DDoS Attacks" languages="English" cost="Free" description="A guide which provides an overview of common types of DDoS attacks, along with general recommendations on mitigations" url="https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks" %}}
+
+{{% resource title="Denial-of-Service (DoS) Attack Prevention: The Definitive Guide" languages="English" cost="Free" description="This piece outlines a few steps that admins can take to prevent or mitigate the impact of DoS attacks" url="https://www.byos.io/blog/denial-of-service-attack-prevention" %}}
+
+{{% resource title="Denial of Service (DoS) guidance" languages="English" cost="Free" description="The UK National Security Cyber Centre’s guides on DoS attacks and how to defend organizations against them" url="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan" %}}

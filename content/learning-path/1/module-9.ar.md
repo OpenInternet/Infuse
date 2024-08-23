@@ -1,10 +1,9 @@
 ---
 style: module
 title: Response - Infrastructure takedown
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+description: Here, we cover abuse-reporting and other safe browsing and sinkhole
+  mechanisms. This includes contacting the infrastructure provider to report
+  malicious infrastructure so that it can be taken down
 weight: 9
 ---
 
@@ -24,8 +23,8 @@ After completing this subtopic, practitioners should be able to do the following
 - Identify and use abuse reporting mechanisms at bigger infrastructure providers.
 
 ---
-
-## Abuse Reporting at hosting service providers
+## Main Section
+### Abuse Reporting at hosting service providers
 
 Many instances of malicious infrastructure run on mainstream commercial service providers concerned with maintaining their system safety, stability, reputation, and tackling cyber threats. Responsible service providers offer effective abuse reporting mechanisms. Utilizing these mechanisms may lead to a prompt takedown of active infrastructure.
 
@@ -34,7 +33,7 @@ Learn how to locate and utilize these abuse reporting mechanisms. Abuse contacts
 - WHOIS records for a domain will provide an Abuse contact email and phone number.
 - Search for the abuse contact relevant to a given IP at [RIPEstat](https://stat.ripe.net/app/launchpad).
 - For a programmatic utility, see the Abusix Abuse Contacts Database’s [Getting Started](https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee) page which explains how to use a Python utility or a simple host lookup to obtain abuse contacts.
-- Use web search to obtain abuse reporting details for other types of service providers which may not be available through the above methods, such as abuse on platforms such as [Twilio ](https://www.twilio.com/help/abuse)and [Mailchimp](https://mailchimp.com/contact/abuse/).
+- Use web search to obtain abuse reporting details for other types of service providers which may not be available through the above methods, such as abuse on platforms such as [Twilio](https://www.twilio.com/help/abuse) and [Mailchimp](https://mailchimp.com/contact/abuse/).
 
 Remember there may be multiple service providers involved. For instance, a phishing landing page can be reported both to the web hosting provider and to the domain registrar.
 
@@ -63,7 +62,7 @@ If you are looking for inspiration on how to write an email message to an infras
 - Email template [to a hosting provider](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html)
 - Email template [to a client](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html), asking them for permission to share IoCs with the community
 
-## Safe Browsing, sinkholes, and blocklists
+### Safe Browsing, sinkholes, and blocklists
 
 In addition to reaching out to abuse contacts for content takedown, there exists various mechanisms to have malicious infrastructure or other malicious indicators be added to blocklists and databases which are integrated in widely utilized tools and services.
 
@@ -77,6 +76,21 @@ Learn about some of these blocklists, where they are integrated, and how to repo
 - [Phishing Database](https://github.com/mitchellkrogza/Phishing.Database#additions) (Send additions through GitHub)
 - More specific reporting and threat databases are offered by [abuse.ch](https://abuse.ch) and require authentication in order to submit, such as [URLhaus](https://urlhaus.abuse.ch/), [ThreatFox](https://threatfox.abuse.ch/), and [SSL Blacklist](https://sslbl.abuse.ch/).
 - Report Discord Phishing to [phish.gg ](https://docs.phish.gg/)(or add a server to their service).
+
+## Practice
+
+- Find the abuse contacts for 3 web hosting companies, including at least one major platform (use as AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud). Look for any additional information they offer on their abuse reporting process.
+- Investigate how abuse databases and Google Safe Browsing work. Lists several tools and services that they are integrated with.
+- Build your own incident-response flowchart and checklist containing relevant links and actions to take in case of an incident of malicious online infrastructure.
+
+## Skill Check
+
+Work with a mentor or peer who has some experience in taking down malicious infrastructure. Do the following tasks with them:
+
+- Prepare all of the evidence (IP addresses, hashes, domains, and any other evidence) you would need to submit an abuse report. If you have an example of malicious infrastructure at hand, collect that evidence for this infrastructure. If you do not, collect the evidence from a legitimate web page (but without submitting an abuse report, of course). Discuss the evidence with your peer or mentor who will verify that you collected the right evidence and have correctly documented it.
+- Explain how safe browsing, abuse database, and blocklist providers work. If you have an example of malicious infrastructure on hand, submit it to such a database or provider. If you do not, go to the provider’s web page and do a dry run of the submission process with your peer or mentor (explain what information you would prepare, without submitting it).
+- Ask your mentor or peer to list three web hosting providers, cloud providers, registrars, or other service providers. For each of those, find the relevant abuse contact or reporting mechanism.
+- Talk to your mentor or peer about the strategic and personal risks of initiating takedown, potentially disclosing client’s data, and potentially indicating to an attacker that their attack is being critically examined. Do a draft role-play in which you communicate these considerations to the target of the attack.
 
 ## Learning Resources
 
@@ -104,17 +118,4 @@ Learn about some of these blocklists, where they are integrated, and how to repo
 
 {{% resource title="Phish.gg documentation" languages="English" cost="Free" description="A service where you can report phishing on services such as Discord." url="https://docs.phish.gg/docs/get-started/welcome/" %}}
 
-## Practice
 
-- Find the abuse contacts for 3 web hosting companies, including at least one major platform (use as AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud. Look for any additional information they offer on their abuse reporting process.
-- Investigate how abuse databases and Google Safe Browsing work. Lists several tools and services that they are integrated with.
-- Build your own incident-response flowchart and checklist containing relevant links and actions to take in case of an incident of malicious online infrastructure.
-
-## Skill Check
-
-Work with a mentor or peer who has some experience in taking down malicious infrastructure. Do the following tasks with them:
-
-- Prepare all of the evidence (IP addresses, hashes, domains, and any other evidence) you would need to submit an abuse report. If you have an example of malicious infrastructure at hand, collect that evidence for this infrastructure. If you do not, collect the evidence from a legitimate web page (but without submitting an abuse report, of course). Discuss the evidence with your peer or mentor who will verify that you collected the right evidence and have correctly documented it.
-- Explain how safe browsing, abuse database, and blocklist providers work. If you have an example of malicious infrastructure on hand, submit it to such a database or provider. If you do not, go to the provider’s web page and do a dry run of the submission process with your peer or mentor (explain what information you would prepare, without submitting it).
-- Ask your mentor or peer to list three web hosting providers, cloud providers, registrars, or other service providers. For each of those, find the relevant abuse contact or reporting mechanism.
-- Talk to your mentor or peer about the strategic and personal risks of initiating takedown, potentially disclosing client’s data, and potentially indicating to an attacker that their attack is being critically examined. Do a draft role-play in which you communicate these considerations to the target of the attack.

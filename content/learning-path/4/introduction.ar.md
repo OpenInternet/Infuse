@@ -1,12 +1,9 @@
----
-style: introduction
-title: Introduction
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
-weight: 1
----
++++
+style = "introduction"
+weight = 1
+title = "Introduction"
+description = "Read the learning path overview, objectives, associated threats, and prerequisites"
++++
 
 ## Overview
 
@@ -73,6 +70,8 @@ There are several ways of running DVWA. The best current installation instructio
 - Alternatively, if you’re familiar with Docker or other containerization technologies, follow the [Docker instructions](https://github.com/digininja/DVWA) at the DVWA repository
 
 Before starting any of the exercises, remember to log into DVWA (the default credentials are admin / password) and make sure that the security level is set to “Low”.
+
+![DVWA with Low security level configuration](/media/uploads/dvwa-setting1.png "image_tooltip")
 
 One practice exercise requires you to install and use a tool known as rainbowcrack. Due to its high system requirements and the fact that the tool only works on Linux and Windows, we have opted to make this exercise optional. Since the main purpose of this exercise is to illustrate a security concept, learners who cannot or do not want to complete it will still be able to finish the whole learning path.
 

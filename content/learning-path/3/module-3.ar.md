@@ -1,8 +1,9 @@
----
-style: module
-title: Sandboxes and dynamic analysis
-weight: 3
----
++++
+style = "module"
+weight = 3
+title = "Sandboxes and dynamic analysis"
+description = "Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing this is by running a piece of software in a safe, isolated environment called a sandbox."
++++
 
 ## Use Case
 
@@ -18,8 +19,8 @@ After completing this subtopic, practitioners should be able to do the following
 - Be able to perform some basic dynamic analysis on either Windows or Android binaries using off-the-shelf tools
 
 ---
-
-## Dynamic analysis
+## Main Section
+### Dynamic analysis
 
 When you conduct dynamic analysis on a potentially suspicious file, you will open and execute the file in a specialized tool and observe what this file does, whether it tries to access other files, if it makes network connections, and the like. Static analysis, outlined in subtopic 4, on the other hand, disassembles the file rather than opening or executing it.
 
@@ -31,7 +32,7 @@ There are many different methods in which we could conduct dynamic analysis, inc
 
 In theory, dynamic analysis could tip off a threat actor that you are analyzing their malware. In practice, adversaries often expect their malware to be analyzed and it is very rare to encounter completely novel malware in your career. With the exception of some very sensitive cases, we would not worry about this risk.
 
-## Sandboxes
+### Sandboxes
 
 A (malware) sandbox is a safe environment in which you can open and run a file or an URL. It is essentially a custom-designed virtual machine that is launched before the file or URL is opened, and is then shut down after a certain amount of time.
 
@@ -45,19 +46,30 @@ This is important to keep in mind when reading a sandbox report: a lack of malic
 
 Check out [Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for a more in-depth introduction to sandboxes.
 
-It is possible to run a sandbox locally. [Cuckoo](https://cuckoosandbox.org/) is an open source sandbox that has been around for many years. A [new version](https://github.com/cert-ee/cuckoo3) is being developed but is not yet available at the time of writing (February 2024).
+It is possible to run a sandbox locally. [Cuckoo](https://cuckoosandbox.org/) is an open source sandbox that has been around for many years. A [new version](https://github.com/cert-ee/cuckoo3) is being developed but is not yet recommended for production use at the time of writing (July 2024).
 
 While running a sandbox locally gives you full control of the environment and means you can keep your files and URLs fully private, it can be quite a lot of work to set up and maintain. Thankfully, there are many online sandboxes available, such as [ANY.RUN](https://any.run/), [Hybrid Analysis](https://www.hybrid-analysis.com/), [Joe Sandbox](https://www.joesandbox.com/), [Triage](https://tria.ge/) and even an online version of [Cuckoo](https://cuckoo.cert.ee/). All of them have free versions that allow you to upload malware and URLs, though some do require registration. Do keep in mind that if you use a free version, anything you run inside a sandbox will be publicly available. This can be a concern if you don’t want to tip off an adversary or are dealing with very private data, such as potentially infected confidential documents.
 
-## Dynamic analysis of Windows binaries
+### Dynamic analysis of Windows binaries
 
 We recommend starting out with an overview class, this time from [OpenSecurityTraining](https://opensecuritytraining.info/Training.html). Their [Malware Dynamic Analysis](https://opensecuritytraining.info/MalwareDynamicAnalysis.html) class includes slides, lab materials, and videos, and it covers setup, analysis, and creating IoCs.
 
-## Dynamic analysis of Android binaries
+### Dynamic analysis of Android binaries
 
 Many tools can be used to dynamically analyze Android binaries. Those include some of the sandboxes outlined above and [Frida](https://frida.re/docs/android/) (check out [this tool](https://github.com/nccgroup/house) for a GUI frontend to Frida).
 
 PiRogue Tool Suite (outlined in the detecting malware learning path) can also [do excellent dynamic analysis](https://pts-project.org/guides/g8/) of Android binaries, though some of those analysis methods require you to first root your device.
+
+## Skill Check
+
+### General
+
+1. Go to the ‘Sandbox’ section in Chapter 10 of the [Field Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) and do exercises 10.2 to 10.4. In the last exercise, make sure you run at least one macOS and Android malware sample each.
+2. In the same chapter, skip to the ‘Analyzing links’ subsection and do exercise 10.12.
+
+### Windows-specific
+
+Perform dynamic analysis on a piece of non-malicious Windows software. It probably includes an installer, which will perform similar actions to malware. What files does it create? What registry keys does it create? What network traffic does it send?
 
 ## Learning Resources
 
@@ -92,14 +104,3 @@ PiRogue Tool Suite (outlined in the detecting malware learning path) can also [d
 {{% resource title="House" languages="English" cost="Free" description="Interface to Frida for Android app analysis." url="https://github.com/nccgroup/house" %}}
 
 {{% resource title="Advanced guide - How to use PiRogue to intercept the TLS traffic of a mobile app" languages="English" cost="Free" description="Instructions on using PiRogue Tool Suite for dynamic analysis of Android binaries." url="https://pts-project.org/guides/g8/" %}}
-
-## Skill Check
-
-### General
-
-1. Go to the ‘Sandbox’ section in Chapter 10 of the [Field Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) and do exercises 10.2 to 10.4. In the last exercise, make sure you run at least one macOS and Android malware sample each.
-2. In the same chapter, skip to the ‘Analyzing links’ subsection and do exercise 10.12.
-
-### Windows-specific
-
-Perform dynamic analysis on a piece of non-malicious Windows software. It probably includes an installer, which will perform similar actions to malware. What files does it create? What registry keys does it create? What network traffic does it send?
