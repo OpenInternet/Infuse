@@ -60,7 +60,7 @@ An example of horizontal privilege escalation might be in the above online forum
 
 With horizontal privilege escalation, there are three major development patterns that lead to the vulnerability. The first is that pages check that users are logged in and that they have the right access level, but completely fail to check data-level permissions. Typically this will result in the entire site, or an entire section of the site, being vulnerable. The second is that individual pages or actions fail to check data-level permissions due to developer oversight. Finally, occasionally websites will pass the user id in a URL parameter or hidden form field, instead of reading it from the server side session. The end-user can easily modify these parameters, usually resulting in privilege escalation.
 
-Preventing Authorization Vulnerabilities
+### Preventing Authorization Vulnerabilities
 
 As noted above, the two root causes for authorization vulnerabilities tend to be lack of developer awareness (hence entire sites or site sections missing the proper controls) or lack of consistency in implementing controls. Since framework support is generally poor, developers often need to implement their own controls from scratch. Here are a few tips to consider:
 

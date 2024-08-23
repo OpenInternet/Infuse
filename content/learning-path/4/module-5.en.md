@@ -74,7 +74,7 @@ One interesting class of vulnerabilities has to do with how various operations h
 
 There are many ways to prevent vulnerabilities in rounding. The most straightforward is to reject transactions with fractional values. Alternatively, one can fully support fractional currencies. Finally, if rounding/truncating/etc is required, one has to do the hard work of ensuring that the handling of fractions is consistent.
 
-## Skipping process steps
+### Skipping process steps
 
 Often websites will have processes that are presented to users as a series of steps. While the intention of the developers may be to have the user go through each step, often the application will still allow users to complete the process without going through each step. Consider an online shopping site that allows users to add items to their cart, specify their delivery options, specify their payment information, and then finally complete the transaction. It is not unheard of for actual sites to perform the transaction if the user simply performs the first two steps and then goes directly to the complete transaction page. While this is rare in actual ecommerce sites, it’s not uncommon in various e-learning platforms, where the user can skip watching the boring videos and go directly to the page that marks their attendance as complete.
 
@@ -88,13 +88,13 @@ As an example, consider a site where the password reset mechanism is that the si
 
 Log into your DVWA and make sure the security level is set to low. Navigate to the “CSRF” page and try to generate a web page that will change the logged-in user’s password. Note that, if you have an up to date web browser, it might automatically restrict SameSite attributes of session cookies and the lab might not work there. If this happens, do not worry and skip this exercise–this is normal and desired behavior by the web browser.
 
-Preventing CSRF
+### Preventing CSRF
 
 The most straightforward way of preventing CSRF is to explicitly set the SameSite attribute of session cookies to Lax or Strict, and to ensure that any request that changes data only changes that data if it’s submitted with HTTP POST. Other methods may work, but are more complex.
 
 For more information about CSRF, see [the OWASP page about it](https://owasp.org/www-community/attacks/csrf) and the [OWASP CSRF protection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
 
-For an in-depth exploration of both CSRF and other application logic vulnerabilities, see the <span style="text-decoration:underline;">Web Application Security Assessment learning path</span>.
+For an in-depth exploration of both CSRF and other application logic vulnerabilities, see the [Web Application Security Assessment learning path](/en/learning-path/5/).
 
 ## Skill Check
 
