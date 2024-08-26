@@ -1,198 +1,222 @@
 +++
 style = "module"
 weight = 4
-title = "Authorization"
+title = "Autorización"
+description = "Los usuarios que han iniciado sesión no tienen acceso a los datos de los demás usuarios. Aquí veremos cómo asegurarnos de que ningún usuario exceda su nivel de acceso o capacidad."
 +++
 
-## Use Case
+## Caso de Uso
 
-In any website that has users with different levels of capabilities (e.g. viewers vs editors) or that holds confidential information for users, it’s important that the site protects these features and/or this data from people who don’t have permission to use these features and/or interact with this data.
+En cualquier sitio web que tenga usuarios con diferentes niveles de capacidades (por ejemplo, espectadores versus editores) o que contenga información confidencial para los usuarios, es importante que el sitio proteja estas funciones y/o estos datos de personas que no tienen permiso para usar estas funciones. y/o interactuar con estos datos.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Understand common types of authorization vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand the mechanisms by which those vulnerabilities work
-- Understand, in broad strokes, how those vulnerabilities can be prevented
+- Comprender los tipos comunes de vulnerabilidades de autorización
+- Comprender los impactos potenciales de esos tipos de vulnerabilidades.
+- Comprender los mecanismos mediante los cuales funcionan esas vulnerabilidades.
+- Comprender, a grandes rasgos, cómo se pueden prevenir esas vulnerabilidades.
 
 ---
+## Sección Principal
 
-## Foundation Knowledge
+### Conocimiento Fundamental
 
-Authorization is the process of making sure that a user of a system has permission to perform an action or create/read/edit/delete a piece of data in that system, and preventing these actions if the user doesn’t have permission. Generally, these are the simplest types of security controls to implement, and the simplest type of vulnerability to find. However, even though they are conceptually simple, both securing and breaking the controls are generally very tedious and error-prone.
+La autorización es el proceso de asegurarse de que un usuario de un sistema tenga permiso para realizar una acción o crear/leer/editar/eliminar un dato en ese sistema, y ​​evitar estas acciones si el usuario no tiene permiso. Generalmente, estos son los tipos de controles de seguridad más simples de implementar y el tipo de vulnerabilidad más simple de encontrar. Sin embargo, aunque son conceptualmente simples, tanto asegurar como romper los controles son generalmente muy tediosos y propensos a errores.
 
-Every time a web application loads an access-controlled page or performs an access-controlled action, it must first verify that the current user has successfully authenticated, and then verify that the user has the right permissions. Generally, authorization logic is highly application-specific, so web frameworks provide limited support for this, so authorization logic needs to be manually added to each page. Sometimes it’s implemented in the page logic, sometimes it’s implemented in the APIs that web pages call internally. In any case, if it’s missing, then unauthorized users can do things that they are not supposed to be able to do.
+Cada vez que una aplicación web carga una página de acceso controlado o realiza una acción de acceso controlado, primero debe verificar que el usuario actual se haya autenticado correctamente y luego verificar que el usuario tenga los permisos correctos. Generalmente, la lógica de autorización es altamente específica de la aplicación, por lo que los marcos web brindan soporte limitado para esto, por lo que la lógica de autorización debe agregarse manualmente a cada página. A veces se implementa en la lógica de la página, a veces se implementa en las API a las que las páginas web llaman internamente. En cualquier caso, si falta, los usuarios no autorizados pueden hacer cosas que se supone que no deberían poder hacer.
 
-To ease communication about vulnerabilities, authorization vulnerabilities are generally broken down into three categories.
+Para facilitar la comunicación sobre las vulnerabilidades, las vulnerabilidades de autorización generalmente se dividen en tres categorías.
 
-## Missing authentication
+### Autenticación faltante
 
-Sometimes developers will fail to even check that a user is logged in on a page or set of pages. Any user on the internet can view the post-authentication pages or perform post-authentication actions. This class of vulnerability has sometimes been called “forced browsing” or “direct object reference.” There are several ways this kind of vulnerability manifests.
+A veces, los desarrolladores ni siquiera comprueban que un usuario haya iniciado sesión en una página o conjunto de páginas. Cualquier usuario de Internet puede ver las páginas de autenticación posterior o realizar acciones de autenticación posterior. Esta clase de vulnerabilidad a veces se ha denominado "navegación forzada" o "referencia directa a objeto". Hay varias formas en que se manifiesta este tipo de vulnerabilidad.
 
-One pattern for this vulnerability is that a site will show one set of links to users who haven’t logged in, and another set of links to users who have logged in. However, no pages that show user-specific data or perform actions actually check that the user is logged in.
+Un patrón de esta vulnerabilidad es que un sitio mostrará un conjunto de enlaces a los usuarios que no han iniciado sesión y otro conjunto de enlaces a los usuarios que sí han iniciado sesión. Sin embargo, ninguna página que muestra datos específicos del usuario o realiza acciones realmente verifica que el usuario haya iniciado sesión.
 
-Another common pattern is that pages that render data in the browser have authentication checks, but the pages that merely process data (e.g. via a HTTP POST) don’t. This is generally caused by developers not having a deep understanding of how the web works and not realizing that it’s quite easy to generate arbitrary HTTP requests. With this pattern, users can generally only see data that they’re authorized to see, but can perform any action on the site, and modify other users’ data. Note that since users can see and modify their own data, it’s very easy for attackers with an account to discover the missing authentication.
+Otro patrón común es que las páginas que muestran datos en el navegador tienen controles de autenticación, pero las páginas que simplemente procesan datos (por ejemplo, a través de HTTP POST) no lo hacen. Esto generalmente se debe a que los desarrolladores no tienen un conocimiento profundo de cómo funciona la web y no se dan cuenta de que es bastante fácil generar solicitudes HTTP arbitrarias. Con este estándar, los usuarios generalmente solo pueden ver los datos para los que están autorizados a ver, pero pueden realizar cualquier acción en el sitio y modificar los datos de otros usuarios. Tenga en cuenta que, dado que los usuarios pueden ver y modificar sus propios datos, es muy fácil para los atacantes con una cuenta descubrir la autenticación faltante.
 
-A third common pattern is that individual pages or actions, or perhaps sections of the site, will just fail to check for authentication. Generally this is a result of developer oversight.
+Un tercer estándar común es que las páginas o acciones individuales, o quizás secciones del sitio, simplemente no verifican la autenticación. Generalmente esto es el resultado de la supervisión del desarrollador.
 
-## Vertical Privilege Escalation
+### Escalada de Privilegios Verticales
 
-Vertical privilege escalation happens when less powerful users can perform more powerful actions on the website. This is commonly caused by the site checking authentication status but fails to check permissions. It was mentioned above that frameworks generally don’t include built-in functions for authorization, but many perform checks for authentication. If a page (or entire site) properly performs authentication checks but does not perform permissions checks, this usually results in vertical privilege escalation.
+La escalada de privilegios vertical ocurre cuando los usuarios menos poderosos pueden realizar acciones más poderosas en el sitio web. Esto comúnmente se debe a que el sitio verifica el estado de autenticación pero no verifica los permisos. Se mencionó anteriormente que los marcos en general no incluyen funciones integradas de autorización, pero muchos realizan comprobaciones de autenticación. Si una página (o un sitio completo) realiza correctamente verificaciones de autenticación pero no verifica los permisos, esto generalmente resulta en una escalada de privilegios vertical.
 
-An example of vertical privilege escalation might be in an online forum that has both regular users and moderators. When regular users log in, they can create posts and edit their own posts. When moderators log in, they can also create posts and edit their own posts, but can also hide other users posts and ban users. If regular users can edit the URL or change form parameters to also hide user posts or ban users, that would be vertical privilege escalation.
+Un ejemplo de escalada de privilegios vertical podría ser un foro en línea que tenga usuarios habituales y moderadores. Cuando los usuarios habituales inician sesión, pueden crear publicaciones y editar sus propias publicaciones. Cuando los moderadores inician sesión, también pueden crear publicaciones y editar sus propias publicaciones, pero también pueden ocultar las publicaciones de otros usuarios y prohibir a los usuarios. Si los usuarios habituales pueden editar la URL o cambiar los parámetros del formulario para ocultar también las publicaciones de los usuarios o prohibir a los usuarios, eso sería una escalada de privilegios vertical.
 
-The patterns that lead to vertical privilege escalation are essentially the same as those that lead to missing authentication, except that users must be logged in.
+Los patrones que conducen a una escalada vertical de privilegios son esencialmente los mismos que conducen a la falta de autenticación, excepto que los usuarios deben iniciar sesión.
 
-## Try it yourself!
+### ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low and that you are signed in as the admin (it’s best to log out and log back in using the credentials “admin:password”. Navigate to the “Authorisation Bypass” page. If you cannot see this page in the left bar and have the most up to date version of DVWA, it means that you are not logged in as the admin.
+Inicie sesión en su DVWA y asegúrese de que el nivel de seguridad esté configurado en bajo y de haber iniciado sesión como administrador (es mejor cerrar sesión y volver a iniciarla con las credenciales "admin:contraseña". Navegue a la página "Omisión de Autorización". Si no puede ver esta página en la barra izquierda y tiene la versión más actualizada de DVWA, significa que no ha iniciado sesión como administrador.
 
-After that, open a private browsing window or another browser and log into your DVWA as the “gordonb” user and note that the Authorisation Bypass does not appear in gordonb’s navigation bar. Can you figure out how to access the Authorisation Bypass as gordonb? (If you're having trouble, remember that authorization vulnerabilities are generally very straightforward. Don’t overthink it.)
+Después de eso, abra una ventana de navegación privada u otro navegador e inicie sesión en su DVWA como usuario "gordonb" y tenga en cuenta que la Omisión de Autorización no aparece en la barra de navegación de gordonb. ¿Puedes descubrir cómo acceder a la Omisión de Autorización como gordonb? (Si tiene problemas, recuerde que las vulnerabilidades de autorización generalmente son muy sencillas. No lo pienses demasiado.)
 
-## Horizontal Privilege Escalation
+### Escalada de Privilegios Horizontal
 
-Horizontal privilege escalation happens when users can view or perform actions on other users’ data, when those other users have the same access level.
+La escalada de privilegios horizontal ocurre cuando los usuarios pueden ver o realizar acciones con los datos de otros usuarios, cuando esos otros usuarios tienen el mismo nivel de acceso.
 
-An example of horizontal privilege escalation might be in the above online forum. If a regular user can edit other users’ posts, that would be horizontal privilege escalation.
+Un ejemplo de escalada de privilegios horizontal podría encontrarse en el foro en línea anterior. Si un usuario normal puede editar las publicaciones de otros usuarios, eso sería una escalada de privilegios horizontal.
 
-With horizontal privilege escalation, there are three major development patterns that lead to the vulnerability. The first is that pages check that users are logged in and that they have the right access level, but completely fail to check data-level permissions. Typically this will result in the entire site, or an entire section of the site, being vulnerable. The second is that individual pages or actions fail to check data-level permissions due to developer oversight. Finally, occasionally websites will pass the user id in a URL parameter or hidden form field, instead of reading it from the server side session. The end-user can easily modify these parameters, usually resulting in privilege escalation.
+Con la escalada horizontal de privilegios, hay tres patrones de desarrollo principales que conducen a la vulnerabilidad. La primera es que las páginas verifican que los usuarios hayan iniciado sesión y que tengan el nivel de acceso correcto, pero no verifican en absoluto los permisos a nivel de datos. Normalmente, esto hará que todo el sitio o una sección entera del sitio sea vulnerable. La segunda es que las páginas o acciones individuales no verifican los permisos a nivel de datos debido a la supervisión del desarrollador. Finalmente, ocasionalmente los sitios web pasan la identificación del usuario en un parámetro de URL o en un campo de formulario oculto, en lugar de leerlo desde la sesión del lado del servidor. El usuario final puede modificar fácilmente estos parámetros, lo que normalmente resulta en una escalada de privilegios.
 
-Preventing Authorization Vulnerabilities
+### Prevención de Vulnerabilidades de Autorización
 
-As noted above, the two root causes for authorization vulnerabilities tend to be lack of developer awareness (hence entire sites or site sections missing the proper controls) or lack of consistency in implementing controls. Since framework support is generally poor, developers often need to implement their own controls from scratch. Here are a few tips to consider:
+Como se señaló anteriormente, las dos causas fundamentales de las vulnerabilidades de autorización tienden a ser la falta de conocimiento de los desarrolladores (por lo tanto, sitios enteros o secciones del sitio carecen de los controles adecuados) o la falta de coherencia en la implementación de controles. Dado que el soporte del marco es generalmente deficiente, los desarrolladores a menudo necesitan implementar sus propios controles desde cero. Aquí hay algunos consejos a considerar:
 
-- Attempt to layer and simplify the process of checking user permissions. To the extent that your framework has functions to support authorization, use them. Consistent functions to check user authorization are less error prone than complex logic.
-- For extremely powerful users, consider using a separate website entirely. For example, www.example.com for regular users, and admin.example.com for administrative users.
-- For data-level permissions checks, having consistent developer guidelines can reduce errors. For instance, a rule that all data access must go through API calls, every API function must include a user id parameter, and every API that takes a user ID must use it in database calls. Having consistent rules like this makes it easier to avoid, and to find, authorization errors.
+- Intente superponer y simplificar el proceso de verificación de permisos de usuario. En la medida en que su marco tenga funciones para admitir la autorización, úselas. Las funciones consistentes para verificar la autorización del usuario son menos propensas a errores que la lógica compleja.
+- Para usuarios extremadamente poderosos, considere usar un sitio web completamente separado. Por ejemplo, <www.example.com> para usuarios habituales y admin.example.com para usuarios administrativos.
+- Para las comprobaciones de permisos a nivel de datos, contar con pautas coherentes para los desarrolladores puede reducir los errores. Por ejemplo, una regla según la cual todo el acceso a los datos debe realizarse a través de llamadas API, cada función API debe incluir un parámetro de identificación de usuario y cada API que toma una identificación de usuario debe usarlo en llamadas a bases de datos. Tener reglas consistentes como esta hace que sea más fácil evitar y encontrar errores de autorización.
 
-For a bit more authentication, see [the OWASP authorization cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener un poco más de autenticación, consulte [la hoja de referencia de autorización de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html). Para una exploración en profundidad, consulte la [Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/).
 
-## Learning Resources
+## Práctica
 
-{{% resource title="Authorization cheat sheet" languages="English" cost="Free" description="Best practices for authorization in web applications." url="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" %}}
+Lea este [informe de vulnerabilidad](https://eaton-works.com/2023/06/06/honda-ecommerce-hack/) y asegúrese de comprender qué vulnerabilidades de autenticación o autorización se están explotando aquí.
 
-{{% resource title="Honda eCommerce hack" languages="English" cost="Free" description="Demonstration of vulnerabilities in websites with poor authentication or authorization practices." url="https://eaton-works.com/2023/06/06/honda-ecommerce-hack/" %}}
+## Verificación de Habilidades
 
+### Ejercicio 1: resumen
 
-## Practice
+Complete el ejercicio de omisión de autorización de la DVWA, como se describe anteriormente.
 
-Read through this [vulnerability report](https://eaton-works.com/2023/06/06/honda-ecommerce-hack/) and make sure that you’ve understood which authentication or authorization vulnerabilities are being exploited here.
+### Ejercicio 2: cuestionario de opción múltiple
 
-## Skill Check
+**Pregunta 1.** ¿Cuál es el propósito principal de la autorización en un sistema?
 
-### Exercise 1: recap
+A) Autenticar usuarios
+B) Garantizar la integridad de los datos
+C) Verificar los permisos de los usuarios
+D) Cifrar información confidencial
 
-Complete the DVWA authorization bypass exercise, as outlined above.
+{{< question title="Respuesta correcta" >}}
+C) Verificar los permisos de los usuarios
+{{< /question >}}
 
-### Exercise 2: multiple choice quiz
+**Pregunta 2.** ¿Qué categoría de vulnerabilidad implica que los desarrolladores no verifican si un usuario ha iniciado sesión en determinadas páginas?
 
-**Question 1**. What is the primary purpose of authorization in a system?
+A) Escalada de Privilegios Verticales
+B) Escalada de Privilegios Horizontales
+C) Autenticación Faltante
+D) Navegación Forzada
 
-A) Authenticating users\
-B) Ensuring data integrity\
-C) Verifying user permissions\
-D) Encrypting sensitive information
+{{< question title="Respuesta correcta" >}}
+C) Autenticación Faltante
+{{< /question >}}
 
-**Question 2**. Which category of vulnerability involves developers failing to check if a user is logged in on certain pages?
+**Pregunta 3.** ¿Cuál es un patrón común de vulnerabilidad de autenticación faltante mencionado en el texto del subtema?
 
-A) Vertical Privilege Escalation\
-B) Horizontal Privilege Escalation\
-C) Missing Authentication\
-D) Forced Browsing
+A) No verificar los permisos en acciones a nivel de datos
+B) Pasar ID de usuario en parámetros de URL
+C) Permitir a los usuarios modificar sus propios datos
+D) Mostrar diferentes enlaces según el estado de inicio de sesión del usuario
 
-**Question 3**. What is one common pattern of missing authentication vulnerability mentioned in the subtopic text?
+{{< question title="Respuesta correcta" >}}
+D) Mostrar diferentes enlaces según el estado de inicio de sesión del usuario
+{{< /question >}}
 
-A) Failing to check permissions on data-level actions\
-B) Passing user IDs in URL parameters\
-C) Allowing users to modify their own data\
-D) Showing different links based on user login status
+**Pregunta 4.** ¿Cuál es el resultado de la vulnerabilidad de escalada de privilegios vertical?
 
-**Question 4**. What is the result of vertical privilege escalation vulnerability?
+A) Los usuarios pueden acceder a datos no autorizados
+B) Los usuarios menos poderosos pueden realizar acciones poderosas para las que no estaban autorizados
+C) Los usuarios pueden editar los datos de otros usuarios sin permiso
+D) Todo el sitio se vuelve vulnerable a los ataques
 
-A) Users can access unauthorized data\
-B) Less powerful users can perform powerful actions they were not authorized to do\
-C) Users can edit other users' data without permission\
-D) The entire site becomes vulnerable to attacks
+{{< question title="Respuesta correcta" >}}
+B) Los usuarios menos poderosos pueden realizar acciones poderosas para las que no estaban autorizados
+{{< /question >}}
 
-**Question 5**. In the context of horizontal privilege escalation, what is a common cause of vulnerability according to the subtopic text?
+**Pregunta 5.** En el contexto de la escalada horizontal de privilegios, ¿cuál es una causa común de vulnerabilidad según el texto del subtema?
 
-A) Lack of developer awareness\
-B) Inconsistent implementation of controls\
-C) Passing user IDs in URL parameters\
-D) Insufficient encryption protocols
+A) Falta de conciencia de los desarrolladores
+B) Implementación inconsistente de controles
+C) Pasar ID de usuario en parámetros de URL
+D) Protocolos de cifrado insuficientes
 
-**Question 6**. How can developers prevent authorization vulnerabilities according to the subtopic text?
+{{< question title="Respuesta correcta" >}}
+B) Implementación inconsistente de controles
+{{< /question >}}
 
-A) Use complex logic for authorization checks\
-B) Rely solely on framework support\
-C) Implement their own controls consistently\
-D) Ignore data-level permissions checks
+**Pregunta 6.** ¿Cómo pueden los desarrolladores prevenir las vulnerabilidades de autorización según el texto del subtema?
 
-**Question 7**. Which of the following is NOT a tip mentioned in the text for preventing authorization vulnerabilities?
+A) Utilice una lógica compleja para las comprobaciones de autorización
+B) Depender únicamente del soporte de la estructura
+C) Implementar sus propios controles de manera consistente
+D) Ignorar las comprobaciones de permisos a nivel de datos
 
-A) Layer and simplify the process of checking user permissions\
-B) Use separate websites for regular users and administrators\
-C) Rely solely on framework functions for authorization\
-D) Establish consistent developer guidelines for data access
+{{< question title="Respuesta correcta" >}}
+C) Implementar sus propios controles de manera consistente
+{{< /question >}}
 
-**Question 8**. What is the significance of consistency in implementing authorization controls?
+**Pregunta 7.** ¿Cuál de los siguientes NO es un consejo mencionado en el texto para prevenir vulnerabilidades de autorización?
 
-A) It increases the complexity of the system\
-B) It reduces the likelihood of errors\
-C) It limits access to certain users\
-D) It makes authorization checks more difficult
+A) Intente superponer y simplificar el proceso de verificación de permisos de usuario.
+B) Utilice sitios web separados para usuarios habituales y administradores
+C) Depender únicamente de las funciones de la estructura para la autorización
+D) Establecer pautas coherentes para los desarrolladores para el acceso a los datos
 
-**Question 9**. What is one example provided in the subtopic text for vertical privilege escalation vulnerability?
+{{< question title="Respuesta correcta" >}}
+C) Depender únicamente de las funciones de la estructura para la autorización
+{{< /question >}}
 
-A) Modifying URL parameters to escalate privileges\
-B) Allowing users to view other users' data\
-C) Passing user IDs in hidden form fields\
-D) Regular users gaining access to administrative features
+**Pregunta 8.** ¿Cuál es la importancia de la coherencia en la implementación de controles de autorización?
 
-**Question 10**. Which vulnerability category involves users performing actions on other users' data with the same access level?
+A) Aumenta la complejidad del sistema.
+B) Reduce la probabilidad de errores
+C) Limita el acceso a determinados usuarios
+D) Dificulta los controles de autorización
 
-A) Missing Authentication\
-B) Vertical Privilege Escalation\
-C) Horizontal Privilege Escalation\
-D) Forced Browsing\
+{{< question title="Respuesta correcta" >}}
+B) Reduce la probabilidad de errores
+{{< /question >}}
 
-### Answer key
+**Pregunta 9.** ¿Cuál es un ejemplo proporcionado en el texto del subtema sobre la vulnerabilidad de escalada de privilegios vertical?
 
-Question 1: C) Verifying user permissions\
-Question 2: C) Missing Authentication\
-Question 3: D) Showing different links based on user login status\
-Question 4: B) Less powerful users can perform powerful actions\
-Question 5: B) Inconsistent implementation of controls\
-Question 6: C) Implement their own controls consistently\
-Question 7: C) Rely solely on framework functions for authorization\
-Question 8: B) It reduces the likelihood of errors\
-Question 9: D) Regular users gaining access to administrative features\
-Question 10: C) Horizontal Privilege Escalation
+A) Modificar los parámetros de la URL para escalar privilegios
+B) Permitir a los usuarios ver los datos de otros usuarios
+C) Pasar ID de usuario en campos de formulario ocultos
+D) Usuarios habituales que obtienen acceso a funciones administrativas
+
+{{< question title="Respuesta correcta" >}}
+D) Usuarios habituales que obtienen acceso a funciones administrativas
+{{< /question >}}
+
+**Pregunta 10.** ¿Qué categoría de vulnerabilidad implica que los usuarios realicen acciones sobre los datos de otros usuarios con el mismo nivel de acceso?
+
+A) Autenticación Faltante
+B) Escalada de Privilegios Verticales
+C) Escalada de Privilegios Horizontales
+D) Navegación Forzada
+
+{{< question title="Respuesta correcta" >}}
+C) Escalada de Privilegios Horizontales
+{{< /question >}}
 
 ### Exercise 3 (optional, only for those comfortable with basic python): code bug finding challenge
 
-The code simulates a vulnerable web application with a horizontal privilege escalation vulnerability. The vulnerability lies in the fact that the delete_profile function only checks for the current user's write permission but does not verify that the current user is authorized to delete other users' profiles. This allows any user with write permission to delete any other user's profile, regardless of their own permissions.
+#### Ejercicio 3 (opcional, solo para aquellos que se sienten cómodos con python básico): desafío de búsqueda de errores de código
 
-```
-# Import statement for print function (Python 3.x)
+El código simula una aplicación web vulnerable con una vulnerabilidad de escalada de privilegios horizontal. La vulnerabilidad radica en el hecho de que la función eliminar_perfil solo verifica el permiso de escritura del usuario actual pero no verifica que el usuario actual esté autorizado a eliminar los perfiles de otros usuarios. Esto permite que cualquier usuario con permiso de escritura elimine el perfil de cualquier otro usuario, independientemente de sus propios permisos.
+
+{{< highlight python >}}
+# Declaración de importación para la función de print (Python 3.x)
 from __future__ import print_function
 
-# User data (replace with your own test data)
+# Datos de usuario (reemplace con sus propios datos de prueba)
 users = {
     "admin": {"id": 1, "username": "admin", "permissions": ["read", "write", "delete"]},
     "user1": {"id": 2, "username": "user1", "permissions": ["read", "write"]},
     "user2": {"id": 3, "username": "user2", "permissions": ["read", "write"]},
 }
 
-# Function to simulate fetching a user's profile
+# Función para simular la búsqueda del perfil de un usuario.
 def get_profile(username):
     if username not in users:
         return None
     return users[username]
 
-# Function to simulate deleting a user's profile (vulnerable)
+# Función para simular la eliminación del perfil de un usuario (vulnerable)
 def delete_profile(username, current_user):
     if "write" in current_user["permissions"]:
         if username in users:
@@ -201,27 +225,34 @@ def delete_profile(username, current_user):
         else:
             return f"User '{username}' not found."
     else:
-        return "Permission denied: You do not have permission to delete users."
+        return "Permiso negado: No tienes permiso para eliminar usuarios.."
 
-# Test cases (modify as needed)
-current_user = users["user1"]  # Simulate a user with write permission
+# Casos de prueba (modificar según sea necesario)
+current_user = users["user1"]  # Simular un usuario con permiso de escritura
 target_username = "user2"  # Simulate the target user
 
-# Try to delete the victim's profile
+# Intenta eliminar el perfil de la víctima
 result = delete_profile(target_username, current_user)
 
-# Print the result (expected output: "Permission denied: You do not have permission to delete users.")
+# Imprime el resultado (salida esperada: "Permiso negado: No tienes permiso para eliminar usuarios.")
 print(result)
-```
+{{< / highlight >}}
 
-**Find and fix the vulnerability in the `delete_profile` function.**
+**Encuentre y corrija la vulnerabilidad en la función `delete_profile`.**
 
-### Answer key and explanation
+### Clave de respuestas y explicación
 
-The vulnerability lies in the fact that the `delete_profile` function only checks for the current user's write permission but does not verify that the current user is authorized to delete other users' profiles. This allows any user with write permission to delete any other user's profile, regardless of their own permissions.
+La vulnerabilidad radica en el hecho de que la función \`delete_profile\` solo verifica el permiso de escritura del usuario actual pero no verifica que el usuario actual esté autorizado a eliminar los perfiles de otros usuarios. Esto permite que cualquier usuario con permiso de escritura elimine el perfil de cualquier otro usuario, independientemente de sus propios permisos.
 
-**To fix the vulnerability, you could:**
+**Para corregir la vulnerabilidad, podrías:**
 
-1. Check if the current user has the "delete" permission specifically.
-2. Implement role-based access control (RBAC) to restrict deletion based on user roles.
-3. Add additional checks to verify the legitimacy of the deletion request.
+1. Compruebe si el usuario actual tiene específicamente el permiso "delete".
+2. Implemente control de acceso basado en roles (RBAC) para restringir la eliminación según los roles de los usuarios.
+3. Agregue comprobaciones adicionales para verificar la legitimidad de la solicitud de eliminación.
+
+
+
+## Learning Resources
+
+{{% resource title="Hoja de trucos de autorización" description="Una mirada a algunas de las mejores prácticas de autorización" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" %}}
+{{% resource title="Truco de comercio electrónico de Honda" description="Un artículo que demuestra cómo encontrar ciertas vulnerabilidades en sitios web con autenticación o autorización deficientes" languages="Inglés" cost="Gratis" url="https://eaton-works.com/2023/06/06/honda-ecommerce-hack/" %}}

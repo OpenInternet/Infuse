@@ -2,6 +2,7 @@
 style = "module"
 weight = 3
 title = "Autenticación"
+description = "En cualquier sitio web que tenga inicios de sesión de usuarios, es importante que el sitio proteja las cuentas de los usuarios contra el acceso no autorizado. Describimos las áreas más comunes de autenticación en las que aparecen fallas en las aplicaciones web"
 +++
 
 ## Caso de Uso
