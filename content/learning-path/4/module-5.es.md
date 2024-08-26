@@ -1,108 +1,109 @@
 +++
 style = "module"
 weight = 5
-title = "Application Logic"
+title = "Lógica de Aplicación"
+description = "Aquí aprendemos sobre las vulnerabilidades de la lógica de la aplicación, qué son y cómo proteger nuestro sitio web contra ellas."
 +++
 
-## Use Case
+## Caso de Uso
 
-In any interactive website that puts constraints on the types of actions that users can perform, it’s important that the site properly enforces those constraints to prevent unintended (and potentially) damaging actions by malicious users.
+En cualquier sitio web interactivo que imponga restricciones a los tipos de acciones que los usuarios pueden realizar, es importante que el sitio aplique adecuadamente esas restricciones para evitar acciones no intencionadas (y potencialmente) dañinas por parte de usuarios malintencionados.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Understand the concept of application logic vulnerabilities
-- Identify and understand common subclasses of application logic vulnerabilities, including:
-  - Client-side controls
-  - Lack of rate limiting/multiple submissions
-  - Rounding inconsistencies
-  - Skipping process steps
-  - Cross-site request forgery
+- Comprender el concepto de vulnerabilidades lógicas de aplicaciones
+- Identifique y comprenda subclases comunes de vulnerabilidades lógicas de aplicaciones, que incluyen:
+  - Controles del lado del cliente
+  - Falta de limitación de velocidad/envíos múltiples
+  - Inconsistencias de redondeo
+  - Saltarse pasos del proceso
+  - Falsificación de solicitudes entre los sitios
 
 ---
+## Sección Principal
 
-Application logic vulnerabilities (frequently called business logic vulnerabilities) are a loosely assembled class of vulnerabilities that relate to the processes that the application itself performs, as opposed to underlying vulnerabilities in the technologies that the application uses. If this definition is confusing to you, you’re in good company. What constitutes a business logic vulnerability vs some other class is hotly contested. Infuse takes the position that the actual definition doesn’t matter that much, and that expediency is more important than precise definitions. We encourage you to maintain a focus on the vulnerabilities themselves, develop a view of vulnerability classes that makes sense to you, and maintain flexibility in taxonomy when discussing vulnerabilities with others.
+Las vulnerabilidades de lógica de aplicaciones (frecuentemente denominadas vulnerabilidades de lógica de negocios) son una clase de vulnerabilidades vagamente agrupadas que se relacionan con los procesos que realiza la aplicación en sí, a diferencia de las vulnerabilidades subyacentes en las tecnologías que utiliza la aplicación. Si esta definición le resulta confusa, está en buena compañía. Lo que constituye una vulnerabilidad de lógica de negocios frente a alguna otra clase es un asunto muy discutido. Infuse adopta la posición de que la definición real no importa mucho y que la conveniencia es más importante que las definiciones precisas. Lo alentamos a mantener un enfoque en las vulnerabilidades en sí, desarrollar una visión de las clases de vulnerabilidad que tenga sentido para usted y mantener flexibilidad en la taxonomía al discutir las vulnerabilidades con otros.
 
-This subtopic will cover a number of examples of vulnerabilities that arguably fall under application logic. As every application is slightly different, there are an infinite number of potential types of application logic vulnerabilities, but these examples cover a number of common ones.
+Este subtema cubrirá una serie de ejemplos de vulnerabilidades que posiblemente caen dentro de la lógica de aplicación. Como cada aplicación es ligeramente diferente, existe una cantidad infinita de tipos potenciales de vulnerabilidades lógicas de aplicaciones, pero estos ejemplos cubren varias de las más comunes.
 
-## Client-side controls
+### Controles del lado del cliente
 
-Sometimes web applications will put constraints on what users can do in the application, but those constraints are enforced by the browser, either using JavaScript or built-in features of HTML elements. It is important that site developers realize that anything that is sent to the browser can be viewed, modified, or ignored by a moderately skilled attacker. Here are some example of common client-side controls that can be easily bypassed
+A veces, las aplicaciones web imponen restricciones a lo que los usuarios pueden hacer en la aplicación, pero esas restricciones las impone el navegador, ya sea mediante JavaScript o funciones integradas de elementos HTML. Es importante que los desarrolladores del sitio se den cuenta de que un atacante moderadamente capacitado puede ver, modificar o ignorar cualquier cosa que se envíe al navegador. A continuación se muestran algunos ejemplos de controles comunes del lado del cliente que se pueden omitir fácilmente:
 
-### Input size
+#### Tamaño de entrada
 
-HTML input elements have an attribute maxlength that purports to limit the number of characters typed into an input field, e.g. `&lt;input type="text" name="firstname" maxlength="20">`. In this example, if a user tries to put more than 20 characters into the input field, the browser will prevent them from doing so. However, this is really just a polite request, as opposed to a real restriction. For example:
+Los elementos de entrada HTML tienen un atributo longitud máxima que pretende limitar la cantidad de caracteres escritos en un campo de entrada, por ej., `&lt;input type="text" name="firstname" maxlength="20"&gt`;. En este ejemplo, si un usuario intenta introducir más de 20 caracteres en el campo de entrada, el navegador le impedirá hacerlo. Sin embargo, esto es en realidad sólo una petición cortés, en lugar de una restricción real. Por ejemplo:
 
-- The user could use the web inspector feature of their browser to modify the DOM to remove the length restriction.
-- The user could save the web page locally, modify the HTML to remove the restriction, then load the page back into their browser.
-- The user could read the HTML and manually craft an equivalent request in `curl` (a command line tool to download resources and transfer data using a variety of different protocols) to the one the form generates, only without the length restriction.
-- The user could use a specialized tool called an intercepting proxy to capture the web page from the server before it’s sent to the browser, and remove the restriction before sending it onto the browser. Or the user could use the same tool to capture the browser’s request before it’s sent to the server, then edit the request to include a longer value and send it on to the server.
+- El usuario puede utilizar la función de inspección web de su navegador para modificar el DOM y eliminar la restricción de longitud.
+- El usuario puede guardar la página web localmente, modificar el HTML para eliminar la restricción y luego volver a cargar la página en su navegador.
+- El usuario podría leer el HTML y crear manualmente una solicitud equivalente en `curl` (una herramienta de línea de comandos para descargar recursos y transferir datos usando una variedad de protocolos diferentes) a la que genera el formulario, solo que sin la restricción de longitud.
+- El usuario podría utilizar una herramienta especializada llamada proxy de interceptación para capturar la página web del servidor antes de enviarla al navegador y eliminar la restricción antes de enviarla al navegador. O el usuario podría usar la misma herramienta para capturar la solicitud del navegador antes de enviarla al servidor, luego editar la solicitud para incluir un valor más largo y enviarla al servidor.
 
-These bypass techniques generally work for all client-side controls. Keep them in mind as we cover other controls.
+Estas técnicas de derivación generalmente funcionan para todos los controles del lado del cliente. Téngalas en cuenta mientras cubrimos otros controles.
 
-### Data content validation
+#### Validación del contenido de los datos
 
-Some developers will use JavaScript to restrict the values that can be entered into a form, or use HTML controls like radio buttons or drop-downs to restrict possible choices. Neither of these controls are effective. Using the same techniques as described above, attackers can remove the restrictions in their browser or bypass them to submit whatever data they want.
+Algunos desarrolladores usarán JavaScript para restringir los valores que se pueden ingresar en un formulario, o usarán controles HTML como botones de opción o menús desplegables para restringir posibles opciones. Ninguno de estos controles es efectivo. Utilizando las mismas técnicas descritas anteriormente, los atacantes pueden eliminar las restricciones de su navegador o eludirlas para enviar los datos que deseen.
 
-One common subclass of this type of vulnerability has to do with image resizing. Occasionally developers will have a feature on a website that resizes images server-side for optimal display at a certain resolution. Generally the URL will look something like [http://example.com/image?imgname=file.gif&width=640&height=480](http://example.com/image?imgname=file.gif&width=640&height=480). The way these scripts almost always work is to allocate in-memory storage to hold the resized image, scale the specified file to the new size, then return the image data to the browser. In the above example, the memory allocated would usually be a modest 1.2 megabytes. However, if a user sent a request with a width and height each of 100000, the server would attempt to allocate 10 gigabytes. By repeatedly sending such requests, an attacker can easily overwhelm even a powerful web server. Developers should at least enforce a maximum size on the server-side, and consider offloading the resizing process to an isolated server, so that overwhelming that server doesn’t affect the primary server.
+Una subclase común de este tipo de vulnerabilidad tiene que ver con el cambio de tamaño de la imagen. Ocasionalmente, los desarrolladores tendrán una función en un sitio web que cambia el tamaño de las imágenes en el lado del servidor para una visualización óptima en una resolución determinada. Generalmente la URL se verá así [http://example.com/image?imgname=file.gif&width=640&height=480](http://example.com/image?imgname=file.gif&amp;amp;width=640&amp;amp;height=480). La forma en que funcionan casi siempre estos scripts es asignar almacenamiento en memoria para contener la imagen redimensionada, escalar el archivo especificado al nuevo tamaño y luego devolver los datos de la imagen al navegador. En el ejemplo anterior, la memoria asignada normalmente sería de unos modestos 1,2 megabytes. Sin embargo, si un usuario envía una solicitud con un ancho y un alto cada uno de 100000, el servidor intentará asignar 10 gigabytes. Al enviar repetidamente este tipo de solicitudes, un atacante puede saturar fácilmente incluso un servidor web potente. Los desarrolladores deberían al menos imponer un tamaño máximo en el lado del servidor y considerar descargar el proceso de cambio de tamaño a un servidor aislado, de modo que sobrecargar ese servidor no afecte al servidor principal.
 
-### Disabling controls
+#### Desactivar controles
 
-Sometimes developers will use JavaScript to disable certain controls on a web page until certain constraints are met. For instance, perhaps a user needs to solve a CAPTCHA or wait a certain amount of time before submitting a form or clicking a link. Using the techniques above, an attacker can simply remove or bypass these controls.
+A veces, los desarrolladores utilizan JavaScript para desactivar ciertos controles en una página web hasta que se cumplan ciertas restricciones. Por ejemplo, quizás un usuario necesite resolver un CAPTCHA o esperar un cierto tiempo antes de enviar un formulario o hacer clic en un enlace. Utilizando las técnicas anteriores, un atacante puede simplemente eliminar o eludir estos controles.
 
-### Sensitive data stored client-side
+#### Datos confidenciales almacenados en el lado del cliente
 
-Sometimes developers will include sensitive data in a web page that is either secret, or controls something that should not be under user control. An example of the former might be attempting to restrict the data a user sees by hiding secret data using the CSS display=none attribute, enclosing it in HTML comments, or other mechanisms. The user can see this data by simply viewing the HTML source code of the web page. An example of giving client-side control by including data that should not be edited in hidden form fields. For instance, in the early days of e-commerce, web stores would frequently include an item’s price in a hidden HTML form input, which was then sent to a 3rd-party shopping cart. Using the techniques discussed in “input size,” users could easily modify the value in that hidden field, and buy it for whatever price they wanted. (You may remember that another example of this type of vulnerability was discussed under “horizontal privilege escalation” above.)
+A veces, los desarrolladores incluyen datos confidenciales en una página web que es secreta o controla algo que no debería estar bajo el control del usuario. Un ejemplo de lo primero podría ser intentar restringir los datos que ve un usuario ocultando datos secretos usando el atributo CSS visualizar=ninguno, encerrándolos en comentarios HTML u otros mecanismos. El usuario puede ver estos datos simplemente viendo el código fuente HTML de la página web. Un ejemplo de cómo otorgar control del lado del cliente al incluir datos que no deben editarse en campos de formulario ocultos. Por ejemplo, en los primeros días del comercio electrónico, las tiendas web frecuentemente incluían el precio de un artículo en una entrada de formulario HTML oculta, que luego se enviaba a un carrito de compras de un tercero. Utilizando las técnicas analizadas en "tamaño de entrada", los usuarios podrían modificar fácilmente el valor en ese campo oculto y comprarlo al precio que quisieran. (Quizás recuerde que se analizó otro ejemplo de este tipo de vulnerabilidad en el apartado "escalada de privilegios horizontal" más arriba).
 
-### Preventing client-side control vulnerabilities
+#### Prevención de vulnerabilidades de control del lado del cliente
 
-There is nothing inherently bad about performing validation of input on the client-site, but developers must understand that they are merely UI conveniences. All validation and sensitive computations must be performed on the server, not on the client.
+No hay nada intrínsecamente malo en realizar la validación de entradas en el sitio del cliente, pero los desarrolladores deben comprender que son simplemente comodidades de la interfaz de usuario. Todas las validaciones y cálculos confidenciales deben realizarse en el servidor, no en el cliente.
 
-## Lack of rate limiting/multiple submissions
+### Falta de limitación de velocidad/envíos múltiples
 
-One class of application logic vulnerability is an implicit constraint on the number of times or frequency that a request may be sent. The former is often abused when the server performs expensive or abusable operations, such as insertions of data into a database with lots of indices, sending emails or SMS messages, or generally manipulating large amounts of data. The image resizing vulnerability discussed above would be another example of this. Developers don’t generally think of the rate at which users submit such requests as an application logic constraint to be enforced, and yet it arguably fits into the vulnerability class.
+Una clase de vulnerabilidad de la lógica de la aplicación es una restricción implícita en la cantidad de veces o frecuencia con la que se puede enviar una solicitud. A menudo se abusa del primero cuando el servidor realiza operaciones costosas o de las que se puede abusar, como la inserción de datos en una base de datos con muchos índices, el envío de correos electrónicos o mensajes SMS o, en general, la manipulación de grandes cantidades de datos. La vulnerabilidad de cambio de tamaño de imagen discutida anteriormente sería otro ejemplo de esto. Los desarrolladores generalmente no consideran que la velocidad a la que los usuarios envían dichas solicitudes sea una restricción lógica de la aplicación que deba aplicarse y, sin embargo, podría decirse que encaja en la clase de vulnerabilidad.
 
-There are many methods of rate limiting requests, but the only ones that are truly effective are those that are enforced on the server site. For expensive operations, various queuing systems can be used to ensure that only a small number of such operations can be performed at once. More complex systems involving CAPTCHAs, per-account and per-IP address rate limiting may be required for frequently-abused operations.
+Existen muchos métodos para limitar la velocidad de las solicitudes, pero los únicos que son realmente efectivos son aquellos que se aplican en el sitio del servidor. Para operaciones costosas, se pueden utilizar varios sistemas de colas para garantizar que sólo se pueda realizar una pequeña cantidad de dichas operaciones a la vez. Es posible que se requieran sistemas más complejos que incluyan CAPTCHA y limitación de velocidad por cuenta y por dirección IP para operaciones de las que se abusa con frecuencia.
 
-A related case is requests that are meant to only be submitted once or a few times. One example might be a helpdesk site that lets users generate a ticket number. If a user can, for instance, register 20 tickets, and link them all to a specific case/ intervention, that will have a negative effect on the site owners!
+Un caso relacionado son las solicitudes que deben enviarse sólo una o varias veces. Un ejemplo podría ser un sitio de asistencia técnica que permite a los usuarios generar un número de ticket. Si un usuario puede, por ejemplo, registrar 20 tickets y vincularlos todos a un caso/intervención específico, ¡eso tendrá un efecto negativo en los propietarios del sitio!
 
-## Rounding inconsistencies
+### Inconsistencias de redondeo
 
-One interesting class of vulnerabilities has to do with how various operations handle factions. This class of vulnerability has been featured in such movies as _Superman 3_ and _Office Space_, yet still occurs in numerous financial applications. If two applications support transferring money between each other, how then handle fractional cents may be important. If one application rounds off fractional cents, and another truncates them, then an attacker can repeatedly transfer 1.9 cents from the truncating application to the rounding application. Each transfer will cost the user 1 cent (1.9 truncated), and gain them 2 cents (1.9 rounded).
+Una clase interesante de vulnerabilidades tiene que ver con cómo las distintas operaciones manejan las facciones. Esta clase de vulnerabilidad ha aparecido en películas como _Superman 3_ y _Office Space_, pero todavía ocurre en numerosas aplicaciones financieras. Si dos aplicaciones admiten la transferencia de dinero entre sí, puede ser importante cómo manejar las fracciones de centavo. Si una aplicación redondea centavos fraccionarios y otra los trunca, entonces un atacante puede transferir repetidamente 1,9 centavos de la aplicación de truncamiento a la aplicación de redondeo. Cada transferencia le costará al usuario 1 centavo (1,9 truncado) y le dará 2 centavos (1,9 redondeado)
 
-There are many ways to prevent vulnerabilities in rounding. The most straightforward is to reject transactions with fractional values. Alternatively, one can fully support fractional currencies. Finally, if rounding/truncating/etc is required, one has to do the hard work of ensuring that the handling of fractions is consistent.
+Hay muchas formas de prevenir vulnerabilidades en el redondeo. La más sencilla es rechazar transacciones con valores fraccionarios. Alternativamente, se pueden respaldar totalmente las monedas fraccionarias. Finalmente, si es necesario redondear/truncar/etc., hay que trabajar duro para garantizar que el manejo de las fracciones sea coherente.
 
-## Skipping process steps
+### Saltarse pasos del proceso
 
-Often websites will have processes that are presented to users as a series of steps. While the intention of the developers may be to have the user go through each step, often the application will still allow users to complete the process without going through each step. Consider an online shopping site that allows users to add items to their cart, specify their delivery options, specify their payment information, and then finally complete the transaction. It is not unheard of for actual sites to perform the transaction if the user simply performs the first two steps and then goes directly to the complete transaction page. While this is rare in actual ecommerce sites, it’s not uncommon in various e-learning platforms, where the user can skip watching the boring videos and go directly to the page that marks their attendance as complete.
+A menudo, los sitios web tendrán procesos que se presentan a los usuarios como una serie de pasos. Si bien la intención de los desarrolladores puede ser que el usuario siga cada paso, a menudo la aplicación permitirá a los usuarios completar el proceso sin seguir cada paso. Considere un sitio de compras en línea que permita a los usuarios agregar artículos a su carrito, especificar sus opciones de entrega, especificar su información de pago y finalmente completar la transacción. No es raro que los sitios reales realicen la transacción si el usuario simplemente realiza los dos primeros pasos y luego va directamente a la página de transacción completa. Si bien esto es poco común en los sitios de comercio electrónico reales, no es raro en varias plataformas de aprendizaje electrónico, donde el usuario puede omitir los videos aburridos e ir directamente a la página que marca su asistencia como completa.
 
-## Cross-site request forgery
+### Falsificación de solicitudes entre los sitios
 
-Our last application logic vulnerability is often considered to be its own vulnerability class altogether, but we’re including it here for expediency. The essence of CSRF (cross site request forgery) is in some situations, web browsers will send a website the user’s cookies for every request to that site, regardless of the site that generated the request. If a malicious site, when a user visits the site, generates a fraudulent request to a target site, and the user is logged into the target site, then the target site will perform the requested action as the user, even though the user did not intentionally trigger the request.
+Nuestra última vulnerabilidad de lógica de aplicación a menudo se considera su propia clase de vulnerabilidad, pero la incluimos aquí por conveniencia. La esencia de CSRF (falsificación de solicitudes entre sitios) es que, en algunas situaciones, los navegadores web enviarán a un sitio web las cookies del usuario para cada solicitud a ese sitio, independientemente del sitio que generó la solicitud. Si un sitio malicioso, cuando un usuario visita el sitio, genera una solicitud fraudulenta a un sitio de destino y el usuario inicia sesión en el sitio de destino, entonces el sitio de destino realizará la acción solicitada como el usuario, aunque el usuario no lo haya hecho. desencadenar intencionalmente la solicitud.
 
-As an example, consider a site where the password reset mechanism is that the site emails you a link that allows you to change your password. This is fairly normal. Imagine that the same site has a page that allows you to change your email address, and if you simply visit [example.com/changeemail?new=123@attacker.com](http://example.com/changeemail?new=123@attacker.com), it will change your email address to the specified address. Finally, imagine that attacker.com is set up to show page after page of photos of adorable animals. However, there’s a trick. The “next” button on the bottom of the page is actually the link above. If a user is logged into example.com, visits attacker.com, and clicks the “next” button, their email address will be changed, and the attacker can immediately reset the user’s password, gaining control of their account.
+Como ejemplo, considere un sitio donde el mecanismo de restablecimiento de contraseña es que el sitio le envía por correo electrónico un enlace que le permite cambiar su contraseña. Esto es bastante normal. Imagine que el mismo sitio tiene una página que le permite cambiar su dirección de correo electrónico y, si simplemente visita [example.com/changeemail?new=123@attacker.com](http://example.com/changeemail?new=123@attacker.com), cambiará su dirección de correo electrónico a la dirección especificada. Finalmente, imagine que attacker.com está configurado para mostrar página tras página de fotografías de animales adorables. Sin embargo, hay un truco. El botón "siguiente" en la parte inferior de la página es en realidad el enlace de arriba. Si un usuario inicia sesión en example.com, visita attacker.com y hace clic en el botón "siguiente", su dirección de correo electrónico cambiará y el atacante podrá restablecer inmediatamente la contraseña del usuario, obteniendo el control de su cuenta.
 
-### Try it yourself!
+### ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low. Navigate to the “CSRF” page and try to generate a web page that will change the logged-in user’s password. Note that, if you have an up to date web browser, it might automatically restrict SameSite attributes of session cookies and the lab might not work there. If this happens, do not worry and skip this exercise–this is normal and desired behavior by the web browser.
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté bajo. Navegue a la página "CSRF" e intente generar una página web que cambie la contraseña del usuario que inició sesión. Tenga en cuenta que, si tiene un navegador web actualizado, es posible que restrinja automáticamente los atributos de las cookies de sesión de SameSite y que el laboratorio no funcione allí. Si esto sucede, no se preocupe y omita este ejercicio; este es un comportamiento normal y deseado por parte del navegador web.
 
-Preventing CSRF
+### Prevención de CSRF
 
-The most straightforward way of preventing CSRF is to explicitly set the SameSite attribute of session cookies to Lax or Strict, and to ensure that any request that changes data only changes that data if it’s submitted with HTTP POST. Other methods may work, but are more complex.
+La forma más sencilla de evitar CSRF es establecer explícitamente el atributo SameSite de las cookies de sesión en Lax o Strict y garantizar que cualquier solicitud que cambie datos solo cambie esos datos si se envía con HTTP POST. Otros métodos pueden funcionar, pero son más complejos.
 
-For more information about CSRF, see [the OWASP page about it](https://owasp.org/www-community/attacks/csrf) and the [OWASP CSRF protection cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
+Para obtener más información sobre CSRF, consulte [la página de OWASP al respecto](https://owasp.org/www-community/attacks/csrf) y la [hoja de trucos de protección CSRF de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html).
 
-For an in-depth exploration of both CSRF and other application logic vulnerabilities, see the <span style="text-decoration:underline;">Web Application Security Assessment learning path</span>.
+Para una exploración en profundidad de CSRF y otras vulnerabilidades lógicas de aplicaciones, consulte la [Ruta de Aprendizaje de Evaluación de Seguridad de Aplicaciones web](/es/learning-path/5/).
 
-## Learning Resources
+## Verificación de Habilidades
 
-{{% resource title="Cross-site request forgery" languages="English" cost="Free" description="Guide to CSRF vulnerability, how it works, and preventive measures." url="https://owasp.org/www-community/attacks/csrf" %}}
+Para esta sección, hemos decidido omitir la prueba de habilidad por una razón muy sencilla: actualmente, los navegadores web están cambiando sus políticas para que las políticas de cookies de SameSite sean ahora Laxas de forma predeterminada, lo que debería detener automáticamente el funcionamiento de muchos ataques CSRF. Debido a esto, es posible que los ejercicios que sugerimos ya no funcionen en el futuro.
 
-{{% resource title="Cross-Site Request Forgery Prevention Cheat Sheet" languages="English" cost="Free" description="List of CSRF mitigations, recommended and discouraged practices." url="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" %}}
+Si aún desea realizar algún tipo de ejercicio de verificación de habilidades, pruebe el laboratorio DVWA vinculado anteriormente para ver si funciona. Si no es así, mantenga una breve conversación con un compañero o mentor sobre por qué los cambios en la configuración predeterminada de los navegadores web significan que el laboratorio ya no funciona y pídale que verifique que haya entendido correctamente el tema.
 
-## Skill Check
+## Recursos de Aprendizaje
 
-For this section, we have decided to skip the skill check for one very simple reason: web browsers are currently changing their policies so that SameSite cookie policies are now Lax by default, which should automatically stop a lot of CSRF attacks from functioning. Because of this, any exercises we suggest might no longer function in the future.
-
-If you would still like to do some sort of skill check exercise, try the DVWA lab linked above to see if it works. If it does not, hold a brief conversation with a peer or mentor about why the changes in web browsers’ default settings mean that the lab no longer works and ask them to verify that you’ve properly understood the topic.
+{{% resource title="Falsificación de solicitudes entre los sitios" description="Una guía OWASP sobre la vulnerabilidad, cómo funciona y qué medidas preventivas funcionan y qué no funcionan" languages="Inglés" cost="Gratis" url="https://owasp.org/www-community/attacks/csrf" %}}
+{{% resource title="Hoja de Truco para la Prevención de Falsificación de Solicitudes entre Sitios" description="Una lista de posibles mitigaciones del CSRF, que se recomiendan y cuáles no se recomiendan" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" %}}
