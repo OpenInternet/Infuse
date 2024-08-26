@@ -2,11 +2,11 @@
 style = "introduction"
 weight = 1
 title = "Introduction"
-description = "Read the learning path overview, objectives, associated threats, and prerequisites"
+description = "Lea la descripción general de la ruta de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos."
 +++
 
 
-## Learning path collaborators
+**Con agradecimiento a**
 
 Ninoslava Bogdanović
 Michał "czesiek" Czyżewski (<https://czesiek.net>)

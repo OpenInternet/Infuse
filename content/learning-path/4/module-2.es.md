@@ -2,6 +2,7 @@
 style = "module"
 weight = 2
 title = "Subtema 2: Validación de Datos"
+description = "Observamos una clase muy común de vulnerabilidades, en la que un sitio web analiza datos creados con fines malintencionados enviados por un usuario."
 +++
 
 ## Caso de Uso

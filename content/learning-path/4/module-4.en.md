@@ -233,7 +233,7 @@ def delete_profile(username, current_user):
 current_user = users["user1"]  # Simulate a user with write permission
 target_username = "user2"  # Simulate the target user
 
-# Try to delete the victim's profile
+# Try to delete the targeted person's profile
 result = delete_profile(target_username, current_user)
 
 # Print the result (expected output: "Permission denied: You do not have permission to delete users.")
