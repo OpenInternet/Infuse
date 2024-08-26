@@ -1,182 +1,183 @@
 +++
 style = "module"
 weight = 2
-title = "Data Validation"
+title = "Subtema 2: Validación de Datos"
 +++
 
-## Use Case
+## Caso de Uso
 
-A common class of web application vulnerabilities relates to the way the app processes data supplied by users of the site. This class of vulnerabilities is commonly used by attackers to completely take over target websites, and often can be discovered via automated techniques. Understanding the mechanisms for data validation vulnerabilities is also extremely useful for demystifying complex security topics.
+Una clase común de vulnerabilidades de aplicaciones web se relaciona con la forma en que la aplicación procesa los datos proporcionados por los usuarios del sitio. Los atacantes suelen utilizar esta clase de vulnerabilidades para apoderarse por completo de los sitios web de destino y, a menudo, pueden descubrirse mediante técnicas automatizadas. Comprender los mecanismos de las vulnerabilidades de validación de datos también es extremadamente útil para desmitificar temas de seguridad complejos.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Understand common types of data validation vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand the mechanisms by which those vulnerabilities work
-- Understand, in broad strokes, how those vulnerabilities can be prevented
+- Comprender los tipos comunes de vulnerabilidades de validación de datos
+- Comprender los impactos potenciales de esos tipos de vulnerabilidades.
+- Comprender los mecanismos mediante los cuales funcionan esas vulnerabilidades.
+- Comprender, a grandes rasgos, cómo se pueden prevenir esas vulnerabilidades.
 
 ---
+## Sección Principal
 
-Our first class of web application specific vulnerabilities encompasses those related to data validation. There are many different kinds of data validation vulnerabilities, and they can occur in any system that processes input. Generally, these vulnerabilities occur when the application makes implicit assumptions about the length and/or content of data it’s sent. When the input is received and/or processed, the data “escapes” its intended context and becomes code in its new context. We’ll talk about how this works, its consequences, and how to fix the vulnerability for each specific type. Be sure to read through in order, as the sections build on previous ones.
+Nuestra primera clase de vulnerabilidades específicas de aplicaciones web abarca aquellas relacionadas con la validación de datos. Existen muchos tipos diferentes de vulnerabilidades de validación de datos y pueden ocurrir en cualquier sistema que procese entradas. Generalmente, estas vulnerabilidades ocurren cuando la aplicación hace suposiciones implícitas sobre la longitud y/o el contenido de los datos que envía. Cuando se recibe y/o procesa la entrada, los datos "escapan" de su contexto previsto y se convierten en código en su nuevo contexto. Hablaremos sobre cómo funciona esto, sus consecuencias y cómo solucionar la vulnerabilidad para cada tipo específico. Asegúrese de leer en orden, ya que las secciones se basan en las anteriores.
 
-## Cross site scripting (XSS)
+## Secuencias de comandos entre sitios (XSS)
 
-The name “cross site scripting” is an artifact of how early XSS exploits worked. A better name might be “JavaScript injection,” but the old name remains for historical reasons. XSS occurs when a browser interprets user input as JavaScript. This allows an attacker to, to a limited extent, control the targeted person’s web browser in the context of the target website. The attacker can steal the targeted person’s cookies, allowing the attacker to impersonate them on the site. More than that, though, the attacker can automatically extract any of the targeted person’s data from the target website and can similarly perform actions on the target site as the user. Finally, the attacker can change the appearance of the website for the targeted person, for example popping up a fake re-authentication page that sends the user’s credentials to the attacker or prompting them to download malware purporting to come from a trusted site.
+El nombre “secuencias de comandos entre sitios” es un artefacto de cómo funcionaban los primeros exploits XSS. Un mejor nombre podría ser "inyección de JavaScript", pero el nombre antiguo se mantiene por razones históricas. XSS ocurre cuando un navegador interpreta la entrada del usuario como JavaScript. Esto permite a un atacante controlar, hasta cierto punto, el navegador web de la persona objetivo en el contexto del sitio web objetivo. El atacante puede robar las cookies de la persona objetivo, lo que le permite hacerse pasar por ella en el sitio. Más que eso, sin embargo, el atacante puede extraer automáticamente cualquier dato de la persona objetivo del sitio web objetivo y puede realizar acciones similares en el sitio objetivo como el usuario. Finalmente, el atacante puede cambiar la apariencia del sitio web para la persona objetivo, por ejemplo, mostrando una página de reautenticación falsa que envía las credenciales del usuario al atacante o solicitándole que descargue malware que supuestamente proviene de un sitio confiable.
 
-While this attack is powerful, there are limits. The attacker is limited to controlling the content of the target website within the context of the user’s browser. The attacker cannot interact with other websites, and their actions are limited by browser security features.
+Si bien este ataque es poderoso, existen límites. El atacante se limita a controlar el contenido del sitio web objetivo dentro del contexto del navegador del usuario. El atacante no puede interactuar con otros sitios web y sus acciones están limitadas por las funciones de seguridad del navegador.
 
-Mechanically, this attack works by a web application receiving user data, and then integrating that user data directly into a web page. Consider a discussion forum site that allows users to to pick a display name:
+Mecánicamente, este ataque funciona mediante una aplicación web que recibe datos del usuario y luego los integra directamente en una página web. Considere un sitio de foro de discusión que permita a los usuarios elegir un nombre para mostrar:
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![Un cuadro de texto vacío en un sitio web donde el usuario puede ingresar texto, con un botón en el que se puede hacer clic denominado "Submit" debajo](/media/uploads/web_fundamentals_empty_box.png)
 
-This rather un-fancy web page has the following HTML code:
+Esta página web bastante poco elegante tiene el siguiente código HTML:
 
-```
+{{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name"><br>
   <input type="submit">
 </form></html>
-```
+{{< / highlight >}}
 
-When it receives a name from the user, it displays it in the form:
+Cuando recibe un nombre del usuario, lo muestra en el formulario:
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![El mismo cuadro de texto, pero ahora contiene el texto "Alice"](/media/uploads/web_fundamentals_Alice_box.png)
 
-using the following HTML:
+utilizando el siguiente HTML:
 
-```
+{{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name" value="Alice"><br>
   <input type="submit">
 </form></html>
-```
+{{< / highlight >}}
 
-So far so good. Now, what happens if the user enters some more tricky input, like:
+Hasta ahora, todo bien. Ahora, qué sucede si el usuario ingresa alguna entrada más complicada, como:
 
-```
+{{< highlight html >}}
 Alice"><script>alert("Owned by Alice")</script><i q="
-```
+{{< / highlight >}}
 
-When the web page is generated, it looks a bit different:
+Cuando se genera la página web, se ve un poco diferente:
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![Una alerta en una página web que dice "owned by Alice"](/media/uploads/web_fundamentals_owned_by_Alice_alert.png)
 
-How did this happen? Let’s use some color to highlight what’s going on. Remember, the web application is just treating the user input as text, it has no idea about the colors.
+¿Cómo pasó esto?
 
-```
+{{< highlight html >}}
 Alice"><script>alert("Owned by Alice")</script><i q="
-```
+{{< / highlight >}}
 
-The application simply takes the input from the user and places it verbatim into the HTML it generates, from the point of the view of the web application, and the web browser, it’s all just undifferentiated text.
+La aplicación simplemente toma la entrada del usuario y la coloca palabra por palabra en el HTML que genera; desde el punto de vista de la aplicación web y del navegador web, todo es simplemente texto indiferenciado.
 
-```
+{{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name" value="Alice"><script>alert("Owned by
     Alice")</script><i q=""><br>
   <input type="submit">
 </form></html>
-```
+{{< / highlight >}}
 
-Note the `">` in red. That tells the browser that the HTML input’s value attribute is completed, and then that the input tag is completed. Next, the text in blue is a script tag that runs the JavaScript that pops up an alert box. Finally, the `&lt;i q="` is just some cleanup that prevents the web page from displaying the remnants of the original input tag. We can use different color highlighting and formatting to show how the browser interprets the generated web page:
+Tenga en cuenta el `">` después de `value="Alice"`. Eso le dice al navegador que el atributo de valor de entrada HTML está completo y luego que la etiqueta de entrada está completa. A continuación, el texto es una etiqueta de secuencia de comandos que ejecuta JavaScript y muestra un cuadro de alerta. Finalmente, el `<i q="` es solo una limpieza que evita que la página web muestre los restos de la etiqueta de entrada original. Podemos usar diferentes colores de resaltado y formato para mostrar cómo el navegador interpreta la página web generada:
 
-```
+{{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name" value="Alice"><script>alert("Owned by
     Alice")</script>
   <i q=""><br>
   <input type="submit">
 </form></html>
-```
+{{< / highlight >}}
 
-As it is, this demonstration of XSS doesn’t do anything malicious, and the only person who is affected is Alice herself. However, if our attacker Alice can cause someone else to see her display name, and her JavaScript does something malicious, then she’s got a real attack to perform.
+Tal como están las cosas, esta demostración de XSS no hace nada malicioso y la única persona afectada es la propia Alice. Sin embargo, si nuestra atacante Alice puede hacer que otra persona vea su nombre para mostrar y su JavaScript hace algo malicioso, entonces tiene un ataque real que realizar.
 
-### Try it yourself!
+### ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low (see the “Setup” section in the introduction of this learning path for more information on this). Navigate to the “XSS (Reflected)” section. The “What’s your name?” input is vulnerable to XSS. Try to enter a name that causes a JavaScript alert box to pop up when you click the “Submit” button.
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté configurado en bajo (consulte la sección "Configuración" en la introducción de esta Ruta de Aprendizaje para obtener más información al respecto). Navega a la sección "XSS (Reflejado)". El mensaje de entrada "¿Cómo te llamas?" es vulnerable a XSS. Intente ingresar un nombre que haga que aparezca un cuadro de alerta de JavaScript cuando haga clic en el botón "Enviar".
 
-![alt_text](/media/uploads/image4.png "image_tooltip")
+![Una captura de pantalla de DVWA, con la página "Vulnerabilidad: Secuencias de comandos entre sitios reflejadas (XSS)" actualmente cargada](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png)
 
-### XSS Prevention
+### Prevención XSS
 
-To prevent XSS, the best technique to use is called output encoding. Note that in the above example, the attack was enabled through the use of the `"` and `>` characters. In the context of a web page, those characters control the structure of the page. In HTML, all such characters can be encoded, so that the web browser knows to display a double-quote or angle bracket, as opposed to modifying the structure of the page. In this case, if Alice’s data was output encoded before being integrated into the web page, it would generate the following HTML
+Para evitar XSS, la mejor técnica a utilizar se llama codificación de salida. Tenga en cuenta que en el ejemplo anterior, el ataque se habilitó mediante el uso de los caracteres `"` y `>`. En el contexto de una página web, esos caracteres controlan la estructura de la página. En HTML, todos estos caracteres se pueden codificar, de modo que el navegador web sepa que debe mostrar comillas dobles o corchetes angulares, en lugar de modificar la estructura de la página. En este caso, si los datos de Alice se codificaran antes de integrarse en la página web, se generaría el siguiente HTML
 
-```
+{{< highlight html >}}
 <html><body><form>
   Name: <input name="disp_name" value="Alice&quot;&gt;&lt;script&gt;alert(&quot;Owned by Alice&quot;)&lt;/script&gt;&lt;i q=&quot;"><br>
   <input type="submit">
 </form></html>
-```
+{{< / highlight >}}
 
-which would display like this
+que se mostraría así
 
-![alt_text](/media/uploads/image5.png "image_tooltip")
+![A text box that says Alice"><script>alert("Ov](/media/uploads/web_fundamentals_Alice_script_box.png)
 
-Output encoding is dependent on the context that the data will be used in. For HTML, you would encode HTML entities in the data. For data that was going to be included into a block of JavaScript, a different encoding would be used. If user data was going to be used in a database query yet another type of encoding would be used. Web frameworks and libraries should have functions to perform output encoding for you; it’s better to use those (hopefully) mature functions than to try to write them yourself from first principles.
+La codificación de salida depende del contexto en el que se utilizarán los datos. Para HTML, codificaría entidades HTML en los datos. Para los datos que se iban a incluir en un bloque de JavaScript, se utilizaría una codificación diferente. Si los datos del usuario fueran a usarse en una consulta de base de datos, se usaría otro tipo de codificación. Las estructuras web y las bibliotecas deben tener funciones para realizar la codificación de salida por usted; es mejor utilizar esas funciones (con suerte) obsoletas que intentar escribirlas usted mismo desde los primeros principios.
 
-For a bit more on XSS, see [the OWASP guide on XSS](https://owasp.org/www-community/attacks/xss/). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener más información sobre XSS, consulte la [guía OWASP sobre XSS](https://owasp.org/www-community/attacks/xss/). Para una exploración en profundidad, consulte la [Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5).
 
-## SQL injection (SQLi)
+## Inyección SQL (SQLi)
 
-Where XSS allows user data to escape from its context and be interpreted as HTML and JavaScript in the victim’s web browser, SQL injection allows user data to escape from its context and be interpreted as SQL on the web application’s database. Most web applications use a back-end database to store and retrieve data. Typically, they will use SQL to perform this data access. SQL injection can occur where user data is interpolated into a query.
+Mientras que XSS permite que los datos del usuario escapen de su contexto y se interpreten como HTML y JavaScript en el navegador web de la víctima, la inyección SQL permite que los datos del usuario escapen de su contexto y se interpreten como SQL en la base de datos de la aplicación web. La mayoría de las aplicaciones web utilizan una base de datos back-end para almacenar y recuperar datos. Normalmente, utilizarán SQL para realizar este acceso a los datos. La inyección SQL puede ocurrir cuando los datos del usuario se interpolan en una consulta.
 
-Since the attacker-controlled SQL is run in the server environment, SQL injection vulnerabilities are generally much more dangerous than XSS. While an XSS vulnerability allows an attacker to target other users, perhaps through some sort of social engineering, SQL injection can give the attacker read-write access to all user data on the site. The attacker can also read and write any other data stored in the database that the web application can assess. Frequently, the attacker can use the SQL access to gain the ability to run commands on the database server itself, gaining full remote access to the website’s back-end infrastructure.
+Dado que el SQL controlado por el atacante se ejecuta en el entorno del servidor, las vulnerabilidades de inyección de SQL son generalmente mucho más peligrosas que XSS. Si bien una vulnerabilidad XSS permite a un atacante apuntar a otros usuarios, tal vez mediante algún tipo de ingeniería social, la inyección SQL puede brindarle al atacante acceso de lectura y escritura a todos los datos del usuario en el sitio web. El atacante también puede leer y escribir cualquier otro dato almacenado en la base de datos que la aplicación web pueda evaluar. Con frecuencia, el atacante puede utilizar el acceso SQL para obtener la capacidad de ejecutar comandos en el servidor de la base de datos, obteniendo acceso remoto completo a la infraestructura back-end del sitio web.
 
-How does SQL injection work? Consider a web application, where there’s a ticketing platform that lists the name, description, and version of each tool in a category. The user would also be submitting an id parameter; this might even be contained in the URL of the page making the request. Perhaps the code that generates the SQL that retrieves this data looks something like:
+¿Cómo funciona la inyección SQL? Considere una aplicación web, donde hay una plataforma de venta de entradas que enumera el nombre, la descripción y la versión de cada herramienta en una categoría. El usuario también enviaría un parámetro de identificación; esto podría incluso estar contenido en la URL de la página que realiza la solicitud. Quizás el código que genera el SQL que recupera estos datos se vea así:
 
-```
+{{< highlight sql >}}
 $sql = 'select productid, name, description, version from products where categoryid='+request_params['id']
-```
+{{< / highlight >}}
 
-When a user sends an `id` parameter like 1 or 32, all is well, we get a query like:
+Cuando un usuario envía un parámetro de id como 1 o 32, todo está bien, obtenemos una consulta como:
 
-```
+{{< highlight sql >}}
  select toolid, name, description, version
    from tools
   where categoryid=32
-```
+{{< / highlight >}}
 
-However, the trouble starts when a curious user sends an `id` of 2-1, and notes that they get the same results as for an `id` of 1:
+Sin embargo, el problema comienza cuando un usuario curioso envía una id de 2-1, y observa que obtiene los mismos resultados que con una id de 1:
 
-```
+{{< highlight sql >}}
  select toolid, name, description, version
    from tools
   where categoryid=2-1
-```
+{{< / highlight >}}
 
-This shows the attacker that the application is vulnerable to SQL injection. It is interpreting their input as code (executing the expression 2-1) instead of data (looking for a category whose ID is literally “2-1”). After a bit of digging around, they send an `id` of `-1 union all select 1, username, password, 1.0 from admin_users`. This results in a SQL query of
+Esto le muestra al atacante que la aplicación es vulnerable a la inyección SQL. Está interpretando su entrada como código (ejecutando la expresión 2-1) en lugar de datos (buscando una categoría cuya ID sea literalmente “2-1”). Después de investigar un poco, envían una id de -1 union all select 1, username, password, 1.0 from admin_users. Esto da como resultado una consulta SQL de
 
-```
+{{< highlight sql >}}
  select toolid, name, description, version
    from tools
   where toolid=-1
 union all
  select 1, username, password, 1.0
    from admin_users
-```
+{{< / highlight >}}
 
-What this query does is look up all the tools that have a category `id` of `-1` (which is probably none of them), and then add to that list the usernames and passwords of the ticketing platform’s admin users. The application then formats this as a nice, readable HTML table and sends it back to the user requesting the data. Not only will this allow the attacker to simply log into the ticketing system, but if any of those users reuse their passwords, then the attacker may be able to access other systems in the same organization.
+Lo que hace esta consulta es buscar todas las herramientas que tienen una id de categoría de -1 (que probablemente no sea ninguna de ellas) y luego agregar a esa lista los nombres de usuario y contraseñas de los usuarios administradores de la plataforma de venta de entradas. Luego, la aplicación lo formatea como una tabla HTML agradable y legible y la envía de vuelta al usuario que solicita los datos. Esto no sólo permitirá al atacante simplemente iniciar sesión en el sistema de tickets, sino que si alguno de esos usuarios reutiliza sus contraseñas, entonces el atacante podrá acceder a otros sistemas de la misma organización.
 
-## Try it yourself!
+## ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low. Navigate to the “SQL Injection” page, and experiment with the input. Can you cause the page to return the list of all user accounts? Can you use the “union all” technique to retrieve data from other tables, such as the table called “information_schema.tables”?
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté bajo. Navega a la página "Inyección SQL" y experimenta con la entrada. ¿Puedes hacer que la página devuelva la lista de todas las cuentas de usuario? ¿Puedes utilizar la técnica de “unir todo” para recuperar datos de otras tablas, como la tabla llamada “information_schema.tables”?
 
-## SQLi Prevention
+## Prevención SQLi
 
-Unlike with XSS, output encoding is not a reliable way to prevent SQL injection. Note that in the above examples, the attacker uses characters such as space and - to change the context of their data from that of data in the SQL query to that of the structure of the query itself. Some combination of type-aware input filtering and output encoding can prevent SQL injection in theory, but in practice this approach is very unreliable.
+A diferencia de XSS, la codificación de salida no es una forma confiable de evitar la inyección de SQL. Tenga en cuenta que en los ejemplos anteriores, el atacante utiliza caracteres como espacios y - para cambiar el contexto de sus datos del de los datos de la consulta SQL al de la estructura de la consulta misma. Alguna combinación de filtrado de entrada con reconocimiento de tipos y codificación de salida puede evitar la inyección de SQL en teoría, pero en la práctica este enfoque es muy poco confiable.
 
-Instead, we can use a feature of every database engine that skips some of the initial parsing of the query entirely. This type of query is called a parameterized query, and using it is frequently called parameter binding. Instead of sending the database a string of text that contains both the structure of the query and the user’s data, we send one string that contains the structure of the query with placeholders in it for the data. Along with that string, we send the data for each placeholder. In this way, the user’s data is never parsed in a SQL context; no matter what they send, it will be treated exclusively as data. Not only does this protect against SQL injection, it makes the database queries slightly faster.
+En su lugar, podemos utilizar una característica de cada motor de base de datos que omita por completo parte del análisis inicial de la consulta. Este tipo de consulta se denomina consulta parametrizada y su uso se denomina frecuentemente vinculación de parámetros. En lugar de enviar a la base de datos una cadena de texto que contiene tanto la estructura de la consulta como los datos del usuario, enviamos una cadena que contiene la estructura de la consulta con marcadores de posición para los datos. Junto con esa cadena, enviamos los datos de cada marcador de posición. De esta manera, los datos del usuario nunca se analizan en un contexto SQL; no importa lo que envíen, será tratado exclusivamente como dato. Esto no sólo protege contra la inyección de SQL, sino que también hace que las consultas de la base de datos sean un poco más rápidas.
 
-For a bit more on SQL injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/SQL_Injection). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener más información sobre la inyección SQL, consulte [la guía OWASP al respecto](https://owasp.org/www-community/attacks/SQL_Injection). Para una exploración en profundidad, consulte la [Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/).
 
-## Path injection/directory traversal/local file inclusion
+## Inyección de Path/recorrido de directorio/inclusión de archivos locales
 
-This class of vulnerabilities involves the user sending a web application that subverts the application’s interactions with the filesystem. With this type of vulnerability, the attacker can influence or control the pathname of a file that the web application is reading from or writing to, potentially giving the attacker full access to any file that the web server can read or write. Depending on what’s stored on the web server, this may give different abilities to an attacker. However, popular targets are configuration files, which often contain credentials for databases and other external network services, and the source code to the application itself.
+Esta clase de vulnerabilidad implica que el usuario envíe una aplicación web que subvierte las interacciones de la aplicación con el sistema de archivos. Con este tipo de vulnerabilidad, el atacante puede influir o controlar la ruta de acceso de un archivo que la aplicación web lee o escribe, lo que potencialmente le otorga al atacante acceso completo a cualquier archivo que el servidor web pueda leer o escribir. Dependiendo de lo que esté almacenado en el servidor web, esto puede otorgar diferentes habilidades a un atacante. Sin embargo, los objetivos populares son los archivos de configuración, que a menudo contienen credenciales para bases de datos y otros servicios de red externos, y el código fuente de la propia aplicación.  
 
-Consider an application that keeps some data on the filesystem instead of a database. For example, a multilingual site that keeps localizations in files. Perhaps the home page code looks like this:
+Considere una aplicación que mantiene algunos datos en el sistema de archivos en lugar de una base de datos. Por ejemplo, un sitio multilingüe que guarda las localizaciones en archivos. Quizás el código de la página de inicio se vea así:
 
-```
+{{< highlight html >}}
 <?
 function localize($content, $lang) {
 	return fread("../config/lang/"+$lang+"/"+$content);
@@ -186,22 +187,24 @@ function localize($content, $lang) {
 <head><title><?= localize($_GET("pg")+".title",$_GET("hl"))?></title></head>
 <body><?= localize($_GET("pg"), $_GET("hl"))?></body>
 </html>
-```
+{{< / highlight >}}
 
 Note that it takes parameters from the URL string and uses them to read files off the filesystem, including their content in the page.
 
-When you load up [http://www.example.com/?hl=en-us&pg=main](http://www.example.com/?hl=en-us&pg=main), the server looks for `../config/lang/en-us/main.title` and `../config/lang/en-us/main`. Perhaps the resulting HTML looks like this:
+Tenga en cuenta que toma parámetros de la cadena URL y los usa para leer archivos del sistema de archivos, incluido su contenido en la página.
 
-```
+Cuando cargas [http://www.example.com/?hl=en-us&pg=main](http://www.example.com/?hl=en-us&pg=main), el servidor busca `../config/lang/en-us/main.title` y `../config/lang/en-us/main`. Quizás el HTML resultante se vea así:
+
+{{< highlight html >}}
 <html>
 <head><title>Cool site: Main</title></head>
 <body><h1>Hello, world!</h1></body>
 </html>
-```
+{{< / highlight >}}
 
-Now, what happens if instead, we visit [http://www.example.com/?hl=../../../../../../../../&pg=../etc/passwd](http://www.example.com/?hl=../../../../../../../../&pg=../etc/passwd)? The site will look for `../config/lang/../../../../../../../../&pg=../etc/passwd.title` and `../config/lang/../../../../../../../../&pg=../etc/passwd`. It’s unlikely to find the first one, but assuming the server ignored the error, we might get a web page that looks like:
+Ahora bien, ¿qué pasa si en cambio visitamos [http://www.example.com/?hl=../../../../../../../../&pg=../etc/passwd](http://www.example.com/?hl=../../../../../../../../&amp;amp;pg=../etc/passwd)? El sitio buscará ../config/lang/../../../../../../../../&pg=../etc/passwd.title and ../config/lang/../../../../../../../../&pg=../etc/passwd. Es poco probable que encontremos el primero, pero suponiendo que el servidor ignoró el error, es posible que obtengamos una página web similar a la siguiente:
 
-```
+{{< highlight html >}}
 <html>
 <head><title></title></head>
 <body>nobody:*:-2:-2:Unprivileged User:/var/empty:/usr/bin/false
@@ -209,17 +212,17 @@ root:*:0:0:System Administrator:/var/root:/bin/sh
 daemon:*:1:1:System Services:/var/root:/usr/bin/false
 </body>
 </html>
-```
+{{< / highlight >}}
 
-On any modern Unix-like system, grabbing `/etc/passwd` isn’t a big deal, but if the the attacker managed to brute force other files on the system (perhaps a config file or something like `/home/dev/vpn-credentials.txt`), the results could be quite bad. Even worse would be a site that allows users to upload files, but the user can manipulate the file location to be code (e.g. .php, .asp, etc.) inside the web root. In this case, the attacker can upload a [web shell](https://en.wikipedia.org/wiki/Web_shell) and run commands on the web server.
+En cualquier sistema moderno tipo Unix, capturar `/etc/passwd` no es un gran problema, pero si el atacante logró forzar otros archivos en el sistema (tal vez un archivo de configuración o algo como `/home/dev/vpn-credentials.txt`), los resultados podrían ser bastante malos. Peor aún sería un sitio que permita a los usuarios cargar archivos, pero el usuario puede manipular la ubicación del archivo para que sea código (por ejemplo, .php, .asp, etc.) dentro de la raíz web. En este caso, el atacante puede cargar un [web shell](https://en.wikipedia.org/wiki/Web_shell) y ejecutar comandos en el servidor web.
 
-## Try it yourself!
+## ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low. Navigate to the “File Inclusion” page, and experiment with the URL that you visit when you click on a file. Can you retrieve the `/etc/passwd` file?
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté bajo. Navegue a la página "Inclusión de Archivos" y experimente con la URL que visita cuando hace clic en un archivo. ¿Puedes recuperar el archivo `/etc/passwd`?
 
-## Path injection prevention
+## Prevención de inyección de ruta
 
-To a large extent, the best advice for preventing this sort of attack is “don’t use the filesystem in your application code.” While this advice is effective, it’s not always practical. A hybrid option would be to store file names in a database, and accept database indices from the user. In the above example, perhaps the database would look something like:
+En gran medida, el mejor consejo para prevenir este tipo de ataques es "no utilizar el sistema de archivos en el código de su aplicación". Si bien este consejo es eficaz, no siempre es práctico. Una opción híbrida sería almacenar nombres de archivos en una base de datos y aceptar índices de bases de datos del usuario. En el ejemplo anterior, quizás la base de datos se vería así:
 
 <table>
   <tr>
@@ -254,17 +257,17 @@ To a large extent, the best advice for preventing this sort of attack is “don�
   </tr>
 </table>
 
-If this isn’t feasible, the site should only use and accept a very limited set of characters (such as letters and numbers) for user-specified filename components. This will still likely allow users to read or write arbitrary files within a specified directory, so the application developers must ensure that files in that directory aren’t executable by the web server, and that there is no sensitive data or important configuration information in that directory.
+Si esto no es posible, el sitio sólo debería utilizar y aceptar un conjunto muy limitado de caracteres (como letras y números) para los componentes del nombre de archivo especificados por el usuario. Es probable que esto aún permita a los usuarios leer o escribir archivos arbitrarios dentro de un directorio específico, por lo que los desarrolladores de aplicaciones deben asegurarse de que los archivos en ese directorio no sean ejecutables por el servidor web y que no haya datos confidenciales o información de configuración importante en ese directorio.
 
-For a bit more on path injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Path_Traversal). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener más información sobre la inyección de ruta, consulte [la guía OWASP al respecto](https://owasp.org/www-community/attacks/Path_Traversal). Para una exploración en profundidad, consulte la [Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/).
 
-## Shell injection/command injection
+## Inyección de shell/inyección de comando
 
-Shell injection is similar to path injection, in that it involves the application’s interactions with the operating system. In this case, though, the application is directly executing a shell command or several commands, and it’s possible for an attacker to change what commands are executed. The impact of a shell injection is extremely high, allowing the attacker to run their own commands on the underlying web server hardware. Complete compromise of the web application is almost assured. Given time, compromise of other infrastructure in the server environment is likely.
+La inyección de shell es similar a la inyección de ruta, en el sentido de que implica las interacciones de la aplicación con el sistema operativo. Sin embargo, en este caso, la aplicación ejecuta directamente un comando de shell o varios comandos, y es posible que un atacante cambie los comandos que se ejecutan. El impacto de una inyección de shell es extremadamente alto, lo que permite al atacante ejecutar sus propios comandos en el hardware del servidor web subyacente. El compromiso total de la aplicación web está casi asegurado. Con el tiempo, es probable que se comprometa otra infraestructura en el entorno del servidor.
 
-Consider an application that allows users to check network connectivity to other systems from the web server. Here’s some code for a minimal PHP page that does this:
+Considere una aplicación que permita a los usuarios verificar la conectividad de la red con otros sistemas desde el servidor web. Aquí hay un código para una página PHP mínima que hace esto:
 
-```
+{{< highlight html >}}
 <html>
 <head><title>Network connectivity check</title></head>
 <body>
@@ -280,11 +283,11 @@ Consider an application that allows users to check network connectivity to other
 ?>
 </body>
 </html>
-```
+{{< / highlight >}}
 
-If the users enters “8.8.8.8”, the page uses the shell_exec function to run the command `ping -c 3 8.8.8.8`, and the resulting HTML looks something like this:
+Si los usuarios ingresan “8.8.8.8”, la página usa la función shell_exec para ejecutar el comando `ping -c 3 8.8.8.8`, y el HTML resultante se parece a este:
 
-```
+{{< highlight html >}}
 <html>
 <head><title>Network connectivity check</title></head>
 <body>
@@ -304,11 +307,11 @@ If the users enters “8.8.8.8”, the page uses the shell_exec function to run 
 round-trip min/avg/max/stddev = 7.266/9.476/12.481/2.202 ms</pre>
 </body>
 </html>
-```
+{{< / highlight >}}
 
-Super handy! However, what will happen if the user enters “`8.8.8.8; ls -1 /`” instead? The shell command run will be `ping -c 3 8.8.8.8; ls -1 /`, and the resulting web page will look something like:
+¡Súper útil! Sin embargo, ¿qué pasará si el usuario ingresa “`8.8.8.8; ¿Es -1 /`” en su lugar? La ejecución del comando shell será `ping -c 3 8.8.8.8; Es -1 /`, y la página web resultante se verá así:
 
-```
+{{< highlight html >}}
 <html>
 <head><title>Network connectivity check</title></head>
 <body>
@@ -344,115 +347,120 @@ usr
 var</pre>
 </body>
 </html>
-```
+{{< / highlight >}}
 
-What happened? The shell saw the command to ping 8.8.8.8, and then a semicolon. In most Unix-like shells, the semicolon command separates individual commands that are run together on one line. So, the shell ran the ping command, then ran the next command, to list the root directory contents. It gathered the output of both commands, and then returned those results to the web server.
+¿Qué pasó? El shell vio el comando ping a 8.8.8.8 y luego un punto y coma. En la mayoría de los shells tipo Unix, el comando de punto y coma separa los comandos individuales que se ejecutan juntos en una línea. Entonces, el shell ejecutó el comando ping, luego ejecutó el siguiente comando para enumerar el contenido del directorio raíz. Reunió el resultado de ambos comandos y luego devolvió esos resultados al servidor web.
 
-Obviously, something like this could be used to retrieve almost any file from the web server (for example, using the “cat” command). The attacker could cause the web server to download files (including executables) from other servers, and then run those commands. Those downloaded executables could be exploits that allow the attacker to escalate privileges from the web server user to an administrative user (e.g. system or root), giving the attacker full control over the web server.
+Obviamente, algo como esto podría usarse para recuperar casi cualquier archivo del servidor web (por ejemplo, usando el comando "cat"). El atacante podría hacer que el servidor web descargue archivos (incluidos ejecutables) de otros servidores y luego ejecute esos comandos. Esos ejecutables descargados podrían ser exploits que permitan al atacante escalar privilegios del usuario del servidor web a un usuario administrativo (por ejemplo, sistema o raíz), dándole al atacante control total sobre el servidor web.
 
-## Try it yourself!
+## ¡Inténtalo tú mismo
 
-Log into your DVWA and make sure the security level is set to low. Navigate to the “Command Injection” page, and experiment with the input. Can you list the contents of the web server’s root directory?
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté bajo. Navega a la página "Inyección de Comando" y experimenta con la entrada. ¿Puede enumerar el contenido del directorio raíz del servidor web?
 
-## Shell injection prevention
+## Prevención de inyección de shell
 
-As with path injection, the best way to prevent shell injection is “don’t do that.” Unlike with path injection, the advice to not run shell commands from the web server should not be given full consideration. The other alternatives (such as input data validation) are difficult to implement correctly, and may be impossible if the application needs to allow any sort of non-trivial input.
+Al igual que con la inyección de ruta, la mejor manera de evitar la inyección de shell es "no hacer eso". A diferencia de la inyección de ruta, no se debe prestar completa atención al consejo de no ejecutar comandos de shell desde el servidor web. Las otras alternativas (como la validación de datos de entrada) son difíciles de implementar correctamente y pueden resultar imposibles si la aplicación necesita permitir cualquier tipo de entrada no trivial.
 
-For a bit more on shell injection, see [the OWASP guide on it](https://owasp.org/www-community/attacks/Command_Injection) and the [OWASP guide on preventing it](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html). For an in-depth exploration, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener más información sobre la inyección de shell, consulte [la guía OWASP a respecto](https://owasp.org/www-community/attacks/Command_Injection) y [la guía OWASP para prevenirla](https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html). Para una exploración en profundidad, consulte la [Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/).
+
+## Verificación de Habilidades
+
+### Ejercicio 1: resumen
+
+(Este es un resumen del ejercicio descrito anteriormente en el subtema)
+
+Accede a tu instalación de DVWA. Establece el nivel de dificultad en "bajo" y completa las siguientes secciones:
+
+- XSS (reflejado)
+- inyección SQL
+- Inclusión de archivos
+- Inyección de Comando
+
+Para cada una de las siguientes secciones, su tarea es encontrar y explotar la vulnerabilidad como se describe en la página DVWA respectiva. Dado que es posible que no tenga mucha experiencia con JavaScript, SQL o líneas de comando, está bien utilizar tutoriales (hay muchos en línea que miran DVWA) o guías para ayudarlo con los ejercicios. Solo asegúrese de que, en lugar de simplemente copiar y pegar comandos de los tutoriales, pueda explicar _qué_ hace cada página DVWA y cuál es la vulnerabilidad.
+
+### Ejercicio 2: cuestionario de opción múltiple
+
+La validación de datos es un aspecto crítico de la seguridad de las aplicaciones web, ya que garantiza que los datos de entrada estén seguros, formateados correctamente y libres de intenciones maliciosas. No implementar una validación de datos adecuada puede dejar las aplicaciones web vulnerables a diversas exploraciones. Las siguientes preguntas exploran la importancia de la validación de datos en aplicaciones web y técnicas para prevenir vulnerabilidades de validación de datos.
+
+Si es posible, discuta sus respuestas a esas preguntas con un compañero o mentor que lo ayudará a verificar que haya entendido correctamente el tema.
+
+**Pregunta 1**
+
+¿Cuál es una consecuencia común de no implementar una validación de datos adecuada en una aplicación web?
+
+A) Mayor rendimiento del servidor  
+B) Experiencia de usuario mejorada  
+C) Vulnerabilidad a ataques de inyección SQL  
+D) Integridad de datos mejorada
+
+{{< question title="Respuesta correcta y explicación" >}}
+**Question 1 correct answer**: **Pregunta 1 respuesta correcta:** C) Vulnerabilidad a ataques de inyección SQL
+
+Explicación:
+
+A) Incorrecta. No implementar una validación de datos adecuada normalmente no conduce a un mayor rendimiento del servidor.
+B) Incorrecta. Si bien una validación de datos adecuada contribuye a una mejor experiencia del usuario al prevenir errores, su ausencia no mejora la experiencia del usuario.
+C) Correcta. Sin una validación de datos adecuada, las aplicaciones web son vulnerables a ataques de inyección SQL, donde los atacantes pueden manipular consultas de bases de datos inyectando código SQL malicioso.
+D) Incorrecta. La validación de datos ayuda a mantener la integridad de los datos, pero su ausencia no mejora la integridad de los datos.
+{{< /question >}}
+
+**Pregunta 2**
+
+¿Cuál de los siguientes es un mecanismo eficaz para prevenir ataques de secuencias de comandos entre sitios (XSS) en aplicaciones web?
+
+A) Uso de texto sin formato para almacenar datos confidenciales  
+B) Escapar de la entrada del usuario antes de mostrarla  
+C) Almacenamiento de contraseñas de usuario en texto sin formato  
+D) Deshabilitar el cifrado HTTPS
+
+{{< question title="Respuesta correcta y explicación" >}}
+**Question 2 Correct Answer**: B) Escapar de la entrada del usuario antes de mostrarla
+
+Explicación:
+A) Incorrecta. El uso de texto sin formato para almacenar datos confidenciales no previene los ataques XSS; de hecho, aumenta el riesgo de exposición de datos.
+B) Correcta. Escapar de la entrada del usuario antes de mostrarla ayuda a mitigar los ataques XSS al hacer que cualquier script potencialmente malicioso sea inofensivo, evitando así que se ejecute en los navegadores de los usuarios.
+C) Incorrecta. Almacenar contraseñas de usuario en texto sin formato es un riesgo para la seguridad y no está relacionado con la prevención de ataques XSS.
+D) Incorrecta. Deshabilitar el cifrado HTTPS expone los datos confidenciales a la interceptación y no previene los ataques XSS.
+
+**Pregunta 3**
+
+¿Qué técnica es eficaz para prevenir ataques de inyección SQL en aplicaciones web?
+
+A) Uso de consultas SQL dinámicas  
+B) Emplear desinfección de entradas y consultas parametrizadas  
+C) Almacenamiento de datos confidenciales en texto sin formato  
+D) Deshabilitar mensajes de error
+
+{{< question title="Respuesta correcta y explicación" >}}
+**Pregunta 3 Respuesta Correcta:** B) Emplear desinfección de entradas y consultas parametrizadas
+
+Explicación:
+
+A) Incorrecta. El uso de consultas SQL dinámicas sin una validación y desinfección de entrada adecuadas aumenta el riesgo de ataques de inyección SQL.
+B) Correcta. El uso de desinfección de entradas y consultas parametrizadas ayuda a prevenir ataques de inyección SQL al garantizar que las entradas del usuario se traten como datos en lugar de código ejecutable, neutralizando así los intentos maliciosos de inyección SQL.
+C) Incorrecta. El almacenamiento de datos confidenciales en texto sin formato aumenta el riesgo de exposición de los datos, pero no previene directamente los ataques de inyección SQL.
+D) Incorrecta. Deshabilitar los mensajes de error puede ocultar vulnerabilidades potenciales a los atacantes, pero no aborda la causa raíz de las vulnerabilidades de inyección SQL.
+{{< /question >}}
+
+**Pregunta 4**
+
+¿Cuál de las siguientes afirmaciones explica mejor cómo la validación adecuada de los datos ayuda a prevenir ataques de inyección de comandos en la seguridad de las aplicaciones web?
+
+A) La validación de datos restringe la entrada a caracteres y patrones predefinidos, minimizando así la probabilidad de que se inyecten comandos maliciosos en la aplicación.
+B) Las técnicas de validación adecuadas, como la desinfección de entradas y las consultas parametrizadas, ayudan a neutralizar los comandos maliciosos incrustados en las entradas del usuario, mitigando así las vulnerabilidades de inyección de comandos.
+C) La implementación de métodos de validación, como comprobaciones de longitud de entrada y listas blancas de caracteres aceptables, reduce la superficie de ataque y evita la ejecución de comandos no autorizados dentro de la aplicación web.
+D) Todo lo anterior.
+
+{{< question title="Respuesta" >}}
+**Pregunta 4 Respuesta Correcta:** D) Todo lo anterior.
+{{< /question >}}
+
 
 ## Learning Resources
 
-{{% resource title="OWASP guides to vulnerabilities" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/SQL_Injection" url2="https://owasp.org/www-community/attacks/xss/" url3="https://owasp.org/www-community/attacks/Path_Traversal" url4="https://owasp.org/www-community/attacks/Command_Injection" %}}
-
-{{% resource title="OS command injection cheat sheet" languages="English" cost="Free" description="Quick overview of different OS commands which could be abused for injection." url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
-
-{{% resource title="Web shells" languages="English, Kurdish, Chinese, Korean, French, Lombard, Hindi, Malayalam" cost="Free" description="Overview of what a web shell is and how it could be used in attacks." url="https://en.wikipedia.org/wiki/Web_shell" %}}
-
-## Skill Check
-
-### Exercise 1: recap
-
-(This is a recap of the exercise outlined above in the subtopic)
-
-Access your installation of DVWA. Set the difficulty level to “low” and complete the following sections:
-
-- XSS (reflected)
-- SQL injection
-- File inclusion
-- Command injection
-
-For each of the following sections, your task is to find and exploit the vulnerability as described on the respective DVWA page. Since you might not have a lot of experience with JavaScript, SQL, or command lines, it is totally all right to use walkthroughs (there are many online that look at DVWA) or guides to aid you in the exercises. Just make sure that, rather than simply copying and pasting commands from the walkthroughs, you can actually explain _what_ each DVWA page does and what the vulnerability is.
-
-### Exercise 2: multiple choice quiz
-
-Data validation is a critical aspect of web application security, ensuring that input data is safe, properly formatted, and free from malicious intent. Failure to implement adequate data validation can leave web applications vulnerable to various exploits. The following questions explore the importance of data validation in web applications and techniques for preventing data validation vulnerabilities.
-
-If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic.
-
-**Question 1**
-
-What is a common consequence of failing to implement proper data validation in a web application?
-
-A) Increased server performance\
-B) Enhanced user experience\
-C) Vulnerability to SQL injection attacks\
-D) Improved data integrity
-
-**Question 2**
-
-Which of the following is an effective mechanism for preventing cross-site scripting (XSS) attacks in web applications?
-
-A) Using plaintext for storing sensitive data\
-B) Escaping user input before displaying it\
-C) Storing user passwords in plain text\
-D) Disabling HTTPS encryption
-
-**Question 3**
-
-Which technique is effective in preventing SQL injection attacks in web applications?
-
-A) Using dynamic SQL queries\
-B ) Employing input sanitization and parameterized queries\
-C) Storing sensitive data in plain text\
-D) Disabling error messages
-
-**Question 4**
-
-Which of the following statements best explains how proper data validation helps prevent command injection attacks in web application security?
-
-A) Data validation restricts the input to predefined characters and patterns, thereby minimizing the likelihood of malicious commands being injected into the application.\
-B) Proper validation techniques, such as input sanitization and parameterized queries, help neutralize malicious commands embedded in user inputs, thereby mitigating command injection vulnerabilities.\
-C) Implementing validation methods like input length checks and whitelisting of acceptable characters reduces the attack surface and prevents execution of unauthorized commands within the web application.\
-D) All of the above.
-
-### Answer key
-
-**Question 1 correct answer**: C) Vulnerability to SQL injection attacks
-
-Explanation:
-
-A) Incorrect. Failing to implement proper data validation typically does not lead to increased server performance.\
-B) Incorrect. While proper data validation contributes to a better user experience by preventing errors, its absence does not enhance user experience.\
-C) Correct. Without proper data validation, web applications are vulnerable to SQL injection attacks, where attackers can manipulate database queries by injecting malicious SQL code.\
-D) Incorrect. Data validation helps maintain data integrity, but its absence does not improve data integrity*.
-*
-
-**Question 2 Correct Answer**: B) Escaping user input before displaying it
-
-Explanation:
-
-A) Incorrect. Using plaintext for storing sensitive data does not prevent XSS attacks; in fact, it increases the risk of data exposure.\
-B) Correct. Escaping user input before displaying it helps mitigate XSS attacks by rendering any potentially malicious scripts harmless, thereby preventing them from executing in users' browsers.\
-C) Incorrect. Storing user passwords in plaintext is a security risk and unrelated to preventing XSS attacks.\
-D) Incorrect. Disabling HTTPS encryption exposes sensitive data to interception and does not prevent XSS attacks.
-
-**Question 3 Correct Answer**: B) Employing input sanitization and parameterized queries
-
-Explanation:
-
-A) Incorrect. Using dynamic SQL queries without proper input validation and sanitization increases the risk of SQL injection attacks.\
-B) Correct. Employing input sanitization and parameterized queries helps prevent SQL injection attacks by ensuring that user input is treated as data rather than executable code, thus neutralizing malicious SQL injection attempts.\
-C) Incorrect. Storing sensitive data in plain text increases the risk of data exposure but does not directly prevent SQL injection attacks.\
-D) Incorrect. Disabling error messages may hide potential vulnerabilities from attackers but does not address the root cause of SQL injection vulnerabilities.
-
-**Question 4 Correct Answer**: D) All of the above.
+{{% resource title="Guías OWASP sobre vulnerabilidades: Inyección SQL" description="Grandes descripciones generales de diferentes vulnerabilidades, incluidos ejemplos." languages="Inglés" cost="Gratis" url="Inyección SQL: https://owasp.org/www-community/attacks/SQL_Injection" %}}
+{{% resource title="Guías OWASP sobre vulnerabilidades: XSS" description="Grandes descripciones generales de diferentes vulnerabilidades, incluidos ejemplos." languages="Inglés" cost="Gratis" url="XSS: https://owasp.org/www-community/attacks/xss/" %}}
+{{% resource title="Guías OWASP sobre vulnerabilidades: Recorrido de ruta" description="Grandes descripciones generales de diferentes vulnerabilidades, incluidos ejemplos." languages="Inglés" cost="Gratis" url="Recorrido de ruta: https://owasp.org/www-community/attacks/Path_Traversal" %}}
+{{% resource title="Guías OWASP sobre vulnerabilidades: Inyección de comando" description="Grandes descripciones generales de diferentes vulnerabilidades, incluidos ejemplos." languages="Inglés" cost="Gratis" url="Inyección de comando: https://owasp.org/www-community/attacks/Command_Injection" %}}
+{{% resource title="Hoja de trucos para la inyección de comandos del Sistema Operativo" description="Una descripción general rápida de los diferentes comandos del sistema operativo de los que se podría abusar para la inyección" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
+{{% resource title="Shells web" description="Una descripción general rápida de qué es un shell web y cómo podría usarse en ataques" languages="Inglés, kurdo, chino, coreano, francés, lombardo, hindi, malayalam" cost="Gratis" url="https://en.wikipedia.org/wiki/Web_shell" %}}
