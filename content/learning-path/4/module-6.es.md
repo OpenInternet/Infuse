@@ -1,48 +1,51 @@
 +++
 style = "module"
 weight = 6
-title = "Interpersonal Skills for Web Application Security"
+title = "Habilidades Interpersonales para la Seguridad de Aplicaciones Web"
+description = "Al trabajar en la seguridad de aplicaciones web (¡o en cualquier seguridad!), es importante verificar la naturaleza de la relación de protección digital, brindar consejos útiles, no alarmistas, y brindar evaluaciones de riesgos sólidas."
 +++
 
-## Use Case
+## Caso de Uso
 
-When interacting with individuals and organizations who operate web applications, self-awareness is necessary to check the nature of the digital protector relationship, provide useful and not fear-mongering advice or services. It is critical to frame your technical work within a sound risk assessment of the reality of the web application and its users.
+Al interactuar con personas y organizaciones que operan aplicaciones web, es necesaria la autoconciencia para comprobar la naturaleza de la relación de protector digital y proporcionar consejos o servicios útiles y no alarmistas. Es fundamental enmarcar su trabajo técnico dentro de una sólida evaluación de riesgos de la realidad de la aplicación web y sus usuarios.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Self reflect on the digital protector relationship with a client within web application assessment work and reporting
-- Simplify and filter findings and explain them in a way which makes sense to the needs and threat models of the organization and its stakeholders
-- Maintain an awareness of the limits of your own knowledge and ability
-- Communicate in a non fear-mongering way about vulnerabilities and weaknesses
-- Conduct a broader risk analysis of a web application based on the political, social, economic, and technical realities which surround it.
+- Autorreflexión sobre la relación del protector digital con un cliente dentro del trabajo de evaluación y generación de informes de aplicaciones web
+- Simplificar y filtrar los hallazgos y explicarlos de una manera que tenga sentido para las necesidades y los modelos de amenazas de la organización y sus partes interesadas
+- Mantener la conciencia de los límites de su propio conocimiento y capacidad
+- Comunicarse de manera no alarmista sobre vulnerabilidades y debilidades
+- Realizar un análisis de riesgo más amplio de una aplicación web basado en las realidades políticas, sociales, económicas y técnicas que la rodean.
 
 ---
 
-Your work in web application security assessment must remain contextualized within the frame of the organization which operates or hosts the application, the people who utilize it (and of their devices), the interpersonal relationships you have with these people, the nature of the web application itself, the data stored or processed on it, the legal realities which prevail over the application, and a solid risk assessment of all these elements. Let’s unpack these elements and consider a self-critique of your role as a digital protector.
+## Sección Principal
 
-## The Role of digital protector in web application security assessment
+Su trabajo en la evaluación de la seguridad de aplicaciones web debe permanecer contextualizado dentro del marco de la organización que opera o aloja la aplicación, las personas que la utilizan (y sus dispositivos), las relaciones interpersonales que tiene con estas personas, la naturaleza de la aplicación web en sí, los datos almacenados o tratados en la misma, las realidades jurídicas que prevalecen sobre la solicitud, y una sólida evaluación de riesgos de todos estos elementos. Analicemos estos elementos y consideremos una autocrítica de su papel como protector digital.
 
-Web application security assessment – and especially many of the elements of this and and subsequent linked learning paths which go beyond basic vulnerability scanning, version enumeration, and misconfiguration checks - is a highly technical and rarified skill set with a terminology which is inaccessible and difficult to understand both by lay users and even tech-savvy website administrators. Take a moment to reflect on your own knowledge level and your personal feelings about conducting this assessment and what you hope to communicate with your client. One of the golden rules of working as an effective digital protector: _the goal is not to impress others and make yourself appear superior - it is to provide effective assistance which reduces harm and risk while supporting the advocacy goals of your client_.
+## El Papel del protector digital en la evaluación de la seguridad de las aplicaciones web
 
-As such, it is important to filter and explain your findings within the context of a risk analysis of the web application itself. While finding many vulnerabilities and weaknesses may make you feel good as an analyst, sharing all of those with the client may create a lot of noise and potential stress for your client. Achieving the right balance can be more difficult than it first appears to achieve - not all security findings are equal to each other. It takes an understanding of the nature of the vulnerability, the attack chain which renders it meaningful, and the potential for harm which an exploitation of the vulnerability could have.
+La evaluación de la seguridad de las aplicaciones web – y especialmente muchos de los elementos de esta y otras rutas de aprendizaje vinculados posteriores que van más allá del escaneo básico de vulnerabilidades, la enumeración de versiones y las comprobaciones de configuración incorrecta) es un conjunto de habilidades altamente técnico y enrarecido con una terminología que es inaccesible y difícil de entender tanto por los usuarios laicos como por los administradores de sitios web expertos en tecnología. Tómese un momento para reflexionar sobre su propio nivel de conocimiento y sus sentimientos personales acerca de realizar esta evaluación y lo que espera comunicar con su cliente. Una de las reglas de oro para trabajar como protector digital eficaz: _El objetivo no es impresionar a los demás y parecer superior, sino brindar asistencia efectiva que reduzca el daño y el riesgo y al mismo tiempo respalde los objetivos de defensa de su cliente._
 
-As an example, when using an automated security assessment tool such as ZAP (mentioned in more detail in the Website Assessment Learning Path), your scan of a website may reveal dozens or even hundreds of weaknesses and vulnerabilities. Providing this list to your client is less helpful unless you can explain how some of these findings _matter_ to their stakeholders and their operational and advocacy objectives. Do you understand the findings enough to be able to provide that filtering and explanation? It is also necessary to be cognizant of the limitations of our own understanding in the field. In case you can not properly assess whether a given vulnerability or weakness is important, you may leave a recommendation with your best interpretation and advice that they may need to look into it further.
+Como tal, es importante filtrar y explicar sus hallazgos dentro del contexto de un análisis de riesgos de la propia aplicación web. Si bien encontrar muchas vulnerabilidades y debilidades puede hacer que se sienta bien como analista, compartirlas todas con el cliente puede generar mucho ruido y estrés potencial para su cliente. Lograr el equilibrio adecuado puede ser más difícil de lo que parece a primera vista: no todos los hallazgos en materia de seguridad son iguales entre sí. Es necesario comprender la naturaleza de la vulnerabilidad, la cadena de ataque que la hace significativa y el potencial de daño que podría tener una explotación de la vulnerabilidad.
 
-### Risk Assessment with Web Applications
+Por ejemplo, cuando se utiliza una herramienta de evaluación de seguridad automatizada como ZAP (mencionada con más detalle en la [Ruta de Aprendizaje sobre Evaluación de Sitios Web](/es/learning-path/5/)), el escaneo de un sitio web puede revelar docenas o incluso cientos de debilidades y vulnerabilidades. Proporcionar esta lista a su cliente es menos útil a menos que pueda explicar cómo algunos de estos hallazgos son _importantes_ para sus partes interesadas y sus objetivos operativos y de promoción. ¿Entiende los hallazgos lo suficiente como para poder proporcionar ese filtrado y explicación? También es necesario ser conscientes de las limitaciones de nuestra propia comprensión en este campo. En caso de que no pueda evaluar adecuadamente si una determinada vulnerabilidad o debilidad es importante, puede dejar una recomendación con su mejor interpretación y consejo de que es posible que necesiten investigarla más a fondo.
 
-Organizations use web applications for various purposes. In some cases these will be straightforward information or brand dissemination purposes and have limited sensitive data involved. Even in these cases, leaked information about traffic and visitors and risks of implanting malicious content on the site can pose real harm to the visitors or the reputation of the organization.
+### Evaluación de riesgos con Aplicaciones Web
 
-In other cases confidential and mission-critical data may be processed by the application. As you proceed through these learning paths which focus heavily on technical skills, continually do a sense-check on the threat models which prevail over the application itself, the organization and people who operate it as well as those who utilize it, including consideration for the devices which they use to interact with it.
+Las organizaciones utilizan aplicaciones web para diversos fines. En algunos casos, se tratarán de información directa o con fines de difusión de la marca e incluirán datos confidenciales limitados. Incluso en estos casos, la información filtrada sobre el tráfico y los visitantes y los riesgos de implantar contenido malicioso en el sitio pueden suponer un daño real para los visitantes o la reputación de la organización.
 
-## Reporting and talking about vulnerabilities
+En otros casos, la aplicación puede procesar datos confidenciales y de misión crítica. A medida que avance por estas rutas de aprendizaje que se centran en gran medida en las habilidades técnicas, realice una verificación continua de los modelos de amenazas que prevalecen sobre la aplicación en sí, la organización y las personas que la operan, así como sobre quienes la utilizan, incluida la consideración a los dispositivos que utilizan para interactuar con él.
 
-Reporting vulnerabilities you’ve discovered can be difficult, especially if you’re new to it. We have created a brief overview of the reporting process in [Subtopic 5 of the Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit#heading=h.3b8ncrmhhmwt) and encourage all learners who need to write up reports to clients to look through it.
+## Informar y hablar sobre vulnerabilidades
 
-## Skill Check
+Informar las vulnerabilidades que ha descubierto puede resultar difícil, especialmente si es nuevo en esto. Hemos creado una breve descripción general del proceso de generación de informes en el [Subtema 5 de la Ruta de Aprendizaje de Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/module-5) y alentamos a todos los estudiantes que necesitan redactar informes para los clientes a que lo revisen.
 
-Log in to DVWA again and open one of its pages. Set it to either low or medium security. Imagine that this page belongs to a client of yours and you need to brief them on the vulnerabilities, their potential impact, and necessary mitigations. You can do this exercise either:
+## Verificación de Habilidades
 
-1. By yourself, by writing a draft of an email which you would send to the client. If possible, share that draft with a peer or mentor later on, who will verify that it’s an appropriate and measured response.
-2. With a peer or mentor, by role-playing the conversation you would have with the client. Debrief after the conversation, asking the peer for feedback on what you did well and where you could improve.
+Inicie sesión en DVWA nuevamente y abra una de sus páginas. Configúrela en seguridad baja o media. Imagine que esta página pertenece a un cliente suyo y necesita informarle sobre las vulnerabilidades, su impacto potencial y las mitigaciones necesarias. Puedes hacer este ejercicio:
+
+1. Por tu cuenta, escribiendo un borrador de un correo electrónico que enviarías al cliente. Si es posible, comparta ese borrador con un colega o mentor más adelante, quien verificará que sea una respuesta apropiada y mesurada.
+2. Con un colega o mentor, representando la conversación que tendrías con el cliente. Haga un informe después de la conversación, pidiéndole al colega que le dé su opinión sobre lo que hizo bien y dónde podría mejorar.
