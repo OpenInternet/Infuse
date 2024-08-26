@@ -77,7 +77,7 @@ The application simply takes the input from the user and places it verbatim into
 </form></html>
 {{< / highlight >}}
 
-Note the `">` after `value="Alice"`. That tells the browser that the HTML input’s value attribute is completed, and then that the input tag is completed. Next, the text in blue is a script tag that runs the JavaScript that pops up an alert box. Finally, the `<i q="` is just some cleanup that prevents the web page from displaying the remnants of the original input tag. 
+Note the `">` after `value="Alice"`. That tells the browser that the HTML input’s value attribute is completed, and then that the input tag is completed. Next, the text is a script tag that runs the JavaScript that pops up an alert box. Finally, the `<i q="` is just some cleanup that prevents the web page from displaying the remnants of the original input tag. 
 <!-- We can use different color highlighting and formatting to show how the browser interprets the generated web page: -->
 {{< highlight html >}}
 <html><body><form>
@@ -107,7 +107,7 @@ To prevent XSS, the best technique to use is called output encoding. Note that i
 {{< / highlight >}}
 
 which would display like this
-![An empty text box form, with a button that says "submit" below it](/media/uploads/web_fundamentals_Alice_script_box.png)
+![A text box that says Alice"><script>alert("Ov](/media/uploads/web_fundamentals_Alice_script_box.png)
 
 Output encoding is dependent on the context that the data will be used in. For HTML, you would encode HTML entities in the data. For data that was going to be included into a block of JavaScript, a different encoding would be used. If user data was going to be used in a database query yet another type of encoding would be used. Web frameworks and libraries should have functions to perform output encoding for you; it’s better to use those (hopefully) mature functions than to try to write them yourself from first principles.
 
