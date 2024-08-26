@@ -278,13 +278,13 @@ result
 168f3c743786fea2e04aeeee33e112da  1nfus3  hex:316e66757333
 ```
 
-Success! Now let's try our second hash:
+¡Éxito! Ahora probemos nuestro segundo hash:
 
 ```
 rcrack . -h feadfd87d487818698d63aedf385c4e2
 ```
 
-The result:
+El resultado:
 
 ```
 1 rainbow tables found
@@ -325,13 +325,13 @@ sudo rtgen md5 loweralpha-numeric 1 6 5 3800 1000000 0
 sudo rtsort .
 ```
 
-Let's try again:
+Intentémoslo de nuevo:
 
 ```
 rcrack . -h feadfd87d487818698d63aedf385c4e2
 ```
 
-The result:
+El resultado:
 
 ```
 6 rainbow tables found
@@ -390,7 +390,7 @@ B) Una exploración que otorga acceso no autorizado a partes restringidas de una
 C) Una debilidad en el mecanismo de autenticación de una aplicación web, lo que lleva a que las credenciales de suario se vean comprometidas.
 D) Una falla de seguridad que permite a los atacantes interceptar la comunicación entre el cliente y el servidor.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 1. C) Una debilidad en el mecanismo de autenticación de una aplicación web, lo que lleva a que las credenciales de suario se vean comprometidas.
 {{< /question >}}
 
@@ -401,7 +401,7 @@ B) Exposición de tokens de sesión, lo que lleva a ataques de secuestro de sesi
 C) Compromiso de las credenciales de usuario, incluidas contraseñas y tokens de autenticación.
 D) Todo lo anterior.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 2. D) Todo lo anterior.
 {{< /question >}}
 
@@ -412,7 +412,7 @@ B) Hacer cumplir políticas de contraseñas sólidas, incluida la rotación regu
 C) Deshabilitar HTTPS para evitar la interceptación de credenciales de autenticación.
 D) Implementar mecanismos de bloqueo de cuentas para prevenir ataques de fuerza bruta.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 3. C) Deshabilitar HTTPS para evitar la interceptación de credenciales de autenticación.
 {{< /question >}}
 
@@ -423,7 +423,7 @@ B) Falsificación de Solicitudes entre Sitios (CSRF)
 C) Complejidad de Contraseña Insuficiente
 D) Secuencias de Comandos entre Sitios (XSS)
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 4. C) Complejidad de Contraseña Insuficiente
 {{< /question >}}
 
@@ -434,7 +434,7 @@ B) Hacer cumplir los requisitos de longitud y complejidad de la contraseña.
 C) Cifrar tokens de autenticación para evitar la interceptación.
 D) Incluir en la lista blanca direcciones IP confiables para acceder a la página de inicio de sesión.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 5. B) Hacer cumplir los requisitos de longitud y complejidad de la contraseña.
 {{< /question >}}
 
@@ -445,7 +445,7 @@ B) Cifrar las cookies de sesión mediante HTTPS.
 C) Regenerar identificadores de sesión después de una autenticación exitosa.
 D) Aplicar políticas de contraseñas seguras para las cuentas de usuario.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 6. C) Regenerar identificadores de sesión después de una autenticación exitosa.
 {{< /question >}}
 
@@ -456,7 +456,7 @@ B) Almacenamiento de Tokens Inseguro
 C) Secuencias de Comandos entre Sitios (XSS)
 D) Falsificación de Solicitudes entre Sitios (CSRF)
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 7. A) Caducidad de Sesión Insuficiente
 {{< /question >}}
 
@@ -467,7 +467,7 @@ B) Cifrar tokens utilizando un algoritmo de cifrado simétrico.
 C) Implementar algoritmos seguros de hash de contraseñas.
 D) Uso de encabezados HTTP para transmitir tokens de autenticación.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 8. B) Cifrar tokens utilizando un algoritmo de cifrado simétrico.
 {{< /question >}}
 
@@ -478,7 +478,7 @@ B) Implementación de autenticación multifactor (MFA).
 C) Usar desafíos CAPTCHA para verificar la autenticidad del usuario.
 D) Hacer cumplir una estricta validación de entrada en el formulario de inicio de sesión.
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 9. A) Identificadores de sesión rotativos después de un inicio de sesión exitoso.
 {{< /question >}}
 
@@ -489,7 +489,7 @@ B) Protección Insuficiente de la Capa de Transporte
 C) Secuencias de Comandos entre Sitios (XSS)
 D) Falsificación de Solicitudes entre Sitios (CSRF)
 
-{{< question title="Answer" >}}
+{{< question title="Respuesta correcta" >}}
 10. D) Falsificación de Solicitudes entre Sitios (CSRF)
 {{< /question >}}
 
