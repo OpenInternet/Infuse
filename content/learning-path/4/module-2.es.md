@@ -421,6 +421,8 @@ A) Incorrecta. El uso de texto sin formato para almacenar datos confidenciales n
 B) Correcta. Escapar de la entrada del usuario antes de mostrarla ayuda a mitigar los ataques XSS al hacer que cualquier script potencialmente malicioso sea inofensivo, evitando así que se ejecute en los navegadores de los usuarios.
 C) Incorrecta. Almacenar contraseñas de usuario en texto sin formato es un riesgo para la seguridad y no está relacionado con la prevención de ataques XSS.
 D) Incorrecta. Deshabilitar el cifrado HTTPS expone los datos confidenciales a la interceptación y no previene los ataques XSS.
+{{< /question >}}
+
 
 **Pregunta 3**
 
