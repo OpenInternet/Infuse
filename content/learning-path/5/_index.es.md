@@ -1,7 +1,7 @@
 +++
 type = "learning-path"
-title = "Web Application Security Assessment"
-description = "Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders."
+title = "Evaluación de Seguridad de Aplicación Web"
+description = "Esta ruta de aprendizaje le enseñará cómo escanear los sitios web de sus organizaciones o beneficiarios para detectar posibles vulnerabilidades"
 weight = 5
 thumbnail = "5"
 icon = "exploit-explorer"
