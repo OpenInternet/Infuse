@@ -2,7 +2,7 @@
 style = "module"
 weight = 5
 title = "Encontrar Vulnerabilidades en Aplicaciones Web"
-description = "description = "Una vez que haya aprendido sobre los diferentes tipos de vulnerabilidades, ¡es hora de buscarlas en las aplicaciones web que está probando! Para comenzar y obtener algo de práctica inicial, probará una aplicación web deliberadamente vulnerable"
+description = "Una vez que haya aprendido sobre los diferentes tipos de vulnerabilidades, ¡es hora de buscarlas en las aplicaciones web que está probando! Para comenzar y obtener algo de práctica inicial, probará una aplicación web deliberadamente vulnerable"
 +++
 
 ## Caso de Uso
