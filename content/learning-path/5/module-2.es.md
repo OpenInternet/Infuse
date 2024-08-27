@@ -95,7 +95,7 @@ select *
    and draft=0
 {{< / highlight >}}
 
-Tenga en cuenta el molesto punto y coma allí. Hace que la base de datos interprete la consulta primero como una consulta de selección (`_select_ _\*_ _from_ comments _where_ username _\=_ 'alice' _or_ 1_\=_1;), y luego un _and_ query (_and_ draft_\=_0`). El problema con esto es que no existe una consulta and, por lo que generará un error. También podría generar un error por otros motivos, dependiendo de la base de datos. Si la aplicación web da la misma respuesta para un error de base de datos que para ausencia de datos (debería), entonces no sabrá que hay SQLi en el parámetro de nombre de usuario.
+Tenga en cuenta el molesto punto y coma allí. Hace que la base de datos interprete la consulta primero como una consulta de selección (<code><em>select</em> <em>\*</em> <em>from</em> comments <em>where</em> username <em>=</em> 'alice' <em>or</em> 1<em>=</em>1;</code>) y luego <code><em>and</em></code> query (<code><em>and</em> draft<em>=</em>0</code>). El problema con esto es que no existe una consulta and, por lo que generará un error. También podría generar un error por otros motivos, dependiendo de la base de datos. Si la aplicación web da la misma respuesta para un error de base de datos que para ausencia de datos (debería), entonces no sabrá que hay SQLi en el parámetro de nombre de usuario.
 
 Lo correcto al probar SQLi en un parámetro de cadena es crear un parámetro de prueba que funcione independientemente de la consulta en la que se encuentre. Lo mejor que puede hacer es utilizar dos solicitudes, una que dará como resultado que la consulta devuelva los datos originales y otra que no genere datos de la consulta. Luego puede comparar las tres respuestas (original, prueba 1 y prueba 2). Si el original y la prueba 1 devuelven la misma respuesta y la prueba 2 devuelve una respuesta diferente, entonces ha identificado SQLi. Aquí hay un conjunto de cadenas que puedes usar:
 
@@ -112,13 +112,13 @@ select * from comments where username = 'alice' and 'a' like '%b'
 
 Tenga en cuenta que la primera consulta devolverá los mismos resultados que si se pasara alice como parámetro, y la segunda no devolverá ninguna fila. Por lo tanto, no hay riesgo de desastre si hay una inyección SQL en una sentencia de actualización o eliminación. También tenga en cuenta que la estructura de la consulta se altera mínimamente; las pruebas funcionarán incluso en consultas de varias líneas.
 
-Quizás se pregunte por qué los ejemplos utilizan la operación _like_ en lugar de _\=_. Esto se debe a que la consulta que está inyectando puede utilizar la operación _like_ . Considere una consulta de búsqueda de documentos:
+Quizás se pregunte por qué los ejemplos utilizan la operación `like` en lugar de `\=`. Esto se debe a que la consulta que está inyectando puede utilizar la operación `like` . Considere una consulta de búsqueda de documentos:
 
 {{< highlight sql >}}
 select * from documents where title like '%user text%'
 {{< / highlight >}}
 
-La operación _like_ permite operadores comodín, normalmente el signo de porcentaje. La consulta anterior coincidirá con cualquier documento que contenga la cadena "texto de usuario" en cualquier parte de su título; el inicio, el medio o el final. Si usáramos algo como `' and 'a'='a` en nuestra inyección, entonces la consulta de la prueba 1 sería:
+La operación `like` permite operadores comodín, normalmente el signo de porcentaje. La consulta anterior coincidirá con cualquier documento que contenga la cadena "texto de usuario" en cualquier parte de su título; el inicio, el medio o el final. Si usáramos algo como `' and 'a'='a` en nuestra inyección, entonces la consulta de la prueba 1 sería:
 
 {{< highlight sql >}}
 select * from documents where title like '%user text' and 'a'='a%'
@@ -130,7 +130,7 @@ Esto no devolverá filas, ya que "a" nunca es _igual_ a "a%". Sin embargo, si ut
 select * from documents where title like '%user text' and 'a' like 'a%'
 {{< / highlight >}}
 
-Aunque no son iguales, “a” es similar a “a%”. Por lo tanto, las pruebas 1 y 2 anteriores deberían funcionar en casi cualquier situación basada en cadenas de caracteres. Tenga en cuenta que si está probando una función de búsqueda, es posible que también desee probar una cadena de prueba 1 adicional: %' and 'a' like '%a. Tenga en cuenta que en las consultas anteriores la búsqueda original cambia ligeramente; falta el % después de”user text”. Si sospecha que se está utilizando una operación _like_, esta cadena de prueba 1 debería compensarlo.
+Aunque no son iguales, “a” es similar a “a%”. Por lo tanto, las pruebas 1 y 2 anteriores deberían funcionar en casi cualquier situación basada en cadenas de caracteres. Tenga en cuenta que si está probando una función de búsqueda, es posible que también desee probar una cadena de prueba 1 adicional: %' and 'a' like '%a. Tenga en cuenta que en las consultas anteriores la búsqueda original cambia ligeramente; falta el % después de”user text”. Si sospecha que se está utilizando una operación `like`, esta cadena de prueba 1 debería compensarlo.
 
 ##### Prueba de parámetros numéricos
 
