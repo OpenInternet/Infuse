@@ -66,10 +66,10 @@ Las habilidades de evaluación de aplicaciones web pueden ayudar a responder a l
         wsl --set-default-version 2
   - El resultado de este comando se verá así:
 
-  ```
-  For information on key differences with WSL 2 please visit https://aka.ms/wsl2
-  The operation completed successfully.
-  ```
+```
+For information on key differences with WSL 2 please visit https://aka.ms/wsl2
+The operation completed successfully.
+```
 
 Una vez que WSL 2 esté instalado, puede instalar su distribución de Linux preferida desde Microsoft Store o usando la línea de comando. Simplemente busque "Linux" en Microsoft Store, seleccione la distribución que desee (por ejemplo, Ubuntu, Debian u otras) y haga clic en "Instalar". Alternativamente, puede instalar una distribución de Linux usando PowerShell o el Símbolo de Comando. Abra Windows Powershell o Símbolo de Comando y enumere las distribuciones disponibles:
 
@@ -85,7 +85,7 @@ Después de la instalación, cada distribución de Linux tendrá un icono en el 
 
 Debería abrirse una nueva ventana con un shell de Linux.
 
-- Aquí hay una revisión rápida de las opciones de la línea de comandos de WSL.
+**Aquí hay una revisión rápida de las opciones de la línea de comandos de WSL**
 
 Imprima la información de uso y vea los argumentos de la línea de comando:
 
@@ -135,4 +135,4 @@ Imprima la información de uso y vea los argumentos de la línea de comando:
 
 ## Rutas de Aprendizaje relacionadas
 
-Después de completar esta ruta de aprendizaje, recomendamos que los estudiantes trabajen en Fortalecimiento de Aplicación Web, Análisis Forense y Respuesta a Incidentes.
+Después de completar esta ruta de aprendizaje, recomendamos que los estudiantes trabajen en [Fortalecimiento de Aplicación Web, Análisis Forense y Respuesta a Incidentes](/es/learning-path/6/).

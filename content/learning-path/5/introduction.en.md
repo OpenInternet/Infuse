@@ -84,7 +84,7 @@ Web application assessment skills can help respond to hacking threats by:
 
   A new window should open with a Linux shell.
 
-- Here is a quick review of the WSL command line options.
+**Here is a quick review of the WSL command line options**
 
   Print the usage information and see the command line arguments:
 
@@ -135,4 +135,4 @@ Web application assessment skills can help respond to hacking threats by:
 
 ## Related learning paths
 
-After completing this learning path, we would recommend that learners work on Web Application Hardening, Forensics, and Incident Response.
+After completing this learning path, we would recommend that learners work on [Web Application Hardening, Forensics, and Incident Response](/en/learning-path/6/).
