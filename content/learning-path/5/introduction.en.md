@@ -5,6 +5,10 @@ description: Read the learning path overview, objectives, associated threats, an
 weight: 1
 ---
 
+**With thanks to**
+
+Ninoslava Bogdanović
+
 ## Overview
 
 Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By proactively identifying vulnerabilities in web applications used by your clients and partners, you can head off potential compromises before they occur.
