@@ -5,6 +5,12 @@ title = "Introduction"
 description = "Read the learning path overview, objectives, associated threats, and prerequisites"
 +++
 
+**With thanks to**
+
+Ninoslava Bogdanović
+Michał "czesiek" Czyżewski (<https://czesiek.net>)
+Yana Ghahramanyan
+
 ## Overview
 
 There are many ways in which adversaries could try to attack websites, including:
