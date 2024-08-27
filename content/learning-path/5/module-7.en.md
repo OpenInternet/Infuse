@@ -50,7 +50,7 @@ Another area where scanners excel is in finding configuration issues, especially
 
 Despite their strengths, scanners also have multiple weaknesses. In some cases, it may not even be appropriate to use a scanner for testing certain sites. Here are some of the biggest problems with web app scanners.
 
-#### Scan Completeness
+##### Scan Completeness
 
 There are numerous potential issues with the way scanners work that may cause them to not complete a full test against the site in a timely manner.
 
@@ -62,7 +62,7 @@ On the other hand, there may be pages or parameters that the spider doesn’t de
 
 All of these issues can be worked through with close observation of the scanner behavior and changing scan configurations. While it’s entirely possible to just point a scanner at a website and launch a scan, to get the best results, it’s important to at least complete Discovery and Authentication testing before launching a scan.
 
-#### Scanner Destructiveness
+##### Scanner Destructiveness
 
 One of the strengths of a scanner is that it runs very fast. This strength can cause problems, though.
 
@@ -72,7 +72,7 @@ Relatedly, some sites don’t have the resources to keep up with a scanner. Give
 
 Both of these can be partially mitigated through discussions with the site owner and by paying attention during Discovery testing and configuring the scanner correctly. For instance, all major scanners have ways of excluding certain pages from scans and for controlling how fast they scan. However, the risk of a scanner impacting the site or its related systems can never be eliminated.
 
-#### Vulnerabilities That Scanners Are Bad At Discovering
+##### Vulnerabilities That Scanners Are Bad At Discovering
 
 While scanners are great at discovering some sorts of vulnerabilities, there are other types that are nearly impossible for them to discover.
 
@@ -80,7 +80,7 @@ Chief among these are true business logic vulnerabilities. Scanners just execute
 
 Relatedly, automated tools do not tend to do a good job at detecting authorization vulnerabilities. While there exist a variety of tools to assist with authorization testing, generally scanners do not automatically detect these sorts of vulnerabilities.
 
-#### False Positives and Non-Issues
+##### False Positives and Non-Issues
 
 Scanners may also produce lots of results that aren’t useful. In some cases, the script to detect a vulnerability may be imperfect, resulting in the scanner reporting an issue where none exists. In other cases, the scanner may report things that the tool’s author may think are interesting or valuable, but are not significant in the context of the site you’re testing.
 

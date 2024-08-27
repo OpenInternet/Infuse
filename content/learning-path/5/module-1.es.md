@@ -1,182 +1,188 @@
 +++
 style = "module"
 weight = 1
-title = "Setup"
+title = "Configuración"
+description = "Presentamos y configuramos algunas herramientas clave de evaluación de seguridad web"
 +++
 
-## Use Case
+## Caso de Uso
 
-Effectively testing web applications for security vulnerabilities requires specialized tools, which this subtopic looks at.
+Probar eficazmente aplicaciones web en busca de vulnerabilidades de seguridad requiere herramientas especializadas, que se analizan en este subtema.
 
-The most important of these tools is an intercepting proxy server, which will allow you to directly interact with HTTP data as it flows back and forth between your browser and the target web server. This will let you observe what data is being exchanged and manipulate it without the interference of your browser or any client-side controls that are in place.
+La más importante de estas herramientas es un servidor proxy de interceptación, que le permitirá interactuar directamente con los datos HTTP a medida que fluyen entre su navegador y el servidor web de destino. Esto le permitirá observar qué datos se intercambian y manipularlos sin la interferencia de su navegador o de cualquier control que exista del lado del cliente .
 
-There are additional tools that can automatically test websites for certain types of vulnerabilities. These can both speed up testing, and catch certain vulnerabilities that you may have missed.
+Existen herramientas adicionales que pueden probar automáticamente los sitios web para detectar ciertos tipos de vulnerabilidades. Estos pueden acelerar las pruebas y detectar ciertas vulnerabilidades que quizás haya pasado por alto.
 
-Finally, there are some tools that will be required for the practical activities in this learning path.
+Finalmente, hay algunas herramientas que serán necesarias para las actividades prácticas en esta ruta de aprendizaje.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners will have the software and accounts set up to complete the rest of this learning path, and know how to use them, including the following software and SaaS solutions:
+Después de completar este subtema, los y las profesionales tendrán el software y las cuentas configurados para completar el resto de esta ruta de aprendizaje y sabrán cómo usarlos, incluido el siguiente software y soluciones SaaS:
 
-- Burp Suite Community Edition
-- PortSwigger Academy free account
+- Edición Comunitaria de Burp Suite
+- Cuenta gratuita de la Academia PortSwigger
 - ZAP
 - WPScan CLI
 - Docker
 
 ---
+## Sección Principal
+### Tipos de evaluación
 
-## Types of assessment
+Hay tres enfoques principales para la evaluación de la seguridad de la aplicación web:
 
-There are three main approaches for web application security assessment:
+1. Pruebas de caja blanca: Tenemos acceso completo al código fuente, la infraestructura y la documentación de la aplicación. Este acceso integral permite un examen en profundidad para identificar vulnerabilidades, lo que requiere habilidades en la revisión del código fuente y la comprensión de la lógica de la aplicación. Es el método más completo pero que requiere más tiempo.
 
-1. White-box testing: We have complete access to the application's source code, infrastructure, and documentation. This comprehensive access allows for an in-depth examination to identify vulnerabilities, requiring skills in source code review and understanding application logic. It is the most thorough but time-consuming method.
+2. Pruebas de Caja negra: Comenzamos sin ningún conocimiento sobre la aplicación, enfocándonos en descubrir información a través de la enumeración. Este enfoque es común en los programas de recompensas por errores y requiere un esfuerzo significativo en las etapas iniciales para identificar vulnerabilidades potenciales.
 
-2. Black-box testing: We start without any knowledge about the application, focusing on discovering information through enumeration. This approach is common in bug bounty programs and requires significant effort in the initial stages to identify potential vulnerabilities.
+3. Pruebas de caja gris: Este método nos proporciona información limitada sobre la aplicación, como métodos de autenticación o detalles de la estructura, ofreciendo un equilibrio entre análisis en profundidad y exploración externa.
 
-3. Grey-box testing: This method provides us with limited information about the application, such as authentication methods or framework details, offering a balance between in-depth analysis and external exploration.
+Cada método se elige en función del contexto específico de la evaluación, incluida la información disponible y los objetivos del compromiso.
 
-Each method is chosen based on the specific context of the assessment, including the information available and the objectives of the engagement.
+### Burp Suite
 
-## Burp Suite
+#### ¿Qué es un servidor proxy web de interceptación?
 
-### What is an intercepting web proxy server?
+La herramienta principal utilizada en las evaluaciones de seguridad de aplicaciones web es un [servidor proxy](https://es.wikipedia.org/wiki/Servidor_proxy) de interceptación. Es posible que esté familiarizado con otros tipos de proxies, como:
 
-The primary tool used in web application security assessments is an intercepting [proxy server](https://en.wikipedia.org/wiki/Proxy_server). You may be familiar with other types of proxies such as:
+- [squid](http://www.squid-cache.org/), que se utiliza principalmente para almacenamiento en caché y control de acceso a la red,
+- [BlueCoat](https://en.wikipedia.org/wiki/Blue_Coat_Systems), que es popular para la vigilancia del cumplimiento corporativo (u otros competidores), o
+- Proxies inversos de CDN como los utilizados por [Fastly](https://www.fastly.com/es/), [CloudFlare](https://www.cloudflare.com/es-la/) o [AWS CloudFront](https://aws.amazon.com/es/cloudfront/.
 
-- [squid](http://www.squid-cache.org/), which is mostly used for caching and network access control,
-- [BlueCoat](https://en.wikipedia.org/wiki/Blue_Coat_Systems), which is popular for surveillance for corporate compliance (or other competitors), or
-- CDN reverse proxies such as those used by [Fastly](https://www.fastly.com/), [CloudFlare ](https://www.cloudflare.com/)or [AWS CloudFront](https://aws.amazon.com/cloudfront/).
+Los servidores proxy web se ubican en la red, entre una aplicación web y un servidor web, y actúan sobre el tráfico de esa red.
 
-Web proxies sit on the network in between a web application and web server, and act on that network traffic.
+Los servidores proxy web generalmente se configuran como servidores proxy directos o inversos (transparentes). En un proxy de reenvío, el navegador está configurado para utilizar explícitamente el servidor proxy. Luego, el navegador enviará una solicitud CONNECT al proxy, pidiéndole que reenvíe su solicitud al servidor real. Dado que el navegador web le dice al proxy a qué sitio está intentando conectarse, los proxy directos pueden establecer conexiones con muchos sitios web de back-end (origen). Esto contrasta con los proxies inversos (abajo). Los proxies inversos no parecen ser un servidor proxy para el navegador, sino que se hacen pasar por el servidor mismo. Esto puede ser una ventaja para clientes o aplicaciones que no admiten servidores proxy. La configuración de un proxy inverso suele ser más complicada que un proxy directo, con configuración por sitio y cambios de DNS. Dado que el navegador no sabe que el proxy inverso es siquiera un servidor proxy, cada proxy inverso solo puede conectarse a un sitio web de back-end (origen).
 
-Web proxies are typically configured as either forward or reverse (transparent) proxies. In a forward proxy, the browser is configured to explicitly use the proxy server. The browser will then send a CONNECT request to the proxy, asking it to forward their request to the real server. Since the web browser tells the proxy which site it’s trying to connect to, forward proxies can make connections to many back-end (origin) websites. This is in contrast to reverse proxies (below). Reverse proxies do not appear to be a proxy server to the browser, but instead masquerade as the server itself. This can be an advantage for clients or applications that do not support proxy servers. Setting up a reverse proxy is typically more involved than a forward proxy, with per-site configuration and DNS changes. Since the browser doesn’t know that the reverse-proxy is even a proxy server, each reverse-proxy can only connect to one back-end (origin) website.
+Para obtener más explicaciones sobre los proxies inversos, consulte [esta guía](https://www.cloudflare.com/es-la/learning/cdn/glossary/reverse-proxy/).
 
-For a further explanation of reverse proxies, check out [this guide](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/).
+El tipo de proxy utilizado para las pruebas de aplicaciones web comúnmente se ejecuta en la misma computadora que el navegador web del evaluador, aunque esto no es obligatorio. Ese es el tipo de proxy que usaremos en esta ruta de aprendizaje. El proxy también realizará la interceptación TLS, descifrando el tráfico de la red. La característica clave de estos servidores proxy es permitir al usuario visualizar, pausar y modificar manualmente el tráfico de red entre el navegador y el servidor. Por ejemplo, si el evaluador envía un formulario, lo que hace que su navegador envíe una solicitud POST al servidor, el proxy le permitirá ver y modificar la solicitud completa antes de que se envíe al servidor. Los diferentes servidores proxy pueden tener muchas más funciones, como funciones de automatización y secuencias de comandos, catalogación de sitios y herramientas para realizar [pruebas automáticas](https://owasp.org/www-community/Fuzzing) (fuzzing) de aplicaciones web.
 
-The kind of proxy used for web application testing most commonly runs on the same computer as the tester’s web browser, though this is not required. That is the type of proxy we will be using in this learning path. The proxy will also perform TLS interception, decrypting network traffic. The key feature of these proxies is allowing the user to visualize, pause, and manually modify network traffic between the browser and server. For example, if the tester submits a form, causing their browser to send a POST request to the server, the proxy will allow the tester to see and modify the full request before it’s actually sent to the server. Different proxy servers may have many more features, such as scripting and automation features, site cataloging, and tools to automatically [fuzz test](https://owasp.org/www-community/Fuzzing) web applications.
+Dos servidores proxy web de interceptación populares utilizados para evaluaciones de seguridad son [Burp Suite de Portswigger](https://portswigger.net/burp), y [ZAP](https://softwaresecurityproject.org/) de [SSP](https://www.zaproxy.org/). Burp Suite es un software pago que viene con una Edición Comunitaria con funciones limitadas, mientras que ZAP es de código abierto. Portswigger proporciona la mayoría de los ejercicios de práctica en esta ruta de aprendizaje, por lo que están escritos teniendo en cuenta el uso de Burp Suite. Sin embargo, puede utilizar cualquiera de los dos proxy (o ambos). Recomendamos usar Edición Comunitaria de Burp Suite para la mayoría de los subtemas, pero hay un subtema dedicado al uso de ZAP para pruebas de seguridad automáticas.
 
-Two popular intercepting web proxies used for security assessments are Portswigger’s [Burp Suite](https://portswigger.net/burp), and [SSP](https://softwaresecurityproject.org/)’s [ZAP](https://www.zaproxy.org/). Burp Suite is paid software that comes with a feature-limited Community Edition, while ZAP is open-source. The majority of practice exercises in this learning path are provided by Portswigger, so are written with the use of Burp Suite in mind. However, you may use either proxy (or both). We recommend using Burp Suite Community Edition for most subtopics, but there is a subtopic dedicated to using ZAP for automatic security testing.
+#### Configurar la Edición Comunitaria de Burp Suite
 
-### Setting up Burp Suite Community Edition
+Para comenzar con Burp, primero debes [descargarlo](https://portswigger.net/burp/releases/community/latest). Una vez que lo haya descargado e instalado, abra la aplicación. Antes de comenzar a usar Burp, le pedirá que especifique un proyecto y una configuración. Los proyectos le permiten realizar un seguimiento de su progreso probando un sitio entre sesiones, pero no son compatibles con la edición gratuita, así que simplemente seleccione "Proyecto temporal". También puede especificar diferentes conjuntos de configuraciones; por ahora, simplemente seleccione "Usar Burp predeterminado".
 
-To get started with Burp, you must first [download it](https://portswigger.net/burp/releases/community/latest). Once you’ve got it downloaded and installed, open the application. Before you start using Burp, it will prompt you to specify a project and a configuration. Projects let you keep track of your progress testing a site between sessions, but are not supported in the free edition, so just select “Temporary project”. You can also specify different sets of configurations, for now just select “Use Burp defaults.”
+![Una captura de pantalla de una de las primeras pantallas de Burp Suite, con "Temporary Project in Memory" seleccionado](/media/uploads/web_security_assessment_burp1.png)
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![Una captura de pantalla de la siguiente pantalla de Burp Suite, con la opción "Use Burp defaults" seleccionada](/media/uploads/web_security_assessment_burp2.png)
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+Esto lo llevará a la ventana principal de Burp. Las pestañas principales que utilizará son las pestañas "Proxy" e "Intruder"(Intruso). Por ahora, cambie a la pestaña Proxy y haga clic en el botón "Abrir navegador". Esto abrirá una instancia de Chromium que está completamente configurada para usar Burp. Este navegador integrado está configurado para utilizar Burp como proxy y se ha cambiado su configuración TLS para permitir que Burp intercepte el tráfico cifrado. Puede utilizar esta instancia del navegador para probar aplicaciones web mientras utiliza su navegador normal para la navegación general.
 
-This will take you to the main Burp window. The primary tabs that you’ll be using are the “Proxy” and “Intruder” tabs. For now, switch to the Proxy tab and click the “Open Browser” button. This will open a Chromium instance that’s fully configured to use Burp. This embedded browser is configured to use Burp as its proxy and has its TLS configuration changed to allow Burp to intercept encrypted traffic. You can use this browser instance for testing web applications while you use your normal browser for general browsing.
+![Una captura de pantalla de Burp Suite, con proxy e intercepción habilitados](/media/uploads/web_security_assessment_burp3.png)
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![Una captura de pantalla de la intercepción de Burp Suite. Un navegador web ha cargado la página web de Internews y la intercepción muestra todas las solicitudes que realiza](/media/uploads/web_security_assessment_burp4.png)
 
-![alt_text](/media/uploads/image4.png "image_tooltip")
+Por ahora, escriba la URL de cualquier sitio web en el navegador integrado de Burp y presione Intro. Notará que no sucede nada en el navegador. Vuelva a Burp y verá la solicitud HTTP que envió el navegador y se ilumina un botón que dice "Intercept is on " (Intercepción está activada) . Lo que sucedió es que Burp recibió la solicitud de su navegador pero no la reenvió al servidor web. En cambio, le permite inspeccionar y modificar la solicitud. Por ahora, haga clic en el botón "intercept is ona" para desactivar la intercepción. Si observa el Chromium integrado de Burp, debería ver la página web cargada. Vuelva a Burp y haga clic en la subpestaña "HTTP History" (Historial HTTP) de la pestaña Proxy. Verá un registro de todas las solicitudes HTTP que ha enviado su navegador. Si hace clic en uno, podrá ver la solicitud completa y también la respuesta del servidor.
 
-For now, type the URL of any website into Burp’s embedded browser and hit enter. You’ll note that nothing happens in the browser. Switch back to Burp, and you’ll see the HTTP request that the browser sent, and a button lit up that says “Intercept is on.” What has happened is that Burp has received the request from your browser but has not forwarded it to the web server. Instead, it’s allowing you to inspect and modify the request. For now, click the “intercept is on” button to turn off interception. If you look at Burp’s embedded Chromium, you should see the web page loaded. Switch back to Burp, and click the “HTTP History” sub-tab of the Proxy tab. You will see a log of all the HTTP requests that your browser has sent. If you click on one, you can see the full request, and also the response from the server.
+![Captura de pantalla del proxy Burp Suite, que recopila el historial HTTP. El sitio web de Internews aparece en primer plano](/media/uploads/web_security_assessment_burp5.png)
 
-![alt_text](/media/uploads/image5.png "image_tooltip")
+Si desea modificar una solicitud que ya se ha enviado, haga clic con el botón derecho en esa solicitud y seleccione "Send to Repeater” (Enviar a Repetidor). Cambie a la pestaña “Repeater”(Repetidor) y verá la solicitud a la izquierda. Una buena práctica es hacer clic inmediatamente en el botón "Send” (Enviar) para obtener una respuesta normal. Luego puede editar la solicitud y enviar la solicitud editada. Puede utilizar los botones “&lt;” y “&gt;” para ver solicitudes y respuestas anteriores. El uso de la pestaña “Repeater” es extremadamente importante al realizar evaluaciones de seguridad, como verá en los subtemas posteriores.
 
-If you want to modify a request that’s already been sent, right-click that request and select “Send to Repeater”. Switch to the Repeater tab, and you will see the request on the left. A good practice is to immediately click the “Send” button to get a normal response. You can then edit the request, and send the edited request. You can use the “&lt;” and “>” buttons to see prior requests and responses. Using the repeater tab is extremely important when performing security assessments, as you will see in the later subtopics.
+![Una captura de pantalla del proxy Burp Suite, ya que ha recopilado un elemento del historial HTTP y está enviando ese elemento a la función de intrusos](/media/uploads/web_security_assessment_burp6.png)
 
-![alt_text](/media/uploads/image6.png "image_tooltip")
-z
+Una característica importante de la interfaz del Repetidor es la función “URL-encode as you type”(Codificar URL mientras escribe). Esto codificará automáticamente los caracteres a medida que los escriba, ahorrándole muchos errores y mucho tiempo. Dependiendo de lo que esté modificando, querrá activar o desactivar esta función. Para cambiar la configuración, haga clic con el botón derecho en el panel “Request” (Solicitud)” y seleccione el elemento del menú.
 
-One important feature of the Repeater interface is the “URL-encode as you type” feature. This will automatically encode characters as you type them, saving you many mistakes and a lot of time. Depending on what you’re modifying, you will either want this feature on or off. To change the setting, right-click on the Request pane and select the menu item.
+![Una captura de pantalla del proxy Burp Suite, ya que ha recopilado un elemento del historial HTTP y está enviando ese elemento a la función de repetidor](/media/uploads/web_security_assessment_burp7.png)
 
-![alt_text](/media/uploads/image7.png "image_tooltip")
+Esto le ayudará a empezar a utilizar Burp Suite. La Edición Comunitaria gratuita es suficiente para esta ruta de aprendizaje, aunque la mayoría de las personas a las que se les paga por realizar evaluaciones de seguridad de sitios web optan por suscribirse a la Edición Profesional. Tanto la versión gratuita como la de pago incluyen una gran cantidad de funciones, que están documentadas en el [sitio web de Portswigger](https://portswigger.net/burp/documentation). Profundizará mucho más en Burp en la mayoría de los siguientes subtemas (aunque puede usar cualquier proxy que desee, si lo prefiere).
 
-This will get you started with Burp Suite. The free Community Edition is enough for this learning path, although most people who get paid to perform security assessments of websites elect to subscribe to the Professional Edition. Both the free and paid version include a large number of features, which are documented on the [Portswigger website](https://portswigger.net/burp/documentation). You’ll be going much more in depth into Burp in most of the following subtopics (though you can use any proxy you want, if you prefer).
+### PortSwigger Academy
 
-## PortSwigger Academy
+Para todos los subtemas sobre las clases de vulnerabilidad, la gran mayoría de las lecturas y los ejercicios están alojados en la Academia PortSwigger. PortSwigger Academy es un sitio web gratuito que incluye lecturas y ejercicios de laboratorio que cubren la gran mayoría de los temas comunes de seguridad web. La estructura de esos temas es una serie de páginas web que tienen enlaces a ejercicios de laboratorio dentro de las páginas. Deberá utilizar Burp Suite como se describe anteriormente para resolver estas prácticas de laboratorio. (La mayoría de los laboratorios se pueden resolver con varios servidores proxy de interceptación, pero algunos requieren Burp específicamente).
 
-For all of the subtopics about vulnerability classes, the vast majority of the reading and exercises are hosted on the PortSwigger Academy. The PortSwigger Academy is a free website that includes reading and lab exercises covering the vast majority of common web security topics. The structure of those topics is a number of web pages that have links to lab exercises within the pages. You will need to use Burp Suite as described above to solve these labs. (Most labs can be solved with any number of intercepting proxies, but some require Burp specifically.)
+En los subtemas siguientes, a cada subtema se le asignará una sección de lectura y laboratorios de PortSwigger Academy. Cuando esté completando esas tareas, asegúrese de revisar todas las páginas y completar todos los laboratorios de nivel "apprentice” (aprendiz). También debe intentar todas las prácticas de laboratorio de nivel “practicioner” (profesional), pero trate de no obsesionarse con ninguna de ellas. Si se queda atascado en un laboratorio profesional en particular, simplemente continúe y vuelva a él antes de completar el ejercicio final de validación de habilidades de la ruta de aprendizaje.
 
-In the subtopics below, each subtopic will assign a section of reading and labs from the PortSwigger Academy. When you’re completing those assignments, be sure to go through all the pages and complete all of the “apprentice” level labs. You should also attempt all of the “practitioner” level labs, but try not to get hung up on any one lab. If you get stuck on a particular practitioner lab, simply move on, and come back to it before you complete the final skill validation exercise of the learning path.
+![Una captura de pantalla de la academia PortSwigger, que muestra una prueba de concepto XSS](/media/uploads/web_security_assessment_PortSwigger_screenshot1.png)
 
-![alt_text](/media/uploads/image8.png "image_tooltip")
+El tema XSS de PortSwigger Academy. Asegúrese de revisar todos los subtemas. Desde "Qué es XSS" hasta "Pruebas" son todas una página web, pero cada subtema es su propia página.
 
-The PortSwigger Academy XSS topic. Be sure to go through all the subtopics. “What is XSS” through “Testing” are all one web page, but each subtopic is its own page.
+![Una captura de pantalla de la academia PortSwigger, que muestra XSS reflejado](/media/uploads/web_security_assessment_PortSwigger_screenshot2.png)
 
-![alt_text](/media/uploads/image9.png "image_tooltip")
+El subtema XSS Reflejado de PortSwigger Academy. Tenga en cuenta el laboratorio vinculado hacia la parte inferior de la captura de pantalla.
 
-The PortSwigger Academy Reflected XSS subtopic. Note the lab linked towards the bottom of the screenshot.
+![Una captura de pantalla de la academia PortSwigger, que muestra tres laboratorios en el subtema XSS reflejado](/media/uploads/web_security_assessment_PortSwigger_screenshot3.png)
 
-![alt_text](/media/uploads/image10.png "image_tooltip")
+Después de completar un tema (por ejemplo, XSS), verifique que haya completado su laboratorio marcando el enlace "Ver todos los laboratorios de _temas_". Esto le permitirá ver los laboratorios que se perdieron.
 
-After completing a topic (e.g. XSS), double-check your lab completion by checking the “View all _topic_ labs” link. This will let you see any labs that you missed.
+**¡Inténtelo usted!**
 
-Try it yourself
+Dirígete a [PortSwigger Academy](https://portswigger.net/web-security) y regístrese para obtener una cuenta.
 
-Head over to the [PortSwigger Academy](https://portswigger.net/web-security) and sign up for an account.
+**‼️** Si se siente atrapado en un laboratorio, hay varios tutoriales [en YouTube](https://www.youtube.com/results?search_query=portswigger+lab+walkthrough) y blogs. Tenga en cuenta que es poco probable que seguir un tutorial sea muy beneficioso para su aprendizaje. Si necesita varios tutoriales para realizar las prácticas de laboratorio, es posible que desee dar un paso atrás, volver a leer el material y luego intentar volver a realizar cuidadosamente algunas de las prácticas de laboratorio que completó anteriormente mediante tutoriales.
 
-**‼️** If you’re feeling stuck on a lab, there are a number of walkthroughs and tutorials [on YouTube](https://www.youtube.com/results?search_query=portswigger+lab+walkthrough) and blogs. Note that following a walkthrough is unlikely to be very beneficial to your learning. If you find yourself needing multiple walkthroughs to get through the labs, you may want to take a step back, re-read the material, then try to carefully re-do some of the labs you previously completed using walkthroughs.
+### ZAP
 
-## ZAP
+ZAP es una alternativa de código abierto a Burp Suite. Si bien no es tan popular entre los profesionales, tiene la clara ventaja de ser gratuito e incluir un escáner de seguridad de aplicaciones web. Aunque la interfaz de usuario es diferente entre ZAP y Burp, existen las mismas características básicas en ambos.
 
-ZAP is an open source alternative to Burp Suite. While it is not as favored among professionals, it does have the distinct advantage of being free and including a web application security scanner. Although the UI is different between ZAP and Burp, the same basic features exist on each.
+**¡Inténtelo usted!**
 
-Try it yourself
+[Descargue ZAP](https://www.zaproxy.org/download/), y consulte la sección Instalación, interfaz de usuario de escritorio y Manual de Aplicación de la [guía de introducción a ZAP](https://www.zaproxy.org/getting-started/). Cubriremos ZAP con más profundidad en el subtema de automatización.
 
-[Download ZAP](https://www.zaproxy.org/download/), and then go through the Installation, Desktop UI, and Exploring an Application Manually section of the [ZAP getting started guide](https://www.zaproxy.org/getting-started/). We’ll cover ZAP in more depth in the automation subtopic.
+### Docker
 
-## Docker
+Docker es un sistema que le permite ejecutar aplicaciones de Linux en entornos semiautónomos, llamados contenedores. Aunque no son tan seguros como una máquina virtual completa, los contenedores son mucho más livianos y flexibles. En Windows y Mac, Docker incluye una Máquina Virtual Linux. A los efectos de esta Ruta de Aprendizaje, utilizaremos Docker para permitirle ejecutar cómodamente sitios web completos en su computadora.
 
-Docker is a system that allows you to run linux applications in a semi-self contained environment, called containers. Although they aren’t as secure as a full-fledged VM, containers are much more lightweight and flexible. On Windows and Mac, Docker includes a linux VM. For the purposes of this Learning Path, we will be using Docker to allow you to conveniently run full websites on your computer.
+**¡Inténtelo usted!**
 
-Try it yourself
+[Instale Docker](https://docs.docker.com/desktop/) Desktop. No debería necesitar registrarse para obtener una cuenta ni adquirir una licencia comercial para completar esta Ruta de Aprendizaje. Tenga en cuenta que probablemente haya completado esto como parte de la Ruta de Aprendizaje de los Fundamentos de Seguridad de Aplicaciones Web
 
-[Install Docker Desktop](https://docs.docker.com/desktop/). You should not need to sign up for an account or acquire a commercial license to complete this Learning Path. Note that you have likely completed this as part of the Web Application Security Fundamentals Learning Path.
+### sqlmap
 
-## sqlmap
+Si bien los humanos pueden ser muy buenos para encontrar vulnerabilidades de inyección SQL, explotar esas vulnerabilidades a menudo implica un trabajo extremadamente repetitivo. sqlmap es una herramienta de inyección SQL que destaca en la explotación. Tiene scripts que descubrirán cómo enumerar la estructura de una base de datos y extraer contenido de esa base de datos mediante inyección SQL. Esto es muy útil tanto para demostrar la gravedad de las vulnerabilidades de inyección SQL como para encontrar otras vulnerabilidades relacionadas con el almacenamiento de datos.
 
-While humans can be very good at finding SQL injection vulnerabilities, exploiting those vulnerabilities often involves extremely repetitive work. sqlmap is a SQL injection tool that excels at exploitation. It has scripts that will figure out how to enumerate a database’s structure and extract content from that database using SQL injection. This is very useful both for demonstrating the seriousness of SQL injection vulnerabilities, and for finding other vulnerabilities related to data storage.
+**¡Inténtelo usted!**
 
-Try it yourself
+Instale sqlmap. Puedes [descargarlo](https://sqlmap.org/) (está basado en Python) o usar algo como el [paquete de Kali](https://www.kali.org/tools/sqlmap/).
 
-Install sqlmap. You can either [download it](https://sqlmap.org/) (it’s Python based) or use something like [Kali’s package](https://www.kali.org/tools/sqlmap/).
+### WPScan CLI
 
-## WPScan CLI
+Dentro del periodismo independiente y la sociedad civil, muchos medios de comunicación utilizan WordPress para compartir su contenido. WordPress es un software complicado con muchos complementos y opciones de configuración que pueden tener grandes impactos en la seguridad. Como parte del subtema de automatización, usaremos una herramienta de código abierto llamada WPScan para encontrar debilidades de seguridad en un sitio de WordPress.
 
-Within independent journalism and civil society, many media outlets use WordPress to share their content. WordPress is complicated software with many plug-ins and configuration options which can have large security impacts. As part of the automation subtopic, we’ll be using an open-source tool called WPScan to find security weaknesses in a WordPress site.
+**¡Inténtelo usted!**
 
-Try it yourself
+[Instale WPScan CLI](https://github.com/wpscanteam/wpscan). Tenga en cuenta que esto se puede hacer desde el código fuente, desde un administrador de paquetes (como homebrew o rubygems), como un contenedor Docker o utilizando la versión incluida en muchas distribuciones de VM de prueba de penetración, como Kali Linux. Lo que elijas depende de ti. Cubriremos WPScan en el subtema de automatización.
 
-[Install the WPScan CLI](https://github.com/wpscanteam/wpscan). Note that this can be done from source, from a package manager (such as homebrew or rubygems), as a Docker container, or by using the version included in many penetration testing VM distributions such as Kali Linux. Which you choose is up to you. We’ll cover WPScan in the automation subtopic.
+## Práctica
+
+Asegúrese de haber instalado y configurado las siguientes herramientas, que también enumeramos anteriormente:
+
+- Burp Suite (Edición Comunitaria funciona)
+- ZAP
+- Escritorio de Docker
+- sqlmap
+- WPScan CLI
+
+## Verificación de Habilidades
+
+- Sin Verificación de Habilidades
 
 ## Learning Resources
 
-{{% resource title="PortSwigger Academy" languages="English" cost="Free" description="Collection of explainers and labs on web application security." url="https://portswigger.net/web-security/all-topics" %}}
+{{% resource title="PortSwigger Academy" description="Se utilizará una colección de explicadores y laboratorios sobre seguridad de aplicaciones web como recurso a lo largo de esta ruta de aprendizaje" languages="Inglés" cost="Gratis" url="https://portswigger.net/web-security/all-topics" %}}
 
-{{% resource title="What is a reverse proxy?" languages="German, Spanish, French, Italian, Japanese, Korean, Portuguese, Chinese, Taiwanese" cost="Free" description="Overview of reverse proxy compared to forward proxy." url="https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/" %}}
+{{% resource title="¿Qué es un proxy inverso?" description="Una descripción general rápida de qué es un proxy inverso y en qué se diferencia de uno directo" languages="Alemán, español, francés, italiano, japonés, coreano, portugués, chino, taiwanés" cost="Gratis" url="https://www.cloudflare.com/es-la/learning/cdn/glossary/reverse-proxy/" %}}
 
-{{% resource title="Proxy server" languages="54 languages" cost="Free" description="Introduction to the concept of a proxy server." url="https://en.wikipedia.org/wiki/Proxy_server" %}}
+{{% resource title="Servidor proxy" description="Una introducción al concepto de servidor proxy." languages="54 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Servidor_proxy" %}}
 
-{{% resource title="Fuzzing" languages="English" cost="Free" description="Simple explanation of fuzzing from OWASP documentation." url="https://owasp.org/www-community/Fuzzing" %}}
+{{% resource title="Fuzzing" description="Una explicación sencilla del fuzzing de la documentación de OWASP." languages="Inglés" cost="Gratis" url="https://owasp.org/www-community/Fuzzing" %}}
 
-{{% resource title="Squid cache" languages="English" cost="Free" description="Proxy software that can be deployed by anyone." url="http://www.squid-cache.org/" %}}
+{{% resource title="Squid cache" description="Software proxy que cualquiera puede implementar" languages="Inglés" cost="Gratis" url="http://www.squid-cache.org/" %}}
 
-{{% resource title="Commercial proxies and content delivery networks" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="Fastly: https://www.fastly.com/ Cloudflare: https://www.cloudflare.com/ Amazon CloudFront: https://aws.amazon.com/cloudfront/" %}}
+{{% resource title="Proxys comerciales y redes de distribución de contenidos: Fastly" description="Varias empresas ofrecen servicios de proxy y CDN" languages="Muchos idiomas, depende del producto" cost="Variado" url="https://www.fastly.com/es/" %}}
 
-{{% resource title="Burp Suite" languages="English" cost="Community version is free, Pro edition costs $449 per user" description="Popular web security testing tool." url="https://portswigger.net/burp" %}}
+{{% resource title="Proxys comerciales y redes de distribución de contenidos: Cloudflare" description="Varias empresas ofrecen servicios de proxy y CDN" languages="Muchos idiomas, depende del producto" cost="Variado" url="https://www.cloudflare.com/es-la/" %}}
 
-{{% resource title="ZAP" languages="English" cost="Free" description="Popular security testing tool for web apps." url="https://www.zaproxy.org/" %}}
+{{% resource title="Proxys comerciales y redes de distribución de contenidos: Amazon CloudFront" description="Varias empresas ofrecen servicios de proxy y CDN" languages="Muchos idiomas, depende del producto" cost="Variado" url="https://aws.amazon.com/es/cloudfront/" %}}
 
-{{% resource title="Docker Desktop" languages="English" cost="Free" description="Tool to install containers containing executable applications." url="https://docs.docker.com/desktop/" %}}
+{{% resource title="Fuzzing" description="Una descripción general de fuzzing, una técnica de prueba de software que se puede utilizar para todo tipo de propósitos, incluidas pruebas de sitios web y aplicaciones web." languages="Inglés" cost="Gratis" url="https://owasp.org/www-community/Fuzzing" %}}
 
-{{% resource title="sqlmap" languages="English" cost="Free" description="Open source penetration testing tool for SQL injection." url="https://sqlmap.org/" %}}
+{{% resource title="Burp Suite" description="Una popular herramienta de prueba de seguridad web" languages="Inglés" cost="La versión comunitaria es gratuita, la edición Pro cuesta $449 por usuario" url="https://portswigger.net/burp" %}}
 
-{{% resource title="WPScan" languages="English" cost="Free" description="Security scanner for WordPress." url="https://github.com/wpscanteam/wpscan" %}}
+{{% resource title="ZAP" description="Una herramienta de prueba de seguridad muy popular para aplicaciones web" languages="Inglés" cost="Gratis" url="https://www.zaproxy.org/" %}}
 
-## Practice
+{{% resource title="Escritorio de Docker (Docker Desktop)" description="Una herramienta para instalar contenedores que contienen aplicaciones ejecutables; crucial para lanzar y probar rápidamente nuevas herramientas o ejecutar código en un entorno controlado" languages="Inglés" cost="Gratis" url="https://docs.docker.com/desktop/" %}}
 
-Make sure that you have installed and set up the following tools, which we’ve also listed above:
+{{% resource title="sqlmap" description="Una herramienta de prueba de penetración de código abierto que prueba la inyección de SQL" languages="Inglés" cost="Gratis" url="https://sqlmap.org/" %}}
 
-- Burp Suite (Community Edition works)
-- ZAP
-- Docker Desktop
-- sqlmap
-- WPSCan CLI
-
-## Skill Check
-
-- No Skill Check
+{{% resource title="WPScan" description="Un escáner de seguridad para WordPress" languages="Inglés" cost="Gratis" url="https://github.com/wpscanteam/wpscan" %}}
