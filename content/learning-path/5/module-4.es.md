@@ -57,7 +57,7 @@ Diríjase al [tema Falsificación de Solicitudes entre Sitios (CSRF) de PortSwig
 
 Este subtema cubre el caso en el que un atacante puede cargar archivos a un sitio web, tal vez para una imagen de perfil, pero el archivo se interpreta como código en el lado del cliente (lo que provoca XSS) o en el lado del servidor (lo que provoca la ejecución de código). Una técnica común que utilizan los atacantes cuando explotan este último tipo es cargar un [webshell](https://en.wikipedia.org/wiki/Web_shell), un pequeño script que toma un comando shell de un usuario (normalmente a través de un parámetro URL), ejecuta el comando shell en el servidor y luego devuelve los resultados.
 
-Si está probando un sitio y desea cargar un shell web, es muy importante que le ponga una contraseña. El hecho de que pueda cargar un archivo en el servidor no significa que pueda eliminarlo. Es posible que se encuentre en una situación en la que tenga que depender del propietario del sitio para eliminar el archivo. Agregar una contraseña puede ser simple. Hay[webshells disponibles en muchos lenguajes de programación](https://www.kali.org/tools/webshells/), pero aquí hay un ejemplo sencillo de PHP:
+Si está probando un sitio y desea cargar un shell web, es muy importante que le ponga una contraseña. El hecho de que pueda cargar un archivo en el servidor no significa que pueda eliminarlo. Es posible que se encuentre en una situación en la que tenga que depender del propietario del sitio para eliminar el archivo. Agregar una contraseña puede ser simple. Hay [webshells disponibles en muchos lenguajes de programación](https://www.kali.org/tools/webshells/), pero aquí hay un ejemplo sencillo de PHP:
 
 {{< highlight php >}}
 

@@ -48,9 +48,9 @@ En una arquitectura de aplicación web típica, varias capas OSI desempeñan fun
 
 1. ¿En qué capa OSI opera el protocolo TCP, que suele ser el objetivo de los atacantes para diversos tipos de ataques a la red?
 
-A) Capa de Aplicación
-B) Capa de Transporte
-C) Capa de Red
+A) Capa de Aplicación \
+B) Capa de Transporte \
+C) Capa de Red \
 D) Capa de Enlace de Datos
 
 {{< question title="Respuesta correcta" >}}
@@ -59,9 +59,9 @@ B) Capa de Transporte
 
 2. ¿Qué vulnerabilidad se asocia comúnmente con la capa de transporte (Capa 4) del modelo OSI, donde los atacantes intentan saturar los recursos de la red con un gran volumen de tráfico?
 
-A) Secuencias de Comandos entre Sitios (XSS)
-B) Inyección SQL
-C) Denegación de Servicio (DoS)
+A) Secuencias de Comandos entre Sitios (XSS) \
+B) Inyección SQL \
+C) Denegación de Servicio (DoS) \
 D) Autenticación Rota
 
 {{< question title="Respuesta correcta" >}}
@@ -70,9 +70,9 @@ C) Denegación de Servicio (DoS)
 
 3. ¿En qué capa OSI normalmente operan los protocolos HTTP y HTTPS, lo que los convierte en un objetivo común para ataques como Secuencias de Comandos entre Sitios (XSS) e Inyección SQL?
 
-A) Capa de Enlace de Datos
-B) Capa de Transporte
-C) Capa de Aplicación
+A) Capa de Enlace de Datos \
+B) Capa de Transporte \
+C) Capa de Aplicación \
 D) Capa de Presentación
 
 {{< question title="Respuesta correcta" >}}
@@ -81,9 +81,9 @@ C) Capa de Aplicación
 
 4. ¿Qué vulnerabilidad se explota a menudo en la Capa de Aplicación (Capa 7) del modelo OSI, lo que permite a los atacantes inyectar código malicioso en aplicaciones web y comprometer los datos de los usuarios?
 
-A) Denegación de Servicio (DoS)
-B) Secuencias de Comandos entre Sitios (XSS)
-C) Ataque de Hombre en el Medio (MitM)
+A) Denegación de Servicio (DoS) \
+B) Secuencias de Comandos entre Sitios (XSS) \
+C) Ataque de Hombre en el Medio (MitM) \
 D) Ataque de Inundación SYN
 
 {{< question title="Respuesta correcta" >}}
@@ -92,9 +92,9 @@ B) Secuencias de Comandos entre Sitios (XSS)
 
 5. ¿En qué capa OSI operan los enrutadores y conmutadores, y dónde pueden ocurrir vulnerabilidades como la suplantación de IP y la suplantación de ARP?
 
-A) Capa Física
-B) Capa de Red
-C) Capa de Transporte
+A) Capa Física \
+B) Capa de Red \
+C) Capa de Transporte \
 D) Capa de Sesión  
 
 {{< question title="Respuesta correcta" >}}
@@ -103,9 +103,9 @@ B) Capa de Red
 
 6. ¿Qué vulnerabilidad implica que los atacantes intercepten la comunicación entre dos partes, permitiéndoles escuchar información confidencial o modificar paquetes de datos?
 
-A) Secuencias de Comandos entre Sitios (XSS)
-B) Ataque de Hombre en el Medio (MitM)
-C) Inyección SQL
+A) Secuencias de Comandos entre Sitios (XSS) \
+B) Ataque de Hombre en el Medio (MitM) \
+C) Inyección SQL \
 D) Desbordamiento de Búfer
 
 {{< question title="Respuesta correcta" >}}
@@ -114,9 +114,9 @@ B) Ataque de Hombre en el Medio (MitM)
 
 7. ¿En qué capa OSI normalmente operan los firewalls y los sistemas de detección de intrusos (IDS), con el objetivo de filtrar y monitorear el tráfico de la red en busca de actividades sospechosas?
 
-A) Capa de Aplicación
-B) Capa de Transporte
-C) Capa de Red
+A) Capa de Aplicación \
+B) Capa de Transporte \
+C) Capa de Red \
 D) Capa de Enlace de Datos  
 
 {{< question title="Respuesta correcta" >}}
@@ -125,9 +125,9 @@ C) Capa de Red
 
 8. ¿Qué vulnerabilidad implica que los atacantes aprovechen las debilidades en la capa de red para redirigir el tráfico a destinos maliciosos o interceptar información confidencial?
 
-A) Secuencias de Comandos entre Sitios (XSS)
-B) Suplantación de ARP
-C) Inyección SQL
+A) Secuencias de Comandos entre Sitios (XSS) \
+B) Suplantación de ARP \
+C) Inyección SQL \
 D) Falsificación de Solicitudes entre Sitios (CSRF)
 
 {{< question title="Respuesta correcta" >}}
@@ -136,9 +136,9 @@ B) Suplantación de ARP
 
 9. ¿En qué capa OSI operan los protocolos de cifrado SSL/TLS, protegiendo los datos transmitidos a través de la red contra la interceptación y la manipulación?
 
-A) Capa de Presentación
-B) Capa de Aplicación
-C) Capa de Transporte
+A) Capa de Presentación \
+B) Capa de Aplicación \
+C) Capa de Transporte \
 D) Capa de Red
 
 {{< question title="Respuesta correcta" >}}
@@ -147,9 +147,9 @@ C) Capa de Transporte
 
 10. ¿Qué vulnerabilidad implica que los atacantes manipulen campos de entrada dentro de formularios web o URL para inyectar comandos SQL maliciosos, lo que podría conducir a un acceso no autorizado a la base de datos subyacente?
 
-A) Secuencias de Comandos entre Sitios (XSS)
-B) Inyección SQL
-C) Denegación de Servicio (DoS)
+A) Secuencias de Comandos entre Sitios (XSS) \
+B) Inyección SQL \
+C) Denegación de Servicio (DoS) \
 D) Ataque de Hombre en el Medio (MitM)
 
 {{< question title="Respuesta correcta" >}}
