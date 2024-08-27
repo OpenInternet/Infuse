@@ -114,7 +114,7 @@ Si no tiene un mentor o mentora a, puede ser autodidacta para este subtema. Simp
 
 {{% resource title="Directorio de aplicaciones web vulnerables de OWASP" description="Una colección de aplicaciones web con vulnerabilidades conocidas que se pueden utilizar para probar las habilidades de evaluación web y pruebas de penetración." languages="Inglés" cost="Gratis" url="https://owasp.org/www-project-vulnerable-web-applications-directory/" %}}
 
-{{% resource title="Metodología para pruebas de seguridad de aplicaciones web de alta calidad" description="Una lista completa (y, para citar al autor, "con opiniones") de cuestiones que un protector digital debe revisar al evaluar la seguridad de las aplicaciones web." languages="Inglés" cost="Gratis" url="https://github.com/tprynn/web-methodology/wiki" %}}
+{{% resource title="Metodología para pruebas de seguridad de aplicaciones web de alta calidad" description="Una lista completa (y, para citar al autor, con opiniones) de cuestiones que un protector digital debe revisar al evaluar la seguridad de las aplicaciones web." languages="Inglés" cost="Gratis" url="https://github.com/tprynn/web-methodology/wiki" %}}
 
 {{% resource title="Samy (gusano)" description="Un ejemplo de un código malicioso que aprovechó las vulnerabilidades XSS" languages="Inglés, Árabe, Chino, Indonesio, Lombardo" cost="Gratis" url="https://en.wikipedia.org/wiki/Samy_(computer_worm)" %}}
 
