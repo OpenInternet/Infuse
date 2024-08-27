@@ -127,6 +127,7 @@ Web application assessment skills can help respond to hacking threats by:
 
   ```
   wsl
+  ```  
 
 ## Related learning paths
 

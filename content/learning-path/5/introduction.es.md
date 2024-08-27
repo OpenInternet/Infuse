@@ -1,136 +1,138 @@
 ---
 style: introduction
 title: Introduction
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+description: Lea la descripción general de la ruta de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos.
 weight: 1
 ---
 
-## Overview
+**Colaboradores**
 
-Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By proactively identifying vulnerabilities in web applications used by your clients and partners, you can head off potential compromises before they occur.
+Ninoslava Bogdanović
 
-This learning path covers intermediate and advanced knowledge needed to deeply understand and identify vulnerabilities in web applications. This can be used to find vulnerabilities in an application before threat actors do, to guide secure development practices, or to more effectively fix vulnerabilities in web applications. In this learning path we will cover:
+## Descripción general
 
-- The reasons for performing a web application security assessment
-- The types of assessment that are effective to perform
-- How to identify various types of web application vulnerabilities
-- How to exploit those vulnerabilities
-- How to effectively and efficiently systematically test a web application for vulnerabilities
+Las aplicaciones web son una infraestructura crítica utilizada por las organizaciones de medios y la sociedad civil para difundir el libre flujo de información, así como para proporcionar funcionalidades a sus partes interesadas. Los adversarios atacan estas aplicaciones web con diversos fines, incluido el cierre del libre flujo de información, daños a la reputación, acceso a sistemas privados, robo de información confidencial, vigilancia y comprometer la seguridad de dispositivos. Al identificar de forma proactiva las vulnerabilidades en las aplicaciones web utilizadas por sus clientes y asociados, puede evitar posibles vulneraciones antes de que ocurran.
 
-### Background reading
+Esta ruta de aprendizaje cubre los conocimientos intermedios y avanzados necesarios para comprender e identificar en profundidad las vulnerabilidades en las aplicaciones web. Esto se puede utilizar para encontrar vulnerabilidades en una aplicación antes de que lo hagan los actores de amenazas, para guiar prácticas de desarrollo seguras o para corregir vulnerabilidades en aplicaciones web de manera más efectiva. En esta ruta de aprendizaje cubriremos:
 
-Adversaries, especially political rivals, have a history of attempting to hack into the websites of civil society groups. Some documented examples include:
+- Los motivos para realizar una evaluación de seguridad de una aplicación web
+- Los tipos de evaluación que son eficaces
+- Cómo identificar varios tipos de vulnerabilidades de aplicación web
+- Cómo explotar esas vulnerabilidades
+- Cómo probar sistemáticamente, de forma eficaz y eficiente una aplicación web en busca de vulnerabilidades
 
-- March 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
-- October 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
-- August 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
-- September 2018 [https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
+### Lectura de historiales
 
-Additionally, any site on the internet is subject to opportunistic and targeted attacks by financially-motivated threat actors. These adversaries have goals such as stealing user passwords, payment card information, etc. for resale, modifying site content for search ranking manipulation or click fraud,using the site’s infrastructure itself for cryptocurrency mining, sending spam, or launching denial of service attacks. Although many of these attacks may not be targeted based on political motivations, they nonetheless pose significant reputational and confidentiality risks to any organization. For more information on opportunistic and automated attacks on web applications, see [this report by OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
+Los adversarios, especialmente los rivales políticos, tienen un historial de intentos de piratear los sitios web de grupos de la sociedad civil. Algunos ejemplos documentados incluyen:
 
-## Objective
+- Marzo 2020 <https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/>
+- Octubre 2019 <https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/>
+- Agosto 2019 <https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/>
+- Septiembre 2018 <https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/>
 
-The Badge-holder should be able to efficiently perform comprehensive security assessments of web applications, including identifying the vulnerabilities in the OWASP top 10.
+Además, cualquier sitio en Internet está sujeto a ataques oportunistas y dirigidos por parte de agentes de amenazas con motivación financiera. Estos adversarios tienen objetivos como robar contraseñas de usuarios, información de tarjetas de pago, etc. para revenderlos, modificar el contenido del sitio para manipular el ranking de búsqueda o hacer fraude de clicks, utilizar la propia infraestructura del sitio para minar criptomonedas, enviar spam o lanzar ataques de denegación de servicio. Aunque es posible que muchos de estos ataques no estén dirigidos a motivaciones políticas, plantean importantes riesgos para la reputación y la confidencialidad de cualquier organización. Para obtener más información sobre ataques oportunistas y automatizados a aplicaciones web, consulte [este informe de OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
 
-## What threats does this skill mitigate or respond to?
+## Objetivo
 
-Web application assessment skills can help respond to hacking threats by:
+El titular de la Credencial debe poder realizar de manera eficiente evaluaciones de seguridad integrales de las aplicaciones web, incluida la identificación de las vulnerabilidades en el top 10 de OWASP.
 
-- State-motivated vigilante hackers
-- Financially motivated attackers
+## ¿Qué amenazas mitiga o responde esta habilidad?
 
-## What are the prerequisites?
+Las habilidades de evaluación de aplicaciones web pueden ayudar a responder a las amenazas de piratería mediante:
 
-- Prior to starting this learning path, learners should first complete the Website Security Fundamentals learning path if they are not familiar with web servers and basic web application vulnerabilities. If they already are familiar with the wider topic, we still recommend that they brush up on the Fundamentals learning path’s subtopic 6, which focuses on interpersonal skills needed when supporting others.
-- A basic familiarity with HTML such as the basic layout of an HTML document and the ability to read simple HTML. For a great introduction, check out [MDN](https://developer.mozilla.org/en-US/docs/Learn).
-- Basic programming language concepts and the ability to read simple JavaScript. We recommend the [MDN introduction](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) to the topic.
-- Basic understanding of how HTTP works, how a browser communicates with a website, and what HTTP requests and responses look like. For an introduction of those topics, we recommend [this piece](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) and [this one](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
-- A basic understanding of SQL, just enough to know what it is and how to formulate a simple command. For an introduction, see [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
-- Basic familiarity with how the command line works on an operating system of your choice and how to run commands therein. For a good introduction, see [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
+- Ciberdelincuentes vigilantes motivados por el Estado
+- Atacantes motivados financieramente
 
-## What devices or software do you need for the exercises?
+## ¿Cuáles son los prerrequisitos?
 
-- You will need a computer capable of running Java applications and Docker. Any macOS, Windows, or Linux device with 8GM of RAM and some free disk space should work. All of the labs here were also tested on devices running Apple Silicon, and work.
-- Many of the tools in this learning path run best on Unix-like operating systems. This means that it’s easiest to use Linux, macOS devices, or Windows devices with WSL (Windows Subsystem for Linux) installed on them.
-- If you are running macOS, it’s a good idea to install [Homebrew](https://brew.sh/) or [Macports](https://www.macports.org/); those are package managers which can automate the process of installing some of the tools outlined throughout the learning path.
-- Alternatively, if you have an installation of Kali Linux (you can use the same one you used for the Web Application Security Fundamentals learning path), most of the tools outlined below should already come pre-installed.
-- If you are running Windows, we recommend you install WSL (Windows Subsystem for Linux) to run some of the tools outlined below. While many of them can run in Docker, those which require Python might be much easier to run within WSL, which will require less fiddling with dependencies.
-  _ Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-  _ Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
-  _ Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
-  _ Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command \
-  `wsl --set-default-version 2` \* The output from this command will look like:
+- Antes de comenzar esta ruta de aprendizaje, los estudiantes primero deben completar la Ruta de Aprendizaje de Fundamentos de Seguridad de Sitios Web si no están familiarizados con los servidores web y las vulnerabilidades básicas de las aplicaciones web. Si ya están familiarizados con el tema en general, les recomendamos que repasen el subtema 6 de la Ruta de Aprendizaje de Fundamentos, que se centra en las habilidades interpersonales necesarias para dar asistencia a los demás.
+- Una familiaridad básica con HTML, como el diseño básico de un documento HTML y la capacidad de leer HTML simple. Para una excelente introducción, consulte [MDN](https://developer.mozilla.org/es/docs/Learn).
+- Conceptos básicos del lenguaje de programación y capacidad de leer JavaScript simple. Recomendamos la [introducción al tema](https://developer.mozilla.org/es/docs/Learn/JavaScript) MDN.
+- Comprensión básica de cómo funciona HTTP, cómo se comunica un navegador con un sitio web y cómo son las solicitudes y respuestas HTTP. Para una introducción a esos temas, recomendamos [este artículo](https://www.cloudflare.com/es-la/learning/ddos/glossary/hypertext-transfer-protocol-http/) y [este](https://developer.mozilla.org/es/docs/Learn/Forms/Sending_and_retrieving_form_data).
+- Un conocimiento básico de SQL, lo suficiente para saber qué es y cómo formular un comando simple. Para obtener una introducción, consulte [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
+- Familiaridad básica con el funcionamiento de la línea de comandos en un sistema operativo de su elección y cómo ejecutar comandos allí. Para una buena introducción, consulte [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
+
+## ¿Qué dispositivos o software necesitas para los ejercicios?
+
+- Necesitará una computadora capaz de ejecutar aplicaciones Java y Docker. Cualquier dispositivo macOS, Windows o Linux con 8GM de RAM y algo de espacio libre en disco debería funcionar. Todos los laboratorios aquí también se probaron en dispositivos que ejecutan Apple Silicon y funcionan.
+- Muchas de las herramientas de esta ruta de aprendizaje funcionan mejor en sistemas operativos tipo Unix. Esto significa que es más fácil usar dispositivos Linux, macOS o Windows con WSL (Subsistema de Windows para Linux) instalado.
+- Si está ejecutando macOS, es una buena idea instalar [Homebrew](https://brew.sh/) o [Macports](https://www.macports.org/); estos son administradores de paquetes que pueden automatizar el proceso de instalación de algunas de las herramientas descritas a lo largo de la ruta de aprendizaje.
+- Alternativamente, si tiene una instalación de Kali Linux (puede usar la misma que usó para la Ruta de Aprendizaje de Fundamentos de Seguridad de Aplicación Web), la mayoría de las herramientas que se describen a continuación ya deberían venir preinstaladas.
+- Si está ejecutando Windows, le recomendamos que instale WSL (Subsistema de Windows para Linux) para ejecutar algunas de las herramientas que se describen a continuación. Si bien muchos de ellos pueden ejecutarse en Docker, aquellos que requieren Python pueden ser mucho más fáciles de ejecutar dentro de WSL, lo que requerirá menos manipulación de dependencias.
+  - Aquí está la documentación proporcionada por Microsoft con todos los detalles sobre cómo instalar WSL 2: <https://learn.microsoft.com/es-es/windows/wsl/install>
+  - Abra "Activar o desactivar las funciones de Windows" en el panel de control de Windows y asegúrese de que "Plataforma de Máquina Virtual" y "Subsistema de Windows para Linux" estén marcados.
+  - Descargue e instale WSL 2 desde [Microsoft Store](https://apps.microsoft.com/detail/9p9tqf7mrm4r?hl=es-es). Una vez instalado, reinicie su computadora para aplicar los cambios.
+  - Abra Windows PowerShell o símbolo del sistema en modo administrador haciendo clic con el botón derecho y seleccionando "Ejecutar como administrador" y ejecute el comando  
+        wsl --set-default-version 2
+  - El resultado de este comando se verá así:
 
   ```
   For information on key differences with WSL 2 please visit https://aka.ms/wsl2
   The operation completed successfully.
   ```
 
-  Once WSL 2 is installed, you can install your preferred Linux distribution from the Microsoft Store or by using the command line. Simply search for "Linux" in the Microsoft Store, select your desired distribution (e.g., Ubuntu, Debian, or others), and click "Install". Alternatively, you can install a Linux distribution using PowerShell or Command Prompt. Open a Windows Powershell or Command Prompt and list the distributions available:
+Una vez que WSL 2 esté instalado, puede instalar su distribución de Linux preferida desde Microsoft Store o usando la línea de comando. Simplemente busque "Linux" en Microsoft Store, seleccione la distribución que desee (por ejemplo, Ubuntu, Debian u otras) y haga clic en "Instalar". Alternativamente, puede instalar una distribución de Linux usando PowerShell o el Símbolo de Comando. Abra Windows Powershell o Símbolo de Comando y enumere las distribuciones disponibles:
 
   ```
   wsl --list --online
   ```
-  Install a distribution from this list using wsl --install -d &lt;Distribution Name> command.
+Instale una distribución de esta lista usando el comando wsl --install -d &lt;nombre de distribución de Linux&gt;.
 
   ```
   wsl --install -d Ubuntu
   ```
-  After installation, each Linux distribution will have an icon on the Windows application menu. Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
+Después de la instalación, cada distribución de Linux tendrá un icono en el menú de la aplicación de Windows. Una vez que haya instalado WSL, deberá crear una cuenta de usuario y una contraseña para su distribución de Linux recién instalada.
 
-  A new window should open with a Linux shell.
+Debería abrirse una nueva ventana con un shell de Linux.
 
-- Here is a quick review of the WSL command line options.
+- Aquí hay una revisión rápida de las opciones de la línea de comandos de WSL.
 
-  Print the usage information and see the command line arguments:
+Imprima la información de uso y vea los argumentos de la línea de comando:
 
 
   ```
   wsl --help
   ```
-  List the installed distributions:
+  Lista las distribuciones instaladas:
 
   ```
   wsl --list
   ```
 
-  List only the running distributions:
+  Enumere solo las distribuciones en ejecución:
 
   ```
   wsl --list --running
   ```
-  Terminate a running distribution:
+  Terminar una distribución en ejecución:
 
   ```
   wsl --terminate Ubuntu-22.04
   ```
 
-  Shutdown all running distributions:
+  Apague todas las distribuciones en ejecución:
 
   ```
   wsl --shutdown
   ```
 
-  Unregister the Linux distribution and delete the filesystem:
+  Anule el registro de la distribución de Linux y elimine el sistema de archivos:
 
   ```
   wsl --unregister Ubuntu-22.04
   ```
 
-  Update WSL to the latest version:
-
+  Actualice WSL a la última versión:
 
   ```
   wsl --update
   ```
-  Start the default distribution:
+  Inicie la distribución predeterminada:
 
   ```
   wsl
+  ```  
 
-## Related learning paths
+## Rutas de Aprendizaje relacionadas
 
-After completing this learning path, we would recommend that learners work on Web Application Hardening, Forensics, and Incident Response.
+Después de completar esta ruta de aprendizaje, recomendamos que los estudiantes trabajen en Fortalecimiento de Aplicación Web, Análisis Forense y Respuesta a Incidentes.

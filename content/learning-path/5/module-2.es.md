@@ -1,208 +1,211 @@
 +++
 style = "module"
 weight = 2
-title = "Data Validation"
+title = "Validación de Datos"
+description = "Todas las aplicaciones web aceptan y procesan información no confiable. Aquí aprendemos a descubrir vulnerabilidades comunes que se aprovechan de ello"
 +++
 
-## Use Case
+## Caso de Uso
 
-One way or another, every web application accepts and processes untrusted input. This input usually comes from end users and their browsers but may also come from other websites or backend systems. Depending on where this information flows, the processing of the data may have undesirable effects on the website or its users.
+De una forma u otra, cada aplicación web acepta y procesa entradas de datos que no son de confianza. Esta información generalmente proviene de los usuarios finales y sus navegadores, pero también puede provenir de otros sitios web o sistemas backend. Dependiendo de dónde fluya esta información, el tratamiento de los datos puede tener efectos no deseados en el sitio web o en sus usuarios.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners will be able to find ways that the format or structure of the data sent to a website may expose and exploit vulnerabilities.
+Después de completar este subtema, los y las profesionales podrán encontrar formas en que el formato o la estructura de los datos enviados a un sitio web pueden exponer y explotar vulnerabilidades.
 
-They should also be able to find and exploit the following types of data validation vulnerabilities:
+También deberían poder encontrar y explotar los siguientes tipos de vulnerabilidades de validación de datos:
 
-- Cross-site scripting
-- SQL injection
-- Path traversal
-- Command Injection
-- Server-side request forgery
-- XXE injection
-- NoSQL injection
+- Secuencias de comandos entre sitios (Cross-site scripting)
+- Inyección SQL
+- Recorrido de ruta (Path traversal)
+- Inyección de Comando
+- Falsificación de solicitudes por el lado del servidor (Server-side request forgery)
+- Inyección XXE
+- Inyección NoSQL
 
 ---
+##  Sección Principal
+### ¿Qué son las vulnerabilidades de validación de datos?
 
-## What are data validation vulnerabilities?
+Como recordará de la Ruta de Aprendizaje de Fundamentos de Seguridad de Aplicaciones Web, las vulnerabilidades de validación de datos pueden adoptar muchas formas. En las aplicaciones web, suelen desencadenarse por la presencia de ciertos caracteres cuando los datos se interpretan en un contexto cambiante. Por ejemplo, los caracteres &lt; o &gt; pueden ser inofensivos en el código de una aplicación, pero pueden desencadenar una vulnerabilidad de secuencias de comandos entre sitios cuando se colocan en una página web. Las comillas simples o los espacios pueden ser inofensivos en una página web o en el código de una aplicación, pero pueden desencadenar una vulnerabilidad de inyección SQL cuando se incluyen en una consulta de base de datos. Generalmente, para cada sistema involucrado en una aplicación web (HTML, JavaScript, SQL, sistemas de archivos, shell Unix, etc.) existe un tipo diferente de posible vulnerabilidad de validación de datos.
 
-As you may remember from the Web Application Security Fundamentals learning path, data validation vulnerabilities can take many forms. In web applications, they are commonly triggered by the presence of certain characters when data is interpreted in a changing context. For example, the characters &lt; or > may be harmless in an application’s code, but can trigger a cross-site scripting vulnerability when put into a web page. The single-quote or space characters may be harmless in a web page or application’s code, but can trigger a SQL injection vulnerability when included in a database query. Generally, for every system involved in a web application (HTML, JavaScript, SQL, filesystems, unix shell, etc) there’s a different type of possible data validation vulnerability.
+#### Secuencias de Comandos entre Sitios
 
-## Cross-Site Scripting
+Las secuencias de comandos entre sitios (generalmente denominadas XSS) son generalmente el tipo de vulnerabilidad de validación de datos más fácil de abordar. Las entradas y salidas son visibles para el evaluador y solo requiere conocimientos de HTML y JavaScript. También es extremadamente común, [y se encuentra en 1 de cada 5 sitios web evaluados por una importante empresa de evaluación de sitios web](https://venturebeat.com/security/report-50-of-all-web-applications-were-vulnerable-to-attacks-in-2021/). Como tal, ahí es donde comenzaremos.
 
-Cross-site scripting (usually referred to as XSS) is generally the easiest type of data validation vulnerability to engage with. The inputs and outputs are visible to the tester, and it only requires knowledge of HTML and JavaScript. It is also extremely common, [being found on 1 in 5 websites tested by a major website assessment company](https://venturebeat.com/security/report-50-of-all-web-applications-were-vulnerable-to-attacks-in-2021/). As such, that’s where we’ll be starting.
+Diríjase al [tema XSS de PortSwigger Academy](https://portswigger.net/web-security/cross-site-scripting) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy XSS topic](https://portswigger.net/web-security/cross-site-scripting) and complete the reading and labs.
+##### Effective XSS testing
 
-### Effective XSS testing
+Lo común que hace la gente para las pruebas XSS es poner algo como `>&lt;script&gt;alert('xss')&lt;/script&gt;` en diferentes parámetros de solicitud y esperar a que aparezca una ventana emergente de JavaScript cuando regrese la página. Hay dos problemas con esto.
 
-The common thing people do for XSS testing is to put something like `">&lt;script>alert('xss')&lt;/script>` into different request parameters, and wait for a JavaScript pop-up when the page comes back. There are two problems with this.
+El primer problema es que en un sitio que tiene muchas vulnerabilidades XSS almacenadas, puedes terminar haciendo clic en múltiples ventanas emergentes de JavaScript en cada página que visitas. Esto es molesto, distrae y ralentizará significativamente sus pruebas.
 
-The first problem is that in a site that has a lot of stored XSS vulnerabilities, you may end up clicking away multiple JavaScript popups on every page you visit. This is annoying, distracting, and will significantly slow down your testing.
+El segundo problema es que si usa la misma cadena para cada entrada, no sabrá inmediatamente qué entradas corresponden a qué salidas. Si tiene un XSS almacenado que aparece en varias partes del sitio, puede toparse con su cadena de prueba XSS en algún lugar del sitio, pero no saber de dónde vino.
 
-The second problem is that if you use the same string for each input, you won’t immediately know what inputs correspond to what outputs. If you have a stored XSS that appears in multiple parts of the site, you may stumble upon your XSS test string somewhere on the site, but not know where it came from.
+En cambio, puedes hacer algo un poco más sutil e informativo. Un enfoque es utilizar una cadena de prueba como `>&lt;i&gt;xss test - pagename - fieldname&lt;/i&gt;<q z=` donde `pagename` andy `fieldname` son la página y el parámetro que estás probando. Si alguna vez ve esa cadena en cursiva en el sitio, inmediatamente sabrá que existe XSS y de dónde proviene la entrada.
 
-Instead, you can do something a bit more subtle and informative. One approach is to use a test string like `">&lt;i>xss test - pagename - fieldname&lt;/i>&lt;q z="` where `pagename` and `fieldname` are the page and parameter you’re testing. If you ever see that string in italics in the site, you immediately know that there’s XSS and where the input came from.
+##### CORS
 
-### CORS
+Un tema relacionado con XSS son las vulnerabilidades relacionadas con el intercambio de recursos entre orígenes. Es posible que se haya preguntado por qué JavaScript que se ejecuta en un sitio no puede interactuar con otro sitio que un usuario tiene abierto en su navegador (por ejemplo, en otra ventana, pestaña o incluso en un iframe). La razón es que todo JavaScript en el navegador está asociado con un [_origen_](https://es.wikipedia.org/wiki/Pol%C3%ADtica_del_mismo_origen), que aproximadamente es lo mismo que un sitio web. JavaScript en un origen no puede interactuar con páginas web o datos en otro origen.
 
-A related topic to XSS is vulnerabilities related to cross-origin resource sharing. You may have wondered why JavaScript running on one site can’t interact with another site that a user has open in their browser (say, in another browser window, tab, or even in an iframe). The reason is that all JavaScript in the browser is associated with an _[origin](https://en.wikipedia.org/wiki/Same-origin_policy#Origin_determination_rules)_, which approximately is the same thing as a website. JavaScript on one origin can’t interact with web pages or data on another origin.
+Existen excepciones para esto. El más común de ellos se llama [intercambio de recursos entre orígenes](https://es.wikipedia.org/wiki/Intercambio_de_recursos_de_origen_cruzado) (CORS, cross-origin resourcesharing), y permite que un sitio permita que el JavaScript de otros sitios interactúe con el sitio. Algunos ejemplos de esto son muy útiles, por ejemplo, permitir que JavaScript en [www.example.com](http://www.example.com) interactúe con api.example.com. Una configuración incorrecta de CORS puede tener el desafortunado efecto de permitir a los atacantes eludir algunos de los controles de seguridad del sitio Las vulnerabilidades relacionadas con CORS no son vulnerabilidades de validación de datos, pero tiene sentido aprender sobre ellas después de conocer XSS.
 
-There are exceptions to this. The most common of these is called [cross-origin resource sharing](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) (CORS), and it allows a site to allow other sites’ JavaScript to interact with the site. Some examples of this are very useful, for example allowing JavaScript on [www.example.com](http://www.example.com) to interact with api.example.com. Improperly configuring CORS may have the unfortunate effect of allowing attackers to bypass some of the site’s security controls. CORS-related vulnerabilities aren’t data validation vulnerabilities, but it makes sense to learn about them after learning about XSS.
+Diríjase al [tema CORS de PortSwigger Academy](https://portswigger.net/web-security/cors) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy CORS topic](https://portswigger.net/web-security/cors) and complete the reading and labs.
+#### Inyección SQL
 
-## SQL Injection
+La inyección SQL (a menudo abreviada como SQLi) tiene las propiedades de ser relativamente común en aplicaciones web y, por lo general, también resulta en una vulneración completa de la aplicación y sus datos. Si bien es un poco más complicado de encontrar y explotar que XSS, existen algunas técnicas que hacen que identificar y demostrar la explotabilidad sea bastante confiable. Dada su importancia, esta es la siguiente clase de vulnerabilidad en la que nos centraremos.
 
-SQL Injection (often shortened to SQLi) has the properties of being relatively common in web applications, and also typically resulting in a complete compromise of the application and its data. While it is a little trickier to find and exploit than XSS, there are a few techniques that make identifying and demonstrating exploitability fairly reliable. Given its importance, this is the next vulnerability class we’ll be focusing on.
+Diríjase al [tema SQLi de PortSwigger Academy](https://portswigger.net/web-security/sql-injection) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy SQLi topic](https://portswigger.net/web-security/sql-injection) and complete the reading and labs.
+Una vez que haya completado las prácticas de laboratorio, le ofrecemos algunos consejos para identificar SQLi de forma segura y confiable.
 
-Once you’ve completed the labs, here are a few tips for safely and reliably identifying SQLi.
+##### Prueba de parámetros de cadena de caracteres (string)
 
-### Testing string parameters
+Una forma común de probar SQLi es visitar un sitio agregando `' or 1=1;--` hasta el final de los parámetros. Esto no es subóptimo por varias razones. La primera son las declaraciones de actualización. Considere el siguiente SQL:
 
-A common way to test for SQLi is to go through a site adding `' or 1=1;--` to the ends of parameters. This is suboptimal for a number of reasons. The first is update statements. Consider the following SQL:
-
-```
+{{< highlight sql >}}
 update users set password='Password1!' where username='alice'
-```
+{{< / highlight >}}
 
-What happens if, for the username, you pass `alice' or 1=1;--` instead of `alice'`?
+¿Qué sucede si, para el nombre de usuario, pasas `alice' or 1=1;--` ¿en lugar de `alice`?
 
-```
+{{< highlight sql >}}
 update users set password='Password1!' where username='alice' or 1=1;--'
-```
+{{< / highlight >}}
 
-Oh no! Now every user in the database has the same password. You can never know (unless you’ve _very_ carefully reviewed the source code) where your inputs are going to go, so using <code><em>or</em></code> statements when trying to find SQLi can be quite dangerous.
+¡Oh, no! Ahora todos los usuarios de la base de datos tienen la misma contraseña. Nunca se puede saber (a menos que haya revisado _con mucho cuidado_ el código fuente) dónde van a ir sus entradas de datos, por lo que usar declaraciones `or` al intentar encontrar SQLi puede ser bastante peligroso.
 
-Even if you don’t overwrite the database with this testing string, it can have other problems. Consider a multi-line query:
+Incluso si no sobrescribe la base de datos con esta cadena de prueba, puede haber otros problemas. Considere una consulta de varias líneas:
 
-```
+{{< highlight sql >}}
 select *
   from comments
  where username = 'alice'
    and draft=0
-```
+{{< / highlight >}}
 
-When you pass in a username parameter of `alice' or 1=1;--`, the resulting query will be:
+Cuando pasas un parámetro de nombre de usuario de `alice' or 1=1;--`, la consulta resultante será:
 
-```
+{{< highlight sql >}}
 select *
   from comments
  where username = 'alice' or 1=1;--'
    and draft=0
-```
+{{< / highlight >}}
 
-Note the pesky semicolon in there. It causes the database to interpret the query as first a select query (<code><em>select</em> <em>\*</em> <em>from</em> comments <em>where</em> username <em>=</em> 'alice' <em>or</em> 1<em>=</em>1;</code>), and then an <code><em>and</em></code> query (<code><em>and</em> draft<em>=</em>0</code>). The problem with this is that there is no such thing as an and query, so this will result in an error. It might result in an error for other reasons as well, depending on the database. If the web application gives the same response for a database error as it does for no data (it should), then you won’t know that there is SQLi in the username parameter.
+Tenga en cuenta el molesto punto y coma allí. Hace que la base de datos interprete la consulta primero como una consulta de selección (`_select_ _\*_ _from_ comments _where_ username _\=_ 'alice' _or_ 1_\=_1;), y luego un _and_ query (_and_ draft_\=_0`). El problema con esto es que no existe una consulta and, por lo que generará un error. También podría generar un error por otros motivos, dependiendo de la base de datos. Si la aplicación web da la misma respuesta para un error de base de datos que para ausencia de datos (debería), entonces no sabrá que hay SQLi en el parámetro de nombre de usuario.
 
-The proper thing to do when testing for SQLi in a string parameter is to make a test parameter that works regardless of the query it’s in. The best thing to do is to use two requests, one that will result in the original data being returned from the query and another that will result in no data from the query. You can then compare the three responses (original, test 1, and test 2). If the original and test 1 return the same response, and test 2 returns a different response, then you’ve identified SQLi. Here is a set of strings you can use:
+Lo correcto al probar SQLi en un parámetro de cadena es crear un parámetro de prueba que funcione independientemente de la consulta en la que se encuentre. Lo mejor que puede hacer es utilizar dos solicitudes, una que dará como resultado que la consulta devuelva los datos originales y otra que no genere datos de la consulta. Luego puede comparar las tres respuestas (original, prueba 1 y prueba 2). Si el original y la prueba 1 devuelven la misma respuesta y la prueba 2 devuelve una respuesta diferente, entonces ha identificado SQLi. Aquí hay un conjunto de cadenas que puedes usar:
 
-For test 1, append the following to the parameter: `' and 'a' like '%a`
+Para la prueba 1, agregue lo siguiente al parámetro: `' and 'a' like '%a`
 
-For test 2, append the following to the parameter: `' and 'a' like '%b`
+Para la prueba 2, agregue lo siguiente al parámetro: `' and 'a' like '%b`
 
-Here are some example queries with these parameters:
+A continuación se muestran algunos ejemplos de consultas con estos parámetros:
 
-```
+{{< highlight sql >}}
 select * from comments where username = 'alice' and 'a' like '%a'
 select * from comments where username = 'alice' and 'a' like '%b'
-```
+{{< / highlight >}}
 
-Note that the first query will return the same results as if alice was passed as the parameter, and the second will return no rows. Thus there’s no risk of disaster if there's an injectable update or delete statement. Also note that the structure of the query is minimally perturbed, the tests will work even in multi-line queries.
+Tenga en cuenta que la primera consulta devolverá los mismos resultados que si se pasara alice como parámetro, y la segunda no devolverá ninguna fila. Por lo tanto, no hay riesgo de desastre si hay una inyección SQL en una sentencia de actualización o eliminación. También tenga en cuenta que la estructura de la consulta se altera mínimamente; las pruebas funcionarán incluso en consultas de varias líneas.
 
-You may be wondering why the examples use the <code><em>like</em></code> operation instead of <code><em>=</em></code>. That’s because the query you’re injecting into may use the like operation. Consider a document search query:
+Quizás se pregunte por qué los ejemplos utilizan la operación _like_ en lugar de _\=_. Esto se debe a que la consulta que está inyectando puede utilizar la operación _like_ . Considere una consulta de búsqueda de documentos:
 
-```
+{{< highlight sql >}}
 select * from documents where title like '%user text%'
-```
+{{< / highlight >}}
 
-The like operation allows wildcard operators, usually the percent sign. The above query will match any documents that contain the string “user text” anywhere in their title; the start, middle, or end. If we just used something like `' and 'a'='a` in our injection, then the test 1 query would be:
+La operación _like_ permite operadores comodín, normalmente el signo de porcentaje. La consulta anterior coincidirá con cualquier documento que contenga la cadena "texto de usuario" en cualquier parte de su título; el inicio, el medio o el final. Si usáramos algo como `' and 'a'='a` en nuestra inyección, entonces la consulta de la prueba 1 sería:
 
-```
+{{< highlight sql >}}
 select * from documents where title like '%user text' and 'a'='a%'
-```
+{{< / highlight >}}
 
-This will return no rows, since “a” is never _equal to_ “a%”. If we use test 1 above, though, the query would be:
+Esto no devolverá filas, ya que "a" nunca es _igual_ a "a%". Sin embargo, si utilizamos la prueba 1 anterior, la consulta sería:
 
-```
+{{< highlight sql >}}
 select * from documents where title like '%user text' and 'a' like 'a%'
-```
+{{< / highlight >}}
 
-Although they are not equal, “a” is _like_ “a%”. Thus, the above test 1 and test 2 should work in almost any string-based situation. Note that if you are testing a search feature, you might also want to try an additional test 1 string: `%' and 'a' like '%a`. Note that in the above queries the original search is slightly changed; it’s missing the % after the user text. If you suspect a like operation is in use, this test 1 string should make up for that.
+Aunque no son iguales, “a” es similar a “a%”. Por lo tanto, las pruebas 1 y 2 anteriores deberían funcionar en casi cualquier situación basada en cadenas de caracteres. Tenga en cuenta que si está probando una función de búsqueda, es posible que también desee probar una cadena de prueba 1 adicional: %' and 'a' like '%a. Tenga en cuenta que en las consultas anteriores la búsqueda original cambia ligeramente; falta el % después de”user text”. Si sospecha que se está utilizando una operación _like_, esta cadena de prueba 1 debería compensarlo.
 
-### Testing numeric parameters
+##### Prueba de parámetros numéricos
 
-Sometimes, when the browser passes a numeric value to the web server, the server includes it in a SQL query as a string. However, sometimes, it’s included as a numeric value. Typically, the SQL for a simple lookup of a numeric parameter will be something like:
+A veces, cuando el navegador pasa un valor numérico al servidor web, el servidor lo incluye en una consulta SQL como una cadena. Sin embargo, a veces se incluye como un valor numérico. Normalmente, el SQL para una búsqueda simple de un parámetro numérico será algo como:
 
-```
+{{< highlight sql >}}
 select * from stories where story_id=5
-```
+{{< / highlight >}}
 
-Obviously, sending a story_id of `5' and '1' like '1` isn’t going to work, due to a syntax error. Instead, try sending two requests, one with a story_id of `5`, and another with a story_id of `6-1`. If the second one gives no result, an error, or a different story than the request with a story_id of 5, then there’s no evidence of SQLi. However, if passing a story_id of 6-1 results in the same response as a story_id of 5, then that is strong evidence of SQLi. The query is likely to look like:
+Obviamente, enviar un story_id de `5' and '1' like '1` no funcionará debido a un error de sintaxis. En su lugar, intente enviar dos solicitudes, una con un story_id de `5`, y otra con un story_id de `6-1`. Si el segundo no da ningún resultado, da un error o una historia diferente a la solicitud con un story_id de 5, entonces no hay evidencia de SQLi. Sin embargo, si pasar un story_id de 6-1 da como resultado la misma respuesta que un story_id de 5, entonces eso es una fuerte evidencia de SQLi. Es probable que la consulta se vea así:
 
-```
+{{< highlight sql >}}
 select * from stories where story_id=6-1
-```
+{{< / highlight >}}
 
-In this example, the database engine is evaluating 6-1 as code, and retrieving the story whose ID is 5. From there, you can proceed to exploitation.
+En este ejemplo, el motor de la base de datos evalúa 6-1 como código y recupera la historia cuyo ID es 5. A partir de ahí, puedes proceder a la explotación.
 
-Of course, you can never know exactly what an application is doing to your input, or how it’s being used, but the above tips should significantly enhance the safety and effectiveness of your SQLi hunting.
+Por supuesto, nunca se puede saber exactamente qué está haciendo una aplicación con su entrada o cómo se utiliza, pero los consejos anteriores deberían mejorar significativamente la seguridad y eficacia de su búsqueda de SQLi.
 
-## Path Traversal
+#### Recorrido de ruta
 
-Path traversal typically occurs in websites that manage user supplied files or administrative interfaces, but can occur anywhere that the server-side web application itself opens files. Depending on what the server does with the files in question, the impact can range from source code disclosure at one extreme, to complete web server takeover on the other. Among modern web applications, the most common places to find path traversal vulnerabilities are blogging software and other content management systems, putting independent journalists and small media organizations particularly at risk.
+El recorrido de ruta (path traversal) generalmente ocurre en sitios web que administran archivos proporcionados por el usuario o interfaces administrativas, pero puede ocurrir en cualquier lugar donde la aplicación web del lado del servidor abra archivos. Dependiendo de lo que haga el servidor con los archivos en cuestión, el impacto puede variar desde la divulgación del código fuente en un extremo hasta la toma completa del servidor web en el otro. Entre las aplicaciones web modernas, los lugares más comunes para encontrar vulnerabilidades de recorrido de ruta son el software de blogging y otros sistemas de gestión de contenidos, lo que pone en especial riesgo a los periodistas independientes y a las pequeñas organizaciones de medios.
 
-Head over to the [PortSwigger Academy path traversal topic](https://portswigger.net/web-security/file-path-traversal) and complete the reading and labs.
+Diríjase al [tema Recorrido de ruta de PortSwigger Academy](https://portswigger.net/web-security/file-path-traversal) y complete la lectura y los laboratorios.
 
-## Command Injection
+#### Inyección de Comando
 
-Although command injection is relatively uncommon in modern web applications, it almost universally resultist in a complete compromise of the web application in the event that it is found and exploited. Where it does appear, it’s usually in management interfaces and, to a lesser extent, in content management systems.
+Aunque la inyección de comandos es relativamente poco común en las aplicaciones web modernas, casi universalmente resulta en un compromiso total de la aplicación web en caso de que se encuentre y explote. Donde sí aparece suele ser en las interfaces de gestión y, en menor medida, en los sistemas de gestión de contenidos.
 
-Head over to the [PortSwigger Academy command injection topic](https://portswigger.net/web-security/os-command-injection) and complete the reading and labs.
+Diríjase al [tema Inyección de Comando de PortSwigger Academy](https://portswigger.net/web-security/os-command-injection) y complete la lectura y los laboratorios.
 
-## Server-side request forgery
+#### Falsificación de solicitudes por el lado del servidor
 
-The general idea behind server-side request forgery (usually abbreviated as SSRF) is that an attacker can cause the web application’s server to send a HTTP request to any other server. Sometimes the application can display the response back to the client. For years, server side request forgery was considered a rather uninteresting vulnerability. When it was found, it was difficult to exploit in any sort of meaningful way. However, with the advent of cloud computing SSRF has suddenly become a critical issue.
+La idea general detrás de la falsificación de solicitudes por el lado del servidor (server-side request forgery,generalmente abreviada como SSRF por sus siglas en inglés) es que un atacante puede hacer que el servidor de la aplicación web envíe una solicitud HTTP a cualquier otro servidor. A veces, la aplicación puede mostrar la respuesta al cliente. Durante años, la falsificación de solicitudes por el lado del servidor se consideró una vulnerabilidad poco interesante. Cuando se encontró, fue difícil explotarlo de alguna manera significativa. Sin embargo, con la llegada de la computación en la nube, la SSRF se ha convertido repentinamente en una cuestión crítica.
 
-In cloud environments, administrators can assign permissions to virtual servers themselves. This is typically used to grant access to data storage buckets, databases, network services, etc. Usually the resources in question are accessible over the internet, making the server permissions the only access control.
+En entornos de nube, los administradores pueden asignar permisos a los propios servidores virtuales. Normalmente, esto se utiliza para otorgar acceso a depósitos de almacenamiento de datos, bases de datos, servicios de red, etc. Normalmente se puede acceder a los recursos en cuestión a través de Internet, lo que hace que los permisos del servidor sean el único control de acceso.
 
-The way these server permissions (sometimes called instance identity, machine keys, service account keys, managed identities, etc.) work is actually quite simple. In a cloud environment, servers are virtual machines running on physical hardware. There is a web service running on the physical server that only accepts network connections from VMs running on the server itself. When it receives a request, it looks up the VM by IP address and retrieves information about the VM, including the customer and permissions role associated with the VM. It then generates cloud credentials for that role and sends them back in the response. Software on the VM can then use those credentials to authenticate to other cloud services.
+La forma en que funcionan estos permisos del servidor (a veces llamados identidad de instancia, claves de máquina, claves de cuenta de servicio, identidades administradas, etc.) es bastante simple. En un entorno de nube, los servidores son máquinas virtuales que se ejecutan en hardware físico. Hay un servicio web que se ejecuta en el servidor físico que solo acepta conexiones de red de VM que se ejecutan en el servidor. Cuando recibe una solicitud, busca la VM por dirección IP y recupera información sobre la VM, incluido el cliente y los roles de permisos asociados con la VM. Luego genera credenciales en la nube para ese rol y las envía de vuelta en la respuesta. Luego, el software de la VM puede usar esas credenciales para autenticarse en otros servicios en la nube.
 
-If an attacker can cause a web application hosted in the cloud to send arbitrary HTTP requests and return the responses, then frequently the attacker can see the server’s cloud instances. If that happens, the attacker can impersonate the web server. One example of this is [the 2019 breach of Capital One](https://blog.appsecco.com/an-ssrf-privileged-aws-keys-and-the-capital-one-breach-4c3c2cded3af), which resulted in the compromise of sensitive information for over 100 million people.
+Si un atacante puede hacer que una aplicación web alojada en la nube envíe solicitudes HTTP arbitrarias y devuelva las respuestas, con frecuencia el atacante puede ver las instancias de la nube del servidor. Si eso sucede, el atacante puede hacerse pasar por el servidor web. Un ejemplo de esto es [la violación de Capital One en 2019](https://blog.appsecco.com/an-ssrf-privileged-aws-keys-and-the-capital-one-breach-4c3c2cded3af), que resultó en el compromiso de información confidencial de más de 100 millones de personas.
 
-Head over to the [PortSwigger Academy SSRF topic](https://portswigger.net/web-security/ssrf) and complete the reading and labs.
+Diríjase al [tema SSRF de PortSwigger Academy](https://portswigger.net/web-security/ssrf) y complete la lectura y los laboratorios.
 
-## NoSQL injection
+#### Inyección NoSQL
 
-Traditionally, web applications used SQL databases to store and retrieve their data. For many web application uses, developers have come to prefer NoSQL databases (e.g. MongoDB, though there are many). These NoSQL databases use a different query syntax than SQL (not surprising, given the name), but the general concepts for NoSQL injection are similar to that of SQL injection. However, the specifics are quite different.
+Tradicionalmente, las aplicaciones web utilizaban bases de datos SQL para almacenar y recuperar sus datos. Para muchos usos de aplicaciones web, los desarrolladores prefieren las bases de datos NoSQL (por ejemplo, MongoDB, aunque hay muchas). Estas bases de datos NoSQL utilizan una sintaxis de consulta diferente a la de SQL (no es sorprendente, dado el nombre), pero los conceptos generales de la inyección NoSQL son similares a los de la inyección SQL. Sin embargo, los detalles son bastante diferentes
 
-Head over to the [PortSwigger Academy NoSQL injection topic](https://portswigger.net/web-security/nosql-injection) and complete the reading and labs.
+Diríjase al [tema Inyección NoSQL de PortSwigger Academy](https://portswigger.net/web-security/nosql-injection) y complete la lectura y los laboratorios.
 
-## XXE injection
+#### Inyección XXE
 
-XXE injection uses the ability of XML files to refer to other files. Applications that allow users to control XML data that the application processes may be vulnerable. Exploitation typically allows attackers to read arbitrary files from the web server, and may also allow denial of service attacks and, in rare cases, remote code execution. Fortunately for defenders, most web applications do not process user-controllable XML.
+La inyección XXE utiliza la capacidad de los archivos XML para hacer referencia a otros archivos. Las aplicaciones que permiten a los usuarios controlar los datos XML que la aplicación procesa pueden ser vulnerables. La explotación normalmente permite a los atacantes leer archivos arbitrarios del servidor web y también puede permitir ataques de denegación de servicio y, en casos excepcionales, la ejecución remota de código. Afortunadamente para los defensores, la mayoría de las aplicaciones web no procesan XML controlable por el usuario.
 
-Head over to the [PortSwigger Academy XXE injection topic](https://portswigger.net/web-security/xxe) and complete the reading and labs.
+Diríjase al [tema Inyección NoSQL de PortSwigger Academy](https://portswigger.net/web-security/xxe) y complete la lectura y los laboratorios.
+
+## Verificación de Habilidades
+
+PortSwigger academy contiene una serie de laboratorios que puede utilizar para probar y validar sus habilidades. Para cada uno de los siguientes temas, complete 1-3 de los laboratorios de nivel "profesional":
+
+- [Secuencias de comandos entre sitios](https://portswigger.net/web-security/all-labs#cross-site-scripting) (XSS)
+- [Intercambio de recursos entre orígenes](https://portswigger.net/web-security/all-labs#cross-origin-resource-sharing-cors) (CORS)
+- [Inyección SQL](https://portswigger.net/web-security/all-labs#sql-injection)
+- [Recorrido de ruta](https://portswigger.net/web-security/all-labs#path-traversal)
+- [Inyección de comando OS](https://portswigger.net/web-security/all-labs#os-command-injection)
+- [Inyección NoSQL](https://portswigger.net/web-security/all-labs#nosql-injection)
+- [Inyección XXE](https://portswigger.net/web-security/all-labs#xml-external-entity-xxe-injection)
+
+Si está trabajando con un compañero, compañera, mentor o mentora, explíquele cómo funciona cada ataque y cómo encontraría y demostraría la explotabilidad de vulnerabilidades similares en un sitio que estuviera probando.
 
 ## Learning Resources
 
-{{% resource title="Report: 50% of all web applications were vulnerable to attacks in 2021" languages="English" cost="Free" description="Summary of a report on vulnerabilities in major web applications." url="https://venturebeat.com/security/report-50-of-all-web-applications-were-vulnerable-to-attacks-in-2021/" %}}
+{{% resource title="Informe: El 50% de todas las aplicaciones web fueron vulnerables a ataques en 2021" description="Un resumen de un informe sobre cuántas aplicaciones web importantes eran vulnerables a ataques similares a los que describimos en estas rutas de aprendizaje" languages="Inglés" cost="Gratis" url="https://venturebeat.com/security/report-50-of-all-web-applications-were-vulnerable-to-attacks-in-2021/" %}}
 
-{{% resource title="An overview of same-origin policy and cross-origin resource sharing" languages="Multiple" cost="Free" description="Introductions to same-origin policy and cross-origin resource sharing." url="https://en.wikipedia.org/wiki/Same-origin_policy" url2="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" %}}
+{{% resource title="Una descripción general de la política del mismo origen" description="Introducciones a ambos temas que profundizan bastante moderadamente." languages="Múltiple" cost="Gratis" url="https://es.wikipedia.org/wiki/Pol%C3%ADtica_del_mismo_origen" %}}
 
-{{% resource title="An SSRF, privileged AWS keys and the Capital One breach" languages="English" cost="Free" description="Overview of the 2019 Capital One breach through an SSRF bug." url="https://blog.appsecco.com/an-ssrf-privileged-aws-keys-and-the-capital-one-breach-4c3c2cded3af" %}}
+{{% resource title="Una descripción general del intercambio de recursos de origen cruzado" description="Introducciones a ambos temas que profundizan bastante moderadamente." languages="Múltiple" cost="Gratis" url="https://es.wikipedia.org/wiki/Intercambio_de_recursos_de_origen_cruzado" %}}
 
-## Skill Check
-
-PortSwigger academy contains a series of labs which you can use to test and validate your skills. For each of the following topics, complete 1-3 of the ‘practitioner’ level labs:
-
-- [Cross-site scripting](https://portswigger.net/web-security/all-labs#cross-site-scripting)
-- [Cross-origin resource sharing](https://portswigger.net/web-security/all-labs#cross-origin-resource-sharing-cors)
-- [SQL injection](https://portswigger.net/web-security/all-labs#sql-injection)
-- [Path traversal](https://portswigger.net/web-security/all-labs#path-traversal)
-- [OS command injection](https://portswigger.net/web-security/all-labs#os-command-injection)
-- [NoSQL injection](https://portswigger.net/web-security/all-labs#nosql-injection)
-- [XXE injection](https://portswigger.net/web-security/all-labs#xml-external-entity-xxe-injection)
-
-If you are working with a peer or mentor, explain to them how each attack works and how you would find and demonstrate exploitability for similar vulnerabilities in a site you were testing.
+{{% resource title="Una SSRF, claves privilegiadas de AWS y la vulneración de Capital One" description="Una descripción general de 2019 de una vulneración de una importante institución financiera a través de un error de SSRF" languages="Inglés" cost="Gratis" url="https://blog.appsecco.com/an-ssrf-privileged-aws-keys-and-the-capital-one-breach-4c3c2cded3af" %}}
