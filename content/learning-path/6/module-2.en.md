@@ -285,14 +285,13 @@ Identify the total number of requests recorded in the access log.
 cat apache_access.log | wc -l
 {{< / highlight >}}
 
-
 Determine the most frequently requested URLs.
 
 {{< highlight bash >}}
 awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
 {{< / highlight >}}
 
-This awk command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the uniq -c command is used to count the occurrences of each unique line in the sorted output. The sort -nr command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The head -5 command is used to display the first 5 lines of the input.
+This `awk` command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the `uniq -c` command is used to count the occurrences of each unique line in the sorted output. The sort -nr command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The `head -5` command is used to display the first 5 lines of the input.
 
 Find out the top 5 IP addresses making requests to the server.
 
@@ -326,9 +325,9 @@ Calculate the average size of requests (in bytes).
 awk '{sum+=$10} END {print "Average request size:", sum/NR, "bytes"}' nginx_access.log
 {{< / highlight >}}
 
-This AWK command calculates the average request size by summing up the values in the 10th column (presumably representing request sizes) for all lines in the nginx_access.log file. Then, it divides the total sum by the number of lines (NR), representing the average request size in bytes. Finally, it prints out the result along with a descriptive message.
+This `awk` command calculates the average request size by summing up the values in the 10th column (presumably representing request sizes) for all lines in the `nginx_access.log` file. Then, it divides the total sum by the number of lines (NR), representing the average request size in bytes. Finally, it prints out the result along with a descriptive message.
 
-Make sure that the 10th column actually represents the request size in bytes in your nginx_access.log file, as the accuracy of the calculation depends on the correctness of the column indexing. \
+Make sure that the 10th column actually represents the request size in bytes in your `nginx_access.log` file, as the accuracy of the calculation depends on the correctness of the column indexing. \
 
 Determine the top 5 user agents accessing the server.
 
@@ -364,7 +363,7 @@ cat nginx_error.log | grep 'error' | wc -l
 {{< / highlight >}}
 
 
-Apache: Identify the most common types of errors. awk '{print $NF}' reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
+Apache: Identify the most common types of errors. `awk '{print $NF}'` reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
 
 {{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
