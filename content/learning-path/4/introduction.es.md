@@ -1,7 +1,7 @@
 +++
 style = "introduction"
 weight = 1
-title = "Introduction"
+title = "Introducción"
 description = "Lea la descripción general de la ruta de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos."
 +++
 

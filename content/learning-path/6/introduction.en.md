@@ -110,7 +110,7 @@ After installation, each Linux distribution will have an icon on the Windows app
 
 A new window should open with a Linux shell.
 
-- Here is a quick review of the WSL command line options.
+**Here is a quick review of the WSL command line options.**
 
 Print the usage information and see the command line arguments:
 
@@ -162,6 +162,6 @@ wsl
 
 ## Related learning paths
 
-_Web Application Security Fundamentals:_ This Hardening, Forensics, and Incident Response learning path assumes a certain level of familiarity with web application security. If you are new to this area of security, then you should go through the Security Fundamentals learning path to gain the background information to effectively engage with this one.
+[Web Application Security Fundamentals](/en/learning-path/4/): This Hardening, Forensics, and Incident Response learning path assumes a certain level of familiarity with web application security. If you are new to this area of security, then you should go through the Security Fundamentals learning path to gain the background information to effectively engage with this one.
 
-_Web Application Security Assessment:_ For digital defenders, attacking and defending are two important parts of a whole. As someone helping your clients secure their sites, knowing how to holistically defend against attacks allows you to provide them with better recommendations. This Learning Path provides a deeper understanding of the types of hacking attacks that websites may be subject to.
+[Web Application Security Assessment](/en/learning-path/5/): For digital defenders, attacking and defending are two important parts of a whole. As someone helping your clients secure their sites, knowing how to holistically defend against attacks allows you to provide them with better recommendations. This Learning Path provides a deeper understanding of the types of hacking attacks that websites may be subject to.
