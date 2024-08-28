@@ -4,7 +4,7 @@ function setElementDisplayById(elementId, displayStyle) {
   if (element) {
     element.style.display = displayStyle;
   } else {
-    console.warn(`Element with ID ${elementId} not found.`);
+    //console.warn(`Element with ID ${elementId} not found.`);
   }
 }
 
@@ -16,7 +16,7 @@ function setElementDisplayByClass(className, displayStyle) {
       element.style.display = displayStyle;
     }
   } else {
-    console.warn(`Elements with class name ${className} not found.`);
+    //console.warn(`Elements with class name ${className} not found.`);
   }
 }
 

@@ -52,7 +52,7 @@
                         </svg>
                         {{ range .Site.Languages }}
                         {{ if eq . $.Site.Language }}
-                        <span class="ms-2 text-sm font-semibold leading-6 text-gray-900 hidden lg:block" aria-hidden="true">{{ .LanguageName }}</span>
+                        <span class="ms-2 hidden text-sm font-semibold leading-6 text-gray-900 lg:block" aria-hidden="true">{{ .LanguageName }}</span>
                         {{ end }}
                         {{ end }}
                         </svg>
@@ -119,14 +119,14 @@
             </div>
         </div>
 
-        <div id="signupButtonCTA" class="hidden ms-8">
+        <div id="signupButtonCTA" class="ms-8 hidden">
             <a href="{{ .Site.LanguagePrefix }}/signup"
                 class="rounded-md bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-green-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-green-700">{{
                 i18n "key.signup" }}</a>
         </div>
-        <div id="loginButtonCTA" class="hidden ms-2">
+        <div id="loginButtonCTA" class="ms-2 hidden">
             <a id="signupButtonCTA" href="{{ .Site.LanguagePrefix }}/login"
-                class="hidden lg:block rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50">{{
+                class="hidden rounded-md bg-white px-5 py-2.5 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 lg:block">{{
                 i18n "key.login" }}</a>
         </div>
     </nav>
