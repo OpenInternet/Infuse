@@ -1,182 +1,183 @@
 +++
 style = "module"
 weight = 2
-title = "Website Logging for Security"
+title = " Registro de Sitios Web para Mayor Seguridad"
+description = "Los registros de sitios web pueden ser cruciales para identificar posibles ataques y atacantes. Analizamos cómo utilizarlos de manera eficaz"
 +++
 
-## Use Case
+## Caso de Uso
 
-Any website that’s exposed to the internet is under constant attack. At the very least, it’s being deluged by undirected attacks by hordes of robots operated by criminal actors. More concerning are targeted attacks; even unskilled attackers, given perseverance and luck, can find vulnerabilities in a website.
+Cualquier sitio web que esté expuesto a Internet está bajo ataque constante. Como mínimo, está siendo inundado por ataques no dirigidos por hordas de robots operados por agentes criminales. Más preocupantes son los ataques dirigidos; incluso los atacantes no cualificados, con perseverancia y suerte, pueden encontrar vulnerabilidades en un sitio web.
 
-Ideally, the website owner should be able to be aware of the threats they are facing. Site owners especially will want to know if an attacker is close to finding, or has recently found, a vulnerability in their site. Finally, if a vulnerability is exploited, site owners will want to know where the vulnerability is, and for how long it’s been exploited. Website logs can support all of these desires.
+Idealmente, la personas propietaria del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente los propietarios de sitios querrán saber si un atacante está cerca de encontrar, o ha encontrado recientemente, una vulnerabilidad en su sitio. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
 
-On the other hand, excessive logging can present a risk to the users of web sites. If a site logs sensitive information, and those logs are acquired by an adversary (e.g., seizure by law enforcement or compromise by hackers), then sensitive information could easily end up in the wrong hands.
+Por otro lado, el registro excesivo puede representar un riesgo para los usuarios de los sitios web. Si un sitio registra información confidencial y esos registros son adquiridos por un adversario (por ejemplo, incautación por parte de las autoridades o piratería informática), entonces la información confidencial podría terminar fácilmente en las manos equivocadas.
 
-This subtopic will cover approaches to website logging to maximize utility to website owners and minimize risk to site users.
+Este subtema cubrirá enfoques para el registro de sitios web para maximizar la utilidad para los propietarios de sitios web y minimizar el riesgo para los usuarios del sitio.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, the practitioner should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
-- Understand built-in logging for major web servers
-- Understand what application-specific logs to add to detect attacks
-- Know how to minimize sensitive information in logs
+- Comprender el registro integrado para los principales servidores web
+- Comprenda qué registros específicos de la aplicación agregar para detectar ataques
+- Sepa cómo minimizar la información confidencial en los registros.
 
 ---
+## Sección Principal
+Incluso con las mejores habilidades, dedicación, procesos e intenciones posibles, es casi imposible desarrollar un sitio web que sea completamente resistente a cualquier tipo de ataque. Con suficiente tiempo y mala suerte, cada sitio tendrá un incidente de seguridad. Cuando eso sucede, es importante contar con un registro que respalde la detección e investigación de eventos de seguridad. Al mismo tiempo, es importante que los registros de un sitio web no representen riesgos adicionales por sí mismos. Este subtema le enseñará cómo abordar el registro para maximizar la seguridad de un sitio. Se discutirá:
 
-Even with the best possible skills, dedication, processes, and intentions, it’s nearly impossible to develop a website that’s completely resistant to any kind of attack. Given enough time and bad luck, every site will have a security incident. When that happens, it’s important to have logging in place that supports the detection and investigation of security events. At the same time, it’s important that a website's logs don’t pose additional risks themselves. This subtopic will teach you how to approach logging to maximize a site’s security. It will discuss:
+- Registros integrados para plataformas populares
+- Agregar registros para detectar eventos de seguridad importantes
+- Minimizar los riesgos asociados con el registro
 
-- Built-in logs for popular platforms
-- Adding logs to catch important security events
-- Minimizing risks associated with logging
+### Registro Incorporado
 
-## Built-in Logging
+Varias plataformas web tienen sus propios sistemas de registro. Se puede confiar en que registrarán datos sobre cada solicitud y respuesta, pero generalmente no son suficientes para todas las necesidades de respuesta a incidentes. Repasemos lo que está disponible en los registros de algunos framworks comunes.
 
-Various web platforms have their own logging systems. They can be relied upon to record data on every request and response, but are generally not sufficient for all incident response needs. Let’s go over what’s available in some common frameworks’ logs.
+#### Apache
 
-### Apache
+Apache es el servidor web con todas las funciones más popular de Internet y ofrece más sitios activos que cualquier otro. De forma predeterminada, registra eventos para archivarlos en el sistema de archivos del servidor web. Hay dos archivos: access_log y error_log. El registro de acceso contiene información estructurada sobre cada solicitud, mientras que el registro de errores contiene más datos semiestructurados sobre cosas que salieron mal.
 
-Apache is the most popular full-featured web server on the internet, serving more active sites than any other. By default, it logs events to file on the web server’s filesystem. There are two files: `access_log` and `error_log`. The access log contains structured information about each request, while the error log contains more semi-structured data about things that have gone wrong.
+El registro de acceso tiene una línea por entrada, con un formato configurable. El formato predeterminado son los siguientes campos, cada uno separado por un espacio:
 
-The access log has one line per entry, with a configurable format. The default format is the following fields, each separated by a space:
+- La dirección IP del solicitante
+- El usuario que inició sesión en el dispositivo solicitante. Esto casi nunca se envía, por lo que casi siempre es solo un guión.
+- El usuario con la sesión iniciada sesión si el sitio web utiliza autenticación HTTP básica. Esto también será casi siempre un guión.
+- La fecha y hora de la solicitud, entre corchetes. Tenga en cuenta que este campo normalmente tendrá espacios.
+- La línea de solicitud HTTP enviada desde el cliente, entre comillas (por ej. "GET / HTTP/1.1"). Estos campos siempre tendrán espacios.
+- El código de respuesta HTTP del servidor, por ej. 200, 404, 500, etc.
+- El tamaño de la respuesta devuelta por el servidor.
 
-- The requester’s IP address
-- The logged-in user on the requesting device. This is almost never sent, and so is almost always just a dash.
-- The user logged in if the web site uses HTTP Basic authentication. This will also almost always be a dash.
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The HTTP request line sent from the client, surrounded by quotes (e.g. `"GET / HTTP/1.1"`). These fields will always have spaces.
-- The HTTP response code from the server, e.g. 200, 404, 500, etc.
-- The size of the response returned from the server
-
-Here’s an example:
+Hay aquí un ejemplo:
 
 ```
 127.0.0.1 - - [13/Dec/2023:13:55:36 -0700] "GET / HTTP/1.1" 200 2326
 ```
 
-Note that each Apache server can be configured to log more of less data. For more information, see [the Apache documentation](https://httpd.apache.org/docs/2.4/logs.html#accesslog). For more about the apache access log and how to use it, see [this article.](https://www.keycdn.com/support/apache-access-log)
+Tenga en cuenta que cada servidor Apache se puede configurar para registrar más o menos datos. Para obtener más información, consulte [la documentación de Apache](https://httpd.apache.org/docs/2.4/logs.html#accesslog). Para obtener más información sobre el registro de acceso de Apache y cómo usarlo, consulte [este artículo.](https://www.keycdn.com/support/apache-access-log)
 
-The error log consists of a mix of messages from Apache that are in a semi-structured format and error messages from websites running on the server, without any enforced structure. The default structure of error log entries from Apache itself is one line per entry, with the following fields, again separated by spaces:
+El registro de errores consta de una combinación de mensajes de Apache que están en un formato semiestructurado y mensajes de error de sitios web que se ejecutan en el servidor, sin ninguna estructura obligatoria. La estructura predeterminada de las entradas del registro de errores del propio Apache es una línea por entrada, con los siguientes campos, nuevamente separados por espacios:
 
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The error level (e.g. notice, error) surrounded by square brackets.
-- If the error is associated with a request, the word “client” and the IP address of the requester, all within square brackets.
-- The actual error message itself, which will almost always contain a number of spaces
+- La fecha y hora de la solicitud, entre corchetes. Tenga en cuenta que este campo normalmente tendrá espacios.
+- El nivel de error (por ejemplo, aviso, error) entre corchetes.
+- Si el error está asociado con una solicitud, la palabra “cliente” y la dirección IP del solicitante, todo entre corchetes.
+- El mensaje de error en sí, que casi siempre contendrá varios espacios.
 
-[This article](https://www.dataset.com/blog/apache-error-log-detail/) provides more information about using the Apache error log.
+[Este artículo](https://www.dataset.com/blog/apache-error-log-detail/) proporciona más información sobre el uso del registro de errores de Apache.
 
-### IIS
+#### IIS
 
-IIS is the default Windows web server, and is also a very popular web server. Like Apache, IIS also, by default, logs requests to the web server’s filesystem. There are several log formats available, but the default is the W3C format, which logs the following, separated by spaces:
+IIS es el servidor web predeterminado de Windows y también es un servidor web muy popular. Al igual que Apache, IIS también, de forma predeterminada, registra las solicitudes en el sistema de archivos del servidor web. Hay varios formatos de registro disponibles, pero el predeterminado es el formato W3C, que registra lo siguiente, separado por espacios:
 
-- Request time
-- Requester’s IP address
-- HTTP method (e.g. `GET`, `POST`, `HEAD`, etc.)
-- URI (e.g. `/`, `/index.htm`, `/posts/34/reply`, etc.)
-- Server response code (e.g. `200`, `404`, `500`, etc.)
-- HTTP protocol version (e.g. `HTTP/1.1`)
+- Hora de la petición
+- La dirección IP del solicitante
+- Método HTTP (por ejemplo, `GET`, `POST`, `HEAD`, etc.)
+- URI (por ejemplo, `/`, `/index.htm`, `/posts/34/reply`, etc.)
+- Código de respuesta del servidor (por ejemplo, `200`, `404`, `500`, etc.)
+- Versión del protocolo HTTP (por ejemplo, `HTTP/1.1`)
 
-Note that the default logs do not log the query string, so for example a request to [http://example.com/profile?profileID=34](http://example.com/profile?profileID=34) will only log `/profile`. For more information on the IIS access logs, see the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0).
+Tenga en cuenta que los registros predeterminados no registran la cadena de consulta, por ejemplo, una solicitud a <http://example.com/profile?profileID=34> solo registrará /profile. Para obtener más información sobre los registros de acceso de IIS, consulte la [documentación de Microsoft](https://learn.microsoft.com/es-es/windows/win32/http/server-side-logging-in-http-version-2-0).
 
-Error logs under IIS are slightly more complicated. Depending on the error, they may go to the HTTP.SYS HTTPERR log file, or in the Windows event log.
+Los registros de errores en IIS son un poco más complicados. Dependiendo del error, pueden ir al archivo de registro HTTP.SYS HTTPERR o al registro de eventos de Windows.
 
-The HTTPERR file contains protocol-level errors and is in a structured format, with the following fields separated by spaces:
+El archivo HTTPERR contiene errores a nivel de protocolo y está en un formato estructurado, con los siguientes campos separados por espacios:
 
-- Request date
-- Request time
-- Requester’s IP address
-- Requester’s port (not the server port)
-- Server IP address
-- Server port
-- HTTP protocol ( e.g. `HTTP/1.1`)
-- HTTP method (e.g. `GET`, `POST`, `HEAD`, etc.)
-- The URL and query string
-- Server response code (e.g. `200`, `404`, `500`, etc.)
-- A literal dash
-- An error type string (no spaces)
+- Fecha de solicitud
+- Hora de solicitud
+- La dirección IP del solicitante
+- Puerto del solicitante (no el puerto del servidor)
+- Dirección de IP del servidor
+- Puerto de servidor
+- Protocolo HTTP (por ejemplo, `HTTP/1.1`)
+- Método HTTP (por ejemplo, `GET`, `POST`, `HEAD`, etc.)
+- La URL y la cadena de consulta.
+- Código de respuesta del servidor (por ejemplo, `200`, `404`, `500`, etc.)
+- Un guión (-)
+- Una cadena de tipo de error (sin espacios)
 
-For more information on the error log, see the [Microsoft documentation](https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis).
+Para obtener más información sobre el registro de errores, consulte la [documentación de Microsoft](https://learn.microsoft.com/es-es/windows/win32/http/error-logging-in-the-http-server-api).
 
-The Windows event log contains errors generated from the application server (e.g. ASP.NET) or application. These are available in the Windows Event Viewer and are semi-structured:
+El registro de eventos de Windows contiene errores generados desde el servidor de aplicaciones (por ejemplo, ASP.NET) o la aplicación. Están disponibles en el Visualizador de Eventos de Windows y están semiestructurados:
 
-- Error level (e.g. `Information`, `Warning`, `Error`)
-- Date and time
-- The software that logged the error (log entries can come from any software on the system, not just the web server)
-- A unique ID of the event/error
-- Category
-- Unstructured information specific to the error
+- Nivel de error (por ejemplo, `Information`, `Warning`, `Error`)
+- Fecha y hora
+- El software que registró el error (las entradas de registro pueden provenir de cualquier software del sistema, no solo del servidor web)
+- Una identificación única del evento/error
+- Categoría
+- Información no estructurada específica del error
 
-For more information on finding error logs on Windows, see [this article](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
+Para obtener más información sobre cómo buscar registros de errores en Windows, consulte [este artículo](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
 
-### nginx
+#### nginx
 
-Depending on how you count, nginx may be the most popular web server on the internet, however it is fairly limited, usually acting as a reverse proxy to a back-end web server or serving static files.
+Dependiendo de cómo se cuente, nginx puede ser el servidor web más popular en Internet, sin embargo, es bastante limitado y generalmente actúa como un proxy inverso para un servidor web back-end o sirviendo archivos estáticos.
 
-The default access logs are similar to the default Apache logs, but with the following fields at the end of each line:
+Los registros de acceso predeterminados son similares a los registros predeterminados de Apache, pero con los siguientes campos al final de cada línea:
 
-- Value of the referer header sent with the request
-- User agent (browser version) sent with the request
+- Valor del encabezado de referencia (referer) enviado con la solicitud.
+- Agente de usuario (versión de navegador) enviado con la solicitud
 
-For more information about nginx logs, see [the official documentation](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
+Para obtener más información sobre los registros de nginx, consulte [la documentación oficial](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
 
-nginx error logs are semi-structured, with the following fields, separated by spaces:
+Los registros de errores de nginx están semiestructurados, con los siguientes campos, separados por espacios:
 
-- The request date
-- The request time
-- The error level inside of square brackets
-- Process ID information about the nginx instance that logged the error
-- An (optional) connection ID
-- The error message in free-form text
+- La fecha de solicitud
+- La hora de solicitud
+- El nivel de error dentro de corchetes
+- Información de ID de proceso sobre la instancia de nginx que registró el error
+- Un ID de conexión (opcional)
+- El mensaje de error en texto de formato libre
 
-For more information, see [this article](https://trunc.org/learning/nginx-log-analysis).
+Para obtener más información, consulte [este artículo](https://trunc.org/learning/nginx-log-analysis).
 
-### Upstream CDN logs
+#### Registros de la CDN
 
-If a site is behind a CDN, it’s often useful to see the logs of the requests to the CDN, as opposed to the requests from the CDN to the origin site. Each CDN provider provides logs differently and has different pricing structures for logging.
+Si un sitio está protegido por una CDN, suele ser útil ver registros de solicitudes a la CDN en lugar de solicitudes de la CDN al sitio de origen. Cada proveedor de CDN entrega registros de manera diferente y tiene diferentes estructuras de precios para el registro.
 
-### Setting up server logging
+#### Configurar el registro del servidor
 
-When setting up server logging, there are a few steps that should be taken to maximize the security value of the logs.
+Al configurar el registro del servidor, hay algunos pasos que se deben seguir para maximizar el valor de seguridad de los registros.
 
-- Make sure the logs contain at least the IP address of the requestor, full URI requested (including the query string), time taken to serve the request, response size, referer, and user-agent. This information can be extremely helpful when investigating an incident.
-- Try to get the logs off of the web server as quickly as possible. If the server itself is compromised, attackers will likely try to hide their tracks by deleting or modifying the server logs. Some ways of accomplishing this include:
-  - Have a process that pulls log files from the server periodically. Pushing logs from the web server is okay, though it’s important that the push process cannot be used to delete the backed-up logs.
-  - “Stream” logs from the web server to a remote ever, for example, with syslog-ng. This provides great protection against loss of logs. It’s usually a good idea to keep logs on the web server as well, in case of network interruption.
+- Asegúrese de que los registros contengan al menos la dirección IP del solicitante, el URI completo solicitado (incluida la cadena de consulta), el tiempo necesario para atender la solicitud, el tamaño de la respuesta, el referente y el agente de usuario. Esta información puede ser extremadamente útil al investigar un incidente.
+- Intente eliminar los registros del servidor web lo más rápido posible. Si el servidor en sí está comprometido, los atacantes probablemente intentarán ocultar sus huellas eliminando o modificando los registros del servidor. Algunas formas de lograr esto incluyen:
+  - Tenga un proceso que extraiga archivos de registro del servidor periódicamente. Enviar registros desde el servidor web está bien, aunque es importante que el proceso de envío no se pueda utilizar para eliminar los registros respaldados.
+  - "Transmitir" registros desde el servidor web a un dispositivo remoto, por ejemplo, con syslog-ng. Esto proporciona una gran protección contra la pérdida de registros. Por lo general, también es una buena idea mantener registros en el servidor web, en caso de interrupción de la red.
 
-### Limitations of server logging
+#### Limitaciones del registro del servidor
 
-Even when fully configured, built-in server logs miss a lot of important information. Some examples:
+Incluso cuando están completamente configurados, los registros del servidor integrados omiten mucha información importante. Algunos ejemplos:
 
-- POST parameter information isn’t included. If an attacker is performing application-level attacks against a page that accepts POST parameters, there will be no way to see those attacks in the logs.
-- Although error logs may contain information about filesystem and database errors that occur as attackers exploit vulnerabilities, they generally are not sufficient to understand much about the attack. E.g., elevated error logs may indicate an attack in progress but may also indicate a non-security bug, and it can be very difficult to distinguish between the two.
-- No identity information is included. While all logs include the IP address, multiple users can have the same IP.
+- La información del parámetro POST no está incluida. Si un atacante realiza ataques a nivel de aplicación contra una página que acepta parámetros POST, no habrá forma de ver esos ataques en los registros.
+- Aunque los registros de errores pueden contener información sobre los errores del sistema de archivos y de la base de datos que ocurren cuando los atacantes explotan las vulnerabilidades, generalmente no son suficientes para comprender mucho sobre el ataque. Por ejemplo, los registros de errores elevados pueden indicar un ataque en progreso, pero también pueden indicar un error no relacionado con la seguridad, y puede ser muy difícil distinguir entre los dos.
+- No se incluye información de identidad. Si bien todos los registros incluyen la dirección IP, varios usuarios pueden tener la misma IP.
 
-Much of this information isn’t included for good reason. Much of it can have bad implications for user privacy. Others (like useful error logging) require insight into the application itself, so can’t be done by the web server.
+Gran parte de esta información no se incluye por una buena razón. Gran parte de esto puede tener malas implicaciones para la privacidad del usuario. Otros (como el útil registro de errores) requieren información sobre la aplicación en sí, por lo que el servidor web no puede realizarlos.
 
-### Approaching Logging for security
+#### Acercarse al Registro por seguridad
 
-The main purpose of application-level logging in a web application is to overcome the limitations of server logging. There are numerous articles describing best practices for logging, here are a few:
+El objetivo principal del registro a nivel de aplicación en una aplicación web es superar las limitaciones del registro del servidor. Existen numerosos artículos que describen las mejores prácticas para el registro; a continuación se muestran algunos:
 
-- [An overview of security logging](https://www.dnsstuff.com/security-log-best-practices)
-- [An article from OWASP on logging for web sites](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [An article from OWASP on having a consistent format for logs](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
+- [Una descripción general del registro de seguridad](https://www.dnsstuff.com/security-log-best-practices)
+- [Un artículo de OWASP sobre el registro de sitios web](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+- [Un artículo de OWASP sobre cómo tener un formato consistente para los registros](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
 
-These resources should get you set up with the knowledge you need to integrate security logging into an existing (or new) web application.
+Estos recursos deberían ayudarlo a obtener el conocimiento que necesita para integrar el registro de seguridad en una aplicación web existente (o nueva).
 
-### Logging and sensitive information
+#### Registro e información confidencial
 
-When overcoming the limitations of built-in server logging, we want to make sure that we don’t put site users at risk. It is frequently the case that logs are less well protected than production databases. First off, logs are not as obvious a target as a production database, so people tend to not focus on them as much when putting security measures in place. Secondly, it’s often the case that more users at an organization are given access to logs than are granted to access to a production database. Third, logs tend to be sent to many different systems, whereas production databases tend to stay centralized. Because of this, it’s worth considering redacting sensitive information in logs.
+Al superar las limitaciones del registro integrado del servidor, queremos asegurarnos de no poner en riesgo a los usuarios del sitio. Con frecuencia ocurre que los registros están peor protegidos que las bases de datos de producción. En primer lugar, los registros no son un objetivo tan obvio como una base de datos de producción, por lo que las personas tienden a no centrarse tanto en ellos cuando implementan medidas de seguridad. En segundo lugar, suele ocurrir que a más usuarios de una organización se les concede acceso a los registros que a una base de datos de producción. En tercer lugar, los registros tienden a enviarse a muchos sistemas diferentes, mientras que las bases de datos de producción tienden a permanecer centralizadas. Por este motivo, vale la pena considerar la posibilidad de redactar información confidencial en los registros.
 
-[This article](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) prevents some general best practices for handling sensitive data during logging. Here are some approaches to consider for specific sorts of data:
+[Este artículo](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) previene algunas mejores prácticas generales para manejar datos confidenciales durante el registro. A continuación se presentan algunos enfoques a considerar para tipos específicos de datos:
 
-#### POST parameters
+##### Parámetros POST
 
-It is a recommended practice to not include sensitive information in GET parameters, hence GET parameters being logged, but not POST parameters. However, it can be extremely useful to have access to information about POST parameters when responding to an attack. A few things to put in place:
+Es una práctica recomendada no incluir información confidencial en los parámetros GET, por lo tanto, se registran los parámetros GET, pero no los parámetros POST. Sin embargo, puede resultar extremadamente útil tener acceso a información sobre los parámetros POST al responder a un ataque. Algunas cosas para implementar:
 
-- Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
-- For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
+- Ciertas páginas (por ejemplo, la página de inicio de sesión) y/o parámetros (número de tarjeta de crédito, campos de contraseña) deben estar exentos del registro.
+- Para los parámetros POST que se registrarán, considere redactarlos para ocultar información potencialmente confidencial y, al mismo tiempo, poder identificar el tráfico malicioso. El siguiente código Python puede servir de inspiración:
 
-  ```
+  {{< highlight python >}}
   import re
 
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
@@ -201,21 +202,303 @@ It is a recommended practice to not include sensitive information in GET paramet
   			output = output + "*"
   		i = i+1
 
-  ```
+  {{< / highlight >}}
 
-#### Security-related errors
+##### Errores relacionados con la seguridad
 
-If a request causes an error that looks like an attempt to hack or bypass controls, the website should aggressively log the request information. Examples include:
+Si una solicitud provoca un error que parece un intento de piratear o eludir los controles, el sitio web debe registrar agresivamente la información de la solicitud. Ejemplos incluyen:
 
-- Database queries that trigger an error
-- Requests for a data element that the user doesn’t have access to
-- Errors or empty data when attempting to read a file
+- Consultas a la base de datos que desencadenan un error.
+- Solicitudes de un elemento de datos al que el usuario no tiene acceso
+- Errores o datos vacíos al intentar leer un archivo
 
-If any of these happen, it’s a good idea to log the request, as well as internal information (e.g., database query, filename, etc). In the good case, there’s a simple bug in the site. In that case, there’s plenty of debugging information. In the bad case, the site is being compromised. In that case, it’s easier to find where the compromise occurred, so that forensics is more effective.
+Si sucede algo de esto, es una buena idea registrar la solicitud, así como la información interna (por ejemplo, consulta de base de datos, nombre de archivo, etc.). En el buen caso, hay un error simple en el sitio. En ese caso, hay mucha información de depuración. En el peor de los casos, el sitio está siendo comprometido. En ese caso, es más fácil encontrar dónde ocurrió el compromiso, por lo que la investigación forense es más efectiva.
 
-#### Identity information
+##### Información de identidad
 
-Logging the identity of a logged-in user can be dangerous, but there are steps that can be taken to mitigate the danger. It’s questionable to log session cookies, but a hash of a session ID can be used to track a user’s activity across the site. Also, if the web server has a queryable directory of active user sessions, then either an internal ID can be used in logs, or the existing session IDs can be hashed to identify the log entries of a logged-in user. This will allow site owners to identify an active attacker, while making the identities in the logs useless to a threat actor on their own.
+Registrar la identidad de un usuario que ha iniciado sesión puede ser peligroso, pero existen medidas que se pueden tomar para mitigar el peligro. Es cuestionable registrar cookies de sesión, pero se puede utilizar un hash de una ID de sesión para rastrear la actividad de un usuario en el sitio. Además, si el servidor web tiene un directorio consultable de sesiones de usuarios activas, entonces se puede utilizar una ID interna en los registros o se pueden aplicar hash a las ID de sesión existentes para identificar las entradas de registro de un usuario que ha iniciado sesión. Esto permitirá a los propietarios de sitios identificar a un atacante activo, al tiempo que hará que las identidades en los registros sean inútiles para un actor de amenazas por sí solo.
+
+## Práctica
+
+Lea los siguientes comandos de ejemplo que utilizan herramientas comunes de Unix como `awk`, `sort`, `uniq`, y `grep` t para realizar el análisis en los registros de Apache y Nginx.
+
+### Una breve introducción a las herramientas de análisis de texto de Unix
+
+A continuación se muestran comandos de ejemplo que utilizan herramientas comunes de Unix como `awk`, `sort`, `uniq`, y `grep` para realizar el análisis en los registros de Apache y Nginx.
+
+`awk` es una poderosa herramienta de línea de comandos para manipular archivos de texto en sistemas operativos tipo Unix. Tiene una sintaxis simple. La estructura básica de un comando `awk` es la siguiente:
+
+{{< highlight awk >}}
+awk 'pattern { action }' file
+{{< / highlight >}}
+
+Por ejemplo, consideremos el siguiente archivo de texto (lo llamaremos ejemplo.txt):
+
+```
+apple red 5
+banana yellow 10
+pear green 15
+Orange orange 20
+```
+
+`awk` escanea el archivo de entrada línea por línea y realiza una acción específica para cada línea si el estándar coincide. `awk` divide automáticamente cada línea de entrada en campos basados ​​en espacios en blanco (de forma predeterminada). Se puede hacer referencia a los campos usando $1, $2, etc., donde $1 se refiere al primer campo, $2 al segundo, y así sucesivamente.
+
+Por ejemplo, para imprimir la primera columna con el comando `awk` necesitamos usar
+
+{{< highlight awk >}}
+awk '{ print $1 }' example.txt
+{{< / highlight >}}
+
+Podemos utilizar el Filtrado Condicional. Por ejemplo, queremos imprimir líneas donde la tercera columna sea mayor que 10
+
+{{< highlight awk >}}
+awk '$3 > 10 {print $1, $3}' example.txt
+{{< / highlight >}}
+
+Para usar un delimitador personalizado con `awk`, use la opción -F seguida del carácter delimitador. Por ejemplo, si tenemos un archivo delimitado por comas, podemos usar -F',' (encierre el carácter delimitador entre comillas simples) para especificar una coma (,) como delimitador.
+
+{{< highlight awk >}}
+awk -F',' '{print $1, $3}' comma-delimited.txt
+{{< / highlight >}}
+
+Podemos hacer cálculos usando `awk`. Este comando calcula la suma de los valores en el tercer campo en todas las líneas e imprime el total al final. "END" es un estándar especial que se utiliza para ejecutar declaraciones después de que se procesa el último registro
+
+{{< highlight awk >}}
+awk '{total += $3} END {print "Total:", total}' example.txt
+{{< / highlight >}}
+
+Hay algunas variables integradas en `awk`. Por ejemplo, NR es una variable incorporada en `awk` que representa el número de registro actual. NR aumenta en uno por cada línea leída de los archivos de entrada.
+
+Si desea imprimir números de línea además del contenido de la línea, puede utilizar lo siguiente:
+
+{{< highlight awk >}}
+awk '{print NR, $0}' example.txt
+{{< / highlight >}}
+
+### Ejercicio de práctica 1: Análisis del Registro de Acceso de Apache
+
+Dedique algún tiempo a jugar con los siguientes comandos awk. Puede utilizar un registro de su propio servidor web o utilizar registros de práctica, como [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+
+Identifique el número total de solicitudes registradas en el registro de acceso.
+
+{{< highlight bash >}}
+cat apache_access.log | wc -l
+{{< / highlight >}}
+
+Determine las URL solicitadas con más frecuencia.
+
+{{< highlight bash >}}
+awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+Este comando awk imprimirá la séptima columna de cada línea del registro y luego canalizará la salida del comando awk anterior al comando de clasificación. ordenar se utiliza para ordenar las líneas de texto alfabética o numéricamente. De forma predeterminada, ordena en orden ascendente. Después de ordenar la salida con sort, el comando uniq -c se usa para contar las apariciones de cada línea única en la salida ordenada. El comando ordenar -nr se utiliza para ordenar la salida numéricamente (-n) en orden inverso (-r). Esto significa que las líneas se ordenan según sus valores numéricos, apareciendo primero los valores más altos. El comando cabeza -5 se utiliza para mostrar las primeras 5 líneas de la entrada.
+
+Descubra las 5 principales direcciones IP que realizan solicitudes al servidor.
+
+{{< highlight bash >}}
+awk '{print $1}' apache_access.log | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+Analizar la distribución de los métodos de solicitud.
+
+{{< highlight bash >}}
+awk '{print $6}' apache_access.log | sort | uniq -c
+{{< / highlight >}}
+
+### Ejercicio de práctica 2: Análisis del Registro de Acceso de Nginx
+
+Cuente el número total de solicitudes en un registro de acceso de Nginx.
+
+{{< highlight bash >}}
+cat nginx_access.log | wc -l
+{{< / highlight >}}
+
+Identifique las URL más solicitadas y sus correspondientes códigos de estado.
+
+{{< highlight bash >}}
+awk '{print $7, $9}' nginx_access.log | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+Calcule el tamaño promedio de las solicitudes (en bytes).
+
+{{< highlight awk >}}
+awk '{sum+=$10} END {print "Average request size:", sum/NR, "bytes"}' nginx_access.log
+{{< / highlight >}}
+
+Este comando `awk` calcula el tamaño promedio de la solicitud sumando los valores en la décima columna (presumiblemente que representa los tamaños de la solicitud) para todas las líneas del archivo `nginx_access.log`. Luego, divide la suma total por el número de líneas (NR), que representa el tamaño promedio de la solicitud en bytes. Finalmente, imprime el resultado junto con un mensaje descriptivo.
+
+Asegúrese de que la décima columna realmente represente el tamaño de la solicitud en bytes en su archivo `nginx_access.log`, ya que la precisión del cálculo depende de la exactitud de la indexación de la columna.  
+
+Determine los 5 principales agentes de usuario que acceden al servidor.
+
+{{< highlight bash >}}
+awk -F'"' '{print $6}' nginx_access.log | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+Este comando usa `awk` para establecer el separador de campo (-F) en comillas dobles ("), luego extrae el sexto campo de cada línea del archivo `nginx_access.log`. Esto supone que las entradas del registro están formateadas de tal manera que la URL o la ruta de solicitud estén entre comillas dobles. Las URL extraídas o las rutas de solicitud se canalizan para ordenarlas alfabéticamente. `uniq -c` se utiliza para contar las apariciones de cada URL única o ruta de solicitud. La salida se canaliza nuevamente a `sort -nr` para ordenar los resultados numéricamente en orden descendente según el recuento.
+
+Finalmente, head -5 se usa para mostrar las 5 URL principales o rutas de solicitud con el mayor número de ocurrencias.
+
+Analizar la distribución de solicitudes por hora del día.
+
+{{< highlight bash >}}
+awk '{print $4}' nginx_access.log | cut -c 14-15 | sort | uniq -c
+{{< / highlight >}}
+
+`awk` se utiliza para extraer el cuarto campo ($4) de cada línea del archivo `access.log`, que normalmente contiene la marca de tiempo.
+
+Luego, el comando `cut` se aplica para extraer los caracteres 14 a 15 de cada marca de tiempo, que corresponden a la porción de hora.
+
+Los valores de hora extraídos se canalizan para ordenarlos en orden ascendente. `uniq -c` se utiliza para contar las apariciones de cada valor de hora único.
+
+El resultado mostrará el recuento de entradas de registro para cada hora en el archivo de registro.
+
+
+### Ejercicio de práctica 3: Análisis de Registros de Errores (tanto Apache como Nginx)
+
+Cuente el número total de entradas de error en el registro.
+
+{{< highlight bash >}}
+cat apache_error.log | grep 'error' | wc -l
+cat nginx_error.log | grep 'error' | wc -l
+{{< / highlight >}}
+
+
+Identificar los tipos de errores más comunes. `awk '{print $NF}'` lee cada línea de datos de entrada, la divide en campos (separados por espacios en blanco de forma predeterminada) y luego imprime el valor del último campo de cada línea.
+
+{{< highlight bash >}}
+cat apache_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+
+El número al principio de cada línea muestra cuántas veces se produjo un error en particular en el registro. En este caso, “`2047`” significa que el error con el último campo “`757`” ocurrió 2047 veces.
+
+El último campo representa diferentes cosas en cada línea. Puede ser una ruta de archivo, una acción específica o algún otro identificador relacionado con el error. Por ejemplo, “`757`” o “`154`” pueden ser códigos de error o identificadores únicos, mientras que “`/home/mysite/public_html/new/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:100`” puede ser una ruta de archivo y un número de línea donde ocurrió el error.
+
+Nginx: Determine las 5 principales direcciones IP que generan errores.
+
+{{< highlight bash >}}
+cat nginx_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
+{{< / highlight >}}
+
+Apache: Analizar la distribución de errores por fecha u hora.
+
+{{< highlight bash >}}
+cat apache_error.log | grep 'error' | awk '{print $1}' | sort | uniq -c
+{{< / highlight >}}
+
+Apache: Investigue cualquier estándar de error recurrente y proponga posibles soluciones. {$1=""; $2=""; $3="";}: Esta parte del comando awk establece los primeros tres campos (fecha, hora e información de zona horaria) en cadenas vacías.
+
+{{< highlight bash >}}
+cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort | uniq -c | sort -nr | head -10
+{{< / highlight >}}
+
+### Una introducción a las expresiones regulares y su uso para analizar un registro
+
+Para este ejercicio, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
+
+En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares (regex) son como potentes herramientas de búsqueda que le ayudan a encontrar patrones específicos en los datos. Por ejemplo, si está investigando tráfico de red sospechoso y sabe que las solicitudes maliciosas a menudo contienen ciertos patrones de caracteres, puede usar expresiones regulares para buscar registros o capturas de tráfico para encontrar esas solicitudes. Regex le permite definir estándares de búsqueda flexibles. Por ejemplo:
+
+    **Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
+
+    Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
+
+    abcdef**ghijklmnopqrs**tuvwxyz
+
+    **Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
+
+    **Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
+
+    También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+
+\[a-d\]{3} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc. Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
+
+| Símbolo| Nombre                                | Descripción                                                    |
+|--------|---------------------------------------|----------------------------------------------------------------|
+| \      | Barra invertida                       | Se utiliza para escapar de un carácter especial                |
+| ^      | Signo de intercalación                | Principio de una cadena                                        |
+| $      | Signo de dólar                        | Fin de una cadena                                              |
+| .      | Período o punto                       | Coincide con cualquier carácter                                |
+| \|     | Símbolo de barra vertical o tubería   | Coincide con el carácter/grupo anterior O siguiente            |
+| ?      | Signo de interrogación                | Coincide con cero o uno de los anteriores                      |
+| *      | Asterisco o estrella                  | Coincidir cero, uno o más de los anteriores                    |
+| +      | Signo de más                          | Coincidir uno o más de los anteriores                          |
+| ( )    | Paréntesis de apertura y cierre       | Caracteres de grupo                                            |
+| [ ]    | Corchete de apertura y cierre         | Coincide con una variedad de caracteres                        |
+| { }    | Llave rizada de apertura y cierre     | Coincide con un número específico de ocurrencias del anterior  |
+
+
+In our task we will use backslash to escape “\” special character.
+
+You can read more about regex here: [https://en.wikipedia.org/wiki/Regular_expression](https://en.wikipedia.org/wiki/Regular_expression)
+
+If you check the provided nginx access log you can see these kind of lines:
+
+```
+181.214.166.113 - - [15/Feb/2024:15:05:19 -0500] "[L\x9E\x804\xD9-\xFB&\xA3\x1F\x9C\x19\x95\x12\x8F\x0C\x89\x05\x81" 400 181 "-" "-"
+45.95.169.184 - - [15/Feb/2024:15:49:27 -0500] "\x10 \x00\x00BBBB\xBA\x8C\xC1\xABDAAA" 400 181 "-" "-"
+```
+
+As you can see, both lines contain \x followed by exactly two characters which map to hexadecimal notation (so they use the numbers 0-9 and the letters A to F), such as \x9C, \x10, \xBA, etc. To filter all lines we need to use the '`\\x[a-fA-F0-9]{3}`' pattern where` \\x[a-fA-F0-9]` is our token, `{3}` is a quantifier.
+
+We will use the `grep` command to search for the specified pattern in text. For example:
+
+`grep 'abcd'` will filter all lines containing the string “abcd”.
+
+The “`-E`” option in the `grep` command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
+
+### Practice exercise 4: using regular expressions (regexes)
+
+For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+
+1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
+2. Using the same filter determine which IP address is making the most requests
+3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
+4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
+
+{{< question title="Practice exercise 4: answers" >}}
+
+Exercise 1: \
+Correct answer: 113 lines
+
+Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+
+Exercise 2:
+
+Correct answer: 222.186.13.131 20 lines
+
+Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+
+Exercise 3:
+
+Correct answer: SSL handshaking errors
+
+Command(s) to execute:
+
+{{< highlight bash >}}
+more nginx_error.log
+cat nginx_error.log|grep -v "PHP"|grep crit
+{{< / highlight >}}
+
+Exercise 4:
+
+Correct answer: `.git/config`
+
+Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
+
+{{< /question >}}
+
+
+## Skill Check
+
+This skill check will be much easier if you’ve first completed the practice exercise above.
+
+You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+
+Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
+
+_Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can use curl to fetch those.
+
 
 ## Learning Resources
 
@@ -236,359 +519,3 @@ Logging the identity of a logged-in user can be dangerous, but there are steps t
 {{% resource title="OWASP logging cheat sheet and vocabulary" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
 
 {{% resource title="Keep Sensitive Data Out of Your Logs: 9 Best Practices" languages="English" cost="Free" description="Thorough logging can also end up including sensitive data, which could put users at risk. This guide looks at how we can adapt our logging practices to exclude sensitive data from logs." url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
-
-## Practice
-
-Read through the following example commands which use common Unix tools like `awk`, `sort`, `uniq`, and `grep `to perform the analysis on Apache and Nginx logs.
-
-## A brief introduction to Unix text analysis tools
-
-Below are example commands using common Unix tools like `awk`, `sort`, `uniq`, and `grep` to perform the analysis on Apache and Nginx logs.
-
-`awk` is a powerful command-line tool for manipulating text files in Unix-like operating systems. It has a simple syntax. The basic structure of an `awk `command is as follows:
-
-```
-awk 'pattern { action }' file
-```
-
-For example let’s consider the following text file (we will call it example.txt):
-
-```
-apple red 5
-banana yellow 10
-pear green 15
-Orange orange 20
-```
-
-`awk` scans the input file line by line, and performs a specified action for each line if the pattern matches. `awk `automatically splits each line of input into fields based on whitespace (by default). Fields can be referenced using $1, $2, etc., where $1 refers to the first field, $2 to the second, and so on.
-
-For example to print first column with `awk` command we need to use
-
-```
-awk '{ print $1 }' example.txt
-```
-
-We can use Conditional Filtering. For example we want to print lines where third column is greater than 10
-
-```
-awk '$3 > 10 {print $1, $3}' example.txt
-```
-
-To use a custom delimiter with `awk`, use the -F option followed by the delimiter character. For example if we have a comma delimited file we can use -F',' (enclose the delimiter character in single quotes ) to specify a comma (,) as the delimiter.
-
-```
-awk -F',' '{print $1, $3}' comma-delimited.txt
-```
-
-We can do calculations using `awk`. This command calculates the sum of values in the third field across all lines and prints the total at the end. "END" is a special pattern used to execute statements after the last record is processed
-
-```
-awk '{total += $3} END {print "Total:", total}' example.txt
-```
-
-There are some built in variables in `awk`. For example NR is a built-in variable in awk that represents the current record number. NR increments by one for each line read from the input file(s).
-
-If you want to print line numbers in addition to line content, you could use the following:
-
-```
-awk '{print NR, $0}' example.txt
-```
-
-## Practice exercise 1: Apache Access Log Analysis
-
-Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
-
-Identify the total number of requests recorded in the access log.
-
-```
-cat apache_access.log | wc -l
-```
-
-Determine the most frequently requested URLs.
-
-```
-awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
-```
-
-This awk command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the uniq -c command is used to count the occurrences of each unique line in the sorted output. The sort -nr command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The head -5 command is used to display the first 5 lines of the input.
-
-Find out the top 5 IP addresses making requests to the server.
-
-```
-awk '{print $1}' apache_access.log | sort | uniq -c | sort -nr | head -5
-```
-
-Analyze the distribution of request methods.
-
-```
-awk '{print $6}' apache_access.log | sort | uniq -c
-```
-
-## Practice exercise 2: Nginx Access Log Analysis
-
-Count the total number of requests in an Nginx access log.
-
-```
-cat nginx_access.log | wc -l
-```
-
-Identify the most requested URLs and their corresponding status codes.
-
-```
-awk '{print $7, $9}' nginx_access.log | sort | uniq -c | sort -nr | head -5
-```
-
-Calculate the average size of requests (in bytes).
-
-```
-awk '{sum+=$10} END {print "Average request size:", sum/NR, "bytes"}' nginx_access.log
-```
-
-This AWK command calculates the average request size by summing up the values in the 10th column (presumably representing request sizes) for all lines in the nginx_access.log file. Then, it divides the total sum by the number of lines (NR), representing the average request size in bytes. Finally, it prints out the result along with a descriptive message.
-
-Make sure that the 10th column actually represents the request size in bytes in your nginx_access.log file, as the accuracy of the calculation depends on the correctness of the column indexing. \
-
-Determine the top 5 user agents accessing the server.
-
-```
-awk -F'"' '{print $6}' nginx_access.log | sort | uniq -c | sort -nr | head -5
-```
-
-This command uses `awk` to set the field separator (-F) to double quotes ("), then extracts the 6th field from each line of the` nginx_access.log` file. This assumes that the log entries are formatted in such a way that the URL or request path is enclosed within double quotes. The extracted URLs or request paths are then piped to sort them alphabetically. `uniq -c` is used to count the occurrences of each unique URL or request path. The output is piped again to `sort -nr` to sort the results numerically in descending order based on the count.
-
-Finally, head -5 is used to display the top 5 URLs or request paths with the highest occurrence counts.
-
-Analyze the distribution of requests by hour of the day.
-
-```
-awk '{print $4}' nginx_access.log | cut -c 14-15 | sort | uniq -c
-```
-
-`awk` is used to extract the 4th field ($4) from each line of the `access.log` file, which typically contains the timestamp.
-
-The `cut` command is then applied to extract characters 14 to 15 from each timestamp, which correspond to the hour portion.
-
-The extracted hour values are piped to sort to arrange them in ascending order. `uniq -c` is used to count the occurrences of each unique hour value.
-
-The output will display the count of log entries for each hour in the log file.
-
-## Practice exercise 3: Error Log Analysis (Both Apache and Nginx)
-
-Apache and nginx: Count the total number of error entries in the log.
-
-```
-cat apache_error.log | grep 'error' | wc -l
-cat nginx_error.log | grep 'error' | wc -l
-```
-
-Apache: Identify the most common types of errors. awk '{print $NF}' reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
-
-```
-cat apache_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
-```
-
-The number at the beginning of each line shows how many times a particular error occurred in the log. In this case, “`2047`” means that the error with the last field “`757`” occurred 2047 times.
-
-The last field represents different things in each line. It could be a file path, a specific action, or some other identifier related to the error. For instance, “`757`” or “`154`” could be error codes or unique identifiers, while “`/home/mysite/public_html/new/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:100`” could be a file path and line number where the error occurred.
-
-nginx: Determine the top 5 IP addresses, domains, or file paths generating errors.
-
-```
-cat nginx_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
-```
-
-Apache: Analyze the distribution of errors by date or time.
-
-```
-cat apache_error.log | grep 'error' | awk '{print $1}' | sort | uniq -c
-```
-
-Apache: Investigate any recurring error patterns and propose potential solutions. {$1=""; $2=""; $3="";}: This part of the awk command sets the first three fields (date, time, and timezone information) to empty strings.
-
-```
-cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort | uniq -c | sort -nr | head -10
-```
-
-## An introduction to regular expressions and using them to analyze a log
-
-For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
-
-In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
-
-    **[a-z] range **- Matches a character in the range "a" to "z". Case sensitive.
-
-
-    I.e. [g-s] matches a character between g and s inclusive
-
-
-    abcdef**ghijklmnopqrs**tuvwxyz
-
-
-    **[A-Z] range -**  Matches a character in the range "A" to "Z" . Case sensitive.
-
-
-    **[0-9] range - **Matches a character in the range "0" to "9". Case sensitive.
-
-
-    We can also use **quantifiers** to match  the specified quantity of the previous token. {1,3} will match 1 to 3. {3} will match exactly 3. {3,} will match 3 or more.
-
-[a-d]{3} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. Some characters have special meanings within regexes these characters are:
-
-<table>
-  <tr>
-   <td>\
-   </td>
-   <td>Backslash
-   </td>
-   <td>Used to escape a special character
-   </td>
-  </tr>
-  <tr>
-   <td>^
-   </td>
-   <td>Caret
-   </td>
-   <td>Beginning of a string
-   </td>
-  </tr>
-  <tr>
-   <td>$
-   </td>
-   <td>Dollar sign
-   </td>
-   <td>End of a string
-   </td>
-  </tr>
-  <tr>
-   <td>.
-   </td>
-   <td>Period or dot
-   </td>
-   <td>Matches any single character
-   </td>
-  </tr>
-  <tr>
-   <td>|
-   </td>
-   <td>Vertical bar or pipe symbol
-   </td>
-   <td>Matches previous OR next character/group
-   </td>
-  </tr>
-  <tr>
-   <td>?
-   </td>
-   <td>Question mark
-   </td>
-   <td>Match zero or one of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>*
-   </td>
-   <td>Asterisk or star
-   </td>
-   <td>Match zero, one or more of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>+
-   </td>
-   <td>Plus sign
-   </td>
-   <td>Match one or more of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>( )
-   </td>
-   <td>Opening and closing parenthesis
-   </td>
-   <td>Group characters
-   </td>
-  </tr>
-  <tr>
-   <td>[ ]
-   </td>
-   <td>Opening and closing square bracket
-   </td>
-   <td>Matches a range of characters
-   </td>
-  </tr>
-  <tr>
-   <td>{ }
-   </td>
-   <td>Opening and closing curly brace
-   </td>
-   <td>Matches a specified number of occurrences of the previous
-   </td>
-  </tr>
-</table>
-
-In our task we will use backslash to escape “\” special character.
-
-You can read more about regex here: [https://en.wikipedia.org/wiki/Regular_expression](https://en.wikipedia.org/wiki/Regular_expression)
-
-If you check the provided nginx access log you can see these kind of lines:
-
-```
-181.214.166.113 - - [15/Feb/2024:15:05:19 -0500] "[L\x9E\x804\xD9-\xFB&\xA3\x1F\x9C\x19\x95\x12\x8F\x0C\x89\x05\x81" 400 181 "-" "-"
-45.95.169.184 - - [15/Feb/2024:15:49:27 -0500] "\x10 \x00\x00BBBB\xBA\x8C\xC1\xABDAAA" 400 181 "-" "-"
-```
-
-As you can see, both lines contain \x followed by exactly two characters which map to hexadecimal notation (so they use the numbers 0-9 and the letters A to F), such as \x9C, \x10, \xBA, etc. To filter all lines we need to use the '`\\x[a-fA-F0-9]{3}`' pattern where` \\x[a-fA-F0-9]` is our token, `{3}` is a quantifier.
-
-We will use the `grep` command to search for the specified pattern in text. For example:
-
-`grep 'abcd'` will filter all lines containing the string “abcd”.
-
-The “`-E`” option in the `grep `command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
-
-## Practice exercise 4: using regular expressions (regexes)
-
-For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
-
-1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
-2. Using the same filter determine which IP address is making the most requests
-3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
-4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
-
-### Practice exercise 4: answers
-
-Exercise 1: \
-Correct answer: 113 lines
-
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
-
-Exercise 2:
-
-Correct answer: 222.186.13.131 20 lines
-
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
-
-Exercise 3:
-
-Correct answer: SSL handshaking errors
-
-Command(s) to execute:
-
-```
-more nginx_error.log
-cat nginx_error.log|grep -v "PHP"|grep crit
-```
-
-Exercise 4:
-
-Correct answer: `.git/config`
-
-Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
-
-## Skill Check
-
-This skill check will be much easier if you’ve first completed the practice exercise above.
-
-You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
-
-Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
-
-_Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can use curl to fetch those.
