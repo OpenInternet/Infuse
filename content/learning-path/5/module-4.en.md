@@ -75,6 +75,7 @@ _if_ (_$\_GET_['password'] _==_ 'A super-secret password only I know.') {
 }
 ?>
 {{< / highlight >}}
+
 This will ensure that anyone who stumbles upon your testing-focused web shell won’t be able to use it for their own nefarious purposes.
 
 Make sure to read and understand how a web shell works before you upload it. You want to be sure that the shell is only going to execute what you ask it to, and won’t talk to any other servers.

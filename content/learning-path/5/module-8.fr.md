@@ -1,138 +1,190 @@
 +++
 style = "module"
 weight = 8
-title = "Next Steps"
+title = "Étapes suivantes"
+description = "Comment continuer à pratiquer et à perfectionner vos compétences en évaluation de la sécurité des applications web"
 +++
 
-## Use Case
 
-At this point, you should be able to perform professional-quality security assessments of websites. However, you still have a lot to learn in terms of managing and refining the work of testing and also in terms of more obscure and advanced testing techniques. This subtopic covers some paths you can take to continue to practice and build your skills.
 
-## Objectives
+## Sous-thème 7 : Détection automatique des vulnérabilités
 
-After completing this subtopic, practitioners should know how they can continue to practice and develop their web application security assessment skills.
+
+
+
+
+## Sous-thème 8 : Étapes suivantes
+
+## Cas d'utilisation
+
+À ce stade, vous devriez être en mesure d'effectuer des évaluations de sécurité de qualité professionnelle des sites Web. Cependant, vous avez encore beaucoup à apprendre en termes de gestion et d'amélioration du travail de test, et aussi en termes de techniques de test plus obscures et avancées. Ce sous-thème couvre certains parcours que vous pouvez emprunter pour continuer à pratiquer et à développer vos compétences.
+
+## Objectifs
+
+Après avoir terminé ce sous-thème, les participants devraient savoir comment poursuivre la pratique et le développement de leurs compétences en matière d'évaluation de la sécurité des applications Web.
 
 ---
+## Section Principale
 
-There are a few complementary paths that you can use to develop and practice the skills you have gained in this learning path. These paths should not prevent you from doing the actual work of assessing the security of websites but can be used during idle time.
+Vous pouvez suivre quelques parcours complémentaires pour développer et pratiquer les compétences que vous avez acquises dans ce parcours d'apprentissage. Ces parcours ne doivent pas vous empêcher de faire le travail réel d'évaluation de la sécurité des sites Web, mais peuvent être utilisés pendant les périodes d'inactivité.
 
-## Gaining Depth
+### Gagner en profondeur
 
-As you may recall, this learning path used labs from the Portswigger Academy, but did not use all of the labs for the topics covered. If you want, you can go back and try your hand at the [“expert”-rated labs](https://portswigger.net/web-security/all-labs). Do note that these labs represent very rare situations and are often difficult for experienced web application security assessment experts.
+Comme vous vous en souvenez peut-être, ce parcours d'apprentissage utilisait des exercices pratiques de la Portswigger Academy, mais n'utilisait pas tous les exercices pour les sujets abordés. Si vous le souhaitez, vous pouvez vous essayer aux [exercices pratiques classés « experts »](https://portswigger.net/web-security/all-labs). Notez que ces exercices pratiques représentent des situations très rares et sont souvent difficiles pour les experts expérimentés dans le domaine de l'évaluation de la sécurité des applications Web.
 
-## Gaining Breadth
+### Prendre de l'ampleur
 
-This Learning Path covered the most important aspects of web application security, but there are many more areas.
+Ce parcours d'apprentissage couvrait les aspects les plus importants de la sécurité des applications Web, mais cela comprend beaucoup plus de domaines.
 
-The Portswigger Academy has [topics](https://portswigger.net/web-security/all-topics) and [labs](https://portswigger.net/web-security/all-labs) that were not included in this Learning Path. If you’re interested, feel free to peruse them. Note that if you signed up for an account on the Portswigger Academy, it tracks which labs you’ve done. This can help you easily find new labs and areas you’ve not done.
+La Portswigger Academy propose des [sujets](https://portswigger.net/web-security/all-topics) et des [laboratoires](https://portswigger.net/web-security/all-labs) qui n'étaient pas inclus dans ce parcours d'apprentissage. Si cela vous intéresse, n'hésitez pas à les consulter. Notez que si vous vous êtes inscrit(e) à un compte sur la Portswigger Academy, celui-ci suivra les exercices pratiques que vous avez effectués. Cela peut vous aider à trouver facilement de nouveaux exercices et domaines que vous n'avez pas effectués.
 
-Also, the [OWASP testing guide](https://github.com/OWASP/wstg/tree/master/document) is a very thorough guide to web application security assessments and the vulnerabilities that one might find. If you have a few minutes, it’s often interesting to skim the contents for topics you don’t recognize and read up on them.
+En outre, le [guide de test de l'OWASP](https://github.com/OWASP/wstg/tree/master/document) est un guide très complet pour les évaluations de sécurité des applications Web et les vulnérabilités que vous pourriez trouver. Si vous avez quelques minutes, il est souvent intéressant de parcourir le contenu de sujets que vous ne reconnaissez pas et de les lire.
 
-It’s also a great idea to regularly read vulnerability reports published by other researchers to understand both their methodologies and the weaknesses they found within websites and web applications. [This report](https://eaton-works.com/2024/01/17/ttibi-email-hack/) is a great start, since it points out both very basic errors made in web applications while also explaining in depth just how much damage could be caused by an adversary exploiting those vulnerabilities. Do keep in mind, however, that it focuses on a website which contains particularly egregious errors; most of the vulnerabilities you or other security researchers find will not be as basic.
+Il est également très judicieux de lire régulièrement les rapports de vulnérabilités publiés par d'autres chercheurs pour comprendre à la fois leurs méthodologies et les faiblesses qu'ils ont trouvées dans les sites Web et les applications Web. [Ce rapport](https://eaton-works.com/2024/01/17/ttibi-email-hack/) est un excellent début, car il souligne à la fois les erreurs très basiques commises dans les applications Web tout en expliquant en profondeur les dommages qui pourraient être causés par un cybercriminel exploitant ces vulnérabilités. Gardez toutefois à l'esprit qu'il se concentre sur un site Web qui contient des erreurs particulièrement flagrantes. La plupart des vulnérabilités que vous ou d'autres chercheurs en sécurité trouverez ne seront pas aussi simples.
 
-## Gaining Practice & Experience
+### Acquérir de la pratique et de l'expérience
 
-The most impactful thing you can do to improve your web application testing skills is to test web applications. There are two primary ways you can do this on your own. The first is to check out the intentionally vulnerable web applications in the [OWASP vulnerable web applications directory](https://owasp.org/www-project-vulnerable-web-applications-directory/). Juice Shop and DIWA are among these, and there are many more. If you struggled to find most of the vulnerabilities in DIWA, this is a good place to start. You can download and practice on these sites; [some of them are even hosted online](https://owasp.org/www-project-vulnerable-web-applications-directory/#div-online) so that you don’t need to go through the hassle of downloading something.
+La chose la plus importante que vous pouvez faire pour améliorer vos compétences en matière de test d'applications Web est de tester des applications Web. Il y a deux façons principales de le faire par vous-même. La première consiste à vérifier les applications Web intentionnellement vulnérables dans le [répertoire des applications Web vulnérables de l'OWASP](https://owasp.org/www-project-vulnerable-web-applications-directory/). Juice Shop et DIWA en font partie, et il y en a beaucoup d'autres. Si vous avez eu du mal à trouver la plupart des vulnérabilités dans DIWA, il peut s'agir d'un bon point de départ. Vous pouvez télécharger et vous exercer sur ces sites. [Certains d'entre eux sont même hébergés en ligne](https://owasp.org/www-project-vulnerable-web-applications-directory/#div-online) de sorte que vous n'avez pas besoin de passer par les tracas du téléchargement.
 
-Once you’re confident that you find vulnerabilities in intentionally insecure sites, a good way to get practice is to participate in bug bounty programs. In bug bounties, site owners give people permission to test their websites and usually will compensate you if you report a new vulnerability to them. Frequently, these sites already have mature security programs, so vulnerabilities are few and far between. However, rather than trying to be realistic, these are real websites, so you’re building real-world experience. Note that some people are able to make a living through bug bounty programs, but the techniques they use are not the same as those used in comprehensive web application security assessments. If your goal is to practice and develop your skills, it’s best to perform comprehensive assessments of sites with bug bounties, and view any compensation you receive as a bonus.
+Une fois que vous êtes sûr(e) de trouver les vulnérabilités dans les sites intentionnellement non sécurisés, la meilleure façon de vous entraîner est de participer à des programmes de bug bounty. Dans ces programmes, les propriétaires de site donnent aux gens la permission de tester leurs sites Web et rémunèrent généralement les personnes qui leur signalent de nouvelles vulnérabilités. Souvent, ces sites ont déjà des programmes de sécurité matures et les vulnérabilités sont rares. Cependant, plutôt que de simuler un certain réalisme, ces sites Web sont authentiques et vous permettent de vous construire une expérience du monde réel. Notez que certaines personnes sont capables de gagner leur vie grâce à des programmes de bug bounty, mais les techniques qu'ils utilisent ne sont pas les mêmes que celles utilisées dans les évaluations complètes de sécurité des applications Web. Si votre objectif est de pratiquer et de développer vos compétences, le mieux est d'effectuer des évaluations complètes des sites dans le cadre de programmes de bug bounty, et de voir les éventuelles rémunérations que vous pouvez recevoir en bonus.
 
-The two largest bug bounty platforms are [HackerOne](https://www.hackerone.com/hackers) and [Bugcrowd](https://www.bugcrowd.com/hackers/faqs/). Both of these services allow site owners to connect with “hackers” who wish to test websites. Both have lists of participating site owners, generally the best practice is to pick a newer program that has modest payouts. This should help you find a site where you’re more likely to actually find vulnerabilities. Of course, when testing, be sure to comply with the rules of the bug bounty program.
+Les deux plus grandes plateformes de bug bounty sont [HackerOne](https://www.hackerone.com/hackers) et [Bugcrowd](https://www.bugcrowd.com/hackers/faqs/). Ces deux services permettent aux propriétaires de sites de communiquer avec des « pirates informatiques » qui souhaitent tester des sites Web. Les deux proposent des listes de propriétaires de sites participants. En général, la meilleure pratique consiste à choisir un nouveau programme qui présente des gains modestes. Cela devrait vous aider à trouver un site sur lequel vous êtes plus susceptible de trouver des vulnérabilités. Bien sûr, lors de vos tests, assurez-vous de respecter les règles du programme de bug bounty.
 
-## Learning Resources
 
-{{% resource title="All Labs | Portswigger academy" languages="English" cost="Free" description="During this learning path, you only completed some of the Portswigger labs. Going back and completing more, especially the difficult ones, will be excellent practice." url="https://portswigger.net/web-security/all-labs" %}}
+## Contrôle de compétence
 
-{{% resource title="OWASP testing guide" languages="English" cost="Free" description="A very thorough document about web application security and the vulnerabilities you can find." url="https://github.com/OWASP/wstg/tree/master/document" %}}
+Ce contrôle de compétence aborde l'ensemble du parcours d'apprentissage de façon plus générale. La compréhension du modèle OSI (Open Systems Interconnection) est cruciale pour comprendre les couches de communication du réseau et les vulnérabilités qui peuvent être exploitées à chaque niveau. Vous pouvez en apprendre un peu plus sur le modèle [ici](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/) et dans le [sous-thème 5 de ce parcours d'apprentissage](#_ebcoi73gxfy1).
 
-{{% resource title="Hacking into a Toyota/Eicher Motors insurance company by exploiting their premium calculator website" languages="English" cost="Free" description="A good writeup of a website with particularly egregious security errors which could give an attacker high-level access, and basic steps which could have mitigated those vulnerabilities." url="https://eaton-works.com/2024/01/17/ttibi-email-hack/" %}}
+Dans une architecture d'application Web typique, différentes couches OSI jouent des rôles distincts, de la gestion de la transmission des données à la sécurisation des canaux de communication. Cet ensemble de questions à choix multiples explore les couches OSI impliquées dans l'architecture des applications Web, ainsi que les vulnérabilités potentielles et les vecteurs d'attaque correspondants. Testez vos connaissances sur la sécurité du réseau et découvrez les couches où les menaces se cachent généralement. Si possible, discutez de vos réponses à ces questions avec un pair ou un mentor qui vous aidera à vérifier que vous avez bien compris le sujet.  
 
-{{% resource title="Bug bounty programs" languages="English" cost="Free" description="Bug bounty programs allow you to make money while finding security vulnerabilities and are a great way of ethically testing applications and legally verifying your skills." url="HackerOne: https://www.hackerone.com/hackers" url2="Bugcrowd: https://www.bugcrowd.com/hackers/faqs/" %}}
+1\. Dans quelle couche du modèle OSI le protocole TCP fonctionne-t-il, qui est généralement ciblé par les cybercriminels dans le cadre de divers types d'attaques de réseau ?
 
-## Skill Check
+A) La couche Application
 
-This skill check addresses the whole learning path more broadly. Understanding the OSI (Open Systems Interconnection) model is crucial for comprehending the layers of network communication and the vulnerabilities that can be exploited at each level. You can learn a little more about the model [here](https://www.cloudflare.com/learning/ddos/glossary/open-systems-interconnection-model-osi/) and in [subtopic 5 of this learning path](#heading=h.ebcoi73gxfy1).
+B) La couche Transport
 
-In a typical web application architecture, various OSI layers play distinct roles, from managing data transmission to securing communication channels. This set of multiple-choice questions explores the OSI layers involved in web application architecture, alongside potential vulnerabilities and corresponding attack vectors. Test your knowledge of network security and gain insight into the layers where threats commonly lurk. If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic. \
+C) La couche Réseau
 
-1. At which OSI layer does the TCP protocol operate, which is commonly targeted by attackers for various types of network attacks?
+D) La couche Liaison des données
 
-A) Application Layer\
-B) Transport Layer\
-C) Network Layer\
-D) Data Link Layer
+2\. Quelle vulnérabilité est généralement associée à la couche de transport (couche 4) du modèle OSI, dans laquelle les cybercriminels tentent de submerger les ressources du réseau avec un volume de trafic élevé ?
 
-2. Which vulnerability is commonly associated with the Transport Layer (Layer 4) of the OSI model, where attackers attempt to overwhelm network resources with a high volume of traffic?
+A) Cross-Site Scripting (XSS)
 
-A) Cross-Site Scripting (XSS)\
-B) SQL Injection\
-C) Denial of Service (DoS)\
-D) Broken Authentication
+B) Injection SQL
 
-3. At which OSI layer do HTTP and HTTPS protocols typically operate, making it a common target for attacks like Cross-Site Scripting (XSS) and SQL Injection?
+C) Déni de service (DoS)
 
-A) Data Link Layer\
-B) Transport Layer\
-C) Application Layer\
-D) Presentation Layer
+D) Faille d'authentification
 
-4. Which vulnerability is often exploited at the Application Layer (Layer 7) of the OSI model, allowing attackers to inject malicious code into web applications and compromise users' data?
+3\. Dans quelle couche du modèle OSI les protocoles HTTP et HTTPS fonctionnent-ils généralement, ce qui en font une cible commune pour les attaques telles que le Cross-Site Scripting (XSS) et l'injection SQL ?
 
-A) Denial of Service (DoS)\
-B) Cross-Site Scripting (XSS)\
-C) Man-in-the-Middle (MitM) Attack\
-D) SYN Flood Attack
+A) La couche Liaison des données
 
-5. At which OSI layer do routers and switches operate, and where vulnerabilities like IP spoofing and ARP spoofing can occur?
+B) La couche Transport
 
-A) Physical Layer\
-B) Network Layer\
-C) Transport Layer\
-D) Session Layer
+C) La couche Application
 
-6. Which vulnerability involves attackers intercepting communication between two parties, allowing them to eavesdrop on sensitive information or modify data packets?
+D) La couche Présentation
 
-A) Cross-Site Scripting (XSS)\
-B) Man-in-the-Middle (MitM) Attack\
-C) SQL Injection\
-D) Buffer Overflow
+4\. Quelle vulnérabilité est souvent exploitée dans la couche Application (couche 7) du modèle OSI, permettant aux cybercriminels d'injecter du code malveillant dans les applications Web et de compromettre les données des utilisateurs ?
 
-7. At which OSI layer do firewalls and intrusion detection systems (IDS) typically operate, aiming to filter and monitor network traffic for suspicious activities?
+A) Déni de service (DoS)
 
-A) Application Layer\
-B) Transport Layer\
-C) Netwok Layer\
-D) Data Link Layer 
+B) Cross-Site Scripting (XSS)
 
-8. Which vulnerability involves attackers exploiting weaknesses in the network layer to redirect traffic to malicious destinations or intercept sensitive information?
+C) Attaque Man-in-the-Middle (MitM)
 
-A) Cross-Site Scripting (XSS)\
-B) ARP Spoofing\
-C) SQL Injection\
-D) Cross-Site Request Forgery (CSRF)
+D) Attaque de flood SYN
 
-9. At which OSI layer do SSL/TLS encryption protocols operate, protecting data transmitted over the network from interception and tampering?
+5\. Dans quelle couche du modèle OSI les routeurs et les switchs fonctionnent-ils, et où des vulnérabilités telles que l'usurpation d'IP et le d'ARP peuvent se produire ?
 
-A) Presentation Layer\
-B) Application Layer\
-C) Transport Layer\
-D) Network Layer
+A) La couche Physique
 
-10. Which vulnerability involves attackers manipulating input fields within web forms or URLs to inject malicious SQL commands, potentially leading to unauthorized access to the underlying database?
+B) La couche Réseau
 
-A) Cross-Site Scripting (XSS)\
-B) SQL Injection\
-C) Denial of Service (DoS)\
-D) Man-in-the-Middle (MitM) Attack
+C) La couche Transport
 
-_Correct answers:_
+D) La couche Session  
 
-_1. B) Transport Layer_\
-_2. C) Denial of Service (DoS)_\
-_3. C) Application Layer_\
-_4. B) Cross-Site Scripting (XSS)_\
-_5. B) Network Layer_\
-_6. B) Man-in-the-Middle (MitM) Attack_\
-_7. C) Network Layer_\
-_8. B) ARP Spoofing_\
-_9. C) Transport Layer_\
-_10. B) SQL Injection_
+6\. Quelle vulnérabilité implique que les cybercriminels interceptent la communication entre deux parties, leur permettant d'espionner des informations sensibles ou de modifier des paquets de données ?
+
+A) Cross-Site Scripting (XSS)
+
+B) Attaque Man-in-the-Middle (MitM)
+
+C) Injection SQL
+
+D) Dépassement de tampon
+
+7\. Dans quelle couche du modèle OSI les pare-feux et les systèmes de détection d'intrusion (IDS) fonctionnent-ils généralement, visant à filtrer et à surveiller le trafic réseau pour détecter les activités suspectes ?
+
+A) La couche Application
+
+B) La couche Transport
+
+C) La couche Réseau
+
+D) La couche Liaison des données  
+
+8\. Quelle vulnérabilité implique que les cybercriminels exploitent les faiblesses de la couche Réseau pour rediriger le trafic vers des destinations malveillantes ou intercepter des informations sensibles ?
+
+A) Cross-Site Scripting (XSS)
+
+B) Usurpation d'ARP
+
+C) Injection SQL
+
+D) Falsification de requête intersite (CSRF)
+
+9\. Dans quelle couche OSI les protocoles de chiffrement SSL/TLS fonctionnent-ils, pour protéger les données transmises sur le réseau contre l'interception et la falsification ?
+
+A) La couche Présentation
+
+B) La couche Application
+
+C) La couche Transport
+
+D) La couche Réseau
+
+10\. Quelle vulnérabilité implique que les cybercriminels manipulent des champs de saisie dans des formulaires Web ou des URL pour injecter des commandes SQL malveillantes, en entraînant potentiellement un accès non autorisé à la base de données sous-jacente ?
+
+A) Cross-Site Scripting (XSS)
+
+B) Injection SQL
+
+C) Déni de service (DoS)
+
+D) Attaque Man-in-the-Middle (MitM)
+
+
+{{< question title="Bonnes réponses :" >}}
+
+_1\. B) La couche Transport_
+
+_2\. C) Déni de service (DoS)_
+
+_3\. C) La couche Application_
+
+_4\. B) Cross-Site Scripting (XSS)_
+
+_5\. B) La couche Réseau_
+
+_6\. B) Attaque Man-in-the-Middle (MitM)_
+
+_7\. C) La couche Réseau_
+
+_8\. B) Usurpation d'ARP_
+
+_9\. C) La couche Transport_
+
+_10\. B) Injection SQL_
+
+{{< /question >}}
+
+## Ressources d'apprentissage
+
+{{% resource title="Tous les exercices | Portswigger Academy" description="Au cours de ce parcours d'apprentissage, vous n'avez terminé que certains des exercices pratiques de Portswigger. Revenir en arrière et en terminer d'autres, en particulier les plus difficiles, constituera une excellente pratique." languages="Anglais" cost="Gratuit" url="https://portswigger.net/web-security/all-labs" %}}
+{{% resource title="Guide de test de l'OWASP" description="Un document très complet sur la sécurité des applications Web et les vulnérabilités que vous pouvez trouver" languages="Anglais" cost="Gratuit" url="https://github.com/OWASP/wstg/tree/master/document" %}}
+{{% resource title="Pirater une compagnie d'assurance Toyota/Eicher Motors en exploitant son site Web de calcul de primes" description="Un article utile concernant un site Web comprenant des erreurs de sécurité particulièrement flagrantes qui pourraient donner à cybercriminel un accès de haut niveau, et les étapes de base qui auraient pu atténuer ces vulnérabilités" languages="Anglais" cost="Gratuit" url="https://eaton-works.com/2024/01/17/ttibi-email-hack/" %}}
+{{% resource title="Programmes de bug bounty" description="Ces programmes vous permettent de gagner de l'argent tout en trouvant des vulnérabilités de sécurité et offrent un excellent moyen de tester éthiquement les applications et de vérifier légalement vos compétences." languages="Anglais" cost="Gratuit" url="HackerOne : https://www.hackerone.com/hackers <br> Bugcrowd : https://www.bugcrowd.com/hackers/faqs/" %}}

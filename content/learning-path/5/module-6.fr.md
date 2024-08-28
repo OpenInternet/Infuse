@@ -1,171 +1,140 @@
 +++
 style = "module"
 weight = 6
-title = "Refining Your Web Application Testing Process"
+title = "Peaufiner votre processus de test des applications Web"
+description = "Une fois que vous avez compris les bases de la recherche de vulnérabilités sur les sites web, ce sous-thème vous apprendra un processus pour les trouver plus rapidement et efficacement."
 +++
 
-## Use Case
+## Cas d'utilisation
 
-Subtopic 5 is a prerequisite for this one, and learners are strongly encouraged to thoroughly read it before proceeding.
+Le sous-thème 5 est une condition préalable à celui-ci et les apprenants sont fortement encouragés à le lire attentivement avant de continuer.
 
-If you’re like most people, you struggled with the last practice. It probably took you a long time, and you probably missed a bunch of vulnerabilities. Don’t be dispirited! Before you started this, you would’ve found far fewer in far more time. It may not feel great, but it’s very difficult to transition from learning about vulnerabilities in isolation to finding them in an open-ended environment. So, struggling and not being super-successful is part of the process.
+Si vous Il est fort probable que vous ayez éprouvé des difficultés lors du dernier exercice pratique. Il vous a probablement pris beaucoup de temps et vous avez probablement manqué de nombreuses vulnérabilités. Ne vous découragez pas ! Avant de commencer, vous en auriez trouvé beaucoup moins en beaucoup plus de temps. Ce n'est peut-être pas génial, mais il est très difficile de passer de l'apprentissage des vulnérabilités isolément à leur découverte dans un environnement ouvert. C'est pourquoi les difficultés et l'absence de réussite absolue font partie du processus.
 
-Once you’ve figured out the fundamentals of finding vulnerabilities in websites, this subtopic will teach you a process to find those vulnerabilities more quickly and efficiently.
+Une fois que vous avez compris les bases de la recherche de vulnérabilités au sein des sites Web, ce sous-thème vous enseignera un processus permettant de trouver ces vulnérabilités plus rapidement et plus efficacement.
 
-## Objectives
+## Objectifs
 
-After completing this subtopic, practitioners should be able to understand a methodical approach to web application security assessment that results in finding more vulnerabilities in less time.
+Après avoir terminé ce sous-thème, les participants devraient être en mesure de mettre en œuvre une approche méthodique de l'évaluation de la sécurité des applications Web qui permette de trouver plus de vulnérabilités en moins de temps.
 
 ---
+## Section Principale
 
-There are a few common pitfalls that trap new web application testers. Think about whether you fell victim to any of these while testing Juice Shop:
+Il existe quelques pièges courants qui surprennent les nouveaux testeurs d'applications Web. Demandez-vous si vous avez été victime de l'une ou l'autre de ces situations pendant que vous faisiez le test de Juice Shop :
 
-- Hopping around through the site
-- Focusing on finding particular vulnerabilities first, as opposed to fully testing certain sections
-- Getting fixated on certain pages/input and spending a lot of time looking for phantom vulns
-- Not reporting vulnerabilities as soon as they are found, and having to go back and re-test to document them
-- Missing sections of the site and/or entire vulnerability classes
+- Parcourir le site
+- Se concentrer d'abord sur la détection de vulnérabilités particulières, plutôt que de tester entièrement certaines sections
+- Faire une fixation sur certaines pages/entrées et passer beaucoup de temps à chercher des vulnérabilités inexistantes
+- Ne pas signaler les vulnérabilités dès qu'elles sont trouvées, et devoir revenir en arrière pour les tester à nouveau afin de les documenter
+- Manquer des sections du site et/ou des classes de vulnérabilité entières
 
-If you did any of these things, don’t feel bad. Most people struggle with these, often through full careers as professional web application testers. What you can do is develop strategies to avoid these (and other) issues that make your testing slow and unreliable. This subtopic will show you a few strategies to get you started.
+Ne vous inquiétez pas si vous reconnaissez l'un de ces écueils. La plupart des intervenants sont concernés par ces problèmes, souvent dans le cadre de carrières complètes en tant que testeurs d'applications Web professionnels. Ce que vous pouvez faire est de développer des stratégies pour éviter ces (et d'autres) problèmes qui rendent votre test plus lent et peu fiable. Ce sous-thème vous montrera quelques stratégies permettant de vous aider à démarrer.
 
-## Strategy 1: Testing Process
+### Stratégie 1 : processus de test
 
-In the last subtopic, we introduced the concept of a methodology for web applications security assessments,a way of organizing and thinking about testing. Now, we’re going to reframe that framework into a process. The problem with a framework is that it’s too general. You can test any web application using the framework, but for any specific application, you’ll be more successful if you give yourself more structure.
+Dans le dernier sous-thème, nous avons introduit le concept d'une méthodologie pour les évaluations de sécurité des applications Web, une façon d'organiser et de penser les tests. Maintenant, nous allons recadrer cela dans un processus. Le problème avec un cadre de travail, c'est qu'il risque d'être trop général. Vous pouvez tester n'importe quelle application Web en utilisant le cadre de travail, mais dans le cas des applications plus spécifiques, vous aurez plus de succès si vous vous donnez plus de structure.
 
-### Getting Started
+#### Premiers pas
 
-When testing a website, you’ll usually want two users at each level of access, though this can vary. Consider an online forum. You’ll want two registered users, one or two moderators, and one or two admin users. This will let you fully test the site’s authorization controls. In the above example, things you might want to test include:
+Lorsque vous testez un site Web, vous devriez généralement avoir deux utilisateurs à chaque niveau d'accès, bien que cela puisse varier. Envisagez un forum en ligne. Vous devriez avoir deux utilisateurs enregistrés, un ou deux modérateurs et un ou deux utilisateurs administrateurs. Cela vous permettra de tester pleinement les contrôles d'autorisation du site. Dans l'exemple ci-dessus, les éléments à tester sont les suivants :
 
-- Can users edit each others’ posts?
-- Can users see each others’ private messages?
-- Can users who are not admins or moderators perform moderation functions?
-- Can users or moderators who are not admins perform administrative functions?
+- Les utilisateurs peuvent-ils modifier les publications des autres ?
+- Les utilisateurs peuvent-ils voir les messages privés des autres ?
+- Les utilisateurs qui ne sont pas administrateurs ou modérateurs peuvent-ils effectuer des fonctions de modération ?
+- Les utilisateurs ou modérateurs qui ne sont pas administrateurs peuvent-ils effectuer des fonctions administratives ?
 
-If you were testing a forum website that allowed multiple sub-forums, you might need 3 normal users (two assigned to sub-forum A and one from sub-forum B), two moderators and admins (one for each sub-forum) and a super-admin.
+Si vous testez un site Web de forum qui autorise plusieurs sous-forums, vous pourriez avoir besoin de 3 utilisateurs normaux (deux affectés au sous-forum A et un au sous-forum B), de deux modérateurs et administrateurs (un pour chaque sous-forum) et d'un super-administrateur.
 
-Once you’ve got the user accounts you need, you can start making a site map. The site map will guide your testing, and will function as your checklist for testing. As as example, you might produce something like this:
+Une fois que vous avez les comptes d'utilisateur dont vous avez besoin, vous pouvez commencer à créer un plan du site. La carte du site guidera vos tests et servira de liste de contrôle pour les tests. À titre d'exemple, vous pourriez produire quelque chose comme ceci :
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![A big table which lists every item on a webpage that can be accessed by a user, along with its URL and a checklist for who can access it--unauthenticated users, particular authenticated users, moderators, or admins](/media/uploads/web_security_assessment_testing_table1.png)
 
-This shows every page you’ve found in the app (“URL” column), its logical navigation, whether the content of the page changes depending on its parameters (“User-specific?” column), and then whether each user type has access to the URL. There’s also a “notes” column for you to collect important info about the page, e.g., if the profile page shows very different content depending on the user of the person viewing the page or if data input on one page shows up on another. Some sites may not fit nicely into this particular structure. That’s fine, the structure should be specific to the site, so feel free to change it. However, something like this should work for most sites.
+Cela montre chaque page que vous avez trouvée dans l'application (colonne « URL »), sa navigation logique, si le contenu de la page change en fonction de ses paramètres (colonne « propre à l'utilisateur »), puis si chaque type d'utilisateur a accès à l'URL. Il y a également une colonne « notes » pour recueillir des renseignements importants sur la page, p. ex., si la page de profil affiche un contenu très différent selon l'utilisateur de la personne qui consulte la page ou si les données saisies sur une page s'affichent sur une autre. Certains sites peuvent ne pas s'intégrer dans cette structure particulière. Ce n'est pas un problème, la structure doit être spécifique au site, alors n'hésitez pas à la modifier. Cela devrait toutefois fonctionner pour la plupart des sites.
 
-In building this spreadsheet, you need to go through all the pages on the site and all the site’s user roles. This is most of the Discovery section of the web methodology used in the previous subtopic. So, obviously, while you’re building the site map, you should make sure you complete all of the Discovery tests.
+Lors de la construction de cette feuille de calcul, vous devez parcourir toutes les pages du site et tous les rôles d'utilisateur du site. Il s'agit de la majeure partie de la section Découverte de la méthodologie Web utilisée dans le sous-thème précédent. Donc, évidemment, lorsque vous construisez le plan du site, vous devez vous assurer de compléter tous les tests de Découverte.
 
-⚠️ This part of the process is extremely important, but can be very dull. To liven it up, do _a little_ ad-hoc testing while you’re going through the site. Maybe check an input for XSS here, do a little authorization check there. This will help keep you engaged while you go through the site.
+⚠️ Cette partie du processus est extrêmement importante, mais peut s'avérer très ennuyeuse. Pour l'adoucir, faites _un petit_ test ad-hoc pendant que vous parcourez le site. Par exemple, vérifiez certaines entrées contre le XSS et faites des vérifications d'autorisation. Cela vous aidera à rester actif(ve) pendant que vous parcourez le site.
 
-### Per Site Testing
+#### Test par site
 
-Certain parts of the methodology apply to the entire site, or a few places on the site. Every web server has a configuration, and most websites have 1 to a few logical servers (e.g. [www.example.com](http://www.example.com), api.example.com, static.example.com). Most sites have one (or maybe two) login/registration/account management sections and session management mechanisms. You should do these tests next. Doing so will let you feel productive by completing multiple methodology sections quickly, and will give you a chance to understand the structural underpinnings of the website. As you do these tests, you might find more web pages that you originally missed. If so, that’s fine, but be sure to add them to your spreadsheet!
+Certaines parties de la méthodologie s'appliquent à l'ensemble du site ou à quelques endroits sur le site. Chaque serveur Web a une certaine configuration et la plupart des sites Web ont 1 à quelques serveurs logiques (p. ex., [www.exemple.com](http://www.example.com), api.exemple.com, static.exemple.com). La plupart des sites ont une (ou peut-être deux) sections de connexion/enregistrement/gestion de compte et des mécanismes de gestion de session. Vous devriez faire ces tests ensuite. Cela vous permettra de vous sentir productif(ve) en remplissant rapidement plusieurs sections de la méthodologie, et vous donnera une chance de comprendre les fondements structurels du site Web. Au fur et à mesure que vous faites ces tests, vous pourriez trouver d'autres pages Web que vous avez manquées à l'origine. Si c'est le cas, ne vous inquiétez pas et assurez-vous de les ajouter à votre feuille de calcul !
 
-Most people elect to keep their notes from these tests in a text file, as opposed to their testing spreadsheet, but do whatever feels natural to you.
+La plupart des gens choisissent de conserver leurs notes de test dans un fichier texte, par opposition à leur feuille de calcul de test, mais faites ce qui vous semble naturel.
 
-### Per Page Testing
+#### Test par page
 
-Now that you understand the site, you can dive into the biggest part of testing the site: testing every page (and every input) for the full battery of tests in the rest of the methodology. This is going to be a lot to keep track of, and if you don’t stay focused and keep track, you will miss things. Fortunately, you’ve prepared a spreadsheet. All you need to do is expand that spreadsheet and you’ve got a full checklist:
+Maintenant que vous comprenez le site, vous pouvez vous plonger dans la plus grande partie du test du site : tester chaque page (et chaque entrée) pour appliquer l'ensemble des tests du reste de la méthodologie. Cela comprendra de nombreux éléments à suivre, et si vous ne restez pas concentré(e) et que vous perdez le fil, vous risquez de manquer des choses. Heureusement, vous avez préparé une feuille de calcul. Il vous suffit d'étendre cette feuille de calcul et vous obtenez une liste de contrôle complète :
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![A screenshot of a similar table to the one above except that there are not more columns which allow the person filling it in to check boxes for various authorization, authentication, XSS, and other vulnerabilities they might encounter](/media/uploads/web_security_assessment_testing_table2.png)
 
-This might seem daunting, but every cell in that sheet is a small, discrete chunk of work that should take a bounded amount of time. It’s usually more effective to go through the site filling out rows first; choose a page and go through the entire methodology, rather than performing one test throughout the entire site. As you go, put something like a “√” in cells as you complete them, or something like “n/a” if the tests don’t apply. Over the hours and days, your checklist will get filled in, and you can be confident that you’ve performed complete testing.
+Cela peut sembler intimidant, mais chaque cellule de cette feuille est un petit morceau de travail isolé qui devrait prendre un temps limité. Il est généralement plus efficace de parcourir le site en remplissant d'abord les lignes. Choisissez une page et passez en revue toute la méthodologie, plutôt que d'effectuer un test sur l'ensemble du site. Ajoutez une marque comme « √ » dans les cellules à mesure que vous les remplissez, ou quelque chose comme « n/a » si les tests ne sont pas applicables. Au fil des heures et des jours, votre liste de contrôle se remplira et vous serez assuré(e) d'avoir effectué des tests complets.
 
-⚠️ It’s a good idea to keep separate notes in your regular notes document while you do this testing, you want to keep your spreadsheet clean and clear.
+⚠️ Il peut être judicieux de conserver des notes séparées dans votre document de notes régulières pendant que vous faites ce test, vous voudrez garder une feuille de calcul propre et claire.
 
-## Strategy 2: Time-box tests
+### Stratégie 2 : tests limités dans le temps
 
-Getting fixated on a particular page/input/etc while testing, and spending hours on it is a near-universal mistake among people who test web applications. They tell themselves that they’re at the cusp of a breakthrough, and they’ll be done in 10 minutes. Next thing they know, it’s two hours later and they forgot to eat lunch. (Not everyone does this. But if you do, you’re in good company.) If you have infinite time to test a site, then this isn’t much of a problem (missed meals notwithstanding). Most of the time, though, you have limited time. If you run out of time because you got fixated on one page, you may leave entire swaths of the site, riddled with vulnerabilities, untested.
+Faire une fixation sur une page/entrée/etc. particulière pendant les tests et y passer des heures est une erreur quasi universelle chez les personnes qui testent des applications Web. Ils pensent qu'ils sont sur le point de faire une découverte et qu'ils auront terminé dans 10 minutes. Mais deux heures plus tard, ils ont oublié de déjeuner. (Ce n'est pas le cas de tout le monde. Mais si vous vous reconnaissez, bienvenue au club.) Si vous aviez un temps infini pour tester un site, cela ne serait pas vraiment un problème (mis à part les repas oubliés). La plupart du temps, cependant, votre temps est limité. Si vous manquez de temps parce que vous avez fait une fixation sur une page, vous risquez de négliger des parties entières du site criblées de vulnérabilités non testées.
 
-If you find yourself getting stuck frequently, set a timer every time you start a cell in the testing spreadsheet. Make sure you can’t see the timer, looking at a clock countdown is stressful. With experience, you will be able to guess how long a cell should take. Give yourself a nice buffer (around 50% or more). So, if you think you can complete a cell in 10 minutes, set a timer for 15 or 20 minutes. The idea is for the timer to warn you that maybe you’re fixated, not to motivate you to go fast. If the timer goes off before you finish the cell, stop and evaluate. If you found a vulnerability and are making progress creating a demonstration exploit (e.g., you find SQL injection and you’re setting up something to extract the database), then reset the timer and keep going. If, however, you find that you’re chasing after some vulnerability that maybe doesn’t actually exist, then take a note about your progress to date, and move on to the next cell. If you have time at the end of testing, you’ll be able to come back.
+Si vous vous retrouvez coincé(e) fréquemment, réglez une minuterie chaque fois que vous démarrez une cellule dans la feuille de calcul de test. Assurez-vous de ne pas regarder la minuterie. La conscience d'un compte à rebours peut s'avérer stressant. Avec l'expérience, vous serez en mesure de deviner combien de temps chaque cellule devrait vous prendre. Accordez-vous un tampon confortable (environ 50 % ou plus). Ainsi, si vous pensez pouvoir terminer une cellule en 10 minutes, réglez la minuterie sur 15 ou 20 minutes. L'idée du minuteur est de vous avertir lorsque vous vous obstinez, pas de vous motiver à avancer plus vite. Si le minuteur se déclenche avant que vous ayez terminé la cellule, arrêtez-vous et procédez à l'évaluation. Si vous avez trouvé une vulnérabilité et que vous progressez en créant une exploitation de faille de démonstration (par exemple, vous trouvez une injection SQL et vous configurez une requête pour extraire des informations de la base de données), réinitialisez le minuteur et continuez. En revanche, si vous trouvez que vous courez après une vulnérabilité qui n'existe peut-être pas réellement, alors prenez note de vos progrès et passez à la cellule suivante. Vous pourrez y revenir à la fin des tests s'il vous reste du temps.
 
-This strategy also has good health benefits. The process of resetting the timer per cell also gives you an opportunity to get up and stretch, get a beverage, make sure you break for meals, etc.
+Cette stratégie présente également de bons avantages en termes de santé. Le processus de réinitialisation de la minuterie à chaque cellule vous donne également l'occasion de vous lever et de vous étirer, de prendre une boisson, de vous assurer de prendre vos repas, etc.
 
-## Strategy 3: Document as you go
+### Stratégie 3 : documenter au fur et à mesure
 
-This strategy was discussed in the previous section, but most people ignore the advice at first. Hopefully, in the process of completing the previous section, you either followed the advice, or you learned that writing the report at the end is not an effective strategy. Many people have to learn this lesson repeatedly through an entire career doing security testing, so don’t feel too bad if you mess up from time to time.
+Cette stratégie a été discutée dans la section précédente, mais la plupart des participants ignorent ce conseil au début. J'espère qu'après avoir terminé la section précédente, vous avez suivi le conseil ou vous avez appris que la rédaction du rapport à la fin des tests n'est pas une stratégie efficace. Beaucoup de gens doivent apprendre cette leçon à plusieurs reprises tout au long de leur carrière au fil des tests de sécurité, alors ne vous inquiétez pas si vous tombez dans le piège de temps en temps.
 
-Related to this, you want to keep effective notes. Many people keep a running notes file that just includes everything they think of and odd things they notice during testing, and another notes file that includes further details about vulnerabilities that they find and conclusions about the site that are too verbose or unfined to the report.
+Par ailleurs, vous devriez veiller à prendre des notes efficaces. Beaucoup de gens gardent un fichier de notes prises en cours de route qui inclut tout ce qu'ils pensent et les choses étranges qu'ils remarquent pendant les tests, et un autre fichier de notes qui comprend plus de détails sur les vulnérabilités qu'ils trouvent et les conclusions relatives au site qui sont trop détaillées ou inadaptées au rapport.
 
-These strategies should set you up for success in testing websites. We’ll put them into practice in the next subsection of this subtopic.
+Ces stratégies devraient vous permettre de réussir vos tests de sites Web. Nous les mettrons en pratique dans la prochaine sous-section de ce sous-thème.
 
-### Thinking of vulnerabilities through the lens of the OSI model
+#### Envisager les vulnérabilités à travers le prisme du modèle OSI
 
-[The OSI](https://tryhackme.com/room/introtonetworking) (Open Systems Interconnection) Model serves as a standardized framework for understanding computer networking theory, although real-world networking is predominantly based on the more concise TCP/IP model. Nonetheless, the OSI model remains valuable for gaining an initial grasp of networking concepts. These layers collectively enable the smooth functioning of computer networks, ensuring efficient and reliable data transmission from the application to the physical hardware level.
+Le modèle [OSI](https://tryhackme.com/room/introtonetworking) (Open Systems Interconnection) sert de cadre normalisé pour la compréhension de la théorie des réseaux informatiques, bien que les réseaux du monde réel soient principalement basés sur le modèle TCP/IP plus concis. Néanmoins, le modèle OSI reste utile pour acquérir une compréhension initiale des concepts de mise en réseau. Ces couches permettent collectivement le bon fonctionnement des réseaux informatiques, en assurant une transmission efficace et fiable des données des applications au niveau matériel physique.
 
-Since the OSI model is one of the main ways in which we think about networking, it’s useful to be familiar with it when thinking of and looking for potential vulnerabilities as well.
+Étant donné que le modèle OSI est l'une des principales façons dont nous pensons à la mise en réseau, il est utile de le connaître lorsque vous réfléchissez à des vulnérabilités potentielles et que vous les recherchez.
 
-<table>
-  <tr>
-   <td>layer 1
-   </td>
-   <td>APPLICATION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 2
-   </td>
-   <td>PRESENTATION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 3
-   </td>
-   <td>SESSION
-   </td>
-  </tr>
-  <tr>
-   <td>layer 4
-   </td>
-   <td>TRANSPORT
-   </td>
-  </tr>
-  <tr>
-   <td>layer 5
-   </td>
-   <td>NETWORK
-   </td>
-  </tr>
-  <tr>
-   <td>layer 6
-   </td>
-   <td>DATA LINK 
-   </td>
-  </tr>
-  <tr>
-   <td>layer 7
-   </td>
-   <td>PHYSICAL
-   </td>
-  </tr>
-</table>
 
-The OSI model comprises seven layers:
+| Couche   | Nom                          |
+|----------|-----------------------------|
+| couche 7 | APPLICATION                  |
+| couche 6 | PRÉSENTATION                 |
+| couche 5 | SESSION                      |
+| couche 4 | TRANSPORT                    |
+| couche 3 | RÉSEAU                       |
+| couche 2 | LIAISON DE DONNÉES           |
+| couche 1 | PHYSIQUE                     |
 
-1. **Application**: Provides networking capabilities to computer programs, facilitating data transmission between applications. Data received at this layer is then passed down to the presentation layer.
-2. **Presentation**: Receives data from the application layer, often in a format specific to the application. It standardizes the data format and handles tasks like encryption and compression before passing it to the session layer.
-3. **Session**: Attempts to establish and maintain a connection with another computer across the network. It manages communication sessions and synchronizes data exchanges between the host and remote computers.
-4. **Transport**: Selects the transmission protocol (TCP or UDP) and breaks down data into manageable segments or datagrams. TCP offers reliable, connection-based transmission, while UDP prioritizes speed.
-5. **Network**: Determines the destination of the data transmission by utilizing logical addressing (e.g., IP addresses) to identify the best route across the network. Commonly used logical addressing formats include IPV4.
-6. **Data Link**: Focuses on physical addressing by adding the MAC (Media Access Control) address of the receiving endpoint to the transmission packet. It also ensures the integrity of data transmission and prepares data for transmission.
-7. **Physical**: Handles the hardware-level aspects of data transfer, converting binary data into signals for transmission over the network. It is responsible for sending and receiving electrical pulses that constitute data transfer.
 
-Attackers can breach each OSI model layer [due to inherent vulnerabilities](https://www.pynetlabs.com/various-kinds-of-osi-layer-attacks/). These vulnerabilities can arise from software bugs, design flaws, and misconfigurations, which collectively provide attackers with opportunities to exploit weaknesses across all seven layers.
+Le modèle OSI comprend sept couches :
 
-- Application: Common attacks targeting this layer include Cross-Site Scripting (XSS), where malicious scripts are injected into web applications to compromise user data or hijack sessions.
-- Presentation: Attackers may target this layer with techniques such as format string attacks or exploiting vulnerabilities in encryption algorithms.
-- Session: Session layer attacks include session hijacking, where an attacker intercepts and takes control of a user's session to gain unauthorized access.
-- Transport: Transport layer attacks may involve TCP SYN flooding or UDP flood attacks, which overwhelm network resources by sending many connection requests.
-- Network: Network layer attacks include IP spoofing, where attackers forge the source IP address of packets to bypass security measures or launch denial-of-service attacks.
-- Data Link: Attacks targeting the data link layer may include MAC flooding or Address Resolution Protocol (ARP) spoofing attacks, which disrupt network connectivity or facilitate man-in-the-middle attacks.
-- Physical: Physical layer attacks involve physical tampering, such as cable tapping or signal interference, to disrupt network communication or intercept data.
+1. **Application** : fournit des capacités de mise en réseau aux programmes informatiques, en facilitant la transmission des données entre les applications. Les données reçues dans cette couche sont ensuite transmises à la couche de présentation.
+2. **Présentation** : reçoit les données de la couche d'application, souvent dans un format spécifique à l'application. Elle normalise le format des données et gère des tâches telles que le chiffrement et la compression avant de les transmettre à la couche de session.
+3. **Session** : tente d'établir et de maintenir une connexion avec un autre ordinateur sur le réseau. Elle gère les sessions de communication et synchronise les échanges de données entre l'hôte et les ordinateurs distants.
+4. **Transport** : sélectionne le protocole de transmission (TCP ou UDP) et décompose les données en segments ou datagrammes gérables. TCP offre une transmission fiable basée sur la connexion, tandis qu'UDP privilégie la vitesse.
+5. **Réseau** : détermine la destination de la transmission des données en utilisant l'adressage logique (par exemple, les adresses IP) pour identifier le meilleur itinéraire à travers le réseau. Les formats d'adressage logique couramment utilisés incluent IPV4.
+6. **Liaison des données** : se concentre sur l'adressage physique en ajoutant l'adresse MAC (Media Access Control) du point de terminaison de réception au paquet de transmission. Elle assure également l'intégrité de la transmission des données et prépare les données pour la transmission.
+7. **Physique** : gère les aspects matériels du transfert de données, en convertissant les données binaires en signaux pour permettre leur transmission sur le réseau. Elle est responsable de l'envoi et de la réception des impulsions électriques qui constituent le transfert de données.
 
-## Practice
+Les cybercriminels peuvent violer chaque couche du modèle OSI [en raison de vulnérabilités propres](https://www.pynetlabs.com/various-kinds-of-osi-layer-attacks/). Ces vulnérabilités peuvent provenir de bugs logiciels, de défauts de conception et de configurations incorrectes, qui donnent collectivement aux cybercriminels la possibilité d'exploiter les faiblesses des sept couches.
 
-This practice is similar to that of the previous subsection, except this time you’ll be following the testing process outlined above. Also, the website you’ll be testing is a bit more realistic; it was built to be a website with vulnerabilities, as opposed to a site containing a bunch of challenges. As such, it should feel more like testing a real website does.
+- Application : les attaques courantes ciblant cette couche incluent le Cross-Site Scripting (XSS), où des scripts malveillants sont injectés dans des applications Web pour compromettre les données des utilisateurs ou détourner des sessions.
+- Présentation : les cybercriminels peuvent cibler cette couche avec des techniques telles que les attaques de chaînes de format ou l'exploitation des vulnérabilités dans les algorithmes de chiffrement.
+- Session : les attaques de couche de session incluent le détournement de session, où un cybercriminel intercepte et prend le contrôle de la session d'un utilisateur pour obtenir un accès non autorisé.
+- Transport : les attaques de la couche de transport peuvent impliquer un flooding TCP SYN ou des attaques de flood UDP, qui submergent les ressources du réseau en envoyant de nombreuses demandes de connexion.
+- Réseau : les attaques de la couche réseau incluent le spoofing IP, où les cybercriminels falsifient l'adresse IP source des paquets pour contourner les mesures de sécurité ou lancer des attaques par déni de service.
+- Liaison des données : les attaques ciblant la couche de liaison des données peuvent inclure des attaques de flooding MAC ou des attaques d'usurpation du protocole de résolution d'adresses (ARP), qui perturbent la connectivité réseau ou facilitent les attaques « man-in-the-middle ».
+- Physique : les attaques de la couche physique impliquent une altération physique, telle qu'un branchement de câble ou une interférence de signal, pour perturber la communication réseau ou intercepter des données.
 
-1. [Install DIWA](https://github.com/snsttr/diwa) (Docker is generally the easiest method)
-2. Prepare your testing environment as with the previous subtopic. Make sure you have a blank report, one or more notes files and a testing spreadsheet. For the latter (and your future work), feel free to copy [this template](https://docs.google.com/spreadsheets/d/1NPDA-CI5t_X0krw2qMwcOOupIWXhMCfYiTZFeyv-A08/edit#gid=0).
-3. Start testing! Follow the process described in this subtopic, and compare how it feels to when you were testing Juice Shop. As before, the goal is to practice. Don’t look for answers or walkthroughs until you’re done.
+## Exercice pratique
 
-## Skill Check
+Cet exercice pratique est similaire à celui de la sous-section précédente, sauf que cette fois, vous suivrez le processus de test décrit ci-dessus. De plus, le site Web que vous allez tester est un peu plus réaliste. Il a été conçu comme un site comprenant des vulnérabilités, par opposition à un site contenant de nombreux défis. À ce titre, il devrait vous donner l'impression de tester un véritable site Web.
 
-If you have a mentor, review your report with them. You will probably find it useful to look [at a list of the vulnerabilities present in DIWA](https://github.com/jeremiahblatz/diwa-answers/wiki/) available (please submit any additions). If you’ve found the majority of those in a reasonable amount of time (1-2 days), then congratulations!
+1. [Installer DIWA](https://github.com/snsttr/diwa) (Docker est généralement la méthode la plus simple)
+2. Préparez votre environnement de test comme dans le cas du sous-thème précédent. Assurez-vous d'avoir un rapport vierge, un ou plusieurs fichiers de notes et une feuille de calcul de test. Concernant cette dernière (et vos travaux futurs), n'hésitez pas à copier [ce modèle](https://docs.google.com/spreadsheets/d/1NPDA-CI5t_X0krw2qMwcOOupIWXhMCfYiTZFeyv-A08/edit#gid=0).
+3. Commencez les tests ! Suivez le processus décrit dans ce sous-thème et comparez vos impressions par rapport au test de Juice Shop. Comme précédemment, le but est de s'exercer. Ne cherchez pas de réponses ou d'explications avant d'avoir terminé.
 
-If you don’t have a mentor, you can self-review using the list above.
+## Contrôle de compétence
+
+Si vous avez un mentor, passez en revue votre rapport avec lui. Vous trouverez probablement utile de consulter [une liste des vulnérabilités présentes dans DIWA](https://github.com/jeremiahblatz/diwa-answers/wiki/) (n'hésitez pas à soumettre les ajouts éventuels). Si vous avez trouvé la majorité d'entre eux dans un délai raisonnable (1 à 2 jours), nous vous félicitons !
+
+Si vous n'avez pas de mentor, vous pouvez vous autoévaluer à l'aide de la liste ci-dessus.

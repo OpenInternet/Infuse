@@ -94,24 +94,24 @@ Since the OSI model is one of the main ways in which we think about networking, 
 
 | Layer   | Name        |
 |---------|-------------|
-| layer 1 | APPLICATION |
-| layer 2 | PRESENTATION|
-| layer 3 | SESSION     |
+| layer 7 | APPLICATION |
+| layer 6 | PRESENTATION|
+| layer 5 | SESSION     |
 | layer 4 | TRANSPORT   |
-| layer 5 | NETWORK     |
-| layer 6 | DATA LINK   |
-| layer 7 | PHYSICAL    |
+| layer 3 | NETWORK     |
+| layer 2 | DATA LINK   |
+| layer 1 | PHYSICAL    |
 
 
 The OSI model comprises seven layers:
 
-1. **Application**: Provides networking capabilities to computer programs, facilitating data transmission between applications. Data received at this layer is then passed down to the presentation layer.
-2. **Presentation**: Receives data from the application layer, often in a format specific to the application. It standardizes the data format and handles tasks like encryption and compression before passing it to the session layer.
-3. **Session**: Attempts to establish and maintain a connection with another computer across the network. It manages communication sessions and synchronizes data exchanges between the host and remote computers.
+7. **Application**: Provides networking capabilities to computer programs, facilitating data transmission between applications. Data received at this layer is then passed down to the presentation layer.
+6. **Presentation**: Receives data from the application layer, often in a format specific to the application. It standardizes the data format and handles tasks like encryption and compression before passing it to the session layer.
+5. **Session**: Attempts to establish and maintain a connection with another computer across the network. It manages communication sessions and synchronizes data exchanges between the host and remote computers.
 4. **Transport**: Selects the transmission protocol (TCP or UDP) and breaks down data into manageable segments or datagrams. TCP offers reliable, connection-based transmission, while UDP prioritizes speed.
-5. **Network**: Determines the destination of the data transmission by utilizing logical addressing (e.g., IP addresses) to identify the best route across the network. Commonly used logical addressing formats include IPV4.
-6. **Data Link**: Focuses on physical addressing by adding the MAC (Media Access Control) address of the receiving endpoint to the transmission packet. It also ensures the integrity of data transmission and prepares data for transmission.
-7. **Physical**: Handles the hardware-level aspects of data transfer, converting binary data into signals for transmission over the network. It is responsible for sending and receiving electrical pulses that constitute data transfer.
+3. **Network**: Determines the destination of the data transmission by utilizing logical addressing (e.g., IP addresses) to identify the best route across the network. Commonly used logical addressing formats include IPV4.
+2. **Data Link**: Focuses on physical addressing by adding the MAC (Media Access Control) address of the receiving endpoint to the transmission packet. It also ensures the integrity of data transmission and prepares data for transmission.
+1. **Physical**: Handles the hardware-level aspects of data transfer, converting binary data into signals for transmission over the network. It is responsible for sending and receiving electrical pulses that constitute data transfer.
 
 Attackers can breach each OSI model layer [due to inherent vulnerabilities](https://www.pynetlabs.com/various-kinds-of-osi-layer-attacks/). These vulnerabilities can arise from software bugs, design flaws, and misconfigurations, which collectively provide attackers with opportunities to exploit weaknesses across all seven layers.
 

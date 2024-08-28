@@ -5,129 +5,134 @@ description: Lisez la présentation du parcours d'apprentissage, les objectifs, 
 weight: 1
 ---
 
-## Overview
+## Présentation
 
-Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By proactively identifying vulnerabilities in web applications used by your clients and partners, you can head off potential compromises before they occur.
+Les applications Web sont des infrastructures essentielles utilisées par les organisations de médias et la société civile pour assurer la libre circulation de l'information et fournir des fonctionnalités à leurs parties prenantes. Les cybercriminels attaquent ces applications Web à diverses fins, y compris l'arrêt de la libre circulation de l'information, les dommages à la réputation, l'accès aux systèmes privés, le vol d'informations sensibles, la surveillance et la compromission des appareils. En identifiant de manière proactive les vulnérabilités des applications Web utilisées par vos clients et partenaires, vous pouvez éviter les compromissions potentielles avant qu'elles se produisent.
 
-This learning path covers intermediate and advanced knowledge needed to deeply understand and identify vulnerabilities in web applications. This can be used to find vulnerabilities in an application before threat actors do, to guide secure development practices, or to more effectively fix vulnerabilities in web applications. In this learning path we will cover:
+Ce parcours d'apprentissage couvre les connaissances intermédiaires et avancées nécessaires pour comprendre et identifier en profondeur les vulnérabilités des applications Web. Cela peut être utilisé pour trouver des vulnérabilités dans une application avant les auteurs de menaces, pour guider les pratiques de développement sécurisé ou pour corriger plus efficacement les vulnérabilités dans les applications Web. Dans ce parcours d'apprentissage, nous aborderons :
 
-- The reasons for performing a web application security assessment
-- The types of assessment that are effective to perform
-- How to identify various types of web application vulnerabilities
-- How to exploit those vulnerabilities
-- How to effectively and efficiently systematically test a web application for vulnerabilities
+- Les raisons d'effectuer une évaluation de sécurité d'application Web
+- Les types d'évaluations efficaces à effectuer
+- La façon d'identifier les différents types de vulnérabilités des applications Web
+- La façon d'exploiter ces vulnérabilités
+- La façon de tester systématiquement et efficacement une application Web afin de détecter les vulnérabilités
 
-### Background reading
+### Lecture complémentaire
 
-Adversaries, especially political rivals, have a history of attempting to hack into the websites of civil society groups. Some documented examples include:
+Les cybercriminels, en particulier les rivaux politiques, ont toujours tenté de pirater les sites Web de groupes de la société civile. Voici quelques exemples documentés :
 
-- March 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
-- October 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
-- August 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
-- September 2018 [https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
+- Mars 2020 <https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/>
+- Octobre 2019 <https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/>
+- Août 2019 <https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/>
+- Septembre 2018 <https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/>
 
-Additionally, any site on the internet is subject to opportunistic and targeted attacks by financially-motivated threat actors. These adversaries have goals such as stealing user passwords, payment card information, etc. for resale, modifying site content for search ranking manipulation or click fraud,using the site’s infrastructure itself for cryptocurrency mining, sending spam, or launching denial of service attacks. Although many of these attacks may not be targeted based on political motivations, they nonetheless pose significant reputational and confidentiality risks to any organization. For more information on opportunistic and automated attacks on web applications, see [this report by OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
+En outre, tout site sur Internet est sujet à des attaques opportunistes et ciblées par des acteurs de menace motivés financièrement. Ces cybercriminels ont des objectifs tels que le vol des mots de passe des utilisateurs, des informations de cartes de paiement, etc. pour la revente, la modification du contenu du site pour la manipulation du classement des recherches ou la fraude par clic, ou l'utilisation de l'infrastructure du site elle-même pour le minage de cryptomonnaie, l'envoi de courriers indésirables ou le lancement d'attaques par déni de service. Bien que bon nombre de ces attaques ne soient pas ciblées pour des motifs politiques, elles présentent néanmoins des risques importants pour la réputation et la confidentialité de toute organisation. Pour obtenir plus d'informations sur les attaques opportunistes et automatisées sur les applications Web, consultez [ce rapport de l'OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
 
-## Objective
+## Objectif
 
-The Badge-holder should be able to efficiently perform comprehensive security assessments of web applications, including identifying the vulnerabilities in the OWASP top 10.
+Le titulaire du badge devrait être en mesure d'effectuer efficacement des évaluations de sécurité complètes des applications Web, y compris l'identification des vulnérabilités dans le top 10 de l'OWASP.
 
-## What threats does this skill mitigate or respond to?
+## Quelles menaces cette compétence permet-elle d'atténuer ou de gérer ?
 
-Web application assessment skills can help respond to hacking threats by:
+Les compétences en évaluation d'applications Web peuvent contribuer à répondre aux menaces de piratage par :
 
-- State-motivated vigilante hackers
-- Financially motivated attackers
+- Les pirates vigilants motivés par un État
+- Les cybercriminels motivés financièrement
 
-## What are the prerequisites?
+## Quels sont les prérequis ?
 
-- Prior to starting this learning path, learners should first complete the Website Security Fundamentals learning path if they are not familiar with web servers and basic web application vulnerabilities. If they already are familiar with the wider topic, we still recommend that they brush up on the Fundamentals learning path’s subtopic 6, which focuses on interpersonal skills needed when supporting others.
-- A basic familiarity with HTML such as the basic layout of an HTML document and the ability to read simple HTML. For a great introduction, check out [MDN](https://developer.mozilla.org/en-US/docs/Learn).
-- Basic programming language concepts and the ability to read simple JavaScript. We recommend the [MDN introduction](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) to the topic.
-- Basic understanding of how HTTP works, how a browser communicates with a website, and what HTTP requests and responses look like. For an introduction of those topics, we recommend [this piece](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) and [this one](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
-- A basic understanding of SQL, just enough to know what it is and how to formulate a simple command. For an introduction, see [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
-- Basic familiarity with how the command line works on an operating system of your choice and how to run commands therein. For a good introduction, see [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
+- Avant de commencer ce parcours d'apprentissage, les apprenants doivent d'abord suivre le parcours d'apprentissage sur les principes fondamentaux de la sécurité des sites Web s'ils ne sont pas familiers avec les serveurs Web et les vulnérabilités de base des applications Web. S'ils sont déjà familiers avec le sujet plus large, nous leur recommandons tout de même de réviser le sous-thème 6 du parcours d'apprentissage des principes fondamentaux, qui met l'accent sur les compétences interpersonnelles nécessaires pour soutenir les autres.
+- Une connaissance de base du HTML, comme la mise en page de base d'un document HTML et la capacité de lire du HTML simple. Pour obtenir une excellente introduction, consultez [MDN](https://developer.mozilla.org/en-US/docs/Learn).
+- Concepts de base du langage de programmation et la capacité de lire du JavaScript simple. Nous recommandons l'[introduction de MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) à ce sujet.
+- Compréhension de base du fonctionnement de HTTP, de la façon dont un navigateur communique avec un site Web et à quoi ressemblent les requêtes et les réponses HTTP. Pour une introduction de ces sujets, nous recommandons [cet article](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) et [celui-ci](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
+- Une compréhension de base de SQL, juste assez pour savoir de quoi il s'agit et la façon de formuler une commande simple. Pour obtenir une introduction, consultez [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
+- Connaissances de base du fonctionnement de la ligne de commande sur un système d'exploitation de votre choix et de la façon d'y exécuter des commandes. Pour obtenir une bonne introduction, consultez [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
 
-## What devices or software do you need for the exercises?
+## De quels appareils ou logiciels avez-vous besoin pour réaliser les exercices ?
 
-- You will need a computer capable of running Java applications and Docker. Any macOS, Windows, or Linux device with 8GM of RAM and some free disk space should work. All of the labs here were also tested on devices running Apple Silicon, and work.
-- Many of the tools in this learning path run best on Unix-like operating systems. This means that it’s easiest to use Linux, macOS devices, or Windows devices with WSL (Windows Subsystem for Linux) installed on them.
-- If you are running macOS, it’s a good idea to install [Homebrew](https://brew.sh/) or [Macports](https://www.macports.org/); those are package managers which can automate the process of installing some of the tools outlined throughout the learning path.
-- Alternatively, if you have an installation of Kali Linux (you can use the same one you used for the Web Application Security Fundamentals learning path), most of the tools outlined below should already come pre-installed.
-- If you are running Windows, we recommend you install WSL (Windows Subsystem for Linux) to run some of the tools outlined below. While many of them can run in Docker, those which require Python might be much easier to run within WSL, which will require less fiddling with dependencies.
-  _ Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-  _ Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
-  _ Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
-  _ Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command \
-  `wsl --set-default-version 2` \* The output from this command will look like:
+- Vous aurez besoin d'un ordinateur capable d'exécuter des applications Java et Docker. N'importe quel appareil macOS, Windows ou Linux avec 8 Go de RAM et un peu d4espace disque libre devrait faire l'affaire. Tous les exercices pratiques ont également été testés sur des appareils exécutant Apple Silicon, et fonctionnent.
+- La plupart des outils de ce parcours d'apprentissage fonctionnent mieux sur des systèmes d'exploitation de type Unix. Cela signifie qu'il est plus facile d'utiliser des périphériques Linux, macOS ou Windows avec WSL (Windows Subsystem pour Linux) installé dessus.
+- Si vous utilisez macOS, il peut être judicieux d'installer [Homebrew](https://brew.sh/) ou [Macports](https://www.macports.org/). Il s'agit de gestionnaires de paquets qui peuvent automatiser le processus d'installation de certains des outils décrits tout au long du parcours d'apprentissage.
+- Alternativement, si vous avez une installation de Kali Linux (vous pouvez utiliser le même que celui que vous avez utilisé pour le parcours d'apprentissage sur les principes fondamentaux de la sécurité des applications Web), la plupart des outils décrits ci-dessous devraient déjà être préinstallés.
+- Si vous utilisez Windows, nous vous recommandons d'installer WSL (Windows Subsystem for Linux) pour exécuter certains des outils décrits ci-dessous. Bien que beaucoup d'entre eux puissent fonctionner dans Docker, ceux qui nécessitent Python pourraient être beaucoup plus faciles à exécuter dans WSL, ce qui nécessitera moins de manipulation des dépendances.
+  - Voici la documentation fournie par Microsoft avec tous les détails sur la façon d'installer WSL 2 : [https://docs.microsoft.com/fr-fr/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+  - Ouvrez « Activer ou désactiver des fonctionnalités Windows » dans le panneau de configuration de Windows et assurez-vous que « Plateforme de machine virtuelle » et « Sous-système Windows pour Linux » sont cochés.
+  - Téléchargez et installez WSL 2 à partir du [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Une fois l'outil installé, redémarrez votre ordinateur pour appliquer les modifications.
+  - Ouvrez une invite de commande ou Windows PowerShell en mode administrateur en cliquant avec le bouton droit de la souris et en sélectionnant « Exécuter en tant qu'administrateur » et exécutez la commande  \
+        `wsl --set-default-version 2`
+  - Le résultat de cette commande ressemblera à ceci :
 
-  ```
-  For information on key differences with WSL 2 please visit https://aka.ms/wsl2
-  The operation completed successfully.
-  ```
+```
+Pour obtenir plus d'informations sur les principales différences avec WSL 2, veuillez visiter <https://aka.ms/wsl2>
+L'opération s'est terminée avec succès.
+```
 
-  Once WSL 2 is installed, you can install your preferred Linux distribution from the Microsoft Store or by using the command line. Simply search for "Linux" in the Microsoft Store, select your desired distribution (e.g., Ubuntu, Debian, or others), and click "Install". Alternatively, you can install a Linux distribution using PowerShell or Command Prompt. Open a Windows Powershell or Command Prompt and list the distributions available:
+- - Une fois que l'outil WSL 2 est installé, vous pouvez installer votre distribution Linux préférée à partir du Microsoft Store ou en utilisant la ligne de commande. Recherchez simplement « Linux » dans le Microsoft Store, sélectionnez la distribution souhaitée (par exemple, Ubuntu, Debian ou autre) et cliquez sur « Installer ». Vous pouvez également installer une distribution Linux en utilisant PowerShell ou l'invite de commande. Ouvrir un Powershell Windows ou une invite de commande et obtenez la liste des distributions disponibles :
 
-  ```
-  wsl --list --online
-  ```
-  Install a distribution from this list using wsl --install -d &lt;Distribution Name> command.
+```
+wsl --list --online
+```
 
-  ```
-  wsl --install -d Ubuntu
-  ```
-  After installation, each Linux distribution will have an icon on the Windows application menu. Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
+Installez une distribution à partir de cette liste à l'aide de la commande wsl --install -d &lt;nom de la distribution&gt;.
 
-  A new window should open with a Linux shell.
+```
+wsl --install -d Ubuntu
+```
 
-- Here is a quick review of the WSL command line options.
+Après l'installation, chaque distribution Linux aura une icône dans le menu de l'application Windows. Une fois que vous aurez installé WSL, vous devrez créer un compte utilisateur et un mot de passe pour votre distribution Linux nouvellement installée.
 
-  Print the usage information and see the command line arguments:
+Une nouvelle fenêtre devrait s'ouvrir avec un shell Linux.
 
+- Voici un rapide examen des options de ligne de commande WSL.
 
-  ```
-  wsl --help
-  ```
-  List the installed distributions:
+Imprimez les informations d'utilisation et consultez les arguments de la ligne de commande :
 
-  ```
-  wsl --list
-  ```
+```
+wsl --help
+```
 
-  List only the running distributions:
+Lister les distributions installées :
 
-  ```
-  wsl --list --running
-  ```
-  Terminate a running distribution:
+```
+wsl --list
+```
 
-  ```
-  wsl --terminate Ubuntu-22.04
-  ```
+Lister uniquement les distributions en cours d'exécution :
 
-  Shutdown all running distributions:
+```
+wsl --list --running
+```
 
-  ```
-  wsl --shutdown
-  ```
+Mettre fin à une distribution en cours d'exécution :
 
-  Unregister the Linux distribution and delete the filesystem:
+```
+wsl --terminate Ubuntu-22.04
+```
 
-  ```
-  wsl --unregister Ubuntu-22.04
-  ```
+Arrêter toutes les distributions en cours d'exécution :
 
-  Update WSL to the latest version:
+```
+wsl --shutdown
+```
 
+Annuler la distribution Linux et supprimer le système de fichiers :
 
-  ```
-  wsl --update
-  ```
-  Start the default distribution:
+```
+wsl --unregister Ubuntu-22.04
+```
 
-  ```
-  wsl
+Mettre à jour WSL vers la dernière version :
 
-## Related learning paths
+```
+wsl --update
+```
 
-After completing this learning path, we would recommend that learners work on Web Application Hardening, Forensics, and Incident Response.
+Démarrer la distribution par défaut :
+
+```
+wsl
+```
+
+## Parcours d'apprentissage connexes
+
+Après avoir terminé ce parcours d'apprentissage, nous recommandons aux apprenants de travailler sur le renforcement des applications Web, l'investigation et l'intervention en cas d'incident.

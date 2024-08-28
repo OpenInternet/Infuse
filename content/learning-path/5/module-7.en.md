@@ -50,7 +50,7 @@ Another area where scanners excel is in finding configuration issues, especially
 
 Despite their strengths, scanners also have multiple weaknesses. In some cases, it may not even be appropriate to use a scanner for testing certain sites. Here are some of the biggest problems with web app scanners.
 
-#### Scan Completeness
+##### Scan Completeness
 
 There are numerous potential issues with the way scanners work that may cause them to not complete a full test against the site in a timely manner.
 
@@ -62,7 +62,7 @@ On the other hand, there may be pages or parameters that the spider doesn’t de
 
 All of these issues can be worked through with close observation of the scanner behavior and changing scan configurations. While it’s entirely possible to just point a scanner at a website and launch a scan, to get the best results, it’s important to at least complete Discovery and Authentication testing before launching a scan.
 
-#### Scanner Destructiveness
+##### Scanner Destructiveness
 
 One of the strengths of a scanner is that it runs very fast. This strength can cause problems, though.
 
@@ -72,7 +72,7 @@ Relatedly, some sites don’t have the resources to keep up with a scanner. Give
 
 Both of these can be partially mitigated through discussions with the site owner and by paying attention during Discovery testing and configuring the scanner correctly. For instance, all major scanners have ways of excluding certain pages from scans and for controlling how fast they scan. However, the risk of a scanner impacting the site or its related systems can never be eliminated.
 
-#### Vulnerabilities That Scanners Are Bad At Discovering
+##### Vulnerabilities That Scanners Are Bad At Discovering
 
 While scanners are great at discovering some sorts of vulnerabilities, there are other types that are nearly impossible for them to discover.
 
@@ -86,7 +86,7 @@ Scanners may also produce lots of results that aren’t useful. In some cases, t
 
 In all cases, you should manually reproduce and fully understand scanner findings before adding them to your report.
 
-#### Using Scanners Effectively
+##### Using Scanners Effectively
 
 Generally, web applications security assessment practitioners find that they’re more effective using a scanner than not. Since their strengths are so compelling, it’s worth one’s time to configure and monitor scans.
 

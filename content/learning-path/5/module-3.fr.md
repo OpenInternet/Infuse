@@ -2,48 +2,50 @@
 style = "module"
 weight = 3
 title = "Authentication and Authorization"
+description = "De nombreuses applications web n'autorisent que certains utilisateurs à accéder à certains contenus spécifiques et leur demandent de se connecter ou de prouver leur identité par d'autres moyens. Ce sous-sujet explore l'authentification et l'autorisation, ainsi que les vulnérabilités potentielles qui y sont liées."
 +++
 
-## Use Case
+## Cas d'utilisation
 
-Many web apps will only allow particular users to view certain pieces of content and require them to log in or prove their identity in other ways. Adversaries who want to access sensitive data will often try to bypass those restrictions and attempt to view information they are not allowed to see. This subtopic looks into the idea of authentication and authorization, and possible vulnerabilities therein.
+De nombreuses applications Web ne permettent qu'à des utilisateurs particuliers de visualiser certains contenus et les obligent à se connecter ou à prouver leur identité par d'autres moyens. Les cybercriminels qui veulent accéder à des données sensibles essaieront souvent de contourner ces restrictions et de consulter les informations qu'ils ne sont pas autorisés à voir. Ce sous-thème examine l'idée d'authentification et d'autorisation, et les vulnérabilités possibles.
 
-## Objectives
+## Objectifs
 
-After completing this subtopic, practitioners will be able to find weaknesses in web applications that allow them to partially or completely bypass those applications’ authentication systems or abuse authentication to disclose information about a site’s users.
+Après avoir terminé ce sous-thème, les participants seront en mesure de trouver des faiblesses dans les applications Web qui leur permettent de contourner partiellement ou complètement les systèmes d'authentification de ces applications ou d'abuser de l'authentification pour divulguer des informations sur les utilisateurs d'un site.
 
-They should also be able to find and exploit the following types of vulnerabilities:
+Ils devraient également être en mesure de trouver et d'exploiter les types de vulnérabilités suivants :
 
-- Authentication
-- Authorization
+- Authentification
+- Autorisation
 
 ---
+## Section Principale
 
-## What are authentication and authorization vulnerabilities?
+### Que sont les vulnérabilités d'authentification et d'autorisation ?
 
-Authentication and authorization are two sides of a coin, and are primarily responsible for protecting the confidentiality and integrity of data in an application. Authentication is the process of validating that a user is who they claim they are, which authorization ensures that the user only has access to the data and capabilities that they are meant to. While data validation attacks may allow an attacker to circumvent an application’s access control mechanisms (e.g., downloading an entire database with SQLi), authentication and authorization features directly implement access controls.
+L'authentification et l'autorisation sont les deux faces d'un même concept et sont principalement responsables de la protection de la confidentialité et de l'intégrité des données dans une application. L'authentification est le processus de validation selon lequel un utilisateur est bien celui qu'il prétend être, ce qui garantit que l'utilisateur n'a accès qu'aux données et aux capacités auxquelles il a droit. Bien que les attaques de validation de données puissent permettre à un cybercriminel de contourner les mécanismes de contrôle d'accès d'une application (par exemple, le téléchargement d'une base de données entière avec SQLi), les fonctionnalités d'authentification et d'autorisation implémentent directement des contrôles d'accès.
 
-## Authentication
+#### Authentification
 
-For applications that don’t rely on a 3rd party (e.g., sign in with Google/Facebook/etc) for authentication, they usually implement their own authentication systems. Unfortunately, user authentication is quite subtle, and also very important. Thus, there are likely to be subtle and/or catastrophic weaknesses in authentication systems, as developers make the same mistakes over and over. Although the possible range of vulnerabilities is unlimited, there are a few common ones, which we’ll explore in this subtopic.
+Les applications qui ne dépendent pas d'un tiers (par exemple, se connecter avec Google/Facebook/etc.) pour l'authentification implémentent généralement leurs propres systèmes d'authentification. Malheureusement, l'authentification des utilisateurs est assez subtile et très importante. C'est pourquoi il y aura probablement des faiblesses subtiles et/ou catastrophiques dans les systèmes d'authentification, car les développeurs reproduisent souvent les mêmes erreurs. Bien que la gamme de vulnérabilités possibles soit illimitée, nous allons en explorer quelques-unes dans ce sous-thème.
 
-Head over to the [PortSwigger Academy Authentication topic](https://portswigger.net/web-security/authentication) and complete the reading and labs.
+Accédez au thème [Authentification de PortSwigger Academy](https://portswigger.net/web-security/authentication) et complétez la lecture et les exercices pratiques.
 
-## Authorization
+#### Autorisation
 
-It is very rare for web application frameworks to automatically provide authorization services for developers, so those developers have to implement their own systems consistently. Although authorization controls are typically very simple, they are extremely easy to overlook in places. Like implementing authorization controls, testing for authorization controls is simple in concept, but requires very high consistency.
+Il est très rare que les cadres d'application Web fournissent automatiquement des services d'autorisation aux développeurs, de sorte que ces derniers doivent implémenter leurs propres systèmes de manière cohérente. Bien que les contrôles d'autorisation soient généralement très simples, ils sont extrêmement faciles à ignorer par endroits. Tout comme la mise en œuvre des contrôles d'autorisation, les tests pour les contrôles d'autorisation sont simples dans leur concept, mais nécessitent une très grande cohérence.
 
-Generally, authorization controls are broken down into vertical and horizontal controls. Vertical authorization ensures that users only have the capabilities for which they are authorized. An example of this might be that submitters on an online ticketing system should not be able to access the admin interface. Horizontal authorization ensures that users should only be able to access data for which they are authorized. An example might be that submitters to a ticketing system should see their own ticket history but not those of others.
+En général, les contrôles d'autorisation sont divisés en contrôles verticaux et horizontaux. L'autorisation verticale garantit que les utilisateurs disposent uniquement des capacités pour lesquelles ils sont autorisés. Par exemple, les émetteurs d'un système de billetterie en ligne ne devraient pas pouvoir accéder à l'interface d'administration. L'autorisation horizontale garantit que les utilisateurs ne peuvent accéder qu'aux données qu'ils ont le droit de consulter. Par exemple, les émetteurs d'un système de billetterie devraient voir leur propre historique de billets, mais pas ceux des autres.
 
-While testing for authorization, it’s very efficient to have multiple browser profiles (or even different browsers) open at once, each with a different logged in user. That way, if you want to see if User A has access to a page that only User B should be able to see, you can simply paste the URL into User A’s browser session. Other checks (such as POST requests) may be involved, but are still much faster with multiple browser profiles.
+Lors des tests d'autorisation, il est très efficace d'avoir plusieurs profils de navigateur (ou même différents navigateurs) ouverts à la fois, chacun avec un utilisateur connecté différent. De cette façon, si vous voulez vérifier si l'utilisateur A a accès à une page que seul l'utilisateur B devrait pouvoir voir, vous pouvez simplement coller l'URL dans la session du navigateur de l'utilisateur A. D'autres vérifications (telles que les requêtes POST) peuvent être impliquées, mais sont encore plus rapides avec plusieurs profils de navigateur.
 
-Head over to the [PortSwigger Academy Access Control topic](https://portswigger.net/web-security/access-control) and complete the reading and labs.
+Accédez au thème [Contrôle des accès de PortSwigger Academy](https://portswigger.net/web-security/access-control) et complétez la lecture et les exercices pratiques.
 
-## Skill Check
+## Contrôle de compétence
 
-PortSwigger academy contains a series of labs which you can use to test and validate your skills. For each of the following topics, complete 1-3 of the ‘practitioner’ level labs:
+PortSwigger Academy propose une série d'exercices pratiques que vous pouvez utiliser pour tester et valider vos compétences. Pour chacun des sujets suivants, remplissez un ou trois des exercices pratiques de niveau « praticien » :
 
-- [Authentication](https://portswigger.net/web-security/all-labs#authentication)
-- [Access control vulnerabilities](https://portswigger.net/web-security/all-labs#access-control-vulnerabilities)
+- [Authentification](https://portswigger.net/web-security/all-labs#authentication)
+- [Vulnérabilités du contrôle des accès](https://portswigger.net/web-security/all-labs#access-control-vulnerabilities)
 
-If you are working with a peer or mentor, explain to them how each attack works and how you would find and demonstrate exploitability for similar vulnerabilities in a site you were testing.
+Si vous travaillez avec un pair ou un mentor, expliquez-lui comment chaque attaque fonctionne et comment vous pourriez trouver et démontrer l'exploitabilité de vulnérabilités similaires sur un site que vous avez testé.
