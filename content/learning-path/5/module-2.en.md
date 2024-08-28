@@ -130,7 +130,7 @@ This will return no rows, since “a” is never _equal to_ “a%”. If we use 
 select * from documents where title like '%user text' and 'a' like 'a%'
 {{< / highlight >}}
 
-Although they are not equal, “a” is _like_ “a%”. Thus, the above test 1 and test 2 should work in almost any string-based situation. Note that if you are testing a search feature, you might also want to try an additional test 1 string: `%' and 'a' like '%a`. Note that in the above queries the original search is slightly changed; it’s missing the % after the user text. If you suspect a like operation is in use, this test 1 string should make up for that.
+Although they are not equal, “a” is _like_ “a%”. Thus, the above test 1 and test 2 should work in almost any string-based situation. Note that if you are testing a search feature, you might also want to try an additional test 1 string: `%' and 'a' like '%a`. Note that in the above queries the original search is slightly changed; it’s missing the % after the user text. If you suspect a `like` operation is in use, this test 1 string should make up for that.
 
 ##### Testing numeric parameters
 

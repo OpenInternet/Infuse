@@ -1,177 +1,179 @@
 +++
 style = "module"
 weight = 7
-title = "Automatic Vulnerability Discovery"
+title = "Descubrimiento Automático de Vulnerabilidades"
+description = "En subtemas anteriores, analizamos cómo descubrir vulnerabilidades de forma manual. Aquí, exploramos herramientas que pueden ayudar a automatizar ese proceso."
 +++
 
-## Use Case
+## Caso de Uso
 
-This learning path has focused on manual discovery of vulnerabilities in web applications. This skill is vital for understanding the vulnerabilities and also gives you the tools to find them on any site. However, there are numerous tools that can help with vulnerability discovery and exploitation in web applications. These tools have both advantages and disadvantages and are best used in conjunction with manual testing. This subtopic reviews a number of freely available tools and how to use them effectively.
+Esta ruta de aprendizaje se ha centrado en el descubrimiento manual de vulnerabilidades en aplicaciones web. Esta habilidad es vital para comprender las vulnerabilidades y también le brinda las herramientas para encontrarlas en cualquier sitio. Sin embargo, existen numerosas herramientas que pueden ayudar a descubrir y explotar vulnerabilidades en aplicaciones web. Estas herramientas tienen ventajas y desventajas y es mejor utilizarlas junto con pruebas manuales. Este subtema analiza una serie de herramientas disponibles gratuitamente y cómo utilizarlas de forma eficaz.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners will know how and when to appropriately use various web application vulnerability scanners, including:
+Después de completar este subtema, los profesionales sabrán cómo y cuándo utilizar adecuadamente varios escáneres de vulnerabilidades de aplicaciones web, incluidos:
 
-- ZAP scanner
+- Escáner ZAP
 - sqlmap
 - WPScan CLI
 
 ---
+## Sección Principal
 
-This subtopic explores three classes of web application automation tools. It will discuss what they do, what they’re good at, what they’re not good at, and how to get the most out of them. We’ll break the space down into three broad categories:
+Este subtema explora tres clases de herramientas de automatización de aplicaciones web. Se discutirá lo que hacen, en qué son buenos, en qué no son buenos y cómo aprovecharlos al máximo. Dividiremos el espacio en tres categorías amplias:
 
-- Web app automatic testers
-- Exploitation tools
-- Web app vulnerability scanners
+- Probadores automáticos de aplicaciones web
+- Herramientas de explotación
+- Escáneres de vulnerabilidades de aplicaciones web
 
-## Web application automatic testers
+### Probadores automáticos de aplicaciones web
 
-This first category is tools that do the same things that humans do to find new vulnerabilities in web applications. They go through the site, find inputs, send malicious data to those inputs, and try to detect when that data has triggered a vulnerability. One example of this type of web app scanner is SSP’s ZAP, but there are numerous others, including Burp Pro’s scanner, HCL AppScan, etc.
+Esta primera categoría son herramientas que hacen las mismas cosas que hacen los humanos para encontrar nuevas vulnerabilidades en las aplicaciones web. Recorren el sitio, encuentran entradas, envían datos maliciosos a esas entradas e intentan detectar cuándo esos datos han desencadenado una vulnerabilidad. Un ejemplo de este tipo de escáner de aplicaciones web es el ZAP de SSP, pero hay muchos otros, incluido el escáner Burp Pro, HCL AppScan, etc.
 
-Typically, these tools work by first “[spidering](https://en.wikipedia.org/wiki/Web_crawler)” the target website, where they will follow every link on every page and attempt to build a complete map of the site. Then, they find every parameter that is sent to the server, and replace that parameter with various “[fuzz](https://en.wikipedia.org/wiki/Fuzzing)” substitutions. When each response comes back, the scanner will look for features that indicate a successful attack. For example, the scan engine might replace a parameter with <code>&lt;script><em>var</em> xyz<em>=</em>"abc";&lt;/script></code>. When the HTTP response comes back, the scanner will parse the pages’ HTML, and if it sees that script element as a JavaScript block in the page, then it knows that the input is vulnerable to XSS.
+Por lo general, estas herramientas funcionan primero “[rastreando](https://es.wikipedia.org/wiki/Ara%C3%B1a_weber)” el sitio web de destino, donde seguirán cada enlace en cada página e intentarán construir un mapa completo del sitio. Luego, encuentra todos los parámetros que se envían al servidor y se reemplazan con varios reemplazos “[fuzz](https://es.wikipedia.org/wiki/Fuzzing)”. Cuando llegue cada respuesta, el escáner buscará características que indiquen un ataque exitoso. Por ejemplo, el motor de exploración podría reemplazar un parámetro con <code>&lt;script><em>var</em> xyz<em>=</em>"abc";&lt;/script></code>. Cuando llega la respuesta HTTP, el escáner analizará el HTML de las páginas y, si ve ese elemento de secuencia de comandos como un bloque de JavaScript en la página, entonces sabrá que la entrada es vulnerable a XSS.
 
-### Scanner Strengths
+#### Puntos Fuertes del Escáner
 
-People use web application scanners for good reason. They find vulnerabilities quickly and effectively. Experienced web application security testers will use scanners as part of their assessments, despite their years of experience. There are some things that web application scanners are very good at.
+La gente utiliza escáneres de aplicaciones web por una buena razón. Encuentran vulnerabilidades de forma rápida y eficaz. Los evaluadores de seguridad de aplicaciones web experimentados utilizarán escáneres como parte de sus evaluaciones, a pesar de sus años de experiencia. Hay algunas cosas en las que los escáneres de aplicaciones web son muy buenos.
 
-The biggest strength of these tools is finding vulnerabilities related to data validation. Scanners are excellent at finding mainstream data validation issues like XSS and SQLi, but also obscure issues like LDAP injections, XSLT, etc. The reasons for this are simple:
+La mayor fortaleza de estas herramientas es encontrar vulnerabilidades relacionadas con la validación de datos. Los escáneres son excelentes para encontrar problemas de validación de datos convencionales como XSS y SQLi, pero también problemas oscuros como inyecciones LDAP, XSLT, etc. Las razones de esto son simples:
 
-- Scanners don’t get tired or bored, they can submit thousands of requests and not “lose focus”
-- Scanners can try every possible input they’re programmed to, including HTTP referer headers, cookies, extra parameters arbitrarily added to the ends of URLs, etc.
-- Scanners have huge libraries of tests to try lots of permutations of each potential attack
-- Data validation vulnerabilities are generally quite easy to recognize, with simple pattern matching or behavioral analysis that is easy to detect programmatically.
+- Los escáneres no se cansan ni se aburren, pueden enviar miles de solicitudes y no “perder el foco”
+- Los escáneres pueden probar todas las entradas posibles para las que están programados, incluidos encabezados de referencia HTTP, cookies, parámetros adicionales agregados arbitrariamente al final de las URL, etc.
+- Los escáneres tienen enormes bibliotecas de pruebas para probar muchas permutaciones de cada ataque potencial.
+- Las vulnerabilidades de validación de datos son generalmente bastante fáciles de reconocer, con una simple coincidencia de patrones o un análisis de comportamiento que es fácil de detectar mediante programación.
 
-Some scanners even use unique fuzz strings for each input, so that they can detect input that’s entered in one place and shown in another. Generally, a properly configured scanner should find more data validation issues in less time than a highly skilled human.
+Algunos escáneres incluso utilizan cadenas de fuzz únicas para cada entrada, de modo que puedan detectar la entrada que se ingresa en un lugar y se muestra en otro. Generalmente, un escáner configurado correctamente debería encontrar más problemas de validación de datos en menos tiempo que un humano altamente capacitado.
 
-Another area where scanners excel is in finding configuration issues, especially ones that exist in only a small subset of the site. If a site uses CSRF tokens in every form, but the developers forgot in one section of the site, a human tester is likely to overlook the error. However, a scanner will almost certainly find and report the missing token. As with data validation, scanners have huge batteries of tests that they run on every request and response.
+Otra área en la que destacan los escáneres es en la búsqueda de problemas de configuración, especialmente aquellos que existen sólo en un pequeño subconjunto del sitio. Si un sitio utiliza tokens CSRF en todas sus formularios, pero los desarrolladores o desarrolladoras lo olvidaron en una sección del sitio, es probable que un evaluador humano pase por alto el error. Sin embargo, es casi seguro que un escáner encontrará e informará del token faltante. Al igual que con la validación de datos, los escáneres tienen enormes baterías de pruebas que ejecutan en cada solicitud y respuesta.
 
-### Scanner Weaknesses
+#### Debilidades del Escáner
 
-Despite their strengths, scanners also have multiple weaknesses. In some cases, it may not even be appropriate to use a scanner for testing certain sites. Here are some of the biggest problems with web app scanners.
+A pesar de sus puntos fuertes, los escáneres también tienen múltiples puntos débiles. En algunos casos, puede que ni siquiera sea apropiado utilizar un escáner para probar determinados sitios. Estos son algunos de los mayores problemas con los escáneres de aplicaciones web.
 
-### Scan Completeness
+##### Completitud del Escaneo
 
-There are numerous potential issues with the way scanners work that may cause them to not complete a full test against the site in a timely manner.
+Existen numerosos problemas potenciales con la forma en que funcionan los escáneres que pueden hacer que no realicen una prueba completa en el sitio de manera oportuna.
 
-The first is that many sites require users to log in. Scanners can be configured with a logged in session ID, given a script that submits the login form, or other ways of authenticating. They can also be configured to detect when they’ve been logged out of the site. However, this configuration is often error-prone. If the scanner is configured improperly, it may not completely spider the site, or may not detect when it’s been logged out and not properly complete testing. In extreme cases, sites may have anti-automation features that make scanning nearly impossible.
+La primera es que muchos sitios requieren que los usuarios inicien sesión. Los escáneres se pueden configurar con una ID de sesión iniciada, con un script que envía el formulario de inicio de sesión u otras formas de autenticación. También se pueden configurar para detectar cuándo se ha cerrado sesión en el sitio. Sin embargo, esta configuración suele ser propensa a errores. Si el escáner está configurado incorrectamente, es posible que no rastree completamente el sitio o que no detecte cuándo se cerró la sesión y no complete las pruebas correctamente. En casos extremos, los sitios pueden tener funciones contra laautomatización que hacen que el escaneo sea casi imposible.
 
-Another issue is that scanners don’t always distinguish between pages that are completely different vs pages that merely look different. For instance, in an online forum, it’s easy for a human to see that each forum thread is really the same underlying page with different data. However, an automatic scanner might determine that two threads are entirely different web pages and that they must be tested separately. In large sites, sometimes scanners can get stuck testing one page that appears to be different pages to the scanner, and spend hours or days performing redundant tests.
+Otro problema es que los escáneres no siempre distinguen entre páginas que son completamente diferentes y páginas que simplemente parecen diferentes. Por ejemplo, en un foro en línea, es fácil para un humano ver que cada hilo del foro es en realidad la misma página subyacente con datos diferentes. Sin embargo, un escáner automático podría determinar que dos subprocesos son páginas web completamente diferentes y que deben probarse por separado. En sitios grandes, a veces los escáneres pueden quedarse atascados al probar una página que parece ser diferente para el escáner y pasar horas o días realizando pruebas redundantes.
 
-On the other hand, there may be pages or parameters that the spider doesn’t detect for one reason or another. If the scanner hasn’t detected a parameter, or has missed sections of the site, then obviously it’s likely to miss vulnerabilities related to those pages or parameters.
+Por otro lado, puede haber páginas o parámetros que el rastreador no detecta por un motivo u otro. Si el escáner no ha detectado un parámetro o ha omitido secciones del sitio, entonces obviamente es probable que omita vulnerabilidades relacionadas con esas páginas o parámetros.
 
-All of these issues can be worked through with close observation of the scanner behavior and changing scan configurations. While it’s entirely possible to just point a scanner at a website and launch a scan, to get the best results, it’s important to at least complete Discovery and Authentication testing before launching a scan.
+Todos estos problemas se pueden solucionar observando de cerca el comportamiento del escáner y cambiando las configuraciones de escaneo. Si bien es completamente posible apuntar un escáner a un sitio web e iniciar un escaneo, para obtener los mejores resultados, es importante al menos completar las pruebas de descubrimiento y autenticación antes de iniciar un escaneo.
 
-### Scanner Destructiveness
+#### Destructividad del Escáner
 
-One of the strengths of a scanner is that it runs very fast. This strength can cause problems, though.
+Uno de los puntos fuertes de un escáner es que funciona muy rápido. Sin embargo, esta fuerza puede causar problemas.
 
-If submitting a request ends up performing some action outside the site, then the scanner may make that action happen thousands of times. Examples of outside effects might include sending a SMS (which may cost the site owner money), sending an email (imagine someone opening their inbox to find tens of thousands of emails), printing an order ticket in a warehouse, etc.
+Si al enviar una solicitud se termina realizando alguna acción fuera del sitio, entonces el escáner puede hacer que esa acción suceda miles de veces. Ejemplos de efectos externos podrían incluir el envío de un SMS (que puede costarle dinero al propietario o propietaria del sitio), el envío de un correo electrónico (imagine que alguien abre su bandeja de entrada y encuentra decenas de miles de correos electrónicos), la impresión de un ticket de pedido en un almacén, etc.
 
-Relatedly, some sites don’t have the resources to keep up with a scanner. Given how often independent media and civil society sites come under denial of service attacks, this might be an important thing to discover. However, the site crashing will prevent further vulnerability testing.
+En relación con esto, algunos sitios no tienen los recursos suficientes para atender todas las peticiones que genera un un escáner. Dada la frecuencia con la que los medios independientes y los sitios de la sociedad civil son objeto de ataques de denegación de servicio, podría ser importante descubrir esto. Sin embargo, la caída del sitio impedirá realizar más pruebas de vulnerabilidad.
 
-Both of these can be partially mitigated through discussions with the site owner and by paying attention during Discovery testing and configuring the scanner correctly. For instance, all major scanners have ways of excluding certain pages from scans and for controlling how fast they scan. However, the risk of a scanner impacting the site or its related systems can never be eliminated.
+Ambos problemas se pueden mitigar parcialmente mediante conversaciones con el propietario o propietaria del sitio y prestando atención durante las pruebas de Descubrimiento y configurando el escáner correctamente. Por ejemplo, todos los escáneres principales tienen formas de excluir ciertas páginas de los escaneos y de controlar la velocidad a la que escanean. Sin embargo, nunca se puede eliminar el riesgo de que un escáner afecte el sitio o sus sistemas relacionados.
 
-### Vulnerabilities That Scanners Are Bad At Discovering
+#### Vulnerabilidades que los Escáneres no Descubren Bien
 
-While scanners are great at discovering some sorts of vulnerabilities, there are other types that are nearly impossible for them to discover.
+Si bien los escáneres son excelentes para descubrir algunos tipos de vulnerabilidades, hay otros tipos que les resulta casi imposible descubrir.
 
-Chief among these are true business logic vulnerabilities. Scanners just execute scripts, and they don’t “understand” how sites are meant to work. No scanner will understand the significance of a rounding error in money transfers or the significance of omitting a supposedly required field in a form.
+Las principales son las verdaderas vulnerabilidades de la lógica empresarial. Los escáneres simplemente ejecutan scripts y no "entienden" cómo deben funcionar los sitios. Ningún escáner comprenderá la importancia de un error de redondeo en las transferencias de dinero o la importancia de omitir un campo supuestamente obligatorio en un formulario.
 
-Relatedly, automated tools do not tend to do a good job at detecting authorization vulnerabilities. While there exist a variety of tools to assist with authorization testing, generally scanners do not automatically detect these sorts of vulnerabilities.
+En relación con esto, las herramientas automatizadas no suelen hacer un buen trabajo a la hora de detectar vulnerabilidades de autorización. Si bien existe una variedad de herramientas para ayudar con las pruebas de autorización, generalmente los escáneres no detectan automáticamente este tipo de vulnerabilidades.
 
-### False Positives and Non-Issues
+#### Falsos Positivos y resultados poco significativos
 
-Scanners may also produce lots of results that aren’t useful. In some cases, the script to detect a vulnerability may be imperfect, resulting in the scanner reporting an issue where none exists. In other cases, the scanner may report things that the tool’s author may think are interesting or valuable, but are not significant in the context of the site you’re testing.
+Los escáneres también pueden producir muchos resultados que no son útiles. En algunos casos, el script para detectar una vulnerabilidad puede ser imperfecto, lo que hace que el escáner informe de un problema que no existe. En otros casos, el escáner puede informar cosas que el autor de la herramienta puede considerar interesantes o valiosas, pero que no son significativas en el contexto del sitio que está probando.
 
-In all cases, you should manually reproduce and fully understand scanner findings before adding them to your report.
+En todos los casos, debe reproducir manualmente y comprender completamente los resultados del escáner antes de agregarlos a su informe.
 
-### Using Scanners Effectively
+#### Uso Eficaz de los Escáneres
 
-Generally, web applications security assessment practitioners find that they’re more effective using a scanner than not. Since their strengths are so compelling, it’s worth one’s time to configure and monitor scans.
+Generalmente, los y las profesionales de la evaluación de la seguridad de las aplicaciones web descubren que son más eficaces utilizando un escáner que no hacerlo. Dado que sus puntos fuertes son tan convincentes, vale la pena dedicar tiempo a configurar y monitorear los escaneos.
 
-In all cases, you should complete Discovery and Authentication before using a scanner. Since you are new to the field, you should practice using a scanner on different websites and both read and understand your scanner’s configuration options and progress indicators. Try to understand how the site works before unleashing a scanner upon it.
+En todos los casos, debe completar el Descubrimiento y la Autenticación antes de utilizar un escáner. Como este campo es nuevo para usted, debe practicar el uso de un escáner en diferentes sitios web y leer y comprender las opciones de configuración y los indicadores de progreso de su escáner. Intente comprender cómo funciona el sitio antes de utilizar un escáner.
 
-Some practitioners will scan pages individually, skipping the “spidering” stage of a scan. This has the advantage of mitigating many of the issues of scanning, but also misses out on the ability of the spider to find content that you might have missed. It’s also more labor intensive. However, it can be very effective on sites that are hard for the scanner to spider and sites that are more fragile.
+Hay profesionales que escanean las páginas individualmente, omitiendo la etapa de "araña" del escaneo. Esto tiene la ventaja de mitigar muchos de los problemas del escaneo, pero también pierde la capacidad del rastreador para encontrar contenido que usted podría haber pasado por alto. También requiere más mano de obra. Sin embargo, puede ser muy eficaz en sitios que son difíciles de rastrear para el escáner y en sitios que son más frágiles.
 
-Another option is to scan the whole site at once. It’s generally good to use a separate web app user for this scan, so that garbage data from the scan doesn’t interfere with your regular testing. Also make sure that the account you use has full access to the site. While the scan is running, you should try to strike a balance between monitoring the scan closely enough to notice problems, but also spend most of your time doing manual testing.
+Otra opción es escanear todo el sitio a la vez. En general, es bueno utilizar un usuario de aplicación web independiente para este análisis, de modo que los datos basura del análisis no interfieran con sus pruebas habituales. También asegúrese de que la cuenta que utiliza tenga acceso completo al sitio. Mientras se ejecuta el análisis, debe intentar lograr un equilibrio entre monitorear el análisis lo suficientemente de cerca como para detectar problemas, pero también dedicar la mayor parte de su tiempo a realizar pruebas manuales.
 
-In either case, you should not rely on the scanner entirely for data validation testing or any other vulnerability class. You should at least do a few tests on each input to the site and do some thorough testing on others. The scanner may have subtle problems testing the site that aren’t obvious.
+En cualquier caso, no debe confiar completamente en el escáner para las pruebas de validación de datos o cualquier otra clase de vulnerabilidad. Al menos debería hacer algunas pruebas en cada entrada del sitio y algunas pruebas exhaustivas en otras. El escáner puede tener problemas sutiles al probar el sitio que no son obvios.
 
-### Practice: Using ZAP
+### Práctica: Usando ZAP
 
-ZAP (SSP’s Zed Attack Proxy) is an open-source alternative to Burp. Though most professionals prefer Burp Professional, ZAP is a quite capable proxy and includes a web application scanner. At this point you should be familiar with Burp Suite; the concepts are the same for ZAP, though the UI is quite different.
+ZAP (Zed Attack Proxy de SSP) es una alternativa de código abierto a Burp. Aunque la mayoría de los profesionales prefieren Burp Professional, ZAP es un proxy bastante capaz e incluye un escáner de aplicaciones web. En este punto ya deberías estar familiarizado con Burp Suite; los conceptos son los mismos para ZAP, aunque la interfaz de usuario es bastante diferente.
 
-For this practice, we’ll be using ZAP’s scanner module. To get a feel for it, first, make sure you’ve got an instance of DIWA running, then simply open ZAP and click “Automated Scan”, put in the URL of your DIWA home page, and click “Attack”.
+Para esta práctica, usaremos el módulo de escáner de ZAP. Para tener una idea, primero asegúrese de tener una instancia de DIWA ejecutándose, luego simplemente abra ZAP y haga clic en "Escaneo Automatizado", ingrese la URL de su página de inicio de DIWA y haga clic en "Atacar".
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![Una captura de pantalla de ZAP cuando se abre](/media/uploads/web_security_assessment_ZAP1.png)
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![Captura de pantalla de ZAP cuando el usuario selecciona un escaneo automático. La URL del ataque es 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP2.png)
 
-Since DIWA is a small app, this scan should complete rather quickly. If nothing went horribly wrong, you’ll note that ZAP’s scanner found some issues. However, unless ZAP has changed significantly, the ZAP results may be somewhat underwhelming. There may be some small issues that ZAP found and you didn’t, but ZAP should’ve missed most of the big issues you found.
+Dado que DIWA es una aplicación pequeña, este escaneo debería completarse bastante rápido. Si nada salió terriblemente mal, notarás que el escáner de ZAP encontró algunos problemas. Sin embargo, a menos que ZAP haya cambiado significativamente, los resultados de ZAP pueden ser algo decepcionantes. Puede haber algunos problemas pequeños que ZAP encontró y usted no, pero ZAP debería haber pasado por alto la mayoría de los problemas importantes que encontró.
 
-Let’s see if we can improve this. Click the “Quick Start” button in the secondary toolbar, and then the “&lt;” in the pane below. From there, click “Manual Explore”, put in the URL of your DIWA, and then click “Launch Browser”.
+Veamos si podemos mejorar esto. Haga clic en el botón "Inicio Rápido" en la barra de herramientas secundaria y luego en "<" en el panel siguiente. Desde allí, haga clic en "Exploración Manual", ingrese la URL de su DIWA y luego haga clic en "Iniciar Navegador".
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![Una captura de pantalla de ZAP y el cuadro de "alerts" que el servicio muestra en la parte inferior](/media/uploads/web_security_assessment_ZAP3.png)
 
-![alt_text](/media/uploads/image4.png "image_tooltip")
+![Una captura de pantalla de ZAP mientras explora manualmente la página en busca de bibliotecas JS vulnerables](/media/uploads/web_security_assessment_ZAP4.png)
 
-Click around the site a bit, and make sure that when you’re done you’re logged into the site as an administrative user. Now, go back to ZAP and launch a scan by right-clicking the DIWA site in the left bar and launching an active scan with the default setup.
+Haga clic un poco en el sitio y asegúrese de que cuando haya terminado haya iniciado sesión en el sitio como usuario administrativo. Ahora, regrese a ZAP e inicie un escaneo haciendo clic derecho en el sitio DIWA en la barra izquierda e iniciando un escaneo activo con la configuración predeterminada.
 
-![alt_text](/media/uploads/image5.png "image_tooltip")
+![Una captura de pantalla de ZAP cuando el usuario hace clic derecho en un sitio y selecciona "attack" y "active scan"](/media/uploads/web_security_assessment_ZAP5.png)
 
-![alt_text](/media/uploads/image6.png "image_tooltip")
+![Una captura de pantalla de ZAP mientras el usuario se prepara para ejecutar un escaneo activo en 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP6.png)
 
-This scan should take significantly longer and give significantly different better results. Why did this happen? Launching the scan from a site you’ve visited in the “Sites” section gives the scanner a lot more information than the fully automated scan gets. In fact, the results you get from the scanner may differ greatly based on how you manually explore the site prior to running the scan.
+Esta exploración debería tardar mucho más y dar resultados significativamente diferentes y mejores. ¿Por qué pasó esto? Iniciar el escaneo desde un sitio que haya visitado en la sección "Sitios" le brinda al escáner mucha más información que la que obtiene el escaneo totalmente automatizado. De hecho, los resultados que obtenga del escáner pueden diferir mucho según cómo explore manualmente el sitio antes de ejecutar el escaneo.
 
-Play around manually using the site and running scans a bit, and then compare the results from ZAP to the ones you obtained from manual testing.
+Pruebe manualmente usando el sitio y ejecutando escaneos un poco, y luego compare los resultados de ZAP con los que obtuvo de las pruebas manuales.
 
-- What issues did ZAP find that you did not?
-- What issues did you find that ZAP did not?
+- ¿Qué problemas encontró ZAP y usted no?
+- ¿Qué problemas encontró usted que ZAP no encontró?
 
-Think about these. As part of skill validation, we’ll return to these lists.
+Piensa en esto. Como parte de la validación de habilidades, volveremos a estas listas.
 
-### Exploitation Tools
+### Herramientas de Explotación
 
-The next class of automation we’ll cover in the subtopic is tools that aid in exploitation after you’ve found a vulnerability. While there exist several tools for this, the one most commonly used in web application security assessments is [sqlmap](https://sqlmap.org/). sqlmap is capable of detecting SQL injection of websites, but it truly shines in exploitation. Some blind SQL injection data extraction techniques can take several seconds to extract a single bit of information from a database. sqlmap can automate and optimize most forms of SQLi exploitation, saving you a ton of time.
+La siguiente clase de automatización que cubriremos en el subtema son las herramientas que ayudan en la explotación después de haber encontrado una vulnerabilidad. Si bien existen varias herramientas para esto, la que se usa más comúnmente en las evaluaciones de seguridad de aplicaciones web es [sqlmap](https://sqlmap.org/). sqlmap es capaz de detectar la inyección SQL de sitios web, pero realmente brilla en su explotación. Algunas técnicas de extracción de datos de inyección SQL ciega pueden tardar varios segundos en extraer un solo bit de información de una base de datos. sqlmap puede automatizar y optimizar la mayoría de las formas de explotación de SQLi, ahorrándole mucho tiempo.
 
-The typical standalone use of sqlmap is to save the request that you used to identify SQL injection to a text file, and then [run sqlmap with that text file](https://github.com/sqlmapproject/sqlmap/wiki/Usage#load-http-request-from-a-file) using the -r flag. You would then specify the parameter to test with the -p flag, and then choose what data you wished to extract. Generally, it’s best to start with the -b option to simply retrieve the database information. sqlmap will attempt to confirm that the specified parameter is vulnerable to SQLi, and then choose a data extraction technique that allows it to extract data as efficiently as possible. It may be that data extraction is quite slow, in which case you should be careful about how much data you try to extract.
+El uso independiente típico de sqlmap es guardar la solicitud que utilizó para identificar la inyección SQL en un archivo de texto y luego [ejecutar sqlmap con ese archivo de texto](https://github.com/sqlmapproject/sqlmap/wiki/Usage#load-http-request-from-a-file) usando la opción -r. Luego especificaría el parámetro a probar con la opción -p y luego elegiría qué datos desea extraer. Generalmente, es mejor comenzar con la opción -b para simplemente recuperar la información de la base de datos. sqlmap intentará confirmar que el parámetro especificado es vulnerable a SQLi y luego elegirá una técnica de extracción de datos que le permita extraer datos de la manera más eficiente posible. Puede ser que la extracción de datos sea bastante lenta, en cuyo caso debes tener cuidado con la cantidad de datos que intentas extraer.
 
-It’s worth noting that if you find several SQLi vulnerabilities in a site, they may allow for very different data extraction speeds. Any SQLi vulnerability that results in data from the database being included in the HTTP response will be much faster than one that only results in a success or failure (as in a login page).
+Vale la pena señalar que si encuentra varias vulnerabilidades SQLi en un sitio, es posible que permitan velocidades de extracción de datos muy diferentes. Cualquier vulnerabilidad de SQLi que dé como resultado que se incluyan datos de la base de datos en la respuesta HTTP será mucho más rápida que una que solo resulte en un éxito o un fracaso (como en una página de inicio de sesión).
 
-An alternative to using sqlmap standalone is to use a proxy integration to run sqlmap directly from your proxy, such as with the [SQLiPy extension for Burp](https://portswigger.net/support/using-burp-with-sqlmap). This generally speeds up sqlmap configuration and saves you a few trips back and forth from the sqlmap documentation.
+Una alternativa al uso de sqlmap independiente es utilizar una integración de proxy para ejecutar sqlmap directamente desde su proxy, como con la [extensión SQLiPy para Burp](https://portswigger.net/support/using-burp-with-sqlmap). Esto generalmente acelera la configuración de sqlmap y le ahorra algunos viajes de ida y vuelta a la documentación de sqlmap.
 
-#### Using sqlmap
+#### Usando sqlmap
 
-From the setup subtopic, you should have sqlmap installed and also a copy of DIWA. You should’ve already identified one or more SQLi vulnerabilities in DIWA. Using sqlmap, exploit one of those vulnerabilities to extract the DIWA database structure, and then extract the DIWA user database.
+Desde el subtema de configuración, debería tener instalado sqlmap y también una copia de DIWA. Ya debería haber identificado una o más vulnerabilidades SQLi en DIWA. Usando sqlmap, aproveche una de esas vulnerabilidades para extraer la estructura de la base de datos DIWA y luego extraiga la base de datos de usuarios de DIWA.
 
-Note that sqlmap has capabilities and configuration options beyond what’s discussed here. Be sure to check out [the documentation](https://github.com/sqlmapproject/sqlmap/wiki/) for usage options.
+Tenga en cuenta que sqlmap tiene capacidades y opciones de configuración más allá de lo que se analiza aquí. Asegúrese de consultar [la documentación](https://github.com/sqlmapproject/sqlmap/wiki/) para conocer las opciones de uso.
 
-### Web application specific vulnerability scanners
+### Escáneres de vulnerabilidades específicos de aplicaciones web
 
-For purposes of this subtopic, we’re using the words “vulnerability scanner” to mean a tool that uncovers previously known vulnerabilities as opposed to a tool that automatically discovers new vulnerabilities. Examples of the former include tools such as Nessus and OpenVAS, while the latter include the scanner built into Burp Pro and ZAP.
+Para los fines de este subtema, utilizamos las palabras "escáner de vulnerabilidades" para referirnos a una herramienta que descubre vulnerabilidades previamente conocidas en lugar de una herramienta que descubre automáticamente nuevas vulnerabilidades. Ejemplos de los primeros incluyen herramientas como Nessus y OpenVAS, mientras que los segundos incluyen el escáner integrado en Burp Pro y ZAP.
 
-While Nessus and OpenVAS try to be able to detect a wide range of vulnerabilities, others specialize. For instance, Nikto is a tool that attempts to find web servers configuration errors specifically. While Nikto has not been updated in years, and has generally been superseded by general-purpose vulnerability scanners, there’s one specific web application vulnerability scanner that stands out. It’s called WP Scan, and it’s focused on finding vulnerabilities in WordPress sites. Since WorsPress enjoys great popularity among civil society and independent journalism websites, it’s useful to cover in this learning path.
+Mientras Nessus y OpenVAS intentan detectar una amplia gama de vulnerabilidades, otros se especializan. Por ejemplo, Nikto es una herramienta que intenta encontrar específicamente errores de configuración de servidores web. Si bien Nikto no se ha actualizado en años y, en general, ha sido reemplazado por escáneres de vulnerabilidades de uso general, hay un escáner de vulnerabilidades de aplicaciones web específico que se destaca. Se llama WP Scan y se centra en encontrar vulnerabilidades en sitios de WordPress. Dado que WorsPress goza de gran popularidad entre la sociedad civil y los sitios web de periodismo independiente, es útil cubrirlo en esta ruta de aprendizaje.
 
-WPScan started out as open source software, and the [command-line version](https://github.com/wpscanteam/wpscan) still is, although there are [commercial options](https://wpscan.com/pricing/) for those who want other features. WPScan works in essentially the same way as other vulnerability scanners. Simplified, it sends requests to a server and tries to determine what versions of software are installed on that server. It then compares those versions to a database of vulnerabilities.
+WPScan comenzó como un software de código abierto y la [versión de línea de comandos](https://github.com/wpscanteam/wpscan) todavía lo es, aunque existen [opciones comerciales](https://wpscan.com/pricing/) para quienes desean otras funciones. WPScan funciona esencialmente de la misma manera que otros escáneres de vulnerabilidades. Simplificado, envía solicitudes a un servidor e intenta determinar qué versiones de software están instaladas en ese servidor. Luego compara esas versiones con una base de datos de vulnerabilidades.
 
-🛠️ Download [DVWP](https://github.com/vavkamil/dvwp) (you’ll want to use Docker to deploy it). If you’re on an Apple Silicon mac, you may have to add “platform: linux/amd64” to each service in the docker-compose.yml file.
+🛠️ Descargue [DVWP](https://github.com/vavkamil/dvwp) (querrá usar Docker para implementarlo). Si tiene una Mac Apple Silicon, es posible que tenga que agregar “platform: linux/amd64” a cada servicio en el archivo docker-compose.yml.
 
-Then use the WPScan CLI to find vulnerabilities on the site. If you installed WPScan via Docker on Mac or Windows, you won’t be able to use 127.0.0.1:31337 to reference DVWP for WPScan. This is because Docker is running in a VM, and the VM’s 127.0.0.1 is the VM, not your computer. Instead, find your computer’s LAN IP address (e.g. 196.168.0.xxx, 10.xxx.xxx.xxx, etc) and use that.
+Luego use la línea de comandos de WPScan para encontrar vulnerabilidades en el sitio. Si instaló WPScan a través de Docker en Mac o Windows, no podrá usar 127.0.0.1:31337 para hacer referencia a DVWP para WPScan. Esto se debe a que Docker se ejecuta en una máquina virtual y el 127.0.0.1 de la VM es la máquina virtual, no su computadora. En su lugar, busque la dirección IP LAN de su computadora (por ejemplo, 196.168.0.xxx, 10.xxx.xxx.xxx, etc.) y úsela.
 
-Although it’s not required, you’ll probably want to [sign up for an API key on the WPScan website](https://wpscan.com/register/) and use the key when scanning. If you don’t specify an API key, WPScan will identify the versions of WordPress and its plugins and let you know which ones are out of date. If you use the API key, it will tell you what vulnerabilities exist in the site.
+Aunque no es obligatorio, probablemente desee registrarse para obtener una [clave API en el sitio web de WPScan](https://wpscan.com/register/) y utilizarla al escanear. Si no especifica una clave API, WPScan identificará las versiones de WordPress y sus complementos y le informará cuáles están desactualizadas. Si utiliza la clave API, le indicará qué vulnerabilidades existen en el sitio.
+
+## Verificación de Habilidades
+
+Discuta su uso del escáner de ZAP y sqlmap en DIWA con su mentor o mentora. ¿Por qué encontraste cosas que ZAP no encontró y viceversa? Explíquele cómo planea utilizar la automatización para ayudarle a probar sitios web en el futuro.
 
 ## Learning Resources
 
-{{% resource title="Web crawler" languages="47 languages" cost="Free" description="An overview of what a web crawler is and what it does." url="https://en.wikipedia.org/wiki/Web_crawler" %}}
+{{% resource title="Rastreador Web" description="Una descripción general de qué es un rastreador web y qué hace" languages="47 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Ara%C3%B1a_web" %}}
 
-{{% resource title="Usage" languages="English" cost="Free" description="A guide on how to use sqlmap." url="https://github.com/sqlmapproject/sqlmap/wiki/Usage" %}}
+{{% resource title="Uso" description="Una guía sobre cómo usar sqlmap" languages="Inglés" cost="Gratis" url="https://github.com/sqlmapproject/sqlmap/wiki/Usage" %}}
 
-{{% resource title="Using Burp with sqlmap" languages="English" cost="Free" description="Instructions on how to integrate sqlmap with Burp for web application security testing." url="https://portswigger.net/support/using-burp-with-sqlmap" %}}
+{{% resource title="Usando Burp con sqlmap" description="Instrucciones sobre cómo integrar sqlmap con Burp para fines de pruebas de seguridad de aplicaciones web" languages="Inglés" cost="Gratis" url="https://portswigger.net/support/using-burp-with-sqlmap" %}}
 
-{{% resource title="WPScan" languages="English" cost="Free" description="An automated tool to scan WordPress sites for security flaws." url="https://github.com/wpscanteam/wpscan" %}}
+{{% resource title="WPScan" description="Una herramienta automatizada para escanear sitios de WordPress en busca de fallas de seguridad" languages="Inglés" cost="Gratis" url="https://github.com/wpscanteam/wpscan" %}}
 
-{{% resource title="Damn Vulnerable WordPress" languages="English" cost="Free" description="A specially designed WordPress installation intentionally vulnerable for testing purposes." url="https://github.com/vavkamil/dvwp" %}}
-
-## Skill Check
-
-Discuss your use of ZAP’s scanner and sqlmap on DIWA with your mentor. Why did you find things that ZAP didn’t, and vice versa? Explain to them how you plan on using automation to help you test websites going forward?
+{{% resource title="Damn Vulnerable WordPress" description="Una instalación especial de WordPress que incluye intencionadamente muchas vulnerabilidades de seguridad; para ser utilizado para pruebas" languages="Inglés" cost="Gratis" url="https://github.com/vavkamil/dvwp" %}}

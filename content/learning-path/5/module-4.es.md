@@ -1,94 +1,96 @@
 +++
 style = "module"
 weight = 4
-title = "Application Logic and Related Vulnerabilities"
+title = "Lógica de Aplicación y Vulnerabilidades Relacionadas"
+description = "Existen otros tipos de vulnerabilidades que no se tratan en los subtemas anteriores y que, no obstante, podrían usarse para dañar u obtener acceso no autorizado a una aplicación web. A continuación analizamos varios de ellos"
 +++
 
-## Use Case
+## Caso de Uso
 
-There exist other types of vulnerabilities not covered in the above subtopics which could nonetheless be used to damage or gain unauthorized entry into a web app. We look at several of those below. This is the last subtopic which outlines vulnerability classes: once you’ve learned about all of them, you can move on to the next topics, which look into scanning your web apps for potential vulnerabilities and ensuring that they do not have any serious security holes.
+Existen otros tipos de vulnerabilidades que no se tratan en los subtemas anteriores y que, no obstante, podrían usarse para dañar u obtener acceso no autorizado a una aplicación web. A continuación analizamos varios de ellos. Este es el último subtema que describe las clases de vulnerabilidad: Una vez que haya aprendido sobre todos ellos, puede pasar a los siguientes temas, que analizan cómo escanear sus aplicaciones web en busca de vulnerabilidades potenciales y garantizar que no tengan agujeros de seguridad graves.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners will be able to find weaknesses in web applications that relate to subverting the mechanisms of the application itself. These can relate to the application mechanism itself, the mechanisms of the server, or even quirks of web browsers.
+Después de completar este subtema, los y las profesionales podrán encontrar debilidades en las aplicaciones web relacionadas con la subversión de los mecanismos de la aplicación misma. Estos pueden estar relacionados con el mecanismo de la aplicación en sí, los mecanismos del servidor o incluso las peculiaridades de los navegadores web.
 
-They should also be able to find and exploit the following types of vulnerabilities:
+También deberían poder encontrar y explotar los siguientes tipos de vulnerabilidades de:
 
-- Business logic vulnerabilities
-- Race conditions
-- Excessive information disclosure
-- Cross-site request forgery
-- File upload vulnerabilities
+- Vulnerabilidades de la lógica de negocio
+- Condiciones de carrera
+- Divulgación excesiva de información
+- Falsificación de solicitudes entre los sitios
+- Vulnerabilidades de carga de archivos
 
 ---
+## Sección Principal
+### ¿Qué son las vulnerabilidades de la lógica de la aplicación?
 
-## What are application logic vulnerabilities?
+Las vulnerabilidades de la lógica de la aplicación a menudo se describen como errores que permiten al usuario de una aplicación subvertir los mecanismos del diseño de un sistema de aplicación, en lugar de atacar la implementación de la aplicación. Si bien esto es cierto, la categoría también se utiliza con frecuencia como un todo para clases de vulnerabilidad que no encajan claramente en otra categoría. Algunas vulnerabilidades explotan muy claramente la lógica de la aplicación. Por ejemplo, si tiene una función de transferencia de dinero que trunca fracciones de centavo al retirar dinero de la cuenta de origen, pero deposita esas fracciones de centavo en la cuenta de destino, puede generar dinero transfiriendo fondos de un lado a otro. Otros son mucho más tenues, como proporcionar un archivo PHP a un formulario que se supone debe aceptar una imagen de perfil y luego ejecutar ese PHP cuando visitas la página de la foto de perfil.
 
-Application logic vulnerabilities are often described as bugs that allow a user of an application to subvert the mechanisms of an application system’s design, as opposed to attacking the application’s implementation. While this is true, the category is also frequently used as a catch-all for vulnerability classes that don’t neatly fit into another category. Some vulnerabilities very clearly exploit application logic. For example, if you have a money transfer function that truncates fractional cents when withdrawing money from the source account, but deposits those fractional cents into the target account, you can generate money by transferring funds back and forth. Others are much more tenuous, like supplying a PHP file to a form that’s supposed to accept a profile picture and then executing that PHP when you visit the page for the profile pic.
+En cualquier caso, todas las vulnerabilidades de este subtema están presentes con frecuencia en aplicaciones web y deberían completar su comprensión de las vulnerabilidades comunes.
 
-In any case, the vulnerabilities in this subtopic are all frequently present in web applications and should wrap up your understanding of common vulnerabilities.
+#### Vulnerabilidades de la Lógica de Negocio
 
-## Business Logic Vulnerabilities
+El nombre “vulnerabilidades de lógica de negocios” obviamente se originó en el área de prueba de aplicaciones relacionadas con el comercio, pero se puede simplemente omitir la palabra “negocios” del nombre. Lo incluimos porque el término es popular entre los recursos que hablan sobre pruebas de aplicaciones. En cualquier caso, estas vulnerabilidades se agrupan en el sentido de que se relacionan más con los mecanismos abstractos de procesamiento de datos dentro de una aplicación.
 
-The name “business logic vulnerabilities” obviously originated in the area of testing commerce-related applications, but one can simply omit the word “business” from the name. We include it because the term is popular among resources that talk about application testing. In any case, these vulnerabilities are grouped together in that they relate more to the abstract mechanisms of data processing within an application.
+Diríjase al [tema Vulnerabilidades de la Lógica de Negocio de PortSwigger Academy](https://portswigger.net/web-security/logic-flaws) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy Business Logic Vulnerabilities topic](https://portswigger.net/web-security/logic-flaws) and complete the reading and labs.
+#### Condiciones de Carrera
 
-## Race Conditions
+Las vulnerabilidades de condición de carrera se refieren a errores que permiten a un atacante iniciar algún proceso y luego realizar alguna acción o acciones que normalmente no están permitidas antes de que se complete el proceso. Por ejemplo, considere un sitio para compartir archivos que le permita cargar archivos y duplicarlos. Para proteger a sus usuarios y usuarias, el sitio escanea los archivos cargados para ver si contienen malware y los elimina si lo contienen. Obviamente, no es necesario escanear las copias de los archivos, porque todos los archivos cargados han sido escaneados, ¿verdad? Bueno, digamos que, para mejorar la capacidad de respuesta del sitio, el proceso que escanea (y elimina) los archivos cargados se ejecuta en segundo plano en el servidor web. Un atacante podría cargar un archivo que contenga malware y luego copiarlo inmediatamente en el sitio. Como el análisis no se ha completado, el archivo seguirá existiendo en el servidor, por lo que la copia funcionará. Una vez que se complete el escaneo, el archivo original se eliminará, pero la copia permanecerá. Hay muchos más tipos de vulnerabilidades en condiciones de carrera; este subtema explora algunos de ellos.
 
-Race condition vulnerabilities refer to bugs that allow an attacker to initiate some process, then perform some action or actions that are normally not allowed before the process completes. For example, consider a file-sharing site that allows you to upload files and duplicate uploaded files. To protect its users, the site scans uploaded files to see if they contain malware and deletes them if they do. Obviously, copies of files don’t need to be scanned, because all uploaded files have been scanned, right? Well, let’s say that, to improve site responsiveness, the process that scans (and deletes) uploaded files is run in the background on the web server. An attacker could upload a file containing malware and then immediately copy it on the site. Since the scan hasn’t been completed, the file will still exist on the server, so the copy will work. Once the scan completes, the original file will be deleted, but the copy will remain. There are many more types of race conditions vulnerabilities; this subtopic explores some of them.
+Diríjase al [tema Condiciones de Carrera de PortSwigger Academy](https://portswigger.net/web-security/race-conditions) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy Race Conditions topic](https://portswigger.net/web-security/race-conditions) and complete the reading and labs.
+#### Divulgación Excesiva de Información
 
-## Excessive Information Disclosure
+Las vulnerabilidades de divulgación de información ocurren cuando una aplicación o su infraestructura envía información confidencial al navegador. Esta información puede mostrarse en la ventana del navegador u ocultarse en HTML no renderizado. Los lugares comunes donde esta información puede filtrarse son a través de mensajes de error, comentarios HTML o campos ocultos, archivos extraños en el servidor web, etc. Si bien en la mayoría de los casos estas filtraciones de información no son graves, en algunos casos la información revelada puede tener impactos catastróficos en la seguridad de la aplicación web, como si se revela una clavesecreta de una API de un tercero.
 
-Information disclosure vulnerabilities occur when an application or its infrastructure sends sensitive information back to the browser. This information may be displayed in the browser window, or hidden in non-rendered HTML. Common places where this information can leak out are via error messages, HTML comments or hidden fields, extraneous files on the web server, etc. While in most cases these information leaks are not severe, in some cases the information revealed can have catastrophic impacts on the web application’s security, such as if a secret 3rd party API key is revealed.
+Diríjase al [tema de Divulgación de Información de PortSwigger Academy](https://portswigger.net/web-security/information-disclosure) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy Information Disclosure topic](https://portswigger.net/web-security/information-disclosure) and complete the reading and labs.
+#### Falsificación de Solicitudes entre los sitios
 
-## Cross-site Request Forgery
+CSRF (Falsificación de Solicitudes entre los Sitios) es una vulnerabilidad interesante que surge de la interacción entre sitios web y navegadores. Considere un servicio de pago entre pares. Acepta solicitudes GET como [http://victim.com/transfer?to-account=xyz&amount=123](http://victim.com/transfer?to-account=xyz&amp;amp;amount=123). Solo permite a los usuarios autenticados transferir dinero verificando las cookies de su sesión. Sin embargo, si un atacante publica un mensaje en un foro en línea que contiene un enlace de imagen como &lt;img src="<http://victim.com/transfer?to-account=xyz&amount=123>"&gt;, ¿qué pasaría? Cada vez que alguien veía la publicación, su navegador veía la etiqueta de la imagen e intentaba cargar la imagen. Enviaría una solicitud a victim.com, incluyendo por supuesto las cookies del sitio. Si el usuario ya inició sesión en el sitio de pago, esto tendría el efecto de transferir dinero a la cuenta XYZ. El problema aquí es que HTML y JavaScript permiten que los sitios web hagan que los navegadores de los usuarios envíen solicitudes a otros sitios, que de forma predeterminada incluyen las cookies de ese otro sitio.
 
-CSRF (Cross-Site Request Forgery) is an interesting vulnerability arising from the interaction between websites and browsers. Consider a peer to peer payment service. It accepts GET requests like [http://victim.com/transfer?to-account=xyz&amount=123](http://victim.com/transfer?to-account=xyz&amount=123). It properly only allows authenticated users to transfer money by checking their session cookies. However, if an attacker posted a message in an online forum that contained an image link like `&lt;img src="http://victim.com/transfer?to-account=xyz&amount=123">`, what would happen? Every time someone viewed the post, their browser would see the image tag and try to load the image. It would send a request to victim.com, of course including the site’s cookies. If the user was already logged into the payment site, this would have the effect of transferring money to the XYZ account. The issue here is that HTML and JavaScript allow websites to cause users’ browsers to send requests to other sites, which by default include that other site’s cookies.
+Diríjase al [tema Falsificación de Solicitudes entre Sitios (CSRF) de PortSwigger Academy](https://portswigger.net/web-security/csrf) y complete la lectura y los laboratorios.
 
-Head over to the [PortSwigger Academy Cross-site Request Forgery topic](https://portswigger.net/web-security/csrf) and complete the reading and labs.
+#### Vulnerabilidades de Carga de Archivos
 
-## File Upload Vulnerabilities
+Este subtema cubre el caso en el que un atacante puede cargar archivos a un sitio web, tal vez para una imagen de perfil, pero el archivo se interpreta como código en el lado del cliente (lo que provoca XSS) o en el lado del servidor (lo que provoca la ejecución de código). Una técnica común que utilizan los atacantes cuando explotan este último tipo es cargar un [webshell](https://en.wikipedia.org/wiki/Web_shell), un pequeño script que toma un comando shell de un usuario (normalmente a través de un parámetro URL), ejecuta el comando shell en el servidor y luego devuelve los resultados.
 
-This subtopic covers the case where an attacker can upload files to a website, perhaps for a profile picture, but the file is interpreted as code either on the client side (causing XSS) or on the server side (causing code execution). A common technique attackers use when exploiting this latter type is to upload a [web shell](https://en.wikipedia.org/wiki/Web_shell), a small script that takes a shell command form a user (typically via a URL parameter), executes the shell command on the server, and then returns the results.
+Si está probando un sitio y desea cargar un shell web, es muy importante que le ponga una contraseña. El hecho de que pueda cargar un archivo en el servidor no significa que pueda eliminarlo. Es posible que se encuentre en una situación en la que tenga que depender del propietario del sitio para eliminar el archivo. Agregar una contraseña puede ser simple. Hay [webshells disponibles en muchos lenguajes de programación](https://www.kali.org/tools/webshells/), pero aquí hay un ejemplo sencillo de PHP:
 
-If you are testing a site and wish to upload a web shell, it is very important that you put a password on it. Just because you can upload a file to the server, does not mean you can delete that file. You may find yourself in a situation of having to rely on the site owner to delete the file. Adding a password can be simple. There are [web shells available in many languages](https://www.kali.org/tools/webshells/), but here’s a simple PHP example:
+{{< highlight php >}}
 
-```
 <?php echo system($_GET['command']);?>
-```
+{{< / highlight >}}
 
-To add a password to this, we merely change it to this:
+Para agregar una contraseña a esto, simplemente la cambiamos a esto:
 
-```
+{{< highlight php >}}
 <?php
-_if_ (_$\_GET_['password'] _==_ 'A super-secret password only I know.') {
+_if_ (_$\_GET_['password'] _==_ 'Password super secreta que solo yo conozco.') {
     _echo_ system(_$_GET_['command']);
 } _else_ {
     http_response_code(404);
 }
 ?>
-```
-This will ensure that anyone who stumbles upon your testing-focused web shell won’t be able to use it for their own nefarious purposes.
+{{< / highlight >}}
+Esto garantizará que cualquiera que se tope con su shell web centrado en pruebas no podrá utilizarlo para sus propios propósitos nefastos.
 
-Make sure to read and understand how a web shell works before you upload it. You want to be sure that the shell is only going to execute what you ask it to, and won’t talk to any other servers.
+Asegúrese de leer y comprender cómo funciona un shell web antes de cargarlo. Desea estar seguro de que el shell solo ejecutará lo que usted le solicite y no se comunicará con ningún otro servidor.
+
+## Verificación de Habilidades
+
+PortSwigger academy contiene una serie de laboratorios que puede utilizar para probar y validar sus habilidades. Para cada uno de los siguientes temas, complete 1-3 de los laboratorios de nivel "profesional":
+
+- [Vulnerabilidades de la lógica de negocios](https://portswigger.net/web-security/all-labs#business-logic-vulnerabilities)
+- [Condiciones de carrera](https://portswigger.net/web-security/all-labs#race-conditions)
+- [Divulgación de información](https://portswigger.net/web-security/all-labs#information-disclosure)
+
+Si está trabajando con un compañero o mentor o mentora, explíquele cómo funciona cada ataque y cómo encontraría y demostraría la explotabilidad de vulnerabilidades similares en un sitio que estuviera probando.
 
 ## Learning Resources
 
-{{% resource title="Web shells" languages="English, Kurdish, Chinese, Korean, French, Lombard, Hindi, Malayalam" cost="Free" description="Overview of what a web shell is and its potential use in attacks." url="https://en.wikipedia.org/wiki/Web_shell" %}}
+{{% resource title="Webshell" description="Una descripción general rápida de qué es un shell web y cómo podría usarse en ataques" languages="Inglés, kurdo, chino, coreano, francés, lombardo, hindi, malayalam" cost="Gratis" url="https://en.wikipedia.org/wiki/Web_shell" %}}
 
-{{% resource title="Webshells | Kali Linux Tools" languages="English" cost="Free" description="Overview of webshells available in a default Kali Linux installation." url="https://www.kali.org/tools/webshells/" %}}
-
-## Skill Check
-
-PortSwigger academy contains a series of labs which you can use to test and validate your skills. For each of the following topics, complete 1-3 of the ‘practitioner’ level labs:
-
-- [Business logic vulnerabilities](https://portswigger.net/web-security/all-labs#business-logic-vulnerabilities)
-- [Race conditions](https://portswigger.net/web-security/all-labs#race-conditions)
-- [Information disclosure](https://portswigger.net/web-security/all-labs#information-disclosure)
-
-If you are working with a peer or mentor, explain to them how each attack works and how you would find and demonstrate exploitability for similar vulnerabilities in a site you were testing.
+{{% resource title="Webshells | Herramientas de Kali Linux" description="Un vistazo a los shells web disponibles en una instalación predeterminada de Kali Linux" languages="Inglés" cost="Gratis" url="https://www.kali.org/tools/webshells/" %}}

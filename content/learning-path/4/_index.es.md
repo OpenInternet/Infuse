@@ -1,7 +1,7 @@
 +++
 type = "learning-path"
-title = "Web Application Security Fundamentals"
-description = "This learning path will prepare you to start on the journey of analyzing malware. Note that this is one of the hardest areas of security to master, but incremental progress will give results. The general goal of malware analysis is to characterize new malware, both brand new malware and variants of existing ones."
+title = "Fundamentos de Seguridad de Aplicaciones Web"
+description = "Esta Ruta de Aprendizaje le proporcionará una comprensión general de las vulnerabilidades de las aplicaciones web y cómo funcionan algunas de las más comunes. Debería ayudarle a comprender los tipos de vulnerabilidades que existen comúnmente en las aplicaciones web, las capacidades que estas vulnerabilidades brindan a los atacantes y cómo, en general, eliminar o mitigar estas vulnerabilidades."
 weight = 4
 thumbnail = "4"
 icon = "security-sage"

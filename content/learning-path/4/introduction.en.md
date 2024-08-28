@@ -5,6 +5,14 @@ title = "Introduction"
 description = "Read the learning path overview, objectives, associated threats, and prerequisites"
 +++
 
+**With thanks to**
+
+Ninoslava Bogdanović
+
+Michał "czesiek" Czyżewski (<https://czesiek.net>)
+
+Yana Ghahramanyan
+
 ## Overview
 
 There are many ways in which adversaries could try to attack websites, including:
@@ -71,7 +79,7 @@ There are several ways of running DVWA. The best current installation instructio
 
 Before starting any of the exercises, remember to log into DVWA (the default credentials are admin / password) and make sure that the security level is set to “Low”.
 
-![DVWA with Low security level configuration](/media/uploads/dvwa-setting1.png "image_tooltip")
+![DVWA with Low security level configuration](/media/uploads/dvwa-setting1.png)
 
 One practice exercise requires you to install and use a tool known as rainbowcrack. Due to its high system requirements and the fact that the tool only works on Linux and Windows, we have opted to make this exercise optional. Since the main purpose of this exercise is to illustrate a security concept, learners who cannot or do not want to complete it will still be able to finish the whole learning path.
 

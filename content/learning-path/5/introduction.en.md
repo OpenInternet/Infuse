@@ -5,6 +5,10 @@ description: Read the learning path overview, objectives, associated threats, an
 weight: 1
 ---
 
+**With thanks to**
+
+Ninoslava Bogdanović
+
 ## Overview
 
 Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By proactively identifying vulnerabilities in web applications used by your clients and partners, you can head off potential compromises before they occur.
@@ -80,7 +84,7 @@ Web application assessment skills can help respond to hacking threats by:
 
   A new window should open with a Linux shell.
 
-- Here is a quick review of the WSL command line options.
+**Here is a quick review of the WSL command line options**
 
   Print the usage information and see the command line arguments:
 
@@ -127,7 +131,8 @@ Web application assessment skills can help respond to hacking threats by:
 
   ```
   wsl
+  ```  
 
 ## Related learning paths
 
-After completing this learning path, we would recommend that learners work on Web Application Hardening, Forensics, and Incident Response.
+After completing this learning path, we would recommend that learners work on [Web Application Hardening, Forensics, and Incident Response](/en/learning-path/6/).

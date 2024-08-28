@@ -1,290 +1,252 @@
 +++
 style = "module"
 weight = 3
-title = "Authentication"
+title = "Autenticación"
+description = "En cualquier sitio web que tenga inicios de sesión de usuarios, es importante que el sitio proteja las cuentas de los usuarios contra el acceso no autorizado. Describimos las áreas más comunes de autenticación en las que aparecen fallas en las aplicaciones web"
 +++
 
-## Use Case
+## Caso de Uso
 
-In any website that has user logins, it’s important that the site protects user accounts from unauthorized access, and also that the account credentials themselves are protected. This subtopic outlines the most common areas of authentication where web application flaws appear.
+En cualquier sitio web que tenga inicios de sesión de usuarios, es importante que el sitio proteja las cuentas de usuario del acceso no autorizado y también que las credenciales de la cuenta estén protegidas. Este subtema describe las áreas más comunes de autenticación donde aparecen fallas en las aplicaciones web.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Understand common types of authentication vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand the mechanisms by which those vulnerabilities work
-- Understand, in broad strokes, how those vulnerabilities can be prevented
+- Comprender los tipos comunes de vulnerabilidades de autenticación
+- Comprender los impactos potenciales de esos tipos de vulnerabilidades.
+- Comprender los mecanismos mediante los cuales funcionan esas vulnerabilidades.
+- Comprender, a grandes rasgos, cómo se pueden prevenir esas vulnerabilidades.
+
 
 ---
 
-Authentication is the process by which a user of a system proves that they are who they claim they are. It is the foundation upon which access control is built. Typically, a user will supply a piece of information that identifies them (username, email address, phone number, etc.) and a piece of secret information that validates that identity (commonly a password or passphrase, though alternative or additional methods such as a security keys, WebAuthn, and Passkeys are gaining popularity). This subtopic will cover a few vulnerability classes that are common and high-impact in web applications.
+## Sección Principal
 
-## Insecure password storage
+La autenticación es el proceso mediante el cual un usuario de un sistema demuestra que es quien dice ser. Es la base sobre la que se construye el control de acceso. Normalmente, un usuario proporcionará una información que lo identifica (nombre de usuario, dirección de correo electrónico, número de teléfono, etc.) y una información secreta que valida esa identidad (comúnmente una contraseña o frase de contraseña, aunque se utilizan métodos alternativos o adicionales como claves de seguridad, WebAuthn y Passkeys están ganando popularidad). Este subtema cubrirá algunas clases de vulnerabilidad que son comunes y de alto impacto en las aplicaciones web.
 
-If users are to log in to a site with a username and a password, the site must be able to validate that the user entered the correct password. Passwords must furthermore be stored securely in the application’s authentication database, because that database might be compromised due to SQL injection, lost backups, or even malicious or compromised members of the organization running the site. There are several approaches to storing passwords:
+## Almacenamiento de contraseñas inseguro
 
-- **Plaintext** \
-  This is obviously the worst way to store passwords. It means to store the exact characters that the user typed in when setting up the password. If the password database is compromised, attackers will have full access to all user passwords. Not only can these passwords be used to gain access to the website itself, but they can be used in [password reuse attacks](https://en.wikipedia.org/wiki/Credential_stuffing) against other sites or applications.
-- **Encrypted** \
-  The obvious solution to plaintext password storage is to encrypt the passwords. However, this offers only modest protection against many threats. The application itself must know the encryption key, and so the key must be stored somewhere. Malicious or compromised insiders with access to the database almost certainly will have access to the encryption key. Also, there are a variety of common web server vulnerabilities that could allow remote attackers to gain access to the key. Once somebody obtains the encryption key, they would be able to figure out the passwords.
-- **Hashed** \
-  As it turns out, the web server never needs to retrieve a user password from storage, it merely needs to know if the password that the user entered was the same as the user’s real password. There is a class of algorithms referred to as [cryptographic hashes](https://en.wikipedia.org/wiki/Cryptographic_hash_function) that perform a one-way transformation on data. Examples of these algorithms include MD5 and SHA. It is effectively impossible to, given a hash, determine what source data generated the hash. Unfortunately, passwords tend to be fairly short, and cryptographic hash functions tend to be quite fast. For a given hash function, it is possible to hash every possible password of a given length and store the resulting password and hash. Then, given a particular password hash, one can simply look up the password that generated this hash. In the mid 2000s, it was feasible to compute, store, and distribute these databases, called [rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table), for general use. \
-  One solution to the rainbow table problem is to add a bit of data ([called a salt](<https://en.wikipedia.org/wiki/Salt_(cryptography)>)) to the password before hashing it. This data doesn’t need to be secret or particularly high-entropy, it just needs to be different per user. A common approach is to hash the username and the password together. A rainbow table for Microsoft Windows NTLM password hashes up to 9 characters long takes up 6.7 TB. If those password hashes were salted with even 5 alphanumeric characters, that rainbow table would grow to over 6,000,000,000 TB. The problem with this approach is that hashes are still quite fast, and modern graphics cards are essentially massively parallel supercomputers. An Nvidia RTX 4090 (a high-end video card from 2022) can compute almost 400,000,000,000 salted SHA hashes a second, allowing private individuals to crack most passwords in minutes or hours.
+Si los usuarios deben iniciar sesión en un sitio con un nombre de usuario y una contraseña, el sitio debe poder validar que el usuario ingresó la contraseña correcta. Además, las contraseñas deben almacenarse de forma segura en la base de datos de autenticación de la aplicación, porque esa base de datos podría verse comprometida debido a una inyección SQL, pérdida de copias de seguridad o incluso miembros maliciosos o comprometidos de la organización que ejecuta el sitio. Existen varios métodos para almacenar contraseñas:
 
-**Special password storage algorithms** \
-The problem with cryptographic hashes is that they are designed to be fast and efficient. Most of their use is in verifying that data hasn’t been tampered with. This problem had been addressed as early as 1976, with a [Unix crypt function](https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html) that salted and encrypted the password multiple times to slow down brute-forcing. Unsurprisingly, this algorithm will not stand up to modern computing resources, but the general idea is still used today with special algorithms that are designed to store password derivatives. These algorithms are designed to take tunable CPU and memory resources, to make a good tradeoff between performance and brute-force resistance. Good password handling algorithms include (in decreasing order of preference) [scrypt, argon2, bcrypt, and PBKDF2](https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/). As a defense-in-depth measure, it’s a good practice to combine the user’s password with a secret that’s not stored in the database itself. For example, the secret can be hard-coded in the application itself. This will likely prevent password recovery if only the password database is lost.
+- **Texto sin formato**  
+    Obviamente, esta es la peor forma de almacenar contraseñas. Significa almacenar los caracteres exactos que el usuario escribió al configurar la contraseña. Si la base de datos de contraseñas se ve comprometida, los atacantes tendrán acceso completo a todas las contraseñas de los usuarios. Estas contraseñas no solo se pueden utilizar para acceder al sitio web en sí, sino que también se pueden utilizar en [ataques de reutilización de contraseñas](https://es.wikipedia.org/wiki/Credential_stuffing) contra otros sitios o aplicaciones.
+- **Cifrado**  
+    La solución obvia para el almacenamiento de contraseñas en texto plano es cifrar las contraseñas. Sin embargo, esto ofrece sólo una protección modesta contra muchas amenazas. La aplicación misma debe conocer la clave de cifrado y, por lo tanto, la clave debe almacenarse en algún lugar. Es casi seguro que personas internas malintencionadas o comprometidas con acceso a la base de datos tendrán acceso a la clave de cifrado. Además, existe una variedad de vulnerabilidades comunes en el servidor web que podrían permitir a atacantes remotos obtener acceso a la clave. Una vez que alguien obtenga la clave de cifrado, podrá descubrir las contraseñas.
+- **Fragmentado**  
+    Resulta que el servidor web nunca necesita recuperar la contraseña de un usuario del almacenamiento, simplemente necesita saber si la contraseña que el usuario ingresó era la misma que la contraseña real del usuario. Existe una clase de algoritmos denominados como [hashes criptográficos](https://es.wikipedia.org/wiki/Funci%C3%B3n_hash_criptogr%C3%A1fica) que realizan una transformación unidireccional de los datos. Ejemplos de estos algoritmos incluyen MD5 y SHA. Es efectivamente imposible, dado un hash, determinar qué datos de origen generaron el hash. Desafortunadamente, las contraseñas tienden a ser bastante cortas y las funciones hash criptográficas tienden a ser bastante rápidas. Para una función hash determinada, es posible aplicar hash a todas las contraseñas posibles de una longitud determinada y almacenar la contraseña y el hash resultantes. Luego, dado un hash de contraseña particular, uno puede simplemente buscar la contraseña que generó este hash. A mediados de la década de 2000, era factible calcular, almacenar y distribuir estas bases de datos, llamadas [tablas rainbow](https://es.wikipedia.org/wiki/Tabla_arco%C3%ADris), para uso general.  
+    Una solución al problema de la tabla rainbow es agregar un poco de datos ([llamado sal](https://es.wikipedia.org/wiki/Sal_(criptograf%C3%ADa))) a la contraseña antes de aplicar hash en ella. Estos datos no necesitan ser secretos ni tener una entropía particularmente alta, solo deben ser diferentes según el usuario. Un enfoque común es combinar el nombre de usuario y la contraseña. Una tabla rainbow para hashes de contraseñas NTLM de Microsoft Windows de hasta 9 caracteres ocupa 6,7 ​​TB. Si esos hashes de contraseñas tuvieran incluso 5 caracteres alfanuméricos, esa tabla rainbow crecería a más de 6.000.000.000 TB. El problema con este enfoque es que los hashes siguen siendo bastante rápidos y las tarjetas gráficas modernas son esencialmente supercomputadoras masivamente paralelas. Una Nvidia RTX 4090 (una tarjeta de video de alta gama de 2022) puede calcular casi 400.000.000.000 hashes SHA salados por segundo, lo que permite a particulares descifrar la mayoría de las contraseñas en minutos u horas.
 
-## Try it yourself!
+**Algoritmos especiales de almacenamiento de contraseñas**  
+El problema con los hashes criptográficos es que están diseñados para ser rápidos y eficientes. La mayor parte de su uso es para verificar que los datos no hayan sido manipulados. Este problema se había solucionado ya en 1976, con una [función de cifrado de Unix](https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html) que salaba y cifraba la contraseña varias veces para ralentizar la fuerza bruta. Como era de esperar, este algoritmo no resistirá los recursos informáticos modernos, pero la idea general todavía se utiliza hoy en día con algoritmos especiales diseñados para almacenar derivados de contraseñas. Estos algoritmos están diseñados para utilizar recursos de memoria y CPU ajustables, para lograr un buen equilibrio entre rendimiento y resistencia a la fuerza bruta. Los buenos algoritmos de manejo de contraseñas incluyen (en orden decreciente de preferencia) [scrypt, argon2, bcrypt y PBKDF2](https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/). Como medida de defensa en profundidad, es una buena práctica combinar la contraseña del usuario con un secreto que no esté almacenado en la propia base de datos. Por ejemplo, el secreto puede estar codificado en la propia aplicación. Es probable que esto impida la recuperación de la contraseña si solo se pierde la base de datos de contraseñas.
 
-Log into your DVWA and make sure the security level is set to low. Navigate to the SQL Injection section, and enter the following into the text box: \
- \
+## ¡Inténtalo tú mismo
+
+Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté bajo. Navegue a la sección Inyección SQL e ingrese lo siguiente en el cuadro de texto
+
 `​​999' union all select user, password from users where '1'='1`
 
-This will return the first and last names of all users who have a `userid` of 999 (there are none), and also the username and password hash for all users. Use an online hash lookup site (e.g. [https://www.whatsmyip.org/hash-lookup/](https://www.whatsmyip.org/hash-lookup/)) to look up the admin user’s password hash. What kind of hash is used to store the DVWA users’ passwords? What is the password of the user named “1337”?
+Esto devolverá el nombre y apellido de todos los usuarios que tienen un ID de usuario de 999 (no hay ninguno), y también el hash de nombre de usuario y contraseña de todos los usuarios. Utilice un sitio de búsqueda de hash en línea (por ejemplo, <https://www.whatsmyip.org/hash-lookup/>) para buscar el hash de contraseña del usuario administrador. ¿Qué tipo de hash se utiliza para almacenar las contraseñas de los usuarios de DVWA? ¿Cuál es la contraseña del usuario llamado “1337”?
 
-For more information on password handling, see the [OWASP password storage cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
+Para obtener más información sobre el manejo de contraseñas, consulte la [hoja de referencia sobre almacenamiento de contraseñas de OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html).
 
-## Password reset
+## Restablecimiento de contraseña
 
-If the user on a website forgets their password, most sites provide an automated way for the user to verify their identity in order to set a new password. Ideally, these methods are approximately as secure as the standard password verification process in which the user types in a secret password they know into a webpage, but are significantly less convenient.
+Si el usuario de un sitio web olvida su contraseña, la mayoría de los sitios proporcionan una forma automatizada para que el usuario verifique su identidad para establecer una nueva contraseña. Idealmente, estos métodos son aproximadamente tan seguros como el proceso de verificación de contraseña estándar en el que el usuario ingresa una contraseña secreta que conoce en una página web, pero son significativamente menos convenientes.
 
-Most sites will assume that the user’s email account is reasonably secure and email the user a link that will allow them to reset their password. This assumption is probably correct for the vast majority of user accounts on the vast majority of websites. Password reset links (and, additionally, “magic login” links) should have the following properties in order to minimize user risk:
+La mayoría de los sitios asumirán que la cuenta de correo electrónico del usuario es razonablemente segura y le enviarán por correo electrónico un enlace que le permitirá restablecer su contraseña. Esta suposición probablemente sea correcta para la gran mayoría de cuentas de usuario en la gran mayoría de sitios web. Los enlaces para restablecer contraseña (y, además, los enlaces de "inicio de sesión mágico") deben tener las siguientes propiedades para minimizar el riesgo del usuario:
 
-- The links should be to the TLS encrypted version of the site. (Note that there is no feasible way to guarantee that the email itself is encrypted in transit, but end-user network traffic, such as a user accessing a webpage, is more likely to be intercepted than traffic between servers, such as emails sent from one server to another.)
-- The link should have an access token that contains around 128 bits of randomly-generated data from a cryptographically strong random number generator. Note that 128 bits of data will take up 172 or more characters when encoded into a URL. There is no real advantage to using more than 128 bits of data, and using 128 bits means that no additional brute-force protection is required.
-- The access token should be time-limited (e.g. expire after an hour) and single-use. The single-use nature not only limits the ability of an attacker to change a user’s password, but also may alert the user in the case that an attacker manages to obtain the token and change the user’s password.
-- The token itself must be tied to the user’s account, preventing users from using the token to change another user’s password.
+- Los enlaces deben dirigirse a la versión cifrada TLS del sitio. (Tenga en cuenta que no existe una forma factible de garantizar que el correo electrónico en sí esté cifrado en tránsito, pero es más probable que se intercepte el tráfico de red del usuario final, como un usuario que accede a una página web, que el tráfico entre servidores, como los correos electrónicos enviados desde un servidor a otro.)
+- El enlace debe tener un token de acceso que contenga alrededor de 128 bits de datos generados aleatoriamente a partir de un generador de números aleatorios criptográficamente sólido. Tenga en cuenta que 128 bits de datos ocuparán 172 o más caracteres cuando se codifiquen en una URL. No existe ninguna ventaja real en utilizar más de 128 bits de datos, y utilizar 128 bits significa que no se requiere protección adicional de fuerza bruta.
+- El token de acceso debe tener un límite de tiempo (por ejemplo, caducar después de una hora) y ser de un solo uso. La naturaleza de un solo uso no sólo limita la capacidad de un atacante para cambiar la contraseña de un usuario, sino que también puede alertar al usuario en el caso de que un atacante logre obtener el token y cambiar la contraseña del usuario.
+- El token en sí debe estar vinculado a la cuenta del usuario, evitando que los usuarios utilicen el token para cambiar la contraseña de otro usuario.
 
-Reset links may also be sent via SMS. SMS is less likely to be intercepted than email by normal hackers, but is vulnerable to interception by governments in the country that the user is in. If a shorter token (e.g. a PIN) is sent via SMS, then it is important to have strong brute-force protection on the page that accepts the PIN, e.g. a 10 minute PIN lifetime and rate-limiting. Note as well that there are both [money-making and simple DoS attacks](https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/) that involve causing a server to send SMS messages to a phone number of an attacker’s choosing. By performing a large number of SMS password resets, an attacker can incur high costs for the website operator, potentially making money for themselves in the process.
+Los enlaces de reinicio también se pueden enviar por SMS. Es menos probable que los piratas informáticos normales intercepten los SMS que los correos electrónicos, pero son vulnerables a la interceptación por parte de los gobiernos del país en el que se encuentra el usuario. Si se envía un token más corto (por ejemplo, un PIN) por SMS, entonces es importante tener una fuerte protección de fuerza bruta en la página que acepta el PIN, por ejemplo, un PIN de 10 minutos de duración y limitación de velocidad. Tenga en cuenta también que existen ataques [DoS simples y rentables](https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/) que implican hacer que un servidor envíe mensajes SMS a un número de teléfono elegido por el atacante. Al realizar una gran cantidad de restablecimientos de contraseñas por SMS, un atacante puede generar altos costos para el operador del sitio web y potencialmente ganar dinero en el proceso.
 
-An alternate method of performing password resets involves asking the user questions that both the website and user know the answers to, but that an attacker might not. These tend to be extremely weak, or extremely strong methods of verifying the user’s identity. Standard “secret questions” like asking where the user was born, their mother’s maiden name, the make of their first car, etc. are quite weak. First off, an attacker may be able to easily find the answer to those questions. Secondly, most of them are impossible to change, so in the event that an attacker does discover an answer (even by compromising another website), they will be able to use them again and again. Lastly, most of these questions only have a handful of common answers. For example, if you ask a Korean person their mother’s maiden name, a significant proportion of the answers will be “Kim” or “Lee”. The other, more secure type of secret question involves offline communications between the website and the user. Examples of this are things like utility bills and bank statements. For the user to reset their password, they would enter, for instance, the amounts of 3rd and 5th transactions in their bank statement. The user would only be allowed a few tries, and then would need to perform an even less convenient reset process with customer service. This reset process can be very secure, though in the days of online statements, it’s probably less secure than emailing a token.
+Un método alternativo para realizar restablecimientos de contraseña implica hacer preguntas al usuario cuyas respuestas tanto el sitio web como el usuario conocen, pero que un atacante tal vez no. Estos tienden a ser métodos extremadamente débiles o sólidos para verificar la identidad del usuario. Las “preguntas secretas” estándar, como preguntar dónde nació el usuario, el apellido de soltera de su madre, la marca de su primer automóvil, etc., son bastante débiles. En primer lugar, un atacante puede encontrar fácilmente la respuesta a esas preguntas. En segundo lugar, la mayoría de ellos son imposibles de cambiar, por lo que, en caso de que un atacante descubra una respuesta (incluso comprometiendo otro sitio web), podrá utilizarlos una y otra vez. Por último, la mayoría de estas preguntas sólo tienen un puñado de respuestas comunes. Por ejemplo, si le preguntas a un coreano el apellido de soltera de su madre, una proporción significativa de las respuestas será "Kim" o "Lee". El otro tipo de pregunta secreta, más seguro, implica comunicaciones fuera de línea entre el sitio web y el usuario. Ejemplos de esto son cosas como facturas de servicios públicos y extractos bancarios. Para que el usuario restablezca su contraseña, deberá ingresar, por ejemplo, los montos de la tercera y quinta transacción en su extracto bancario. Al usuario solo se le permitirían unos pocos intentos y luego tendría que realizar un proceso de reinicio aún menos conveniente con el servicio de atención al cliente. Este proceso de reinicio puede ser muy seguro, aunque en la época de los estados de cuenta en línea, probablemente sea menos seguro que enviar un token por correo electrónico.
 
-For a bit more on secure password reset, see [the OWASP cheat sheet on Forgot Password](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html). For an in-depth exploration of authentication and authorization vulnerabilities, see the [Web Application Security Assessment learning path](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit?usp=sharing).
+Para obtener más información sobre el restablecimiento seguro de contraseña, consulte [la hoja de referencia de OWASP en Olvidé mi Contraseña](https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html). Para una exploración en profundidad de las vulnerabilidades de autenticación y autorización, consulte la [Ruta de Aprendizaje de Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/).
 
-## Credential strength
+## Fortaleza de la credencial
 
-Most web applications use passwords for authentication, though techniques like WebAuthentication using security keys and extremely long lived authentication sessions combined with login links via email are gaining popularity. If a website uses passwords, it’s important that those passwords be strong. However, the definition of a “strong” password has shifted over the years. There are three primary methods that attackers uses to directly attack user passwords:
+La mayoría de las aplicaciones web utilizan contraseñas para la autenticación, aunque están ganando popularidad técnicas como la autenticación web que utiliza claves de seguridad y sesiones de autenticación de duración extremadamente prolongada combinadas con enlaces de inicio de sesión por correo electrónico. Si un sitio web utiliza contraseñas, es importante que esas contraseñas sean seguras. Sin embargo, la definición de contraseña "segura" ha cambiado a lo largo de los años. Hay tres métodos principales que utilizan los atacantes para atacar directamente las contraseñas de los usuarios:
 
-1. **Online guessing using password reuse** In this attack, an attacker uses known passwords associated with the user, and simply tries those passwords in the site’s login form. Since many people use the same passwords across multiple websites, this attack can be devastatingly effective. Usernames and passwords from compromised sites are widely available on the public web, dark web, and for sale on private websites. Attackers can simply enter all the known passwords for a given user; if the attacker is targeting a small number of users, this attack doesn’t even require automation.
-2. **Online brute-force via credential stuffing** “Credential stuffing” is a type of attack where a software client (either a scripted web browser via something like [Selenium](https://www.selenium.dev/) or a custom script) will automatically attempt to log in to the target site. Additionally, these attacks can use a distributed set of proxy servers to appear to come from a variety of different computers. The rate of these attacks is generally limited by the speed of the web server and network latency, so attackers will generally be careful to choose only the most likely credentials to try. For instance, they will often limit the usernames to a targeted set, or to known good usernames if there is a [username enumeration vulnerability](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account) on the site. (Note that in most cases, preventing username enumeration is defense in depth, and should not be a high priority for web applications.) Additionally, the attacker will attempt to prioritize likely passwords, using passwords dumps to try reused passwords, and trying commonly-used passwords.
-3. **Offline brute-force** If the attacker managed to acquire a copy of the application’s passwords database (for example via SQL injection), they will likely attempt to brute-force the stored credentials. Depending on how the credentials are stored and the attacker’s hardware capabilities, attackers may be able to try hundreds of trillions of passwords per second, or hundreds. In any case, once the attacker has the password database, the application cannot detect or stop the attack. Attackers will generally prioritize likely passwords in this attack, but if they are very well funded or if the password storage algorithm is weak, the attacker can start enumerating all possible passwords.
+1. **Adivinación en línea mediante la reutilización de contraseñas** En este ataque, un atacante utiliza contraseñas conocidas asociadas con el usuario y simplemente prueba esas contraseñas en el formulario de inicio de sesión del sitio. Dado que muchas personas utilizan las mismas contraseñas en varios sitios web, este ataque puede resultar devastadoramente eficaz. Los nombres de usuario y contraseñas de sitios comprometidos están ampliamente disponibles en la web pública, la web oscura y a la venta en sitios web privados. Los atacantes pueden simplemente ingresar todas las contraseñas conocidas de un usuario determinado; Si el atacante se dirige a un pequeño número de usuarios, este ataque ni siquiera requiere automatización.
+2. **Fuerza bruta en línea mediante relleno de credenciales** El "relleno de credenciales" es un tipo de ataque en el que un cliente de software (ya sea un navegador web con script a través de algo como [Selenium](https://www.selenium.dev/) o un script personalizado) intentará iniciar sesión automáticamente en el sitio de destino. Además, estos ataques pueden utilizar un conjunto distribuido de servidores proxy que parecen provenir de una variedad de computadoras diferentes. La tasa de estos ataques generalmente está limitada por la velocidad del servidor web y la latencia de la red, por lo que los atacantes generalmente tendrán cuidado de elegir solo las credenciales más probables para probar. Por ejemplo, a menudo limitarán los nombres de usuario a un conjunto específico, o a nombres de usuario buenos y conocidos si hay una [vulnerabilidad de enumeración de nombres de usuario](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account) [y](https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account) en el sitio. (Tenga en cuenta que, en la mayoría de los casos, evitar la enumeración de nombres de usuarios es una defensa en profundidad y no debería ser una alta prioridad para las aplicaciones web). Además, el atacante intentará priorizar las contraseñas probables, utilizando volcados de contraseñas para probar contraseñas reutilizadas y probando contraseñas de uso común.
+3. **Fuerza bruta fuera de línea** Si el atacante logró adquirir una copia de la base de datos de contraseñas de la aplicación (por ejemplo, mediante inyección SQL), probablemente intentará aplicar fuerza bruta a las credenciales almacenadas. Dependiendo de cómo se almacenen las credenciales y de las capacidades del hardware del atacante, los atacantes pueden probar cientos de billones de contraseñas por segundo, o cientos. En cualquier caso, una vez que el atacante tiene la base de datos de contraseñas, la aplicación no puede detectar ni detener el ataque. Los atacantes generalmente darán prioridad a las contraseñas probables en este ataque, pero si están muy bien financiados o si el algoritmo de almacenamiento de contraseñas es débil, el atacante puede comenzar a enumerar todas las contraseñas posibles.
 
-Of these attacks, the online attacks are much more common. Ideally, applications would not be vulnerable to SQL injections, insiders would not get compromised or act maliciously, and database backups would never be lost. However, it would be irresponsible to ignore the possibility of an offline attack. Given this, the priorities of a web application should be (in order):
+De estos ataques, los ataques en línea son mucho más comunes. Idealmente, las aplicaciones no serían vulnerables a las inyecciones de SQL, los usuarios internos no se verían comprometidos ni actuarían maliciosamente y las copias de seguridad de las bases de datos nunca se perderían. Sin embargo, sería irresponsable ignorar la posibilidad de un ataque fuera de línea. Ante esto, las prioridades de una aplicación web deberían ser (en orden):
 
-1. **Prevent password reuse, especially with known compromised passwords** This is impossible to do completely, and also can present user interface issues. However, there are services such as those from [Have I Been Pwned](https://haveibeenpwned.com/) (English, [subscriptions for API use start at US$40/year](https://haveibeenpwned.com/API/Key)), [Hold Security](https://holdsecurity.com/solutions/credential-integrity-service/), [SpyCloud](https://spycloud.com/products/consumer-ato-prevention/), etc that can tell you if a particular username and password have appeared in a password dump. [Password dump compilations](https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/) can also be downloaded and checked locally.
-2. **Prevent the use of common passwords** Pages that allow users to set their password should compare the user’s password against a list of the most common passwords (usually obtained from password dumps). Some of those lists are available on [GitHub](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials). Note that attackers will use the same lists, so merely blocking the 100 or 1000 most common passwords is unlikely to be very effective.
-3. **Ensure passwords have enough entropy to resist brute-force attacks** Even though something like “w)\*l3” is not a common password, it will be quickly discovered in a brute-force attack. Setting a minimum password length can help mitigate brute-force attacks.
+1. **Evite la reutilización de contraseñas, especialmente con contraseñas comprometidas conocidas**. Esto es imposible de hacer por completo y también puede presentar problemas en la interfaz de usuario. Sin embargo, existen servicios como los de [Have I Been Pwned](https://haveibeenpwned.com/) (inglés, [las suscripciones para el uso de API comienzan en 40 dólares al año](https://haveibeenpwned.com/API/Key)), [Hold Security](https://holdsecurity.com/solutions/credential-integrity-service/), [SpyCloud](https://spycloud.com/products/consumer-ato-prevention/), etc, que pueden indicarle si un nombre de usuario y una contraseña concretos han aparecido en un volcado de contraseñas. [Las compilaciones de volcado de contraseñas](https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/) también se pueden descargar y verificar localmente.
+2. **Evite el uso de contraseñas comunes** Las páginas que permiten a los usuarios establecer su contraseña deben comparar la contraseña del usuario con una lista de las contraseñas más comunes (generalmente obtenidas de volcados de contraseñas). Algunas de esas listas están disponibles en [GitHub](https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials). Tenga en cuenta que los atacantes utilizarán las mismas listas, por lo que es poco probable que simplemente bloquear las 100 o 1000 contraseñas más comunes sea muy eficaz.
+3. **Asegúrese de que las contraseñas tengan suficiente entropía para resistir ataques de fuerza bruta**. Aunque algo como “w)\*l3” no es una contraseña común, se descubrirá rápidamente en un ataque de fuerza bruta. Establecer una longitud mínima de contraseña puede ayudar a mitigar los ataques de fuerza bruta.
 
-Of course, these priorities must be balanced against the requirements of the user to either use a password manager or to remember their password. Also, passwords as an authentication method are fairly problematic; the next section covers multifactor authentication and password alternatives.
+Por supuesto, estas prioridades deben equilibrarse con los requisitos del usuario de utilizar un administrador de contraseñas o recordar su contraseña. Además, las contraseñas como método de autenticación son bastante problemáticas; la siguiente sección cubre la autenticación multifactor y las alternativas de contraseña.
 
-For more information on password strength, see [this summary of the US Government’s NIST authentication guidelines](https://blog.netwrix.com/2022/11/14/nist-password-guidelines/).
+Para obtener más información sobre la seguridad de la contraseña, consulte [este resumen de las pautas de autenticación NIST del gobierno de EE. UU.](https://blog.netwrix.com/2022/11/14/nist-password-guidelines/).
 
-## Multifactor Authentication
+## Autenticación Multifactor
 
-As you may have surmised from the previous section, password security is very difficult. It gets worse when you consider social engineering attacks such as phishing.
+Como habrás deducido de la sección anterior, la seguridad de las contraseñas es muy difícil. La situación empeora cuando se consideran los ataques de ingeniería social como el phishing.
 
-### Phishing and Related Attacks
+### Phishing y Ataques Relacionados
 
-[Phishing](https://en.wikipedia.org/wiki/Phishing) is one of a class of social engineering attacks that attackers use to attack individuals. Although phishing can have many aims (such as convincing users to install malware on their computer or transfer money to attackers), the goal we care about is stealing users’ passwords. Although phishing usually refers to attacks launched via email, similar techniques can be used over a variety of communications mediums, such as SMS, WhatsApp, Signal, and even QR codes.
+El [Phishing](https://es.wikipedia.org/wiki/Phishing) pertenece a una clase de ataques de ingeniería social que los atacantes utilizan para atacar a individuos. Aunque el phishing puede tener muchos objetivos (como convencer a los usuarios para que instalen malware en sus computadoras o transfieran dinero a los atacantes), el objetivo que nos importa es robar las contraseñas de los usuarios. Aunque el phishing suele referirse a ataques lanzados por correo electrónico, se pueden utilizar técnicas similares a través de una variedad de medios de comunicación, como SMS, WhatsApp, Signal e incluso códigos QR.
 
-In a typical credential phishing campaign, attackers will send emails to their victims purporting to be sent from a legitimate website. The email will contain a call to action (such as requiring a password change or acknowledging a notification) with a link to an attacker-controlled website that has a legitimate-looking login page. If a victim clicks the link, and then enters their password on the website, the site sends their password to the attacker. (For much more on phishing, see the [Investigating Malicious Infrastructure Learning Path](https://docs.google.com/document/d/13if8JvR_TsGxja0Il48NBM-S1LKs29w_R_3LxxiLxS4/edit).)
+En una campaña típica de phishing de credenciales, los atacantes envían correos electrónicos a sus víctimas supuestamente enviados desde un sitio web legítimo. El correo electrónico contendrá una llamada a la acción (como solicitar un cambio de contraseña o confirmar una notificación) con un enlace a un sitio web controlado por un atacante que tiene una página de inicio de sesión de apariencia legítima. Si una víctima hace clic en el enlace y luego ingresa su contraseña en el sitio web, el sitio envía su contraseña al atacante. (Para obtener más información sobre el phishing, consulte la [Ruta de Aprendizaje sobre la Investigación de Infraestructuras Maliciosas](https://docs.google.com/document/d/13if8JvR_TsGxja0Il48NBM-S1LKs29w_R_3LxxiLxS4/edit).)
 
-Phishing attacks are extremely low cost for attackers, and tend to be extremely effective. Once the attacker has the victim’s password, they can log into the target website as the victim. With preparation, the attacker can use automation to immediately perform actions on the victim’s account, including changing the user’s email address and password to lock the victim out of their own account.
+Los ataques de phishing tienen un costo extremadamente bajo para los atacantes y tienden a ser extremadamente efectivos. Una vez que el atacante tiene la contraseña de la víctima, puede iniciar sesión en el sitio web objetivo como víctima. Con preparación, el atacante puede utilizar la automatización para realizar acciones inmediatas en la cuenta de la víctima, incluido cambiar la dirección de correo electrónico y la contraseña del usuario para bloquear a la víctima fuera de su propia cuenta.
 
-Given the danger of phishing attacks, and the complete inability to password authentication to stop phishing, any multifactor authentication scheme should be evaluated against its phishing resistance.
+Dado el peligro de los ataques de phishing y la total incapacidad de la autenticación con contraseña para detener el phishing, cualquier esquema de autenticación multifactor debe evaluarse frente a su resistencia al phishing.
 
-### Multifactor Authentication Overview
+### Descripción General de la Autenticación Multifactor
 
-Traditionally, there are three types of things (called factors) that can be used for authentication:
+Tradicionalmente, existen tres tipos de elementos (llamados factores) que se pueden utilizar para la autenticación:
 
-- **Something you know** The most common form of this is the password; it is a thing that you (and hopefully only you) know. This is very popular because it’s very easy to generate a secret password, and generally easy to change.
-- **Something you have** The most common form of this is a key; it is a thing that you have that is hard to reproduce. This is less popular because it’s easy to lose, hard to set up initially, and hard to change.
-- **Something you are** The most commonly-known form of this is a fingerprint, but facial recognition is increasingly popular; it’s something intrinsic to you. These are surprisingly easy to “lose” (such as a burn damaging fingerprints, extremely difficult to change intentionally, and verification tends to be error prone.
+- **Algo que sabes**. La forma más común de esto es la contraseña; es algo que usted (y con suerte sólo usted) sabe. Esto es muy popular porque es muy fácil generar una contraseña secreta y, en general, fácil de cambiar.
+- **Algo que tienes**. La forma más común de esto es una clave; es algo que tienes y que es difícil de reproducir. Esto es menos popular porque es fácil de perder, difícil de configurar inicialmente y difícil de cambiar.
+- **Algo que eres** La forma más conocida de esto es la huella digital, pero el reconocimiento facial es cada vez más popular; es algo intrínseco a ti. Estos son sorprendentemente fáciles de "perder" (como una quemadura que daña las huellas dactilares), extremadamente difíciles de cambiar intencionalmente y la verificación tiende a ser propensa a errores.
 
-MFA (multifactor authentication) combines two or more of these factors together to strengthen a system’s authentication system. There are many examples of multifactor authentication in everyday life. Using an ATM requires something you have (the card) and something you know (your PIN). Many building access control systems have a badge to open a door, but that badge also brings up the badge holder’s face on a display that a guard can see, combining something you have (the badge) with something you are (your face).
+MFA (autenticación multifactor) combina dos o más de estos factores para fortalecer el sistema de autenticación de un sistema. Hay muchos ejemplos de autenticación multifactor en la vida cotidiana. Usar un cajero automático requiere algo que tienes (la tarjeta) y algo que sabes (tu PIN). Muchos sistemas de control de acceso a edificios tienen una tarjeta para abrir una puerta, pero esa tarjeta también muestra la cara del titular de la tarjeta en una pantalla que un guardia puede ver, combinando algo que usted tiene (la tarjeta) con algo que es (su cara).
 
-In the remainder of this subsection, we’ll discuss a variety of common web MFA methods.
+En el resto de esta subsección, analizaremos una variedad de métodos comunes de MFA web.
 
-### Secret Questions
+### Preguntas Secretas
 
-Although this is technically not MFA (it combines multiple things that the user knows), it was very popular in the past, and is still in use in many contexts. Using secret questions as part of authentication does provide some degree of defense against password reuse and password guessing attacks. Beyond that, it provides very little protection. It is almost worthless against phishing. The attacker’s website can simply attempt to log into the real website, and then turn around and ask the user the secret questions. Additionally, as discussed in the Password Reset subsection above, the secret question answers are frequently guessable. For these reasons, secret questions are not a strong MFA method.
+Aunque técnicamente esto no es MFA (combina varias cosas que el usuario sabe), fue muy popular en el pasado y todavía se usa en muchos contextos. El uso de preguntas secretas como parte de la autenticación proporciona cierto grado de defensa contra la reutilización de contraseñas y los ataques de adivinación de contraseñas. Más allá de eso, proporciona muy poca protección. Es casi inútil contra el phishing. El sitio web del atacante puede simplemente intentar iniciar sesión en el sitio web real y luego darse la vuelta y hacerle al usuario las preguntas secretas. Además, como se analizó en la subsección anterior Restablecimiento de contraseña, las respuestas a las preguntas secretas con frecuencia se pueden adivinar. Por estas razones, las preguntas secretas no son un método eficaz de MFA.
 
-### SMS Codes
+### Códigos SMS
 
-An actual MFA method in common use is to text the user a code when they log in, then require that code to complete the login process. This combines something the user knows (their password) with something they have (the phone that receives messages at a certain number). Unfortunately, SMS codes are almost worthless against phishing. When the user logs into the attacker controlled fake website, the fake website will log into the real website. The real website will text the user, and the user then enters the code into the fake website. The fake site then uses the code on the real site, and is then logged in as the victim. Additionally, [SIM swapping](https://en.wikipedia.org/wiki/SIM_swap_scam) attacks can allow attackers to take over a victim’s phone number, allowing the attacker to receive SMS messages intended for the victim. For these reasons, SMS codes are not a strong MFA method for sensitive or important websites.
+Un método MFA real de uso común es enviar un mensaje de texto al usuario con un código cuando inicia sesión y luego solicitar ese código para completar el proceso de inicio de sesión. Esto combina algo que el usuario sabe (su contraseña) con algo que tiene (el teléfono que recibe mensajes en un número determinado). Desafortunadamente, los códigos SMS son casi inútiles contra el phishing. Cuando el usuario inicia sesión en el sitio web falso controlado por el atacante, el sitio web falso iniciará sesión en el sitio web real. El sitio web real enviará un mensaje de texto al usuario y el usuario luego ingresará el código en el sitio web falso. Luego, el sitio falso utiliza el código del sitio real y luego inicia sesión como víctima. Además, [los ataques de intercambio de SIM](https://es.wikipedia.org/wiki/SIM_swapping) pueden permitir a los atacantes hacerse cargo del número de teléfono de la víctima, lo que les permite recibir mensajes SMS destinados a la víctima. Por estos motivos, los códigos SMS no son un método MFA sólido para sitios web sensibles o importantes.
 
 ### TOTP
 
-TOTP stands for Time-based One-Time Password. To initiate the system, the server and a device controlled by the user exchange a cryptographic secret (the “seed”) and synchronize their clocks. Then, when a user wishes to authenticate to a website, the user’s device performs a cryptographic operation on the seed and the current time, generating a code that’s only good for seconds or minutes. The server performs the same operation, and uses that to check the user’s code. In the past, the most common TOTP system was RSA SecureIDs, which were expensive. Now, most TOTP systems run on smartphones. Examples include Google Authenticator and Authy. Regardless, TOTP functions as something you have (the TOTP seed) for purposes of authentication.
+TOTP significa Contraseña de Un Solo Uso basada en tiempo. Para iniciar el sistema, el servidor y un dispositivo controlado por el usuario intercambian un secreto criptográfico (la "semilla") y sincronizan sus relojes. Luego, cuando un usuario desea autenticarse en un sitio web, el dispositivo del usuario realiza una operación criptográfica en la semilla y la hora actual, generando un código que solo es válido por segundos o minutos. El servidor realiza la misma operación y la utiliza para verificar el código del usuario. En el pasado, el sistema TOTP más común eran los RSA SecureID, que eran caros. Ahora, la mayoría de los sistemas TOTP se ejecutan en teléfonos inteligentes. Los ejemplos incluyen Google Authenticator y Authy. De todos modos, TOTP funciona como algo que usted tiene (la semilla TOTP) para fines de autenticación.
 
-Like SMS codes, TOTP is also vulnerable to phishing. The attacker-controlled fake site can simply ask the user for their TOTP code and use it to log into the real site. For this reason, TOTP is not a strong MFA method for sensitive or important websites. Also note that if a user loses or wipes their phone, they are unlikely to be able to authenticate to the site, as they have lost their TOTP seed.
+Al igual que los códigos SMS, TOTP también es vulnerable al phishing. El sitio falso controlado por el atacante puede simplemente pedirle al usuario su código TOTP y utilizarlo para iniciar sesión en el sitio real. Por esta razón, TOTP no es un método MFA sólido para sitios web sensibles o importantes. También tenga en cuenta que si un usuario pierde o borra su teléfono, es poco probable que pueda autenticarse en el sitio, ya que ha perdido su semilla TOTP.
 
-### Security Keys
+### Claves de Seguridad
 
-Security keys (sometimes referred to as U2F, FIDO, WebAuthentication, Yubikeys, etc) are devices that implement a [cryptographic authentication protocol](https://developers.yubico.com/U2F/Protocol_details/Overview.html). When you register a security key with a website, the site and the key exchange public key. For subsequent authentication, the server presents a signed challenge to the device. The device verifies the site’s signature, and then responds with a signed response. Finally, the server verifies the device’s signature. This proves to the server that you are in possession of the key that was registered initially, making it something you have. Traditionally, security keys were stand-alone devices that talked to a computer or mobile device over USB or NFC, although support for using smartphones and computers is available in some configurations.
+Las claves de seguridad (a veces denominadas U2F, FIDO, WebAuthentication, Yubikeys, etc.) son dispositivos que implementan un [protocolo de autenticación criptográfica](https://developers.yubico.com/U2F/Protocol_details/Overview.html). Cuando registra una clave de seguridad en un sitio web, el sitio y la clave intercambian la clave pública. Para la autenticación posterior, el servidor presenta un desafío firmado al dispositivo. El dispositivo verifica la firma del sitio y luego responde con una respuesta firmada. Finalmente, el servidor verifica la firma del dispositivo. Esto le demuestra al servidor que usted está en posesión de la clave que se registró inicialmente, lo que la convierte en algo que tiene. Tradicionalmente, las llaves de seguridad eran dispositivos independientes que se comunicaban con una computadora o dispositivo móvil a través de USB o NFC, aunque en algunas configuraciones está disponible el soporte para el uso de teléfonos inteligentes y computadoras.
 
-Unlike the other MFA discussed here, security keys are resistant to phishing. The key here is that the signed challenge includes the identity of the website requesting authentication. For a valid site, this will match an existing site key on the device. For a lookalike attacker-controlled site, the site will not match any existing site key, and so no MFA will take place. So, the attacker may have the user’s password, but they will not be able to complete authentication to the target website, as there’s no way for the attacker to complete the MFA process. On the minus side, security keys can be lost. Generally, sites that use security keys will allow users to register multiple keys, so that if one is lost or damaged, a back-up can be used.
+A diferencia de las otras MFA analizadas aquí, las claves de seguridad son resistentes al phishing. La clave aquí es que el desafío firmado incluya la identidad del sitio web que solicita la autenticación. Para un sitio válido, coincidirá con una clave de sitio existente en el dispositivo. Para un sitio similar controlado por un atacante, el sitio no coincidirá con ninguna clave de sitio existente, por lo que no se realizará ninguna MFA. Por lo tanto, el atacante puede tener la contraseña del usuario, pero no podrá completar la autenticación en el sitio web de destino, ya que no hay forma de que el atacante complete el proceso MFA. El lado negativo es que las llaves de seguridad se pueden perder. Generalmente, los sitios que utilizan claves de seguridad permitirán a los usuarios registrar varias claves, de modo que si una se pierde o se daña, se pueda utilizar una copia de seguridad.
 
-### Single-use passwords
+### Contraseñas de un solo uso
 
-Pre-generated single use passwords are sometimes used as a backup for other MFA methods, and were [used for high-security applications](https://www.researchgate.net/figure/A-typical-one-time-password-OTP-scheme-used-by-European-banks-Stahlberg-2007-p-2_fig3_49279643) before the widespread use of smartphones. Modern websites will frequently refer to these as “backup codes.” The server will generate a list of codes, store them, and present them to the user. The user would generally print them out and store the paper in a secure location. Each time a code is used, it is marked as invalid by the server. These are subject to the same weaknesses as TOTP, but have a perverse advantage of being very inconvenient. As such, they are frequently used as a backup for other MFA methods. The hope is that their use is rare enough that, if a user is prompted to enter a backup code, they will stop and highly scrutinize the requesting website, making a phishing attack less likely to succeed. Examples of sites using backup codes are [Gmail](https://support.google.com/accounts/answer/1187538?hl=en&co=GENIE.Platform%3DDesktop) and [GitHub](https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods).
+Las contraseñas de un solo uso pregeneradas a veces se utilizan como respaldo para otros métodos MFA y se [usaban para aplicaciones de alta seguridad](https://www.researchgate.net/figure/A-typical-one-time-password-OTP-scheme-used-by-European-banks-Stahlberg-2007-p-2_fig3_49279643) antes del uso generalizado de los teléfonos inteligentes. Los sitios web modernos frecuentemente se refieren a estos como "códigos de respaldo". El servidor generará una lista de códigos, los almacenará y los presentará al usuario. El usuario generalmente los imprimiría y guardaría el papel en un lugar seguro. Cada vez que se utiliza un código, el servidor lo marca como no válido. Estos están sujetos a las mismas debilidades que TOTP, pero tienen la ventaja perversa de ser muy inconvenientes. Como tales, se utilizan con frecuencia como respaldo para otros métodos MFA. La esperanza es que su uso sea lo suficientemente raro como para que, si se le solicita a un usuario que ingrese un código de respaldo, se detenga y examine minuciosamente el sitio web solicitante, lo que hace que sea menos probable que un ataque de phishing tenga éxito. Ejemplos de sitios que utilizan códigos de respaldo son [Gmail](https://support.google.com/accounts/answer/1187538?hl=es) y [GitHub](https://docs.github.com/es/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods).
 
-For a bit more authentication, see [the OWASP authentication cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) and [the OWASP MFA cheat sheet](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html). For an in-depth exploration, see the <span style="text-decoration:underline;">Web Application Security Assessment learning path</span>.
+Para obtener un poco más de autenticación, consulte [la hoja de referencia de autenticación OWASP](https://cheatsheetseries.owasp.org/cheatsheets/Authentication_Cheat_Sheet.html) y [la hoja de referencia de OWASP MFA](https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html). Para una exploración en profundidad, consulte la Ruta de Aprendizaje sobre [Evaluación de Seguridad de Aplicaciones Web](/en/learning-path/5/).
 
-## Session fixation
+## Reparación de sesión
 
-[Session fixation](https://owasp.org/www-community/attacks/Session_fixation#:~:text=Session%20Fixation%20is%20an%20attack,specifically%20the%20vulnerable%20web%20application.) is an important concept in web security. It refers to an attack where an attacker sets a user's session identifier (session ID) to a value known to the attacker. This can occur through various means, such as phishing attacks or by exploiting vulnerabilities in the web application. The attack involves acquiring a valid session ID, persuading a user to authenticate with it, and then taking over the session by leveraging the known session ID. This requires the attacker to supply a genuine web application session ID and manipulate the targeted person’s browser into using it. They can then hijack the user's session, gaining unauthorized access to the user's account.
+La [reparación de sesión](https://owasp.org/www-community/attacks/Session_fixation#:~:text=Session%20Fixation%20is%20an%20attack,specifically%20the%20vulnerable%20web%20application.) es un concepto importante en la seguridad web. Se refiere a un ataque en el que un atacante establece el identificador de sesión de un usuario (ID de sesión) en un valor conocido por el atacante. Esto puede ocurrir a través de varios medios, como ataques de phishing o explotando vulnerabilidades en la aplicación web. El ataque implica adquirir una ID de sesión válida, persuadir a un usuario para que se autentique con ella y luego hacerse cargo de la sesión aprovechando la ID de sesión conocida. Esto requiere que el atacante proporcione una ID de sesión de aplicación web genuina y manipule el navegador de la persona objetivo para que la utilice. Luego pueden secuestrar la sesión del usuario y obtener acceso no autorizado a la cuenta del usuario.
 
-Session fixation exploits weaknesses in how a web application manages session IDs. Essentially, the vulnerable application fails to assign a new session ID during user authentication, enabling the attacker to utilize an existing session ID. Unlike Session Hijacking, which occurs after user login, Session Fixation establishes control over a session before user authentication.
+La reparación de sesiones aprovecha las debilidades en la forma en que una aplicación web gestiona las ID de sesión. Básicamente, la aplicación vulnerable no puede asignar una nueva ID de sesión durante la autenticación del usuario, lo que permite al atacante utilizar una ID de sesión existente. A diferencia del secuestro de sesión, que ocurre después de iniciar sesión el usuario, la reparación de sesión establece control sobre una sesión antes de la autenticación del usuario.
 
-Various techniques can be used to execute this attack, depending on how the web application handles session tokens:
+Se pueden utilizar varias técnicas para ejecutar este ataque, dependiendo de cómo la aplicación web maneje los tokens de sesión:
 
-1. Session token in the URL argument: The attacker sends the Session ID to the victim via a hyperlink, leading the victim to access the site through the malicious URL.
-2. Session token in a hidden form field: The attacker tricks the targeted person into authenticating on the target web server using a login form developed by the attacker, potentially hosted on an illegitimate server or within an HTML-formatted email.
-3. Session ID in a cookie:
+1. Token de sesión en el argumento de la URL: El atacante envía el ID de sesión a la víctima a través de un hipervínculo, lo que lleva a la víctima a acceder al sitio a través de la URL maliciosa.
+2. Token de sesión en un campo de formulario oculto: El atacante engaña a la persona objetivo para que se autentique en el servidor web de destino mediante un formulario de inicio de sesión desarrollado por el atacante, potencialmente alojado en un servidor ilegítimo o en un correo electrónico con formato HTML.
+3. ID de sesión en una cookie:
 
-- Client-side script: Utilizes client-side scripting to inject malicious code, often via Cross-site Scripting (XSS) attacks, into a hyperlink, fixing a Session ID in the targeted person’s cookie using the document.cookie function.
-- &lt;meta> tag: Another form of code injection attack, which is more potent than XSS as it cannot be readily disabled or denied by browsers.
-- HTTP header response: Exploits server responses to embed the Session ID in the victim's browser by including the "Set-Cookie" parameter in the HTTP header response.
+- Guión del lado del cliente: Utiliza secuencias de comandos del lado del cliente para inyectar código malicioso, a menudo mediante ataques de secuencias de comandos entre sitios (XSS), en un hipervínculo, reparando un ID de sesión en la cookie de la persona objetivo mediante la función document.cookie.
+- Etiqueta &lt;meta&gt;: Otra forma de ataque de inyección de código, que es más potente que XSS, ya que los navegadores no pueden desactivarlo ni rechazarlo fácilmente.
+- Respuesta del encabezado HTTP: Explota las respuestas del servidor para incrustar el ID de sesión en el navegador de la víctima incluyendo el parámetro "Set-Cookie" en la respuesta del encabezado HTTP.
 
-Many web frameworks and libraries offer features to aid developers in implementing secure session management, which helps to mitigate session fixation vulnerabilities. These frameworks often include built-in mechanisms for generating, storing, and validating session IDs. They may allow for configuring session expiration, regenerating session IDs upon authentication, and ensuring secure transmission of session data. However, it could be useful for developers to effectively implement these practices within their application code as well, ensuring proper configuration and usage to mitigate session fixation and other vulnerabilities. Regular updates to libraries and frameworks are crucial, as they may contain patches or improvements related to session management security.
+Muchas estructuras y bibliotecas web ofrecen funciones para ayudar a los desarrolladores a implementar una gestión segura de sesiones, lo que ayuda a mitigar las vulnerabilidades de reparación de sesiones. Estas estructuras suelen incluir mecanismos integrados para generar, almacenar y validar ID de sesión. Pueden permitir configurar la caducidad de la sesión, regenerar los ID de la sesión tras la autenticación y garantizar la transmisión segura de los datos de la sesión. Sin embargo, podría ser útil para los desarrolladores implementar de manera efectiva estas prácticas dentro del código de su aplicación, asegurando una configuración y uso adecuados para mitigar la reparación de sesiones y otras vulnerabilidades. Las actualizaciones periódicas de bibliotecas y estructuras son cruciales, ya que pueden contener parches o mejoras relacionadas con la seguridad de la gestión de sesiones.
 
-### Preventing Session Fixation Vulnerabilities
+### Prevención de Vulnerabilidades de Reparación de Sesiones
 
-For most web server administrators, the best way of mitigating for session fixation vulnerabilities is to make sure that the software stack you use for authentication contains mitigations against such attacks and also up to date. If you are using a library which has a vulnerability which allows for session fixation, make sure to upgrade it as soon as you can.
+Para la mayoría de los administradores de servidores web, la mejor manera de mitigar las vulnerabilidades de reparación de sesiones es asegurarse de que la pila de software que utiliza para la autenticación contenga mitigaciones contra dichos ataques y también esté actualizada. Si está utilizando una biblioteca que tiene una vulnerabilidad que permite la reparación de sesiones, asegúrese de actualizarla lo antes posible.
 
-Web apps, libraries, and frameworks take several steps to mitigate session fixation attacks. Those include generating random session IDs for each user session, expiring sessions after a period of inactivity, and implementing measures like session ID regeneration upon authentication. Your web app should always be using HTTPS for security and privacy, and it likewise offers an additional layer of protection against session fixation attacks: it’s much harder to intercept session IDs in transit if communication between the client and server is encrypted. Finally, your web app should also reject externally imposed session tokens, which will also help protect against this type of attack.
+Las aplicaciones web, bibliotecas y marcos toman varias medidas para mitigar los ataques de reparación de sesiones. Entre ellas se incluyen la generación de ID de sesión aleatorias para cada sesión de usuario, la caducidad de sesiones después de un período de inactividad y la implementación de medidas como la regeneración de ID de sesión tras la autenticación. Su aplicación web siempre debe utilizar HTTPS por motivos de seguridad y privacidad, y también ofrece una capa adicional de protección contra ataques de reparación de sesión: Es mucho más difícil interceptar las ID de sesión en tránsito si la comunicación entre el cliente y el servidor está cifrada. Finalmente, su aplicación web también debería rechazar los tokens de sesión impuestos externamente, lo que también ayudará a proteger contra este tipo de ataque.
 
-If you are going to be coding a web app with authentication capabilities, we recommend that read through [this article](https://secureteam.co.uk/2018/11/25/understanding-session-fixation-attacks/) and implement the following measures it recommends, which help protect the web application against session fixation attacks:
+Si va a codificar una aplicación web con capacidades de autenticación, le recomendamos que lea [este artículo](https://secureteam.co.uk/2018/11/25/understanding-session-fixation-attacks/) e implemente las siguientes medidas que recomienda, que ayudan a proteger la aplicación web contra ataques de reparación de sesión:
 
-1. Avoid accepting Session IDs via GET or POST parameters, as this mitigates the risk of exploitation by minimizing reliance on browser vulnerabilities. Additionally, all Session IDs should be server-generated, eliminating any need for client-proposed Session IDs.
-2. Post-login, initiate a Session ID change by generating a new one on the server and updating it as a cookie. Concurrently, invalidate any existing session associated with the user.
-3. Incorporate a logout functionality empowering users to terminate their sessions promptly, thereby ensuring immediate server-side session termination instead of merely deleting the browser cookie. Additionally, implement session expiration mechanisms to automatically invalidate session data after a predefined time-lapse, thus limiting the window of opportunity for attackers to leverage compromised sessions.
+1. Evite aceptar ID de sesión mediante parámetros GET o POST, ya que esto mitiga el riesgo de explotación al minimizar la dependencia de las vulnerabilidades del navegador. Además, todas las ID de sesión deben ser generadas por el servidor, lo que elimina la necesidad de ID de sesión propuesta por el cliente.
+2. Después de iniciar sesión, inicie un cambio de ID de sesión generando una nueva en el servidor y actualizándola como una cookie. Al mismo tiempo, invalide cualquier sesión existente asociada con el usuario.
+3. Incorporar una función de cierre de sesión que permita a los usuarios finalizar sus sesiones rápidamente, garantizando así la terminación inmediata de la sesión del lado del servidor en lugar de simplemente eliminar la cookie del navegador. Además, implemente mecanismos de caducidad de sesiones para invalidar automáticamente los datos de la sesión después de un lapso de tiempo predefinido, limitando así la ventana de oportunidad para que los atacantes aprovechen las sesiones comprometidas.
 
-## Learning Resources
+## Práctica
 
-{{% resource title="Credential stuffing" languages="English, Arabic, Chinese, Spanish, French" cost="Free" description="Overview of an attack where adversaries test many login combinations, often from data breaches." url="https://en.wikipedia.org/wiki/Credential_stuffing" %}}
+### Ejercicio 1: Controles de acceso rotos
 
-{{% resource title="Cryptographic hash function" languages="31 languages" cost="Free" description="Overview of cryptographic hash functions and their importance to security." url="https://en.wikipedia.org/wiki/Cryptographic_hash_function" %}}
+Vaya al sitio web Try Hack Me, cree una cuenta, pase por la sala llamada [Control de Acceso Roto OWASP](https://tryhackme.com/room/owaspbrokenaccesscontrol) y siga las instrucciones.
 
-{{% resource title="Rainbow table" languages="21 languages" cost="Free" description="List of precomputed hash functions used in brute-forcing encrypted content." url="https://en.wikipedia.org/wiki/Rainbow_table" %}}
+### Ejercicio 2: Uso de tablas rainbow para comprender mejor los mecanismos inseguros de almacenamiento de contraseñas (opcional)
 
-{{% resource title="Salt" languages="23 languages" cost="Free" description="Explanation of a salt added to passwords before encryption to prevent rainbow table attacks." url="https://en.wikipedia.org/wiki/Salt_(cryptography)" %}}
+Nota: _Si bien este ejercicio brinda una gran oportunidad de aprendizaje sobre cómo los adversarios pueden descifrar contraseñas mal protegidas, requiere bastante espacio libre en el disco y utiliza una herramienta que solo está disponible en Windows y Linux. Dado que es posible que no todos los alumnos puedan realizar este ejercicio de práctica, lo hemos marcado como claramente opcional. Alentamos a los estudiantes que quieran aprender más sobre las tablas Rainbow y el almacenamiento seguro de contraseñas, tanto aquellos que pueden como aquellos que no pueden realizar el siguiente ejercicio, a consultar más lecturas a través de publicaciones como_ [_esta_](https://cybr.com/certifications-archives/hash-tables-rainbow-table-attacks-and-salts/)_._
 
-{{% resource title="Traditional crypt" languages="English" cost="Free" description="Overview of early password encryption algorithms from the 1970s, no longer in use." url="https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html" %}}
+Al autenticar a los usuarios, necesitamos una forma de verificar si ingresaron las credenciales correctas. La forma más sencilla de hacerlo es almacenar la contraseña en una base de datos. Esto es inseguro, ya que cualquier persona con acceso a esa base de datos podría conocer las contraseñas en texto plano de los usuarios y serían reveladas en caso de una filtración o vulnerabilidad de la aplicación. En su lugar, se puede implementar una protección simple almacenando un [valor hash](https://es.wikipedia.org/wiki/Funci%C3%B3n_hash_criptogr%C3%A1fica) de la contraseña. Este ejercicio demostrará lo fácil que es romper dicha protección y aprender contraseñas en texto plano a partir de valores hash. **El objetivo de este ejercicio no es hacer creer a los alumnos que todos los mecanismos de autenticación se pueden romper fácilmente, sino más bien demostrar lo fácil que es romper contraseñas que sólo han sido codificadas sin ningún mecanismo de seguridad adicional como el salting.**
 
-{{% resource title="Cryptographic right answers" languages="English" cost="Free" description="List of recommended cryptographic solutions for modern use." url="https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/" %}}
+Las [tablas rainbow](https://es.wikipedia.org/wiki/Tabla_arco%C3%ADris) son una forma inteligente de reducir el tiempo de cálculo a cambio de espacio en disco cuando se intenta aplicar fuerza bruta a una contraseña hash. Consisten en cadenas de hashes precalculadas que se pueden utilizar para descubrir un valor hash (la contraseña en texto plano).
 
-{{% resource title="Hash lookup" languages="English" cost="Free" description="Tool for reverse lookup of hashes, useful for working with tools like DVWA." url="https://www.whatsmyip.org/hash-lookup/" %}}
+####  El ejercicio
 
-{{% resource title="Password storage cheat sheet & Forgot password cheat sheet" languages="English" cost="Free" description="Best practices for storing encrypted passwords and managing password recovery." url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
+Dado el valor hash de `168f3c743786fea2e04aeeee33e112da` , intente descubrir la contraseña utilizando tablas rainbow. 🌈 Use RainbowCrack (<http://project-rainbowcrack.com/>). La forma más sencilla de ejecutar RainbowCrack podría ser utilizar Kali Linux (<https://www.kali.org/>) en una VM o arrancado desde un LiveUSB (consulte los enlaces en la sección Información básica al comienzo de esta ruta de aprendizaje para obtener más información). El algoritmo hash es MD5 y el hash no tiene salting.
 
-{{% resource title="International SMS Fraud" languages="English" cost="Free" description="Case study on SMS abuse by adversaries and reasons not to rely on SMS for authentication." url="https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/" %}}
-
-{{% resource title="Selenium" languages="English" cost="Free" description="Tool for automating web browser tasks, useful for testing." url="https://www.selenium.dev/" %}}
-
-{{% resource title="Testing for Account Enumeration and Guessable User Account" languages="English" cost="Free" description="Workflow for testing web app security to see if it's possible to enumerate usernames." url="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account" %}}
-
-{{% resource title="Have I Been Pwned" languages="English" cost="Free for low volumes of queries" description="Service to check if a username has been featured in any data breaches." url="https://haveibeenpwned.com/" %}}
-
-{{% resource title="Introducing 306 Million Freely Downloadable Pwned Passwords" languages="English" cost="Free" description="Blog post by Troy Hunt on finding millions of leaked passwords and their implications." url="https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/" %}}
-
-{{% resource title="Common credentials" languages="English" cost="Free" description="Lists of commonly used credentials, like passwords." url="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials" %}}
-
-{{% resource title="NIST password guidelines" languages="English" cost="Free" description="Blog post outlining NIST password guidelines and their rationale." url="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/" %}}
-
-{{% resource title="Phishing" languages="76 languages" cost="Free" description="Overview of phishing attacks, their history, and methods used by adversaries." url="https://en.wikipedia.org/wiki/Phishing" %}}
-
-{{% resource title="SIM swap scam" languages="English, Chinese, Japanese, Malayalam, German, Spanish" cost="Free" description="Overview of SIM swap scams and reasons not to rely on SMS-based authentication." url="https://en.wikipedia.org/wiki/SIM_swap_scam" %}}
-
-{{% resource title="U2F Technical Overview" languages="English" cost="Free" description="Detailed look at U2F authentication method using physical security keys." url="https://developers.yubico.com/U2F/Protocol_details/Overview.html" %}}
-
-{{% resource title="Two factor authentication backup codes" languages="English" cost="Free" description="Guides on managing backup methods for two factor authentication by Google and GitHub." url="https://support.google.com/accounts/answer/1187538?hl=en&co=GENIE.Platform%3DDesktop" url2="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
-
-{{% resource title="Multifactor authentication cheat sheet" languages="English" cost="Free" description="Overview of multifactor authentication and best practices for implementation." url="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html" %}}
-
-## Practice
-
-### Exercise 1: Broken access controls
-
-Go to the Try Hack Me website, create an account, and go through the room called[ OWASP Broken Access Control](https://tryhackme.com/room/owaspbrokenaccesscontrol) and follow the instructions.
-
-### Exercise 2: Using rainbow tables to better understand insecure password storage mechanisms (optional)
-
-Note: _while this exercise provides a great learning opportunity on how adversaries could crack badly secured passwords, it does require quite a bit of free disk space and uses a tool which is only available on Windows and Linux. Since not all learners might be able to do this practice exercise, we have marked it as clearly optional. We encourage learners who want to learn more about rainbow tables and secure password storage, both those who can and cannot do the below exercise, to consult further reading through posts such as [this one](https://cybr.com/certifications-archives/hash-tables-rainbow-table-attacks-and-salts/)._
-
-When authenticating users we need a way to verify whether they entered correct credentials. The easiest way of doing that is to store the password itself in a database. This is insecure, as anyone with access to that database could learn users’ plaintext passwords, and they would be revealed in case of a leak or application vulnerability. A simple protection can be implemented by storing a [hash value](https://en.wikipedia.org/wiki/Cryptographic_hash_function) of the password instead. This exercise will demonstrate how easy it is to break such protection and learn plaintext passwords from hashed values. **The point of this exercise is not to make learners believe that all authentication mechanisms can be easily broken but rather to demonstrate how easy it is to break passwords which have only been hashed without any additional security mechanisms such as salting.**
-
-[Rainbow tables](https://en.wikipedia.org/wiki/Rainbow_table) are a smart way of reducing computation time in exchange for disk space when trying to brute-force a hashed password. They consist of pre-calculated chains of hashes that can be used to discover a hashed value (the plaintext password).
-
-### The exercise
-
-Given the hash value of `168f3c743786fea2e04aeeee33e112da` , try to discover the password using rainbow tables. 🌈 Use RainbowCrack ([http://project-rainbowcrack.com/](http://project-rainbowcrack.com/)). The easiest way to run RainbowCrack might be to use Kali Linux ([https://www.kali.org/](https://www.kali.org/)) in a VM or booted from a LiveUSB (refer to the links in _Basic information_ section at the beginning of this learning path for more info). The hashing algorithm is MD5 and the hash is unsalted.
-
-_Hint:_ the password is lowercase alphanumeric, max. 6 characters. Once you’ve installed RainbowCrack you can use the following command to generate the required table:
+_Pista:_ la contraseña es alfanumérica en minúsculas, máx. 6 caracteres. Una vez que haya instalado RainbowCrack, puede usar el siguiente comando para generar la tabla requerida:
 
 ```
 rtgen md5 loweralpha-numeric 1 6 0 3800 1000000 0
 ```
 
-\_(Optional) \_Try to use the generated table to break another hash: `feadfd87d487818698d63aedf385c4e2`.
+_(Opcional)_ Intente utilizar la tabla generada para romper otro hash: `feadfd87d487818698d63aedf385c4e2`.
 
-_Hint:_ If that fails you can try to generate more tables to increase the success rate of your table set (coverage). Just change the fifth parameter of the `rtgen` command to different values (try 1-5).
+_Pista:_ Si eso falla, puede intentar generar más tablas para aumentar la tasa de éxito de su conjunto de tablas (cobertura). Simplemente cambie el quinto parámetro del comando `rtgen` a valores diferentes (intente 1-5).
 
-Try to break the following salted hash: `93e99d25dd6e8f524f23814908b6c039`
+Intente romper el siguiente hash con salting: `93e99d25dd6e8f524f23814908b6c039`
 
-### The walkthrough
+#### El tutorial
 
-Generating a rainbow table requires specifying a hash algorithm to use, maximum length of the plaintext values were interested in and their character set. Those parameters only influence the time it takes for a table to be generated (amount of computation required).
+Generar una tabla rainbow requiere especificar un algoritmo hash a usar, la longitud máxima de los valores de texto sin formato que interesan y su conjunto de caracteres. Esos parámetros solo influyen en el tiempo que lleva generar una tabla (cantidad de cálculo requerido).
 
-Tables for shorter passwords with smaller character sets (eg. only lowercase letters) will take a shorter time to generate than tables for long passwords with numbers and special characters.
+Las tablas para contraseñas más cortas con conjuntos de caracteres más pequeños (por ejemplo, solo letras minúsculas) tardarán menos en generarse que las tablas para contraseñas largas con números y caracteres especiales.
 
-Additionally, you need to choose how many chains to generate and of what length. Those parameters are more complex to explain (see [Philippe Oechslin's whitepaper](https://www.iacr.org/archive/crypto2003/27290615/27290615.pdf) for more background) but have effects on coverage of the table. Only a subset of all possible plaintext values is included in each rainbow table.
+Además, debe elegir cuántas cadenas generar y de qué longitud. Esos parámetros son más complejos de explicar (consulte [el documento técnico de Philippe Oechslin](https://www.iacr.org/archive/crypto2003/27290615/27290615.pdf) para obtener más información), pero tienen efectos en la cobertura de la tabla. En cada tabla rainbow solo se incluye un subconjunto de todos los valores de texto sin formato posibles.
 
-The bigger the values of these parameters, the larger and more costly (in terms of CPU time) the table is, but also the more plaintext values can be discovered using it.
+Cuanto mayores sean los valores de estos parámetros, más grande y costosa (en términos de tiempo de CPU) será la tabla, pero también se podrán descubrir más valores de texto sin formato al utilizarla.
 
-Pre-calculated tables for different hash functions, password lengths and character sets can be downloaded from the Internet (eg. [https://freerainbowtables.com/](https://freerainbowtables.com/)) or obtained at IT security conferences and hacker camps (see [https://dcddv.org/](https://dcddv.org/)). For the purposes of this exercise we'll generate our own!
+Las tablas precalculadas para diferentes funciones hash, longitudes de contraseñas y juegos de caracteres se pueden descargar de Internet (por ej., <https://freerainbowtables.com/>) u obtenido en conferencias de seguridad de TI y campamentos de hackers (consulte <https://dcddv.org/>). ¡Para los propósitos de este ejercicio, generaremos el nuestro propio!
 
-You can install rainbowcrack on your system or use Kali Linux Live. For Kali, open a terminal window and run:
+Puede instalar Rainbowcrack en su sistema o usar Kali Linux Live. Para Kali, abra una ventana de terminal y ejecute:
 
 ```
 sudo apt update
 sudo apt install rainbowcrack
 ```
 
-This will install the software. You can use the `rtgen` command to generate tables. According to [its manual](http://project-rainbowcrack.com/generate.htm) the command takes quite a few parameters:
+Esto instalará el software. Puede utilizar el comando rtgen para generar tablas. Según [su manual](http://project-rainbowcrack.com/generate.htm) el comando toma bastantes parámetros:
 
 ```
 rtgen hash_algorithm charset plaintext_len_min plaintext_len_max table_index chain_len chain_num part_index
 ```
 
-We'll use MD5 as our hash algorithm. We'll be looking for passwords of length from 1 to 6 characters. We'll use the `loweralpha-numeric` charset, which includes lowercase letters and numbers only. We're going to use 3800 for chain length, 1000000 for number of chains.
+Usaremos MD5 como nuestro algoritmo hash. Buscaremos contraseñas con una longitud de 1 a 6 caracteres. Usaremos el conjunto de caracteres \` loweralpha-numeric\`, que incluye letras minúsculas y números únicamente. Usaremos 3800 para la longitud de la cadena, 1000000 para la cantidad de cadenas.
 
-To generate our first table run:
+Para generar nuestra primera ejecución de tabla:
 
 ```
 sudo rtgen md5 loweralpha-numeric 1 6 0 3800 1000000 0
 ```
 
-This command might take a while to execute, depending on your system configuration.
+Este comando puede tardar un poco en ejecutarse, dependiendo de la configuración de su sistema.
 
-After generation, one more step is required before we can use our new tables:
+Después de la generación, se requiere un paso más antes de que podamos usar nuestras nuevas tablas:
 
 ```
 sudo rtsort
 ```
 
-This will sort the data to make using the table faster. `rtcrack` will refuse to work with unsorted tables.
+Esto ordenará los datos para que el uso de la tabla sea más rápido. `rtcrack` se negará a trabajar con tablas sin clasificar.
 
-Let's take a crack at our first hash:
+Echemos un vistazo a nuestro primer hash:
 
 ```
 rcrack . -h 168f3c743786fea2e04aeeee33e112da
 ```
 
-This should take just a moment and reveal our plaintext password:
+Esto debería tomar solo un momento y revelar nuestra contraseña en texto plano:
 
 ```
 1 rainbow tables found
@@ -317,13 +279,13 @@ result
 168f3c743786fea2e04aeeee33e112da  1nfus3  hex:316e66757333
 ```
 
-Success! Now let's try our second hash:
+¡Éxito! Ahora probemos nuestro segundo hash:
 
 ```
 rcrack . -h feadfd87d487818698d63aedf385c4e2
 ```
 
-The result:
+El resultado:
 
 ```
 1 rainbow tables found
@@ -353,7 +315,7 @@ result
 feadfd87d487818698d63aedf385c4e2  <not found>  hex:<not found>
 ```
 
-We didn't find our hash in this table. Let's generate a few more tables with the hope of increasing our coverage. We'll use the same `rtgen` command, only changing the `table_index` parameter:
+No encontramos nuestro hash en esta tabla. Generemos algunas tablas más con la esperanza de aumentar nuestra cobertura. Usaremos el mismo comando `rtgen`, solo cambiando el parámetro `table_index` :
 
 ```
 sudo rtgen md5 loweralpha-numeric 1 6 1 3800 1000000 0
@@ -364,13 +326,13 @@ sudo rtgen md5 loweralpha-numeric 1 6 5 3800 1000000 0
 sudo rtsort .
 ```
 
-Let's try again:
+Intentémoslo de nuevo:
 
 ```
 rcrack . -h feadfd87d487818698d63aedf385c4e2
 ```
 
-The result:
+El resultado:
 
 ```
 6 rainbow tables found
@@ -406,101 +368,156 @@ result
 feadfd87d487818698d63aedf385c4e2  trolo0  hex:74726f6c6f30
 ```
 
-Got it! Additional tables increased the coverage and the hash was found out.
+¡Entiendo! Tablas adicionales aumentaron la cobertura y se descubrió el hash.
 
-An improvement on using simple hashing for password protection is called “salting” the hashes – adding an application-specific secret to the plaintext value. That increases the length and character set of the hashed value, making a rainbow table approach infeasible. Trying the third (salted) hash given in this exercise will fail with this method as it would require rainbow tables bigger than can be currently generated (and stored).
+Una mejora en el uso de hash simple para la protección con contraseña se llama "salting" los hashes, es decir, agregar un secreto específico de la aplicación al valor de texto sin formato. Esto aumenta la longitud y el conjunto de caracteres del valor hash, lo que hace que un enfoque de tabla rainbow sea inviable. Probar el tercer hash (salting) proporcionado en este ejercicio fallará con este método, ya que requeriría tablas rainbow más grandes de las que se pueden generar (y almacenar) actualmente.
 
-## Skill Check
+## Verificación de Habilidades
 
-### Exercise 1: recap
+### Ejercicio 1: resumen
 
-Complete the exercise we described above: carry out a SQL injection on DVWA and compare the hashes you discovered to those you found on a hash lookup site.
+Complete el ejercicio que describimos anteriormente: realice una inyección SQL en DVWA y compare los hashes que descubrió con los que encontró en un sitio de búsqueda de hash.
 
-### Exercise 2: multiple choice quiz
+### Ejercicio 2: cuestionario de opción múltiple
 
-Broken authentication represents a significant threat to the security of web applications, allowing attackers to compromise user credentials, hijack sessions, and gain unauthorized access to sensitive information. In this set of multiple-choice questions, you can explore the concept of broken authentication and delve into the various risks associated with this vulnerability. Additionally, if you have a mentor or with a peer you can examine different types of flaws that can lead to compromised authentication mechanisms and discuss specific mitigation strategies tailored to address each of these vulnerabilities effectively.
+La autenticación rota representa una amenaza importante para la seguridad de las aplicaciones web, ya que permite a los atacantes comprometer las credenciales de los usuarios, secuestrar sesiones y obtener acceso no autorizado a información confidencial. En este conjunto de preguntas de opción múltiple, puede explorar el concepto de autenticación rota y profundizar en los diversos riesgos asociados con esta vulnerabilidad. Además, si tiene un mentor o un colega, puede examinar diferentes tipos de fallas que pueden llevar a mecanismos de autenticación comprometidos y discutir estrategias de mitigación específicas diseñadas para abordar cada una de estas vulnerabilidades de manera efectiva.
 
-Enhance your understanding of web application security and learn how to mitigate the risks posed by broken authentication with these questions:
+Mejore su comprensión de la seguridad de las aplicaciones web y aprenda cómo mitigar los riesgos que plantea la autenticación rota con estas preguntas:
 
-**Question 1**. What is broken authentication in the context of web application security?
+**Pregunta 1.** ¿Qué es la autenticación rota en el contexto de la seguridad de las aplicaciones web?
 
-A) A vulnerability that allows attackers to execute arbitrary code on the server.\
-B) An exploit that grants unauthorized access to restricted parts of a web application.\
-C) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.\
-D) A security flaw that enables attackers to intercept communication between the client and server.
+A) Una vulnerabilidad que permite a los atacantes ejecutar código arbitrario en el servidor.
+B) Una exploración que otorga acceso no autorizado a partes restringidas de una aplicación web.
+C) Una debilidad en el mecanismo de autenticación de una aplicación web, lo que lleva a que las credenciales de suario se vean comprometidas.
+D) Una falla de seguridad que permite a los atacantes interceptar la comunicación entre el cliente y el servidor.
 
-Question 2. What are the potential risks associated with broken authentication vulnerabilities?
+{{< question title="Respuesta correcta" >}}
+1. C) Una debilidad en el mecanismo de autenticación de una aplicación web, lo que lleva a que las credenciales de suario se vean comprometidas.
+{{< /question >}}
 
-A) Unauthorized access to sensitive data and user accounts.\
-B) Exposure of session tokens, leading to session hijacking attacks.\
-C) Compromise of user credentials, including passwords and authentication tokens.\
-D) All of the above.
+**Pregunta 2.** ¿Cuáles son los riesgos potenciales asociados con las vulnerabilidades de autenticación rota?
 
-**Question 3**. Which of the following is NOT an example of a mitigation mechanism for broken authentication vulnerabilities?
+A) Acceso no autorizado a datos sensibles y cuentas de usuarios.
+B) Exposición de tokens de sesión, lo que lleva a ataques de secuestro de sesión.
+C) Compromiso de las credenciales de usuario, incluidas contraseñas y tokens de autenticación.
+D) Todo lo anterior.
 
-A) Implementing multi-factor authentication (MFA) for user accounts.\
-B) Enforcing strong password policies, including regular password rotation.\
-C) Disabling HTTPS to prevent interception of authentication credentials.\
-D) Implementing account lockout mechanisms to prevent brute force attacks.
+{{< question title="Respuesta correcta" >}}
+2. D) Todo lo anterior.
+{{< /question >}}
 
-**Question 4**. Which type of flaw may lead to compromised authentication mechanisms by allowing attackers to guess or crack user passwords?
+**Pregunta 3.** ¿Cuál de los siguientes NO es un ejemplo de un mecanismo de mitigación para vulnerabilidades de autenticación rotas?
 
-A) Session Fixation\
-B) Cross-Site Request Forgery (CSRF)\
-C) Insufficient Password Complexity\
-D) Cross-Site Scripting (XSS)
+A) Implementación de autenticación multifactor (MFA) para cuentas de usuario.
+B) Hacer cumplir políticas de contraseñas sólidas, incluida la rotación regular de contraseñas.
+C) Deshabilitar HTTPS para evitar la interceptación de credenciales de autenticación.
+D) Implementar mecanismos de bloqueo de cuentas para prevenir ataques de fuerza bruta.
 
-**Question 5**. What is a specific example of a mitigation strategy for addressing the flaw of insufficient password complexity?
+{{< question title="Respuesta correcta" >}}
+3. C) Deshabilitar HTTPS para evitar la interceptación de credenciales de autenticación.
+{{< /question >}}
 
-A) Implementing CAPTCHA challenges during the login process.\
-B) Enforcing password length and complexity requirements.\
-C) Encrypting authentication tokens to prevent interception.\
-D) Whitelisting trusted IP addresses for accessing the login page.
+**Pregunta 4.** ¿Qué tipo de falla puede comprometer los mecanismos de autenticación al permitir a los atacantes adivinar o descifrar las contraseñas de los usuarios?
 
-**Question 6**. Which mitigation strategy aims to prevent attackers from exploiting session fixation vulnerabilities?
+A) Reparación de Sesión
+B) Falsificación de Solicitudes entre Sitios (CSRF)
+C) Complejidad de Contraseña Insuficiente
+D) Secuencias de Comandos entre Sitios (XSS)
 
-A) Implementing session timeout mechanisms.\
-B) Encrypting session cookies using HTTPS.\
-C) Regenerating session identifiers after successful authentication.\
-D) Enforcing strong password policies for user accounts.
+{{< question title="Respuesta correcta" >}}
+4. C) Complejidad de Contraseña Insuficiente
+{{< /question >}}
 
-**Question 7**. What type of flaw may lead to compromised authentication mechanisms by allowing attackers to hijack active user sessions?
+**Pregunta 5.** ¿Cuál es un ejemplo específico de una estrategia de mitigación para abordar el problema de la complejidad insuficiente de las contraseñas?
 
-A) Insufficient Session Expiration\
-B) Insecure Token Storage\
-C) Cross-Site Scripting (XSS)\
-D) Cross-Site Request Forgery (CSRF)
+A) Implementar desafíos CAPTCHA durante el proceso de inicio de sesión.
+B) Hacer cumplir los requisitos de longitud y complejidad de la contraseña.
+C) Cifrar tokens de autenticación para evitar la interceptación.
+D) Incluir en la lista blanca direcciones IP confiables para acceder a la página de inicio de sesión.
 
-**Question 8**. Which mitigation strategy addresses the flaw of insecure token storage by securely managing authentication tokens?
+{{< question title="Respuesta correcta" >}}
+5. B) Hacer cumplir los requisitos de longitud y complejidad de la contraseña.
+{{< /question >}}
 
-A) Storing tokens in plaintext within client-side cookies.\
-B) Encrypting tokens using a symmetric encryption algorithm.\
-C) Implementing secure password hashing algorithms.\
-D) Using HTTP headers for transmitting authentication tokens.
+**Pregunta 6.** ¿Qué estrategia de mitigación tiene como objetivo evitar que los atacantes aprovechen las vulnerabilidades de fijación de sesiones?
 
-**Question 9**. What is a specific example of a mitigation strategy for preventing session fixation attacks?
+A) Implementar mecanismos de tiempo de espera de sesión.
+B) Cifrar las cookies de sesión mediante HTTPS.
+C) Regenerar identificadores de sesión después de una autenticación exitosa.
+D) Aplicar políticas de contraseñas seguras para las cuentas de usuario.
 
-A) Rotating session identifiers after a successful login.\
-B) Implementing multi-factor authentication (MFA).\
-C) Using CAPTCHA challenges to verify user authenticity.\
-D) Enforcing strict input validation on the login form.
+{{< question title="Respuesta correcta" >}}
+6. C) Regenerar identificadores de sesión después de una autenticación exitosa.
+{{< /question >}}
 
-**Question 10**. What type of flaw may lead to compromised authentication mechanisms by allowing attackers to forge requests to the web application while authenticated as another user?
+**Pregunta 7.** ¿Qué tipo de falla puede llevar a que los mecanismos de autenticación se vean comprometidos al permitir a los atacantes secuestrar sesiones de usuarios activos?
 
-A) Insufficient Session Expiration\
-B) Insufficient Transport Layer Protection\
-C) Cross-Site Scripting (XSS)\
-D) Cross-Site Request Forgery (CSRF)
+A) Caducidad de Sesión Insuficiente
+B) Almacenamiento de Tokens Inseguro
+C) Secuencias de Comandos entre Sitios (XSS)
+D) Falsificación de Solicitudes entre Sitios (CSRF)
 
-### Answer key
+{{< question title="Respuesta correcta" >}}
+7. A) Caducidad de Sesión Insuficiente
+{{< /question >}}
 
-1. B) A weakness in the authentication mechanism of a web application, leading to compromised user credentials.
-2. D) All of the above.
-3. C) Disabling HTTPS to prevent interception of authentication credentials.
-4. C) Insufficient Password Complexity
-5. B) Enforcing password length and complexity requirements.
-6. C) Regenerating session identifiers after successful authentication.
-7. A) Insufficient Session Expiration
-8. B) Encrypting tokens using a symmetric encryption algorithm.
-9. A) Rotating session identifiers after a successful login.
-10. D) Cross-Site Request Forgery (CSRF)
+**Pregunta 8.** ¿Qué estrategia de mitigación aborda la falla del almacenamiento inseguro de tokens mediante la gestión segura de tokens de autenticación?
+
+A) Almacenar tokens en texto sin formato dentro de las cookies del lado del cliente.
+B) Cifrar tokens utilizando un algoritmo de cifrado simétrico.
+C) Implementar algoritmos seguros de hash de contraseñas.
+D) Uso de encabezados HTTP para transmitir tokens de autenticación.
+
+{{< question title="Respuesta correcta" >}}
+8. B) Cifrar tokens utilizando un algoritmo de cifrado simétrico.
+{{< /question >}}
+
+**Pregunta 9.** ¿Cuál es un ejemplo específico de una estrategia de mitigación para prevenir ataques de fijación de sesiones?
+
+A) Identificadores de sesión rotativos después de un inicio de sesión exitoso.
+B) Implementación de autenticación multifactor (MFA).
+C) Usar desafíos CAPTCHA para verificar la autenticidad del usuario.
+D) Hacer cumplir una estricta validación de entrada en el formulario de inicio de sesión.
+
+{{< question title="Respuesta correcta" >}}
+9. A) Identificadores de sesión rotativos después de un inicio de sesión exitoso.
+{{< /question >}}
+
+**Pregunta 10.** ¿Qué tipo de falla puede llevar a que los mecanismos de autenticación se vean comprometidos al permitir a los atacantes falsificar solicitudes a la aplicación web mientras están autenticados como otro usuario?
+
+A) Caducidad de Sesión Insuficiente
+B) Protección Insuficiente de la Capa de Transporte
+C) Secuencias de Comandos entre Sitios (XSS)
+D) Falsificación de Solicitudes entre Sitios (CSRF)
+
+{{< question title="Respuesta correcta" >}}
+10. D) Falsificación de Solicitudes entre Sitios (CSRF)
+{{< /question >}}
+
+
+
+
+## Learning Resources
+
+{{% resource title="Relleno de credenciales" description="Una descripción general de un ataque en el que el adversario prueba muchas combinaciones de inicio de sesión, por ejemplo aquellas que provienen de una violación de datos." languages="Inglés, árabe, chino, español, francés" cost="Gratis" url="https://es.wikipedia.org/wiki/Credential_stuffing" %}}
+{{% resource title="Función hash criptográfica" description="Una descripción general de qué son las funciones hash criptográficas y por qué son tan importantes para la seguridad" languages="31 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Funci%C3%B3n_hash_criptogr%C3%A1fica" %}}
+{{% resource title="Tabla rainbow" description="Una lista de funciones hash precalculadas que se pueden utilizar al intentar forzar contenido cifrado por fuerza bruta" languages="21 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Tabla_arco%C3%ADris" %}}
+{{% resource title="Salt" description="Un salt consiste en un dato agregado a una contraseña u otra información antes de cifrarlo. Usarlo hace que sea mucho más difícil para un adversario usar tablas rainbow." languages="23 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Sal_(criptograf%C3%ADa)" %}}
+{{% resource title="Cifrado tradicional" description="Un vistazo rápido a los primeros algoritmos utilizados para cifrar contraseñas en la década de 1970. Ya no se usa" languages="Inglés" cost="Gratis" url="https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html" %}}
+{{% resource title="Respuestas criptográficas correctas" description="Una lista de las soluciones criptográficas que sería prudente utilizar en la actualidad" languages="Inglés" cost="Gratis" url="https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/" %}}
+{{% resource title="Búsqueda de hash" description="Una herramienta que realiza búsquedas inversas de hashes; podría ser útil para trabajar con DVWA y herramientas similares" languages="Inglés" cost="Gratis" url="https://www.whatsmyip.org/hash-lookup/" %}}
+{{% resource title="Hoja de trucos para almacenar contraseñas y hoja de trucos para olvidar contraseña, recurso 1" description="Una serie de mejores prácticas sobre cómo almacenar contraseñas cifradas y cómo gestionar la recuperación de contraseñas" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" %}}
+{{% resource title="Hoja de trucos para almacenar contraseñas y hoja de trucos para olvidar contraseña, recurso 2" description="Una serie de mejores prácticas sobre cómo almacenar contraseñas cifradas y cómo gestionar la recuperación de contraseñas" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
+{{% resource title="Fraude de SMS internacionales" description="Un ejemplo de cómo los adversarios pueden abusar de los mensajes SMS y un buen estudio de caso sobre por qué no deberíamos responder por SMS para autenticación" languages="Inglés" cost="Gratis" url="https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/" %}}
+{{% resource title="Selenio" description="Una herramienta para automatizar las tareas del navegador web que se puede utilizar para realizar pruebas." languages="Inglés" cost="Gratis" url="https://www.selenium.dev/" %}}
+{{% resource title="Prueba de Enumeración de Cuentas y Cuenta de Usuario Adivinable" description="Otro flujo de trabajo de prueba de seguridad de aplicaciones web; esta vez para ver si es posible obtener una aplicación para enumerar nombres de usuario" languages="Inglés" cost="Gratis" url="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account" %}}
+{{% resource title="¿Me Han Engañado?" description="Un servicio fantástico y de buena reputación para ver si un determinado nombre de usuario ha aparecido en alguna violación de datos." languages="Inglés" cost="Gratis para volúmenes reducidos de consultas" url="https://haveibeenpwned.com/" %}}
+{{% resource title="Presentamos 306 Millones de Contraseñas Ingresadas Descargables Gratuitamente" description="Una publicación de blog de Troy Hunt, fundador de Me Han Engañado, sobre cómo encontró millones de contraseñas filtradas y para qué podría usarse la base de datos filtrada." languages="Inglés" cost="Gratis" url="https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/" %}}
+{{% resource title="Credenciales comunes" description="Listas de credenciales de uso común, como contraseñas" languages="Inglés" cost="Gratis" url="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials" %}}
+{{% resource title="Directrices de contraseña del NIST" description="Una publicación de blog que describe algunas de las pautas de contraseñas del NIST y las razones detrás de ellas." languages="Inglés" cost="Gratis" url="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/" %}}
+{{% resource title="Suplantación de identidad" description="Una descripción general rápida de los ataques de Suplantación de identidad, su historial y los métodos utilizados frecuentemente por los adversarios." languages="76 idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Phishing" %}}
+{{% resource title="Estafa de intercambio de SIM" description="Un tipo de estafa en la que un atacante obtiene el control de la tarjeta SIM de una persona objetivo; una razón clave para no confiar en la autenticación basada en SMS" languages="Inglés, chino, japonés, malayalam, alemán, español" cost="Gratis" url="https://es.wikipedia.org/wiki/SIM_swapping" %}}
+{{% resource title="Descripción general técnica de U2F" description="Una mirada más profunda a cómo funciona U2F, un método de autenticación popular que se basa en herramientas como llaves de seguridad físicas." languages="Inglés" cost="Gratis" url="https://developers.yubico.com/U2F/Protocol_details/Overview.html" %}}
+{{% resource title="Códigos de respaldo de autenticación de dos factores: Google" description="Hay ocasiones en las que el método principal de autenticación de dos factores se pierde o se destruye. En tal caso, el usuario deberá utilizar un método de respaldo. Esos artículos demuestran cómo Google y GitHub administran dichas copias de seguridad." languages="Inglés" cost="Gratis" url="https://support.google.com/accounts/answer/1187538?hl=es" %}}
+{{% resource title="Códigos de respaldo de autenticación de dos factores: Github" description="Hay ocasiones en las que el método principal de autenticación de dos factores se pierde o se destruye. En tal caso, el usuario deberá utilizar un método de respaldo. Esos artículos demuestran cómo Google y GitHub administran dichas copias de seguridad." languages="Inglés" cost="Gratis" url="https://docs.github.com/es/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
+{{% resource title="Hoja de trucos de la autenticación multifactor" description="Una descripción general de qué es la autenticación multifactor y qué mejores prácticas debemos adoptar al implementarla" languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html" %}}

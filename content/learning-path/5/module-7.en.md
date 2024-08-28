@@ -80,7 +80,7 @@ Chief among these are true business logic vulnerabilities. Scanners just execute
 
 Relatedly, automated tools do not tend to do a good job at detecting authorization vulnerabilities. While there exist a variety of tools to assist with authorization testing, generally scanners do not automatically detect these sorts of vulnerabilities.
 
-#### False Positives and Non-Issues
+##### False Positives and Non-Issues
 
 Scanners may also produce lots of results that aren’t useful. In some cases, the script to detect a vulnerability may be imperfect, resulting in the scanner reporting an issue where none exists. In other cases, the scanner may report things that the tool’s author may think are interesting or valuable, but are not significant in the context of the site you’re testing.
 
