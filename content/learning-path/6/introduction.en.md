@@ -5,6 +5,14 @@ description: Read the learning path overview, objectives, associated threats, an
 weight: 1
 ---
 
+**With thanks to**
+
+Ninoslava Bogdanović
+
+Michał "czesiek" Czyżewski <https://czesiek.net>
+
+Yana Ghahramanyan
+
 ## Overview
 
 Websites are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By preparing effectively for these sorts of attacks, you can reduce their impact, or in some cases prevent them entirely.
@@ -110,7 +118,7 @@ After installation, each Linux distribution will have an icon on the Windows app
 
 A new window should open with a Linux shell.
 
-- Here is a quick review of the WSL command line options.
+**Here is a quick review of the WSL command line options.**
 
 Print the usage information and see the command line arguments:
 
@@ -162,6 +170,6 @@ wsl
 
 ## Related learning paths
 
-_Web Application Security Fundamentals:_ This Hardening, Forensics, and Incident Response learning path assumes a certain level of familiarity with web application security. If you are new to this area of security, then you should go through the Security Fundamentals learning path to gain the background information to effectively engage with this one.
+[Web Application Security Fundamentals](/en/learning-path/4/): This Hardening, Forensics, and Incident Response learning path assumes a certain level of familiarity with web application security. If you are new to this area of security, then you should go through the Security Fundamentals learning path to gain the background information to effectively engage with this one.
 
-_Web Application Security Assessment:_ For digital defenders, attacking and defending are two important parts of a whole. As someone helping your clients secure their sites, knowing how to holistically defend against attacks allows you to provide them with better recommendations. This Learning Path provides a deeper understanding of the types of hacking attacks that websites may be subject to.
+[Web Application Security Assessment](/en/learning-path/5/): For digital defenders, attacking and defending are two important parts of a whole. As someone helping your clients secure their sites, knowing how to holistically defend against attacks allows you to provide them with better recommendations. This Learning Path provides a deeper understanding of the types of hacking attacks that websites may be subject to.

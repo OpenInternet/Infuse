@@ -1,6 +1,6 @@
 ---
 style: introduction
-title: Introduction
+title: Introducción
 description: Lea la descripción general de la ruta de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos.
 weight: 1
 ---
