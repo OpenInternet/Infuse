@@ -457,26 +457,25 @@ The “`-E`” option in the `grep` command enables the use of extended regular 
 
 For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
-1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
-2. Using the same filter determine which IP address is making the most requests
-3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
-4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
+1\. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
 
-{{< question title="Practice exercise 4: answers" >}}
-
-Exercise 1: \
+{{< question title="Answer" >}}
 Correct answer: 113 lines
 
 Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+{{< /question >}}
 
-Exercise 2:
+2\. Using the same filter determine which IP address is making the most requests
 
+{{< question title="Answer" >}}
 Correct answer: 222.186.13.131 20 lines
 
 Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+{{< /question >}}
 
-Exercise 3:
+3\. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
 
+{{< question title="Answer" >}}
 Correct answer: SSL handshaking errors
 
 Command(s) to execute:
@@ -485,14 +484,16 @@ Command(s) to execute:
 more nginx_error.log
 cat nginx_error.log|grep -v "PHP"|grep crit
 {{< / highlight >}}
+{{< /question >}}
 
-Exercise 4:
+4\. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
 
+{{< question title="Answer" >}}
 Correct answer: `.git/config`
 
 Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
-
 {{< /question >}}
+
 
 
 ## Skill Check

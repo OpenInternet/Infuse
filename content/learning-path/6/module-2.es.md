@@ -428,94 +428,116 @@ En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares 
 | { }    | Llave rizada de apertura y cierre     | Coincide con un número específico de ocurrencias del anterior  |
 
 
-In our task we will use backslash to escape “\” special character.
+En nuestra tarea usaremos barra invertida para escapar del carácter especial \\.
 
-You can read more about regex here: [https://en.wikipedia.org/wiki/Regular_expression](https://en.wikipedia.org/wiki/Regular_expression)
+Puedes leer más sobre expresiones regulares [aquí](https://es.wikipedia.org/wiki/Expresi%C3%B3n_regular)
 
-If you check the provided nginx access log you can see these kind of lines:
+Si consulta el registro de acceso de nginx proporcionado, podrá ver este tipo de líneas:
 
 ```
 181.214.166.113 - - [15/Feb/2024:15:05:19 -0500] "[L\x9E\x804\xD9-\xFB&\xA3\x1F\x9C\x19\x95\x12\x8F\x0C\x89\x05\x81" 400 181 "-" "-"
 45.95.169.184 - - [15/Feb/2024:15:49:27 -0500] "\x10 \x00\x00BBBB\xBA\x8C\xC1\xABDAAA" 400 181 "-" "-"
 ```
 
-As you can see, both lines contain \x followed by exactly two characters which map to hexadecimal notation (so they use the numbers 0-9 and the letters A to F), such as \x9C, \x10, \xBA, etc. To filter all lines we need to use the '`\\x[a-fA-F0-9]{3}`' pattern where` \\x[a-fA-F0-9]` is our token, `{3}` is a quantifier.
+Como puede ver, ambas líneas contienen \\x seguido de exactamente dos caracteres que se asignan a notación hexadecimal (por lo que usan los números del 0 al 9 y las letras de la A a la F), como \\x9C, \\x10, \\xBA, etc. Para filtrar todas las líneas necesitamos usar el estándar '`\\x\[a-fA-F0-9\]{3}`' donde `\\x\[a-fA-F0-9\]` es nuestro token, `{3}` es un cuantificador.
 
-We will use the `grep` command to search for the specified pattern in text. For example:
+Usaremos el comando `grep` para buscar el estándar especificado en el texto. Por ejemplo:
 
-`grep 'abcd'` will filter all lines containing the string “abcd”.
+`grep 'abcd'` filtrará todas las líneas que contengan la cadena “abcd”.
 
-The “`-E`” option in the `grep` command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
+La opción “`-E`” en el comando grep permite el uso de expresiones regulares extendidas para la coincidencia de estándares `grep -E 'abcd\\\[0-9\]{2}'` para filtrar texto como `abcd\\34, abcd\\47` etc.
 
-### Practice exercise 4: using regular expressions (regexes)
+### Ejercicio de práctica 4: usando expresiones regulares (regexes)
 
-For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+Para esos ejercicios, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
 
-1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
-2. Using the same filter determine which IP address is making the most requests
-3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
-4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
+1\. Utilice grep y la regex ['\\\\x\[a-fA-F0-9\]{2}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x\[a-fA-F0-9\]{3}' coincide con una secuencia que comienza con '\\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
 
-{{< question title="Practice exercise 4: answers" >}}
+{{< question title="Respuesta" >}}
+Respuesta correcta: 113 líneas
 
-Exercise 1: \
-Correct answer: 113 lines
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+{{< /question >}}
 
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+2\. Usando el mismo filtro, determine qué dirección IP realiza la mayor cantidad de solicitudes.
 
-Exercise 2:
+{{< question title="Respuesta" >}}
+Respuesta correcta: 222.186.13.131 20 líneas
 
-Correct answer: 222.186.13.131 20 lines
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+{{< /question >}}
 
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+3\. Examine `error.log` ejecutando `more error.log`. Puede salir de este comando con Ctrl+c o presionar la tecla "q" para regresar al símbolo del sistema. Excluyendo errores de "Aviso PHP". ¿Qué tipo de errores críticos puedes encontrar en el registro?
 
-Exercise 3:
+{{< question title="Respuesta" >}}
+Respuesta correcta: Errores de protocolo de enlace SSL
 
-Correct answer: SSL handshaking errors
-
-Command(s) to execute:
+Comando(s) a ejecutar:
 
 {{< highlight bash >}}
 more nginx_error.log
 cat nginx_error.log|grep -v "PHP"|grep crit
 {{< / highlight >}}
+{{< /question >}}
 
-Exercise 4:
+4\. Excluya los errores de PHP del archivo error.log y busque las líneas donde se rechazan las solicitudes debido a reglas de seguridad. ¿Qué archivo sensible se ha solicitado?
 
-Correct answer: `.git/config`
+{{< question title="Respuesta" >}}
+Respuesta correcta: .`git/config`
 
-Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
-
+Comando(s) a ejecutar: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 {{< /question >}}
 
 
-## Skill Check
+## Verificación de Habilidades
 
-This skill check will be much easier if you’ve first completed the practice exercise above.
+Esta prueba de habilidades será mucho más fácil si primero completa el ejercicio de práctica anterior.
 
-You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+Se le proporciona un registro de acceso nginx de un sitio web atacado para que lo investigue, que puede [descargar aquí](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
 
-Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
+Localice una ruta sospechosa a la que se dirige, extraiga las direcciones IP que envían solicitudes sospechosas y descubra en qué países se encuentran esas IP (para esto, puede utilizar bases de datos geoIP, que se describen con más detalle en la ruta de aprendizaje de infraestructura maliciosa). Puede utilizar herramientas CLI estándar como `awk`, `grep`, `sort`, `uniq`. Para conocer los números de AS y los países, recomendamos utilizar los servicios de búsqueda en línea relevantes.
 
-_Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can use curl to fetch those.
+_Pista:_ ipinfo.io proporciona una manera conveniente de buscar detalles de IP; puede usar curl para recuperarlos.
 
 
-## Learning Resources
+## Recursos de Aprendizaje
 
-{{% resource title="Log Files - Apache" languages="English" cost="Free" description="An overview of how to read log files in the Apache web server." url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
+{{% resource title="WP2Static" description="Un complemento de WordPress para generar sitios estáticos" languages="Inglés" cost="Gratis" url="https://wp2static.com/" %}}
 
-{{% resource title="Understanding the Apache Access and Error Log" languages="English" cost="Free" description="Two pieces on how to read the Apache web server’s logs." url1="https://www.keycdn.com/support/apache-access-log" url2="https://www.dataset.com/blog/apache-error-log-detail/" %}}
+{{% resource title="Archivos de Registro - Apache" description="Una descripción general de cómo leer archivos de registro en el servidor web Apache" languages="Inglés" cost="Gratis" url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
 
-{{% resource title="Server-side logging" languages="English" cost="Free" description="An analysis of logs within the Microsoft IIS server." url="https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
+{{% resource title="Comprensión del Registro de Errores y Acceso de Apache, Recurso 1" description="Dos artículos más sobre cómo leer los registros del servidor web Apache" languages="Inglés" cost="Gratis" url="https://www.keycdn.com/support/apache-access-log" %}}
 
-{{% resource title="IIS Error Logs and Other Ways to Find ASP.Net Failed Requests" languages="English" cost="Free" description="Another look at IIS logs and how we can search for application errors therein." url="https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/" %}}
+{{% resource title="Comprensión del Registro de Errores y Acceso de Apache, Recurso 2" description="Dos artículos más sobre cómo leer los registros del servidor web Apache" languages="Inglés" cost="Gratis" url="https://www.dataset.com/blog/apache-error-log-detail/" %}}
 
-{{% resource title="Configuring logging on nginx" languages="English" cost="Free" description="Documentation by the NGINX web server on how to configure and work with logs." url="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/" %}}
+{{% resource title="Registro del lado del servidor" description="Un análisis de registros dentro del servidor Microsoft IIS" languages="Inglés" cost="Varios idiomas" url="https://learn.microsoft.com/es-es/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
 
-{{% resource title="A guide to NGINX logs" languages="English" cost="Free" description="An overview of different NGINX logs and their formats." url="https://trunc.org/learning/nginx-log-analysis" %}}
+{{% resource title="Registros de Errores de IIS y Otras Formas de Encontrar Solicitudes Fallidas de ASP.Net" description="Otra mirada a los registros de IIS y cómo podemos buscar errores de aplicación en ellos" languages="Inglés" cost="Gratis" url="https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/" %}}
 
-{{% resource title="Security Log: Best Practices for Logging and Management" languages="English" cost="Free" description="An analysis of when logs are useful, how we can analyze them, and what policies we can create around them." url="https://www.dnsstuff.com/security-log-best-practices" %}}
+{{% resource title="Configurar el registro en nginx" description="Documentación del servidor web NGINX sobre cómo configurar y trabajar con registros." languages="Inglés" cost="Gratis" url="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/" %}}
 
-{{% resource title="OWASP logging cheat sheet and vocabulary" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+{{% resource title="Una guía para los registros de NGINX" description="Una descripción general de los diferentes registros NGINX y sus formatos" languages="Inglés" cost="Gratis" url="https://trunc.org/learning/nginx-log-analysis" %}}
 
-{{% resource title="Keep Sensitive Data Out of Your Logs: 9 Best Practices" languages="English" cost="Free" description="Thorough logging can also end up including sensitive data, which could put users at risk. This guide looks at how we can adapt our logging practices to exclude sensitive data from logs." url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
+{{% resource title="Registro de Seguridad: Mejores Prácticas para el Registro y la Gestión" description="Un análisis de cuándo son útiles los registros, cómo podemos analizarlos y qué políticas podemos crear en torno a ellos." languages="Inglés" cost="Gratis" url="https://www.dnsstuff.com/security-log-best-practices" %}}
+
+{{% resource title="Hoja de trucos y vocabulario de registro de OWASP, Recurso 1" description="Una guía de OWASP sobre para qué deberían servir los registros y cómo debemos analizarlos, así como un vocabulario estándar para ellos." languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" %}}
+
+{{% resource title="Hoja de trucos y vocabulario de registro de OWASP, Recurso 2" description="Una guía de OWASP sobre para qué deberían servir los registros y cómo debemos analizarlos, así como un vocabulario estándar para ellos." languages="Inglés" cost="Gratis" url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+
+{{% resource title="DDoS: el incómodo visitante de negocios" description="Una mirada a cómo algunos proveedores de alojamiento web podrían querer abandonar a los clientes objetivo de ataques DDoS" languages="Inglés" cost="Gratis" url="https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/" %}}
+
+{{% resource title="GitHub sobrevivió al mayor ataque DDoS Jamás Registrado" description="Un artículo de 2018 sobre cómo Github asumió un ataque DDoS masivo y continuó operando a partir de entonces." languages="Inglés" cost="Los primeros artículos en WIRED son gratuitos, los siguientes pueden requerir una suscripción" url="https://www.wired.com/story/github-ddos-memcached/" %}}
+
+{{% resource title="Comprender y Responder a los Ataques Distribuidos de Negación de Servicio" description="Una guía CISA 2022 sobre el tema, que analiza los pasos a seguir antes, durante y después de un ataque" languages="Inglés" cost="Gratis" url="https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf" %}}
+
+{{% resource title="Guía MS-ISAC para Ataques DDoS" description="Una guía que proporciona una descripción general de los tipos comunes de ataques DDoS, junto con recomendaciones generales sobre mitigaciones." languages="Inglés" cost="Gratis" url="https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks" %}}
+
+{{% resource title="Prevención de Ataques de Negación de Servicio (DoS): La Guía Definitiva" description="Este artículo describe algunos pasos que los administradores pueden seguir para prevenir o mitigar el impacto de los ataques DoS." languages="Inglés" cost="Gratis" url="https://www.byos.io/blog/denial-of-service-attack-prevention" %}}
+
+{{% resource title="Guía de Negación de Servicio (DoS)" description="Guías del Centro Cibernético de Seguridad Nacional del Reino Unido sobre ataques DoS y cómo defender a las organizaciones contra ellos" languages="Inglés" cost="Gratis" url="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection" %}}
+
+{{% resource title="La ola de ataques a la cadena de suministro contra el código abierto que dura un año está empeorando" description="Una mirada a los ataques a la cadena de suministro contra software de código abierto, en los que los atacantes comprometen las dependencias del software" languages="Inglés" cost="Gratis" url="https://arstechnica.com/information-technology/2019/08/the-year-long-rash-of-supply-chain-attacks-against-open-source-is-getting-worse/" %}}
+
+{{% resource title="¿Cómo gestiona/equilibra las comunicaciones veraces sobre un incidente/incumplimiento y al mismo tiempo mitiga la exposición legal?" description="Una breve guía, escrita por un respondedor de incidentes en lugar de un abogado, sobre las diversas preocupaciones (legales/éticas/otras) que los protectores digitales podrían tener al revelar infracciones y cómo gestionarlas." languages="Inglés" cost="Gratis" url="Mantenga los Datos Confidenciales Fuera de Sus Registros: 9 Mejores Prácticas" %}}
+
+{{% resource title="https://discernibleinc.com/blog/-mailbag-reader-question-truthful-communication-legal-exposure" description="Un registro exhaustivo también puede terminar incluyendo datos confidenciales, lo que podría poner a los usuarios en riesgo. Esta guía analiza cómo podemos adaptar nuestras prácticas de registro para excluir datos confidenciales de los registros." languages="Inglés" cost="Gratis" url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
