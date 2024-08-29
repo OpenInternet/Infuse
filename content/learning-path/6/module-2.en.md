@@ -495,7 +495,6 @@ Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 {{< /question >}}
 
 
-
 ## Skill Check
 
 This skill check will be much easier if you’ve first completed the practice exercise above.
