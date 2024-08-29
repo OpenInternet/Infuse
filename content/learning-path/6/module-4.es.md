@@ -1,100 +1,102 @@
 +++
 style = "module"
 weight = 4
-title = "Hacking Incident Response"
+title = "Respuesta a Incidentes de Piratería"
+description = "Analizamos algunas formas en las que podemos investigar y recuperarnos de un ataque que tuvo como objetivo nuestro sitio web."
 +++
 
-## Use Case
+## Caso de Uso
 
-If a website is hacked, understanding the actions and methods of the attacker is vital. At the very least, the site owners need to identify how the site was initially compromised so that they can fix any vulnerabilities that enabled that. It may also be important to know what data the attackers may have accessed or modified. This learning path describes some practices to help investigate and recover from a website hacking incident.
+Si un sitio web es pirateado, es vital comprender las acciones y métodos del atacante. Como mínimo, los propietarios del sitio deben identificar cómo se vio comprometido inicialmente para poder corregir cualquier vulnerabilidad que lo haya permitido. También puede ser importante saber a qué datos pueden haber accedido o modificado los atacantes. Esta ruta de aprendizaje describe algunas prácticas para ayudar a investigar y recuperarse de un incidente de piratería de un sitio web.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, the practitioner should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
-- Identify the point of initial compromise of a website
-- Identify the actions an attacker took after initial compromise
+- Identificar el punto de compromiso inicial de un sitio web
+- Identificar las acciones que tomó un atacante después del compromiso inicial
 
 ---
+## Sección Principal
 
-## Identifying a hacking incident
+### Identificar un incidente de piratería
 
-For most victims of a hacking incident, the delay between the initial compromise and detection can be months or even years. Compromise is often detected by an engineer thinking that something “seems odd.” Some signs of compromise can include:
+Para la mayoría de las víctimas de un incidente de piratería informática, el retraso entre el compromiso inicial y la detección puede ser de meses o incluso años. A menudo, un ingeniero detecta un compromiso pensando que algo “parece extraño”. Algunas señales de compromiso pueden incluir:
 
-- Changes to site content. These can range from subtle (e.g., invisible changes to JavaScript) to very unsubtle (defacement)).
-- User accounts appearing in password databases or other data dumps
-- Unexplained files on the web server
-- Unusual network traffic in or out of web or other servers
-- Small spikes in traffic, associated with odd requests in the access or error logs
+- Cambios en el contenido del sitio. Estos pueden variar desde sutiles (por ejemplo, cambios invisibles en JavaScript) hasta muy poco sutiles (deformación).
+- Cuentas de usuario que aparecen en bases de datos de contraseñas u otros volcados de datos
+- Archivos inexplicables en el servidor web.
+- Tráfico de red inusual dentro o fuera de la web u otros servidores
+- Pequeños picos de tráfico, asociados con solicitudes extrañas en los registros de acceso o errores
 
-When signs of potential compromise occur, it’s quite natural to want to explain them away. Nobody wants to face the prospect that their website has been hacked. To be fair, most websites are never broken into, so there likely is a perfectly reasonable explanation. However, it’s important to detect and investigate a compromise as quickly as possible.
+Cuando aparecen señales de posible compromiso, es bastante natural querer explicarlas. Nadie quiere afrontar la posibilidad de que su sitio web haya sido pirateado. Para ser justos, la mayoría de los sitios web nunca son pirateados, por lo que probablemente exista una explicación perfectamente razonable. Sin embargo, es importante detectar e investigar un compromiso lo más rápido posible.
 
-## Moving from an IoC to initial compromise
+### Pasar de un COI a un compromiso inicial
 
-Once you have established that the site has been hacked through one or more IoCs (indicators of compromise), the next step is to work backwards to find the source of the initial compromise. This serves two purposes:
+Una vez que haya establecido que el sitio ha sido pirateado a través de uno o más IoC (indicadores de compromiso), el siguiente paso es trabajar hacia atrás para encontrar la fuente del compromiso inicial. Esto tiene dos propósitos:
 
-- It identifies what vulnerability enabled the attacker to compromise the site, allowing the site owner to fix the vulnerability before restoring the site.
-- Once an initial compromise is found, you can work to find the activities performed by the attacker.
+- Identifica qué vulnerabilidad permitió al atacante comprometer el sitio, lo que permite al propietario del sitio corregir la vulnerabilidad antes de restaurarlo.
+- Una vez que se encuentra un compromiso inicial, puede trabajar para encontrar las actividades realizadas por el atacante.
 
-It’s not always the case that a website compromise starts with a vulnerability in the website itself. While this may be the most common way in, you shouldn’t disqualify something like a [compromised developer account](https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/) allowing an attacker to simply upload a backdoor, or a [backdoored dependency](https://arstechnica.com/information-technology/2019/08/the-year-long-rash-of-supply-chain-attacks-against-open-source-is-getting-worse/) being used as part of a supply chain attack.
+No siempre se da el caso de que el compromiso de un sitio web comience con una vulnerabilidad en el propio sitio web. Si bien esta puede ser la forma más común de ingresar, no debes descalificar algo como una [cuenta de desarrollador comprometida](https://www.qurium.org/alerts/targeted-sophisticated-phishing-attacks-against-dissidents-in-azerbaijan-is-trending/) que permite a un atacante simplemente cargar una puerta trasera, o una [dependencia con puerta trasera](https://arstechnica.com/information-technology/2019/08/the-year-long-rash-of-supply-chain-attacks-against-open-source-is-getting-worse/) que se utiliza como parte de un ataque a la cadena de suministro.
 
-Working backwards from an IoC to the previous step in the attack chain is a matter of connecting data and metadata from the IoC to the source of the IoC. For example, if there’s an unexpected file on the web server, when was the file created? What account created the file (e.g. the deployment system, the web server itself, a developer’s account)? If the web server created the file, check the access logs for requests around and just before that time. If a developer’s account created the file, check the SSH and other remote access logs around and just before that file’s creation time. If the deployment system created the file, check to see if the file was added to the source code repository. For each of these cases, if you find something, it may give you another IoC to work back from. Perhaps you find something in the web logs; are there prior requests from that IP address or netblock with that user-agent? If a malicious file was added to source control, what account added it, and from where did they authenticate?
+Trabajar hacia atrás desde un IoC hasta el paso anterior en la cadena de ataque es una cuestión de conectar datos y metadatos del IoC a la fuente del IoC. Por ejemplo, si hay un archivo inesperado en el servidor web, ¿cuándo se creó el archivo? ¿Qué cuenta creó el archivo (por ejemplo, el sistema de implementación, el propio servidor web, la cuenta de un desarrollador)? Si el servidor web creó el archivo, verifique los registros de acceso para ver las solicitudes alrededor y justo antes de ese momento. Si la cuenta de un desarrollador creó el archivo, verifique el SSH y otros registros de acceso remoto alrededor y justo antes del momento de creación de ese archivo. Si el sistema de implementación creó el archivo, verifique si el archivo se agregó al repositorio de código fuente. Para cada uno de estos casos, si encuentra algo, es posible que le brinde otro IoC desde el cual trabajar. Quizás encuentres algo en los registros web; ¿Existen solicitudes previas de esa dirección IP o bloque de red con ese agente de usuario? Si se agregó un archivo malicioso al control de fuente, ¿qué cuenta lo agregó y desde dónde se autenticó?
 
-Bear in mind that even minimally-competent attackers will usually make an attempt to cover their tracks. Some techniques they may user include:
+Tenga en cuenta que incluso los atacantes mínimamente competentes normalmente intentarán cubrir sus huellas. Algunas técnicas que pueden utilizar incluyen:
 
-- Connecting from different IP addresses and using different user-agent strings
-- Uploading an initial backdoor, then using that backdoor to download a different backdoor, and finally deleting the first backdoor
-- Deleting any log files that they find on the server
-- Slowing down their hacking tools (e.g. [sqlmap](https://sqlmap.org/)) so as not to cause a big traffic spike
+- Conexión desde diferentes direcciones IP y uso de diferentes cadenas de agente de usuario
+- Cargar una puerta trasera inicial, luego usar esa puerta trasera para descargar una puerta trasera diferente y, finalmente, eliminar la primera puerta trasera.
+- Eliminar cualquier archivo de registro que encuentren en el servidor
+- Reducir la velocidad de sus herramientas de piratería (por ejemplo [sqlmap](https://sqlmap.org/)) para no provocar un gran pico de tráfico
 
-For these and other reasons you may not be able to create a clear set of steps from an IoC to an initial compromise. In some cases (like finding a data dump of the site on the dark web), you may have very little to go on. Note that when reviewing logs, it’s ideal if the web site uses a central, high-security logging platform, as hopefully the attacker has not been able to modify or delete those logs. Logs that are sitting on a compromised host may not be fully reliable. Another pitfall is log timestamps that are not aligned. Different systems may use different time zones, or may have inaccurate system clocks. When comparing timestamps across different systems, it’s useful to try to find logs for a single event, and then use that to find the offset between timestamps.
+Por estas y otras razones, es posible que no pueda crear un conjunto claro de pasos desde un IoC hasta un compromiso inicial. En algunos casos (como encontrar un volcado de datos del sitio en la web oscura), es posible que tenga muy poco con qué continuar. Tenga en cuenta que al revisar los registros, lo ideal es que el sitio web utilice una plataforma de registro central de alta seguridad, ya que es de esperar que el atacante no haya podido modificar ni eliminar esos registros. Es posible que los registros que se encuentran en un host comprometido no sean completamente confiables. Otro problema son las marcas de tiempo de registro que no están alineadas. Diferentes sistemas pueden usar diferentes zonas horarias o pueden tener relojes de sistema inexactos. Al comparar marcas de tiempo entre diferentes sistemas, es útil intentar encontrar registros para un solo evento y luego usarlo para encontrar el desplazamiento entre marcas de tiempo.
 
-If, due to missing on uninformative IoCs, you do need to try open-ended searching of web server logs. The main issue with this is that web server access logs don’t give much insight into the results of those requests. If the site owners have set up customer security logging, obviously that may be much more helpful. If you do have to search through server access logs, here are some pointers:
+Si, debido a que faltan IoC que no son informativos, necesita intentar una búsqueda abierta en los registros del servidor web. El principal problema con esto es que los registros de acceso al servidor web no brindan mucha información sobre los resultados de esas solicitudes. Si los propietarios del sitio han configurado un registro de seguridad para el cliente, obviamente eso puede ser mucho más útil. Si tiene que buscar en los registros de acceso al servidor, aquí tiene algunos consejos:
 
-- Consider parsing the logs and storing them in a more structured format for easier searching
-- Attackers will often try to hide their attacks through encoding, so quickly look through the logs for percent signs (%) to see if there’s URL encoded data.
-- Look for strings associated with attack patterns. Note that automated vulnerability scanners are constantly indiscriminately the entire internet, so you should expect a lot of results. If you have a lot of results, try to find patterns among them. Patterns that appear constantly throughout the logs are probably less interesting. Most interesting are groups of different patterns that share an IP address, netblock and/or user-agent. This is indicative of a human poking at the site. Some useful patterns to look for:
-  - Requests with angle brackets (&lt; and >), especially the string `&lt;script`.
-  - Requests with JavaScript selectors like `onClick`, `onMouseOver`, etc.
-  - Requests with the string `../` in them.
-  - Requests with single quotes and/or SQL keywords (`select`, `and`, or `where`, `update`, `delete`) in them
-  - Requests that generate an unusually large response for their endpoint. (For example,. an article index usually generates a 30k web page generating a 300k page.)
+- Considere analizar los registros y almacenarlos en un formato más estructurado para facilitar la búsqueda.
+- Los atacantes a menudo intentan ocultar sus ataques mediante codificación, así que busque rápidamente en los registros signos de porcentaje (%) para ver si hay datos codificados en URL.
+- Busque cadenas asociadas con estándares de ataque. Tenga en cuenta que los escáneres de vulnerabilidades automatizados están constantemente de forma indiscriminada en todo Internet, por lo que debe esperar muchos resultados. Si tiene muchos resultados, intente encontrar estándares entre ellos. Los estándares que aparecen constantemente a lo largo de los registros probablemente sean menos interesantes. Los más interesantes son grupos de diferentes estándares que comparten una dirección IP, netblock y/o agente de usuario. Esto es indicativo de un humano husmeando en el sitio. Algunos estándares útiles para buscar:
+  - Solicitudes con corchetes angulares (&lt; y &gt;), especialmente la cadena `<script`.
+  - Solicitudes con selectores de JavaScript como `onClick`, `onMouseOver`, etc.
+  - Solicitudes con la cadena `../` en ellas.
+  - Solicitudes con comillas simples y/o palabras clave SQL (`select`, `and`, `or`, `where`, `update`, `delete`) en ellas
+  - Solicitudes que generan una respuesta inusualmente grande para su punto final. (Por ejemplo, el índice de un artículo generalmente genera una página web de 30k y una página de 300k).
 
-If you find an interesting log entry that may indicate a source of compromise or exploitation, a quick way to check it is to try to send a similar request yourself. Completing the Web Application Security Assessment learning path will help you understand these attacks. Another approach is to work with the site owner to go through the code that processes that request and see if it could trigger a vulnerability in the code.
+Si encuentra una entrada de registro interesante que pueda indicar una fuente de compromiso o explotación, una forma rápida de comprobarla es intentar enviar una solicitud similar usted mismo. Completar la Ruta de Aprendizaje de Evaluación de Seguridad de Aplicaciones Web le ayudará a comprender estos ataques. Otro enfoque es trabajar con el propietario del sitio para revisar el código que procesa esa solicitud y ver si podría desencadenar una vulnerabilidad en el código.
 
-Through a mix of less-directing searching through logs and trying to connect the links of an attack chain, hopefully you can find the initial source of a compromise. Note that most attackers do not go through great lengths to hide their tracks. It’s a good strategy to start out looking for the most obvious thing first, and only after that fails to look for clever evasion techniques. For instance, if you find HTTP requests from the attacker, looking for more requests from the same IP address and/or the same user-agent is likely to be successful.
+A través de una combinación de búsquedas menos dirigidas en los registros y de intentar conectar los enlaces de una cadena de ataque, es de esperar que se pueda encontrar la fuente inicial de un compromiso. Tenga en cuenta que la mayoría de los atacantes no hacen grandes esfuerzos para ocultar sus huellas. Es una buena estrategia comenzar buscando lo más obvio primero y solo después dejar de buscar técnicas de evasión inteligentes. Por ejemplo, si encuentra solicitudes HTTP del atacante, es probable que la búsqueda de más solicitudes desde la misma dirección IP y/o el mismo agente de usuario tenga éxito.
 
-## Tracking an attacker forward
+### Seguimiento de un atacante hacia adelante
 
-Once you have found the initial compromise, the next obvious step is to follow the attacker forward to see what they’ve done. The goals of this process are to determine what information the attacker has likely compromised and to prepare to evict them. The process of tracing the attacker’s steps forward is similar to, but easier than, tracing their steps backwards. Be sure to look for artifacts on disk and their metadata, in addition to logs. Comparing the files on the web server to what’s in the source code repository can be helpful with this. Also bear in mind that attackers will frequently attempt to expand their access to other servers, so maintain alert to attempts at horizontal movement. Finally, be sure to look for persistence mechanisms such as changes to cron files and the like.
+Una vez que haya encontrado el compromiso inicial, el siguiente paso obvio es seguir al atacante para ver qué ha hecho. Los objetivos de este proceso son determinar qué información probablemente haya comprometido el atacante y prepararse para desalojarlo. El proceso de rastrear los pasos hacia adelante del atacante es similar, pero más fácil, que rastrear sus pasos hacia atrás. Asegúrese de buscar artefactos en el disco y sus metadatos, además de los registros. Comparar los archivos en el servidor web con lo que hay en el repositorio de código fuente puede resultar útil para esto. También tenga en cuenta que los atacantes con frecuencia intentarán ampliar su acceso a otros servidores, por lo que debe mantenerse alerta ante intentos de movimiento horizontal. Finalmente, asegúrese de buscar mecanismos de persistencia, como cambios en archivos cron y similares.
 
-## Evicting the attacker
+### Desalojar al atacante
 
-Once you’re pretty sure what systems the attacker has access to (e.g., via exploits, backdoors, etc.), you can try to cut off their access. This is something you should try to do quickly and all at once. You’ll want to fix any vulnerabilities and remove any backdoors that you are aware of. Also note that most attackers, especially nation-state actors, work a regular schedule. Especially if the attacker doesn’t know that they’ve been detected, it’s best to evict them while they’re asleep.
+Una vez que esté bastante seguro de a qué sistemas tiene acceso el atacante (por ejemplo, mediante exploits, puertas traseras, etc.), puede intentar cortar su acceso. Esto es algo que debes intentar hacer rápidamente y de una sola vez. Querrá corregir cualquier vulnerabilidad y eliminar las puertas traseras que conozca. Tenga en cuenta también que la mayoría de los atacantes, especialmente los actores de estados-nación, trabajan en un horario regular. Especialmente si el atacante no sabe que ha sido detectado, lo mejor es desalojarlo mientras duerme.
 
-The ideal way to evict the attacker is to tear down any servers that they might have accessed and rebuild them from scratch. This, of course, depends on having a clean version of the site source and reliable backups of site data (e.g., databases). If this isn’t possible, try to do as much rebuilding as possible, as opposed to trying to surgically remove the attacker’s access.
+La forma ideal de desalojar al atacante es derribar todos los servidores a los que haya accedido y reconstruirlos desde cero. Esto, por supuesto, depende de tener una versión limpia de la fuente del sitio y copias de seguridad confiables de los datos del sitio (por ejemplo, bases de datos). Si esto no es posible, intente realizar la mayor reconstrucción posible, en lugar de intentar eliminar quirúrgicamente el acceso del atacante.
 
-In the worst case, if the site’s infrastructure is completely overrun, or it looks as if the attacker is on the verge of getting a devastating level of access, it may be sensible to simply turn off the servers and replace the site with a static page.
+En el peor de los casos, si la infraestructura del sitio está completamente invadida, o parece que el atacante está a punto de obtener un nivel de acceso devastador, puede ser sensato simplemente apagar los servidores y reemplazar el sitio con una página estática.
 
-## Recovering from the hack
+### Recuperarse del hack
 
-If you believe the attacker has been evicted, you may be wrong. Even if the attacker has been evicted, they will likely be looking for another way in. It’s important to be actively looking for attacker activity. Additionally, if the attacker exploited a website vulnerability to get in, there are likely other exploitable vulnerabilities in the site. It’s a good idea to perform a security assessment on the site. See the Web Application Security Assessment learning path for more on this. It’s also probably a good idea to perform the site hardening processes described in Subtopic 1 of this learning path. Lastly, you probably identified some issues with the site, infrastructure, logging, etc. Now would be a good time to make a plan for addressing those issues.
+Si cree que el atacante ha sido desalojado, es posible que esté equivocado. Incluso si el atacante ha sido desalojado, probablemente buscará otra forma de entrar. Es importante buscar activamente la actividad de los atacantes. Además, si el atacante aprovechó una vulnerabilidad del sitio web para ingresar, es probable que existan otras vulnerabilidades explotables en el sitio. Es una buena idea realizar una evaluación de seguridad en el sitio. Consulte la Ruta de Aprendizaje sobre Evaluación de Seguridad de Aplicaciones Web para obtener más información al respecto. Probablemente también sea una buena idea realizar los procesos de refuerzo del sitio descritos en el subtema 1 de esta ruta de aprendizaje. Por último, probablemente haya identificado algunos problemas con el sitio, la infraestructura, el registro, etc. Ahora sería un buen momento para elaborar un plan para abordar esas cuestiones.
 
-If user data was compromised, the site owner may be legally and/or morally required to disclose the breach. Managing that is beyond the scope of this learning path, but [here’s an article to get started](https://discernibleinc.com/blog/-mailbag-reader-question-truthful-communication-legal-exposure).
+Si los datos del usuario se vieron comprometidos, el propietario del sitio puede verse obligado legal y/o moralmente a revelar la violación. Gestionar eso está más allá del alcance de esta ruta de aprendizaje, pero [aquí hay un artículo para comenzar](https://discernibleinc.com/blog/-mailbag-reader-question-truthful-communication-legal-exposure).
 
-## Learning Resources
+## Práctica
+
+Ofrece una colección de ejercicios que permiten al practicante utilizar las herramientas y practicar las habilidades descritas anteriormente. Si es relevante, esta sección también vincula a muestras de malware o contenido malicioso con el que el practicante puede interactuar mientras practica la habilidad.
+
+- Complete el [Análisis de Registros - WordPress Comprometido](https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59) en Blue Team Labs Online (se requiere una cuenta gratuita). Si tiene problemas, hay [un artículo](https://cyberjunnkie.medium.com/log-analysis-wordpress-incidentresponse-blueteamlabsonline-fdf211899782) disponible.
+- Complete el [Desafío WebStrike Blue Team](https://cyberdefenders.org/blueteam-ctf-challenges/149#nav-overview) en CyberDefenders (se requiere una cuenta gratuita). Aunque este desafío implicó el uso de archivos PCAP en lugar de registros web, los principios son los mismos.
+
+## Verificación de Habilidades
+
+De forma independiente (o con un mentor), complete el [Desafío Tomcat Takeover Blue Team](https://cyberdefenders.org/blueteam-ctf-challenges/135#nav-overview) en CyberDefenders (se requiere una cuenta gratuita). Aunque este desafío implicó el uso de archivos PCAP en lugar de registros web, representa un escenario de ataque de un extremo a otro.
+
+## Recursos de Aprendizaje
 
 {{% resource title="The year-long rash of supply chain attacks against open source is getting worse" languages="English" cost="Free" description="A look at supply chain attacks against open source software, in which attackers compromise software dependencies" url="https://arstechnica.com/information-technology/2019/08/the-year-long-rash-of-supply-chain-attacks-against-open-source-is-getting-worse/" %}}
 
 {{% resource title="How do you manage/balance truthful communications about an incident/breach while mitigating legal exposure?" languages="English" cost="Free" description="A short guide, written by an incident responder rather than a lawyer on what the various concerns (legal/ ethical/ other) digital protectors might have when disclosing breaches and how to manage those" url="https://discernibleinc.com/blog/-mailbag-reader-question-truthful-communication-legal-exposure" %}}
-
-## Practice
-
-Offers a collection of exercises which allow the practitioner to use the tools and practice the skills outlined above. If relevant, this section also links to samples of malware or malicious content which the practitioner can interact with while practicing the skill.
-
-- Complete the [Log Analysis – Compromised WordPress](https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59) on Blue Team Labs Online (free account required). If you’re having trouble, [a write-up](https://cyberjunnkie.medium.com/log-analysis-wordpress-incidentresponse-blueteamlabsonline-fdf211899782) is available.
-- Complete the [WebStrike Blue Team Challenge](https://cyberdefenders.org/blueteam-ctf-challenges/149#nav-overview) on CyberDefenders (free account required). Although this challenge involved the use of PCAP files instead of web logs, the principles are the same.
-
-## Skill Check
-
-Independently (or with a mentor), complete the [Tomcat Takeover Blue Team Challenge](https://cyberdefenders.org/blueteam-ctf-challenges/135#nav-overview) at CyberDefenders (free account required). Although this challenge involved the use of PCAP files instead of web logs, it represents an end-to-end attack scenario.
