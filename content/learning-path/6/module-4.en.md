@@ -55,7 +55,7 @@ If, due to missing on uninformative IoCs, you do need to try open-ended searchin
 - Consider parsing the logs and storing them in a more structured format for easier searching
 - Attackers will often try to hide their attacks through encoding, so quickly look through the logs for percent signs (%) to see if there’s URL encoded data.
 - Look for strings associated with attack patterns. Note that automated vulnerability scanners are constantly indiscriminately the entire internet, so you should expect a lot of results. If you have a lot of results, try to find patterns among them. Patterns that appear constantly throughout the logs are probably less interesting. Most interesting are groups of different patterns that share an IP address, netblock and/or user-agent. This is indicative of a human poking at the site. Some useful patterns to look for:
-  - Requests with angle brackets (&lt; and >), especially the string `&lt;script`.
+  - Requests with angle brackets (&lt; and >), especially the string `<script`.
   - Requests with JavaScript selectors like `onClick`, `onMouseOver`, etc.
   - Requests with the string `../` in them.
   - Requests with single quotes and/or SQL keywords (`select`, `and`, or `where`, `update`, `delete`) in them
