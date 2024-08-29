@@ -1,179 +1,204 @@
 +++
 style = "module"
 weight = 3
-title = "Denial of Service Incident Response"
+title = "Respuesta a Incidentes de Negación de Servicio"
+description = "Si un sitio web sufre un ataque de denegación de servicio prolongado, puede ser fundamental actuar rápidamente para que el sitio vuelva a funcionar. Este subtema describe algunas prácticas para permitir que los propietarios de sitios se recuperen de un ataque DoS"
 +++
 
-## Use Case
+## Caso de Uso
 
-If a website comes under a sustained denial of service attack, it may be vital to act quickly to get the site back up and running. This Learning Path describes some practices to allow site owners to recover from a DoS attack.
+Si un sitio web sufre un ataque sostenido de denegación de servicio, puede ser vital actuar rápidamente para que el sitio vuelva a funcionar. Esta Ruta de Aprendizaje describe algunas prácticas que permiten a los propietarios de sitios recuperarse de un ataque DoS.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, the practitioner should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
-- Determine what sort of DoS attack a website is under
-- Mitigate or neutralize an attack in process
+- Determinar qué tipo de ataque DoS sufre un sitio web
+- Mitigar o neutralizar un ataque en proceso
 
 ---
+## Sección Principal
 
-For some sites (e.g., gambling sites), even a brief DoS can be an existential threat to the site’s survival. Attackers are typically financially motivated, and will use DoS as an extortion threat. For civil society focused sites, the threat model is typically quite different. Attacks are typically controlled by political rivals (often nation-state actors or those linked to or supported by them), and fall into two categories:
+Para algunos sitios (por ejemplo, sitios de apuestas), incluso un breve DoS puede ser una amenaza existencial para la supervivencia del sitio. Los atacantes suelen tener motivaciones económicas y utilizarán DoS como amenaza de extorsión. Para los sitios centrados en la sociedad civil, el modelo de amenaza suele ser bastante diferente. Los ataques suelen estar controlados por rivales políticos (a menudo actores de estados-nación o aquellos vinculados a ellos o apoyados por ellos) y se dividen en dos categorías:
 
-- Brief (hours to days) attacks meant to intimidate the site owners
-- Sustained attacks designed to permanently silence the site
+- Ataques breves (de horas a días) destinados a intimidar a los propietarios del sitio.
+- Ataques sostenidos diseñados para silenciar permanentemente el sitio
 
-At the start of an attack, it’s impossible to know which type of attack the site is under. Fortunately, the technical and operational response is the same. The basic response breaks down to three steps:
+Al comienzo de un ataque, es imposible saber qué tipo de ataque sufre el sitio. Afortunadamente, la respuesta técnica y operativa es la misma. La respuesta básica se divide en tres pasos:
 
-1. Determine what kind of attack the site is under
-2. Mitigate that attack (the site should be operational at this point)
-3. Proactively harden the site against future attacks
+1. Determinar qué tipo de ataque está sufriendo el sitio.
+2. Mitigar ese ataque (el sitio debería estar operativo en este punto)
+3. Reforzar proactivamente el sitio contra futuros ataques
 
-## Determining Attack Type
+### Determinar el Tipo de Ataque
 
-Generally, a DoS attack will be noticed when users note that the site becomes unavailable or shows degraded performance. In some cases, performance monitoring systems for the site may proactively notify site owners. In any case, the first step is to determine why the site is down. Note that degraded site performance or a site being unavailable may not be due to an attack, but due to equipment failures, misconfiguration, ill-conceived site changes, and [something on the site going viral](https://en.wikipedia.org/wiki/Slashdot_effect). When investigating site degradation, keep in mind the types of DoS attacks, and their symptoms:
+Generalmente, un ataque DoS se detectará cuando los usuarios noten que el sitio deja de estar disponible o muestra un rendimiento degradado. En algunos casos, los sistemas de seguimiento del rendimiento del sitio pueden notificar de forma proactiva a los propietarios del sitio. En cualquier caso, el primer paso es determinar por qué el sitio no funciona. Tenga en cuenta que el rendimiento degradado del sitio o que un sitio no esté disponible puede no deberse a un ataque, sino a fallas del equipo, una mala configuración, cambios mal concebidos en el sitio, y [algo en el sitio que se vuelve viral.](https://en.wikipedia.org/wiki/Slashdot_effect). Al investigar la degradación del sitio, tenga en cuenta los tipos de ataques DoS y sus síntomas:
 
-- Network-Level
-  - Volumetric - Network diagnostic tools such as ping will show high packet loss and long round trip times. If the website is hosted at an ISP or web hosting service, other sites hosted by that ISP/hosting service will also be unavailable.
-  - Exploit-based - Network diagnostic tools will tend to show high packet loss, but often will show normal round trip times. If the website is hosted at an ISP/hosting provider, other sites hosted by them will also be unavailable.
-- Protocol-Level
-  - Volumetric - Network diagnostic tools will typically show elevated packet loss and round trip times. Browser requests to the site will typically take a long time, and usually time out. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work. Note that volumetric protocol level DoS attacks will find any bottleneck, be it in the network or server. For instance, a protocol-level attack against a powerful server on an underpowered network will affect the network more than the server.
-  - Exploit-based - Network diagnostic tools will typically show normal packet loss and round trip times. Browser requests to the site may either be very slow, or may quickly return an error. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work.
-- Application-Level
-  - Network diagnostic tools will typically show normal packet loss and round trip times. Static content served by the site may behave normally, or may also be degraded. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work.
+- Nivel de Red
+  - Volumétrico - Las herramientas de diagnóstico de red, como el ping, mostrarán una gran pérdida de paquetes y tiempos de ida y vuelta prolongados. Si el sitio web está alojado en un ISP o servicio de alojamiento web, otros sitios alojados por ese ISP/servicio de alojamiento tampoco estarán disponibles.
+  - Basado en exploits - Las herramientas de diagnóstico de red tenderán a mostrar una gran pérdida de paquetes, pero a menudo mostrarán tiempos de ida y vuelta normales. Si el sitio web está alojado en un ISP/proveedor de alojamiento, otros sitios alojados por ellos tampoco estarán disponibles.
+- Nivel de Protocolo
+  - Volumétrico - Las herramientas de diagnóstico de red normalmente mostrarán una pérdida de paquetes elevada y tiempos de ida y vuelta. Las solicitudes del navegador al sitio suelen tardar mucho tiempo y, por lo general, caducan. Si el sitio web está alojado en un proveedor de alojamiento web, es probable que otros sitios alojados en el mismo servidor no estén disponibles, mientras que los alojados en otros servidores normalmente funcionarán. Tenga en cuenta que los ataques DoS a nivel de protocolo volumétrico encontrarán cualquier cuello de botella, ya sea en la red o en el servidor. Por ejemplo, un ataque a nivel de protocolo contra un servidor potente en una red con poca potencia afectará a la red más que al servidor.
+  - Volumétrico - Las herramientas de diagnóstico de red normalmente mostrarán tiempos normales de pérdida de paquetes y de ida y vuelta. Las solicitudes del navegador al sitio pueden ser muy lentas o devolver rápidamente un error. Si el sitio web está alojado en un proveedor de alojamiento web, es probable que otros sitios alojados en el mismo servidor no estén disponibles, mientras que los alojados en otros servidores normalmente funcionarán.
+- Nivel de Aplicación
+  - Las herramientas de diagnóstico de red normalmente mostrarán tiempos normales de pérdida de paquetes y de ida y vuelta. El contenido estático ofrecido por el sitio puede comportarse normalmente o también puede estar degradado. Si el sitio web está alojado en un proveedor de alojamiento web, es probable que otros sitios alojados en el mismo servidor no estén disponibles, mientras que los alojados en otros servidores normalmente funcionarán.
 
-Knowing what kind of attack is happening will help guide site owners’ response. If any sort of network or protocol level attack is suspected, it’s important to reach out to the sites’ ISP/hosting provider to help diagnose the problem. They will usually have access to better diagnostic and response tools for network and protocol level attacks.
+Saber qué tipo de ataque está ocurriendo ayudará a guiar la respuesta de los propietarios del sitio. Si se sospecha algún tipo de ataque a nivel de red o protocolo, es importante comunicarse con el ISP/proveedor de alojamiento de los sitios para ayudar a diagnosticar el problema. Por lo general, tendrán acceso a mejores herramientas de diagnóstico y respuesta para ataques a nivel de red y protocolo.
 
-A word of warning, a DoS attack against a website is usually necessarily an attack against that site’s ISP/hosting provider as well. Especially for network level attacks, the ISP may be impacted just as much as the target website. For this reason, [ISPs or hosting providers will sometimes shut down websites that are targeted by DoS attacks](https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/), so as to protect the provider itself. Engaging with the site’s ISP/hosting provider early may hopefully provide you with some negotiation possibilities or coordination if the provider does decide to shut a site down.
+Una palabra de advertencia, un ataque DoS contra un sitio web suele ser necesariamente también un ataque contra el ISP/proveedor de alojamiento de ese sitio. Especialmente en el caso de ataques a nivel de red, el ISP puede verse tan afectado como el sitio web de destino. Por este motivo, [Ilos ISP o los proveedores de alojamiento a veces cierran los sitios web que son objeto de ataques DoS](https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/), para proteger al propio proveedor. Es de esperar que interactuar temprano con el ISP/proveedor de alojamiento del sitio le brinde algunas posibilidades de negociación o coordinación si el proveedor decide cerrar un sitio.
 
-## Mitigating the threat
+### Mitigar la amenaza
 
-Depending on the type of attack, and the hosting service for the site, mitigations can be varied.
+Dependiendo del tipo de ataque y del servicio de alojamiento del sitio, las mitigaciones pueden variar.
 
-### Exploit-based attacks
+#### Ataques basados ​​en exploits
 
-For network and protocol level denial of service exploits, generally a software update will need to be applied. As a short-term mitigation, the site’s ISP may block sources of malicious traffic until software updates can be applied.
+Para ataques de denegación de servicio a nivel de red y protocolo, generalmente será necesario aplicar una actualización de software. Como mitigación a corto plazo, el ISP del sitio puede bloquear fuentes de tráfico malicioso hasta que se puedan aplicar actualizaciones de software.
 
-### Volumetric attacks
+#### Ataques volumétricos
 
-For network and protocol level volumetric attacks, the response is generally carried out at the ISP level. Usually, the ISP will analyze incoming network traffic and identify sources of malicious traffic. They will then block those sources at the network level and work with their upstream ISP to block those sources as well. Eventually, the upstream ISPs that are blocking malicious traffic are large enough that they can easily handle the level of malicious traffic being generated, and the downstream ISPs (and target site) are able to resume normal operations.
+Para ataques volumétricos a nivel de red y protocolo, la respuesta generalmente se lleva a cabo a nivel de ISP. Por lo general, el ISP analizará el tráfico de red entrante e identificará las fuentes de tráfico malicioso. Luego bloquearán esas fuentes a nivel de red y trabajarán con su ISP ascendente para bloquear esas fuentes también. Con el tiempo, los ISP ascendentes que bloquean el tráfico malicioso son lo suficientemente grandes como para poder manejar fácilmente el nivel de tráfico malicioso que se genera, y los ISP descendentes (y el sitio de destino) pueden reanudar las operaciones normales.
 
-### Application-level attacks
+#### Ataques a nivel de aplicación
 
-For application-level DoS attacks, mitigation is generally handled by the site owner, as opposed to the ISP or hosting provider. Generally, the attacker will be sending a large volume of requests, often of an unusual nature, to a specific endpoint on the site. This endpoint (i.e., web page) will be consuming a huge amount of resources, slowing down or crashing the site.
+Para los ataques DoS a nivel de aplicación, la mitigación generalmente la maneja el propietario del sitio, y no el ISP o el proveedor de alojamiento. Generalmente, el atacante enviará un gran volumen de solicitudes, a menudo de naturaleza inusual, a un punto final específico del sitio. Este punto final (es decir, la página web) consumirá una gran cantidad de recursos, lo que ralentizará o bloqueará el sitio.
 
-The best place to start looking for the targeted endpoint is the web server’s access logs. If you can connect to the web server via something like SSH, try to download (e.g. via rsync or scp) some current access logs, and some from before the attack started. Look for pages that are being hit more frequently, pages that are returning a lot of data, or pages that are taking a lot of time to finish processing. Note that a good logging setup (as described in subsection 2) can make all of this much easier.
+El mejor lugar para empezar a buscar el punto final de destino son los registros de acceso del servidor web. Si puede conectarse al servidor web a través de algo como SSH, intente descargar (por ejemplo, a través de rsync o scp) algunos registros de acceso actuales y algunos anteriores a que comenzara el ataque. Busque páginas que reciban acceso con más frecuencia, páginas que devuelvan una gran cantidad de datos o páginas que tarden mucho tiempo en terminar de procesarse. Tenga en cuenta que una buena configuración de registro (como se describe en la subsección 2) puede hacer que todo esto sea mucho más fácil.
 
-If you can’t get access to the logs but have access to a development copy of the site, you can try to find the targeted endpoint yourself. Go through the site, looking for pages that could consume a lot of resources. Examples might include pages that perform complex database queries, read files off the filesystem, resize images, make requests to other websites, etc. A full discussion of this is outside the scope of this learning path, but might include a look at some vulnerabilities included as part of the Web Security Assessment learning path.
+Si no puede acceder a los registros pero tiene acceso a una copia de desarrollo del sitio, puede intentar encontrar el punto final de destino usted mismo. Explore el sitio en busca de páginas que puedan consumir muchos recursos. Los ejemplos pueden incluir páginas que realizan consultas complejas a bases de datos, leen archivos del sistema de archivos, cambian el tamaño de las imágenes, realizan solicitudes a otros sitios web, etc. Una discusión completa sobre esto está fuera del alcance de esta ruta de aprendizaje, pero podría incluir un vistazo a algunas vulnerabilidades incluidas como parte de la Ruta de Aprendizaje de Evaluación de Seguridad Web.
 
-If you do manage to find the likely target endpoint, whether by reading logs or simulating an attacker, the next step is to figure out how to thwart the attack. The quickest is to just replace that page on the site with a static web page. This will stop the attack but will disable part of the site. Also, if the attack leverages something that’s on many or all pages on the site, that fix may break the site.
+Si logra encontrar el punto final probable, ya sea leyendo registros o simulando un atacante, el siguiente paso es descubrir cómo frustrar el ataque. La más rápida es simplemente reemplazar esa página del sitio con una página web estática. Esto detendrá el ataque pero desactivará parte del sitio. Además, si el ataque aprovecha algo que se encuentra en muchas o todas las páginas del sitio, esa solución puede dañar el sitio.
 
-A better option would be to put limits on the target endpoint to prevent it from consuming so many resources. If it’s a page that resizes images, put in a maximum image size. If it’s a search operation and the attacker is using a very long and complex search query, limit the length of the query. If it’s a search and the attacker has put in a search that returns lots and lots of results, change the query to be in a sub-select that limits the number of rows before any sorting etc is done. Hopefully, a simple change can render the attack ineffective without changing how the site works for non-malicious users.
+Una mejor opción sería poner límites al punto final de destino para evitar que consuma tantos recursos. Si es una página que cambia el tamaño de las imágenes, establezca un tamaño de imagen máximo. Si se trata de una operación de búsqueda y el atacante está utilizando una consulta de búsqueda muy larga y compleja, limite la longitud de la consulta. Si se trata de una búsqueda y el atacante ha realizado una búsqueda que devuelve muchísimos resultados, cambie la consulta para que esté en una subselección que limite el número de filas antes de realizar cualquier clasificación, etc. Con suerte, un simple cambio puede hacer que el ataque sea ineficaz sin cambiar el funcionamiento del sitio para usuarios no malintencionados.
 
-### If the site is shut down
+#### Si el sitio está cerrado
 
-If the DoS attack is successful in shutting down the web site (e.g., the hosting provider turns off the site), getting the site back up may happen several different ways. If the site owners have good development and deployment practices (see subsection 1 of this learning path), they may have a development copy of the site ready to be deployed at another hosting provider. If not, you and the site owners may be able to negotiate with the site’s current hosting provider to get access to the production servers and copy the site data off.
+Si el ataque DoS logra cerrar el sitio web (por ejemplo, el proveedor de alojamiento apaga el sitio), la recuperación del sitio puede ocurrir de varias maneras diferentes. Si los propietarios del sitio tienen buenas prácticas de desarrollo e implementación (consulte la subsección 1 de esta ruta de aprendizaje), es posible que tengan una copia de desarrollo del sitio lista para implementarse en otro proveedor de alojamiento. De lo contrario, usted y los propietarios del sitio podrán negociar con el proveedor de alojamiento actual del sitio para obtener acceso a los servidores de producción y copiar los datos del sitio.
 
-The easiest next step may be to generate a completely static copy of the site and host it on something like GitHub Pages, Amazon S3, or GCP GCS buckets. To generate a static copy of the site from a development version, you can use a tool like [HTTrack](https://www.httrack.com/) to “spider” the web site and download the HTML. The static site hosting services mentioned above are all free or inexpensive (though there may be a cost for TLS), [are DoS resistant](https://www.wired.com/story/github-ddos-memcached/), and can be set up in a matter of minutes. While having a static copy of the site up may not be ideal, it can be a good stopgap measure.
+El siguiente paso más sencillo puede ser generar una copia completamente estática del sitio y alojarla en algo como GitHub Pages, Amazon S3 o depósitos GCP GCS. Para generar una copia estática del sitio a partir de una versión de desarrollo, puede utilizar una herramienta como [HTTrack](https://www.httrack.com/) para "rastrear" el sitio web y descargar el HTML. Los servicios de alojamiento de sitios estáticos mencionados anteriormente son gratuitos o económicos (aunque TLS puede tener un costo), [son resistentes a DoS](https://www.wired.com/story/github-ddos-memcached/), y se pueden configurar en cuestión de minutos. Si bien tener una copia estática del sitio puede no ser lo ideal, puede ser una buena medida provisional.
 
-## Recovering from a DoS Attack
+### Recuperarse de un Ataque DoS
 
-Once the attack has been mitigated, the site owner can work on a full recovery. Generally this involves going through the processes of preparing the site described in subsections 1 and 2 of this learning path. Often, once a site is targeted by a DoS attack, it is likely to face similar attacks again in the future. As such, careful preparation is very important. Especially if an application-level attack was used, it’s a good idea to go through the site and its code to find any aspects that could consume a large amount of resources, and modify them to limit the resources they could consume. Also, having an easy way to generate a static copy of the site and a rehearsed procedure to switch the site to static site hosting, could be useful for frequently-targeted sites.
+Una vez que se ha mitigado el ataque, el propietario del sitio puede trabajar en una recuperación completa. Generalmente, esto implica pasar por los procesos de preparación del sitio descritos en las subsecciones 1 y 2 de esta ruta de aprendizaje. A menudo, una vez que un sitio es blanco de un ataque DoS, es probable que vuelva a enfrentar ataques similares en el futuro. Por ello, una preparación cuidadosa es muy importante. Especialmente si se utilizó un ataque a nivel de aplicación, es una buena idea revisar el sitio y su código para encontrar cualquier aspecto que pueda consumir una gran cantidad de recursos y modificarlos para limitar los recursos que podrían consumir. Además, tener una manera fácil de generar una copia estática del sitio y un procedimiento ensayado para cambiar el sitio a alojamiento de sitios estáticos podría ser útil para los sitios a los que se dirige con frecuencia.
 
-Further Reading
+## Otras Lecturas
 
-The following additional resources provide more information on DoS attacks. The following resources mostly focus on the mechanics of low-level attacks:
+Los siguientes recursos adicionales brindan más información sobre los ataques DoS. Los siguientes recursos se centran principalmente en la mecánica de los ataques de bajo nivel:
 
 - [https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf](https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf)
 - [https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks](https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks)
 - [https://www.byos.io/blog/denial-of-service-attack-prevention](https://www.byos.io/blog/denial-of-service-attack-prevention)
 
-This mini-site is a good overview of making a DoS response plan for a specific site. It’s a great resource if you have the luxury of prior planning or to consult when recovering from an attack:
+Este minisitio es una buena descripción general sobre cómo elaborar un plan de respuesta DoS para un sitio específico. Es un gran recurso si tiene el lujo de realizar una planificación previa o consultar cuando se recupera de un ataque:
 
 - [https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan](https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan)
 
-## Learning Resources
 
-{{% resource title="DDoS: the inconvenient business visitor" languages="English" cost="Free" description="A look at how some web hosting providers might want to abandon clients targeted by DDoS attacks" url="https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/" %}}
+## Verificación de Habilidades
 
-{{% resource title="GitHub Survived the Biggest DDoS Attack Ever Recorded" languages="English" cost="First articles on WIRED are free, further ones might require a subscription" description="A 2018 piece on how Github took on a massive DDoS attack and continued to operate thereafter" url="https://www.wired.com/story/github-ddos-memcached/" %}}
+### Preguntas de respuestas múltiples
 
-{{% resource title="Understanding and Responding to Distributed Denial-of-Service Attacks" languages="English" cost="Free" description="A 2022 CISA guide on the topic, looking at what steps to take before, during, and after an attack" url="https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf" %}}
+Los ataques DDoS (Negación de Servicio Distribuido) plantean amenazas importantes a la infraestructura digital moderna y tienen como objetivo interrumpir los servicios abrumando los sistemas o redes objetivo con una avalancha de tráfico. En respuesta a tales ataques, las medidas de respuesta a incidentes son esenciales para minimizar los daños y restablecer rápidamente las operaciones normales. Este conjunto de preguntas de opción múltiple profundiza en varios aspectos de los ataques DDoS, incluidos sus tipos, objetivos, estrategias de mitigación y las fases de respuesta a incidentes involucradas para abordar dichas amenazas. Pruebe sus conocimientos sobre ataques DDoS y respuesta a incidentes con las siguientes preguntas. Si es posible, discuta sus respuestas a esas preguntas con un compañero o mentor que lo ayudará a verificar que haya entendido correctamente el tema.
 
-{{% resource title="MS-ISAC Guide to DDoS Attacks" languages="English" cost="Free" description="A guide which provides an overview of common types of DDoS attacks, along with general recommendations on mitigations" url="https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks" %}}
+1\. ¿Cuál de los siguientes NO es un tipo común de ataque DDoS?
 
-{{% resource title="Denial-of-Service (DoS) Attack Prevention: The Definitive Guide" languages="English" cost="Free" description="This piece outlines a few steps that admins can take to prevent or mitigate the impact of DoS attacks" url="https://www.byos.io/blog/denial-of-service-attack-prevention" %}}
+A) Inundación SYN\
+B) Inundación Ping\
+C) Suplantación DNS\
+D) Inundación UDP
 
-{{% resource title="Denial of Service (DoS) guidance" languages="English" cost="Free" description="The UK National Security Cyber Centre’s guides on DoS attacks and how to defend organizations against them" url="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan" %}}
+{{< question title="Respuesta" >}}
+C) Suplantación DNS
+{{< /question >}}
 
-## Skill Check
+2\. ¿Cuál es el objetivo principal de un ataque DDoS?
 
-### Multiple choice questions
+A) Para robar datos sensibles\
+B) Obtener acceso no autorizado a un sistema\
+C) Abrumar un sistema o red objetivo\
+D) Para cifrar archivos y exigir rescate
 
-DDoS (Distributed Denial of Service) attacks pose significant threats to modern digital infrastructure, aiming to disrupt services by overwhelming target systems or networks with a flood of traffic. In response to such attacks, incident response measures are essential for minimizing damage and restoring normal operations swiftly. This set of multiple-choice questions delves into various aspects of DDoS attacks, including their types, objectives, mitigation strategies, and the incident response phases involved in addressing such threats. Test your knowledge on DDoS attacks and incident response with the following questions. If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic.
+{{< question title="Respuesta" >}}
+C) Abrumar un sistema o red objetivo
+{{< /question >}}
 
-1. Which of the following is NOT a common type of DDoS attack?
+3\. ¿Qué técnica se utiliza habitualmente para mitigar los ataques DDoS de Amplificación de DNS?
 
-A) SYN Flood\
-B) Ping Flood\
-C) DNS Spoofing\
-D) UDP Flood
+A) Implementar filtrado de ingreso para bloquear el tráfico con direcciones IP falsificadas\
+B) Utilizar la limitación de velocidad para controlar el volumen de paquetes de respuesta DNS que salen de servidores autorizados\
+C) Implementar Sistemas de Prevención de Intrusiones (IPS) para detectar y bloquear el tráfico malicioso en el perímetro de la red\
+D) Realizar análisis de vulnerabilidades periódicos para identificar y parchear las vulnerabilidades del servidor DNS
 
-2. What is the main objective of a DDoS attack?
+{{< question title="Respuesta" >}}
+B) Utilizar la limitación de velocidad para controlar el volumen de paquetes de respuesta DNS que salen de servidores autorizados\
+{{< /question >}}
 
-A) To steal sensitive data\
-B) To gain unauthorized access to a system\
-C) To overwhelm a target system or network\
-D) To encrypt files and demand ransom
+4\. ¿Qué fase de la respuesta a incidentes implica identificar la naturaleza y el alcance de un ataque DDoS?
 
-3. Which technique is commonly used to mitigate DNS Amplification DDoS attacks?
+A) Preparación\
+B) Detección y Análisis\
+C) Contención, Erradicación y Recuperación\
+D) Actividad Posterior al Incidente
 
-A) Implementing ingress filtering to block traffic with spoofed IP addresses\
-B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers\
-C) Deploying Intrusion Prevention Systems (IPS) to detect and block malicious traffic at the network perimeter\
-D) Conducting regular vulnerability scans to identify and patch DNS server vulnerabilities
+{{< question title="Respuesta" >}}
+B) Detección y Análisis\
+{{< /question >}}
 
-4. Which phase of incident response involves identifying the nature and scope of a DDoS attack?
+5\. ¿Cuál es el objetivo principal durante la fase de contención de la respuesta a un incidente ante un ataque DDoS?
 
-A) Preparation\
-B) Detection and Analysis\
-C) Containment, Eradication, and Recovery\
-D) Post-Incident Activity
+A) Apagado completo del sistema\
+B) Eliminar el acceso del atacante\
+C) Identificar vulnerabilidades para futuros ataques\
+D) Restaurar los servicios afectados evitando daños mayores
 
-5. What is a primary goal during the containment phase of incident response for a DDoS attack?
+{{< question title="Respuesta" >}}
+D) Restaurar los servicios afectados evitando daños mayores
+{{< /question >}}
 
-A) Complete system shutdown\
-B) Eliminating the attacker's access\
-C) Identifying vulnerabilities for future attacks\
-D) Restoring affected services while preventing further damage
+6\. En el contexto de la respuesta a incidentes, ¿qué implica la fase de "Erradicación" con respecto a los ataques DDoS?
 
-6. In the context of incident response, what does the "Eradication" phase involve regarding DDoS attacks?
+A) Restaurar datos a partir de copias de seguridad\
+B) Investigar el origen del ataque\
+C) Implementar soluciones a largo plazo para prevenir ataques similares\
+D) Reiniciar los sistemas afectados
 
-A) Restoring data from backups\
-B) Investigating the attack's origin\
-C) Implementing long-term solutions to prevent similar attacks\
-D) Rebooting affected systems
+{{< question title="Respuesta" >}}
+C) Implementar soluciones a largo plazo para prevenir ataques similares
+{{< /question >}}
 
-7. Which action is typically performed during the recovery phase of incident response following a DDoS attack?
+7\. ¿Qué acción se realiza normalmente durante la fase de recuperación de la respuesta a incidentes después de un ataque DDoS?
 
-A) Conducting a post-mortem analysis\
-B) Applying security patches to vulnerable systems\
-C) Identifying new attack vectors\
-D) Initiating legal action against the attacker
+A) Realización de un análisis post mortem\
+B) Aplicar parches de seguridad a sistemas vulnerables\
+C) Identificar nuevos vectores de ataque\
+D) Iniciar acciones legales contra el atacante
 
-8. How can Content Delivery Networks (CDNs) help protect websites from Denial of Service (DoS) attacks?
+{{< question title="Respuesta" >}}
+B) Aplicar parches de seguridad a sistemas vulnerables
+{{< /question >}}
 
-A) By encrypting all incoming traffic to prevent attacks\
-B) By directly blocking all suspicious incoming traffic\
-C) By distributing website content across multiple servers and data centers\
-D) By increasing the website's processing power
+8\. ¿Cómo pueden las redes de entrega de contenido (CDN) ayudar a proteger los sitios web de ataques de denegación de servicio (DoS)?
 
-_Correct answers:_
+A) Cifrando todo el tráfico entrante para evitar ataques\
+B) Bloqueando directamente todo el tráfico entrante sospechoso\
+C) Distribuyendo el contenido del sitio web en múltiples servidores y centros de datos\
+D) Aumentando la potencia de procesamiento del sitio web
 
-_1. C) DNS Spoofing;_\
-_2. C) To overwhelm a target system or network;_\
-_3. B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers;_\
-_4. B) Detection and Analysis;_\
-_5. D) Restoring affected services while preventing further damage;_\
-_6. C) Implementing long-term solutions to prevent similar attacks;_\
-_7. B) Applying security patches to vulnerable systems;_\
-_8. C) By distributing website content across multiple servers and data centers_
+{{< question title="Respuesta" >}}
+C) Distribuyendo el contenido del sitio web en múltiples servidores y centros de datos
+{{< /question >}}
+
+
+## Recursos de Aprendizaje
+
+{{% resource title="DDoS: el incómodo visitante de negocios" description="Una mirada a cómo algunos proveedores de alojamiento web podrían querer abandonar a los clientes objetivo de ataques DDoS" languages="Inglés" cost="Gratis" url="https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/" %}}
+
+{{% resource title="GitHub sobrevivió al mayor ataque DDoS Jamás Registrado" description="Un artículo de 2018 sobre cómo Github asumió un ataque DDoS masivo y continuó operando a partir de entonces." languages="Inglés" cost="Los primeros artículos en WIRED son gratuitos, los siguientes pueden requerir una suscripción" url="https://www.wired.com/story/github-ddos-memcached/" %}}
+
+{{% resource title="Comprender y Responder a los Ataques Distribuidos de Negación de Servicio" description="Una guía CISA 2022 sobre el tema, que analiza los pasos a seguir antes, durante y después de un ataque" languages="Inglés" cost="Gratis" url="https://www.cisa.gov/sites/default/files/publications/understanding-and-responding-to-ddos-attacks_508c.pdf" %}}
+
+{{% resource title="Guía MS-ISAC para Ataques DDoS" description="Una guía que proporciona una descripción general de los tipos comunes de ataques DDoS, junto con recomendaciones generales sobre mitigaciones." languages="Inglés" cost="Gratis" url="https://learn.cisecurity.org/ms-isac-guide-to-ddos-attacks" %}}
+
+{{% resource title="Prevención de Ataques de Negación de Servicio (DoS): La Guía Definitiva" description="Este artículo describe algunos pasos que los administradores pueden seguir para prevenir o mitigar el impacto de los ataques DoS." languages="Inglés" cost="Gratis" url="https://www.byos.io/blog/denial-of-service-attack-prevention" %}}
+
+{{% resource title="Guía de Negación de Servicio (DoS)" description="Guías del Centro Cibernético de Seguridad Nacional del Reino Unido sobre ataques DoS y cómo defender a las organizaciones contra ellos" languages="Inglés" cost="Gratis" url="https://www.ncsc.gov.uk/collection/denial-service-dos-guidance-collection/a-minimal-denial-of-service-response-plan" %}}

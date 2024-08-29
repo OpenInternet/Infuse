@@ -80,7 +80,7 @@ The easiest next step may be to generate a completely static copy of the site an
 
 Once the attack has been mitigated, the site owner can work on a full recovery. Generally this involves going through the processes of preparing the site described in subsections 1 and 2 of this learning path. Often, once a site is targeted by a DoS attack, it is likely to face similar attacks again in the future. As such, careful preparation is very important. Especially if an application-level attack was used, it’s a good idea to go through the site and its code to find any aspects that could consume a large amount of resources, and modify them to limit the resources they could consume. Also, having an easy way to generate a static copy of the site and a rehearsed procedure to switch the site to static site hosting, could be useful for frequently-targeted sites.
 
-Further Reading
+## Further Reading
 
 The following additional resources provide more information on DoS attacks. The following resources mostly focus on the mechanics of low-level attacks:
 
