@@ -291,7 +291,7 @@ Determine the most frequently requested URLs.
 awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
 {{< / highlight >}}
 
-This `awk` command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the `uniq -c` command is used to count the occurrences of each unique line in the sorted output. The sort -nr command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The `head -5` command is used to display the first 5 lines of the input.
+This `awk` command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the `uniq -c` command is used to count the occurrences of each unique line in the sorted output. The `sort -nr` command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The `head -5` command is used to display the first 5 lines of the input.
 
 Find out the top 5 IP addresses making requests to the server.
 
@@ -337,7 +337,7 @@ awk -F'"' '{print $6}' nginx_access.log | sort | uniq -c | sort -nr | head -5
 
 This command uses `awk` to set the field separator (-F) to double quotes ("), then extracts the 6th field from each line of the` nginx_access.log` file. This assumes that the log entries are formatted in such a way that the URL or request path is enclosed within double quotes. The extracted URLs or request paths are then piped to sort them alphabetically. `uniq -c` is used to count the occurrences of each unique URL or request path. The output is piped again to `sort -nr` to sort the results numerically in descending order based on the count.
 
-Finally, head -5 is used to display the top 5 URLs or request paths with the highest occurrence counts.
+Finally, `head -5` is used to display the top 5 URLs or request paths with the highest occurrence counts.
 
 Analyze the distribution of requests by hour of the day.
 
