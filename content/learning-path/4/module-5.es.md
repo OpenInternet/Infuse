@@ -34,7 +34,7 @@ A veces, las aplicaciones web imponen restricciones a lo que los usuarios pueden
 
 #### Tamaño de entrada
 
-Los elementos de entrada HTML tienen un atributo longitud máxima que pretende limitar la cantidad de caracteres escritos en un campo de entrada, por ej., `&lt;input type="text" name="firstname" maxlength="20"&gt`;. En este ejemplo, si un usuario intenta introducir más de 20 caracteres en el campo de entrada, el navegador le impedirá hacerlo. Sin embargo, esto es en realidad sólo una petición cortés, en lugar de una restricción real. Por ejemplo:
+Los elementos de entrada HTML tienen un atributo longitud máxima que pretende limitar la cantidad de caracteres escritos en un campo de entrada, por ej., `<input type="text" name="firstname" maxlength="20">`;. En este ejemplo, si un usuario intenta introducir más de 20 caracteres en el campo de entrada, el navegador le impedirá hacerlo. Sin embargo, esto es en realidad sólo una petición cortés, en lugar de una restricción real. Por ejemplo:
 
 - El usuario puede utilizar la función de inspección web de su navegador para modificar el DOM y eliminar la restricción de longitud.
 - El usuario puede guardar la página web localmente, modificar el HTML para eliminar la restricción y luego volver a cargar la página en su navegador.
