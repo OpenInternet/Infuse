@@ -38,13 +38,13 @@ Accédez au thème [XSS de PortSwigger Academy](https://portswigger.net/web-secu
 
 ##### Test XSS efficace
 
-Le plus commun lorsqu'il s'agit de faire un test XSS consiste à saisir quelque chose comme : `">&lt;script>alert('xss')&lt;/script>` dans différents paramètres de requête, et d'attendre une fenêtre contextuelle JavaScript lorsque la page est renvoyée. Cela pose deux problèmes.
+Le plus commun lorsqu'il s'agit de faire un test XSS consiste à saisir quelque chose comme : `"><script>alert('xss')</script>` dans différents paramètres de requête, et d'attendre une fenêtre contextuelle JavaScript lorsque la page est renvoyée. Cela pose deux problèmes.
 
 Le premier problème est que dans un site qui comprend beaucoup de vulnérabilités XSS stockées, vous pouvez finir par cliquer sur plusieurs fenêtres contextuelles JavaScript sur chaque page que vous visitez. Cela s'avère ennuyeux, gênant et cela ralentira considérablement vos tests.
 
 Le deuxième problème est que si vous utilisez la même chaîne pour chaque entrée, vous ne saurez pas immédiatement quelles entrées correspondent à quelles sorties. Si vous avez un XSS stocké qui apparaît dans plusieurs parties du site, vous pouvez tomber sur votre chaîne de test XSS quelque part sur le site, mais sans savoir d'où il vient.
 
-Au lieu de cela, vous pourriez faire quelque chose d'un peu plus subtil et informatif. Une approche consiste à utiliser une chaîne de test comme : `">&lt;i>xss test - pagename - fieldname&lt;/i>&lt;q z="` où `pagename` et `fieldname` sont la page et le paramètre que vous testez. Si vous voyez cette chaîne en italique dans le site, cela signifie qu'il y a un XSS et vous saurez d'où vient l'entrée.
+Au lieu de cela, vous pourriez faire quelque chose d'un peu plus subtil et informatif. Une approche consiste à utiliser une chaîne de test comme : `"><i>xss test - pagename - fieldname</i><q z="` où `pagename` et `fieldname` sont la page et le paramètre que vous testez. Si vous voyez cette chaîne en italique dans le site, cela signifie qu'il y a un XSS et vous saurez d'où vient l'entrée.
 
 ##### CORS
 

@@ -37,13 +37,13 @@ Diríjase al [tema XSS de PortSwigger Academy](https://portswigger.net/web-secur
 
 ##### Effective XSS testing
 
-Lo común que hace la gente para las pruebas XSS es poner algo como `>&lt;script&gt;alert('xss')&lt;/script&gt;` en diferentes parámetros de solicitud y esperar a que aparezca una ventana emergente de JavaScript cuando regrese la página. Hay dos problemas con esto.
+Lo común que hace la gente para las pruebas XSS es poner algo como `"><script>alert('xss')</script>` en diferentes parámetros de solicitud y esperar a que aparezca una ventana emergente de JavaScript cuando regrese la página. Hay dos problemas con esto.
 
 El primer problema es que en un sitio que tiene muchas vulnerabilidades XSS almacenadas, puedes terminar haciendo clic en múltiples ventanas emergentes de JavaScript en cada página que visitas. Esto es molesto, distrae y ralentizará significativamente sus pruebas.
 
 El segundo problema es que si usa la misma cadena para cada entrada, no sabrá inmediatamente qué entradas corresponden a qué salidas. Si tiene un XSS almacenado que aparece en varias partes del sitio, puede toparse con su cadena de prueba XSS en algún lugar del sitio, pero no saber de dónde vino.
 
-En cambio, puedes hacer algo un poco más sutil e informativo. Un enfoque es utilizar una cadena de prueba como `>&lt;i&gt;xss test - pagename - fieldname&lt;/i&gt;<q z=` donde `pagename` andy `fieldname` son la página y el parámetro que estás probando. Si alguna vez ve esa cadena en cursiva en el sitio, inmediatamente sabrá que existe XSS y de dónde proviene la entrada.
+En cambio, puedes hacer algo un poco más sutil e informativo. Un enfoque es utilizar una cadena de prueba como `"><i>xss test - pagename - fieldname</i><q z="` donde `pagename` andy `fieldname` son la página y el parámetro que estás probando. Si alguna vez ve esa cadena en cursiva en el sitio, inmediatamente sabrá que existe XSS y de dónde proviene la entrada.
 
 ##### CORS
 

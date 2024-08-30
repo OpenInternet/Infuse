@@ -37,13 +37,13 @@ Head over to the [PortSwigger Academy XSS topic](https://portswigger.net/web-sec
 
 ##### Effective XSS testing
 
-The common thing people do for XSS testing is to put something like `">&lt;script>alert('xss')&lt;/script>` into different request parameters, and wait for a JavaScript pop-up when the page comes back. There are two problems with this.
+The common thing people do for XSS testing is to put something like `"><script>alert('xss')</script>` into different request parameters, and wait for a JavaScript pop-up when the page comes back. There are two problems with this.
 
 The first problem is that in a site that has a lot of stored XSS vulnerabilities, you may end up clicking away multiple JavaScript popups on every page you visit. This is annoying, distracting, and will significantly slow down your testing.
 
 The second problem is that if you use the same string for each input, you won’t immediately know what inputs correspond to what outputs. If you have a stored XSS that appears in multiple parts of the site, you may stumble upon your XSS test string somewhere on the site, but not know where it came from.
 
-Instead, you can do something a bit more subtle and informative. One approach is to use a test string like `">&lt;i>xss test - pagename - fieldname&lt;/i>&lt;q z="` where `pagename` and `fieldname` are the page and parameter you’re testing. If you ever see that string in italics in the site, you immediately know that there’s XSS and where the input came from.
+Instead, you can do something a bit more subtle and informative. One approach is to use a test string like `"><i>xss test - pagename - fieldname</i><q z="` where `pagename` and `fieldname` are the page and parameter you’re testing. If you ever see that string in italics in the site, you immediately know that there’s XSS and where the input came from.
 
 ##### CORS
 
