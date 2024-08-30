@@ -20,8 +20,7 @@ Una vez completado este subtema, los profesionales serán capaces de ayudar de f
 
 Security Education Companion contiene una multitud de consejos sobre formas reflexivas, cuidadosas y reductoras de daños para interactuar como ayudante de tecnología. Si aún no está familiarizado con este tipo de contenido, le recomendamos que revise los recursos de [Security Education 101](https://www.securityeducationcompanion.org/articles).
 
-**  
-Al leer los recursos anteriores, debería poder hacer lo siguiente:**
+**Al leer los recursos anteriores, debería poder hacer lo siguiente:**
 
 - Comprender cómo la evaluación de riesgos es importante en cada interacción;
 - Comprender los riesgos de tocar los dispositivos de las personas u obtener acceso a sus cuentas;
@@ -54,7 +53,7 @@ Para que la seguridad operacional le proteja mientras trabaja con correos electr
 
 ## Practique
 
-### Reflexione y responda/discuta lo siguiente con sus compañeros, colegas, amigos o un mentor. Si está disponible y es apropiado, hable con un ʻclienteʼ con el que haya trabajado antes para pedirle su opinión y experiencias sobre algunas de estas preguntas
+Reflexione y responda/discuta lo siguiente con sus compañeros, colegas, amigos o un mentor. Si está disponible y es apropiado, hable con un ʻclienteʼ con el que haya trabajado antes para pedirle su opinión y experiencias sobre algunas de estas preguntas
 
 - Describa cómo manipular el dispositivo de alguien y acceder a él puede presentar riesgos imprevistos.
 - Imagine que está ayudando a alguien con datos confidenciales en su dispositivo. ¿Cómo abordaría una discusión con esta persona con respecto a su acceso y manejo de datos?
