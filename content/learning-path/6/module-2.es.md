@@ -291,7 +291,7 @@ Determine las URL solicitadas con más frecuencia.
 awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
 {{< / highlight >}}
 
-Este comando awk imprimirá la séptima columna de cada línea del registro y luego canalizará la salida del comando awk anterior al comando de clasificación. ordenar se utiliza para ordenar las líneas de texto alfabética o numéricamente. De forma predeterminada, ordena en orden ascendente. Después de ordenar la salida con sort, el comando uniq -c se usa para contar las apariciones de cada línea única en la salida ordenada. El comando ordenar -nr se utiliza para ordenar la salida numéricamente (-n) en orden inverso (-r). Esto significa que las líneas se ordenan según sus valores numéricos, apareciendo primero los valores más altos. El comando cabeza -5 se utiliza para mostrar las primeras 5 líneas de la entrada.
+Este comando awk imprimirá la séptima columna de cada línea del registro y luego canalizará la salida del comando awk anterior al comando de clasificación. ordenar se utiliza para ordenar las líneas de texto alfabética o numéricamente. De forma predeterminada, ordena en orden ascendente. Después de ordenar la salida con sort, el comando `uniq -c` se usa para contar las apariciones de cada línea única en la salida ordenada. El comando `sort -nr` se utiliza para ordenar la salida numéricamente (-n) en orden inverso (-r). Esto significa que las líneas se ordenan según sus valores numéricos, apareciendo primero los valores más altos. El comando `head -5` se utiliza para mostrar las primeras 5 líneas de la entrada.
 
 Descubra las 5 principales direcciones IP que realizan solicitudes al servidor.
 
@@ -337,7 +337,7 @@ awk -F'"' '{print $6}' nginx_access.log | sort | uniq -c | sort -nr | head -5
 
 Este comando usa `awk` para establecer el separador de campo (-F) en comillas dobles ("), luego extrae el sexto campo de cada línea del archivo `nginx_access.log`. Esto supone que las entradas del registro están formateadas de tal manera que la URL o la ruta de solicitud estén entre comillas dobles. Las URL extraídas o las rutas de solicitud se canalizan para ordenarlas alfabéticamente. `uniq -c` se utiliza para contar las apariciones de cada URL única o ruta de solicitud. La salida se canaliza nuevamente a `sort -nr` para ordenar los resultados numéricamente en orden descendente según el recuento.
 
-Finalmente, head -5 se usa para mostrar las 5 URL principales o rutas de solicitud con el mayor número de ocurrencias.
+Finalmente, `head -5` se usa para mostrar las 5 URL principales o rutas de solicitud con el mayor número de ocurrencias.
 
 Analizar la distribución de solicitudes por hora del día.
 
