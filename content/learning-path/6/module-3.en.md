@@ -107,7 +107,7 @@ C) DNS Spoofing\
 D) UDP Flood
 
 {{< question title="Answer" >}}
-1. C) DNS Spoofing
+C) DNS Spoofing
 {{< /question >}}
 
 2. What is the main objective of a DDoS attack?
@@ -118,7 +118,7 @@ C) To overwhelm a target system or network\
 D) To encrypt files and demand ransom
 
 {{< question title="Answer" >}}
-2. C) To overwhelm a target system or network
+C) To overwhelm a target system or network
 {{< /question >}}
 
 3. Which technique is commonly used to mitigate DNS Amplification DDoS attacks?
@@ -129,7 +129,7 @@ C) Deploying Intrusion Prevention Systems (IPS) to detect and block malicious tr
 D) Conducting regular vulnerability scans to identify and patch DNS server vulnerabilities
 
 {{< question title="Answer" >}}
-3. B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers
+B) Utilizing rate limiting to control the volume of DNS response packets leaving authoritative servers
 {{< /question >}}
 
 4. Which phase of incident response involves identifying the nature and scope of a DDoS attack?
@@ -140,7 +140,7 @@ C) Containment, Eradication, and Recovery\
 D) Post-Incident Activity
 
 {{< question title="Answer" >}}
-4. B) Detection and Analysis
+B) Detection and Analysis
 {{< /question >}}
 
 5. What is a primary goal during the containment phase of incident response for a DDoS attack?
@@ -151,7 +151,7 @@ C) Identifying vulnerabilities for future attacks\
 D) Restoring affected services while preventing further damage
 
 {{< question title="Answer" >}}
-5. D) Restoring affected services while preventing further damage
+D) Restoring affected services while preventing further damage
 {{< /question >}}
 
 6. In the context of incident response, what does the "Eradication" phase involve regarding DDoS attacks?
@@ -162,7 +162,7 @@ C) Implementing long-term solutions to prevent similar attacks\
 D) Rebooting affected systems
 
 {{< question title="Answer" >}}
-6. C) Implementing long-term solutions to prevent similar attacks
+C) Implementing long-term solutions to prevent similar attacks
 {{< /question >}}
 
 7. Which action is typically performed during the recovery phase of incident response following a DDoS attack?
@@ -173,7 +173,7 @@ C) Identifying new attack vectors\
 D) Initiating legal action against the attacker
 
 {{< question title="Answer" >}}
-7. B) Applying security patches to vulnerable systems
+B) Applying security patches to vulnerable systems
 {{< /question >}}
 
 8. How can Content Delivery Networks (CDNs) help protect websites from Denial of Service (DoS) attacks?
@@ -184,7 +184,7 @@ C) By distributing website content across multiple servers and data centers\
 D) By increasing the website's processing power
 
 {{< question title="Answer" >}}
-8. C) By distributing website content across multiple servers and data centers
+C) By distributing website content across multiple servers and data centers
 {{< /question >}}
 
 

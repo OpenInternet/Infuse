@@ -355,7 +355,7 @@ The output will display the count of log entries for each hour in the log file.
 
 ### Practice exercise 3: Error Log Analysis (Both Apache and Nginx)
 
-Apache and nginx: Count the total number of error entries in the log.
+1. Apache and nginx: Count the total number of error entries in the log.
 
 {{< highlight bash >}}
 cat apache_error.log | grep 'error' | wc -l
@@ -363,7 +363,7 @@ cat nginx_error.log | grep 'error' | wc -l
 {{< / highlight >}}
 
 
-Apache: Identify the most common types of errors. `awk '{print $NF}'` reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
+2. Apache: Identify the most common types of errors. `awk '{print $NF}'` reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
 
 {{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
@@ -374,21 +374,19 @@ The number at the beginning of each line shows how many times a particular error
 
 The last field represents different things in each line. It could be a file path, a specific action, or some other identifier related to the error. For instance, “`757`” or “`154`” could be error codes or unique identifiers, while “`/home/mysite/public_html/new/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:100`” could be a file path and line number where the error occurred.
 
-nginx: Determine the top 5 IP addresses, domains, or file paths generating errors.
+3. nginx: Determine the top 5 IP addresses, domains, or file paths generating errors.
 
 {{< highlight bash >}}
 cat nginx_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
 {{< / highlight >}}
 
-
-Apache: Analyze the distribution of errors by date or time.
+4. Apache: Analyze the distribution of errors by date or time.
 
 {{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{print $1}' | sort | uniq -c
 {{< / highlight >}}
 
-
-Apache: Investigate any recurring error patterns and propose potential solutions. {$1=""; $2=""; $3="";}: This part of the awk command sets the first three fields (date, time, and timezone information) to empty strings.
+5. Apache: Investigate any recurring error patterns and propose potential solutions. {$1=""; $2=""; $3="";}: This part of the awk command sets the first three fields (date, time, and timezone information) to empty strings.
 
 {{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort | uniq -c | sort -nr | head -10
