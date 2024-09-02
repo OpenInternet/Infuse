@@ -1,182 +1,184 @@
 +++
 style = "module"
 weight = 2
-title = "Website Logging for Security"
+title = "Journalisation du site Web pour la sécurité"
+description = "Les journaux de site web peuvent être essentiels pour identifier des attaques potentielles et les attaquants. Nous examinons comment les utiliser efficacement."
 +++
 
-## Use Case
+## Cas d'utilisation
 
-Any website that’s exposed to the internet is under constant attack. At the very least, it’s being deluged by undirected attacks by hordes of robots operated by criminal actors. More concerning are targeted attacks; even unskilled attackers, given perseverance and luck, can find vulnerabilities in a website.
+Tout site Web exposé à Internet est constamment attaqué. Au minimum, il est inondé par des attaques non dirigées par des hordes de robots exploités par des acteurs criminels. Les attaques ciblées sont plus préoccupantes. Même les cybercriminels non qualifiés, s'ils font preuve de persévérance et de chance, peuvent découvrir des vulnérabilités sur un site Web.
 
-Ideally, the website owner should be able to be aware of the threats they are facing. Site owners especially will want to know if an attacker is close to finding, or has recently found, a vulnerability in their site. Finally, if a vulnerability is exploited, site owners will want to know where the vulnerability is, and for how long it’s been exploited. Website logs can support all of these desires.
+Idéalement, le propriétaire du site Web devrait avoir conscience des menaces auxquelles le site est confronté. Les propriétaires de sites en particulier voudront savoir si un cybercriminel est proche de trouver, ou a récemment trouvé, une vulnérabilité dans leur site. Enfin, si une vulnérabilité est exploitée, les propriétaires de sites voudront savoir où se trouve la vulnérabilité et pendant combien de temps elle a été exploitée. Les journaux de site Web peuvent soutenir tous ces désirs.
 
-On the other hand, excessive logging can present a risk to the users of web sites. If a site logs sensitive information, and those logs are acquired by an adversary (e.g., seizure by law enforcement or compromise by hackers), then sensitive information could easily end up in the wrong hands.
+D'autre part, une journalisation excessive peut présenter un risque pour les utilisateurs des sites Web. Si un site enregistre des informations sensibles et que ces journaux sont acquis par un cybercriminel (par exemple, une saisie par les forces de l'ordre ou une compromission par des pirates informatiques), les informations sensibles pourraient facilement se retrouver entre de mauvaises mains.
 
-This subtopic will cover approaches to website logging to maximize utility to website owners and minimize risk to site users.
+Ce sous-thème couvrira les approches de journalisation des sites Web afin de maximiser l'utilité pour les propriétaires de sites Web et de minimiser les risques pour les utilisateurs du site.
 
-## Objectives
+## Objectifs
 
-After completing this subtopic, the practitioner should be able to do the following:
+Après avoir terminé ce sous-thème, les participants devraient être en mesure de faire ce qui suit :
 
-- Understand built-in logging for major web servers
-- Understand what application-specific logs to add to detect attacks
-- Know how to minimize sensitive information in logs
+- Comprendre la journalisation intégrée pour les principaux serveurs Web
+- Comprendre les journaux spécifiques aux applications à ajouter pour détecter les attaques
+- Savoir comment minimiser les informations sensibles dans les journaux
 
 ---
+## Section Principale
 
-Even with the best possible skills, dedication, processes, and intentions, it’s nearly impossible to develop a website that’s completely resistant to any kind of attack. Given enough time and bad luck, every site will have a security incident. When that happens, it’s important to have logging in place that supports the detection and investigation of security events. At the same time, it’s important that a website's logs don’t pose additional risks themselves. This subtopic will teach you how to approach logging to maximize a site’s security. It will discuss:
+Même avec les meilleures compétences, intentions et procédures possible, il est presque impossible de développer un site Web qui résiste complètement à tout type d'attaque. Avec suffisamment de temps et de malchance, chaque site présentera un incident de sécurité. Lorsque cela se produit, il est important d'avoir mis en place une journalisation qui prend en charge la détection et l'investigation des événements de sécurité. En même temps, il est important que les journaux d'un site Web ne posent pas de risques supplémentaires. Ce sous-thème vous apprendra comment aborder la journalisation pour maximiser la sécurité d'un site. Nous aborderons :
 
-- Built-in logs for popular platforms
-- Adding logs to catch important security events
-- Minimizing risks associated with logging
+- Les journaux intégrés pour les plateformes populaires
+- L'ajout de journaux pour capturer des événements de sécurité importants
+- La minimisation des risques associés à la journalisation
 
-## Built-in Logging
+### La journalisation intégrée
 
-Various web platforms have their own logging systems. They can be relied upon to record data on every request and response, but are generally not sufficient for all incident response needs. Let’s go over what’s available in some common frameworks’ logs.
+Les diverses plateformes Web ont leurs propres systèmes de journalisation. Nous pouvons compter sur eux pour enregistrer des données sur chaque requête et réponse, mais ils ne sont généralement pas suffisants pour tous les besoins d'intervention en cas d'incident. Passons en revue ce qui est disponible dans les registres de certains frameworks.
 
-### Apache
+#### Apache
 
-Apache is the most popular full-featured web server on the internet, serving more active sites than any other. By default, it logs events to file on the web server’s filesystem. There are two files: `access_log` and `error_log`. The access log contains structured information about each request, while the error log contains more semi-structured data about things that have gone wrong.
+Apache est le serveur Web complet le plus populaire sur Internet et sert les sites les plus actifs. Par défaut, il enregistre les événements sur le système de fichiers du serveur Web. Cela comprend deux fichiers : access_log et error_log. Le journal d'accès contient des informations structurées sur chaque requête, tandis que le journal d'erreurs contient plus de données semi-structurées sur les problèmes qui se sont présentés.
 
-The access log has one line per entry, with a configurable format. The default format is the following fields, each separated by a space:
+Le journal d'accès comprend une ligne par entrée, avec un format configurable. Le format par défaut est le suivant, chacun séparé par un espace :
 
-- The requester’s IP address
-- The logged-in user on the requesting device. This is almost never sent, and so is almost always just a dash.
-- The user logged in if the web site uses HTTP Basic authentication. This will also almost always be a dash.
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The HTTP request line sent from the client, surrounded by quotes (e.g. `"GET / HTTP/1.1"`). These fields will always have spaces.
-- The HTTP response code from the server, e.g. 200, 404, 500, etc.
-- The size of the response returned from the server
+- L'adresse IP du demandeur
+- L'utilisateur connecté sur l'appareil demandeur. Cette information n'est presque jamais envoyée et se limite presque toujours à un simple tiret.
+- L'utilisateur se connecte si le site Web utilise l'authentification HTTP de base. Il s'agit s'agira presque toujours d'un tiret.
+- La date et l'heure de la requête, entourées de crochets. Notez que ce champ contient généralement des espaces.
+- La ligne de requête HTTP envoyée depuis le client, entourée de guillemets (p. ex., "GET / HTTP/1.1"). Ces champs auront toujours des espaces.
+- Le code de réponse HTTP du serveur, p. ex., 200, 404, 500, etc.
+- La taille de la réponse retournée par le serveur
 
-Here’s an example:
+Voici un exemple :
 
 ```
-127.0.0.1 - - [13/Dec/2023:13:55:36 -0700] "GET / HTTP/1.1" 200 2326
+127.0.0.1 - - \[13/Dec/2023:13:55:36 -0700\] "GET / HTTP/1.1" 200 2326
 ```
 
-Note that each Apache server can be configured to log more of less data. For more information, see [the Apache documentation](https://httpd.apache.org/docs/2.4/logs.html#accesslog). For more about the apache access log and how to use it, see [this article.](https://www.keycdn.com/support/apache-access-log)
+Notez que chaque serveur Apache peut être configuré pour enregistrer plus de données. Pour obtenir plus d'informations, consultez [la documentation Apache](https://httpd.apache.org/docs/2.4/logs.html#accesslog). Pour en savoir plus sur le journal d'accès Apache et la façon de l'utiliser, consultez [cet article](https://www.keycdn.com/support/apache-access-log).
 
-The error log consists of a mix of messages from Apache that are in a semi-structured format and error messages from websites running on the server, without any enforced structure. The default structure of error log entries from Apache itself is one line per entry, with the following fields, again separated by spaces:
+Le journal d'erreurs se compose d'un mélange de messages d'Apache qui sont dans un format semi-structuré et de messages d'erreur provenant de sites Web exécutés sur le serveur, sans aucune structure imposée. La structure par défaut des entrées du journal des erreurs d'Apache est une ligne par entrée, avec les champs suivants, séparés à nouveau par des espaces :
 
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The error level (e.g. notice, error) surrounded by square brackets.
-- If the error is associated with a request, the word “client” and the IP address of the requester, all within square brackets.
-- The actual error message itself, which will almost always contain a number of spaces
+- La date et l'heure de la requête, entourées de crochets. Notez que ce champ contient généralement des espaces.
+- Le niveau d'erreur (p. ex., avis, erreur) entouré de crochets.
+- Si l'erreur est associée à une requête, le mot « client » et l'adresse IP du demandeur, le tout entre crochets.
+- Le message d'erreur lui-même, qui contiendra presque toujours un certain nombre d'espaces
 
-[This article](https://www.dataset.com/blog/apache-error-log-detail/) provides more information about using the Apache error log.
+[Cet article](https://www.dataset.com/blog/apache-error-log-detail/) fournit plus d'informations sur l'utilisation du journal d'erreurs Apache.
 
-### IIS
+#### IIS
 
-IIS is the default Windows web server, and is also a very popular web server. Like Apache, IIS also, by default, logs requests to the web server’s filesystem. There are several log formats available, but the default is the W3C format, which logs the following, separated by spaces:
+IIS est le serveur Web Windows par défaut et également un serveur Web très populaire. Comme Apache, IIS enregistre également, par défaut, les requêtes vers le système de fichiers du serveur Web. Plusieurs formats de journaux sont disponibles, mais le format par défaut est le format W3C, qui enregistre les éléments suivants, séparés par des espaces :
 
-- Request time
-- Requester’s IP address
-- HTTP method (e.g. `GET`, `POST`, `HEAD`, etc.)
-- URI (e.g. `/`, `/index.htm`, `/posts/34/reply`, etc.)
-- Server response code (e.g. `200`, `404`, `500`, etc.)
-- HTTP protocol version (e.g. `HTTP/1.1`)
+- Heure de la requête
+- Adresse IP du demandeur
+- Méthode HTTP (p. ex., `GET`, `POST`, `HEAD`, etc.)
+- URL (p. ex., `/`, `/index.htm`, `/posts/34/reply`, etc.)
+- Code de réponse du serveur (p. ex., `200`, `404`, `500`, etc.)
+- Version du protocole HTTP (p. ex., `HTTP/1.1`)
 
-Note that the default logs do not log the query string, so for example a request to [http://example.com/profile?profileID=34](http://example.com/profile?profileID=34) will only log `/profile`. For more information on the IIS access logs, see the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0).
+Notez que les journaux par défaut n'enregistrent pas la chaîne de la requête, par exemple une requête <http://example.com/profile?profileID=34> n'enregistrera que /profile. Pour obtenir plus d'informations sur les journaux d'accès IIS, consultez la [documentation Microsoft](https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0).
 
-Error logs under IIS are slightly more complicated. Depending on the error, they may go to the HTTP.SYS HTTPERR log file, or in the Windows event log.
+Les journaux d'erreurs sous IIS sont légèrement plus compliqués. Selon l'erreur, ils peuvent être consignés dans le fichier journal HTTP.SYS HTTPERR ou dans le journal des événements Windows.
 
-The HTTPERR file contains protocol-level errors and is in a structured format, with the following fields separated by spaces:
+Le fichier HTTPERR contient des erreurs au niveau du protocole et est structuré, les champs suivants étant séparés par des espaces :
 
-- Request date
-- Request time
-- Requester’s IP address
-- Requester’s port (not the server port)
-- Server IP address
-- Server port
-- HTTP protocol ( e.g. `HTTP/1.1`)
-- HTTP method (e.g. `GET`, `POST`, `HEAD`, etc.)
-- The URL and query string
-- Server response code (e.g. `200`, `404`, `500`, etc.)
-- A literal dash
-- An error type string (no spaces)
+- Date de la requête
+- Heure de la requête
+- Adresse IP du demandeur
+- Port du demandeur (pas le port du serveur)
+- Adresse IP du serveur
+- Port du serveur
+- Protocole HTTP (p. ex., `HTTP/1.1`)
+- Méthode HTTP (p. ex., `GET`, `POST`, `HEAD`, etc.)
+- L'URL et la chaîne de la requête
+- Code de réponse du serveur (p. ex., `200`, `404`, `500`, etc.)
+- Un trait littéral
+- Une chaîne de type erreur (pas d'espaces)
 
-For more information on the error log, see the [Microsoft documentation](https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis).
+Pour obtenir plus d'informations sur le journal des erreurs, consultez la [documentation Microsoft](https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis).
 
-The Windows event log contains errors generated from the application server (e.g. ASP.NET) or application. These are available in the Windows Event Viewer and are semi-structured:
+Le journal des événements Windows contient des erreurs générées par le serveur d'applications (p. ex., ASP.NET) ou l'application. Ils sont disponibles dans l'Observateur d'événements Windows et sont semi-structurés :
 
-- Error level (e.g. `Information`, `Warning`, `Error`)
-- Date and time
-- The software that logged the error (log entries can come from any software on the system, not just the web server)
-- A unique ID of the event/error
-- Category
-- Unstructured information specific to the error
+- Niveau d'erreur (p. ex., `Information`, `Avertissement`, `Erreur`)
+- Date et heure
+- Le logiciel qui a enregistré l'erreur (les entrées de journal peuvent provenir de n'importe quel logiciel sur le système, pas seulement du serveur Web)
+- Un ID unique de l'événement/erreur
+- Catégorie
+- Informations non structurées spécifiques à l'erreur
 
-For more information on finding error logs on Windows, see [this article](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
+Pour obtenir plus d'informations sur la recherche des journaux d'erreurs sur Windows, consultez [cet article](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
 
-### nginx
+#### nginx
 
-Depending on how you count, nginx may be the most popular web server on the internet, however it is fairly limited, usually acting as a reverse proxy to a back-end web server or serving static files.
+Selon la façon dont vous comptez, nginx peut être le serveur Web le plus populaire sur Internet, mais il est assez limité et agit généralement comme un proxy inverse à un serveur Web back-end ou servant des fichiers statiques.
 
-The default access logs are similar to the default Apache logs, but with the following fields at the end of each line:
+Les journaux d'accès par défaut sont similaires aux journaux Apache par défaut, mais avec les champs suivants à la fin de chaque ligne :
 
-- Value of the referer header sent with the request
-- User agent (browser version) sent with the request
+- Valeur de l'en-tête référant envoyé avec la requête
+- Agent utilisateur (version du navigateur) envoyé avec la requête
 
-For more information about nginx logs, see [the official documentation](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
+Pour obtenir plus d'informations sur les journaux nginx, consultez la [documentation officielle](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
 
-nginx error logs are semi-structured, with the following fields, separated by spaces:
+Les journaux d'erreurs nginx sont semi-structurés, avec les champs suivants, séparés par des espaces :
 
-- The request date
-- The request time
-- The error level inside of square brackets
-- Process ID information about the nginx instance that logged the error
-- An (optional) connection ID
-- The error message in free-form text
+- La date de la requête
+- L'heure de la requête
+- Le niveau d'erreur entre crochets
+- Les informations d'ID du processus sur l'instance nginx qui a enregistré l'erreur
+- Un ID de connexion (facultatif)
+- Le message d'erreur en texte libre
 
-For more information, see [this article](https://trunc.org/learning/nginx-log-analysis).
+Pour obtenir plus d'informations, consultez [cet article](https://trunc.org/learning/nginx-log-analysis).
 
-### Upstream CDN logs
+#### Journaux CDN en amont
 
-If a site is behind a CDN, it’s often useful to see the logs of the requests to the CDN, as opposed to the requests from the CDN to the origin site. Each CDN provider provides logs differently and has different pricing structures for logging.
+Si un site est derrière un CDN, il est souvent utile de voir les journaux des requêtes au CDN, par opposition aux requêtes du CDN envoyées au site d'origine. Chaque fournisseur de CDN fournit des journaux différemment et a des structures de prix différentes pour la journalisation.
 
-### Setting up server logging
+#### Configuration de la journalisation du serveur
 
-When setting up server logging, there are a few steps that should be taken to maximize the security value of the logs.
+Lors de la configuration de la journalisation du serveur, quelques étapes doivent être réalisées pour maximiser la valeur de sécurité des journaux.
 
-- Make sure the logs contain at least the IP address of the requestor, full URI requested (including the query string), time taken to serve the request, response size, referer, and user-agent. This information can be extremely helpful when investigating an incident.
-- Try to get the logs off of the web server as quickly as possible. If the server itself is compromised, attackers will likely try to hide their tracks by deleting or modifying the server logs. Some ways of accomplishing this include:
-  - Have a process that pulls log files from the server periodically. Pushing logs from the web server is okay, though it’s important that the push process cannot be used to delete the backed-up logs.
-  - “Stream” logs from the web server to a remote ever, for example, with syslog-ng. This provides great protection against loss of logs. It’s usually a good idea to keep logs on the web server as well, in case of network interruption.
+- Assurez-vous que les journaux contiennent au moins l'adresse IP du demandeur, l'URL complète demandée (y compris la chaîne de la requête), le temps nécessaire pour servir la requête, la taille de la réponse, le référent et l'agent utilisateur. Ces informations peuvent être extrêmement utiles lors d'une enquête sur un incident.
+- Essayez d'obtenir les journaux hors du serveur Web aussi rapidement que possible. Si le serveur lui-même est compromis, les cybercriminels tenteront probablement de cacher leurs traces en supprimant ou en modifiant les journaux du serveur. Voici quelques façons d'y parvenir :
+  - Avoir un processus qui extrait les fichiers journaux du serveur périodiquement. L'envoi de journaux à partir du serveur Web est correct, mais il est important que le processus d'envoi ne puisse pas être utilisé pour supprimer les journaux sauvegardés.
+  - Les journaux « Stream » du serveur Web vers un serveur distant, par exemple, avec syslog-ng. Cela offre une grande protection contre la perte de journaux. Il est généralement judicieux de conserver les journaux sur le serveur Web, en cas d'interruption du réseau.
 
-### Limitations of server logging
+#### Limitations de la journalisation du serveur
 
-Even when fully configured, built-in server logs miss a lot of important information. Some examples:
+Même lorsqu'ils sont entièrement configurés, les journaux de serveur intégrés manquent beaucoup d'informations importantes. À titre d'exemples :
 
-- POST parameter information isn’t included. If an attacker is performing application-level attacks against a page that accepts POST parameters, there will be no way to see those attacks in the logs.
-- Although error logs may contain information about filesystem and database errors that occur as attackers exploit vulnerabilities, they generally are not sufficient to understand much about the attack. E.g., elevated error logs may indicate an attack in progress but may also indicate a non-security bug, and it can be very difficult to distinguish between the two.
-- No identity information is included. While all logs include the IP address, multiple users can have the same IP.
+- Les informations du paramètre POST ne sont pas incluses. Si un cybercriminel effectue des attaques au niveau de l'application contre une page qui accepte les paramètres POST, il n'y aura aucun moyen de voir ces attaques dans les journaux.
+- Bien que les journaux d'erreurs puissent contenir des informations sur les erreurs de système de fichiers et de base de données qui se produisent lorsque les cybercriminels exploitent des vulnérabilités, ils ne sont généralement pas suffisants pour comprendre beaucoup de choses sur l'attaque. P. ex., des journaux d'erreurs élevés peuvent indiquer une attaque en cours, mais peuvent également indiquer un bug non lié à la sécurité, et il peut s'avérer très difficile de distinguer les deux.
+- Aucune information d'identité n'est incluse. Bien que tous les journaux incluent l'adresse IP, plusieurs utilisateurs peuvent avoir la même adresse IP.
 
-Much of this information isn’t included for good reason. Much of it can have bad implications for user privacy. Others (like useful error logging) require insight into the application itself, so can’t be done by the web server.
+La plupart de ces informations ne sont pas incluses pour de bonnes raisons. Une grande partie peut avoir de mauvaises implications pour la vie privée des utilisateurs. D'autres (comme la journalisation des erreurs utiles) nécessitent un aperçu de l'application elle-même, et ne peuvent donc pas être effectuées par le serveur Web.
 
-### Approaching Logging for security
+#### Approche de la journalisation pour la sécurité
 
-The main purpose of application-level logging in a web application is to overcome the limitations of server logging. There are numerous articles describing best practices for logging, here are a few:
+L'objectif principal de la journalisation au niveau de l'application dans une application Web est de surmonter les limites de la journalisation du serveur. Il existe de nombreux articles décrivant les bonnes pratiques en matière de journalisation, en voici quelques-uns :
 
-- [An overview of security logging](https://www.dnsstuff.com/security-log-best-practices)
-- [An article from OWASP on logging for web sites](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [An article from OWASP on having a consistent format for logs](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
+- [Un aperçu de la journalisation de sécurité](https://www.dnsstuff.com/security-log-best-practices)
+- [Un article de l'OWASP sur la journalisation des sites Web](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+- [Un article de l'OWASP sur le fait d'avoir un format cohérent pour les journaux](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
 
-These resources should get you set up with the knowledge you need to integrate security logging into an existing (or new) web application.
+Ces ressources devraient vous fournir les connaissances dont vous avez besoin pour intégrer la connexion de sécurité dans une application Web existante (ou nouvelle).
 
-### Logging and sensitive information
+#### Journalisation et informations sensibles
 
-When overcoming the limitations of built-in server logging, we want to make sure that we don’t put site users at risk. It is frequently the case that logs are less well protected than production databases. First off, logs are not as obvious a target as a production database, so people tend to not focus on them as much when putting security measures in place. Secondly, it’s often the case that more users at an organization are given access to logs than are granted to access to a production database. Third, logs tend to be sent to many different systems, whereas production databases tend to stay centralized. Because of this, it’s worth considering redacting sensitive information in logs.
+Lorsque nous surmontons les limites de la journalisation serveur intégrée, nous voulons nous assurer de ne pas mettre les utilisateurs du site en danger. Il arrive fréquemment que les journaux soient moins bien protégés que les bases de données de production. Tout d'abord, les journaux ne sont pas une cible aussi évidente qu'une base de données de production, de sorte que les utilisateurs ont tendance à ne pas se concentrer sur eux lors de la mise en place de mesures de sécurité. Deuxièmement, il arrive souvent qu'un plus grand nombre d'utilisateurs d'une organisation aient accès aux journaux qu'à une base de données de production. Troisièmement, les journaux ont tendance à être envoyés à de nombreux systèmes différents, tandis que les bases de données de production ont tendance à rester centralisées. Pour cette raison, il convient d'envisager de caviarder les informations sensibles dans les journaux.
 
-[This article](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) prevents some general best practices for handling sensitive data during logging. Here are some approaches to consider for specific sorts of data:
+[Cet article](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) empêche certaines bonnes pratiques générales pour le traitement des données sensibles lors de la journalisation. Voici quelques approches à envisager pour certains types de données :
 
-#### POST parameters
+##### Paramètres POST
 
-It is a recommended practice to not include sensitive information in GET parameters, hence GET parameters being logged, but not POST parameters. However, it can be extremely useful to have access to information about POST parameters when responding to an attack. A few things to put in place:
+Il est recommandé de ne pas inclure d'informations sensibles dans les paramètres GET, c'est pourquoi les paramètres GET sont enregistrés, mais pas les paramètres POST. Cependant, il peut être extrêmement utile d'avoir accès à des informations sur les paramètres POST lors de la réponse à une attaque. Voici quelques mesures à prendre :
 
-- Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
-- For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
+- Certaines pages (p. ex., la page d'ouverture de session) et/ou certains paramètres (numéro de carte de crédit, champs de mot de passe) devraient être exemptés de journalisation
+- Pour les paramètres POST qui seront enregistrés, envisagez de les supprimer pour masquer les informations potentiellement sensibles, tout en restant en mesure d'identifier le trafic malveillant. Le code Python suivant peut vous inspirer :
 
-  ```
+  {{< highlight python >}}
   import re
 
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
@@ -201,57 +203,37 @@ It is a recommended practice to not include sensitive information in GET paramet
   			output = output + "*"
   		i = i+1
 
-  ```
+  {{< / highlight >}}
 
-#### Security-related errors
+##### Erreurs liées à la sécurité
 
-If a request causes an error that looks like an attempt to hack or bypass controls, the website should aggressively log the request information. Examples include:
+Si une requête provoque une erreur qui ressemble à une tentative de piratage ou de contournement des contrôles, le site Web doit consigner agressivement les informations de la requête. Voici quelques exemples :
 
-- Database queries that trigger an error
-- Requests for a data element that the user doesn’t have access to
-- Errors or empty data when attempting to read a file
+- Requêtes de base de données qui déclenchent une erreur
+- Requêtes pour un élément de données auquel l'utilisateur n'a pas accès
+- Erreurs ou données vides lors de la tentative de lecture d'un fichier
 
-If any of these happen, it’s a good idea to log the request, as well as internal information (e.g., database query, filename, etc). In the good case, there’s a simple bug in the site. In that case, there’s plenty of debugging information. In the bad case, the site is being compromised. In that case, it’s easier to find where the compromise occurred, so that forensics is more effective.
+Si l'un de ces cas se produit, il est conseillé de consigner la requête, ainsi que les informations internes (par exemple, requête de base de données, nom de fichier, etc.). Dans le scénario optimiste, il y a un simple bug dans le site. Dans ce cas, il y a beaucoup d'informations de débogage. Dans le scénario pessimiste, le site est compromis. Dans ce cas, il est plus facile de trouver où la faille s'est produite, de sorte que l'investigation soit plus efficace.
 
-#### Identity information
+##### Informations d'identité
 
-Logging the identity of a logged-in user can be dangerous, but there are steps that can be taken to mitigate the danger. It’s questionable to log session cookies, but a hash of a session ID can be used to track a user’s activity across the site. Also, if the web server has a queryable directory of active user sessions, then either an internal ID can be used in logs, or the existing session IDs can be hashed to identify the log entries of a logged-in user. This will allow site owners to identify an active attacker, while making the identities in the logs useless to a threat actor on their own.
+La journalisation de l'identité d'un utilisateur connecté peut être dangereuse, mais des mesures peuvent être prises pour atténuer le danger. Il est douteux de journaliser des cookies de session, mais un hachage d'un ID de session peut être utilisé pour suivre l'activité d'un utilisateur sur le site. En outre, si le serveur Web dispose d'un répertoire interrogeable des sessions utilisateur actives, un ID interne peut être utilisé dans les journaux ou les ID de session existants peuvent être hachés pour identifier les entrées de journal d'un utilisateur connecté. Cela permettra aux propriétaires du site d'identifier un cybercriminel actif, tout en rendant les identités dans les journaux inutiles pour un acteur de menace.
 
-## Learning Resources
+## Exercice pratique
 
-{{% resource title="Log Files - Apache" languages="English" cost="Free" description="An overview of how to read log files in the Apache web server." url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
+Lisez les commandes d'exemple suivantes qui utilisent des outils Unix courants comme awk, sort, uniq et grep pour effectuer l'analyse sur les journaux Apache et Nginx.
 
-{{% resource title="Understanding the Apache Access and Error Log" languages="English" cost="Free" description="Two pieces on how to read the Apache web server’s logs." url1="https://www.keycdn.com/support/apache-access-log" url2="https://www.dataset.com/blog/apache-error-log-detail/" %}}
+### Une brève introduction aux outils d'analyse de texte Unix
 
-{{% resource title="Server-side logging" languages="English" cost="Free" description="An analysis of logs within the Microsoft IIS server." url="https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
+Voici des exemples de commandes utilisant des outils Unix courants comme `awk`, `sort`, `uniq` et `grep` pour effectuer l'analyse sur les journaux Apache et Nginx.
 
-{{% resource title="IIS Error Logs and Other Ways to Find ASP.Net Failed Requests" languages="English" cost="Free" description="Another look at IIS logs and how we can search for application errors therein." url="https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/" %}}
+`awk` est un puissant outil de ligne de commande pour manipuler des fichiers texte dans des systèmes d'exploitation de type Unix. Sa syntaxe est simple. La structure de base d'une commande `awk` est la suivante :
 
-{{% resource title="Configuring logging on nginx" languages="English" cost="Free" description="Documentation by the NGINX web server on how to configure and work with logs." url="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/" %}}
-
-{{% resource title="A guide to NGINX logs" languages="English" cost="Free" description="An overview of different NGINX logs and their formats." url="https://trunc.org/learning/nginx-log-analysis" %}}
-
-{{% resource title="Security Log: Best Practices for Logging and Management" languages="English" cost="Free" description="An analysis of when logs are useful, how we can analyze them, and what policies we can create around them." url="https://www.dnsstuff.com/security-log-best-practices" %}}
-
-{{% resource title="OWASP logging cheat sheet and vocabulary" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
-
-{{% resource title="Keep Sensitive Data Out of Your Logs: 9 Best Practices" languages="English" cost="Free" description="Thorough logging can also end up including sensitive data, which could put users at risk. This guide looks at how we can adapt our logging practices to exclude sensitive data from logs." url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
-
-## Practice
-
-Read through the following example commands which use common Unix tools like `awk`, `sort`, `uniq`, and `grep `to perform the analysis on Apache and Nginx logs.
-
-## A brief introduction to Unix text analysis tools
-
-Below are example commands using common Unix tools like `awk`, `sort`, `uniq`, and `grep` to perform the analysis on Apache and Nginx logs.
-
-`awk` is a powerful command-line tool for manipulating text files in Unix-like operating systems. It has a simple syntax. The basic structure of an `awk `command is as follows:
-
-```
+{{< highlight awk >}}
 awk 'pattern { action }' file
-```
+{{< / highlight >}}
 
-For example let’s consider the following text file (we will call it example.txt):
+Prenons par exemple le fichier texte suivant (nous l'appellerons exemple.txt) :
 
 ```
 apple red 5
@@ -260,335 +242,270 @@ pear green 15
 Orange orange 20
 ```
 
-`awk` scans the input file line by line, and performs a specified action for each line if the pattern matches. `awk `automatically splits each line of input into fields based on whitespace (by default). Fields can be referenced using $1, $2, etc., where $1 refers to the first field, $2 to the second, and so on.
+`awk` analyse le fichier d'entrée ligne par ligne et effectue une action spécifiée pour chaque ligne si le motif correspond. awk divise automatiquement chaque ligne de saisie en champs en fonction des espaces (par défaut). Les champs peuvent être référencés en utilisant $1, $2, etc., où $1 fait référence au premier champ, $2 au second, et ainsi de suite.
 
-For example to print first column with `awk` command we need to use
+Par exemple, pour imprimer la première colonne avec la commande `awk`, nous devons utiliser
 
-```
+{{< highlight awk >}}
 awk '{ print $1 }' example.txt
-```
+{{< / highlight >}}
 
-We can use Conditional Filtering. For example we want to print lines where third column is greater than 10
+Nous pouvons utiliser le filtrage conditionnel. Par exemple, nous voulons imprimer des lignes où la troisième colonne est supérieure à 10
 
-```
+{{< highlight awk >}}
 awk '$3 > 10 {print $1, $3}' example.txt
-```
+{{< / highlight >}}
 
-To use a custom delimiter with `awk`, use the -F option followed by the delimiter character. For example if we have a comma delimited file we can use -F',' (enclose the delimiter character in single quotes ) to specify a comma (,) as the delimiter.
+Pour utiliser un délimiteur personnalisé avec `awk`, utilisez l'option `-F` suivie du caractère délimiteur. Par exemple, si nous avons un fichier délimité par des virgules, nous pouvons utiliser `-F','` (joindre le caractère délimiteur dans des guillemets simples) pour spécifier une virgule (,) comme délimiteur.
 
-```
-awk -F',' '{print $1, $3}' comma-delimited.txt
-```
+{{< highlight awk >}}
+awk -F',' '{print $1, $3}' délimité-par-des-virgules.txt
+{{< / highlight >}}
 
-We can do calculations using `awk`. This command calculates the sum of values in the third field across all lines and prints the total at the end. "END" is a special pattern used to execute statements after the last record is processed
 
-```
-awk '{total += $3} END {print "Total:", total}' example.txt
-```
+Nous pouvons faire des calculs en utilisant `awk`. Cette commande calcule la somme des valeurs dans le troisième champ sur toutes les lignes et imprime le total à la fin. « END » est un modèle spécial utilisé pour exécuter des instructions une fois que le dernier enregistrement est traité
 
-There are some built in variables in `awk`. For example NR is a built-in variable in awk that represents the current record number. NR increments by one for each line read from the input file(s).
+{{< highlight awk >}}
+awk '{total += $3} END {print "Total:", total}' exemple.txt
+{{< / highlight >}}
 
-If you want to print line numbers in addition to line content, you could use the following:
+Il y a quelques variables intégrées dans `awk`. Par exemple, `NR` est une variable intégrée dans awk qui représente le numéro d'enregistrement courant. `NR` incrémente de 1 pour chaque ligne lue à partir du fichier ou des fichiers d'entrée.
 
-```
+Si vous souhaitez imprimer des numéros de ligne en plus du contenu de la ligne, vous pouvez utiliser ce qui suit :
+
+{{< highlight awk >}}
 awk '{print NR, $0}' example.txt
-```
+{{< / highlight >}}
 
-## Practice exercise 1: Apache Access Log Analysis
+### Exercice pratique 1 : analyse des journaux d'accès Apache
 
-Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+Passez du temps à jouer avec les commandes awk suivantes. Vous pouvez utiliser un journal à partir de votre propre serveur Web ou utiliser des journaux d'exercice, telles que [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
 
-Identify the total number of requests recorded in the access log.
+Indiquez le nombre total de requêtes enregistrées dans le journal d'accès.
 
-```
+{{< highlight bash >}}
 cat apache_access.log | wc -l
-```
+{{< / highlight >}}
 
-Determine the most frequently requested URLs.
+Déterminez les URL les plus fréquemment demandées.
 
-```
+{{< highlight bash >}}
 awk '{print $7}' apache_access.log | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-This awk command will print the seventh column from each line of the log then pipe the output of the previous awk command into the sort command. sort is used to sort the lines of text alphabetically or numerically. By default, it sorts in ascending order. After sorting the output with sort, the uniq -c command is used to count the occurrences of each unique line in the sorted output. The sort -nr command is used to sort the output numerically (-n) in reverse order (-r). This means that the lines are sorted based on their numerical values, with the highest values appearing first. The head -5 command is used to display the first 5 lines of the input.
+Cette commande `awk` imprimera la septième colonne de chaque ligne du journal, puis acheminera le résultat de la commande awk précédente dans la commande de tri. La commande sort est utilisée pour trier les lignes de texte par ordre alphabétique ou numérique. Par défaut, la commande effectue le tri par ordre croissant. Après avoir trié le résultat avec la commande sort, la commande `uniq -c` est utilisée pour compter les occurrences de chaque ligne unique dans le résultat trié. La commande `sort -nr` est utilisée pour trier le résultat numériquement (-n) dans l'ordre inverse (-r). Cela signifie que les lignes sont triées en fonction de leurs valeurs numériques, les valeurs les plus élevées apparaissant en premier. La commande `head -5` est utilisée pour afficher les 5 premières lignes de l'entrée.
 
-Find out the top 5 IP addresses making requests to the server.
+Découvrez les 5 principales adresses IP faisant des requêtes au serveur.
 
-```
+{{< highlight bash >}}
 awk '{print $1}' apache_access.log | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-Analyze the distribution of request methods.
+Analysez la distribution des méthodes de requête.
 
-```
+{{< highlight bash >}}
 awk '{print $6}' apache_access.log | sort | uniq -c
-```
+{{< / highlight >}}
 
-## Practice exercise 2: Nginx Access Log Analysis
+### Exercice pratique 2 : analyse des journaux d'accès Nginx
 
-Count the total number of requests in an Nginx access log.
+Comptez le nombre total de requêtes dans un journal d'accès Nginx.
 
-```
+{{< highlight bash >}}
 cat nginx_access.log | wc -l
-```
+{{< / highlight >}}
 
-Identify the most requested URLs and their corresponding status codes.
+Identifiez les URL les plus demandées et leurs codes de statut correspondants.
 
-```
+{{< highlight bash >}}
 awk '{print $7, $9}' nginx_access.log | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-Calculate the average size of requests (in bytes).
+Calculez la taille moyenne des requêtes (en octets).
 
-```
+{{< highlight awk >}}
 awk '{sum+=$10} END {print "Average request size:", sum/NR, "bytes"}' nginx_access.log
-```
+{{< / highlight >}}
 
-This AWK command calculates the average request size by summing up the values in the 10th column (presumably representing request sizes) for all lines in the nginx_access.log file. Then, it divides the total sum by the number of lines (NR), representing the average request size in bytes. Finally, it prints out the result along with a descriptive message.
+Cette commande `awk` calcule la taille moyenne des requêtes en additionnant les valeurs de la 10e colonne (représentant probablement les tailles des requêtes) pour toutes les lignes du fichier `nginx_access.log`. Ensuite, elle divise la somme totale par le nombre de lignes (NR), représentant la taille moyenne de la requête en octets. Enfin, elle imprime le résultat avec un message descriptif.
 
-Make sure that the 10th column actually represents the request size in bytes in your nginx_access.log file, as the accuracy of the calculation depends on the correctness of the column indexing. \
+Assurez-vous que la 10e colonne représente réellement la taille de la requête en octets dans votre fichier `nginx_access.log`, car l'exactitude du calcul dépend de l'exactitude de l'indexation des colonnes.  
 
-Determine the top 5 user agents accessing the server.
+Déterminez les 5 principaux agents utilisateurs accédant au serveur.
 
-```
+{{< highlight bash >}}
 awk -F'"' '{print $6}' nginx_access.log | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-This command uses `awk` to set the field separator (-F) to double quotes ("), then extracts the 6th field from each line of the` nginx_access.log` file. This assumes that the log entries are formatted in such a way that the URL or request path is enclosed within double quotes. The extracted URLs or request paths are then piped to sort them alphabetically. `uniq -c` is used to count the occurrences of each unique URL or request path. The output is piped again to `sort -nr` to sort the results numerically in descending order based on the count.
+Cette commande utilise `awk` pour définir le séparateur de champs (-F) à guillemets doubles ("), puis extrait le 6e champ de chaque ligne du fichier `nginx_access.log`. Cela suppose que les entrées du journal sont formatées de telle manière que l'URL ou le chemin de requête est inclus dans des guillemets doubles. Les URL extraites ou les chemins de requête sont ensuite filtrés pour les trier par ordre alphabétique. `uniq -c` est utilisé pour compter les occurrences de chaque URL ou chemin de requête unique. Le résultat est à nouveau canalisé avec `sort -nr` pour trier les résultats numériquement en ordre décroissant en fonction du nombre.
 
-Finally, head -5 is used to display the top 5 URLs or request paths with the highest occurrence counts.
+Enfin, `head -5` est utilisé pour afficher les 5 URL ou chemins de requête les plus fréquents.
 
-Analyze the distribution of requests by hour of the day.
+Analysez la répartition des requêtes par heure de la journée.
 
-```
+{{< highlight bash >}}
 awk '{print $4}' nginx_access.log | cut -c 14-15 | sort | uniq -c
-```
+{{< / highlight >}}
 
-`awk` is used to extract the 4th field ($4) from each line of the `access.log` file, which typically contains the timestamp.
+La commande `awk` est utilisée pour extraire le 4e champ ($4) de chaque ligne du fichier `access.log`, qui contient généralement l'horodatage.
 
-The `cut` command is then applied to extract characters 14 to 15 from each timestamp, which correspond to the hour portion.
+La commande `cut` est ensuite appliquée pour extraire les caractères 14 à 15 de chaque horodatage, qui correspondent à la portion de l'heure.
 
-The extracted hour values are piped to sort to arrange them in ascending order. `uniq -c` is used to count the occurrences of each unique hour value.
+Les valeurs de l'heure extraites sont canalisées pour les trier afin de les classer par ordre croissant. `uniq -c` est utilisé pour compter les occurrences de chaque valeur d'heure unique.
 
-The output will display the count of log entries for each hour in the log file.
+Le résultat affiche le nombre d'entrées de journal pour chaque heure dans le fichier journal.
 
-## Practice exercise 3: Error Log Analysis (Both Apache and Nginx)
+### Exercice pratique 3 : analyse du journal des erreurs (Apache et Nginx)
 
-Apache and nginx: Count the total number of error entries in the log.
+1. Apache et nginx : Comptez le nombre total d'entrées d'erreur dans le journal.
 
-```
+{{< highlight bash >}}
 cat apache_error.log | grep 'error' | wc -l
 cat nginx_error.log | grep 'error' | wc -l
-```
+{{< / highlight >}}
 
-Apache: Identify the most common types of errors. awk '{print $NF}' reads each line of input data, splits it into fields (separated by whitespace by default), and then prints the value of the last field from each line.
+2. Apache : Identifiez les types d'erreurs les plus courants. `awk '{print $NF}'` lit chaque ligne de données de l'entrée, la divise en champs (séparés par des espaces par défaut), puis imprime la valeur du dernier champ de chaque ligne.
 
-```
+{{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-The number at the beginning of each line shows how many times a particular error occurred in the log. In this case, “`2047`” means that the error with the last field “`757`” occurred 2047 times.
+Le nombre au début de chaque ligne indique combien de fois une erreur particulière s'est produite dans le journal. Dans ce cas, "`2047`" signifie que l'erreur avec le dernier champ "`757`" s'est produite 2047 fois.
 
-The last field represents different things in each line. It could be a file path, a specific action, or some other identifier related to the error. For instance, “`757`” or “`154`” could be error codes or unique identifiers, while “`/home/mysite/public_html/new/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:100`” could be a file path and line number where the error occurred.
+Le dernier champ représente différentes choses dans chaque ligne. Il pourrait s'agir d'un chemin de fichier, d'une action spécifique ou d'un autre identifiant lié à l'erreur. Par exemple, "`757`" ou "`154`" pourraient être des codes d'erreur ou des identifiants uniques, tandis que "`/home/mysite/public_html/new/wp-content/plugins/woocommerce/includes/data-stores/abstract-wc-order-data-store-cpt.php:100`" pourrait être un chemin de fichier et un numéro de ligne où l'erreur s'est produite.
 
-nginx: Determine the top 5 IP addresses, domains, or file paths generating errors.
+3. nginx : Déterminez les 5 principales adresses IP qui génèrent des erreurs.
 
-```
+{{< highlight bash >}}
 cat nginx_error.log | grep 'error' | awk '{print $NF}' | sort | uniq -c | sort -nr | head -5
-```
+{{< / highlight >}}
 
-Apache: Analyze the distribution of errors by date or time.
+4. Apache : Analysez la distribution des erreurs par date ou heure.
 
-```
+{{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{print $1}' | sort | uniq -c
-```
+{{< / highlight >}}
 
-Apache: Investigate any recurring error patterns and propose potential solutions. {$1=""; $2=""; $3="";}: This part of the awk command sets the first three fields (date, time, and timezone information) to empty strings.
+5. Apache : Examinez les erreurs récurrentes et proposez des solutions potentielles. {$1=""; $2=""; $3="";} : cette partie de la commande awk définit les trois premiers champs (date, heure et informations de fuseau horaire) sur des chaînes vides.
 
-```
+{{< highlight bash >}}
 cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort | uniq -c | sort -nr | head -10
-```
+{{< / highlight >}}
 
-## An introduction to regular expressions and using them to analyze a log
+### Une introduction aux expressions rationnelles et leur utilisation pour analyser un journal
 
-For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+Pour cet exercice, nous utilisons des fichiers journaux de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
 
-In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
+Dans cette tâche, nous allons utiliser des expressions régulières. Les expressions régulières (regex) sont de puissants outils de recherche qui vous aident à trouver des modèles spécifiques dans les données. Par exemple, si vous enquêtez sur un trafic réseau suspect et que vous savez que les requêtes malveillantes contiennent souvent certains modèles de caractères, vous pouvez utiliser regex pour rechercher dans les journaux ou les captures de trafic pour trouver ces requêtes. Regex vous permet de définir des modèles de recherche flexibles. Par exemple :
 
-    **[a-z] range **- Matches a character in the range "a" to "z". Case sensitive.
+    **\[a-z\] range** \- Correspond à un caractère dans la plage « a » à « z ». Sensible à la casse.
 
-
-    I.e. [g-s] matches a character between g and s inclusive
-
+    Par ex., \[g-s\] correspond à un caractère compris entre « g » et « s »
 
     abcdef**ghijklmnopqrs**tuvwxyz
 
+    **\[A-Z\] range** \- Correspond à un caractère dans la plage « A » à « Z ». Sensible à la casse.
 
-    **[A-Z] range -**  Matches a character in the range "A" to "Z" . Case sensitive.
+    **\[0-9\] range** \- Correspond à un caractère dans la plage « 0 » à « 9 ». Sensible à la casse.
 
+    Nous pouvons également utiliser des **quantificateurs** pour correspondre à la quantité spécifiée du jeton précédent. {1,3} correspondra à 1 à 3. {3} correspondra exactement à 3. {3,} correspondra à 3 ou plus.
 
-    **[0-9] range - **Matches a character in the range "0" to "9". Case sensitive.
+    [a-d\]{3} correspond à n'importe quelle séquence de trois caractères exactement dans la plage donnée, chacun pouvant être une lettre minuscule de « a » à « d ». Donc, cela correspondrait à des chaînes comme « abc », « bda », « cad », etc. 
 
+Certains caractères ont une signification particulière dans les regex :
 
-    We can also use **quantifiers** to match  the specified quantity of the previous token. {1,3} will match 1 to 3. {3} will match exactly 3. {3,} will match 3 or more.
+| Symbole | Nom                            | Description                                      |
+|---------|--------------------------------|--------------------------------------------------|
+| \       | Barre oblique inversée         | Utilisé pour échapper (faire passer) un caractère spécial        |
+| ^       | Accent circonflexe             | Début d'une chaîne                               |
+| $       | Signe dollar                   | Fin d'une chaîne                                 |
+| .       | Point                          | Correspond à n'importe quel caractère unique     |
+| \|      | Barre verticale ou pipe        | Correspond au caractère/groupe précédent OU suivant |
+| ?       | Point d'interrogation          | Correspond à zéro ou un du précédent             |
+| *       | Astérisque ou étoile           | Correspond à zéro, un ou plusieurs du précédent  |
+| +       | Signe plus                     | Correspond à un ou plusieurs du précédent        |
+| ( )     | Parenthèses ouvrantes et fermantes | Regroupe des caractères                    |
+| [ ]     | Crochets ouvrants et fermants  | Correspond à une plage de caractères             |
+| { }     | Accolades ouvrantes et fermantes | Correspond à un nombre spécifié d'occurrences du précédent |
 
-[a-d]{3} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. Some characters have special meanings within regexes these characters are:
+Dans notre tâche, nous utiliserons la barre oblique inverse pour faire passer des caractères spéciaux.
 
-<table>
-  <tr>
-   <td>\
-   </td>
-   <td>Backslash
-   </td>
-   <td>Used to escape a special character
-   </td>
-  </tr>
-  <tr>
-   <td>^
-   </td>
-   <td>Caret
-   </td>
-   <td>Beginning of a string
-   </td>
-  </tr>
-  <tr>
-   <td>$
-   </td>
-   <td>Dollar sign
-   </td>
-   <td>End of a string
-   </td>
-  </tr>
-  <tr>
-   <td>.
-   </td>
-   <td>Period or dot
-   </td>
-   <td>Matches any single character
-   </td>
-  </tr>
-  <tr>
-   <td>|
-   </td>
-   <td>Vertical bar or pipe symbol
-   </td>
-   <td>Matches previous OR next character/group
-   </td>
-  </tr>
-  <tr>
-   <td>?
-   </td>
-   <td>Question mark
-   </td>
-   <td>Match zero or one of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>*
-   </td>
-   <td>Asterisk or star
-   </td>
-   <td>Match zero, one or more of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>+
-   </td>
-   <td>Plus sign
-   </td>
-   <td>Match one or more of the previous
-   </td>
-  </tr>
-  <tr>
-   <td>( )
-   </td>
-   <td>Opening and closing parenthesis
-   </td>
-   <td>Group characters
-   </td>
-  </tr>
-  <tr>
-   <td>[ ]
-   </td>
-   <td>Opening and closing square bracket
-   </td>
-   <td>Matches a range of characters
-   </td>
-  </tr>
-  <tr>
-   <td>{ }
-   </td>
-   <td>Opening and closing curly brace
-   </td>
-   <td>Matches a specified number of occurrences of the previous
-   </td>
-  </tr>
-</table>
+Pour en savoir plus sur les regex : [https://fr.wikipedia.org/wiki/Expression_r%C3%A9guli%C3%A8re](https://en.wikipedia.org/wiki/Regular_expression)
 
-In our task we will use backslash to escape “\” special character.
-
-You can read more about regex here: [https://en.wikipedia.org/wiki/Regular_expression](https://en.wikipedia.org/wiki/Regular_expression)
-
-If you check the provided nginx access log you can see these kind of lines:
+Si vous vérifiez le journal d'accès nginx fourni, vous pouvez voir ces types de lignes :
 
 ```
 181.214.166.113 - - [15/Feb/2024:15:05:19 -0500] "[L\x9E\x804\xD9-\xFB&\xA3\x1F\x9C\x19\x95\x12\x8F\x0C\x89\x05\x81" 400 181 "-" "-"
 45.95.169.184 - - [15/Feb/2024:15:49:27 -0500] "\x10 \x00\x00BBBB\xBA\x8C\xC1\xABDAAA" 400 181 "-" "-"
 ```
 
-As you can see, both lines contain \x followed by exactly two characters which map to hexadecimal notation (so they use the numbers 0-9 and the letters A to F), such as \x9C, \x10, \xBA, etc. To filter all lines we need to use the '`\\x[a-fA-F0-9]{3}`' pattern where` \\x[a-fA-F0-9]` is our token, `{3}` is a quantifier.
+Comme vous pouvez le voir, les deux lignes contiennent `\x` suivi exactement de deux caractères qui correspondent à la notation hexadécimale (ils utilisent donc les chiffres 0-9 et les lettres A à F), comme \\x9C, \\x10, \\xBA, etc. Pour filtrer toutes les lignes, nous devons utiliser le modèle '`\\x[a-fA-F0-9]{3}`' où `\\x[a-fA-F0-9]` est notre jeton, `{3}` est un quantificateur.
 
-We will use the `grep` command to search for the specified pattern in text. For example:
+Nous utiliserons la commande `grep` pour rechercher le motif spécifié dans le texte. Par exemple :
 
-`grep 'abcd'` will filter all lines containing the string “abcd”.
+`grep 'abcd'` filtrera toutes les lignes contenant la chaîne « abcd ».
 
-The “`-E`” option in the `grep `command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
+L'option « `-E` » de la commande `grep` permet d'utiliser des expressions régulières étendues pour la correspondance de modèle `grep -E 'abcd\[0-9]{2}'` pour le filtrage de texte comme `abcd\34, abcd\47`, etc.
 
-## Practice exercise 4: using regular expressions (regexes)
+#### Exercice pratique 4 : utiliser des expressions régulières (regex)
 
-For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
 
-1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
-2. Using the same filter determine which IP address is making the most requests
-3. Examine` error.log` by running `more  error.log`. You can quit this command with ctrl+c or press the “q” key to return command prompt. Excluding "PHP Notice" errors. What kind of critical errors can you find in the log?
-4. Exclude PHP errors from the error.log and find the lines where requests are denied due to security rules. Which sensitive file has been requested?
+1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
 
-### Practice exercise 4: answers
+{{< question title="Réponse" >}}
+Bonne réponse : 113 lignes
 
-Exercise 1: \
-Correct answer: 113 lines
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+{{< /question >}}
 
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+2. En utilisant le même filtre, déterminez quelle adresse IP fait le plus de requêtes
 
-Exercise 2:
+{{< question title="Réponse" >}}
+Bonne réponse : 222.186.13.131 20 lignes
 
-Correct answer: 222.186.13.131 20 lines
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+{{< /question >}}
 
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+3. Examinez `error.log` en exécutant `more error.log`. Vous pouvez quitter cette commande avec ctrl+c ou appuyer sur la touche « q » pour retourner à l'invite de commande. Exclusion des erreurs « PHP Notice ». Quels types d'erreurs critiques pouvez-vous trouver dans le journal ?
 
-Exercise 3:
+{{< question title="Réponse" >}}
+Bonne réponse : erreur d'établissement de liaison SSL
 
-Correct answer: SSL handshaking errors
+Commande(s) à exécuter :
 
-Command(s) to execute:
-
-```
+{{< highlight bash >}}
 more nginx_error.log
 cat nginx_error.log|grep -v "PHP"|grep crit
-```
+{{< / highlight >}}
+{{< /question >}}
 
-Exercise 4:
+4. Excluez les erreurs PHP du fichier error.log et trouvez les lignes où les requêtes sont refusées en raison des règles de sécurité. Quel fichier sensible a été demandé ?
 
-Correct answer: `.git/config`
+{{< question title="Réponse" >}}
+Bonne réponse : `.git/config`
 
-Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
+Commande(s) à exécuter : `cat nginx_error.log|grep -v "PHP"|grep forbidden`
+{{< /question >}}
 
-## Skill Check
+## Contrôle de compétence
 
-This skill check will be much easier if you’ve first completed the practice exercise above.
+Ce contrôle de compétences sera beaucoup plus facile si vous avez d'abord terminé l'exercice ci-dessus.
 
-You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+Vous recevez un journal d'accès nginx à partir d'un site Web attaqué que devez examiner, que vous pouvez {{< fontawesome "solid/download" >}} [télécharger ici](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
 
-Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
+Localisez un chemin d'accès suspect qui est ciblé, extrayez les adresses IP qui envoient des requêtes suspectes et découvrez dans quels pays se trouvent ces adresses IP (vous pouvez utiliser les bases de données geoIP décrites plus en détail dans le parcours d'apprentissage sur les infrastructures malveillantes). Vous pouvez utiliser des outils CLI standard comme awk, grep, sort et uniq. Pour connaître les numéros AS et les pays, nous vous recommandons d'utiliser les services de recherche en ligne appropriés.
 
-_Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can use curl to fetch those.
+_Conseil :_ ipinfo.io fournit un moyen pratique de rechercher les détails des adresses IP, vous pouvez utiliser curl pour les récupérer.
+
+## Ressources d'apprentissage
+
+{{% resource title="Fichiers journaux - Apache" description="Aperçu de la lecture des fichiers journaux dans le serveur Web Apache" languages="Anglais" cost="Gratuit" url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
+{{% resource title="Comprendre le journal d'accès et d'erreurs Apache" description="Deux autres articles sur la façon de lire les journaux du serveur Web Apache" languages="Anglais" cost="Gratuit" url="https://www.keycdn.com/support/apache-access-log <br> https://www.dataset.com/blog/apache-error-log-detail/" %}}
+{{% resource title="Journalisation côté serveur" description="Une analyse des journaux dans le serveur Microsoft IIS" languages="Anglais" cost="Gratuit" url="https://learn.microsoft.com/fr-fr/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
+{{% resource title="Journaux d'erreurs IIS et autres moyens de trouver les requêtes ASP.Net ayant échoué" description="Un autre regard sur les journaux IIS et comment nous pouvons rechercher des erreurs d'application" languages="Anglais" cost="Gratuit" url="https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/" %}}
+{{% resource title="Configuration de la journalisation sur nginx" description="Documentation par le serveur web NGINX sur la façon de configurer et de travailler avec les journaux" languages="Anglais" cost="Gratuit" url="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/" %}}
+{{% resource title="Un guide des journaux NGINX" description="Un aperçu des différents journaux NGINX et de leurs formats" languages="Anglais" cost="Gratuit" url="https://trunc.org/learning/nginx-log-analysis" %}}
+{{% resource title="Journal de sécurité : meilleures pratiques de journalisation et de gestion" description="Une analyse des moments où les journaux sont utiles, comment nous pouvons les analyser et quelles politiques nous pouvons créer autour d'eux" languages="Anglais" cost="Gratuit" url="https://www.dnsstuff.com/security-log-best-practices" %}}
+{{% resource title="Aide-mémoire et vocabulaire de l'OWASP sur la journalisation" description="Un guide de l'OWASP sur l'utilité des journaux et sur la façon dont nous devrions les analyser ainsi qu'un vocabulaire standard à leur sujet" languages="Anglais" cost="Gratuit" url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html <br> https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+{{% resource title="Gardez les données sensibles hors de vos journaux : 9 meilleures pratiques" description="Une journalisation approfondie peut également inclure des données sensibles, ce qui pourrait exposer les utilisateurs à des risques. Ce guide examine comment nous pouvons adapter nos pratiques de journalisation pour exclure les données sensibles des journaux." languages="Anglais" cost="Gratuit" url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}

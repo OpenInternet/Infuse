@@ -2,6 +2,7 @@
 style = "module"
 weight = 3
 title = "Denial of Service Incident Response"
+description = "Si un site web subit une attaque par déni de service prolongée, il peut être crucial d'agir rapidement pour rétablir le site. Ce sous-thème décrit certaines pratiques permettant aux propriétaires de sites de se remettre d'une attaque par déni de service (DoS)."
 +++
 
 ## Use Case

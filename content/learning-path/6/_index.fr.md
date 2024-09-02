@@ -1,7 +1,7 @@
 +++
 type = "learning-path"
-title = "Web Application Hardening, Forensics, and Incident Response"
-description = "Websites are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By preparing effectively for these sorts of attacks, you can reduce their impact, or in some cases prevent them entirely."
+title = "Renforcement des applications Web, investigation et intervention en cas d'incident"
+description = "Cette formation aborde les attaques par déni de service (DoS) contre les sites web, comment protéger vos applications web ou celles de vos bénéficiaires, ainsi que la collecte et l'analyse des journaux de sites web pour détecter les tentatives d'attaques."
 weight = 6
 thumbnail = "6"
 icon = "gateway-guardian"

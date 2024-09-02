@@ -5,163 +5,162 @@ description: Lisez la présentation du parcours d'apprentissage, les objectifs, 
 weight: 1
 ---
 
-## Overview
+**Avec les remerciements à**
 
-Websites are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By preparing effectively for these sorts of attacks, you can reduce their impact, or in some cases prevent them entirely.
+- Ninoslava Bogdanović
+- Michał "czesiek" Czyżewski <https://czesiek.net>
+- Yana Ghahramanyan
 
-Attacks against websites generally fall into two categories: DoS (denial of service) and various forms of hacking. DoS attacks are intended to prevent people from being able to access the site and are usually performed by flooding the site with traffic. DoS attacks are often launched by criminal extortionists who wish to receive payment for stopping the attack, or by political rivals who wish to deny their targets a platform. Hacking attacks manipulate vulnerabilities and weaknesses in a web application, thereby generally requiring more skill, but can have a greater impact on the target site. The attacker profiles and goals vary widely, but common hacking goals include retrieving private data from a site, defacement or other content changes, taking over the site’s underlying infrastructure, pivoting to other targets, or targeting users of the site.
 
-This learning path covers intermediate and advanced knowledge needed to prepare for and respond to attacks against web applications. Effective preparation is extremely important to respond to any sort of attack. Most of the response techniques covered in this learning path are difficult or impossible to carry out without the proper preparation. However, with proper preparation, it’s possible to render some forms of DoS attacks ineffective, mitigate DoS attacks quickly and effectively, and stop and recover from hacking attacks before too much damage is done. In this learning path we will cover:
+## Présentation
 
-- Website hardening
-- Web server logging
-- DoS incident response
-- Hacking incident response and forensics
+Les sites Web sont des infrastructures essentielles utilisées par les organisations de médias et la société civile pour assurer la libre circulation de l'information et fournir des fonctionnalités à leurs parties prenantes. Les cybercriminels attaquent ces applications Web à diverses fins, y compris l'arrêt de la libre circulation de l'information, les dommages à la réputation, l'accès aux systèmes privés, le vol d'informations sensibles, la surveillance et la compromission des appareils. En vous préparant efficacement à ces types d'attaques, vous pouvez réduire leur impact ou, dans certains cas, les prévenir entièrement.
 
-Note that, while DoS attacks are more common than hacking attacks, hacking response takes up the majority of this learning path. This is because DoS attacks are almost always simpler than hacking attacks, and because preparing for and responding to DoS attacks mostly involves working with 3rd party providers who do most of the work. In comparison, hacking attacks are often more complicated, and responding to them requires deep, hands-on work with the site itself.
+Les attaques contre les sites Web tombent généralement dans deux catégories : DoS (déni de service) et diverses formes de piratage. Les attaques DoS visent à empêcher les gens d'accéder au site et sont généralement effectuées en inondant le site de trafic. Les attaques DoS sont souvent lancées par des extorqueurs criminels qui souhaitent recevoir un paiement pour arrêter l'attaque, ou par des rivaux politiques qui souhaitent empêcher à leurs cibles d'accéder à une plateforme. Les attaques de piratage manipulent les vulnérabilités et les faiblesses d'une application Web, ce qui nécessite généralement plus de compétences, mais peut avoir un impact plus important sur le site cible. Les profils et les objectifs des cybercriminels varient considérablement, mais les objectifs communs de piratage comprennent la récupération de données privées d'un site, la dégradation ou d'autres changements de contenu, la reprise de l'infrastructure sous-jacente du site, le pivotement vers d'autres cibles ou le ciblage des utilisateurs du site.
 
-While some nation-state actors (famously the United States, China, North Korea, Russia, etc.) are both well-funded and have highly skilled agents, most nation-state actors have funding, but lack deep technical skills. To suppress the speech of their political rivals, they will frequently use large-scale DoS attacks to prevent people from viewing those rivals’ websites. Criminal organizations will happily rent out their botnets (networks of compromised computers) to people for use in DoS attacks. Here are some examples:
+Ce parcours d'apprentissage couvre les connaissances intermédiaires et avancées nécessaires pour se préparer et répondre aux attaques contre les applications Web. Une préparation efficace est extrêmement importante pour répondre à toute attaque. La plupart des techniques de réponse abordées dans ce parcours d'apprentissage sont difficiles ou impossibles à réaliser sans une préparation adéquate. Cependant, avec une préparation appropriée, il est possible de rendre certaines formes d'attaques DoS inefficaces, d'atténuer les attaques DoS rapidement et efficacement, et d'arrêter et de récupérer les attaques de piratage avant que des dommages trop importants soient causés. Dans ce parcours d'apprentissage, nous aborderons :
 
-- September 2022 [https://www.qurium.org/alerts/nacionale-under-ddos/](https://www.qurium.org/alerts/nacionale-under-ddos/)
-- May 2022 [https://www.qurium.org/alerts/the-tip-of-the-iceberg/](https://www.qurium.org/alerts/the-tip-of-the-iceberg/)
-- March 2022 [https://www.qurium.org/alerts/philippines/forensic-analysis-of-the-multiple-distributed-denial-of-service-attacks-in-the-philippines/](https://www.qurium.org/alerts/philippines/forensic-analysis-of-the-multiple-distributed-denial-of-service-attacks-in-the-philippines/)
-- September 2021 [https://www.qurium.org/alerts/switzerland/gotham-city-under-denial-of-service/](https://www.qurium.org/alerts/switzerland/gotham-city-under-denial-of-service/)
-- August 2021 [https://www.qurium.org/alerts/philippines/human-rights-alliance-karapatan-under-long-lasting-ddos-attack/](https://www.qurium.org/alerts/philippines/human-rights-alliance-karapatan-under-long-lasting-ddos-attack/) & [https://www.qurium.org/alerts/philippines/israeli-firm-bright-data-luminati-networks-enabled-the-attacks-against-karapatan/](https://www.qurium.org/alerts/philippines/israeli-firm-bright-data-luminati-networks-enabled-the-attacks-against-karapatan/)
-- June 2021 [https://www.qurium.org/alerts/philippines/attacks-against-media-in-the-philippines-continue/](https://www.qurium.org/alerts/philippines/attacks-against-media-in-the-philippines-continue/)
-- July 2020 [https://www.qurium.org/alerts/colombia/la-nueva-prensa-attacked-for-operacion-jaque-documentary/](https://www.qurium.org/alerts/colombia/la-nueva-prensa-attacked-for-operacion-jaque-documentary/)
-- May 2020 [https://www.qurium.org/alerts/philippines/attacks-against-websites-in-the-philippines-during-covid-19/](https://www.qurium.org/alerts/philippines/attacks-against-websites-in-the-philippines-during-covid-19/)
-- April 2020 [https://www.qurium.org/alerts/azerbaijan/sandman-and-fineproxy-behind-the-ddos-attacks-against-timetv-live/](https://www.qurium.org/alerts/azerbaijan/sandman-and-fineproxy-behind-the-ddos-attacks-against-timetv-live/)
-- March 2020 [https://www.qurium.org/alerts/el-salvador/ddos-attacks-against-salvadoran-revista-factum-attributed-to-university-infrastructure/](https://www.qurium.org/alerts/el-salvador/ddos-attacks-against-salvadoran-revista-factum-attributed-to-university-infrastructure/)
+- Le renforcement des sites Web
+- La journalisation des serveurs Web
+- Les réponses aux incidents DoS
+- Réponse aux incidents de piratage et investigations
 
-Adversaries, especially political rivals, have a history of attempting to hack into the websites of civil society groups. Examples include:
+Notez que, bien que les attaques DoS soient plus courantes que les attaques de piratage, la réponse de piratage occupe la majeure partie de ce parcours d'apprentissage. Cela est justifié par le fait que les attaques DoS sont presque toujours plus simples que les attaques de piratage, et parce que la préparation et la réponse aux attaques DoS impliquent principalement de travailler avec des fournisseurs tiers qui font la plupart du travail. En comparaison, les attaques de piratage sont souvent plus compliquées, et y répondre nécessite un travail approfondi et pratique avec le site lui-même.
 
-- March 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
-- October 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
-- August 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
-- September 2018 [https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
+Alors que certains acteurs des États-nations (les États-Unis, la Chine, la Corée du Nord, la Russie, etc.) sont bien financés et ont des agents hautement qualifiés, la plupart des acteurs des États-nations disposent de fonds, mais manquent de compétences techniques approfondies. Pour réprimer le discours de leurs rivaux politiques, ils utiliseront fréquemment des attaques DoS à grande échelle pour empêcher les gens de consulter les sites Web de ces rivaux. Les organisations criminelles loueront volontiers leurs botnets (réseaux d'ordinateurs compromis) à des personnes pour qu'ils les utilisent dans le cadre d'attaques DoS. Voici quelques exemples :
 
-Additionally, any site on the internet is subject to opportunistic and targeted attacks by financially-motivated threat actors. These adversaries have goals such as stealing user passwords, payment card information, etc. for resale, modifying site content for search ranking manipulation or click fraud, or using the site’s infrastructure itself for cryptocurrency mining, sending spam, or launching denial of service attacks. For more information on opportunistic and automated attacks on web applications, see [this report by OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
+- Septembre 2022 <https://www.qurium.org/alerts/nacionale-under-ddos/>
+- Mai 2022 <https://www.qurium.org/alerts/the-tip-of-the-iceberg/>
+- Mars 2022 <https://www.qurium.org/alerts/philippines/forensic-analysis-of-the-multiple-distributed-denial-of-service-attacks-in-the-philippines/>
+- Septembre 2021 <https://www.qurium.org/alerts/switzerland/gotham-city-under-denial-of-service/>
+- Août 2021 <https://www.qurium.org/alerts/philippines/human-rights-alliance-karapatan-under-long-lasting-ddos-attack/> & <https://www.qurium.org/alerts/philippines/israeli-firm-bright-data-luminati-networks-enabled-the-attacks-against-karapatan/>
+- Juin 2021 <https://www.qurium.org/alerts/philippines/attacks-against-media-in-the-philippines-continue/>
+- Juillet 2020 <https://www.qurium.org/alerts/colombia/la-nueva-prensa-attacked-for-operacion-jaque-documentary/>
+- Mai 2020 <https://www.qurium.org/alerts/philippines/attacks-against-websites-in-the-philippines-during-covid-19/>
+- Avril 2020 <https://www.qurium.org/alerts/azerbaijan/sandman-and-fineproxy-behind-the-ddos-attacks-against-timetv-live/>
+- Mars 2020 <https://www.qurium.org/alerts/el-salvador/ddos-attacks-against-salvadoran-revista-factum-attributed-to-university-infrastructure/>
 
-### Background reading
+Les cybercriminels, en particulier les rivaux politiques, ont toujours tenté de pirater les sites Web de groupes de la société civile. Voici quelques exemples :
 
-Adversaries, especially political rivals, have a history of attempting to hack into the websites of civil society groups. Some documented examples include:
+- Mars 2020 <https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/>
+- Octobre 2019 <https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/>
+- Août 2019 <https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/>
+- Septembre 2018 <https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/>
 
-- March 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
-- October 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
-- August 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
-- September 2018 [https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
+En outre, tout site sur Internet est sujet à des attaques opportunistes et ciblées par des acteurs de menace motivés financièrement. Ces cybercriminels ont des objectifs tels que le vol des mots de passe des utilisateurs, des informations de cartes de paiement, etc. pour la revente, la modification du contenu du site pour la manipulation du classement des recherches ou la fraude par clic, ou l'utilisation de l'infrastructure du site elle-même pour le minage de cryptomonnaie, l'envoi de courriers indésirables ou le lancement d'attaques par déni de service. Pour obtenir plus d'informations sur les attaques opportunistes et automatisées sur les applications Web, consultez [ce rapport de l'OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
 
-Additionally, any site on the internet is subject to opportunistic and targeted attacks by financially-motivated threat actors. These adversaries have goals such as stealing user passwords, payment card information, etc. for resale, modifying site content for search ranking manipulation or click fraud,using the site’s infrastructure itself for cryptocurrency mining, sending spam, or launching denial of service attacks. Although many of these attacks may not be targeted based on political motivations, they nonetheless pose significant reputational and confidentiality risks to any organization. For more information on opportunistic and automated attacks on web applications, see [this report by OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
+## Objectif
 
-## Objective
+Les participants apprendront à :
 
-Practitioners will learn how to:
+- Effectuer un renforcement de base des sites Web contre le piratage et les attaques DoS
+- Ajouter une journalisation de sécurité efficace à leurs applications Web
+- Répondre aux attaques DoS et de piratage
 
-- Perform basic hardening of websites against hacking and DoS attacks
-- Add effective security logging to their web applications
-- Respond to DoS and hacking attacks
+## Quelles menaces cette compétence permet-elle d'atténuer ou de gérer ?
 
-## What threats does this skill mitigate or respond to?
+- Compromis sur le site Web
+- Déni de service du site Web
 
-- Website compromise
-- Website denial of service
+## Quels sont les prérequis ?
 
-## What are the prerequisites?
+Ce parcours d'apprentissage nécessite une connaissance pratique des serveurs Web, des exploitations de failles possibles et des vulnérabilités de base. Pour cette raison, nous recommandons que tous les apprenants qui le poursuivent en premier et qui n'ont pas de connaissances suffisantes concernant les architectures de serveurs Web et les vulnérabilités terminent d'abord le parcours d'apprentissage Principes fondamentaux de sécurité des applications Web d'Infuse.
 
-This learning path requires a working knowledge of web servers, possible exploits, and basic vulnerabilities. For this reason, we recommend that all learners who pursue it first and do not have good knowledge of web server architectures and vulnerabilities first complete the Infuse Web Application Security Fundamentals learning path.
+Bien que la connaissance des tests et de l'évaluation de la sécurité des sites Web ne soit pas un préalable strict à ce parcours d'apprentissage, certains apprenants pourraient trouver plus facile de parcourir d'abord le parcours d'apprentissage de l'évaluation de la sécurité des applications Web avant d'entreprendre celui-ci. Surtout s'ils souhaitent actualiser leurs connaissances sur les principales vulnérabilités des applications Web.
 
-While knowledge of website security testing and assessment is not a strict prerequisite to this learning path, some learners might find it easier to first go through the Web Application Security Assessment learning path prior to undertaking this one, especially if they would like to refresh their knowledge of key web application vulnerabilities.
+En plus de ce qui précède, les apprenants doivent avoir une compréhension de base de la ligne de commande Unix, y compris des concepts comme les commandes piping. Ce parcours d'apprentissage utilisera également l'outil awk et offrira une introduction. Si les apprenants préfèrent mettre l'outil en pratique avant de se lancer dans le parcours, nous recommandons [cette introduction](https://www.tutorialspoint.com/awk/index.htm) ou [ce livre électronique complet](https://learnbyexample.github.io/learn_gnuawk/).
 
-In addition to the above, learners should have a basic understanding of the Unix command line, including concepts like piping commands. This learning path will also utilize the awk tool and will offer an introduction to it. If learners would prefer to practice the tool prior to embarking on the path, we recommend [this introduction](https://www.tutorialspoint.com/awk/index.htm) or [this comprehensive ebook](https://learnbyexample.github.io/learn_gnuawk/).
+## De quels appareils ou logiciels avez-vous besoin pour réaliser les exercices ?
 
-## What devices or software do you need for the exercises?
+Pour compléter la plupart des exercices pratiques recommandés dans ce parcours d'apprentissage, vous aurez besoin d'un ordinateur capable d'exécuter des outils de ligne de commande Unix de base, tels qu'awk, cat et grep. Ceux-ci sont installés sur tous les systèmes macOS et à peu près tous les systèmes Linux.
 
-To complete many of the hands-on practice exercises recommended in this learning path, you will need a computer capable of running basic Unix command line tools, such as awk, cat, and grep. Those are installed on every macOS system, pretty much every Linux system.
+Si vous utilisez Windows, nous vous recommandons d'installer WSL (Windows Subsystem for Linux) pour exécuter certains des outils de ce parcours d'apprentissage. Bien qu'il puisse y avoir d'autres façons d'exécuter de tels outils, cela nécessitera beaucoup moins de manipulation des dépendances.
 
-If you are running Windows, we recommend you install WSL (Windows Subsystem for Linux) to run some of the tools in this learning path. While there might be other ways of running such tools, this will require much less fiddling with dependencies.
-
-- Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-- Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
-- Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
-- Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command
-
-`wsl --set-default-version 2` 
-
-The output from this command will look like:
+- - Voici la documentation fournie par Microsoft avec tous les détails sur la façon d'installer WSL 2 : [https://docs.microsoft.com/fr-fr/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+    - Ouvrez « Activer ou désactiver des fonctionnalités Windows » dans le panneau de configuration de Windows et assurez-vous que « Plateforme de machine virtuelle » et « Sous-système Windows pour Linux » sont cochés.
+    - Téléchargez et installez WSL 2 à partir du [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Une fois l'outil installé, redémarrez votre ordinateur pour appliquer les modifications.
+    - Ouvrez une invite de commande ou Windows PowerShell en mode administrateur en cliquant avec le bouton droit de la souris et en sélectionnant « Exécuter en tant qu'administrateur » et exécutez la commande  
 
 ```
-For information on key differences with WSL 2 please visit https://aka.ms/wsl2
-The operation completed successfully.
+wsl --set-default-version 2
 ```
 
-- Once WSL 2 is installed, you can install your preferred Linux distribution from the Microsoft Store or by using the command line. Simply search for "Linux" in the Microsoft Store, select your desired distribution (e.g., Ubuntu, Debian, or others), and click "Install". Alternatively, you can install a Linux distribution using PowerShell or Command Prompt. Open a Windows Powershell or Command Prompt and list the distributions available:
+Le résultat de cette commande ressemblera à ceci :
+
+```
+Pour obtenir plus d'informations sur les principales différences avec WSL 2, veuillez visiter <https://aka.ms/wsl2>
+
+L'opération s'est terminée avec succès.
+```
+
+- Une fois que l'outil WSL 2 est installé, vous pouvez installer votre distribution Linux préférée à partir du Microsoft Store ou en utilisant la ligne de commande. Recherchez simplement « Linux » dans le Microsoft Store, sélectionnez la distribution souhaitée (par exemple, Ubuntu, Debian ou autre) et cliquez sur « Installer ». Vous pouvez également installer une distribution Linux en utilisant PowerShell ou l'invite de commande. Ouvrir un Powershell Windows ou une invite de commande et obtenez la liste des distributions disponibles :
 
 ```
 wsl --list --online
 ```
 
-Install a distribution from this list using wsl --install -d &lt;Distribution Name> command.
+Installez une distribution à partir de cette liste à l'aide de la commande wsl --install -d &lt;nom de la distribution&gt;.
 
 ```
 wsl --install -d Ubuntu
 ```
 
-After installation, each Linux distribution will have an icon on the Windows application menu. Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
+Après l'installation, chaque distribution Linux aura une icône dans le menu de l'application Windows. Une fois que vous aurez installé WSL, vous devrez créer un compte utilisateur et un mot de passe pour votre distribution Linux nouvellement installée.
 
-A new window should open with a Linux shell.
+Une nouvelle fenêtre devrait s'ouvrir avec un shell Linux.
 
-- Here is a quick review of the WSL command line options.
+- Voici un rapide examen des options de ligne de commande WSL.
 
-Print the usage information and see the command line arguments:
+Imprimez les informations d'utilisation et consultez les arguments de la ligne de commande :
 
 ```
 wsl --help
 ```
 
-List the installed distributions:
+Lister les distributions installées :
 
 ```
 wsl --list
 ```
 
-List only the running distributions:
+Lister uniquement les distributions en cours d'exécution :
 
 ```
 wsl --list --running
 ```
 
-Terminate a running distribution:
+Mettre fin à une distribution en cours d'exécution :
 
 ```
 wsl --terminate Ubuntu-22.04
 ```
 
-Shutdown all running distributions:
+Arrêter toutes les distributions en cours d'exécution :
 
 ```
 wsl --shutdown
 ```
 
-Unregister the Linux distribution and delete the filesystem:
+Annuler la distribution Linux et supprimer le système de fichiers :
 
 ```
 wsl --unregister Ubuntu-22.04
 ```
 
-Update WSL to the latest version:
+Mettre à jour WSL vers la dernière version :
 
 ```
 wsl --update
 ```
 
-Start the default distribution:
+Démarrer la distribution par défaut :
 
 ```
 wsl
 ```
 
-## Related learning paths
+## Parcours d'apprentissage connexes
 
-_Web Application Security Fundamentals:_ This Hardening, Forensics, and Incident Response learning path assumes a certain level of familiarity with web application security. If you are new to this area of security, then you should go through the Security Fundamentals learning path to gain the background information to effectively engage with this one.
+[Principes fondamentaux de la sécurité des applications Web](/fr/learning-path/4/) : ce parcours d'apprentissage de renforcement des applications Web, investigation et intervention en cas d'incident suppose un certain niveau de familiarité avec la sécurité des applications Web. Si vous venez de débuter dans ce domaine de la sécurité, vous devriez commencer par le parcours d'apprentissage sur les principes fondamentaux de la sécurité Web pour obtenir les informations de base nécessaires pour compléter efficacement ce parcours.
 
-_Web Application Security Assessment:_ For digital defenders, attacking and defending are two important parts of a whole. As someone helping your clients secure their sites, knowing how to holistically defend against attacks allows you to provide them with better recommendations. This Learning Path provides a deeper understanding of the types of hacking attacks that websites may be subject to.
+[Évaluation de la sécurité des applications Web](/fr/learning-path/5/) : pour les défenseurs numériques, l'attaque et la défense sont deux parties importantes d'un tout. En tant que personne aidant vos clients à sécuriser leurs sites, savoir vous défendre de manière holistique contre les attaques vous permet de leur fournir de meilleures recommandations. Ce parcours d'apprentissage permet de mieux comprendre les types d'attaques de piratage auxquelles les sites Web peuvent être soumis.

@@ -2,6 +2,7 @@
 style = "module"
 weight = 4
 title = "Hacking Incident Response"
+description = "Nous examinons certaines méthodes permettant d'enquêter sur une attaque ayant ciblé notre site web et de s'en remettre."
 +++
 
 ## Use Case
