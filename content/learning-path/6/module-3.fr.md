@@ -113,9 +113,9 @@ D) UDP Flood
 
 2. Quel est l'objectif principal d'une attaque DDoS ?
 
-A) Voler des données sensibles
-B) Obtenir un accès non autorisé à un système
-C) Surcharger un système ou un réseau cible
+A) Voler des données sensibles\
+B) Obtenir un accès non autorisé à un système\
+C) Surcharger un système ou un réseau cible\
 D) Chiffrer des fichiers et demander une rançon
 
 {{< question title="Réponse" >}}
@@ -124,9 +124,9 @@ C) Surcharger un système ou un réseau cible
 
 3. Quelle technique est couramment utilisée pour atténuer les attaques DDoS d'amplification DNS ?
 
-A) Implémenter un filtrage d'entrée pour bloquer le trafic avec des adresses IP usurpées
-B) Utiliser la limitation de débit pour contrôler le volume de paquets de réponse DNS quittant des serveurs faisant autorité
-C) Déployer des systèmes de prévention des intrusions (IPS) pour détecter et bloquer le trafic malveillant en périphérie du réseau
+A) Implémenter un filtrage d'entrée pour bloquer le trafic avec des adresses IP usurpées\
+B) Utiliser la limitation de débit pour contrôler le volume de paquets de réponse DNS quittant des serveurs faisant autorité\
+C) Déployer des systèmes de prévention des intrusions (IPS) pour détecter et bloquer le trafic malveillant en périphérie du réseau\
 D) Effectuer régulièrement des analyses de vulnérabilité pour identifier et corriger les vulnérabilités du serveur DNS
 
 {{< question title="Réponse" >}}
@@ -135,9 +135,9 @@ B) Utiliser la limitation de débit pour contrôler le volume de paquets de rép
 
 4. Quelle phase de l'intervention en cas d'incident implique d'identifier la nature et la portée de l'attaque DDoS ?
 
-A) La préparation
-B) La détection et l'analyse
-C) Le confinement, l'éradication et le rétablissement
+A) La préparation\
+B) La détection et l'analyse\
+C) Le confinement, l'éradication et le rétablissement\
 D) Activité post-incident
 
 {{< question title="Réponse" >}}
@@ -146,9 +146,9 @@ B) La détection et l'analyse
 
 5. Quel est l'objectif principal pendant la phase de confinement de l'intervention en cas d'attaque DDoS ?
 
-A) L'arrêt complet du système
-B) Éliminer l'accès du cybercriminel
-C) Identifier les vulnérabilités pour les attaques futures
+A) L'arrêt complet du système\
+B) Éliminer l'accès du cybercriminel\
+C) Identifier les vulnérabilités pour les attaques futures\
 D) Restaurer les services affectés tout en évitant d'autres dommages
 
 {{< question title="Réponse" >}}
@@ -157,9 +157,9 @@ D) Restaurer les services affectés tout en évitant d'autres dommages
 
 6. Dans le contexte de l'intervention en cas d'incident, qu'est-ce que la phase « d'éradication » implique concernant les attaques DDoS ?
 
-A) Restaurer les données à partir de sauvegardes
-B) Enquêter sur l'origine de l'attaque
-C) Mettre en œuvre des solutions à long terme pour prévenir les attaques similaires
+A) Restaurer les données à partir de sauvegardes\
+B) Enquêter sur l'origine de l'attaque\
+C) Mettre en œuvre des solutions à long terme pour prévenir les attaques similaires\
 D) Redémarrer les systèmes concernés
 
 {{< question title="Réponse" >}}
@@ -168,9 +168,9 @@ C) Mettre en œuvre des solutions à long terme pour prévenir les attaques simi
 
 7. Quelle action est généralement effectuée pendant la phase de récupération de l'intervention en cas d'attaque DDoS ?
 
-A) Effectuer une analyse post-mortem
-B) Appliquer des correctifs de sécurité aux systèmes vulnérables
-C) Identifier de nouveaux vecteurs d'attaque
+A) Effectuer une analyse post-mortem\
+B) Appliquer des correctifs de sécurité aux systèmes vulnérables\
+C) Identifier de nouveaux vecteurs d'attaque\
 D) Engager une action en justice contre le cybercriminel
 
 {{< question title="Réponse" >}}
@@ -179,9 +179,9 @@ B) Appliquer des correctifs de sécurité aux systèmes vulnérables
 
 8. Comment les réseaux de diffusion de contenu (CDN) peuvent-ils contribuer à protéger les sites Web contre les attaques par déni de service (DoS) ?
 
-A) En chiffrant tout le trafic entrant pour prévenir les attaques
-B) En bloquant directement tout trafic entrant suspect
-C) En distribuant le contenu du site Web sur plusieurs serveurs et centres de données
+A) En chiffrant tout le trafic entrant pour prévenir les attaques\
+B) En bloquant directement tout trafic entrant suspect\
+C) En distribuant le contenu du site Web sur plusieurs serveurs et centres de données\
 D) En augmentant la puissance de traitement du site
 
 {{< question title="Réponse" >}}
