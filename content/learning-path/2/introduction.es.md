@@ -1,7 +1,7 @@
 ---
 style: introduction
 title: "Introducción"
-description: "Read the learning path overview, objectives, associated threats and prerequisites."
+description: "Lea la descripción general del camino de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos."
 weight: 1
 ---
 
