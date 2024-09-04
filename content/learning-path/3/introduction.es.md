@@ -1,22 +1,19 @@
 ---
 style: introduction
-title: Introduction
-description: Sorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam eu
-  turpis molestie, dictum est a, mattis tellus. Sed dignissim, metus nec
-  fringilla accumsan, risus sem sollicitudin lacus, ut interdum tellus elit sed
-  risus.
+title: Introducción
+description: Lea la descripción general del camino de aprendizaje, los objetivos, las amenazas asociadas y los requisitos previos.
 weight: 1
 ---
 
-## Overview
+## Descripción general
 
-This learning path will prepare you to start on the journey of analyzing malware. Note that this is one of the hardest areas of security to master, but incremental progress will give results. The general goal of malware analysis is to characterize new malware, both brand new malware and variants of existing ones. The desired end result is a characterization of the capabilities of the malware, a guess at what threat actor(s) is using it, and a set of IoCs (indicators of compromise) that will allow others to detect the malware.
+Esta ruta de aprendizaje te preparará para comenzar el camino del análisis de malware. Tenga en cuenta que esta es una de las áreas de seguridad más difíciles de dominar, pero el progreso incremental dará resultados. El objetivo general del análisis de malware es caracterizar nuevos malwares, tanto malwares nuevos como variantes de los existentes. El resultado final deseado es una caracterización de las capacidades del malware, una conjetura sobre qué actores de amenazas lo están utilizando y un conjunto de IoC (indicadores de compromiso) que permitirán a otros detectar el malware.
 
-A few things to keep in mind as you go through this learning path:
+Algunas cosas que debes tener en cuenta a medida que avanzas en esta ruta de aprendizaje:
 
-- Take the prerequisites seriously. You must have a solid base of knowledge to build on.
-- This learning path covers two platforms (Windows, Android). It’s probably best to focus on one platform at once. Although the general concepts apply across all platforms, the specific techniques and tools can differ greatly. If you don’t have much reverse engineering and low-level debugging experience, we recommend getting started with Windows, because there are many more resources for Windows program analysis.
-- Don’t be afraid to ask for help. Organizations like CiviCERT can help you connect with others who can collaborate with you in analyzing novel malware.
+- Tómese en serio los requisitos previos. Debes tener una base sólida de conocimientos sobre la que construir.
+- Esta ruta de aprendizaje abarca dos plataformas (Windows, Android). Probablemente sea mejor centrarse en una plataforma a la vez. Aunque los conceptos generales se aplican en todas las plataformas, las técnicas y herramientas específicas pueden diferir mucho. Si no tiene mucha experiencia en ingeniería inversa y depuración de bajo nivel, le recomendamos que comience con Windows, ya que hay muchos más recursos para el análisis de programas de Windows.
+- No tenga miedo de pedir ayuda. Organizaciones como CiviCERT pueden ayudarte a conectarte con otras personas que pueden colaborar contigo en el análisis de malware novedoso.
 
 ## Objective
 
@@ -37,7 +34,7 @@ Device compromises and data exfiltration through desktop and mobile malware
 This learning path is an advanced one. Prior to undertaking it, learners should:
 
 - Complete the _Detecting Malware_ learning path, which covers the fundamentals of malware. Typically, you would only use the information you will learn below to perform further analysis on suspected malware that was not detected using existing IoCs, so this learning path can be viewed as a continuation of Detecting Malware.
-- Complete the _[Investigating, Tracking, Detecting Malicious Infrastructure](https://docs.google.com/document/d/13if8JvR_TsGxja0Il48NBM-S1LKs29w_R_3LxxiLxS4/edit) learning path_, which teaches fundamentals about DNS, email, and HTTP that you will need to understand malware behavior
+- Complete the _[Investigating, Tracking, Detecting Malicious Infrastructure](/es/learning-path/1/) learning path_, which teaches fundamentals about DNS, email, and HTTP that you will need to understand malware behavior
 - Based on both the platform and malware you’re analyzing, you are likely to need some programming and operating system knowledge. In addition to basic command line skills, you will need to know a bit about the programming languages and security architectures present on major operating systems. Examples may include C/C++ and x86 assembly for Windows, Java or Kotlin for Android, etc.
 - (optional) Depending on the malware, you might also need to be able to read scripting languages such as Perl, PowerShell, bash, etc. The sections for each platform should include links to some resources to support this, but you may need to do research and study outside of the learning path depending on what you’re analyzing.
 
