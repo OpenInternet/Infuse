@@ -38,7 +38,7 @@ Human-readable IoCs are descriptions of things that the malware does that are us
 
 A good malware analysis report will generally contain a human readable description of the malware and its capabilities, along with some machine-readable IoCs in an appendix. This ensures that the report is useful to the widest audience.
 
-*Creating IoCs*
+### Creating IoCs
 
 A good IoC will minimize both false positives and false negatives. Especially since malware is hopefully rare on most systems, detecting good files as malicious (false positives) can create a false sense of risk and lead to the deletion of legitimate files. Similarly, an IoC that fails to detect a significant portion of that malware (false negatives) can be dangerous, luring defenders into a false sense of security.
 
