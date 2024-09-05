@@ -216,9 +216,9 @@ Explicación: Los fortalecedores de configuración y los WAF (Cortafuegos de Apl
 
 {{% resource title="Proyecto de Cloudflare Galileo" description="Protección previa a DDoS y otras medidas de seguridad para sitios en riesgo, incluidos grupos artísticos, organizaciones humanitarias y disidentes políticos." languages="Inglés, alemán, español, francés, italiano, japonés, coreano, portugués, chino, taiwanés" cost="Gratis" url="https://www.cloudflare.com/es-la/galileo/" %}}
 
-{{% resource title="Alojamiento seguro para sitios en riesgo: Qurium" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="Qurium: https://www.qurium.org/secure-hosting/" %}}
+{{% resource title="Alojamiento seguro para sitios en riesgo: Qurium" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="https://www.qurium.org/secure-hosting/" %}}
 
-{{% resource title="Alojamiento seguro para sitios en riesgo: Greenhost" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="Greenhost: https://greenhost.net/internet-freedom/" %}}
+{{% resource title="Alojamiento seguro para sitios en riesgo: Greenhost" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="https://greenhost.net/internet-freedom/" %}}
 
 {{% resource title="Firewalls de aplicaciones web: Sucuri" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="Sucuri: https://sucuri.net/website-firewall/" %}}
 

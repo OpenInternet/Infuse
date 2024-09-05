@@ -42,7 +42,7 @@ Pour commencer avec l'analyse statique de Windows, nous allons mettre de côté 
 
 ### Android
 
-Bien que les logiciels Windows soient généralement écrits en assembleur x86 ou x64, les binaires sur Android ciblent généralement une machine virtuelle appelée Android Runtime (ART), qui est similaire à la machine virtuelle Java. Ce bytecode ART peut généralement être automatiquement inversé en Java, par opposition au bytecode x86/x64, qui ne peut généralement être inversé que par assembleur. Avant de vous réjouir, notez qu'il existe de nombreux outils de brouillage qui peuvent facilement rendre le code Java obtenu par rétro-ingénierie presque illisible, et qu'Android prend également en charge le code natif via la [bibliothèque NDK](https://developer.android.com/ndk/guides). Notez que la plupart des appareils Android ont des architectures basées sur ARM, pas x86/x64. Vous devrez donc apprendre l'assembleur ARM pour obtenir par rétro-ingénierie la plupart du code natif Android que vous trouverez.
+Bien que les logiciels Windows soient généralement écrits en assembleur x86 ou x64, les binaires sur Android ciblent généralement une machine virtuelle appelée Android Runtime (ART), qui est similaire à la machine virtuelle Java. Ce bytecode ART peut généralement être automatiquement inversé en Java, par opposition au bytecode x86/x64, qui ne peut généralement être inversé que par assembleur. Avant de vous réjouir, notez qu'il existe de nombreux outils de brouillage qui peuvent facilement rendre le code Java obtenu par rétro-ingénierie presque illisible, et qu'Android prend également en charge le code natif via la [bibliothèque NDK](https://developer.android.com/ndk/guides?hl=fr). Notez que la plupart des appareils Android ont des architectures basées sur ARM, pas x86/x64. Vous devrez donc apprendre l'assembleur ARM pour obtenir par rétro-ingénierie la plupart du code natif Android que vous trouverez.
 
 Vous pouvez également rencontrer le langage de programmation Kotlin lors de l'apprentissage sur Android. Kotlin et Java compilent sur le même bytecode et sont très similaires à un niveau de base. Lors d'une analyse statique sur une application Android, le langage de programmation d'origine ne devrait pas être significatif. Nous vous recommandons de vous concentrer sur Java, car les décompilateurs disponibles transforment ART en Java, pas en Kotlin.
 
@@ -56,7 +56,7 @@ Comme pour la section d'analyse statique Windows, cette section sur l'analyse st
 
 {{% resource title="Cours Codecademy 'Learn Java'" languages="Anglais" cost="Gratuit" description="Introduction de base à la programmation Java." url="https://www.codecademy.com/enrolled/courses/learn-java" %}}
 
-{{% resource title="Créez votre première application Android en Java" languages="Anglais, Chinois, Indonésien, Japonais, Coréen, Portugais, Espagnol" cost="Gratuit" description="Cours de base sur la création d'applications Android en utilisant Java." url="https://developer.android.com/codelabs/build-your-first-android-app" %}}
+{{% resource title="Créez votre première application Android en Java" languages="Anglais, Chinois, Indonésien, Japonais, Coréen, Portugais, Espagnol" cost="Gratuit" description="Cours de base sur la création d'applications Android en utilisant Java." url="https://developer.android.com/courses/android-basics-compose/course?hl=fr" %}}
 
 ## Contrôle de compétence
 

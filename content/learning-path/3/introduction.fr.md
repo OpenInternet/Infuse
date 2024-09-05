@@ -48,6 +48,6 @@ Si vous avez déjà configuré votre propre environnement de machine virtuelle p
 
 ## Parcours d'apprentissage connexes
 
-Nous recommandons fortement de terminer les parcours d'apprentissage _Détection des logiciels malveillants_ et _Détection, enquête et suivi des infrastructures malveillantes_ à titre de conditions préalables à ce parcours.
+Nous recommandons fortement de terminer les parcours d'apprentissage [_Détection des logiciels malveillants_](/fr/learning-path/2/) et [_Détection, enquête et suivi des infrastructures malveillantes_](/fr/learning-path/1) à titre de conditions préalables à ce parcours.
 
-Certains logiciels malveillants sont livrés comme une application Web ou une exploitation de faille de navigateur. Certaines des compétences couvertes dans le parcours d'apprentissage _Principes fondamentaux de la sécurité sur le Web_ vous aideront à analyser les logiciels malveillants sur le Web.
+Certains logiciels malveillants sont livrés comme une application Web ou une exploitation de faille de navigateur. Certaines des compétences couvertes dans le parcours d'apprentissage [_Principes fondamentaux de la sécurité sur le Web_]((/fr/learning-path/4)) vous aideront à analyser les logiciels malveillants sur le Web.
