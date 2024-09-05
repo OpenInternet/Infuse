@@ -164,4 +164,6 @@ B) SQL Injection
 
 {{% resource title="Hacking into a Toyota/Eicher Motors insurance company by exploiting their premium calculator website" languages="English" cost="Free" description="A good writeup of a website with particularly egregious security errors which could give an attacker high-level access, and basic steps which could have mitigated those vulnerabilities." url="https://eaton-works.com/2024/01/17/ttibi-email-hack/" %}}
 
-{{% resource title="Bug bounty programs" languages="English" cost="Free" description="Bug bounty programs allow you to make money while finding security vulnerabilities and are a great way of ethically testing applications and legally verifying your skills." url="HackerOne: https://www.hackerone.com/hackers" url2="Bugcrowd: https://www.bugcrowd.com/hackers/faqs/" %}}
+{{% resource title="Bug bounty programs: HackerOne" languages="English" cost="Free" description="Bug bounty programs allow you to make money while finding security vulnerabilities and are a great way of ethically testing applications and legally verifying your skills." url="https://www.hackerone.com/hackers" %}}
+
+{{% resource title="Bug bounty programs: Bugcrowd" languages="English" cost="Free" description="Bug bounty programs allow you to make money while finding security vulnerabilities and are a great way of ethically testing applications and legally verifying your skills." url="https://www.bugcrowd.com/hackers/faqs/" %}}

@@ -516,7 +516,9 @@ D) Cross-Site Request Forgery (CSRF)
 
 {{% resource title="Hash lookup" languages="English" cost="Free" description="Tool for reverse lookup of hashes, useful for working with tools like DVWA." url="https://www.whatsmyip.org/hash-lookup/" %}}
 
-{{% resource title="Password storage cheat sheet & Forgot password cheat sheet" languages="English" cost="Free" description="Best practices for storing encrypted passwords and managing password recovery." url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
+{{% resource title="Password storage cheat sheet & Forgot password cheat sheet, Resource 1" languages="English" cost="Free" description="Best practices for storing encrypted passwords and managing password recovery." url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" %}}
+
+{{% resource title="Password storage cheat sheet & Forgot password cheat sheet, Resource 2" languages="English" cost="Free" description="Best practices for storing encrypted passwords and managing password recovery." url="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
 
 {{% resource title="International SMS Fraud" languages="English" cost="Free" description="Case study on SMS abuse by adversaries and reasons not to rely on SMS for authentication." url="https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/" %}}
 
@@ -538,6 +540,8 @@ D) Cross-Site Request Forgery (CSRF)
 
 {{% resource title="U2F Technical Overview" languages="English" cost="Free" description="Detailed look at U2F authentication method using physical security keys." url="https://developers.yubico.com/U2F/Protocol_details/Overview.html" %}}
 
-{{% resource title="Two factor authentication backup codes" languages="English" cost="Free" description="Guides on managing backup methods for two factor authentication by Google and GitHub." url="https://support.google.com/accounts/answer/1187538?hl=en&co=GENIE.Platform%3DDesktop" url2="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
+{{% resource title="Two factor authentication backup codes: Google" languages="English" cost="Free" description="Guides on managing backup methods for two factor authentication by Google and GitHub." url="https://support.google.com/accounts/answer/1187538?hl=en&co=GENIE.Platform%3DDesktop" %}}
+
+{{% resource title="Two factor authentication backup codes: Github" languages="English" cost="Free" description="Guides on managing backup methods for two factor authentication by Google and GitHub." url="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
 
 {{% resource title="Multifactor authentication cheat sheet" languages="English" cost="Free" description="Overview of multifactor authentication and best practices for implementation." url="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html" %}}

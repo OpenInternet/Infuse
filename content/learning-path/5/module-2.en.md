@@ -204,6 +204,8 @@ If you are working with a peer or mentor, explain to them how each attack works 
 
 {{% resource title="Report: 50% of all web applications were vulnerable to attacks in 2021" languages="English" cost="Free" description="Summary of a report on vulnerabilities in major web applications." url="https://venturebeat.com/security/report-50-of-all-web-applications-were-vulnerable-to-attacks-in-2021/" %}}
 
-{{% resource title="An overview of same-origin policy and cross-origin resource sharing" languages="Multiple" cost="Free" description="Introductions to same-origin policy and cross-origin resource sharing." url="https://en.wikipedia.org/wiki/Same-origin_policy" url2="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" %}}
+{{% resource title="An overview of same-origin policy" languages="Multiple" cost="Free" description="Introduction to same-origin policy." url="https://en.wikipedia.org/wiki/Same-origin_policy"  %}}
+
+{{% resource title="An overview of cross-origin resource sharing" languages="Multiple" cost="Free" description="Introduction to cross-origin resource sharing." url="https://en.wikipedia.org/wiki/Cross-origin_resource_sharing" %}}
 
 {{% resource title="An SSRF, privileged AWS keys and the Capital One breach" languages="English" cost="Free" description="Overview of the 2019 Capital One breach through an SSRF bug." url="https://blog.appsecco.com/an-ssrf-privileged-aws-keys-and-the-capital-one-breach-4c3c2cded3af" %}}

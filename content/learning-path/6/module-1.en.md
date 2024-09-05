@@ -219,9 +219,15 @@ Explanation: Configuration hardeners and WAFs (Web Application Firewalls) help m
 
 {{% resource title="Secure hosting for at risk sites: Greenhost" languages="English" cost="Varied, depending on hosting package" description="Qurium and Greenhost both offer hosting for groups which might be at risk of attacks due to their human rights and media work." url="https://greenhost.net/internet-freedom/" %}}
 
-{{% resource title="Web application firewalls" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="Sucuri: https://sucuri.net/website-firewall/" url2="Wordfence: https://www.wordfence.com/products/pricing/" url3="ModSecurity: https://github.com/SpiderLabs/ModSecurity" %}}
+{{% resource title="Web application firewalls: Sucuri" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="https://sucuri.net/website-firewall/" %}}
 
-{{% resource title="Web application hardeners" languages="English" cost="Varied, many free options" description="Automated tools which find potential vulnerabilities in web applications." url="A hardening framework: https://dev-sec.io/baselines/" url2="Snuffleupagus: https://snuffleupagus.readthedocs.io/" %}}
+{{% resource title="Web application firewalls: WordFence" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="https://www.wordfence.com/products/pricing/" %}}
+
+{{% resource title="Web application firewalls: ModSecurity" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="https://github.com/SpiderLabs/ModSecurity" %}}
+
+{{% resource title="Web application hardeners: a hardening framework" languages="English" cost="Free" description="Automated tools which find potential vulnerabilities in web applications." url="https://dev-sec.io/baselines/" %}}
+
+{{% resource title="Web application hardeners: Snuffleupagus" languages="English" cost="Varied, many free options" description="Automated tools which find potential vulnerabilities in web applications." url="https://snuffleupagus.readthedocs.io/" %}}
 
 {{% resource title="Static site generators" languages="English" cost="Free" description="An overview of major static site generators." url="https://cloudcannon.com/jamstack-ecosystem/static-site-generators/" %}}
 

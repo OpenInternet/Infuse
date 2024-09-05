@@ -443,7 +443,13 @@ D) All of the above.
 
 ## Learning Resources
 
-{{% resource title="OWASP guides to vulnerabilities" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/SQL_Injection" url2="https://owasp.org/www-community/attacks/xss/" url3="https://owasp.org/www-community/attacks/Path_Traversal" url4="https://owasp.org/www-community/attacks/Command_Injection" %}}
+{{% resource title="OWASP guides to vulnerabilities: SQL Injection" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/SQL_Injection" %}}
+
+{{% resource title="OWASP guides to vulnerabilities: XSS" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/xss/" %}}
+
+{{% resource title="OWASP guides to vulnerabilities: Path traversal" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/Path_Traversal" %}}
+
+{{% resource title="OWASP guides to vulnerabilities: Command injection" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/Command_Injection" %}}
 
 {{% resource title="OS command injection cheat sheet" languages="English" cost="Free" description="Quick overview of different OS commands which could be abused for injection." url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
 

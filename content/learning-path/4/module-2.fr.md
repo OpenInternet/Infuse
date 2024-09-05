@@ -457,6 +457,13 @@ D) Tout ce qui précède.
 
 ### Ressources d'apprentissage
 
-{{% resource title="Guides de l'OWASP sur les vulnérabilités" description="Excellents aperçus des différentes vulnérabilités, y compris des exemples" languages="Anglais" cost="Gratuit" url="Injection SQL : https://owasp.org/www-community/attacks/SQL_Injection <br> XSS : https://owasp.org/www-community/attacks/xss/ <br> Traversée de répertoire : https://owasp.org/www-community/attacks/Path_Traversal <br> Injection de commande : https://owasp.org/www-community/attacks/Command_Injection" %}}
+{{% resource title="Guides de l'OWASP sur les vulnérabilités: Injection SQL" description="Excellents aperçus des différentes vulnérabilités, y compris des exemples" languages="Anglais" cost="https://owasp.org/www-community/attacks/SQL_Injection" %}}
+
+{{% resource title="Guides de l'OWASP sur les vulnérabilités: XSS" description="Excellents aperçus des différentes vulnérabilités, y compris des exemples" languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/attacks/xss/" %}}
+
+{{% resource title="Guides de l'OWASP sur les vulnérabilités: Traversée de répertoire" description="Excellents aperçus des différentes vulnérabilités, y compris des exemples" languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/attacks/Path_Traversal" %}}
+
+{{% resource title="Guides de l'OWASP sur les vulnérabilités: Injection de commande" description="Excellents aperçus des différentes vulnérabilités, y compris des exemples" languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/attacks/Command_Injection" %}}
+
 {{% resource title="Aide-mémoire sur l'injection de commande OS" description="Un aperçu rapide des différentes commandes du système d'exploitation qui pourraient être utilisées à mauvais escient pour permettre l'injection" languages="Anglais" cost="Gratuit" url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
 {{% resource title="Web shells" description="Un aperçu rapide de ce qu'est un shell web et comment il pourrait être utilisé dans le cadre d'attaques" languages="anglais, kurde, chinois, coréen, français, lombard, hindi, malayalam" cost="Gratuit" url="https://fr.wikipedia.org/wiki/Code_encoquill%C3%A9" %}}
