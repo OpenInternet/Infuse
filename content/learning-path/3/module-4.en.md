@@ -32,7 +32,9 @@ While much of the focus in this learning path is on static analysis of compiled 
 
 To start off in Windows static analysis, we will set aside REMnux and go through a set of tutorials on Windows malware reverse engineering. This tutorial does include a bit of dynamic analysis, but is heavily focused on static analysis. For consistency, you should go through the exercises outlined below. Remember that, if you find any tools that you like that aren’t part of REMnux, you can add them to your REMnux VM. (You can also start over at any time with a blank VM, if you want.)
 
-{{% resource title="Windows malware reverse engineering 101 and 102" languages="English" cost="Free" description="Comprehensive courses on reverse engineering Windows malware." url="https://malwareunicorn.org/workshops/re101.html" url2="https://malwareunicorn.org/workshops/re102.html" %}}
+{{% resource title="Windows malware reverse engineering 101" languages="English" cost="Free" description="Comprehensive courses on reverse engineering Windows malware." url="https://malwareunicorn.org/workshops/re101.html" %}}
+
+{{% resource title="Windows malware reverse engineering 102" languages="English" cost="Free" description="Comprehensive courses on reverse engineering Windows malware." url="https://malwareunicorn.org/workshops/re102.html" %}}
 
 {{% resource title="OpenSecurityTraining2 courses" languages="English" cost="Free, paid with instructor support" description="Courses on low-level system architecture and reversing." url="https://p.ost2.fyi/courses" %}}
 

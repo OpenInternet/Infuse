@@ -1,105 +1,106 @@
++++
+style = "module"
+weight = 3
+title = "Sandboxes y análisis dinámico"
+description = "Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing this is by running a piece of software in a safe, isolated environment called a sandbox."
++++
+
+## Caso práctico
+
+El análisis dinámico es el proceso de ejecutar un malware y observar lo que hace. La forma más fácil de hacer un análisis dinámico es ejecutar un software en un sandbox. Un sandbox es un entorno seguro y aislado que abre un archivo, URL o programa potencialmente malicioso y genera una gran cantidad de datos en él. Este subtema analiza el análisis de sandbox, lo que puede y no puede hacer y cómo hacerlo.
+
+## Objetivos
+
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
+
+- Comprender el caso de uso y las limitaciones del análisis dinámico
+- Comprender las ventajas y limitaciones de los sandboxes
+- Abrir un archivo, URL o programa sospechoso en un sandbox
+- Ser capaz de realizar algunos análisis dinámicos básicos en binarios de Windows o Android utilizando herramientas listas para usar
+
 ---
-style: module
-title: Sandboxes and dynamic analysis
-weight: 3
----
+## Sección Principal
+### Análisis dinámico
 
-## Use Case
+Cuando realice un análisis dinámico en un archivo potencialmente sospechoso, abrirá y ejecutará el archivo en una herramienta especializada y observará lo que hace este archivo, si intenta acceder a otros archivos, si realiza conexiones de red y similares. El análisis estático, descrito en el subtema 4, por otro lado, desmonta el archivo en lugar de abrirlo o ejecutarlo.
 
-Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing dynamic analysis is by running a piece of software in a sandbox. A sandbox is a safe, isolated environment which opens a potentially malicious file, URL, or program and generates a huge amount of data on it. This subtopic looks at sandbox analysis, what it can and cannot do, and how to do it.
+Dependiendo de la situación, el análisis dinámico puede ser más fácil o difícil que el análisis estático, y también puede ser más o menos preciso. En la práctica, una combinación de análisis estático y dinámico probablemente producirá los mejores resultados. La mayoría de los análisis dinámicos también implicarán algún análisis estático, por lo que la línea entre las dos técnicas a menudo es borrosa.
 
-## Objectives
+La configuración general para el análisis dinámico incluye un sandbox en la que se ejecuta el malware, un depurador para controlar y monitorear la ejecución del programa, monitoreo del sistema para observar los cambios en el estado del sistema del sandbox y algo para mediar en el acceso a Internet para bloquear, observar y/o modificar el tráfico de red. Todos estos pueden existir en un sistema, o pueden ser dispositivos virtuales o físicos separados. Por ejemplo, puedes usar un iPhone con jailbreak como sandbox, una herramienta para la depuración remota y el monitoreo del sistema, y otra herramienta para la mediación de Internet. No todos los sistemas se pueden usar en todas las situaciones, por ejemplo, puede capturar el tráfico de red y monitorear los cambios del sistema sin usar un depurador.
 
-After completing this subtopic, practitioners should be able to do the following:
+Hay muchos métodos diferentes en los que podríamos realizar un análisis dinámico, incluso abriendo el ejecutable en un sandbox y verificando las conexiones de red que realice. Para obtener un gran recurso sobre la detección de malware a través del tráfico de red que genera, consulte [esta guía](https://malware-traffic-analysis.net/).
 
-- Understand the use case for and limitations of dynamic analysis
-- Understand the advantages and limitations of sandboxes
-- Open a suspicious file, URL, or program in a sandbox
-- Be able to perform some basic dynamic analysis on either Windows or Android binaries using off-the-shelf tools
+En teoría, el análisis dinámico podría alertar a un actor de amenazas de que estás analizando su malware. En la práctica, los adversarios a menudo esperan que se analice su malware y es muy raro encontrar un malware completamente nuevo en tu carrera. Con la excepción de algunos casos muy sensibles, no nos preocuparíamos por este riesgo.
 
----
+### Sandboxes
 
-## Dynamic analysis
+Un sandbox (malware) es un entorno seguro en el que puedes abrir y ejecutar un archivo o una URL. Es esencialmente una máquina virtual diseñada a medida que se inicia antes de que se abra el archivo o la URL, y luego se apaga después de un cierto tiempo.
 
-When you conduct dynamic analysis on a potentially suspicious file, you will open and execute the file in a specialized tool and observe what this file does, whether it tries to access other files, if it makes network connections, and the like. Static analysis, outlined in subtopic 4, on the other hand, disassembles the file rather than opening or executing it.
+Todas las actividades en el sandbox, como los archivos que se abren o crean, así como las conexiones de red realizadas, se registran y se puede acceder a ellas a través de un informe de actividad. El informe de actividad puede ayudarte a comprender si el archivo o la URL eran maliciosos. También puede ayudarlo a vincular el malware a actividades vistas anteriormente, por ejemplo, en función de conexiones de red específicas o archivos que se crean.
 
-Depending on the situation, dynamic analysis can be easier or harder than static analysis, and it can also be more or less accurate. In practice, a combination of static and dynamic analysis will likely produce the best results. Most dynamic analysis will also involve some static analysis, so the line between the two techniques is often blurred.
+Ejecutar malware conocido dentro de un sandbox también puede ser muy útil a medida que aprende más sobre el malware. Le ayuda a comprender qué hace el malware y qué cambios realiza en el sistema. Por ejemplo, una gran cantidad de malware cuando se ejecuta inicialmente intenta garantizar la persistencia para que aún se ejecute después de un reinicio. Estos métodos de persistencia son algo que puede buscar cuando realiza análisis forenses manuales en un posible dispositivo infectado.
 
-The general setup for dynamic analysis includes a sandbox in which the malware is run, a debugger to control and monitor program execution, system monitoring to watch for changes to the sandbox system’s state, and something to mediate internet access to block, observe, and/or modify network traffic. These might all exist on one system, or they might be separate virtual or physical devices. For example, you may use a jailbroken iPhone as your sandbox, one tool for remote debugging and system monitoring, and another tool for internet mediation. Not all systems may be used in every situation, for example you might just capture network traffic and monitor system changes without using a debugger.
+Una gran cantidad de malware tiene funciones anti-sandbox integradas: cuando el malware detecta que se está ejecutando dentro de un entorno sandbox, terminará o, a veces, hará algo inofensivo para confundir el análisis. Además, algunos programas maliciosos están diseñados para ejecutarse solo si se cumplen condiciones específicas, por ejemplo, una versión específica del sistema operativo o una dirección IP ubicada en un país específico. Los sandboxes a menudo se actualizan para responder a los métodos anti-sandbox y muchos sandboxes le permiten elegir las propiedades determinadas.
 
-There are many different methods in which we could conduct dynamic analysis, including by opening up the executable in a sandbox and checking the network connections it makes. For a great resource on detecting malware through the network traffic it generates, check out [this guide](https://malware-traffic-analysis.net/).
+Es importante tener esto en cuenta al leer un informe de sandbox: la falta de actividad maliciosa no significa automáticamente que el archivo o la URL no sean maliciosos. Por otro lado, si se mostró actividad maliciosa, puede estar seguro de que el archivo o la URL eran maliciosos.
 
-In theory, dynamic analysis could tip off a threat actor that you are analyzing their malware. In practice, adversaries often expect their malware to be analyzed and it is very rare to encounter completely novel malware in your career. With the exception of some very sensitive cases, we would not worry about this risk.
+Consulte el [Capítulo 10 de la Guía de Campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) para obtener una introducción más detallada a los sandboxes.
 
-## Sandboxes
+Es posible ejecutar un sandbox localmente. [Cuckoo](https://cuckoosandbox.org/) es un sandbox de código abierto que ha existido durante muchos años. Se está desarrollando una [nueva versión](https://github.com/cert-ee/cuckoo3), pero aún no está disponible en el momento de escribir este artículo (febrero de 2024).
 
-A (malware) sandbox is a safe environment in which you can open and run a file or an URL. It is essentially a custom-designed virtual machine that is launched before the file or URL is opened, and is then shut down after a certain amount of time.
+Si bien que ejecutar un sandbox localmente le brinda un control total del entorno y significa que puede mantener sus archivos y URL completamente privados, puede ser mucho trabajo configurarlos y mantenerlos. Afortunadamente, hay muchos sandboxes en línea disponibles, como [ANY.RUN](https://any.run/), [Hybrid Analysis](https://www.hybrid-analysis.com/), [Joe Sandbox](https://www.joesandbox.com/), [Triage](https://tria.ge/) e incluso una versión en línea de [Cuckoo](https://cuckoo.cert.ee/). Todos ellos tienen versiones gratuitas que te permiten cargar malware y URL, aunque algunos requieren registro. Ten en cuenta que si utilizas una versión gratuita, todo lo que ejecutes dentro de un sandbox estará disponible públicamente. Esto puede ser una preocupación si no desea alertar a un adversario o si se trata de datos muy privados, como documentos confidenciales potencialmente infectados.
 
-All the activities in the sandbox, such as files that are opened or created as well as network connections made, are recorded and accessible through an activity report. The activity report can help you understand whether the file or URL was malicious. It can also help you link malware to previously seen activities, for example based on specific network connections or files that are created.
+### Análisis dinámico de binarios de Windows
 
-Running known malware inside a sandbox can also be very helpful as you are learning more about malware. It helps you understand what malware does and what changes it makes on the system. For example, a lot of malware when initially run tries to ensure persistence so that it will still run following a reboot. These persistence methods are something you can look for when you perform manual forensics on a possible infected device.
+Recomendamos comenzar con una clase general, esta vez de [OpenSecurityTraining](https://opensecuritytraining.info/Training.html). Su clase de [Análisis Dinámico de Malware](https://opensecuritytraining.info/MalwareDynamicAnalysis.html) incluye diapositivas, materiales de laboratorio y videos, y cubre la configuración, el análisis y la creación de IoC.
 
-A lot of malware has anti-sandbox features built in: when the malware detects it is running inside a sandbox environment, it will terminate or sometimes do something harmless to confuse the analysis. Moreover, some malware is designed to only run if specific conditions are met, for example a specific version of the operating system, or an IP address located in a specific country. Sandboxes are often updated to respond to anti-sandbox methods and many sandboxes let you choose the certain properties.
+### Análisis dinámico de binarios de Android
 
-This is important to keep in mind when reading a sandbox report: a lack of malicious activity doesn’t automatically mean the file or URL isn’t malicious. On the other hand, if malicious activity was shown, you can be certain that the file or URL was malicious.
+Se pueden utilizar muchas herramientas para analizar dinámicamente los binarios de Android. Estos incluyen algunos de los sandboxes descritos anteriormente y [Frida](https://frida.re/docs/android/) (consulte [esta herramienta](https://github.com/nccgroup/house) para obtener una interfaz gráfica de usuario para Frida).
 
-Check out [Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for a more in-depth introduction to sandboxes.
+PiRogue Tool Suite (descrito en la ruta de aprendizaje de detección de malware) también puede realizar un [excelente análisis dinámico](https://pts-project.org/guides/g8/) de los binarios de Android, aunque algunos de esos métodos de análisis requieren que primero rootee su dispositivo.
 
-It is possible to run a sandbox locally. [Cuckoo](https://cuckoosandbox.org/) is an open source sandbox that has been around for many years. A [new version](https://github.com/cert-ee/cuckoo3) is being developed but is not yet available at the time of writing (February 2024).
-
-While running a sandbox locally gives you full control of the environment and means you can keep your files and URLs fully private, it can be quite a lot of work to set up and maintain. Thankfully, there are many online sandboxes available, such as [ANY.RUN](https://any.run/), [Hybrid Analysis](https://www.hybrid-analysis.com/), [Joe Sandbox](https://www.joesandbox.com/), [Triage](https://tria.ge/) and even an online version of [Cuckoo](https://cuckoo.cert.ee/). All of them have free versions that allow you to upload malware and URLs, though some do require registration. Do keep in mind that if you use a free version, anything you run inside a sandbox will be publicly available. This can be a concern if you don’t want to tip off an adversary or are dealing with very private data, such as potentially infected confidential documents.
-
-## Dynamic analysis of Windows binaries
-
-We recommend starting out with an overview class, this time from [OpenSecurityTraining](https://opensecuritytraining.info/Training.html). Their [Malware Dynamic Analysis](https://opensecuritytraining.info/MalwareDynamicAnalysis.html) class includes slides, lab materials, and videos, and it covers setup, analysis, and creating IoCs.
-
-## Dynamic analysis of Android binaries
-
-Many tools can be used to dynamically analyze Android binaries. Those include some of the sandboxes outlined above and [Frida](https://frida.re/docs/android/) (check out [this tool](https://github.com/nccgroup/house) for a GUI frontend to Frida).
-
-PiRogue Tool Suite (outlined in the detecting malware learning path) can also [do excellent dynamic analysis](https://pts-project.org/guides/g8/) of Android binaries, though some of those analysis methods require you to first root your device.
-
-## Learning Resources
-
-{{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
-
-{{% resource title="Any.run" languages="English" cost="Free only for non-commercial use" description="Commercial sandbox for analyzing malware." url="https://any.run/" %}}
-
-{{% resource title="Joe Sandbox" languages="English" cost="Free for public accounts (results published on website)" description="Commercial sandbox service for malware analysis." url="https://www.joesandbox.com/#windows" %}}
-
-{{% resource title="Cuckoo Sandbox" languages="English" cost="Free" description="Sandbox service by Estonian CERT for malware analysis." url="https://cuckoo.cert.ee/" %}}
-
-{{% resource title="Hybrid Analysis" languages="English" cost="Free" description="Sandbox service by CrowdStrike mixing static and dynamic analysis." url="https://www.hybrid-analysis.com/" %}}
-
-{{% resource title="Triage sandbox" languages="English" cost="Registration required" description="Community-driven sandbox for analyzing malware." url="https://tria.ge/" %}}
-
-{{% resource title="Online class on malware dynamic analysis" languages="English" cost="Free" description="Three-day class on dynamic malware analysis." url="https://opensecuritytraining.info/MalwareDynamicAnalysis.html" %}}
-
-{{% resource title="Case study 1: Dynamic Analysis of a Windows Malicious Self-Propagating Binary" languages="English" cost="Free" description="Blogpost demonstrating dynamic analysis of a Windows binary." url="https://www.keysight.com/blogs/tech/nwvs/2022/06/10/dynamic-analysis-of-a-windows-malicious-self-propagating-binary" %}}
-
-{{% resource title="Case study 2: Configuring a Windows Domain to Dynamically Analyze an Obfuscated Lateral Movement Tool" languages="English" cost="Free" description="Case study on dynamic analysis of obfuscated malware in a Windows domain." url="https://www.real-sec.com/2020/07/configuring-a-windows-domain-to-dynamically-analyze-an-obfuscatedlateral-movement-tool/" %}}
-
-{{% resource title="Case study 3: Starting dynamic analysis on a Windows x64 rootkit" languages="English" cost="Free" description="In-depth look at dynamic analysis of Windows rootkits." url="https://medium.com/@0x4ndr3/starting-dynamic-analysis-on-a-windows-x64-rootkit-8c7a74871fda" %}}
-
-{{% resource title="Malware traffic analysis" languages="English" cost="Free" description="Guide on using captured network packets to analyze malware." url="https://malware-traffic-analysis.net/" %}}
-
-{{% resource title="Hack The Box course on mobile penetration testing" languages="English" cost="Free" description="Introduction to mobile malware dynamic analysis." url="https://www.hackthebox.com/blog/intro-to-mobile-pentesting" %}}
-
-{{% resource title="Hack The Box: Intro to Android Exploitation" languages="English" cost="Free" description="Exercises on mobile application penetration testing." url="https://app.hackthebox.com/tracks/Intro-to-Android-Exploitation" %}}
-
-{{% resource title="Frida and House for Android" languages="English" cost="Free" description="Tools for dynamic monitoring and debugging of Android apps." url="https://frida.re/docs/android/" %}}
-
-{{% resource title="House" languages="English" cost="Free" description="Interface to Frida for Android app analysis." url="https://github.com/nccgroup/house" %}}
-
-{{% resource title="Advanced guide - How to use PiRogue to intercept the TLS traffic of a mobile app" languages="English" cost="Free" description="Instructions on using PiRogue Tool Suite for dynamic analysis of Android binaries." url="https://pts-project.org/guides/g8/" %}}
-
-## Skill Check
+## Verificación de Habilidades
 
 ### General
 
-1. Go to the ‘Sandbox’ section in Chapter 10 of the [Field Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) and do exercises 10.2 to 10.4. In the last exercise, make sure you run at least one macOS and Android malware sample each.
-2. In the same chapter, skip to the ‘Analyzing links’ subsection and do exercise 10.12.
+1. Vaya a la sección ‘Sandbox’ en el Capítulo 10 de la [Guía de campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) y realice los ejercicios 10.2 a 10.4. En el último ejercicio, asegúrate de ejecutar al menos una muestra de malware de macOS y Android cada uno.
+2. En el mismo capítulo, vaya a la subsección "Análisis de enlaces" y haga el ejercicio 10.12.
 
-### Windows-specific
+### Específico de Windows
 
-Perform dynamic analysis on a piece of non-malicious Windows software. It probably includes an installer, which will perform similar actions to malware. What files does it create? What registry keys does it create? What network traffic does it send?
+Realice un análisis dinámico en una pieza de software no malicioso de Windows. Probablemente incluye un instalador, que realizará acciones similares al malware. ¿Qué archivos crea? ¿Qué claves de registro crea? ¿Qué tráfico de red envía?
+
+## Recursos de aprendizaje
+
+{{% resource title="Capítulo 10, Guía de campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación" description="Las primeras páginas de este capítulo proporcionan una visión en profundidad de cómo podemos usar sandboxes para analizar las cargas útiles de correo electrónico." languages="Inglés" cost="Gratis" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+
+{{% resource title="Any.run" description="Un sandbox comercial" languages="Inglés" cost="Gratis sólo para uso no comercial" url="https://any.run/" %}}
+
+{{% resource title="Joe Sandbox" description="Sandbox comercial" languages="Inglés" cost="Gratis para cuentas públicas (los resultados del análisis se publicarán en el sitio web)" url="https://www.joesandbox.com/#windows" %}}
+
+{{% resource title="Cuckoo Sandbox," description="Un servicio de sandbox gestionado por el CERT (Equipo de Respuesta a Emergencias Informáticas) de Estonia" languages="Inglés" cost="Gratis" url="https://cuckoo.cert.ee/" %}}
+
+{{% resource title="Análisis Híbrido" description="Un servicio sandbox de CrowdStrike que mezcla análisis estático y dinámico" languages="Inglés" cost="Gratis" url="https://www.hybrid-analysis.com/" %}}
+
+{{% resource title="Sandbox de triaje" description="Sandbox impulsado por la comunidad" languages="Inglés" cost="Se requiere registro" url="https://tria.ge/" %}}
+
+{{% resource title="Clase online sobre análisis dinámico de malware" description="Una clase de tres días que proporciona una entrevista de análisis dinámico de malware. Si bien la clase puede estar basada en Windows XP, todo lo que importa en esta etapa del análisis de malware es el formato binario del programa. Sus fundamentos no han cambiado en la última década+, lo que hace que la clase siga siendo relevante." languages="Inglés" cost="Gratis" url="https://opensecuritytraining.info/MalwareDynamicAnalysis.html" %}}
+
+{{% resource title="Estudio de caso 1: Análisis dinámico de un binario autopropagable malicioso de Windows" description="Esta entrada de blog, una lectura de 15 minutos, demuestra el análisis dinámico de un binario de Windows, incluido el tráfico de red y el tráfico de comando y control." languages="Inglés" cost="Gratis" url="https://www.keysight.com/blogs/tech/nwvs/2022/06/10/dynamic-analysis-of-a-windows-malicious-self-propagating-binary" %}}
+
+{{% resource title="Estudio de caso 2: Configuración de un dominio de Windows para analizar dinámicamente una herramienta de movimiento lateral ofuscada" description="Investiga el malware que tiene mecanismos de desofuscación bastante potentes y explica cómo los analistas de seguridad pueden usar el análisis dinámico para obtener más información al respecto. Incluye piezas sobre cómo construir un entorno de prueba y hacer un análisis dinámico en un dominio específico." languages="Inglés" cost="Gratis" url="https://www.real-sec.com/2020/07/configuring-a-windows-domain-to-dynamically-analyze-an-obfuscatedlateral-movement-tool/" %}}
+
+{{% resource title="Estudio de caso 3: Inicio del análisis dinámico en un rootkit de Windows x64" description="Una mirada en profundidad al análisis dinámico de los rootkits de Windows, incluida una descripción general de cómo configurar una máquina virtual específicamente para recopilar datos sobre ella. También muestra cómo combinar el análisis estático y dinámico." languages="Inglés" cost="Gratis" url="https://medium.com/@0x4ndr3/starting-dynamic-analysis-on-a-windows-x64-rootkit-8c7a74871fda" %}}
+
+{{% resource title="Análisis de Tráfico de Malware" description="Un gran recurso que analiza cómo usar los paquetes de red capturados para detectar y analizar malware." languages="Inglés" cost="Gratis" url="https://malware-traffic-analysis.net" %}}
+
+{{% resource title="Curso Hack The Box sobre pruebas de penetración móvil, recurso 1" description="Las herramientas y técnicas utilizadas para el análisis dinámico de malware móvil son en gran medida las mismas que las utilizadas para las pruebas de penetración de aplicaciones móviles. Este artículo (y los ejercicios asociados) proporcionan una sólida introducción a la práctica." languages="Inglés" cost="Gratis" url="https://www.hackthebox.com/blog/intro-to-mobile-pentesting" %}}
+
+{{% resource title="Curso Hack The Box sobre pruebas de penetración móvil, recurso 2" description="Las herramientas y técnicas utilizadas para el análisis dinámico de malware móvil son en gran medida las mismas que las utilizadas para las pruebas de penetración de aplicaciones móviles. Este artículo (y los ejercicios asociados) proporcionan una sólida introducción a la práctica." languages="Inglés" cost="Gratis" url="https://app.hackthebox.com/tracks/Intro-to-Android-Exploitation" %}}
+
+{{% resource title="Frida y House para Android: Frida" description="Frida es un marco de depuración multiplataforma de código abierto. Si bien no tiene una interfaz gráfica de usuario, es bastante potente, lo que le permite monitorear dinámicamente el comportamiento de la aplicación. Para que sea un poco más fácil de usar, hay una herramienta llamada House que es una interfaz para Frida." languages="Inglés" cost="Gratis" url="https://frida.re/docs/android/" %}}
+
+{{% resource title="Frida y House para Android: House" description="Frida es un marco de depuración multiplataforma de código abierto. Si bien no tiene una interfaz gráfica de usuario, es bastante potente, lo que le permite monitorear dinámicamente el comportamiento de la aplicación. Para que sea un poco más fácil de usar, hay una herramienta llamada House que es una interfaz para Frida." languages="Inglés" cost="Gratis" url="https://github.com/nccgroup/house" %}}
+
+{{% resource title="Guía avanzada - Cómo usar PiRogue para interceptar el tráfico TLS de una aplicación móvil" description="Una serie de instrucciones sobre cómo podría usar PiRogue Tool Suite para realizar análisis dinámicos en binarios de Android potencialmente maliciosos" languages="Inglés" cost="Gratis" url="https://pts-project.org/guides/g8/" %}}

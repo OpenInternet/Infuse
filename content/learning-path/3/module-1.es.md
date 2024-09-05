@@ -1,49 +1,51 @@
 +++
 style = "module"
 weight = 1
-title = "Setting up a malware analysis environment"
+title = "Configuración de un entorno de análisis de malware"
+description = "Antes de comenzar a analizar cualquier malware, debe configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta"
 +++
 
-## Use Case
+## Caso práctico
 
-Before you start analyzing any malware, you need to set up a safe environment to do so. Definitionally, malware does bad things to the systems it runs on. You do not want to run it on your primary system. Additionally, you likely will want to prevent the malware from actually making connections to the threat actor’s C&C (command and control) servers. Both of these mean that you should set up a virtual machine to use when performing malware analysis.
+Antes de comenzar a analizar cualquier malware, debe configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta. No desees ejecutarlo en tu sistema principal. Además, probablemente querrás evitar que el malware realmente establezca conexiones con los servidores de C&C (comando y control) del autor de amenazas. Ambos significan que debes configurar una máquina virtual para utilizarla al realizar análisis de malware.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, the practitioner should be able to set up a virtual machine (VM) and take snapshots therein.
+Después de completar este subtema, el profesional debe poder configurar una máquina virtual (VM) y tomar instantáneas (snapshots) en ella.
 
 ---
+## Sección Principal
 
-The exact setup you need depends on your analysis method and the operating system of the malware you’re analyzing. In most cases you can start with a pre-build linux VM like [REMnux](https://remnux.org/). See [Chapter 6 of the Field Guide to Incident Response for Civil Society and Media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for step-by-step instructions on how to configure it. For specific things (for example, dynamic analysis of iOS malware) you will need additional tools (for example, a jailbroken iPhone or iPad). VMs occasionally have vulnerabilities that allow software running in the VM to attack the host operating system. Most malware doesn’t even come close to this level of sophistication, but if in doubt, it’s safest to analyze malware on a separate physical device that is wiped afterwards.
+La configuración exacta que necesitas depende de tu método de análisis y del sistema operativo del malware que estés analizando. En la mayoría de los casos, puedes comenzar con una máquina virtual Linux preconfigurada como [REMnux](https://remnux.org/). Consulta el [Capítulo 6 de la Guía de Campo para Respuesta a Incidente para la Sociedad Civil y Medios](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) para obtener instrucciones paso a paso sobre cómo realizar la configuración. Para cosas específicas (por ejemplo, análisis dinámico de malware de iOS) necesitarás herramientas adicionales (por ejemplo, un iPhone o iPad con jailbreak). Las máquinas virtuales ocasionalmente tienen vulnerabilidades que permiten que el software que se ejecuta en la máquina virtual ataque el sistema operativo host. La mayoría del malware ni siquiera se acerca a este nivel de sofisticación, pero en caso de duda, lo más seguro es analizar el malware en un dispositivo físico separado que se borre posteriormente.
 
-To set up REMnux, we recommend that you follow the steps outlined in [Chapter 6 of the Field Guide to Incident Response for Civil Society and Media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) and [download the VM](https://docs.remnux.org/install-distro/get-virtual-appliance)[^1]. This is an easy way to start which provides excellent isolation between your host system and the REMnux environment. Be careful not to share sensitive data from your host OS into the VM. Per the instructions linked above, take a snapshot of your VM once it’s been set up, and before you start working on any malware. You can use snapshots to return your VM to a known-good state before analyzing different pieces of malware and to isolate different clients from each other. For more information on VM snapshots in general, see [this article](https://www.nakivo.com/blog/vm-snapshot-vs-backup/).
+Para configurar REMnux, recomendamos que sigas los pasos descritos en el [Capítulo 6 de la Guía de Campo para Respuesta a Incidentes para la Sociedad Civil y Medios](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) y [descargues la VM (Máquina Virtual)](https://docs.remnux.org/install-distro/get-virtual-appliance)<sup><sup>[\[1\]](#footnote-1)</sup></sup>. Esta es una manera fácil de comenzar que proporciona un excelente aislamiento entre su sistema host y el entorno REMnux. Tenga cuidado de no compartir datos confidenciales de su sistema operativo host en la máquina virtual. De acuerdo con las instrucciones vinculadas anteriormente, tome una instantánea (snapshot) de su máquina virtual una vez que se haya configurado y antes de comenzar a trabajar en cualquier malware. Puedes utilizar snapshots para volver a tu máquina virtual válida conocida antes de analizar diferentes piezas de malware y aislar diferentes clientes entre sí. Para obtener más información sobre snapshots de VM en general, revisa [este artículo](https://www.nakivo.com/blog/vm-snapshot-vs-backup/).
 
-While performing malware analysis, you may find that you want additional tools in your analysis VM. Go ahead and install and configure them, but note what you did. After you’re done with your analysis, you can load up your “clean” VM snapshot, install and configure the tool, and then make a new “clean” snapshot for your next malware analysis adventure.
+Mientras realiza el análisis de malware, es posible que desee herramientas adicionales en su máquina virtual de análisis. Adelante, instálelos y configúrelos, pero tenga en cuenta lo que hizo. Después de que hayas terminado tu análisis, puedes subir tu snapshot "limpio" de la VM , instalar y configurar la herramienta, y luego crear un nuevo snapshot "limpio" para tu próxima aventura de análisis de malware.
 
-In order to move malware files around, the standard practice is to put them in encrypted ZIP files. In this case, the encryption quality doesn’t matter. The point is not to keep the malware secret, so much as to prevent inadvertently unleashing it on other systems and to prevent anti-malware systems from detecting or deleting it. Feel free to include the password in the ZIP file name.
+Para mover archivos de malware, la práctica estándar es colocarlos en archivos ZIP cifrados. En este caso, la calidad del cifrado no importa. El objetivo no es tanto mantener en secreto el malware, sino más bien evitar liberarlo involuntariamente en otros sistemas y prevenir que los sistemas antimalware lo detecten o lo eliminen. No dudes en incluir la contraseña en el nombre del archivo ZIP.
+
+## Práctica
+
+1. Descargue (si aún no lo ha hecho) el software de la máquina virtual (recomendamos VirtualBox) e instale REMnux.
+2. Actualice REMnux y tome una instantánea de VM.
+3. Configure una única carpeta compartida entre su host y la máquina virtual REMnux.
+4. Descargue un software de Windows aleatorio (presumiblemente no malicioso) de algo como download.cnet.com y transfiéralo a la máquina virtual REMnux utilizando un archivo ZIP cifrado. (Si ha completado recientemente la ruta de aprendizaje Detección de Malware, puede reutilizar la misma descarga).
+5. Coge un poco de malware de MalwareBazaar (¡**ADVERTENCIA: este es un malware activo! No lo ejecute.**) y transfiéralo a la máquina virtual REMnux. (Si ha completado recientemente la ruta de aprendizaje Detección de Malware, puede reutilizar la misma descarga).
+
+## Verificación de habilidades
+
+Vaya a la carpeta que utiliza su máquina virtual para compartir archivos entre los sistemas operativos host e invitado. Agregue un archivo allí y luego [calcule un hash criptográfico](https://www.sentinelone.com/cybersecurity-101/hashing/) de este archivo en ambos sistemas operativos. Asegúrate de que los hashes coincidan.
 
 ## Learning Resources
 
-{{% resource title="Field Guide to incident response for civil society and media" languages="English" cost="Free" description="Guide on analyzing potentially malicious content, setting up virtual machines, and more." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Guía de campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación" description="Una guía sobre cómo analizar contenido potencialmente malicioso, configurar máquinas virtuales y más" languages="Inglés" cost="Gratis" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
 
-{{% resource title="REMnux" languages="English" cost="Free" description="Webpage for the REMnux Linux distro, widely used for malware analysis." url="https://remnux.org/" %}}
+{{% resource title="REMnux" description="La página web de la distribución REMnux Linux, que a menudo se utiliza para el análisis de malware" languages="El sitio web y la documentación de la distribución están en inglés; varias herramientas con la distribución en sí pueden estar localizadas en otros idiomas." cost="Gratis" url="https://remnux.org/" %}}
 
-{{% resource title="Get the virtual appliance" languages="English" cost="Free" description="Guide on installing and running REMnux as a virtual machine." url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
+{{% resource title="Obtenga el dispositivo virtual" description="Una guía sobre cómo instalar y ejecutar REMnux como máquina virtual" languages="Inglés" cost="Gratis" url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
 
-{{% resource title="The difference between snapshots and backups" languages="English" cost="Free" description="Article explaining the distinctions between VM snapshots and backups, crucial for managing and resetting VMs used in malware analysis." url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
-
-## Practice
-
-1. Download (if you haven’t already) virtual machine software (we recommend VirtualBox) and install REMnux.
-2. Update REMnux, and take a VM snapshot.
-3. Configure a single shared folder between your host and the REMnux VM.
-4. Download a piece of random (presumably non-malicious) Windows software from something like download.cnet.com, and transfer it to the REMnux VM using an encrypted ZIP file. (If you have recently completed the Malware Detection learning path, you can re-use the same download).
-5. Grab some malware from MalwareBazaar (**WARNING: this is live malware! Do not run it.**) and transfer it to the REMnux VM. (If you have recently completed the Malware Detection learning path, you can re-use the same download).
-
-## Skill check
-
-Go to the folder which your virtual machine uses to share files between the host and guest operating systems. Add a file there and then [compute a cryptographic hash](https://www.sentinelone.com/cybersecurity-101/hashing/) of this file in both operating systems. Make sure that the hashes match.
+{{% resource title="La diferencia entre instantáneas y copias de seguridad (backups)" description="Un artículo que destaca cómo una máquina virtual puede contener tanto instantáneas como copias de seguridad, y la diferencia entre ellas. Comprender ambos hará que sea mucho más fácil administrar y restablecer las máquinas virtuales utilizadas para el análisis de malware." languages="Inglés" cost="Gratis" url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
 
 ## Notes
 
-[^1]: REMnux is not available on ARM processors such as Apple Silicon computers. While it is possible to virtualize across CPU architectures using emulators such as QEMU or UTM (VirtualBox does not currently support ARM architectures), performance will be slow and is not advised. It would make more sense to select another Linux distribution which supports your hardware and [install the necessary software packages ](https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg)to complete the activities, if they did not already come with the operating system. Kali Linux is a popular Linux distribution which will include or support many tools also found in REMnux. If you have an Apple Silicon device, you can use UTM ([https://mac.getutm.app/)](https://mac.getutm.app/)) to run the Apple Silicon (ARM64)[ Kali Installer](https://www.kali.org/get-kali/#kali-installer-images) image. Walkthrough guides are available from both[ UTM](https://docs.getutm.app/guides/kali/) and[ Kali](https://www.kali.org/docs/virtualization/install-utm-guest-vm/). At the time of writing, a bug affecting the installer process requires an additional step during installation of attaching a virtual serial terminal display – both walkthroughs describe this process. You can also obtain an[ ARM version of Kali for the Raspberry Pi](https://www.kali.org/get-kali/#kali-arm), with most models of Raspberry Pi supported.
+[^1]: REMnux no está disponible en procesadores ARM como las computadoras Apple Silicon. Si bien es posible virtualizar en distintas arquitecturas de CPU mediante emuladores como QEMU o UTM (VirtualBox actualmente no es compatible con arquitecturas ARM), el rendimiento será lento y no se recomienda. Tendría más sentido seleccionar otra distribución de Linux que sea compatible con su hardware e [instalar los paquetes de software necesarios](https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg) para completar las actividades, si aún no vienen con el sistema operativo. Kali Linux es una distribución de Linux popular que incluirá o admitirá muchas herramientas que también se encuentran en REMnux. Si tienes un dispositivo Apple Silicon, puedes usar UTM ([https://mac.getutm.app/)](https://mac.getutm.app/)) para ejecutar la imagen [Kali Installer](https://www.kali.org/get-kali/#kali-installer-images) de Apple Silicon (ARM64). Las guías paso a paso están disponibles tanto en [UTM](https://docs.getutm.app/guides/kali/) como en [Kali](https://www.kali.org/docs/virtualization/install-utm-guest-vm/). Al momento de escribir este artículo, un error que afecta el proceso de instalación requiere un paso adicional durante la instalación de adjuntar una pantalla de terminal serial virtual; ambos tutoriales describen este proceso. También puedes obtener una [versión ARM de Kali para Raspberry Pi](https://www.kali.org/get-kali/#kali-arm), que es compatible con la mayoría de los modelos de Raspberry Pi.

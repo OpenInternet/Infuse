@@ -1,68 +1,69 @@
 +++
 style = "module"
 weight = 4
-title = "Static analysis"
+title = "Análisis estático"
+description = "El análisis estático es el proceso de desensamblar un archivo binario para comprender qué hay dentro de él. Es bastante laborioso y requiere conocimientos de ingeniería de software."
 +++
 
-## Use Case
+## aso práctico
 
-Static analysis is the process of disassembling a binary file in order to understand what’s inside it. It’s quite labor-intensive and requires software engineering knowledge. For this reason, most analysts will prefer to do dynamic analysis (which we focus on in Subtopic 3) instead. There are several reasons you might want to do static analysis, including when dynamic analysis isn’t yielding good results or if you do not want a potential adversary to know that you are in possession of and analyzing the file.
+El análisis estático es el proceso de desensamblar un archivo binario para comprender qué hay dentro de él. Es bastante laborioso y requiere conocimientos de ingeniería de software. Por esta razón, la mayoría de los analistas preferirán hacer un análisis dinámico (en el que nos centramos en el subtema 3) en su lugar. Hay varias razones por las que es posible que desee hacer un análisis estático, incluso cuando el análisis dinámico no está dando buenos resultados o si no desea que un adversario potencial sepa que está en posesión y analizando el archivo.
 
-This subtopic looks at a very advanced skill and the guides it links to will take considerable time to complete. If you do not currently have the time to focus on it and instead want to figure out what to do with the results of dynamic analysis, skip to Subtopic 5.
+Este subtema analiza una habilidad muy avanzada y las guías a las que se vincula tomarán un tiempo considerable en completarse. Si actualmente no tiene tiempo para concentrarse en ello y, en cambio, desea averiguar qué hacer con los resultados del análisis dinámico, vaya al Subtema 5.
 
-## Objectives
+## Objetivos
 
-After completing this subtopic, practitioners should be able to do the following:
+Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
-- Understand in what cases static analysis might be more appropriate than dynamic analysis
-- Be able to conduct basic static analysis in Windows or Android using off-the-shelf tools
+- Comprender en qué casos el análisis estático podría ser más apropiado que el análisis dinámico
+- Ser capaz de realizar análisis estáticos básicos en Windows o Android utilizando herramientas listas para usar
 
 ---
+## Sección Principal
 
-Static analysis is the process of determining information about a piece of malware without running it. Technically, the basic file analysis you performed above is a form of static analysis. However, generally we refer to malware static analysis as learning about the actions that the malware will perform. This generally involves taking a compiled binary program, decompiling it, and then reading the resulting code. An alternative is dynamic analysis, when you run the malware and then observe its behavior.
+El análisis estático es el proceso de determinar información sobre un malware sin ejecutarlo. Técnicamente, el análisis básico de archivos que realizó anteriormente es una forma de análisis estático. Sin embargo, generalmente nos referimos al análisis estático de malware como el aprendizaje sobre las acciones que realizará el malware. Esto generalmente implica tomar un programa binario compilado, descompilarlo y luego leer el código resultante. Una alternativa es el análisis dinámico, cuando se ejecuta el malware y luego se observa su comportamiento.
 
-Static analysis has some advantages over dynamic analysis. First off, since you don’t run the malware, you are less likely to be infected (and there are rare cases of malware which can escape a virtual machine or sandbox). Also, if you don’t run the malware, you’re unlikely to alert the threat actors that their malware has been discovered. Additionally, sophisticated malware may attempt to discover if it’s being analyzed when it’s run. If it determines that it’s being analyzed, it may change its behavior, leading to possible incorrect analysis.
+El análisis estático tiene algunas ventajas sobre el análisis dinámico. En primer lugar, dado que no ejecuta el malware, es menos probable que se infecte (y hay casos raros de malware que pueden escapar de una máquina virtual o sandbox). Además, si no ejecuta el malware, es poco probable que avise a los actores de amenazas de que se ha descubierto su malware. Además, el malware sofisticado puede intentar descubrir si se está analizando cuando se ejecuta. Si determina que se está analizando, puede cambiar su comportamiento, lo que lleva a un posible análisis incorrecto.
 
-On the other hand, static analysis can be very time-consuming and difficult, and malware authors can use a variety of obfuscation techniques (such as encryption, packing, and dynamically downloading later stages) to make static analysis more difficult.
+Por otro lado, el análisis estático puede llevar mucho tiempo y ser difícil, y los autores de malware pueden utilizar una variedad de técnicas de ofuscación (como el cifrado, el empaquetado y la descarga dinámica de etapas posteriores) para dificultar el análisis estático.
 
-While much of the focus in this learning path is on static analysis of compiled binary programs, bear in mind that much malware is easier to analyze, being written in HTML/JavaScript, shell scripting languages, etc.
+Si bien gran parte del enfoque en esta ruta de aprendizaje está en el análisis estático de programas binarios compilados, tenga en cuenta que mucho malware es más fácil de analizar, ya que está escrito en HTML/JavaScript, lenguajes de scripting de shell, etc.
 
-Windows
+### Windows
 
-To start off in Windows static analysis, we will set aside REMnux and go through a set of tutorials on Windows malware reverse engineering. This tutorial does include a bit of dynamic analysis, but is heavily focused on static analysis. For consistency, you should go through the exercises outlined below. Remember that, if you find any tools that you like that aren’t part of REMnux, you can add them to your REMnux VM. (You can also start over at any time with a blank VM, if you want.)
+Para comenzar en el análisis estático de Windows, dejaremos de lado REMnux y pasaremos por un conjunto de tutoriales sobre ingeniería inversa de malware de Windows. Este tutorial incluye un poco de análisis dinámico, pero se centra en gran medida en el análisis estático. Para mayor coherencia, debe realizar los ejercicios que se describen a continuación. Recuerde que, si encuentra alguna herramienta que le guste que no forme parte de REMnux, puede agregarla a su REMnux VM. (También puede comenzar de nuevo en cualquier momento con una máquina virtual en blanco, si lo desea.)
 
-## Windows: Learning Resources
+{{% resource title="Ingeniería inversa de malware de Windows 101" description="Un curso excelente y completo sobre malware de Windows de ingeniería inversa. Tenga en cuenta que estos ejercicios son una introducción no suave, es posible que tenga que estudiar más (recursos a continuación) para comprender ciertos ejercicios. Pueden tardar varios días en completarse." languages="Inglés" cost="Gratis" url="https://malwareunicorn.org/workshops/re101.html" %}}
 
-{{% resource title="Windows malware reverse engineering 101 and 102" languages="English" cost="Free" description="Comprehensive courses on reverse engineering Windows malware." url="https://malwareunicorn.org/workshops/re101.html" url2="https://malwareunicorn.org/workshops/re102.html" %}}
+{{% resource title="Ingeniería inversa de malware de Windows 102" description="Un curso excelente y completo sobre malware de Windows de ingeniería inversa. Tenga en cuenta que estos ejercicios son una introducción no suave, es posible que tenga que estudiar más (recursos a continuación) para comprender ciertos ejercicios. Pueden tardar varios días en completarse." languages="Inglés" cost="Gratis" url="https://malwareunicorn.org/workshops/re102.html" %}}
 
-{{% resource title="OpenSecurityTraining2 courses" languages="English" cost="Free, paid with instructor support" description="Courses on low-level system architecture and reversing." url="https://p.ost2.fyi/courses" %}}
+{{% resource title="Cursos OpenSecurityTraining2" description="Cursos que proporcionan una inmersión muy profunda en la arquitectura del sistema de bajo nivel y la reversión." languages="Inglés" cost="Gratis, pago con el apoyo del instructor" url="https://p.ost2.fyi/courses" %}}
 
-{{% resource title="OpenSecurity’s learning path for malware analysis" languages="English" cost="Free" description="Learning path for malware analysis." url="https://opensecuritytraining.info/Malware%20Analysis.html" %}}
+{{% resource title="Ruta de aprendizaje de OpenSecurity para el análisis de malware" description="" languages="Inglés" cost="Gratis" url="https://opensecuritytraining.info/Malware%20Analysis.html" %}}
 
-{{% resource title="Windows reversing using x64dbg" languages="Spanish" cost="Free" description="Video series on using x64dbg for reversing Windows malware." url="https://www.youtube.com/watch?v=Af5pvCl0CBE&list=PLn__CHOEZR1Ymxi2n4Q9G9I9kBYr6B4Ft" %}}
+{{% resource title="Reversión de Windows con x64dbg" description="Esta serie de videos se centra específicamente en el uso de x64dbg, una herramienta de depuración de código abierto, para revertir el malware de Windows" languages="Español" cost="Gratis" url="https://www.youtube.com/watch?v=Af5pvCl0CBE&amp;amp;list=PLn__CHOEZR1Ymxi2n4Q9G9I9kBYr6B4Ft" %}}
 
-**Android**
+### Android
 
-While Windows software is typically written in x86 or x64 assembler, binaries on Android typically target a virtual machine called the Android Runtime (ART), which is similar to the Java Virtual Machine. This ART bytecode can usually be automatically reversed into Java, as opposed to x86/x64 bytecode, which typically can only be machine-reversed into assembly. Before you get too excited, note that there are many obfuscation tools that can easily render the reverse-engineered Java code nearly unreadable, and also Android does support native code via the [NDK library](https://developer.android.com/ndk/guides). Note that most Android devices have ARM based architectures, not x86/x64, so you will need to learn ARM assembler to reverse-engineer most Android native code you’re likely to find.
+Mientras que el software de Windows generalmente se escribe en ensamblador x86 o x64, los binarios en Android generalmente se dirigen a una máquina virtual llamada Android Runtime (ART), que es similar a la Máquina Virtual Java. Este bytecode ART generalmente se puede invertir automáticamente en Java, a diferencia del bytecode x86/x64, que generalmente solo se puede invertir en assembly. Antes de entusiasmarte demasiado, ten en cuenta que hay muchas herramientas de ofuscación que pueden hacer que el código Java de ingeniería inversa sea casi ilegible, y también Android admite código nativo a través de la [biblioteca NDK](https://developer.android.com/ndk/guides). Tenga en cuenta que la mayoría de los dispositivos Android tienen arquitecturas basadas en ARM, no x86/x64, por lo que deberá aprender ARM assembler para realizar ingeniería inversa en la mayoría del código nativo de Android que probablemente encuentre.
 
-You may also encounter the Kotlin programming language when learning about Android. Both Kotlin and Java compile to the same bytecode, and are very similar at a low-level. When performing static analysis on an Android application, the original programming language should not be significant. We recommend focusing on Java, because the decompilers available turn ART into Java, not Kotlin.
+También puede encontrar el lenguaje de programación Kotlin cuando aprenda sobre Android. Tanto Kotlin como Java compilan con el mismo bytecode, y son muy similares a bajo nivel. Al realizar un análisis estático en una aplicación Android, el lenguaje de programación original no debe ser significativo. Recomendamos centrarse en Java, porque los descompiladores disponibles convierten el ART en Java, no en Kotlin.
 
-As with the Windows static analysis section this section on Android static analysis is anchored to an excellent and comprehensive, but not gentle, course. You will likely need to do additional studying in order to understand the material in the primary course.
+Al igual que con la sección de análisis estático de Windows, esta sección sobre el análisis estático de Android está anclada a un curso excelente y completo, pero no suave. Es probable que deba realizar estudios adicionales para comprender el material en el curso primario.
 
-## Android: Learning Resources
+{{% resource title="Aplicación Android Ingeniería Inversa 101" description="Un curso excelente y completo sobre aplicaciones de ingeniería inversa para Android. Tenga en cuenta que estos ejercicios son una introducción no suave, es posible que tenga que estudiar más (recursos a continuación) para comprender ciertos ejercicios. Pueden tardar varios días en completarse. Los siguientes recursos pueden ayudarlo a desarrollar secciones del curso." languages="Inglés" cost="Gratis" url="https://www.ragingrock.com/AndroidAppRE/" %}}
 
-{{% resource title="Android App Reverse Engineering 101" languages="English" cost="Free" description="Comprehensive course on reverse engineering Android applications." url="https://www.ragingrock.com/AndroidAppRE/" %}}
+{{% resource title="Cómo analizar de forma estática una aplicación Android sospechosa" description="Una excelente introducción intermedia al análisis estático de las aplicaciones de Android." languages="Inglés" cost="Gratis" url="https://pts-project.org/guides/g5/" %}}
 
-{{% resource title="How to statically analyze a suspicious Android app" languages="English" cost="Free" description="Intermediate introduction to static analysis of Android apps." url="https://pts-project.org/guides/g5/" %}}
+{{% resource title="Curso Learn Java de Codecademy" description="Una introducción básica a Java. Tendrás que entender Java para poder trabajar con programas Android." languages="Inglés" cost="Gratis" url="https://www.codecademy.com/enrolled/courses/learn-java" %}}
 
-{{% resource title="Codecademy’s Learn Java course" languages="English" cost="Free" description="Basic introduction to Java programming." url="https://www.codecademy.com/enrolled/courses/learn-java" %}}
+{{% resource title="Crea tu primera aplicación para Android en Java" description="Un curso básico sobre creación de aplicaciones de Google. Esto debería darte una idea de cómo funcionan las aplicaciones de Android y prepararte para aprender sobre las funciones internas de Android." languages="Inglés, chino, indonesio, japonés, coreano, portugués, español" cost="Gratis" url="https://developer.android.com/courses/android-basics-compose/course?hl=es-419" %}}
 
-{{% resource title="Build Your First Android App in Java" languages="English, Chinese, Indonesian, Japanese, Korean, Portuguese, Spanish" cost="Free" description="Basic course on building Android apps using Java." url="https://developer.android.com/codelabs/build-your-first-android-app" %}}
 
-## Skill Check
+## Verificación de Habilidades
 
-Sit down with a peer or a mentor who has significant experience in passive investigation against servers on the internet. Then:
+Siéntese con un compañero o un mentor que tenga una experiencia significativa en la investigación pasiva contra servidores en Internet. A continuación:
 
-- Complete the [Basic Malware RE](https://tryhackme.com/room/basicmalwarere) (free) exercises on TryHackMe
-- (Android only) Complete the exercises in [Android App Reverse Engineering 101](https://www.ragingrock.com/AndroidAppRE/)
-- (Windows only) At this point, you should be somewhat familiar with disassembling Windows binaries, reading x86 assembly, and using that knowledge to understand what a program does. Go back to your REMnux VM and analyze the Windows malware you downloaded earlier. Feel free to go back over the above training material and do supplemental research as you do so!
+- Completa los ejercicios [Básicos de Malware RE](https://tryhackme.com/room/basicmalwarere) (gratis) en TryHackMe
+- (Solo para Android) Completa los ejercicios en [Android App Reverse Engineering 101](https://www.ragingrock.com/AndroidAppRE/)
+- (Solo Windows) En este punto, deberías estar familiarizado con el desmontaje de binarios de Windows, la lectura del assembly x86 y el uso de ese conocimiento para comprender lo que hace un programa. Vuelva a su máquina virtual REMnux y analice el malware de Windows que descargó anteriormente. ¡Siéntase libre de repasar el material de capacitación anterior y realizar investigaciones complementarias mientras lo hace!
