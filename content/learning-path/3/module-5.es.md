@@ -71,7 +71,7 @@ Si los identificadores del servidor son como hashes de archivos para el tráfico
 
 Al igual que con las reglas de YARA, puede ser bastante fácil crear falsos positivos accidentalmente. Considere capturar unos días de su tráfico de red y ejecutar cualquier regla de Snort que cree contra esas capturas de paquetes.
 
-### CElegir los IoCs apropiados
+### Elegir los IoCs apropiados
 
 Al pensar en crear IoCs, debe considerar lo que es intrínseco al malware en general, en comparación con lo que es específico de la muestra que analizó. Aquí están algunos ejemplos:
 

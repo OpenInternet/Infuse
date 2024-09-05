@@ -5,7 +5,7 @@ title = "Análisis estático"
 description = "El análisis estático es el proceso de desensamblar un archivo binario para comprender qué hay dentro de él. Es bastante laborioso y requiere conocimientos de ingeniería de software."
 +++
 
-## aso práctico
+## Caso práctico
 
 El análisis estático es el proceso de desensamblar un archivo binario para comprender qué hay dentro de él. Es bastante laborioso y requiere conocimientos de ingeniería de software. Por esta razón, la mayoría de los analistas preferirán hacer un análisis dinámico (en el que nos centramos en el subtema 3) en su lugar. Hay varias razones por las que es posible que desee hacer un análisis estático, incluso cuando el análisis dinámico no está dando buenos resultados o si no desea que un adversario potencial sepa que está en posesión y analizando el archivo.
 
