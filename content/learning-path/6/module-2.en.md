@@ -508,7 +508,9 @@ _Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can us
 
 {{% resource title="Log Files - Apache" languages="English" cost="Free" description="An overview of how to read log files in the Apache web server." url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
 
-{{% resource title="Understanding the Apache Access and Error Log" languages="English" cost="Free" description="Two pieces on how to read the Apache web server’s logs." url1="https://www.keycdn.com/support/apache-access-log" url2="https://www.dataset.com/blog/apache-error-log-detail/" %}}
+{{% resource title="Understanding the Apache Access and Error Log, Resource 1" languages="English" cost="Free" description="Two pieces on how to read the Apache web server’s logs." url1="https://www.keycdn.com/support/apache-access-log" %}}
+
+{{% resource title="Understanding the Apache Access and Error Log, Resource 2" languages="English" cost="Free" description="Two pieces on how to read the Apache web server’s logs." url1="https://www.dataset.com/blog/apache-error-log-detail/" %}}
 
 {{% resource title="Server-side logging" languages="English" cost="Free" description="An analysis of logs within the Microsoft IIS server." url="https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
 
@@ -520,6 +522,8 @@ _Hint:_ ipinfo.io provides a convenient way of looking up IP details, you can us
 
 {{% resource title="Security Log: Best Practices for Logging and Management" languages="English" cost="Free" description="An analysis of when logs are useful, how we can analyze them, and what policies we can create around them." url="https://www.dnsstuff.com/security-log-best-practices" %}}
 
-{{% resource title="OWASP logging cheat sheet and vocabulary" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+{{% resource title="OWASP logging cheat sheet and vocabulary, Resource 1" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" %}}
+
+{{% resource title="OWASP logging cheat sheet and vocabulary, Resource 2" languages="English" cost="Free" description="A guide from OWASP on what purpose logs should serve, how we should analyze them, and a standard vocabulary for them." url1="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
 
 {{% resource title="Keep Sensitive Data Out of Your Logs: 9 Best Practices" languages="English" cost="Free" description="Thorough logging can also end up including sensitive data, which could put users at risk. This guide looks at how we can adapt our logging practices to exclude sensitive data from logs." url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
