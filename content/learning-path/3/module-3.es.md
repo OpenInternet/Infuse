@@ -79,7 +79,7 @@ Realice un análisis dinámico en una pieza de software no malicioso de Windows.
 
 {{% resource title="Joe Sandbox" description="Sandbox comercial" languages="Inglés" cost="Gratis para cuentas públicas (los resultados del análisis se publicarán en el sitio web)" url="https://www.joesandbox.com/#windows" %}}
 
-{{% resource title="Cuckoo Sandbox," description="Un servicio de sandbox gestionado por el CERT (Equipo de Respuesta a Emergencias Informáticas) de Estonia" languages="Inglés" cost="Gratis" url="https://cuckoo.cert.ee/" %}}
+{{% resource title="Cuckoo Sandbox" description="Un servicio de sandbox gestionado por el CERT (Equipo de Respuesta a Emergencias Informáticas) de Estonia" languages="Inglés" cost="Gratis" url="https://cuckoo.cert.ee/" %}}
 
 {{% resource title="Análisis Híbrido" description="Un servicio sandbox de CrowdStrike que mezcla análisis estático y dinámico" languages="Inglés" cost="Gratis" url="https://www.hybrid-analysis.com/" %}}
 
