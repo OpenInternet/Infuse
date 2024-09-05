@@ -50,4 +50,4 @@ Si ya tiene configurado su propio entorno de máquina virtual de análisis de ma
 
 Recomendamos encarecidamente tratar las rutas de aprendizaje [Detección de Malware](/es/learning-path/2/) y [Detección, Seguimiento e Investigación de Infraestructura maliciosa](/es/learning-path/1/) como requisitos previos para esta.
 
-Algunos programas maliciosos se entregan como una aplicación web o un exploit del navegador. Algunas de las habilidades cubiertas en la ruta de aprendizaje de Fundamentos de Seguridad Web te ayudarán con el análisis de malware basado en la web.
+Algunos programas maliciosos se entregan como una aplicación web o un exploit del navegador. Algunas de las habilidades cubiertas en la ruta de aprendizaje de [Fundamentos de Seguridad Web](/es/learning-path/4) te ayudarán con el análisis de malware basado en la web.

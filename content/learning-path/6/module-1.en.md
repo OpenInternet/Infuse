@@ -215,7 +215,9 @@ Explanation: Configuration hardeners and WAFs (Web Application Firewalls) help m
 
 {{% resource title="Cloudflare Project Galileo" languages="English, German, Spanish, French, Italian, Japanese, Korean, Portuguese, Chinese, Taiwanese" cost="Free" description="Pre DDoS protection and other security measures for at-risk sites, including artistic groups, humanitarian organizations, and political dissidents." url="https://www.cloudflare.com/galileo/" %}}
 
-{{% resource title="Secure hosting for at risk sites" languages="English" cost="Varied, depending on hosting package" description="Qurium and Greenhost both offer hosting for groups which might be at risk of attacks due to their human rights and media work." url="Qurium: https://www.qurium.org/secure-hosting/" url2="Greenhost: https://greenhost.net/internet-freedom/" %}}
+{{% resource title="Secure hosting for at risk sites: Qurium" languages="English" cost="Varied, depending on hosting package" description="Qurium and Greenhost both offer hosting for groups which might be at risk of attacks due to their human rights and media work." url="https://www.qurium.org/secure-hosting/" %}}
+
+{{% resource title="Secure hosting for at risk sites: Greenhost" languages="English" cost="Varied, depending on hosting package" description="Qurium and Greenhost both offer hosting for groups which might be at risk of attacks due to their human rights and media work." url="https://greenhost.net/internet-freedom/" %}}
 
 {{% resource title="Web application firewalls" languages="English" cost="Varied" description="Network devices that sit between an end user and a website’s origin server, like a CDN, providing an additional layer of security." url="Sucuri: https://sucuri.net/website-firewall/" url2="Wordfence: https://www.wordfence.com/products/pricing/" url3="ModSecurity: https://github.com/SpiderLabs/ModSecurity" %}}
 

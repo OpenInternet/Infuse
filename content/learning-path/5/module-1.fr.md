@@ -44,17 +44,17 @@ Chaque méthode est choisie en fonction du contexte particulier de l'évaluation
 
 #### Qu'est-ce qu'un serveur proxy Web d'interception ?
 
-Le principal outil utilisé dans les évaluations de sécurité des applications Web est un [serveur proxy](https://en.wikipedia.org/wiki/Proxy_server) d'interception. Vous connaissez peut-être d'autres types de proxys, comme :
+Le principal outil utilisé dans les évaluations de sécurité des applications Web est un [serveur proxy](https://fr.wikipedia.org/wiki/Proxy) d'interception. Vous connaissez peut-être d'autres types de proxys, comme :
 
 - [squid](http://www.squid-cache.org/), qui est principalement utilisé pour la mise en cache et le contrôle d'accès au réseau,
 - [BlueCoat](https://en.wikipedia.org/wiki/Blue_Coat_Systems), qui est populaire pour la surveillance de la conformité de l'entreprise (ou d'autres concurrents), ou
-- les proxys inverse CDN tels que ceux utilisés par [Fastly](https://www.fastly.com/), [CloudFlare](https://www.cloudflare.com/) ou [AWS CloudFront](https://aws.amazon.com/cloudfront/).
+- les proxys inverse CDN tels que ceux utilisés par [Fastly](https://www.fastly.com/), [CloudFlare](https://www.cloudflare.com/fr-fr/) ou [AWS CloudFront](https://aws.amazon.com/fr/cloudfront/).
 
 Les proxys Web se trouvent sur le réseau entre une application Web et un serveur Web, et agissent sur ce trafic réseau.
 
 Les proxys Web sont généralement configurés comme des proxys avant ou arrière (transparents). Dans un proxy de transfert, le navigateur est configuré pour utiliser explicitement le serveur proxy. Le navigateur enverra alors une requête CONNECT au proxy, pour lui demander de transmettre sa requête au serveur réel. Étant donné que le navigateur Web indique au proxy à quel site il essaie de se connecter, les proxys de transfert peuvent établir des connexions à de nombreux sites Web back-end (origine). Cela contraste avec les proxys inverses (ci-dessous). Les proxys inverses ne ressemblent pas à un serveur proxy pour le navigateur, mais se font passer pour le serveur lui-même. Cela peut constituer un avantage pour les clients ou les applications qui ne prennent pas en charge les serveurs proxy. La configuration d'un proxy inverse est généralement plus impliquée qu'un proxy direct, avec une configuration par site et des modifications DNS. Étant donné que le navigateur ne sait pas que le proxy inverse est un serveur proxy, chaque proxy inverse ne peut se connecter qu'à un seul site Web back-end (origine).
 
-Pour obtenir plus d'explications sur les proxys inverses, consultez [ce guide](https://www.cloudflare.com/learning/cdn/glossary/reverse-proxy/).
+Pour obtenir plus d'explications sur les proxys inverses, consultez [ce guide](https://www.cloudflare.com/fr-fr/learning/cdn/glossary/reverse-proxy/).
 
 Le type de proxy utilisé pour les tests d'applications Web fonctionne généralement sur le même ordinateur que le navigateur Web du testeur, bien que cela ne soit pas nécessaire. C'est le type de proxy que nous utiliserons dans ce parcours d'apprentissage. Le proxy effectuera également l'interception TLS, pour déchiffrer le trafic réseau. La principale caractéristique de ces proxys est de permettre à l'utilisateur de visualiser, de mettre en pause et de modifier manuellement le trafic réseau entre le navigateur et le serveur. Par exemple, si le testeur soumet un formulaire, ce qui oblige son navigateur à envoyer une requête POST au serveur, le proxy permettra au testeur de voir et de modifier la requête complète avant qu'elle soit réellement envoyée au serveur. Différents serveurs proxy peuvent avoir beaucoup plus de fonctionnalités, telles que les fonctionnalités de script et d'automatisation, le catalogage de sites et les outils pour effectuer un [fuzz test](https://owasp.org/www-community/Fuzzing) automatique des applications Web.
 
@@ -165,7 +165,9 @@ Assurez-vous d'avoir installé et configuré les outils suivants, que nous avons
 {{% resource title="Serveur proxy" description="Introduction au concept de serveur proxy" languages="54 langues" cost="Gratuit" url="https://fr.wikipedia.org/wiki/Proxy" %}}
 {{% resource title="Fuzzing" description="Une explication simple du fuzzing à partir de la documentation de l'OWASP" languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/Fuzzing" %}}
 {{% resource title="Squid Cache" description="Logiciel proxy que tout le monde peut déployer" languages="Anglais" cost="Gratuit" url="http://www.squid-cache.org/" %}}
-{{% resource title="Proxys commerciaux et réseaux de diffusion de contenu" description="Plusieurs entreprises fournissent des services proxy et CDN" languages="Nombreuses langues, dépend du produit" cost="Varié" url="Fastly : https://www.fastly.com/ <br> Cloudflare : https://www.cloudflare.com/ <br> Amazon CloudFront : https://aws.amazon.com/cloudfront/" %}}
+{{% resource title="Proxys commerciaux et réseaux de diffusion de contenu: Fastly" description="Plusieurs entreprises fournissent des services proxy et CDN" languages="Nombreuses langues, dépend du produit" cost="Varié" url="https://www.fastly.com/" %}}
+{{% resource title="Proxys commerciaux et réseaux de diffusion de contenu: CloudFlare" description="Plusieurs entreprises fournissent des services proxy et CDN" languages="Nombreuses langues, dépend du produit" cost="Varié" url="https://aws.amazon.com/fr/cloudfront/" %}}
+{{% resource title="Proxys commerciaux et réseaux de diffusion de contenu: Amazon CloudFront" description="Plusieurs entreprises fournissent des services proxy et CDN" languages="Nombreuses langues, dépend du produit" cost="Varié" url="https://aws.amazon.com/fr/cloudfront/" %}}
 {{% resource title="Fuzzing" description="Un aperçu du fuzzing, une technique de test de logiciel qui peut être utilisée à toutes sortes de fins, y compris le test de sites Web et d'applications Web" languages="Anglais" cost="Gratuit" url="https://owasp.org/www-community/Fuzzing" %}}
 {{% resource title="Burp Suite" description="Un outil de test de sécurité Web populaire" languages="Anglais" cost="La version communautaire est gratuite, l'édition Pro coûte 449 $ par utilisateur" url="https://portswigger.net/burp" %}}
 {{% resource title="ZAP" description="Un outil de test de sécurité très populaire pour les applications Web" languages="Anglais" cost="Gratuit" url="https://www.zaproxy.org/" %}}

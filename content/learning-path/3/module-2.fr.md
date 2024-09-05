@@ -23,7 +23,7 @@ Après avoir terminé ce sous-thème, les participants devraient être en mesure
 
 Pour de nombreux systèmes d'exploitation, les extensions de fichiers sont très importantes pour la façon dont le système doit traiter le fichier. Les noms de fichiers (et donc les extensions) ne font pas réellement partie du fichier, mais font partie des métadonnées du fichier dans le système de fichiers. À ce titre, ils peuvent facilement être modifiés et ne révèlent rien de critique sur le contenu du fichier. Cela dit, il s'agit d'une première étape valable dans le processus d'analyse. Il y a un ensemble pratiquement illimité d'extensions de fichiers (ce ne sont que des lettres ajoutées à la fin d'un nom de fichier), et il n'y a aucun registre imposé. Il n'existe aucune liste exhaustive des extensions et de nombreuses extensions ont plusieurs significations possibles. Cela dit, voici quelques listes :
 
-- [Extensions de fichiers courantes de Microsoft](https://support.microsoft.com/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01) (plusieurs langues, gratuit)
+- [Extensions de fichiers courantes de Microsoft](https://support.microsoft.com/fr-fr/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01) (plusieurs langues, gratuit)
 - [Grande liste d'extensions de fichiers de Wikipédia](https://en.wikipedia.org/wiki/List_of_filename_extensions) (anglais, japonais et coréen, gratuit)
 - [Grande liste d'extensions de fichiers du fabricant de TrID](https://mark0.net/soft-trid-deflist.html), un programme d'identification de fichiers (anglais, gratuit)
 

@@ -47,11 +47,11 @@ Les participants apprendront les concepts fondamentaux de la sécurité des appl
 
 ## Quels sont les prérequis ?
 
-- Une connaissance de base du HTML, comme la mise en page de base d'un document HTML et la capacité de lire du HTML simple. Pour obtenir une excellente introduction, consultez [MDN](https://developer.mozilla.org/en-US/docs/Learn).
-- Concepts de base du langage de programmation et la capacité de lire du JavaScript simple. Nous recommandons l'[introduction de MDN](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) à ce sujet.
-- Compréhension de base du fonctionnement de HTTP, de la façon dont un navigateur communique avec un site Web et à quoi ressemblent les requêtes et les réponses HTTP. Pour une introduction de ces sujets, nous recommandons [cet article](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) et [celui-ci](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
+- Une connaissance de base du HTML, comme la mise en page de base d'un document HTML et la capacité de lire du HTML simple. Pour obtenir une excellente introduction, consultez [MDN](https://developer.mozilla.org/fr/docs/Learn).
+- Concepts de base du langage de programmation et la capacité de lire du JavaScript simple. Nous recommandons l'[introduction de MDN](https://developer.mozilla.org/fr/docs/Learn/JavaScript) à ce sujet.
+- Compréhension de base du fonctionnement de HTTP, de la façon dont un navigateur communique avec un site Web et à quoi ressemblent les requêtes et les réponses HTTP. Pour une introduction de ces sujets, nous recommandons [cet article](https://www.cloudflare.com/fr-fr/learning/ddos/glossary/hypertext-transfer-protocol-http/) et [celui-ci](https://www.cloudflare.com/fr-fr/learning/ddos/glossary/hypertext-transfer-protocol-http/).
 - Une compréhension de base de SQL, juste assez pour savoir de quoi il s'agit et la façon de formuler une commande simple. Pour obtenir une introduction, consultez [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
-- Connaissances de base du fonctionnement de la ligne de commande sur un système d'exploitation de votre choix et de la façon d'y exécuter des commandes. Pour obtenir une bonne introduction, consultez [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
+- Connaissances de base du fonctionnement de la ligne de commande sur un système d'exploitation de votre choix et de la façon d'y exécuter des commandes. Pour obtenir une bonne introduction, consultez [MDN](https://developer.mozilla.org/fr/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
 - Il y a un exercice de vérification des compétences dans le sous-thème sur l'autorisation qui nécessite des connaissances de base du langage de programmation Python (bien que ce soit un code très simple qui devrait être lisible par ceux qui maîtrisent d'autres langages). Si vous n'avez pas de connaissances concernant les langages de programmation, vous pouvez ignorer cet exercice.
 
 De quels appareils ou logiciels avez-vous besoin pour réaliser les exercices ?
