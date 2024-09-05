@@ -165,7 +165,7 @@ Make sure that you have installed and set up the following tools, which we’ve 
 
 {{% resource title="Squid cache" languages="English" cost="Free" description="Proxy software that can be deployed by anyone." url="https://www.squid-cache.org/" %}}
 
-{{% resource title="Commercial proxies and content delivery networks: Fastly" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://www.fastly.com/ %}}
+{{% resource title="Commercial proxies and content delivery networks: Fastly" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://www.fastly.com/" %}}
 
 {{% resource title="Commercial proxies and content delivery networks: Cloudflare" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://www.cloudflare.com/" %}}
 
