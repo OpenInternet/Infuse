@@ -48,5 +48,5 @@ If you already have your own malware analysis virtual machine environment set up
 
 ## Related learning paths
 
-We strongly recommend treating the Detecting Malware and Detecting, Tracking, Investigating Malicious Infrastructure learning paths as prerequisites to this one.
+We strongly recommend treating the [Detecting Malware](/en/learning-path/2/) and [Detecting, Tracking, Investigating Malicious Infrastructure](/en/learning-path/1/) learning paths as prerequisites to this one.
 Some malware is delivered as a web application or a browser exploit. Some of the skills covered in the Web Security Fundamentals learning path will help you with web-based malware analysis.
