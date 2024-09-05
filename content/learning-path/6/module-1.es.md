@@ -220,11 +220,11 @@ Explicación: Los fortalecedores de configuración y los WAF (Cortafuegos de Apl
 
 {{% resource title="Alojamiento seguro para sitios en riesgo: Greenhost" description="Qurium y Greenhost ofrecen alojamiento para grupos que podrían estar en riesgo de sufrir ataques debido a su trabajo en materia de derechos humanos y medios de comunicación." languages="Inglés" cost="Variado, dependiendo del paquete de alojamiento" url="https://greenhost.net/internet-freedom/" %}}
 
-{{% resource title="Firewalls de aplicaciones web: Sucuri" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="Sucuri: https://sucuri.net/website-firewall/" %}}
+{{% resource title="Firewalls de aplicaciones web: Sucuri" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="https://sucuri.net/website-firewall/" %}}
 
-{{% resource title="Firewalls de aplicaciones web: Wordfence" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="Wordfence: https://www.wordfence.com/products/pricing/" %}}
+{{% resource title="Firewalls de aplicaciones web: Wordfence" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="https://www.wordfence.com/products/pricing/" %}}
 
-{{% resource title="Firewalls de aplicaciones web: ModSecurity" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="ModSecurity: https://github.com/SpiderLabs/ModSecurity" %}}
+{{% resource title="Firewalls de aplicaciones web: ModSecurity" description="Dispositivos de red que se encuentran entre un usuario final y el servidor de origen de un sitio web, como una CDN, lo que proporciona una capa adicional de seguridad." languages="Inglés" cost="Variado" url="https://github.com/SpiderLabs/ModSecurity" %}}
 
 {{% resource title="Fortalecedores de aplicaciones web" description="Un framework de fortificación" languages="Inglés" cost="Gratis" url="https://dev-sec.io/baselines/" %}}
 

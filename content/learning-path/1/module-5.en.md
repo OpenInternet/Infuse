@@ -99,7 +99,7 @@ Find an email in your inbox or spam folder. Alternatively, ask for a peer or men
 
 {{% resource title="Introduction to email spoofing, article 2" languages="English" cost="Free" description="Several articles describing email spoofing basics." url="https://docs.sendgrid.com/glossary/spoofing" %}}
 
-{{% resource title="Introduction to email spoofing, article 3" languages="English" cost="Free" description="Several articles describing email spoofing basics." url=", https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
+{{% resource title="Introduction to email spoofing, article 3" languages="English" cost="Free" description="Several articles describing email spoofing basics." url="https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
 
 {{% resource title="Evaluating 'Received' headers" languages="English" cost="Free" description="How to use email headers to find the server that sent the email." url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
 
