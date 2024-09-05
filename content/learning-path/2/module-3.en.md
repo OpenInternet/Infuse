@@ -145,3 +145,5 @@ Discuss your answers to all those questions with your peer or mentor.
 {{% resource title="Microsoft Security: Indicators of compromise explained" languages="English" cost="Free" description="A summary of what IoCs are and which forms they could take." url="https://www.microsoft.com/en-us/security/business/security-101/what-are-indicators-of-compromise-ioc" %}}
 
 {{% resource title="Fortinet glossary: Indicators of compromise" languages="English" cost="Free" description="One more, very useful, summary of IoCs." url="https://www.fortinet.com/resources/cyberglossary/indicators-of-compromise" %}}
+
+{{% resource title="Linux Detection Engineering -  A primer on persistence mechanisms" languages="English" cost="Free" description="A walkthrough on how threat actors establish persistence on Linux systems and how to hunt for these techniques." url="https://www.elastic.co/security-labs/primer-on-persistence-mechanisms" %}}
