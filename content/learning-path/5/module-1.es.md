@@ -167,7 +167,7 @@ Asegúrese de haber instalado y configurado las siguientes herramientas, que tam
 
 {{% resource title="Fuzzing" description="Una explicación sencilla del fuzzing de la documentación de OWASP." languages="Inglés" cost="Gratis" url="https://owasp.org/www-community/Fuzzing" %}}
 
-{{% resource title="Squid cache" description="Software proxy que cualquiera puede implementar" languages="Inglés" cost="Gratis" url="http://www.squid-cache.org/" %}}
+{{% resource title="Squid cache" description="Software proxy que cualquiera puede implementar" languages="Inglés" cost="Gratis" url="https://www.squid-cache.org/" %}}
 
 {{% resource title="Proxys comerciales y redes de distribución de contenidos: Fastly" description="Varias empresas ofrecen servicios de proxy y CDN" languages="Muchos idiomas, depende del producto" cost="Variado" url="https://www.fastly.com/es/" %}}
 

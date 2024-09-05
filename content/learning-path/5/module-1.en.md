@@ -163,9 +163,13 @@ Make sure that you have installed and set up the following tools, which we’ve 
 
 {{% resource title="Fuzzing" languages="English" cost="Free" description="Simple explanation of fuzzing from OWASP documentation." url="https://owasp.org/www-community/Fuzzing" %}}
 
-{{% resource title="Squid cache" languages="English" cost="Free" description="Proxy software that can be deployed by anyone." url="http://www.squid-cache.org/" %}}
+{{% resource title="Squid cache" languages="English" cost="Free" description="Proxy software that can be deployed by anyone." url="https://www.squid-cache.org/" %}}
 
-{{% resource title="Commercial proxies and content delivery networks" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="Fastly: https://www.fastly.com/ Cloudflare: https://www.cloudflare.com/ Amazon CloudFront: https://aws.amazon.com/cloudfront/" %}}
+{{% resource title="Commercial proxies and content delivery networks: Fastly" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://www.fastly.com/ %}}
+
+{{% resource title="Commercial proxies and content delivery networks: Cloudflare" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://www.cloudflare.com/" %}}
+
+{{% resource title="Commercial proxies and content delivery networks: Amazon Cloudfront" languages="Many languages, depends on the product" cost="Varied" description="Fastly, Cloudflare, Amazon CloudFront." url="https://aws.amazon.com/cloudfront/" %}}
 
 {{% resource title="Burp Suite" languages="English" cost="Community version is free, Pro edition costs $449 per user" description="Popular web security testing tool." url="https://portswigger.net/burp" %}}
 
