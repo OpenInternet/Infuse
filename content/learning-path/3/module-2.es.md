@@ -2,6 +2,7 @@
 style = "module"
 weight = 2
 title = "Análisis básico de archivos"
+description = "Al evaluar los archivos de malware, debemos realizar un análisis más profundo de los tipos de archivos y su contenido. Además de las extensiones de archivo básicas, examinaremos los encabezados y las firmas de los archivos, así como el contenido de las cadenas."
 +++
 
 ## Caso práctico
