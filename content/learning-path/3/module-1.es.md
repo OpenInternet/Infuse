@@ -2,7 +2,7 @@
 style = "module"
 weight = 1
 title = "Configuración de un entorno de análisis de malware"
-description = "Antes de comenzar a analizar cualquier malware, debe configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta"
+description = "Antes de comenzar a analizar cualquier malware, debe configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta."
 +++
 
 ## Caso práctico

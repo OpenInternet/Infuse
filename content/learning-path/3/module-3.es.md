@@ -2,7 +2,7 @@
 style = "module"
 weight = 3
 title = "Sandboxes y análisis dinámico"
-description = "Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing this is by running a piece of software in a safe, isolated environment called a sandbox."
+description = "El análisis dinámico es el proceso de ejecutar un programa malicioso y observar lo que hace. La forma más sencilla de hacerlo es ejecutar un programa en un entorno seguro y aislado llamado sandbox."
 +++
 
 ## Caso práctico
