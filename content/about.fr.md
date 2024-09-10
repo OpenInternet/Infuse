@@ -1,8 +1,8 @@
-+++
-title = "À propos d'Infuse"
-navbar = true
-weight = 1
-+++
+---
+title: À propos d'Infuse
+weight: 1
+navbar: true
+---
 
 Infuse est un cadre développé par la communauté qui offre des voies pour les protecteurs numériques (formateurs en sécurité numérique, technologues, auditeurs, etc.) afin d'améliorer leurs connaissances et compétences dans des domaines d'expertise technique spécialisée (STE). Infuse vise à rendre ces compétences STE indispensables plus largement disponibles dans les contextes où les communautés à risque en ont le plus besoin, en renforçant les compétences des protecteurs qui ont déjà établi leur confiance auprès de ces communautés. Cela implique de localiser l'expertise et d'élargir l'accessibilité ainsi que la diversité des fournisseurs de soutien spécialisé en sécurité numérique.
 
