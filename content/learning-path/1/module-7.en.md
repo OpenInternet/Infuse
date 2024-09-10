@@ -7,6 +7,8 @@ description: This module will teach you to look at attacker-controlled websites
 weight: 7
 ---
 
+# I would not suggest merging this pull request
+
 ## Use Case
 
 Phishing emails are usually just the first step in an attack. Most try to get the targeted person to visit a web page with a specific attack objective. This skill module will teach you to **look at attacker-controlled websites to understand their actions** and potentially **uncover further attacker-controlled infrastructure** or attack vectors used in the attacks. Note that websites can be extremely complicated, with behavior ranging from simple credential-stealing impersonation pages to complex attacks against the web browser or browsing device itself.
