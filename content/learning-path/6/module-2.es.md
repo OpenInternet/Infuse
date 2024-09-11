@@ -277,7 +277,7 @@ awk '{print NR, $0}' example.txt
 
 ### Ejercicio de práctica 1: Análisis del Registro de Acceso de Apache
 
-Dedique algún tiempo a jugar con los siguientes comandos awk. Puede utilizar un registro de su propio servidor web o utilizar registros de práctica, como [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+Dedique algún tiempo a jugar con los siguientes comandos awk. Puede utilizar un registro de su propio servidor web o utilizar registros de práctica, como [esta colección](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip).
 
 Identifique el número total de solicitudes registradas en el registro de acceso.
 

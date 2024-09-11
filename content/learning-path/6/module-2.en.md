@@ -277,7 +277,7 @@ awk '{print NR, $0}' example.txt
 
 ### Practice exercise 1: Apache Access Log Analysis
 
-Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip).
 
 Identify the total number of requests recorded in the access log.
 

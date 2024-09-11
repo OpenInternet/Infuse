@@ -279,7 +279,7 @@ awk '{print NR, $0}' example.txt
 
 ### Exercice pratique 1 : analyse des journaux d'accès Apache
 
-Passez du temps à jouer avec les commandes awk suivantes. Vous pouvez utiliser un journal à partir de votre propre serveur Web ou utiliser des journaux d'exercice, telles que [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+Passez du temps à jouer avec les commandes awk suivantes. Vous pouvez utiliser un journal à partir de votre propre serveur Web ou utiliser des journaux d'exercice, telles que [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip).
 
 Indiquez le nombre total de requêtes enregistrées dans le journal d'accès.
 
