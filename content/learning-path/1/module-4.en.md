@@ -211,7 +211,7 @@ Sit down with a peer or a mentor who has significant experience in passive inves
 
 {{% resource title="Mandiant Advantage" languages="English" cost="Some features are available on the free tier" description="Another threat intelligence service, currently owned by Google." url="https://www.mandiant.com/multi-vendor-security-platform-free-access" %}}
 
-{{% resource title="Shodan" languages="English" cost="Free tier\nBasic $49\nMore volume available as monthly subscriptions\n(Free basic for academic emails, occasionally has great discounts, e.g. membership for $5 when they got 5 million users in July 2022, and $4 when they hit 4 million users in March of 2021)" description="Shows information on services running on a server by IP address, can also search for all servers running a service with a particular banner." url="https://www.shodan.io/" %}}
+{{% resource title="Shodan" languages="English" cost="Free tier, Basic $49, More volume available as monthly subscriptions" description="Shows information on services running on a server by IP address, can also search for all servers running a service with a particular banner." url="https://www.shodan.io/" %}}
 
 {{% resource title="Censys Search" languages="English" cost="Free" description="A tool which can observe open ports, running services, TLS certificates, and more for a given IP." url="https://search.censys.io/" %}}
 
