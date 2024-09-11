@@ -65,4 +65,14 @@
 &lt;p>Application logic vulnerabilities (frequently called business logic vulnerabilities) are a loosely assembled class of vulnerabilities that relate to the processes that the application itself performs, as opposed to underlying vulnerabilities in the technologies that the application uses. If this definition is confusing to you, you’re in good company. What constitutes a business logic vulnerability vs some other class is hotly contested. Infuse takes the position that the actual definition doesn’t matter that much, and that expediency is more important than precise definitions. We encourage you to maintain a focus on the vulnerabilities themselves, develop a view of vulnerability classes that makes sense to you, and maintain flexibility in taxonomy when discussing vulnerabilities with others.&lt;/p></description></item><item><title>Interpersonal Skills for Web Application Security</title><link>https://infuse.quest/en/learning-path/4/module-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/en/learning-path/4/module-6/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
 &lt;p>When interacting with individuals and organizations who operate web applications, self-awareness is necessary to check the nature of the digital protector relationship, provide useful and not fear-mongering advice or services. It is critical to frame your technical work within a sound risk assessment of the reality of the web application and its users.&lt;/p>
 &lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p></description></item></channel></rss>
+&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p>
+&lt;ul>
+&lt;li>Self reflect on the digital protector relationship with a client within web application assessment work and reporting&lt;/li>
+&lt;li>Simplify and filter findings and explain them in a way which makes sense to the needs and threat models of the organization and its stakeholders&lt;/li>
+&lt;li>Maintain an awareness of the limits of your own knowledge and ability&lt;/li>
+&lt;li>Communicate in a non fear-mongering way about vulnerabilities and weaknesses&lt;/li>
+&lt;li>Conduct a broader risk analysis of a web application based on the political, social, economic, and technical realities which surround it.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="main-section">Main Section&lt;/h2>
+&lt;p>Your work in web application security assessment must remain contextualized within the frame of the organization which operates or hosts the application, the people who utilize it (and of their devices), the interpersonal relationships you have with these people, the nature of the web application itself, the data stored or processed on it, the legal realities which prevail over the application, and a solid risk assessment of all these elements. Let’s unpack these elements and consider a self-critique of your role as a digital protector.&lt;/p></description></item></channel></rss>

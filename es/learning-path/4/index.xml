@@ -20,10 +20,29 @@
 &lt;p>Una clase común de vulnerabilidades de aplicaciones web se relaciona con la forma en que la aplicación procesa los datos proporcionados por los usuarios del sitio. Los atacantes suelen utilizar esta clase de vulnerabilidades para apoderarse por completo de los sitios web de destino y, a menudo, pueden descubrirse mediante técnicas automatizadas. Comprender los mecanismos de las vulnerabilidades de validación de datos también es extremadamente útil para desmitificar temas de seguridad complejos.&lt;/p></description></item><item><title>Autenticación</title><link>https://infuse.quest/es/learning-path/4/module-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/4/module-3/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
 &lt;p>En cualquier sitio web que tenga inicios de sesión de usuarios, es importante que el sitio proteja las cuentas de usuario del acceso no autorizado y también que las credenciales de la cuenta estén protegidas. Este subtema describe las áreas más comunes de autenticación donde aparecen fallas en las aplicaciones web.&lt;/p>
 &lt;h2 id="objetivos">Objetivos&lt;/h2>
-&lt;p>Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:&lt;/p></description></item><item><title>Autorización</title><link>https://infuse.quest/es/learning-path/4/module-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/4/module-4/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
+&lt;p>Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:&lt;/p>
+&lt;ul>
+&lt;li>Comprender los tipos comunes de vulnerabilidades de autenticación&lt;/li>
+&lt;li>Comprender los impactos potenciales de esos tipos de vulnerabilidades.&lt;/li>
+&lt;li>Comprender los mecanismos mediante los cuales funcionan esas vulnerabilidades.&lt;/li>
+&lt;li>Comprender, a grandes rasgos, cómo se pueden prevenir esas vulnerabilidades.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="sección-principal">Sección Principal&lt;/h2>
+&lt;p>La autenticación es el proceso mediante el cual un usuario de un sistema demuestra que es quien dice ser. Es la base sobre la que se construye el control de acceso. Normalmente, un usuario proporcionará una información que lo identifica (nombre de usuario, dirección de correo electrónico, número de teléfono, etc.) y una información secreta que valida esa identidad (comúnmente una contraseña o frase de contraseña, aunque se utilizan métodos alternativos o adicionales como claves de seguridad, WebAuthn y Passkeys están ganando popularidad). Este subtema cubrirá algunas clases de vulnerabilidad que son comunes y de alto impacto en las aplicaciones web.&lt;/p></description></item><item><title>Autorización</title><link>https://infuse.quest/es/learning-path/4/module-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/4/module-4/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
 &lt;p>En cualquier sitio web que tenga usuarios con diferentes niveles de capacidades (por ejemplo, espectadores versus editores) o que contenga información confidencial para los usuarios, es importante que el sitio proteja estas funciones y/o estos datos de personas que no tienen permiso para usar estas funciones. y/o interactuar con estos datos.&lt;/p>
 &lt;h2 id="objetivos">Objetivos&lt;/h2>
-&lt;p>Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:&lt;/p></description></item><item><title>Lógica de Aplicación</title><link>https://infuse.quest/es/learning-path/4/module-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/4/module-5/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
+&lt;p>Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:&lt;/p>
+&lt;ul>
+&lt;li>Comprender los tipos comunes de vulnerabilidades de autorización&lt;/li>
+&lt;li>Comprender los impactos potenciales de esos tipos de vulnerabilidades.&lt;/li>
+&lt;li>Comprender los mecanismos mediante los cuales funcionan esas vulnerabilidades.&lt;/li>
+&lt;li>Comprender, a grandes rasgos, cómo se pueden prevenir esas vulnerabilidades.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="sección-principal">Sección Principal&lt;/h2>
+&lt;h3 id="conocimiento-fundamental">Conocimiento Fundamental&lt;/h3>
+&lt;p>La autorización es el proceso de asegurarse de que un usuario de un sistema tenga permiso para realizar una acción o crear/leer/editar/eliminar un dato en ese sistema, y ​​evitar estas acciones si el usuario no tiene permiso. Generalmente, estos son los tipos de controles de seguridad más simples de implementar y el tipo de vulnerabilidad más simple de encontrar. Sin embargo, aunque son conceptualmente simples, tanto asegurar como romper los controles son generalmente muy tediosos y propensos a errores.&lt;/p></description></item><item><title>Lógica de Aplicación</title><link>https://infuse.quest/es/learning-path/4/module-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/4/module-5/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
 &lt;p>En cualquier sitio web interactivo que imponga restricciones a los tipos de acciones que los usuarios pueden realizar, es importante que el sitio aplique adecuadamente esas restricciones para evitar acciones no intencionadas (y potencialmente) dañinas por parte de usuarios malintencionados.&lt;/p>
 &lt;h2 id="objetivos">Objetivos&lt;/h2>
 &lt;p>Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:&lt;/p>
