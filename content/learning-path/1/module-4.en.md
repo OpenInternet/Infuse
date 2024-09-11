@@ -7,7 +7,7 @@ weight: 4
 
 ## Use Case
 
-A practitioner can use the skills outlined in this subtopic to **begin a passive investigation against servers on the internet**. A passive investigation is one that does not load any websites, but only looks up publicly available data on them. As such, the attacker will not be alerted that their website received additional visits, which could tip them off that an investigation is taking place. By evaluating domain and IP info, an investigator can work towards **generating rich technical information about the attack **useful for community education, threat information sharing, discovery of associated attacker infrastructure, and for placing attacks in context of broader attack patterns.
+A practitioner can use the skills outlined in this subtopic to **begin a passive investigation against servers on the internet**. A passive investigation is one that does not load any websites, but only looks up publicly available data on them. As such, the attacker will not be alerted that their website received additional visits, which could tip them off that an investigation is taking place. By evaluating domain and IP info, an investigator can work towards **generating rich technical information about the attack** useful for community education, threat information sharing, discovery of associated attacker infrastructure, and for placing attacks in context of broader attack patterns.
 
 Some of those skills may be necessary as part of an initial triage process, for example to help an analyst decide if a link is suspicious. They will also prove very useful during an in-depth analysis of email headers, outlined in the next section.
 
