@@ -1,10 +1,11 @@
-+++
-style = "module"
-weight = 1
-title = "Interpersonal skills for detecting malware"
-description = "Before you start looking into any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
-+++
-
+---
+style: module
+title: Interpersonal skills for detecting malware
+description: Before you start looking into any malware, you need to set up a
+  safe environment to do so. Since malware does bad things to the systems it
+  runs on, you do not want to run it on your primary system
+weight: 1
+---
 ## Use Case
 
 Before you start analyzing any malware, you need to set up a safe environment to do so. Definitionally, malware does bad things to the systems it runs on. You do not want to run it on your primary system. Additionally, you likely will want to prevent the malware from actually making connections to the threat actor’s C&C (command and control) servers. Both of these mean that you should set up a virtual machine to use when performing malware analysis.
@@ -15,25 +16,26 @@ After completing this subtopic, practitioners will be able to support those who 
 
 Practitioners should also be able to do the following:
 
-- Explain the scope of the work and what information they would gather
-- Provide assurance to the client on their safety and the safety of their data
-- Prepare a simple confidentiality agreement with a client, if necessary
-- Navigate a triage discussion to help identify when further investigation and detection work is necessary
+* Explain the scope of the work and what information they would gather
+* Provide assurance to the client on their safety and the safety of their data
+* Prepare a simple confidentiality agreement with a client, if necessary
+* Navigate a triage discussion to help identify when further investigation and detection work is necessary
 
----
+- - -
 
 ## Main Section
+
 ### Foundational knowledge
 
 The Security Education Companion contains a multitude of advice on thoughtful, careful, harm-reducing ways to interact as a technology helper. If you are not already familiar with this type of content, we highly advise a review at [Security Education 101](https://www.securityeducationcompanion.org/articles).
 
 After reading through the above resources, you should be able to:
 
-- Understand how risk assessment is important in every interaction
-- Understand the risks of touching people’s devices or gaining access to their accounts;
-- Understand the risks of engaging in fear-mongering discourse
-- Understand your own limitations, both in terms of technical ability but also your suitability to support a given person or community and any risks inherent in doing so
-- Avoid injecting preferences for platforms, technology, open-source vs closed-source, etc, into helper interactions.
+* Understand how risk assessment is important in every interaction
+* Understand the risks of touching people’s devices or gaining access to their accounts;
+* Understand the risks of engaging in fear-mongering discourse
+* Understand your own limitations, both in terms of technical ability but also your suitability to support a given person or community and any risks inherent in doing so
+* Avoid injecting preferences for platforms, technology, open-source vs closed-source, etc, into helper interactions.
 
 ### Path-specific Knowledge
 
@@ -41,13 +43,13 @@ Once you are familiar with the above foundational knowledge, take some time to t
 
 You should be able to:
 
-- Remember how those who create malware aim not just to obtain data but also scare people into thinking that they are perpetually surveilled. Malware attacks targeting civil society often serve the purpose of both data collection and intimidation
-- Recognize that many targeted people will have very sensitive data on their devices, which could pertain to both their personal and professional lives. Malware detection and investigation will be a stressful process for them because they both need to worry about what information about them might have been leaked to adversaries and they need to hand over control of devices to digital protectors who support them, which could make them feel even more vulnerable. Be ready to discuss your data handling practices, including the ways in which you encrypt the drive on which you are doing the detection and how you plan to handle and delete their data once the process is complete;
-- Understand that many people working in civil society are aware of the risks they personally face, but are extremely concerned about family, friends, and sources whose data might have been leaked or who might be targeted
-- Talk to people about any potential risks involved in the malware detection process (adversaries could find out about it, they might lose access to their devices, the process might not yield any satisfying results)
-- Understand that technical knowledge, skill levels, and resources vary widely between people. One civil society group might find it easy to lock down devices and reduce the chances of malware infections, while others might struggle to even find devices which still receive software updates
-- Be ready to explain how the same method of analysis can sometimes yield lots of data and sometimes very little, be able to manage expectations accordingly;
-- Appreciate that some civil society groups would like to sign an NDA or similar agreement prior to sharing much of their data or devices.
+* Remember how those who create malware aim not just to obtain data but also scare people into thinking that they are perpetually surveilled. Malware attacks targeting civil society often serve the purpose of both data collection and intimidation
+* Recognize that many targeted people will have very sensitive data on their devices, which could pertain to both their personal and professional lives. Malware detection and investigation will be a stressful process for them because they both need to worry about what information about them might have been leaked to adversaries and they need to hand over control of devices to digital protectors who support them, which could make them feel even more vulnerable. Be ready to discuss your data handling practices, including the ways in which you encrypt the drive on which you are doing the detection and how you plan to handle and delete their data once the process is complete;
+* Understand that many people working in civil society are aware of the risks they personally face, but are extremely concerned about family, friends, and sources whose data might have been leaked or who might be targeted
+* Talk to people about any potential risks involved in the malware detection process (adversaries could find out about it, they might lose access to their devices, the process might not yield any satisfying results)
+* Understand that technical knowledge, skill levels, and resources vary widely between people. One civil society group might find it easy to lock down devices and reduce the chances of malware infections, while others might struggle to even find devices which still receive software updates
+* Be ready to explain how the same method of analysis can sometimes yield lots of data and sometimes very little, be able to manage expectations accordingly;
+* Appreciate that some civil society groups would like to sign an NDA or similar agreement prior to sharing much of their data or devices.
 
 Note that the other subtopics in this learning path also contain advice on developing interpersonal skills in order to deliver thoughtful, harm-reducing support on this subject.
 
@@ -75,12 +77,13 @@ Triage is the necessary step in which you gather information and use it to decid
 
 During initial conversations, seek to ascertain:
 
-- Is there a particular reason they want their device checked, or is it a general fear, curiosity, suspicion, or act of prudence?
-- Specific reasons and explanations will help you target your search, for instance:
-  - Change in device performance
-  - A physical incident, such as a device being handled by someone else, or being seized and returned by law enforcement
-  - A digital incident, such as software or an application being installed, or a suspicious link being clicked
-  - A warning, indicator, or security alert
+* Is there a particular reason they want their device checked, or is it a general fear, curiosity, suspicion, or act of prudence?
+* Specific reasons and explanations will help you target your search, for instance:
+
+  * Change in device performance
+  * A physical incident, such as a device being handled by someone else, or being seized and returned by law enforcement
+  * A digital incident, such as software or an application being installed, or a suspicious link being clicked
+  * A warning, indicator, or security alert
 
 There are many alternative explanations for device misperformance, such as old or faulty hardware, software bugs, lack of updates, undesirable configurations. Of course, malware infection and compromise can also exist alongside these explanations. So finding misconfigurations, noting out of date software or low device resources is not sufficient to reject the malware hypothesis.
 
@@ -98,26 +101,28 @@ In order to move malware files around, the standard practice is to put them in e
 
 Reflect on and answer/discuss the following with peers, colleagues, friends, or a mentor. If available and if appropriate, talk to a ‘client’ you have worked with before to ask their input and experiences on some of these questions.
 
-- Describe how touching and gaining access to someone's device might present unforeseen risks.
-- Imagine you are assisting someone with sensitive data on their device. How would you approach a discussion with this person regarding your access and data handling.
-- Why is it impossible to say that a device is free from malware?
-- How does understanding a person’s specific threat model impact your harm-reduction efforts, for instance if they are an anonymous blogger or dissident in exile?
-- How do you navigate providing factual technical evidence according to your ability, while balancing the need not to provide false confidence while also not fostering paranoia?
-- Describe your own abilities and limitations in conducting malware detection work. After making a first attempt at this description, attempt to add further nuance and accuracy to your description.
-  - What might be the risks if you proceed without this recognition of your limitations?
-- Role Play an interaction in which you report to a client on finding active malware on a device.
+* Describe how touching and gaining access to someone's device might present unforeseen risks.
+* Imagine you are assisting someone with sensitive data on their device. How would you approach a discussion with this person regarding your access and data handling.
+* Why is it impossible to say that a device is free from malware?
+* How does understanding a person’s specific threat model impact your harm-reduction efforts, for instance if they are an anonymous blogger or dissident in exile?
+* How do you navigate providing factual technical evidence according to your ability, while balancing the need not to provide false confidence while also not fostering paranoia?
+* Describe your own abilities and limitations in conducting malware detection work. After making a first attempt at this description, attempt to add further nuance and accuracy to your description.
+
+  * What might be the risks if you proceed without this recognition of your limitations?
+* Role Play an interaction in which you report to a client on finding active malware on a device.
 
 ## Skill check
 
 With a Mentor or Peer
 
-- Explain to your mentor/peer or peer group your responses to the above Practice questions.
-- Role play some of the interactions described in the above Practice questions:
-  - Initial discussion with a client
-  - Discussing their threat model
-  - Describing a negative finding (no malware) including an explanation of the limitations of the assessment
-  - Informing of a positive finding (malware found)
-- If available, have someone watch your actual interactions and incident response process with a client and provide feedback on how you navigate the interpersonal elements of the interaction
+* Explain to your mentor/peer or peer group your responses to the above Practice questions.
+* Role play some of the interactions described in the above Practice questions:
+
+  * Initial discussion with a client
+  * Discussing their threat model
+  * Describing a negative finding (no malware) including an explanation of the limitations of the assessment
+  * Informing of a positive finding (malware found)
+* If available, have someone watch your actual interactions and incident response process with a client and provide feedback on how you navigate the interpersonal elements of the interaction
 
 ## Learning Resources
 
@@ -125,4 +130,4 @@ With a Mentor or Peer
 
 ## Notes
 
-[^1]: REMnux is not available on ARM processors such as Apple Silicon computers. While it is possible to virtualize across CPU architectures using emulators such as QEMU or UTM (VirtualBox does not currently support ARM architectures), performance will be slow and is not advised. It would make more sense to select another Linux distribution which supports your hardware and install the necessary software packages to complete the activities, if they did not already come with the operating system. Kali Linux is a popular Linux distribution which will include or support many tools also found in REMnux. If you have an Apple Silicon device, you can use UTM (https://mac.getutm.app/) to run the Apple Silicon (ARM64) Kali Installer image. Walkthrough guides are available from both UTM and Kali. At the time of writing, a bug affecting the installer process requires an additional step during installation of attaching a virtual serial terminal display – both walkthroughs describe this process. You can also obtain an ARM version of Kali for the Raspberry Pi, with most models of Raspberry Pi supported. 
+[^1]: REMnux is not available on ARM processors such as Apple Silicon computers. While it is possible to virtualize across CPU architectures using emulators such as QEMU or UTM (VirtualBox does not currently support ARM architectures), performance will be slow and is not advised. It would make more sense to select another Linux distribution which supports your hardware and install the necessary software packages to complete the activities, if they did not already come with the operating system. Kali Linux is a popular Linux distribution which will include or support many tools also found in REMnux. If you have an Apple Silicon device, you can use UTM (https://mac.getutm.app/) to run the Apple Silicon (ARM64) Kali Installer image. Walkthrough guides are available from both UTM and Kali. At the time of writing, a bug affecting the installer process requires an additional step during installation of attaching a virtual serial terminal display – both walkthroughs describe this process. You can also obtain an ARM version of Kali for the Raspberry Pi, with most models of Raspberry Pi supported.

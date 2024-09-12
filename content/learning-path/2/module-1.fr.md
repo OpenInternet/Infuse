@@ -1,8 +1,11 @@
 ---
-style: "module"
+style: module
+title: Compétences interpersonnelles pour détecter les logiciels malveillants
+description: Avant de commencer à analyser un logiciel malveillant, vous devez
+  configurer un environnement sûr pour le faire. En définitive, les logiciels
+  malveillants font de mauvaises choses aux systèmes sur lesquels ils
+  fonctionnent.
 weight: 1
-title: "Compétences interpersonnelles pour détecter les logiciels malveillants"
-description: "Avant de commencer à analyser un logiciel malveillant, vous devez configurer un environnement sûr pour le faire. En définitive, les logiciels malveillants font de mauvaises choses aux systèmes sur lesquels ils fonctionnent."
 ---
 
 ## Cas d'utilisation
