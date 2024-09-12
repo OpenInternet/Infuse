@@ -394,7 +394,7 @@ cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort 
 
 ### Une introduction aux expressions rationnelles et leur utilisation pour analyser un journal
 
-Pour cet exercice, nous utilisons des fichiers journaux de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
+Pour cet exercice, nous utilisons des fichiers journaux de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
 
 Dans cette tâche, nous allons utiliser des expressions régulières. Les expressions régulières (regex) sont de puissants outils de recherche qui vous aident à trouver des modèles spécifiques dans les données. Par exemple, si vous enquêtez sur un trafic réseau suspect et que vous savez que les requêtes malveillantes contiennent souvent certains modèles de caractères, vous pouvez utiliser regex pour rechercher dans les journaux ou les captures de trafic pour trouver ces requêtes. Regex vous permet de définir des modèles de recherche flexibles. Par exemple :
 
@@ -449,7 +449,7 @@ L'option « `-E` » de la commande `grep` permet d'utiliser des expressions rég
 
 #### Exercice pratique 4 : utiliser des expressions régulières (regex)
 
-Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
+Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
 
 1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
 

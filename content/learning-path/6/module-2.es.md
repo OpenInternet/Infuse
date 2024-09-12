@@ -395,7 +395,7 @@ cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort 
 
 ### Una introducción a las expresiones regulares y su uso para analizar un registro
 
-Para este ejercicio, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
+Para este ejercicio, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
 
 En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares (regex) son como potentes herramientas de búsqueda que le ayudan a encontrar patrones específicos en los datos. Por ejemplo, si está investigando tráfico de red sospechoso y sabe que las solicitudes maliciosas a menudo contienen ciertos patrones de caracteres, puede usar expresiones regulares para buscar registros o capturas de tráfico para encontrar esas solicitudes. Regex le permite definir estándares de búsqueda flexibles. Por ejemplo:
 
@@ -449,7 +449,7 @@ La opción “`-E`” en el comando grep permite el uso de expresiones regulares
 
 ### Ejercicio de práctica 4: usando expresiones regulares (regexes)
 
-Para esos ejercicios, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
+Para esos ejercicios, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
 
 1\. Utilice grep y la regex ['\\\\x\[a-fA-F0-9\]{2}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x\[a-fA-F0-9\]{3}' coincide con una secuencia que comienza con '\\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
 

@@ -397,7 +397,7 @@ cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort 
 
 ### An introduction to regular expressions and using them to analyze a log
 
-For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
 In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
 
@@ -456,7 +456,7 @@ The “`-E`” option in the `grep` command enables the use of extended regular 
 
 ### Practice exercise 4: using regular expressions (regexes)
 
-For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
 1. Use grep and the ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex` '\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
 2. Using the same filter determine which IP address is making the most requests
