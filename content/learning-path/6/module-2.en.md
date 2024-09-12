@@ -277,7 +277,7 @@ awk '{print NR, $0}' example.txt
 
 ### Practice exercise 1: Apache Access Log Analysis
 
-Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip).
+Spend some time playing around with the following awk commands. You can use a log from your own web server or use practice ones, such as [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip).
 
 Identify the total number of requests recorded in the access log.
 
@@ -394,7 +394,7 @@ cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort 
 
 ### An introduction to regular expressions and using them to analyze a log
 
-For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
 In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
 
