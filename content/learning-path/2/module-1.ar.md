@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 1
-title = "Interpersonal skills for detecting malware"
-description = "Before you start looking into any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
-+++
+---
+style: module
+title: Interpersonal skills for detecting malware
+description: Before you start looking into any malware, you need to set up a
+  safe environment to do so. Since malware does bad things to the systems it
+  runs on, you do not want to run it on your primary system
+weight: 1
+---
 
 ## Use Case
 
