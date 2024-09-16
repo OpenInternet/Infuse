@@ -6,12 +6,12 @@ display_url: https://infuse.quest
 
 backend:
   name: github
-  #  repo: OpenInternet/Infuse
+  repo: OpenInternet/Infuse
   open_authoring: true
-  # branch: main
+  branch: main
   site_domain: infuse.quest
 
-local_backend: true
+local_backend: false
 
 publish_mode: editorial_workflow
 media_folder: static/media/uploads
