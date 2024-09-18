@@ -1,9 +1,8 @@
-+++
-title = "About Infuse"
-navbar = true
-weight = 1
-+++
-
+---
+title: About Infuse
+weight: 1
+navbar: true
+---
 Infuse is a community-developed framework providing pathways for digital protectors (digital security trainers, technologists, auditors, etc.) to advance their knowledge and skill sets in areas of specialized technical expertise (STE). Infuse aims to make much-needed STE more widely available in contexts where at-risk communities need it the most, by upskilling protectors who already have established trust with these communities. This involves localizing expertise, as well as expanding accessibility to and increasing the diversity of providers of specialized digital security support.
 
 The Infuse framework is being developed in response to a variety of challenges:
@@ -40,18 +39,18 @@ Additionally, any individual or organization within the digital protector commun
 
 Welcome to Infuse!
 
-You will find on the Infuse website a number of **_learning paths_** which guide you through the technical journey of developing competence in the given topic. Some of these learning paths focus on different aspects of a related topic, while others stand alone. In the case of some of the linked learning paths, there may be a sequential relationship between them, where foundational skills are covered first and permit the development of deeper analysis and support skills. In any case, your **first step** will be reading the overview and prerequisites for any learning path you are interested in and selecting one by determining which is a fit for your current skill set, needs, and interests. You should also consider which learning path will upskill you in STE most relevant to needs in your community.
+You will find on the Infuse website a number of ***learning paths*** which guide you through the technical journey of developing competence in the given topic. Some of these learning paths focus on different aspects of a related topic, while others stand alone. In the case of some of the linked learning paths, there may be a sequential relationship between them, where foundational skills are covered first and permit the development of deeper analysis and support skills. In any case, your **first step** will be reading the overview and prerequisites for any learning path you are interested in and selecting one by determining which is a fit for your current skill set, needs, and interests. You should also consider which learning path will upskill you in STE most relevant to needs in your community.
 
 Each learning path opens with an overview of the learning path, an explanation of the skill being developed, its relevance to civil society, media and other high-risk user contexts for whom digital protectors serve, and prerequisites assumed to be in place before starting on the learning path.
 
-Subsequently, the learning path is divided into sequential **_subtopics_**. Most of the learning content and resources, as well as practice and skill check exercises are under the subtopic sections. They are divided into the following sections:
+Subsequently, the learning path is divided into sequential ***subtopics***. Most of the learning content and resources, as well as practice and skill check exercises are under the subtopic sections. They are divided into the following sections:
 
-- **_Use Case:_** The _when_ and the _why_ of the skill. Understand the reason to advance yourself in this skill and the scenarios in which you might apply it.
-- **_Objectives:_** The specific capabilities and realizations of knowledge and ability which define the accomplishment of this subtopic.
-- **Body / _Main Text of the Subtopic_**: Here you will find the main guidance to the topic, including sub-sections as relevant such as foundational knowledge, technical explanations and contextualization, outlinks to external learning resources, assignments, external courses, and info boxes. To make proper use of Infuse, you must do the activities as recommended, not simply read the text of the subtopic or glance at the linked resources. You should be able to complete the subsequent practice and skill check exercises (see below).
-- **_Learning Resources_**: A round-up of guides and resources linked in the main text with additional metadata about resource language, cost, and other details.
-- **_Practice Exercises_**: A collection of practical opportunities, simulations, samples, or suggested exercises to allow you to practice and implement the skills contained in the subtopic.
-- **_Skill Check Exercises:_** Suggested challenges, tests, abilities, or mentor-assisted processes to validate the realization or state of progress on the subtopic. Note that these have been written to be used either for a self-guided Learner as well as for a Learner working with a Mentor to help guide their progress.
+* ***Use Case:*** The *when* and the *why* of the skill. Understand the reason to advance yourself in this skill and the scenarios in which you might apply it.
+* ***Objectives:*** The specific capabilities and realizations of knowledge and ability which define the accomplishment of this subtopic.
+* **Body / *Main Text of the Subtopic***: Here you will find the main guidance to the topic, including sub-sections as relevant such as foundational knowledge, technical explanations and contextualization, outlinks to external learning resources, assignments, external courses, and info boxes. To make proper use of Infuse, you must do the activities as recommended, not simply read the text of the subtopic or glance at the linked resources. You should be able to complete the subsequent practice and skill check exercises (see below).
+* ***Learning Resources***: A round-up of guides and resources linked in the main text with additional metadata about resource language, cost, and other details.
+* ***Practice Exercises***: A collection of practical opportunities, simulations, samples, or suggested exercises to allow you to practice and implement the skills contained in the subtopic.
+* ***Skill Check Exercises:*** Suggested challenges, tests, abilities, or mentor-assisted processes to validate the realization or state of progress on the subtopic. Note that these have been written to be used either for a self-guided Learner as well as for a Learner working with a Mentor to help guide their progress.
 
 Subtopics within a learning path may contain sections focusing on individual operating system platforms. You can consider these as individual ‘flavors’ of the learning path and may choose to focus on one or multiple operating system environments depending on your needs.
 
@@ -65,9 +64,9 @@ As part of Infuse, Learners may also work with Mentors who will verify how well 
 
 ### Badges
 
-After working through a learning path and accomplishing validation criteria (skill checks) through the verification of a Mentor or peer, you are considered to have earned the **_badge_** relevant to that learning path. The Infuse team is working to develop an online platform to host the Infuse framework, and this website will include a system for badge-earners to demonstrate and explain their badge to their professional networks and communities they work with.
+After working through a learning path and accomplishing validation criteria (skill checks) through the verification of a Mentor or peer, you are considered to have earned the ***badge*** relevant to that learning path. The Infuse team is working to develop an online platform to host the Infuse framework, and this website will include a system for badge-earners to demonstrate and explain their badge to their professional networks and communities they work with.
 
-Infuse will also be developing and sharing a **_scorecard_** template (each customized for a particular learning path) that can be used by a Mentor or peer Learner to track a Learner’s satisfactory completion of each subtopic’s skill check and determine their acquisition of the badge.
+Infuse will also be developing and sharing a ***scorecard*** template (each customized for a particular learning path) that can be used by a Mentor or peer Learner to track a Learner’s satisfactory completion of each subtopic’s skill check and determine their acquisition of the badge.
 
 ### Translation
 
@@ -87,13 +86,13 @@ If you have feedback to contribute regarding the Infuse framework, including the
 
 ### How to create new learning paths
 
-This section is under development. Stay tuned!
+This section is under development. Stay tuned!!
 
 ### A note on some language choices in Infuse
 
 Throughout the text of this resource you may note that we have selected some language which may or may not feel right to you. We recognize that some of these choices will not ring true to everyone and wanted to explain some of the considerations behind those choices. We also recognize that some of the nuance behind the decisions may not hold true in non-English languages, and have tried to work with professional translators to make similarly considered language choices in those versions.
 
-**‘Clients’** - Presumably a digital protector is working with and for some other person. Some ways of describing that person/group could be _beneficiaries, interlocutor, community-member, victim,_ or _target_ (see below). While ‘Client’ felt somewhat cold and business-like, we did appreciate the clarity of the relationship of the service being provided, to underline the professional nature of digital protector work, and wanted to avoid the value-assumption and humanitarian framing of ‘beneficiary’.
+**‘Clients’** - Presumably a digital protector is working with and for some other person. Some ways of describing that person/group could be *beneficiaries, interlocutor, community-member, victim,* or *target* (see below). While ‘Client’ felt somewhat cold and business-like, we did appreciate the clarity of the relationship of the service being provided, to underline the professional nature of digital protector work, and wanted to avoid the value-assumption and humanitarian framing of ‘beneficiary’.
 
 (not) ‘**Victims**’ - We have avoided the use of the term ‘Victims’ (or ‘target’) in reference to the person targeted by spyware, malware, or other negative incidents. We found this term to be stigmatizing and condescending. Instead, we have opted for slightly more wordy variations such as ‘the person who received the phishing email’, or ‘the owner of the infected device’, or simply ‘your client’ (see above).
 
