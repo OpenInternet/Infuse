@@ -1,8 +1,8 @@
-+++
-title = "Acerca de Infuse"
-navbar = true
-weight = 1
-+++
+---
+title: Acerca de Infuse
+weight: 1
+navbar: true
+---
 
 Infuse es un marco desarrollado por la comunidad que proporciona vías para que los protectores digitales (entrenadores de seguridad digital, tecnólogos, auditores, etc.) avancen en su conocimiento y habilidades en áreas de especialización técnica especializada (STE). Infuse tiene como objetivo hacer que STE, tan necesitada, esté más ampliamente disponible en contextos donde las comunidades en riesgo más lo necesitan, capacitando a protectores que ya tienen establecida la confianza con estas comunidades. Esto implica localizar la experiencia, así como expandir la accesibilidad y aumentar la diversidad de proveedores de soporte especializado en seguridad digital.
 
