@@ -1,5 +1,5 @@
-+++
-title = "Community"
-navbar = true
-weight = 4
-+++
+---
+title: Community & Mentorship
+weight: 4
+navbar: true
+---
