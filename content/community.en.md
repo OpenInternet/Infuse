@@ -13,7 +13,7 @@ Although not required for completing a learning path and achieving a badge, Infu
 
 In order to validate skills and achieve a badge, Infuse highly recommends that Learners have a Mentor or peer review the Learner’s work on the skill check exercises included at the end of most modules. To help Mentors to do this assessment, Infuse has developed **scorecards**, one per learning path, which can be used to (1) track a Learner’s progress going through the modules, and (2) record assessments of the skill checks and calculate a score to see if the Learner qualifies for a badge (a score of at least 2.5 out of 4 qualifies for a badge). 
 
-[Download the scorecard templates here](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log) (each tab is for a different learning path). Further guidance for using the scorecards can be found there.
+[Download the scorecard templates here](https://github.com/OpenInternet/Infuse/blob/464d57a6a4c79c438314c0e06e741d013d45d8fe/learner-assets/Infuse%20Scorecard%20Templates%20%26%20Guidance_Sep%202024.xlsx) (each tab is for a different learning path). Further guidance for using the scorecards can be found there.
 
 Optionally, the scorecards can also be used for pre and post learning discussions as a way to assess baseline and endline knowledge of the module subject areas.
 
