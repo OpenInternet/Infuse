@@ -47,8 +47,8 @@ pluralizeListTitles = false
 
 [params]
   # Metadata mostly used in document's head
-  description = ""
-  keywords = ""
+  description = "Infuse is a community-developed framework helping digital protectors advance their knowledge and skill sets in areas of specialized technical expertise (STE)"
+  keywords = "NGO, cybersecurity, digital security, malware, phishing, web security, OWASP"
   images = ["media/images/thumbnail.png"]
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
