@@ -451,24 +451,25 @@ We will use the `grep` command to search for the specified pattern in text. For 
 
 `grep 'abcd'` will filter all lines containing the string “abcd”.
 
-The “`-E`” option in the `grep` command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
+The “`-E`” option in the `grep` command enables the use of extended regular expressions for pattern matching `grep -E 'abcd\\[0-9]{2}'` for filtering text like `abcd\34, abcd\47` etc.
 
 ### Practice exercise 4: using regular expressions (regexes)
 
 For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
-1. Use grep and the `'\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex`'\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
+1. Use grep and the `\\x[a-fA-F0-9]{2}` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex`'\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
+
 
 {{< question title="Answer" >}}
-Correct answer: 113 lines
+Correct answer: 131 lines
 
-Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|wc|awk '{print $1}' `
 {{< /question >}}
 
 2. Using the same filter determine which IP address is making the most requests
 
 {{< question title="Answer" >}}
-Correct answer: 222.186.13.131 20 lines
+Correct answer: 222.186.13.131 19 lines
 
 Command(s) to execute: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
 {{< /question >}}

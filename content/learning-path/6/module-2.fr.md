@@ -447,26 +447,26 @@ Nous utiliserons la commande `grep` pour rechercher le motif spécifié dans le 
 
 `grep 'abcd'` filtrera toutes les lignes contenant la chaîne « abcd ».
 
-L'option « `-E` » de la commande `grep` permet d'utiliser des expressions régulières étendues pour la correspondance de modèle `grep -E 'abcd\[0-9]{2}'` pour le filtrage de texte comme `abcd\34, abcd\47`, etc.
+L'option « `-E` » de la commande `grep` permet d'utiliser des expressions régulières étendues pour la correspondance de modèle `grep -E 'abcd\\[0-9]{2}'` pour le filtrage de texte comme `abcd\34, abcd\47`, etc.
 
 #### Exercice pratique 4 : utiliser des expressions régulières (regex)
 
 Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
 
-1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
+1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{32}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
 
 {{< question title="Réponse" >}}
-Bonne réponse : 113 lignes
+Bonne réponse : 131 lignes
 
-Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|wc|awk '{print $1}' `
 {{< /question >}}
 
 2. En utilisant le même filtre, déterminez quelle adresse IP fait le plus de requêtes
 
 {{< question title="Réponse" >}}
-Bonne réponse : 222.186.13.131 20 lignes
+Bonne réponse : 222.186.13.131 19 lignes
 
-Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
 {{< /question >}}
 
 3. Examinez `error.log` en exécutant `more error.log`. Vous pouvez quitter cette commande avec ctrl+c ou appuyer sur la touche « q » pour retourner à l'invite de commande. Exclusion des erreurs « PHP Notice ». Quels types d'erreurs critiques pouvez-vous trouver dans le journal ?
