@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 4
-title = "Análisis estático"
-description = "El análisis estático es el proceso de desensamblar un archivo binario para comprender qué hay dentro de él. Es bastante laborioso y requiere conocimientos de ingeniería de software."
-+++
+---
+style: module
+title: Análisis estático
+description: El análisis estático es el proceso de desensamblar un archivo
+  binario para comprender qué hay dentro de él. Es bastante laborioso y requiere
+  conocimientos de ingeniería de software.
+weight: 4
+---
 
 ## Caso práctico
 

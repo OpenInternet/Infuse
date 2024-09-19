@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 4
-title = "Static analysis"
-description = "Static analysis is the process of disassembling a binary file in order to understand what’s inside it. It’s quite labor-intensive and requires software engineering knowledge"
-+++
+---
+style: module
+title: Static analysis
+description: Static analysis is the process of disassembling a binary file in
+  order to understand what’s inside it. It’s quite labor-intensive and requires
+  software engineering knowledge.
+weight: 4
+---
 
 ## Use Case
 

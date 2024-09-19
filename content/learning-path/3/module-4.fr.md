@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 4
-title = "Analyse statique"
-description = "L'analyse statique est le processus de désassemblage d'un fichier binaire afin de comprendre ce qu'il contient. C'est un travail assez laborieux et nécessite des connaissances en ingénierie logicielle."
-+++
+---
+style: module
+title: Analyse statique
+description: L'analyse statique est le processus de désassemblage d'un fichier
+  binaire afin de comprendre ce qu'il contient. C'est un travail assez laborieux
+  et nécessite des connaissances en ingénierie logicielle.
+weight: 4
+---
 
 ## Cas d'utilisation
 
