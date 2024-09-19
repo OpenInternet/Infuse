@@ -69,7 +69,7 @@ body {
   --pagefind-ui-border-radius: 8px;
   --pagefind-ui-image-border-radius: 8px;
   --pagefind-ui-image-box-ratio: 2/1;
-  --pagefind-ui-font: "Inter";
+  --pagefind-ui-font: "InterVariable";
 }
 
 .prose h1,
@@ -126,7 +126,7 @@ nav#TableOfContents ul:first-child {
   @apply ps-4;
 }
 
-.prose :where(pre):not(:where([class~=not-prose],[class~=not-prose] *)) {
+.prose :where(pre):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
   @apply max-w-full overflow-x-auto;
 }
 
@@ -140,7 +140,7 @@ details summary::marker {
 
 .prose article {
   * + * {
-   @apply mt-0.5;
+    @apply mt-0.5;
   }
 }
 
@@ -160,12 +160,12 @@ details summary::marker {
 }
 
 .toc-scrollbar {
-  -ms-overflow-style: none; 
+  -ms-overflow-style: none;
   scrollbar-width: none;
 }
 
 .highlight {
-  @apply max-w-full w-full;
+  @apply w-full max-w-full;
 }
 
 @media print {
@@ -173,7 +173,8 @@ details summary::marker {
     @apply invisible;
   }
 
-  #content, #content * {
+  #content,
+  #content * {
     @apply visible;
   }
 
