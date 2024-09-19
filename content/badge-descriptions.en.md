@@ -4,6 +4,8 @@ weight: 5
 navbar: true
 footer: false
 ---
+Below are descriptions of the available Infuse learning paths and associated badges. Please note that Infuse does not have a centralized system for verifying a Learner's knowledge and skills. Learners are intended to only claim a badge once they have undergone skill verification with a qualified Mentor or peer, but there is no centralized system in place to enforce this.[](/en/learning-path/1/)
+
 [Detecting, Investigating and Tracking Malicious Infrastructure](/en/learning-path/1/)
 
 Phishing messages are often tied to complex attacker infrastructure which aims to capture data. Infuse Learners who complete this path are introduced to various techniques that could help uncover such infrastructure—from passive analysis of email headers or domains to active analysis of dynamic content in messages and web pages. They also learn about the operational security steps an analyst should take. Finally, Learners following this path explore what they should do after completing a successful investigation (e.g., writing up research findings and contacting web hosts and similar institutions with requests to take down malicious infrastructure).
