@@ -212,7 +212,7 @@
                             const badgeName = badgeNameElement ? badgeNameElement.textContent.trim() : "Badge Name";
                             const learningpathName = learningpathNameElement ? learningpathNameElement.textContent.trim() : "Learning Path";
 
-                            const badgeIconColor = parentContainer.querySelector('.badgeIconColor').textContent;
+                            const badgeIconColor = parentContainer.querySelector('.badgeIconColor').textContent.trim();
 
                             // Format today's date as "Month Date, Year"
                             const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -326,7 +326,7 @@
                             svgString = svgString
                                 .replace('FULL_NAME_PLACEHOLDER', fullName)
                                 .replace('LEARNING_PATH_NAME_PLACEHOLDER', learningpathName)
-                                .replace('BADGE_COLOR_PLACEHOLDER', badgeIconColor)
+                                .replace('badge_color_placeholder', badgeIconColor)
                                 .replace('BADGE_NAME_PLACEHOLDER', badgeName)
                                 .replace('DATE_PLACEHOLDER', today)
                                 .replace('BADGE_ICON_PLACEHOLDER', badgeIconPaths);
