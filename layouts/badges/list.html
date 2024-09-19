@@ -238,29 +238,6 @@
                             const svgClone = svgTemplate.cloneNode(true);
                             let svgString = new XMLSerializer().serializeToString(svgTemplate);
 
-                            // Create a temporary SVG element to measure text dimensions
-                            const tempSvg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-                            const tempText = document.createElementNS("http://www.w3.org/2000/svg", "text");
-                            tempText.setAttribute("font-family", "Inter");
-                            let fontSize = 24; // Initial font size
-                            tempText.setAttribute("font-size", fontSize);
-                            tempText.textContent = badgeName;
-                            tempSvg.appendChild(tempText);
-                            document.body.appendChild(tempSvg);
-
-                            // Measure the text width
-                            let bbox = tempText.getBBox();
-                            while (bbox.width > (svgWidth - 20) && fontSize > 0) { // Ensure font size doesn't go negative
-                                fontSize -= 1;
-                                tempText.setAttribute("font-size", fontSize);
-                                bbox = tempText.getBBox();
-                            }
-                            document.body.removeChild(tempSvg);
-
-                            // Calculate the new ribbon width based on the text width
-                            const padding = 20; // Adjust as necessary
-                            const ribbonWidth = bbox.width + padding * 1; // New width for the ribbon
-
                             // Replace placeholders in SVG with dynamic data
                             svgString = svgString
                                 .replace('FULL_NAME_PLACEHOLDER', fullName)
@@ -273,25 +250,57 @@
                             svgElement.innerHTML = svgString.trim(); 
                             const svgForPdf = svgElement.firstChild;
 
-                            // Dynamically adjust the ribbon path width based on badge name length
-                            const ribbonPathElement = svgForPdf.querySelector('#ribbonPath');
-                            if (ribbonPathElement) {
-                                let pathData = ribbonPathElement.getAttribute('d');
-                                
-                                // Example: Adjust the path to expand to the right (this needs to be adapted to your specific path structure)
-                                pathData = pathData.replace(/H\d+/, `H${315.394 + ribbonWidth}`); // Adjust horizontal line to new width
- 
-                                // Add adjustments to other path commands if necessary
-                                ribbonPathElement.setAttribute('d', pathData);
+                            const textElement = svgForPdf.querySelector('#badgeNamePlaceholder');
+                            const ribbonPath = document.getElementById('ribbonPath');
+
+                            // Create temporary SVG to measure text size
+                            const tempSvg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+                            tempSvg.setAttribute('xmlns', 'http://www.w3.org/2000/svg');
+                            tempSvg.style.position = 'absolute';
+                            tempSvg.style.visibility = 'hidden';
+                            document.body.appendChild(tempSvg);
+
+                            const tempText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+                            tempText.setAttribute('font-family', 'Inter');
+                            tempText.setAttribute('font-size', textElement.getAttribute('font-size'));
+                            tempText.setAttribute('text-anchor', 'middle');
+                            tempText.textContent = textElement.textContent;
+                            tempSvg.appendChild(tempText);
+
+                            // Measure text size
+                            const textBBox = tempText.getBBox();
+                            console.log('Temporary Text BBox:', textBBox);
+
+                            document.body.removeChild(tempSvg);
+
+                            // Measure ribbon path dimensions
+                            const ribbonBBox = ribbonPath.getBBox();
+                            console.log('Ribbon Path BBox:', ribbonBBox);
+
+                            // Adjust font size if necessary
+                            let fontSize = parseInt(textElement.getAttribute('font-size'), 10);
+                            while (textBBox.width > ribbonBBox.width && fontSize > 0) {
+                                fontSize -= 1;
+                                textElement.setAttribute('font-size', fontSize);
+                                tempText.setAttribute('font-size', fontSize);
+                                const newTextBBox = tempText.getBBox();
+                                textBBox.width = newTextBBox.width;
                             }
 
-                            // Adjust and center the badge name text based on the ribbon width
-                            const badgeNameTextElement = svgForPdf.querySelector('#badgeNamePlaceholder');
-                            if (badgeNameTextElement) {
-                                badgeNameTextElement.setAttribute("font-size", fontSize);
-                                badgeNameTextElement.setAttribute("x", (350.394 + ribbonWidth / 2)); // Center text in the expanded ribbon
-                                badgeNameTextElement.setAttribute("text-anchor", "middle");
-                            }
+                            // Update text element attributes
+                            const textX = ribbonBBox.x + (ribbonBBox.width / 2);
+                            textElement.setAttribute('x', textX);
+
+                            // Calculate vertical alignment
+                            const ribbonY = ribbonBBox.y;
+                            const ribbonHeight = ribbonBBox.height;
+                            const textHeight = textBBox.height;
+
+                            const verticalAlignOffset = (ribbonHeight - textHeight) / 2;
+                            const adjustedY = ribbonY + verticalAlignOffset + textHeight / 1.25;
+
+                            textElement.setAttribute('y', adjustedY);
+                            console.log(`Adjusted Text Y: ${textElement.getAttribute('y')}`);
 
                             // Center the learning path name text
                             const learningPathNameTextElement = svgForPdf.querySelector('#learningPathNamePlaceholder');
