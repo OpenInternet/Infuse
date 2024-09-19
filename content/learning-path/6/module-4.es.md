@@ -21,7 +21,7 @@ Después de completar este subtema, el profesional debe ser capaz de realizar lo
 
 ### Identificar un incidente de piratería
 
-Para la mayoría de las víctimas de un incidente de piratería informática, el retraso entre el compromiso inicial y la detección puede ser de meses o incluso años. A menudo, un ingeniero detecta un compromiso pensando que algo “parece extraño”. Algunas señales de compromiso pueden incluir:
+Para la mayoría de las víctimas de un incidente de ciberataque, el retraso entre el compromiso inicial y la detección puede ser de meses o incluso años. A menudo, un ingeniero detecta un compromiso pensando que algo “parece extraño”. Algunas señales de compromiso pueden incluir:
 
 - Cambios en el contenido del sitio. Estos pueden variar desde sutiles (por ejemplo, cambios invisibles en JavaScript) hasta muy poco sutiles (deformación).
 - Cuentas de usuario que aparecen en bases de datos de contraseñas u otros volcados de datos
