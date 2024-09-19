@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 2
-title = "Journalisation du site Web pour la sécurité"
-description = "Les journaux de site web peuvent être essentiels pour identifier des attaques potentielles et les attaquants. Nous examinons comment les utiliser efficacement."
-+++
+---
+style: module
+title: Journalisation du site Web pour la sécurité
+description: Les journaux de site web peuvent être essentiels pour identifier
+  des attaques potentielles et les attaquants. Nous examinons comment les
+  utiliser efficacement.
+weight: 2
+---
 
 ## Cas d'utilisation
 

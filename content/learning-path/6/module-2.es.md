@@ -1,9 +1,10 @@
-+++
-style = "module"
-weight = 2
-title = " Registro de Sitios Web para Mayor Seguridad"
-description = "Los registros de sitios web pueden ser cruciales para identificar posibles ataques y atacantes. Analizamos cómo utilizarlos de manera eficaz"
-+++
+---
+style: module
+title: " Registro de Sitios Web para Mayor Seguridad"
+description: Los registros de sitios web pueden ser cruciales para identificar
+  posibles ataques y atacantes. Analizamos cómo utilizarlos de manera eficaz
+weight: 2
+---
 
 ## Caso de Uso
 
