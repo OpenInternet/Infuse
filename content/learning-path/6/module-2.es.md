@@ -445,26 +445,26 @@ Usaremos el comando `grep` para buscar el estándar especificado en el texto. Po
 
 `grep 'abcd'` filtrará todas las líneas que contengan la cadena “abcd”.
 
-La opción “`-E`” en el comando grep permite el uso de expresiones regulares extendidas para la coincidencia de estándares `grep -E 'abcd\\\[0-9\]{2}'` para filtrar texto como `abcd\\34, abcd\\47` etc.
+La opción “`-E`” en el comando grep permite el uso de expresiones regulares extendidas para la coincidencia de estándares `grep -E 'abcd\\[0-9\]{2}'` para filtrar texto como `abcd\34, abcd\47` etc.
 
 ### Ejercicio de práctica 4: usando expresiones regulares (regexes)
 
 Para esos ejercicios, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
 
-1\. Utilice grep y la regex ['\\\\x\[a-fA-F0-9\]{2}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x\[a-fA-F0-9\]{3}' coincide con una secuencia que comienza con '\\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
+1\. Utilice grep y la regex ['\\x[a-fA-F0-9]{3}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x[a-fA-F0-9]{3}' coincide con una secuencia que comienza con '\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
 
 {{< question title="Respuesta" >}}
-Respuesta correcta: 113 líneas
+Respuesta correcta: 131 líneas
 
-Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|wc|awk '{print $1}' `
 {{< /question >}}
 
 2\. Usando el mismo filtro, determine qué dirección IP realiza la mayor cantidad de solicitudes.
 
 {{< question title="Respuesta" >}}
-Respuesta correcta: 222.186.13.131 20 líneas
+Respuesta correcta: 222.186.13.131 19 líneas
 
-Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
 {{< /question >}}
 
 3\. Examine `error.log` ejecutando `more error.log`. Puede salir de este comando con Ctrl+c o presionar la tecla "q" para regresar al símbolo del sistema. Excluyendo errores de "Aviso PHP". ¿Qué tipo de errores críticos puedes encontrar en el registro?
