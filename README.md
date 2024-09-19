@@ -43,6 +43,8 @@ The change we have to make is to comment out the `backend repo` and the `backend
 
 `http://localhost:1313/admin`
 
+We recommend *not* to commit the updated `config.yml` file into the repository, but to either revert it back to the original when you are done making changes locally or keep it stashed locally to be used when you need it again.
+
 Additionally, in order to build the search index we have to run the following command that will hot-build the search index for us.
 
 `npx -y pagefind --site public --serve`
