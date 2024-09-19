@@ -401,9 +401,11 @@ In this task we are going to use regular expressions. Regular expressions (regex
 `\[a-z\]` range - Matches a character in the range "a" to "z". Case sensitive.
 
 i.e. `\[g-s\]` matches a character between g and s inclusive
+
     `abcdef**ghijklmnopqrs**tuvwxyz`
 
 `\[A-Z\]` range -  Matches a character in the range "A" to "Z" . Case sensitive.
+
 `\[0-9\]` range - Matches a character in the range "0" to "9". Case sensitive.
 
 
