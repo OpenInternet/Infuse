@@ -138,6 +138,12 @@ details summary::marker {
   @apply hidden;
 }
 
+.prose article :where(pre) {
+  * + * {
+    margin-top: 0rem;
+  }
+}
+
 .prose article {
   * + * {
    @apply mt-0.5;
