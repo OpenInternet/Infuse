@@ -180,10 +180,10 @@ Es una práctica recomendada no incluir información confidencial en los paráme
 
   {{< highlight python "linenos=table" >}}
   import re
-
+  
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
   output = ''
-
+  
   i = 0
   while i < len(target):
   	matched = False
