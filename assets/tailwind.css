@@ -168,6 +168,10 @@ details summary::marker {
   @apply max-w-full w-full;
 }
 
+code span {
+  margin-top: 0;
+}
+
 @media print {
   body * {
     @apply invisible;
