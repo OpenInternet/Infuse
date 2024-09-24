@@ -178,32 +178,32 @@ Es una práctica recomendada no incluir información confidencial en los paráme
 - Ciertas páginas (por ejemplo, la página de inicio de sesión) y/o parámetros (número de tarjeta de crédito, campos de contraseña) deben estar exentos del registro.
 - Para los parámetros POST que se registrarán, considere redactarlos para ocultar información potencialmente confidencial y, al mismo tiempo, poder identificar el tráfico malicioso. El siguiente código Python puede servir de inspiración:
 
-  {{< highlight python "linenos=table" >}}
-  import re
-  
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
-  
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+{{< highlight python >}}
+import re
 
-  {{< / highlight >}}
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
+
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
+
+{{< / highlight >}}
 
 ##### Errores relacionados con la seguridad
 

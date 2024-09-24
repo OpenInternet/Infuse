@@ -180,32 +180,32 @@ Il est recommandé de ne pas inclure d'informations sensibles dans les paramètr
 - Certaines pages (p. ex., la page d'ouverture de session) et/ou certains paramètres (numéro de carte de crédit, champs de mot de passe) devraient être exemptés de journalisation
 - Pour les paramètres POST qui seront enregistrés, envisagez de les supprimer pour masquer les informations potentiellement sensibles, tout en restant en mesure d'identifier le trafic malveillant. Le code Python suivant peut vous inspirer :
 
-  {{< highlight python "linenos=table" >}}
-  import re
-  
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
-  
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+{{< highlight python >}}
+import re
 
-  {{< / highlight >}}
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
+
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
+
+{{< / highlight >}}
 
 ##### Erreurs liées à la sécurité
 
