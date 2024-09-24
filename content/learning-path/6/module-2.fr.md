@@ -182,10 +182,10 @@ Il est recommandé de ne pas inclure d'informations sensibles dans les paramètr
 
   {{< highlight python "linenos=table" >}}
   import re
-
+  
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
   output = ''
-
+  
   i = 0
   while i < len(target):
   	matched = False

@@ -183,7 +183,7 @@ It is a recommended practice to not include sensitive information in GET paramet
 
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
   output = ''
-
+  
   i = 0
   while i < len(target):
   	matched = False
