@@ -400,19 +400,23 @@ Para este ejercicio, utilizamos archivos de registro de [esta colección](https:
 
 En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares (regex) son como potentes herramientas de búsqueda que le ayudan a encontrar patrones específicos en los datos. Por ejemplo, si está investigando tráfico de red sospechoso y sabe que las solicitudes maliciosas a menudo contienen ciertos patrones de caracteres, puede usar expresiones regulares para buscar registros o capturas de tráfico para encontrar esas solicitudes. Regex le permite definir estándares de búsqueda flexibles. Por ejemplo:
 
-    **Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
+**Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    abcdef**ghijklmnopqrs**tuvwxyz
+Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
 
-    **Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
+abcdef**ghijklmnopqrs**tuvwxyz
 
-    **Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
+**Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
 
-    También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+**Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
 
-\[a-d\]{3} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc. Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
+También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+
+\[a-d\]\{3\} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc.
+
+
+Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
 
 | Símbolo| Nombre                                | Descripción                                                    |
 |--------|---------------------------------------|----------------------------------------------------------------|

@@ -400,26 +400,24 @@ cat apache_error.log | grep 'error' | awk '{$1=""; $2=""; $3=""; print}' | sort 
 
 For this exercise, we use we use log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
-In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
 
-    **[a-z] range **- Matches a character in the range "a" to "z". Case sensitive.
+**\[a-z\] range** - Matches a character in the range "a" to "z". Case sensitive.
+
+I.e. \[g-s\] matches a character between g and s inclusive
+
+abcdef**ghijklmnopqrs**tuvwxyz
+
+**\[A-Z\] range** -  Matches a character in the range "A" to "Z" . Case sensitive.
+
+**\[0-9\] range** - Matches a character in the range "0" to "9". Case sensitive.
+
+We can also use **quantifiers** to match  the specified quantity of the previous token. {1,3} will match 1 to 3. {3} will match exactly 3. {3,} will match 3 or more.
+
+\[a-d\]\{3\} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. 
 
 
-    I.e. [g-s] matches a character between g and s inclusive
 
-
-    abcdef**ghijklmnopqrs**tuvwxyz
-
-
-    **[A-Z] range -**  Matches a character in the range "A" to "Z" . Case sensitive.
-
-
-    **[0-9] range - **Matches a character in the range "0" to "9". Case sensitive.
-
-
-    We can also use **quantifiers** to match  the specified quantity of the previous token. {1,3} will match 1 to 3. {3} will match exactly 3. {3,} will match 3 or more.
-
-[a-d]{3} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. Some characters have special meanings within regexes these characters are:
+Some characters have special meanings within regexes these characters are:
 
 | Symbol | Name                          | Description                                      |
 |--------|-------------------------------|--------------------------------------------------|
