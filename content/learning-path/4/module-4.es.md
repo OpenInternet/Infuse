@@ -7,7 +7,7 @@ description = "Los usuarios que han iniciado sesión no tienen acceso a los dato
 
 ## Caso de Uso
 
-En cualquier sitio web que tenga usuarios con diferentes niveles de capacidades (por ejemplo, espectadores versus editores) o que contenga información confidencial para los usuarios, es importante que el sitio proteja estas funciones y/o estos datos de personas que no tienen permiso para usar estas funciones. y/o interactuar con estos datos.
+En cualquier sitio web que tenga usuarios con diferentes niveles de capacidades (por ejemplo, espectadores versus editores) o que contenga información confidencial para los usuarios, es importante que el sitio proteja estas funciones y/o estos datos de personas que no tienen permiso para usar estas funciones y/o interactuar con estos datos.
 
 ## Objetivos
 
@@ -35,7 +35,7 @@ A veces, los desarrolladores ni siquiera comprueban que un usuario haya iniciado
 
 Un patrón de esta vulnerabilidad es que un sitio mostrará un conjunto de enlaces a los usuarios que no han iniciado sesión y otro conjunto de enlaces a los usuarios que sí han iniciado sesión. Sin embargo, ninguna página que muestra datos específicos del usuario o realiza acciones realmente verifica que el usuario haya iniciado sesión.
 
-Otro patrón común es que las páginas que muestran datos en el navegador tienen controles de autenticación, pero las páginas que simplemente procesan datos (por ejemplo, a través de HTTP POST) no lo hacen. Esto generalmente se debe a que los desarrolladores no tienen un conocimiento profundo de cómo funciona la web y no se dan cuenta de que es bastante fácil generar solicitudes HTTP arbitrarias. Con este estándar, los usuarios generalmente solo pueden ver los datos para los que están autorizados a ver, pero pueden realizar cualquier acción en el sitio y modificar los datos de otros usuarios. Tenga en cuenta que, dado que los usuarios pueden ver y modificar sus propios datos, es muy fácil para los atacantes con una cuenta descubrir la autenticación faltante.
+Otro patrón común es que las páginas que muestran datos en el navegador tienen verificaciones de autenticación, pero las páginas que simplemente procesan datos (por ejemplo, a través de HTTP POST) no lo hacen. Esto generalmente se debe a que los desarrolladores no tienen un conocimiento profundo de cómo funciona la web y no se dan cuenta de que es bastante fácil generar solicitudes HTTP arbitrarias. Con este estándar, los usuarios generalmente solo pueden ver los datos para los que están autorizados a ver, pero pueden realizar cualquier acción en el sitio y modificar los datos de otros usuarios. Tenga en cuenta que, dado que los usuarios pueden ver y modificar sus propios datos, es muy fácil para los atacantes con una cuenta descubrir la autenticación faltante.
 
 Un tercer estándar común es que las páginas o acciones individuales, o quizás secciones del sitio, simplemente no verifican la autenticación. Generalmente esto es el resultado de la supervisión del desarrollador.
 
@@ -49,7 +49,7 @@ Los patrones que conducen a una escalada vertical de privilegios son esencialmen
 
 ### ¡Inténtalo tú mismo
 
-Inicie sesión en su DVWA y asegúrese de que el nivel de seguridad esté configurado en bajo y de haber iniciado sesión como administrador (es mejor cerrar sesión y volver a iniciarla con las credenciales "admin:contraseña". Navegue a la página "Omisión de Autorización". Si no puede ver esta página en la barra izquierda y tiene la versión más actualizada de DVWA, significa que no ha iniciado sesión como administrador.
+Inicie sesión en su DVWA y asegúrese de que el nivel de seguridad esté configurado en bajo y de haber iniciado sesión como administrador (es mejor cerrar sesión y volver a iniciarla con las credenciales "admin:contraseña". Navega a la página "Omisión de Autorización". Si no puede ver esta página en la barra izquierda y tiene la versión más actualizada de DVWA, significa que no ha iniciado sesión como administrador.
 
 Después de eso, abra una ventana de navegación privada u otro navegador e inicie sesión en su DVWA como usuario "gordonb" y tenga en cuenta que la Omisión de Autorización no aparece en la barra de navegación de gordonb. ¿Puedes descubrir cómo acceder a la Omisión de Autorización como gordonb? (Si tiene problemas, recuerde que las vulnerabilidades de autorización generalmente son muy sencillas. No lo pienses demasiado.)
 
@@ -65,7 +65,7 @@ Con la escalada horizontal de privilegios, hay tres patrones de desarrollo princ
 
 Como se señaló anteriormente, las dos causas fundamentales de las vulnerabilidades de autorización tienden a ser la falta de conocimiento de los desarrolladores (por lo tanto, sitios enteros o secciones del sitio carecen de los controles adecuados) o la falta de coherencia en la implementación de controles. Dado que el soporte del marco es generalmente deficiente, los desarrolladores a menudo necesitan implementar sus propios controles desde cero. Aquí hay algunos consejos a considerar:
 
-- Intente superponer y simplificar el proceso de verificación de permisos de usuario. En la medida en que su marco tenga funciones para admitir la autorización, úselas. Las funciones consistentes para verificar la autorización del usuario son menos propensas a errores que la lógica compleja.
+- Intente escalar y simplificar el proceso de verificación de permisos de usuario. En la medida en que su marco tenga funciones para admitir la autorización, úselas. Las funciones consistentes para verificar la autorización del usuario son menos propensas a errores que la lógica compleja.
 - Para usuarios extremadamente poderosos, considere usar un sitio web completamente separado. Por ejemplo, <www.example.com> para usuarios habituales y admin.example.com para usuarios administrativos.
 - Para las comprobaciones de permisos a nivel de datos, contar con pautas coherentes para los desarrolladores puede reducir los errores. Por ejemplo, una regla según la cual todo el acceso a los datos debe realizarse a través de llamadas API, cada función API debe incluir un parámetro de identificación de usuario y cada API que toma una identificación de usuario debe usarlo en llamadas a bases de datos. Tener reglas consistentes como esta hace que sea más fácil evitar y encontrar errores de autorización.
 
