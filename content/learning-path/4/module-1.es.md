@@ -8,7 +8,7 @@ title = "Vulnerabilidades de la Infraestructura"
 
 Si bien esta Ruta de Aprendizaje se centra en la seguridad de las aplicaciones web, las aplicaciones web se ejecutan sobre numerosas piezas de infraestructura de software. Cualquier vulnerabilidad en la infraestructura subyacente de la aplicación pondrá en peligro la aplicación. Por lo tanto, comprender cierta seguridad de la infraestructura es parte de comprender la seguridad de las aplicaciones.
 
-Al inspeccionar una aplicación web, ya sea con fines de evaluación de vulnerabilidades, monitoreo de seguridad o para investigar un compromiso, el profesional debe comprender la pila de tecnología subyacente que proporciona el entorno necesario para que la aplicación se ejecute mientras busca vulnerabilidades en esa pila.
+Al inspeccionar una aplicación web, ya sea con fines de evaluación de vulnerabilidades, monitoreo de seguridad o para investigar un compromiso, el profesional debe comprender la tecnología subyacente que proporciona el entorno necesario para que la aplicación se ejecute mientras busca vulnerabilidades en esa pila.
 
 ## Objetivos
 
@@ -45,7 +45,7 @@ Este es el tipo más arquetípico de vulnerabilidad de infraestructura. Ocurre c
 
 ## Mitigar las vulnerabilidades del software de infraestructura
 
-El software de infraestructura con vulnerabilidades generalmente se descubre mediante software de escaneo de vulnerabilidades (hay muchos ejemplos de dicho software, [consulte esta lista](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), notificaciones de proveedores o sistemas de gestión de configuración, o mediante inspección manual del software implementado en un servidor. Dependiendo del entorno del servidor, este software puede ser administrado completamente por un tercero, actualizado automáticamente mediante agentes de software o procesos de implementación, o administrado manualmente. Normalmente, si se parchea una vulnerabilidad, los atacantes pueden aplicar ingeniería inversa al parche para descubrir el mecanismo de la vulnerabilidad subyacente, por lo que es importante mantener actualizado el software de la infraestructura.
+El software de infraestructura con vulnerabilidades generalmente se descubre mediante software de escaneo de vulnerabilidades (hay muchos ejemplos de dicho software, [consulte esta lista](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), notificaciones de proveedores o sistemas de gestión de configuración, o mediante inspección manual del software implementado en un servidor. Dependiendo del entorno del servidor, este software puede ser administrado completamente por un tercero, actualizado automáticamente mediante agentes de software o procesos de implementación, o administrado manualmente. Normalmente, si se parchea una vulnerabilidad, los atacantes pueden realizar ingeniería inversa al parche para descubrir el mecanismo de la vulnerabilidad subyacente, por lo que es importante mantener actualizado el software de la infraestructura.
 
 ## Learning Resources
 

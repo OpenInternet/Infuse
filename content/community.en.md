@@ -13,7 +13,7 @@ Although not required for completing a learning path and achieving a badge, Infu
 
 In order to validate skills and achieve a badge, Infuse highly recommends that Learners have a Mentor or peer review the Learner’s work on the skill check exercises included at the end of most modules. To help Mentors to do this assessment, Infuse has developed **scorecards**, one per learning path, which can be used to (1) track a Learner’s progress going through the modules, and (2) record assessments of the skill checks and calculate a score to see if the Learner qualifies for a badge (a score of at least 2.5 out of 4 qualifies for a badge). 
 
-[Download the scorecard templates here](https://github.com/OpenInternet/Infuse/blob/464d57a6a4c79c438314c0e06e741d013d45d8fe/learner-assets/Infuse%20Scorecard%20Templates%20%26%20Guidance_Sep%202024.xlsx) (each tab is for a different learning path). Further guidance for using the scorecards can be found there.
+[Download the scorecard templates here](https://github.com/OpenInternet/Infuse/blob/464d57a6a4c79c438314c0e06e741d013d45d8fe/learner-assets/Infuse%20Scorecard%20Templates%20%26%20Guidance_Sep%202024.xlsx) (each tab is for a different learning path). The link will take you to GitHub and you will need to initiate the download from there by clicking the three dots in the upper right corner and then selecting "Download." Further guidance for using the scorecards can be found on the first spreadsheet tab of the file. You do not need to log in to GitHub to download the file.
 
 Optionally, the scorecards can also be used for pre and post learning discussions as a way to assess baseline and endline knowledge of the module subject areas.
 
@@ -22,6 +22,22 @@ Optionally, the scorecards can also be used for pre and post learning discussion
 A Mentor can be anyone who holds a sufficient level of knowledge and skill in a given area of STE to provide a Learner with guidance, answer their questions, and assess their skill checks and knowledge. Learners can identify Mentors from their existing networks or look to connect with someone from the wider community of Infuse Mentors. Contact information for some Mentors may be added to this page over time.
 
 There are many other eligible Mentors who are not listed on this website. Infuse coalition organizations can recommend potential Mentors for interested Learners to contact. Reach out to [contact@infuse.quest](mailto:contact@infuse.quest) and share the learning path you are interested in, which language(s) you prefer to receive mentorship in, and any other relevant information, and we will do our best to connect you with potential Mentors.
+
+### Mentor Criteria
+
+You do not need to understand absolutely everything about the topics covered in a particular learning path to mentor a Learner. Regardless of level of expertise, everybody needs to look at documentation sometimes and we do not expect anybody to have all the answers. We hope that Infuse can be a learning opportunity for Mentors as well. A Mentor does, however, need to know enough about a topic to be able to guide Learners as they explore a learning path. This means being able to point Learners towards resources where they can find answers to their questions, supporting them through skill check exercises and assessing their work, and having a good grasp of the learning path materials.
+
+Some signs you might be ready to start your mentorship journey:
+
+* You have completed, or feel confident you can complete, the practice and skills verification exercises for a learning path, and will be able to assist learners as they complete them.  
+* If the learning path relies heavily on reference materials or tools such as OWASP or VirusTotal, you can confidently explain to the learner how they work, how to use them, and what their possible limitations might be.  
+* You can assist learners as they set up hardware and software environments, such as virtual machines, containers, or other toolsets, that they might require completing the learning paths.  
+* You are ready to explain the learning path concepts to people who might struggle to understand.  
+* You can gauge the difficulty level of the learning path and understand which modules or sections learners might struggle with or require additional time for.  
+* You appreciate the psychosocial aspects of being a digital protector in your chosen learning path. This might mean understanding how to talk empathetically and reassure people who have been targeted by phishing, or have malware on their systems, or how to discuss web security with NGO managers and sysadmins.  
+* You have the interest to support a Learner and can dedicate an appropriate amount of time to the task. The amount of time required will depend on the Learner, learning path, and the terms agreed upon between a Mentor and Learner.
+
+You might struggle a bit with providing mentorship if you do not yet feel confident in all the points listed above.
 
 ### Paying for Mentorship
 

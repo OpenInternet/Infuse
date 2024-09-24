@@ -1,5 +1,5 @@
-+++
-title = "Contribuer"
-navbar = true
-weight = 3
-+++
+---
+title: Contribuer
+weight: 3
+navbar: true
+---

@@ -274,23 +274,18 @@
                     });
                 </script>
 
-                <script>
-                    document.addEventListener('alpine:init', () => {
-                      Alpine.store('modal', {
-                        open: false
-                      });
-                    });
-                </script>
-
                 <div id="congratulationsModal" x-data x-cloak>
-                    <div @keydown.window.escape="$store.modal.open = false" x-show="$store.modal.open" @click.away="$store.modal.open = false"
+                    <div @keydown.window.escape="$store.modal.open = false" 
+                        x-show="$store.modal.open" 
+                        @click.away="$store.modal.open = false"
                         x-transition:enter="ease-out duration-300" 
                         x-transition:enter-start="opacity-0" 
                         x-transition:enter-end="opacity-100" 
                         x-transition:leave="ease-in duration-200" 
                         x-transition:leave-start="opacity-100" 
                         x-transition:leave-end="opacity-0" 
-                        class="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+                        class="fixed inset-0 z-10 flex items-center justify-center overflow-y-auto" 
+                        aria-labelledby="modal-title" role="dialog" aria-modal="true">
                         <!-- Background backdrop -->
                         <div class="fixed inset-0 bg-gray-200 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
 
@@ -335,6 +330,9 @@
 
                 <script>
                     document.addEventListener("DOMContentLoaded", function () {
+                        // Alpine store initialized with modal as closed
+                        Alpine.store('modal', { open: false });
+
                         // Retrieve the moduleId from the URL or any other consistent source
                         const moduleId = document.getElementById("moduleId").innerHTML;
 
@@ -392,6 +390,15 @@
                                 Alpine.store('modal').open = true;
                             }
                         }
+                    });
+                </script>
+
+                <script>
+                    document.addEventListener('alpine:init', () => {
+                        // Initialize Alpine modal store as closed by default
+                        Alpine.store('modal', {
+                            open: false
+                        });
                     });
                 </script>
             </section>

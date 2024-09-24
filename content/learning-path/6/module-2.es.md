@@ -10,7 +10,7 @@ weight: 2
 
 Cualquier sitio web que esté expuesto a Internet está bajo ataque constante. Como mínimo, está siendo inundado por ataques no dirigidos por hordas de robots operados por agentes criminales. Más preocupantes son los ataques dirigidos; incluso los atacantes no cualificados, con perseverancia y suerte, pueden encontrar vulnerabilidades en un sitio web.
 
-Idealmente, la persona propietaria del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente los propietarios de sitios querrán saber si un atacante está cerca de encontrar, o ha encontrado recientemente, una vulnerabilidad en su sitio. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
+Idealmente, el propietario del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente Los propietarios de sitios querrán saber si un atacante ha encontrado o está cerca de encontrar una vulnerabilidad. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
 
 Por otro lado, el registro excesivo puede representar un riesgo para los usuarios de los sitios web. Si un sitio registra información confidencial y esos registros son adquiridos por un adversario (por ejemplo, incautación por parte de las autoridades o piratería informática), entonces la información confidencial podría terminar fácilmente en las manos equivocadas.
 
