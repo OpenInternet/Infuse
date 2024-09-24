@@ -21,7 +21,7 @@ Optionally, the scorecards can also be used for pre and post learning discussion
 
 A Mentor can be anyone who holds a sufficient level of knowledge and skill in a given area of STE to provide a Learner with guidance, answer their questions, and assess their skill checks and knowledge. Learners can identify Mentors from their existing networks or look to connect with someone from the wider community of Infuse Mentors. Contact information for some Mentors may be added to this page over time.
 
-There are many other eligible Mentors who are not listed on this website. Infuse coalition organizations can recommend potential Mentors for interested Learners to contact. Reach out to [contact@infuse.quest](mailto:contact@infuse.quest) and share the learning path you are interested in, which language(s) you prefer to receive mentorship in, and any other relevant information, and we will do our best to connect you with potential Mentors.
+There are many other eligible Mentors who are not listed on this website. Infuse coalition organizations can recommend potential Mentors for interested Learners to contact. Reach out to infuse@internews.org[](mailto:contact@infuse.quest) and share the learning path you are interested in, which language(s) you prefer to receive mentorship in, and any other relevant information, and we will do our best to connect you with potential Mentors.
 
 ### Mentor Criteria
 
