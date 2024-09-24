@@ -180,7 +180,7 @@ Il est recommandé de ne pas inclure d'informations sensibles dans les paramètr
 - Certaines pages (p. ex., la page d'ouverture de session) et/ou certains paramètres (numéro de carte de crédit, champs de mot de passe) devraient être exemptés de journalisation
 - Pour les paramètres POST qui seront enregistrés, envisagez de les supprimer pour masquer les informations potentiellement sensibles, tout en restant en mesure d'identifier le trafic malveillant. Le code Python suivant peut vous inspirer :
 
-  {{< highlight python >}}
+  {{< highlight python "linenos=table" >}}
   import re
 
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
