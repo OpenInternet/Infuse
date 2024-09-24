@@ -178,7 +178,7 @@ Es una práctica recomendada no incluir información confidencial en los paráme
 - Ciertas páginas (por ejemplo, la página de inicio de sesión) y/o parámetros (número de tarjeta de crédito, campos de contraseña) deben estar exentos del registro.
 - Para los parámetros POST que se registrarán, considere redactarlos para ocultar información potencialmente confidencial y, al mismo tiempo, poder identificar el tráfico malicioso. El siguiente código Python puede servir de inspiración:
 
-  {{< highlight python >}}
+  {{< highlight python "linenos=table" >}}
   import re
 
   keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
