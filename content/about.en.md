@@ -33,7 +33,7 @@ Internews has found that even highly motivated individuals can stumble during th
 * Develop new content and website features  
 * Support digital protector Learners in securing mentorship and resources necessary to complete learning paths
 
-You may reach all coalition members at [contact@infuse.quest](mailto:contact@infuse.quest)\
+You may reach all coalition members at infuse@internews.org[](mailto:contact@infuse.quest)\
 You may reach [Conexo](https://conexo.org/en/home/) at [info@conexo.org](mailto:info@conexo.org)\
 You may reach [DefendDefenders](https://defenddefenders.org/) at [program@defenddefenders.org](mailto:program@defenddefenders.org)\
 You may reach [Internews](https://internews.org/) at [Infuse@internews.org](mailto:Infuse@internews.org)
