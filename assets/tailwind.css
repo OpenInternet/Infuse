@@ -128,6 +128,7 @@ nav#TableOfContents ul:first-child {
 
 .prose :where(pre):not(:where([class~=not-prose],[class~=not-prose] *)) {
   @apply max-w-full overflow-x-auto;
+  margin-top: 0rem;
 }
 
 details summary::-webkit-details-marker {
@@ -136,12 +137,6 @@ details summary::-webkit-details-marker {
 
 details summary::marker {
   @apply hidden;
-}
-
-.prose article :where(pre) {
-  * + * {
-    margin-top: 0rem;
-  }
 }
 
 .prose article {
@@ -172,10 +167,6 @@ details summary::marker {
 
 .highlight {
   @apply max-w-full w-full;
-}
-
-code span {
-  margin-top: 0;
 }
 
 @media print {
