@@ -180,32 +180,32 @@ It is a recommended practice to not include sensitive information in GET paramet
 * Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
 * For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
 
-  {{< highlight python >}}
-  import re
+{{< highlight python >}}
+import re
 
-  keep = \['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target\[i:i+len(j)].lower() == j.lower():
-  			output = output + target\[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target\[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target\[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target\[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+	if target\[i:i+len(j)].lower() == j.lower():
+		output = output + target\[i:i+len(j)]
+		i=i+len(j)
+		matched = True
+if not matched:
+	if ' ' == target\[i:i+1]:
+		output = output + ' '
+	elif re.search('\w', target\[i:i+1]):
+		output = output + "A"
+	elif re.search('\d', target\[i:i+1]):
+		output = output + "1"
+	else:
+		output = output + "*"
+	i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Security-related errors
 
@@ -399,26 +399,23 @@ For this exercise, we use we use log files from [this collection](https://github
 
 In this task we are going to use regular expressions. Regular expressions (regex) are like powerful search tools that help you find specific patterns in data. For example, if you're investigating suspicious network traffic and you know that malicious requests often contain certain patterns of characters, you can use regex to search through logs or traffic captures to find those requests. Regex allows you to define flexible search patterns. For example:
 
-```
-**[a-z] range **- Matches a character in the range "a" to "z". Case sensitive.
+**\[a-z\] range** - Matches a character in the range "a" to "z". Case sensitive.
 
-
-I.e. [g-s] matches a character between g and s inclusive
-
+I.e. \[g-s\] matches a character between g and s inclusive
 
 abcdef**ghijklmnopqrs**tuvwxyz
 
+**\[A-Z\] range** -  Matches a character in the range "A" to "Z" . Case sensitive.
 
-**[A-Z] range -**  Matches a character in the range "A" to "Z" . Case sensitive.
-
-
-**[0-9] range - **Matches a character in the range "0" to "9". Case sensitive.
-
+**\[0-9\] range** - Matches a character in the range "0" to "9". Case sensitive.
 
 We can also use **quantifiers** to match  the specified quantity of the previous token. {1,3} will match 1 to 3. {3} will match exactly 3. {3,} will match 3 or more.
-```
 
-\[a-d]{3} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. Some characters have special meanings within regexes these characters are:
+\[a-d\]\{3\} matches any sequence of exactly three characters within the given range, each of which can be any lowercase letter from 'a' to 'd'. So, it would match strings like 'abc', 'bda', 'cad', etc. 
+
+
+
+Some characters have special meanings within regexes these characters are:
 
 | Symbol | Name                               | Description                                               |
 | ------ | ---------------------------------- | --------------------------------------------------------- |

@@ -7,13 +7,13 @@ description = "Al trabajar en la seguridad de aplicaciones web (¡o en cualquier
 
 ## Caso de Uso
 
-Al interactuar con personas y organizaciones que operan aplicaciones web, es necesaria la autoconciencia para comprobar la naturaleza de la relación de protector digital y proporcionar consejos o servicios útiles y no alarmistas. Es fundamental enmarcar su trabajo técnico dentro de una sólida evaluación de riesgos de la realidad de la aplicación web y sus usuarios.
+Al interactuar con personas y organizaciones que operan aplicaciones web, es necesario tener conciencia de sí mismo para comprobar la naturaleza de la relación de protección digital y brindar asesoramiento o servicios útiles y no alarmistas. Es fundamental enmarcar el trabajo técnico en una evaluación de riesgos sólida de la realidad de la aplicación web y sus usuarios.
 
 ## Objetivos
 
 Después de completar este subtema, el profesional debe ser capaz de hacer lo siguiente:
 
-- Autorreflexión sobre la relación del protector digital con un cliente dentro del trabajo de evaluación y generación de informes de aplicaciones web
+- Reflexión personal sobre la relación de protección digital con un cliente en el marco del trabajo de evaluación y elaboración de informes de aplicaciones web
 - Simplificar y filtrar los hallazgos y explicarlos de una manera que tenga sentido para las necesidades y los modelos de amenazas de la organización y sus partes interesadas
 - Mantener la conciencia de los límites de su propio conocimiento y capacidad
 - Comunicarse de manera no alarmista sobre vulnerabilidades y debilidades
@@ -29,7 +29,7 @@ Su trabajo en la evaluación de la seguridad de aplicaciones web debe permanecer
 
 La evaluación de la seguridad de las aplicaciones web – y especialmente muchos de los elementos de esta y otras rutas de aprendizaje vinculados posteriores que van más allá del escaneo básico de vulnerabilidades, la enumeración de versiones y las comprobaciones de configuración incorrecta) es un conjunto de habilidades altamente técnico y enrarecido con una terminología que es inaccesible y difícil de entender tanto por los usuarios laicos como por los administradores de sitios web expertos en tecnología. Tómese un momento para reflexionar sobre su propio nivel de conocimiento y sus sentimientos personales acerca de realizar esta evaluación y lo que espera comunicar con su cliente. Una de las reglas de oro para trabajar como protector digital eficaz: _El objetivo no es impresionar a los demás y parecer superior, sino brindar asistencia efectiva que reduzca el daño y el riesgo y al mismo tiempo respalde los objetivos de defensa de su cliente._
 
-Como tal, es importante filtrar y explicar sus hallazgos dentro del contexto de un análisis de riesgos de la propia aplicación web. Si bien encontrar muchas vulnerabilidades y debilidades puede hacer que se sienta bien como analista, compartirlas todas con el cliente puede generar mucho ruido y estrés potencial para su cliente. Lograr el equilibrio adecuado puede ser más difícil de lo que parece a primera vista: no todos los hallazgos en materia de seguridad son iguales entre sí. Es necesario comprender la naturaleza de la vulnerabilidad, la cadena de ataque que la hace significativa y el potencial de daño que podría tener una explotación de la vulnerabilidad.
+Como tal, es importante filtrar y explicar sus hallazgos dentro del contexto de un análisis de riesgos de la propia aplicación web. Si bien encontrar muchas vulnerabilidades y debilidades puede hacer que se sienta bien como analista, compartirlas todas con el cliente puede generar confusión y estrés innecesario para su cliente. Lograr el equilibrio adecuado puede ser más difícil de lo que parece a primera vista: no todos los hallazgos en materia de seguridad son iguales entre sí. Es necesario comprender la naturaleza de la vulnerabilidad, la cadena de ataque que la hace significativa y el potencial de daño que podría tener una explotación de la vulnerabilidad.
 
 Por ejemplo, cuando se utiliza una herramienta de evaluación de seguridad automatizada como ZAP (mencionada con más detalle en la [Ruta de Aprendizaje sobre Evaluación de Sitios Web](/es/learning-path/5/)), el escaneo de un sitio web puede revelar docenas o incluso cientos de debilidades y vulnerabilidades. Proporcionar esta lista a su cliente es menos útil a menos que pueda explicar cómo algunos de estos hallazgos son _importantes_ para sus partes interesadas y sus objetivos operativos y de promoción. ¿Entiende los hallazgos lo suficiente como para poder proporcionar ese filtrado y explicación? También es necesario ser conscientes de las limitaciones de nuestra propia comprensión en este campo. En caso de que no pueda evaluar adecuadamente si una determinada vulnerabilidad o debilidad es importante, puede dejar una recomendación con su mejor interpretación y consejo de que es posible que necesiten investigarla más a fondo.
 

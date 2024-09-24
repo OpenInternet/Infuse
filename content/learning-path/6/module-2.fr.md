@@ -180,32 +180,32 @@ Il est recommandé de ne pas inclure d'informations sensibles dans les paramètr
 - Certaines pages (p. ex., la page d'ouverture de session) et/ou certains paramètres (numéro de carte de crédit, champs de mot de passe) devraient être exemptés de journalisation
 - Pour les paramètres POST qui seront enregistrés, envisagez de les supprimer pour masquer les informations potentiellement sensibles, tout en restant en mesure d'identifier le trafic malveillant. Le code Python suivant peut vous inspirer :
 
-  {{< highlight python >}}
-  import re
+{{< highlight python >}}
+import re
 
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Erreurs liées à la sécurité
 
@@ -400,19 +400,26 @@ Pour cet exercice, nous utilisons des fichiers journaux de [cette collection](ht
 
 Dans cette tâche, nous allons utiliser des expressions régulières. Les expressions régulières (regex) sont de puissants outils de recherche qui vous aident à trouver des modèles spécifiques dans les données. Par exemple, si vous enquêtez sur un trafic réseau suspect et que vous savez que les requêtes malveillantes contiennent souvent certains modèles de caractères, vous pouvez utiliser regex pour rechercher dans les journaux ou les captures de trafic pour trouver ces requêtes. Regex vous permet de définir des modèles de recherche flexibles. Par exemple :
 
-    **\[a-z\] range** \- Correspond à un caractère dans la plage « a » à « z ». Sensible à la casse.
 
-    Par ex., \[g-s\] correspond à un caractère compris entre « g » et « s »
+**\[a-z\] range** - Correspond à un caractère dans la plage « a » à « z ». Sensible à la casse.
 
-    abcdef**ghijklmnopqrs**tuvwxyz
 
-    **\[A-Z\] range** \- Correspond à un caractère dans la plage « A » à « Z ». Sensible à la casse.
+Par ex., \[g-s\] correspond à un caractère compris entre « g » et « s »
 
-    **\[0-9\] range** \- Correspond à un caractère dans la plage « 0 » à « 9 ». Sensible à la casse.
 
-    Nous pouvons également utiliser des **quantificateurs** pour correspondre à la quantité spécifiée du jeton précédent. {1,3} correspondra à 1 à 3. {3} correspondra exactement à 3. {3,} correspondra à 3 ou plus.
+abcdef**ghijklmnopqrs**tuvwxyz
 
-    [a-d\]{3} correspond à n'importe quelle séquence de trois caractères exactement dans la plage donnée, chacun pouvant être une lettre minuscule de « a » à « d ». Donc, cela correspondrait à des chaînes comme « abc », « bda », « cad », etc. 
+
+**\[A-Z\] range** - Correspond à un caractère dans la plage « A » à « Z ». Sensible à la casse.
+
+**\[0-9\] range** - Correspond à un caractère dans la plage « 0 » à « 9 ». Sensible à la casse.
+
+
+Nous pouvons également utiliser des **quantificateurs** pour correspondre à la quantité spécifiée du jeton précédent. {1,3} correspondra à 1 à 3. {3} correspondra exactement à 3. {3,} correspondra à 3 ou plus.
+
+
+\[a-d\]\{3\} correspond à n'importe quelle séquence de trois caractères exactement dans la plage donnée, chacun pouvant être une lettre minuscule de « a » à « d ». Donc, cela correspondrait à des chaînes comme « abc », « bda », « cad », etc. 
+
 
 Certains caractères ont une signification particulière dans les regex :
 

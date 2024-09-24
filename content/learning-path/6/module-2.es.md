@@ -10,7 +10,7 @@ weight: 2
 
 Cualquier sitio web que esté expuesto a Internet está bajo ataque constante. Como mínimo, está siendo inundado por ataques no dirigidos por hordas de robots operados por agentes criminales. Más preocupantes son los ataques dirigidos; incluso los atacantes no cualificados, con perseverancia y suerte, pueden encontrar vulnerabilidades en un sitio web.
 
-Idealmente, la persona propietaria del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente los propietarios de sitios querrán saber si un atacante está cerca de encontrar, o ha encontrado recientemente, una vulnerabilidad en su sitio. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
+Idealmente, el propietario del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente Los propietarios de sitios querrán saber si un atacante ha encontrado o está cerca de encontrar una vulnerabilidad. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
 
 Por otro lado, el registro excesivo puede representar un riesgo para los usuarios de los sitios web. Si un sitio registra información confidencial y esos registros son adquiridos por un adversario (por ejemplo, incautación por parte de las autoridades o piratería informática), entonces la información confidencial podría terminar fácilmente en las manos equivocadas.
 
@@ -178,32 +178,32 @@ Es una práctica recomendada no incluir información confidencial en los paráme
 - Ciertas páginas (por ejemplo, la página de inicio de sesión) y/o parámetros (número de tarjeta de crédito, campos de contraseña) deben estar exentos del registro.
 - Para los parámetros POST que se registrarán, considere redactarlos para ocultar información potencialmente confidencial y, al mismo tiempo, poder identificar el tráfico malicioso. El siguiente código Python puede servir de inspiración:
 
-  {{< highlight python >}}
-  import re
+{{< highlight python >}}
+import re
 
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Errores relacionados con la seguridad
 
@@ -400,19 +400,23 @@ Para este ejercicio, utilizamos archivos de registro de [esta colección](https:
 
 En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares (regex) son como potentes herramientas de búsqueda que le ayudan a encontrar patrones específicos en los datos. Por ejemplo, si está investigando tráfico de red sospechoso y sabe que las solicitudes maliciosas a menudo contienen ciertos patrones de caracteres, puede usar expresiones regulares para buscar registros o capturas de tráfico para encontrar esas solicitudes. Regex le permite definir estándares de búsqueda flexibles. Por ejemplo:
 
-    **Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
+**Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    abcdef**ghijklmnopqrs**tuvwxyz
+Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
 
-    **Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
+abcdef**ghijklmnopqrs**tuvwxyz
 
-    **Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
+**Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
 
-    También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+**Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
 
-\[a-d\]{3} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc. Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
+También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+
+\[a-d\]\{3\} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc.
+
+
+Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
 
 | Símbolo| Nombre                                | Descripción                                                    |
 |--------|---------------------------------------|----------------------------------------------------------------|
