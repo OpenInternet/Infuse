@@ -177,32 +177,32 @@ It is a recommended practice to not include sensitive information in GET paramet
 - Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
 - For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
 
-  {{< highlight python "linenos=true">}}
-  import re
+{{< highlight python "linenos=true">}}
+import re
 
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+  	if target[i:i+len(j)].lower() == j.lower():
+  		output = output + target[i:i+len(j)]
+  		i=i+len(j)
+  		matched = True
+  if not matched:
+  	if ' ' == target[i:i+1]:
+  		output = output + ' '
+  	elif re.search('\w', target[i:i+1]):
+ 			output = output + "A"
+ 		elif re.search('\d', target[i:i+1]):
+  		output = output + "1"
+ 		else:
+  		output = output + "*"
+  	i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Security-related errors
 
