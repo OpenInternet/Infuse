@@ -5,7 +5,7 @@ navbar: true
 ---
 ## Submitting contributions and feedback
 
-Infuse is Open Source! We welcome any efforts you make to report issues, propose opportunities to collaborate on developing content, directly contributing content, adding new resources, making corrections, or providing further translations. A coalition of organizations ([Conexo](https://conexo.org/), [DefendDefenders](https://defenddefenders.org/), and [Internews](https://internews.org/)) maintain the site and will review all contributions made. Please allow up to two weeks for a response and understand that there may be limitations in the actions which can be taken to address feedback. You can submit general feedback and requests for support to [contact@infuse.quest](mailto:contact@infuse.quest) in order to reach the project maintainers. 
+Infuse is Open Source! We welcome any efforts you make to report issues, propose opportunities to collaborate on developing content, directly contributing content, adding new resources, making corrections, or providing further translations. A coalition of organizations ([Conexo](https://conexo.org/), [DefendDefenders](https://defenddefenders.org/), and [Internews](https://internews.org/)) maintain the site and will review all contributions made. Please allow up to two weeks for a response and understand that there may be limitations in the actions which can be taken to address feedback. You can submit general feedback and requests for support to infuse@internews.org[](mailto:contact@infuse.quest) in order to reach the project maintainers. 
 
 This page provides an overview of ways to directly contribute to and edit Infuse. There are two ways we suggest doing this: editing text directly on GitHub, or editing through the provided content management system (CMS).
 
@@ -31,14 +31,12 @@ Once signed in, you will be able to directly edit site content by navigating to 
 
 ![](/media/uploads/contribute-4.png)
 
-
-
 Once you have selected the module you would like to edit, you will open the editor window, shown below. Here are some highlights to working with the editor:
 
 ![](/media/uploads/contribute-5.png)
 
 1. **Saving Workflow:** Once you have finished making changes, press the Save button. This will put the page into Draft mode. At this stage you can continue to work on the page at a later time, but the Infuse team will not be alerted to your edits. Once you are ready, you can the status to ‘*In Review’,* which will open a pull request to the main Infuse repository.  
-2. **Language Switcher:** Translations can be made or updated by selecting the appropriate language from this drop-down. If you are interested in translating a new language, email us at [contact@infuse.quest](mailto:contact@infuse.quest)!   
+2. **Language Switcher:** Translations can be made or updated by selecting the appropriate language from this drop-down. If you are interested in translating a new language, email us at infuse@internews.org!
 3. **Editor Selector**: The Rich Text editor will allow you to use the buttons in the panel to control styling, while the Markdown selection requires that you edit in correct Markdown.
 
 ## Adding images
@@ -81,7 +79,7 @@ So an example of markdown code we used might include:
 
 ## Developing new learning paths and modules
 
-Are you interested in developing an additional Infuse learning path or adding a new module to an existing learning path? If so, please contact [contact@infuse.quest](mailto:contact@infuse.quest) for guidance on how to do so using the Infuse framework.
+Are you interested in developing an additional Infuse learning path or adding a new module to an existing learning path? If so, please contact infuse@internews.org for guidance on how to do so using the Infuse framework.
 
 Some things to consider:
 
