@@ -31,7 +31,7 @@ Security Education Companion contiene una multitud de consejos sobre formas refl
 
 ### Conocimiento Específico del Itinerario
 
-Una vez que esté familiarizado con el conocimiento fundamental anterior, tómese un tiempo para pensar en las habilidades interpersonales particulares que podrían ser necesarias para este ruta de aprendizaje específico. Cada ruta de aprendizaje e intervención son ligeramente diferentes; cada uno podría traer consigo diferentes narrativas o preocupaciones por parte de los profesionales.
+Una vez que esté familiarizado con el conocimiento fundamental anterior, tómese un tiempo para pensar en las habilidades interpersonales particulares que podrían ser necesarias para esta ruta de aprendizaje específico. Cada ruta de aprendizaje e intervención son ligeramente diferentes; cada uno podría traer consigo diferentes narrativas o preocupaciones por parte de los profesionales.
 
 Debería ser capaz de:
 
@@ -39,7 +39,7 @@ Debería ser capaz de:
 - Esté preparado para discutir la diferencia entre el análisis activo y pasivo de la infraestructura de tolerancia al riesgo;
 - Esté preparado para explicar cómo el mismo método de análisis puede producir a veces muchos datos y a veces muy pocos, y gestione las expectativas en consecuencia.
 
-Tenga en cuenta que las habilidades que se describen más adelante en este ruta de aprendizaje también contienen consejos sobre el desarrollo de las habilidades interpersonales para ofrecer un apoyo reflexivo que reduzca los daños.
+Tenga en cuenta que las habilidades que se describen más adelante en esta ruta de aprendizaje también contienen consejos sobre el desarrollo de las habilidades interpersonales para ofrecer un apoyo reflexivo que reduzca los daños.
 
 ### Para entender: Reducción de Daños y Seguridad Operacional
 

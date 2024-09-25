@@ -13,7 +13,7 @@ Antes de completar este subtema, asegúrese de haber leído detenidamente y comp
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 - Realizar una redacción rápida de una investigación
 - Seleccionar indicadores apropiados de compromiso y compartirlos de manera responsable
@@ -30,7 +30,7 @@ Finalmente, cuando haya concluido su investigación, es hora de escribir su info
 
 El informe debe contener un relato fáctico de lo que sucedió y qué infraestructura se utilizó, así como sus impresiones y conclusiones. En general, esta investigación se desencadenará por algún tipo de ataque de ingeniería social (por correo electrónico, SMS, WhatsApp, etc.). En ese caso, querrá anotar cualquier conclusión que haya sacado sobre la naturaleza del ataque. ¿Estaba dirigido? Si es posible, ¿puede identificar a otras personas que recibieron el mensaje? ¿Qué técnicas utilizó el atacante para intentar engañar a la persona objetivo?
 
-Dependiendo de la audiencia, es posible que también desee tener en cuenta las acciones de la persona objetivo y cualquier conclusión que haya sacado sobre el conocimiento de la situación por parte del atacante. ¿Siguieron enlaces, introdujeron información confidencial en sitios web controlados por atacantes, descargaron archivos adjuntos, abrieron archivos adjuntos, etc.? ¿Qué tan probable es que se hayan rastreado sus acciones y las de la persona objetivo? Tenga en cuenta que si la víctima introdujo credenciales o abrió malware, se justifica una investigación más profunda y un esfuerzo de descontaminación (fuera del alcance de esterutao de aprendizaje).
+Dependiendo de la audiencia, es posible que también desee tener en cuenta las acciones de la persona objetivo y cualquier conclusión que haya sacado sobre el conocimiento de la situación por parte del atacante. ¿Siguieron enlaces, introdujeron información confidencial en sitios web controlados por atacantes, descargaron archivos adjuntos, abrieron archivos adjuntos, etc.? ¿Qué tan probable es que se hayan rastreado sus acciones y las de la persona objetivo? Tenga en cuenta que si la víctima introdujo credenciales o abrió malware, se justifica una investigación más profunda y un esfuerzo de descontaminación (fuera del alcance de esta ruta de aprendizaje).
 
 Una vez que haya creado un informe y lo haya compartido con su cliente (si corresponde), hay un par de cosas que puede hacer con él:
 
@@ -56,5 +56,5 @@ Si está trabajando con un compañero o un mentor, discuta esas notas con ellos.
 ## Recursos de Aprendizaje
 
 {{% resource title="Maltego" description="Maltego puede utilizarse para la representación visual de los hallazgos y facilitar la identificación de conexiones entre distintos indicadores." languages="Inglés" cost="Existe una versión comunitaria gratuita para uso no comercial, mientras que las versiones Pro cuestan 999 USD al año." url="https://www.maltego.com/" %}}
-{{% resource title="¿Guccifer Rising? Campaña de phishing de meses de duración en ProtonMail está dirigida a docenas de periodistas y ONG de Rusia" description="(Compartido anteriormente en esterutao de aprendizaje) Este es un informe muy completo sobre una importante campaña de phishing. No sienta la necesidad de hacer el suyo tan completo, pero siéntase libre de inspirarse en él." languages="Inglés" cost="Gratis" url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
-{{% resource title="Iran: Jaqueo, respaldado por el Estado, de Activistas, Periodistas y Políticos" description="(Compartido anteriormente en esterutao de aprendizaje) Otro gran artículo y resumen de una investigación. Una vez más, es probable que el suyo sea menos exhaustivo, pero este es un gran ejemplo." languages="Inglés" cost="Gratis" url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
+{{% resource title="¿Guccifer Rising? Campaña de phishing de meses de duración en ProtonMail está dirigida a docenas de periodistas y ONG de Rusia" description="(Compartido anteriormente en esta ruta de aprendizaje) Este es un informe muy completo sobre una importante campaña de phishing. No sienta la necesidad de hacer el suyo tan completo, pero siéntase libre de inspirarse en él." languages="Inglés" cost="Gratis" url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
+{{% resource title="Iran: Jaqueo, respaldado por el Estado, de Activistas, Periodistas y Políticos" description="(Compartido anteriormente en esta ruta de aprendizaje) Otro gran artículo y resumen de una investigación. Una vez más, es probable que el suyo sea menos exhaustivo, pero este es un gran ejemplo." languages="Inglés" cost="Gratis" url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}

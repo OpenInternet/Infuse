@@ -9,13 +9,13 @@ weight: 5
 
 Hay mucho más en los correos electrónicos de lo que parece. El subtema le enseñará cómo **analizar los extensos metadatos que documentan el origen de un correo** electrónico, los servidores por los que viajó, información sobre posibles verificaciones de spam y mucho más. Estos metadatos pueden formar una parte crucial de cualquier investigación en profundidad sobre correos electrónicos potencialmente maliciosos.
 
-Utilice esta habilidad después o junto con el subtema Triage dentro de esterutao de aprendizaje. Algunas de estas habilidades pueden ser necesarias como parte del proceso de clasificación para decidir si un mensaje es sospechoso.
+Utilice esta habilidad después o junto con el subtema Triage dentro de esta ruta de aprendizaje. Algunas de estas habilidades pueden ser necesarias como parte del proceso de clasificación para decidir si un mensaje es sospechoso.
 
 Dado que los encabezados de correo electrónico pueden contener referencias a otros dominios e infraestructura, los profesionales primero deben estar familiarizados con el Subtema 4, que analiza la información de dominio e IP, antes de abordar este.
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 ● Extraer encabezados completos de un correo electrónico que han recibido o están analizando;
 

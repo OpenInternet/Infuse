@@ -63,7 +63,7 @@ Dependiendo del escenario, es posible que estés implementando pasos para la det
 
 ## Rutas de aprendizaje relacionadas
 
-Como toda en seguridad, esta ruta de aprendizaje beneficia y se ve beneficiada por el conocimiento en áreas relacionadas. En particular, las siguientes rutas de aprendizaje tienen una buena sinergia:
+Como todo en seguridad, esta ruta de aprendizaje beneficia y se ve beneficiada por el conocimiento en áreas relacionadas. En particular, las siguientes rutas de aprendizaje tienen una buena sinergia:
 
 - [Analizando el Malware](/es/learning-path/3/): Analizar el malware para entender cómo funciona y qué hace. Además, esta ruta de aprendizaje contiene enfoques para personas principiantes hasta intermedios, para determinar de forma estática, dinámica y basada en red si una muestra determinada es maliciosa; en caso de que dichos métodos no sean suficientes para una determinación, las habilidades de análisis adicionales se cubren en una ruta de aprendizaje subsecuente.
 - [Investigación, Seguimiento y Detección de Infraestructura Maliciosa](/es/learning-path/1/): El malware dirigido generalmente se comunica con la infraestructura de comando y control, exfiltración o entrega. Esta ruta de aprendizaje ayudará a investigar y comprender esta infraestructura.
