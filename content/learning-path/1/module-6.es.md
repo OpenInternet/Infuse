@@ -13,7 +13,7 @@ Tenga en cuenta que durante la investigación activa, es posible que se realicen
 
 Lo mejor es hacer este tipo de análisis desde una máquina virtual o dispositivo dedicado. Para mayor protección, podría ser una buena idea utilizar una VPN de buena reputación para que su dirección IP no se filtre cuando esté llevando a cabo una investigación activa.
 
-Este módulo se ocupa de analizar el cuerpo de un correo electrónico malicioso, mientras que el módulo Investigación Pasiva: Analizar los encabezados de correos electrónicos (/es/learning-path/1/module-5/) se ocupa del encabezado. Para una investigación adecuada, querrá usar ambas habilidades. Tenga en cuenta que el análisis de los contenidos y comportamientos de los archivos adjuntos de correo electrónico está cubierto en elrutao de aprendizaje Análisis de malware.
+Este módulo se ocupa de analizar el cuerpo de un correo electrónico malicioso, mientras que el módulo Investigación Pasiva: Analizar los encabezados de correos electrónicos (/es/learning-path/1/module-5/) se ocupa del encabezado. Para una investigación adecuada, querrá usar ambas habilidades. Tenga en cuenta que el análisis de los contenidos y comportamientos de los archivos adjuntos de correo electrónico está cubierto en la ruta de aprendizaje Análisis de malware.
 
 ## Objetivos
 
@@ -29,7 +29,7 @@ Después de completar esta subhabilidad, el profesional debe ser capaz de hacer 
 ### Conocimiento Fundamental: Correos electrónicos HTML y MIME
 
 - Para practicar esta habilidad secundaria, debe comprender los conceptos básicos de los correos electrónicos HTML y MIME. Si cree que es necesario repasar un poco este tema, consulte algunos de los recursos sobre temas clave a continuación:
-- La mayoría de los correos electrónicos se envían en formato HTML, lo que permite el uso de varios métodos inteligentes de presentación y engaño por parte de los phishers.
+- La mayoría de los correos electrónicos se envían en formato HTML, lo que permite el uso de varios métodos inteligentes de presentación y engaño por parte de los agentes que usan phishing.
 - Si bien no es necesario tener la capacidad de escribir HTML o diseñar páginas web, los profesionales deben sentirse cómodos abriendo y revisando el código fuente de un correo electrónico HTML y entendiendo los elementos esenciales presentes. Para hacerlo, lea esta introducción para [MIME](https://learn.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2010/aa494197%28v=exchg.140%29) y HTML.
 - Aprender algo de HTML es inevitable, y recursos como [W3Schools](https://www.w3schools.com/html/) pueden proporcionar un buen punto de partida. Tenga en cuenta también que algunos clientes de correo (por ejemplo, Outlook) no le permiten descargar todo el cuerpo del correo electrónico.
 - MIME es un estándar de Internet que amplía el formato de los mensajes de correo electrónico más allá de los mensajes de texto sin formato y permite textos en conjuntos de caracteres distintos de ASCII, archivos adjuntos no textuales y cuerpos de mensajes con varias partes. Se puede abusar de las funciones MIME para ocultar contenido y adjuntar contenido malicioso. [Este artículo de Wikipedia](https://en.wikipedia.org/wiki/MIME) da una buena introducción inicial.
