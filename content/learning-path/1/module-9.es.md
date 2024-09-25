@@ -13,7 +13,7 @@ Combine este esfuerzo con actividades más amplias de respuesta a incidentes, in
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 - Tener una comprensión básica de cómo funcionan los informes de abuso y las bases de datos
 - Identificar las bases de datos de abuso que muestran direcciones URL y dominios sospechosos de ser maliciosos
