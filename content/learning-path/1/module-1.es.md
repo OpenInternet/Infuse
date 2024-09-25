@@ -11,7 +11,7 @@ Cuando reciba o le reenvíen un mensaje sospechoso, realice una clasificación i
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de diferenciar entre correos electrónicos legítimos, spam no dirigido o correos electrónicos de phishing, y los dirigidos en función de varios indicadores heurísticos.
+Después de completar este submódulo, el profesional debe ser capaz de diferenciar entre correos electrónicos legítimos, spam no dirigido o correos electrónicos de phishing, y los dirigidos en función de varios indicadores heurísticos.
 
 ---
 ## Sección Principal
