@@ -13,7 +13,7 @@ Asegúrese de estudiar esta habilidad y, si es necesario, configure un entorno s
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 - Demostrar cómo manejar de forma segura correos electrónicos y URL maliciosos durante la investigación de la infraestructura maliciosa;
 - Describir qué medidas deben tomar para evitar que se filtre su dirección IP mientras realizan una investigación;
@@ -38,7 +38,7 @@ Recomendamos tener en cuenta las siguientes precauciones de seguridad operaciona
 Dependiendo de la sofisticación de los ataques a los que se enfrente, de la sensibilidad de la máquina, los datos y las cuentas que esté utilizando, e incluso de la sensibilidad de sus actividades de investigación y de su identidad personal, puede que necesite adoptar un entorno seguro apropiado para llevar a cabo el trabajo de investigación. Tenga en cuenta las siguientes sugerencias al crear su solución de seguridad:
 
 - Use una VPN de buena reputación mientras realiza cualquier actividad que pueda implicar interactuar con la infraestructura del atacante para evitar que el atacante registre su IP real.
-- Seleccione y utilice un navegador específico en su dispositivo para este trabajo, que usted preconfigurará previamente para reducir el riesgo de que se ejecute contenido activo malicioso en su dispositivo. [NoScript](https://noscript.net/) es una excelente extensión de navegador disponible en navegadores basados en Firefox y Chromium que evitará la ejecución de scripts, lo que le permitirá inspeccionar cualquier contenido activo antes de la ejecución.
+- Seleccione y utilice un navegador específico en su dispositivo para este trabajo, que usted configurará previamente para reducir el riesgo de que se ejecute contenido activo malicioso en su dispositivo. [NoScript](https://noscript.net/) es una excelente extensión de navegador disponible en navegadores basados en Firefox y Chromium que evitará la ejecución de scripts, lo que le permitirá inspeccionar cualquier contenido activo antes de la ejecución.
 - Considere la posibilidad de utilizar un dispositivo separado para su análisis o una máquina virtual separada. Este dispositivo y máquina virtual no deben conectarse a ninguna cuenta laboral o personal, almacenamiento conectado a la red o redes confidenciales. No debe contener ninguna información confidencial (a menos que descubra dicha información durante su investigación).
 - Configure una dirección de correo electrónico especial donde las personas objetivo puedan reenviar los correos electrónicos sospechosos que reciban. (Si reciben mensajes sospechosos de una plataforma como WhatsApp, pueden enviar una captura de pantalla del mensaje por correo electrónico). Esta dirección de correo electrónico no necesita ser única para cada persona objetivo. Asegúrese de que esta cuenta esté protegida por una contraseña única y una autenticación de dos factores y evite que su cliente de correo electrónico cargue automáticamente contenido externo, como imágenes. Esto se debe a que las imágenes que se cargan desde un servidor pueden alertar al atacante de que están siendo investigadas y convertir una investigación de pasiva a activa (consulte el subtema 6 para obtener más detalles);
 - Asegúrese de tener un equipo protegido con una protección antimalware actualizada para proteger su equipo contra cualquier posible propagación de una infección de malware a su equipo.
