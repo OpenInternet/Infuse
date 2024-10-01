@@ -177,7 +177,7 @@ It is a recommended practice to not include sensitive information in GET paramet
 - Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
 - For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
 
-{{< highlight python "linenos=inline">}}
+{{< highlight python "linenos=table">}}
 import re
 
 keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
