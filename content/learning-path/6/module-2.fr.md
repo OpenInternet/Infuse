@@ -458,7 +458,7 @@ L'option « `-E` » de la commande `grep` permet d'utiliser des expressions rég
 
 #### Exercice pratique 4 : utiliser des expressions régulières (regex)
 
-Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
+Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log) (même collection que les autres fichiers de cette section d'exercice)
 
 1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{32}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
 
@@ -501,7 +501,7 @@ Commande(s) à exécuter : `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 
 Ce contrôle de compétences sera beaucoup plus facile si vous avez d'abord terminé l'exercice ci-dessus.
 
-Vous recevez un journal d'accès nginx à partir d'un site Web attaqué que devez examiner, que vous pouvez {{< fontawesome "solid/download" >}} [télécharger ici](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+Vous recevez un journal d'accès nginx à partir d'un site Web attaqué que devez examiner, que vous pouvez {{< fontawesome "solid/download" >}} [télécharger ici](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log).
 
 Localisez un chemin d'accès suspect qui est ciblé, extrayez les adresses IP qui envoient des requêtes suspectes et découvrez dans quels pays se trouvent ces adresses IP (vous pouvez utiliser les bases de données geoIP décrites plus en détail dans le parcours d'apprentissage sur les infrastructures malveillantes). Vous pouvez utiliser des outils CLI standard comme awk, grep, sort et uniq. Pour connaître les numéros AS et les pays, nous vous recommandons d'utiliser les services de recherche en ligne appropriés.
 
