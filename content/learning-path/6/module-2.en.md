@@ -452,7 +452,7 @@ The “`-E`” option in the `grep` command enables the use of extended regular 
 
 ### Practice exercise 4: using regular expressions (regexes)
 
-For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
+For those exercises, we use nginx log files from [this collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (same collection as the other files in this practice section)
 
 1. Use grep and the `\\x[a-fA-F0-9]{2}` [regex](https://en.wikipedia.org/wiki/Regular_expression) to filter requests from nginx access.log containing a suspicious payload. The regex`'\x[a-fA-F0-9]{3}'` matches a sequence starting with '`\x`' followed by exactly three hexadecimal characters (0-9, a-f, or A-F). How many lines are there?
 
@@ -496,7 +496,7 @@ Command(s) to execute: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 
 This skill check will be much easier if you’ve first completed the practice exercise above.
 
-You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+You are given an nginx access log from a website under attack to investigate, which you can {{< fontawesome "solid/download" >}} [download here](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log).
 
 Locate a suspicious path that is being targeted, extract IP addresses that are sending suspicious requests and find out which countries those IPs are in (you can use geoIP databases, described in more detail in the malicious infrastructure learning path, for this). You can use standard CLI tools like `awk`, `grep`, `sort`, `uniq`. To find out AS numbers and countries, we recommend using relevant online lookup services.
 
