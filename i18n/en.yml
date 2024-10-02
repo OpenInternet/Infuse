@@ -411,7 +411,7 @@ key:
   - id: rights-reserved
     translation:
       one: null
-      other: All rights reserved.
+      other: Licensed under
   - id: open-language
     translation:
       one: null
