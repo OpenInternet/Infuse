@@ -26,7 +26,7 @@ description = "Before you analyzing any malware, you need to set up a safe envir
 ## موارد التعلّم
 
   {{% resource title="الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلا" description="دليل حول كيفية تحليل المحتوى الذي يُحتمل أن يكون ضارًا وإعداد الأجهزة الظاهرية والمزيد" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
-{{% resource title="ريمنوكس" description="صفحة الويب الخاصة بتوزيعة ريمنوكس لينوكس (REMnux Linux) التي تُستخدم غالبًا لتحليل البرمجيات الضارة" languages="موقع الويب والوثائق الخاصة بالتوزيعة باللغة الإنجليزية ولكن قد تكون الأدوات المختلفة المضمّنة في التوزيعة نفسها مترجمة بلغات أخرى." cost="مجاني" url="https://remnux.org/ %}}
+{{% resource title="ريمنوكس" description="صفحة الويب الخاصة بتوزيعة ريمنوكس لينوكس (REMnux Linux) التي تُستخدم غالبًا لتحليل البرمجيات الضارة" languages="موقع الويب والوثائق الخاصة بالتوزيعة باللغة الإنجليزية ولكن قد تكون الأدوات المختلفة المضمّنة في التوزيعة نفسها مترجمة بلغات أخرى." cost="مجاني" url="https://remnux.org/" %}}
 {{% resource title="الحصول على الجهاز الظاهري" description="دليل حول كيفية تثبيت وتشغيل ريمنوكس كجهاز ظاهري" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
 {{% resource title="الفرق بين اللقطات والنسخ الاحتياطية" description="مقال يُسلط الضوء على كيفية احتواء الجهاز الظاهري على كل من اللقطات والنسخ الاحتياطية والفرق بينهما. سيسهم فهم كليهما بتسهيل إدارة وإعادة ضبط الأجهزة الظاهرية المستخدمة لتحليل البرمجيات الضارة." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
 ## الممارسة
