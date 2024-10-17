@@ -411,7 +411,7 @@ key:
   - id: rights-reserved
     translation:
       one: null
-      other: Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC-BY-SA 4.0</a>
+      other: Licensed under [https://creativecommons.org/licenses/by-sa/4.0/](CC-BY-SA 4.0)
   - id: open-language
     translation:
       one: null
