@@ -394,10 +394,10 @@ key:
     translation:
       one: null
       other: "Descargar insignia"
-  - id: rights-reserved
+  - id: licensed-under
     translation:
       one: null
-      other: "Todos los derechos reservados."
+      other: "Licenciado bajo"
   - id: open-language
     translation:
       one: null
