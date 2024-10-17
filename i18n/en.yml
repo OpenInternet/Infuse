@@ -408,10 +408,10 @@ key:
     translation:
       one: null
       other: Download badge
-  - id: rights-reserved
+  - id: licensed-under
     translation:
       one: null
-      other: Licensed under [https://creativecommons.org/licenses/by-sa/4.0/](CC-BY-SA 4.0)
+      other: Licensed under
   - id: open-language
     translation:
       one: null
