@@ -388,10 +388,10 @@ key:
     translation:
       one: null
       other: "تحميل الشارة"
-  - id: rights-reserved
+  - id: licensed-under
     translation:
       one: null
-      other: "جميع الحقوق محفوظة."
+      other: "بموجب رخصة المشاع الإبداعي."
   - id: open-language
     translation:
       one: null
