@@ -2,52 +2,56 @@
 style: module
 title: "Operational Security - Safe Handling of links and infrastructure"
 description: >
-  "As you go about investigating malicious phishing emails, attachments, websites, and other infrastructure, you will need to take some proactive steps to make sure that you keep yourself and the people you support safe. Be sure to study this skill and, if necessary, set up a safe environment before interacting with suspected malicious emails or web pages"
+  "أثناء التحقيق في رسائل البريد الإلكتروني الضارة للتصيد الاحتيالي والمرفقات ومواقع الويب والبنية التحتية الأخرى، ستحتاج إلى اتخاذ بعض الخطوات الاستباقية للتأكد من الحفاظ على سلامتك وسلامة الأشخاص الذين تدعمهم. ستحتاج أيضًا إلى معرفة ما يجب إبلاغ المستلم به بشأن الرسائل كلما واجه مثل هذه الحوادث وكيف يمكنه إبلاغك بها بأمان للتعامل معها دون تعريض نفسه للخطر.
+تأكد من دراسة هذه المهارة، وإذا لزم الأمر حضّر بيئة آمنة قبل التفاعل مع رسائل البريد الإلكتروني أو صفحات الويب المشتبه بأنها ضارة."
 weight: 3
 ---
 
-## Use Case
+## حالة استخدام
+حالة استخدام
+أثناء التحقيق في رسائل البريد الإلكتروني الضارة للتصيد الاحتيالي والمرفقات ومواقع الويب والبنية التحتية الأخرى، ستحتاج إلى اتخاذ بعض الخطوات الاستباقية للتأكد من الحفاظ على سلامتك وسلامة الأشخاص الذين تدعمهم. ستحتاج أيضًا إلى معرفة ما يجب إبلاغ المستلم به بشأن الرسائل كلما واجه مثل هذه الحوادث وكيف يمكنه إبلاغك بها بأمان للتعامل معها دون تعريض نفسه للخطر.
+تأكد من دراسة هذه المهارة، وإذا لزم الأمر حضّر بيئة آمنة قبل التفاعل مع رسائل البريد الإلكتروني أو صفحات الويب المشتبه بأنها ضارة.
 
-As you go about investigating malicious phishing emails, attachments, websites, and other infrastructure, you will need to take some proactive steps to make sure that you keep yourself and the people you support safe. You will also need to know what to advise the recipient of the messages whenever they are faced with such incidents, and how they can safely report it to you for handling without compromising themselves.
-Be sure to study this skill and, if necessary, set up a safe environment before interacting with suspected malicious emails or web pages.
+## الأهداف 
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
 
-## Objectives
-
-After completing this subtopic, practitioners should be able to do the following:
-
-- Demonstrate how to safely handle malicious emails and URLs during investigation of malicious infrastructure;
-- Describe what steps they should take to prevent their IP address being leaked while conducting an investigation;
-- Describe immediate next steps when you suspect that an account might have been compromised;
-- Safely ‘defang’ URLs.
+- توضيح كيفية التعامل بأمان مع رسائل البريد الإلكتروني وعناوين مواقع الويب الضارة أثناء التحقيق في البنية التحتية الضارة.
+- وصف الخطوات التي يجب عليهم اتخاذها لمنع تسرب عنوان بروتوكول الإنترنت الخاص بهم أثناء إجراء التحقيق.
+- صِف الخطوات التالية الفورية عندما تشك في احتمال تعرض حساب للاختراق.
+-إزالة الضرر من عناوين الويب بأمان
 
 ---
 
-## Main Section 
+## العرض  
 
-Many phishing emails and similar messages do not just try to get the targeted person to click on a link but may also attempt to collect data about them (we discuss this in more depth in Subtopic 6). When conducting an investigation, it’s important to handle messages and other infrastructure carefully, so as to not reveal too much information about your identity, work and organization to an attacker, as well as to protect devices and accounts.
+تحاول العديد من رسائل البريد الإلكتروني الاحتيالية والرسائل المماثلة دفع الشخص المستهدف إلى أكثر من النقر على رابط فحسب، حيث قد تحاول أيضًا جمع بيانات عنه (يُناقش هذا بتفصيل أكبر في الموضوع الفرعي 6). عند إجراء تحقيق، من المهم التعامل مع الرسائل والبنية التحتية الأخرى بحذر حتى لا تكشف للمهاجم الكثير من المعلومات حول هويتك وعملك ومؤسستك وكذلك لأجل حماية الأجهزة والحسابات.
 
-### Basic precautions
 
-We typically divide analysis up into two components: passive (Subtopics 4 and 5) and active (Subtopics 6 and 7). Passive analysis should not include any contact with an attackers’ servers, whereas active analysis does.
-It’s important for analysts to understand what types of activities directly interact with attacker infrastructure and can therefore be detected. Once analysts gain this understanding, they will be able to adapt the methods they use to relevant threat models.
+### احتياطات أساسية
 
-We recommend consider the following operational security precautions when you conduct your analyses:
+عادة ما نُقسّم التحليل إلى عنصرين هما غير نشط (الموضوعان الفرعيان 4 و5) ونشط (الموضوعان الفرعيان 6 و7) ويجب ألا يتضمن التحليل غير النشط أي اتصال بخوادم المهاجمين في حين يتضمنها التحليل النشط.
 
-### Safe Environment
+من المهم أن يفهم المحللون أنواع الأنشطة التي تتفاعل مباشرة مع البنية التحتية للمهاجمين وبالتالي يمكن اكتشافها، وبمجرد أن يفهم المحللون ذلك سيكونون قادرين على تكييف الأساليب التي يستخدمونها مع نماذج التهديد ذات الصلة.
 
-Depending on the sophistication of the attacks which you are dealing with, the sensitivity of the machine, data, and accounts you are utilizing, and even the sensitivity of your investigation activities and personal identity, you may need to adopt an appropriate safe environment for conducting investigation work. Consider the following suggestions when building your safety solution:
+نوصي بمراعاة الاحتياطات الأمنية التشغيلية التالية عند إجراء تحليلاتك:
 
-- Use a reputable VPN while doing any activity which might entail interacting with attacker infrastructure in order to avoid your actual IP from being logged by the attacker.
-- Select and utilize a specific browser on your device for this work which you pre-configure to reduce risk of malicious active content from running on your device. [NoScript](https://noscript.net/) is an excellent browser extension available on Firefox and Chromium-based browsers which will prevent the execution of scripts, allowing you to inspect any active content before execution.
-- Consider using a separate device for your analysis, or a separate virtual machine. This device and virtual machine should not be connected to any work or personal accounts, network attached storage or sensitive networks. It should not contain any sensitive information (unless you discover such information during your investigation).
-- Set up a special email address where targeted persons can forward suspicious emails they receive. (If they receive suspicious messages from a platform like WhatsApp, they can send a screenshot of the message via email). This email address does not need to be unique for each targeted person. Make sure this account is protected by a unique password and two-factor authentication and prevent your email client from automatically loading external content such as images. This is because images that are loaded from a server can alert the attacker that they are being investigated, and turn an investigation from a passive to an active one (see subtopic 6 for more detail);
-- Ensure you have a protected PC with up-to-date anti-malware protection in place to guard your computer handling malware analysis against any potential spillover of malware infection to your computer.
+### البيئة الآمنة
 
-### Defanging URLs
+حسب تعقيد الهجمات التي تتعامل معها، وحساسية الجهاز والبيانات والحسابات التي تستخدمها، وحتى حساسية أنشطة الفحص وهويتك الشخصية، قد تحتاج إلى تبني بيئة آمنة مناسبة لإجراء الفحص. يجب أن تراعي الاقتراحات التالية عند تكوين حل السلامة خاصتك:
 
-As you document potentially malicious URLs, it is common practice to ‘defang’ the URL so that the applications you use for notes or documentation do not automatically generate clickable links which unintentionally lead you (or anyone you are collaborating with) to click the link or otherwise instigate traffic to the URL from your working machine. Some applications, for example messengers, also automatically preview links (and fetch the content from a server in order to do so). Defanging URLs prevents them from doing so.
+- استخدم شبكة ظاهرية خاصة ذات سمعة طيبة أثناء القيام بأي نشاط قد يستلزم التفاعل مع البنية التحتية للمهاجم من أجل تجنّب تسجيل المهاجم لعنوان بروتوكول الإنترنت الفعلي الخاص بك. 
+- اختر متصفحًا معينًا على جهازك واستخدمه لهذا العمل والذي تقوم بتهيئته مسبقًا لتقليل مخاطر تشغيل المحتوى النشط الضار على جهازك. تُعد إضافة نو [سكريبت (NoScript)](https://noscript.net/)  إضافة متصفح ممتازة متاحة على متصفحات فايرفوكس (Firefox) والمستندة إلى كروميوم (Chromium) التي ستمنع تنفيذ البرمجيات النصية مما يسمح لك بفحص أي محتوى نشط قبل التنفيذ. 
+- يجب أن تراعي استخدام جهاز منفصلًا لتحليلاتك أو جهازًا افتراضيًا منفصلًا. يجب ألا يكون هذا الجهاز والجهاز الافتراضي متصلين بأي عمل أو حسابات شخصية أو تخزين متصل بالشبكة أو شبكات حساسة. يجب ألا يحتوي على أي معلومات حساسة (ما لم تكتشف مثل هذه المعلومات خلال الفحص الذي تقوم به). 
+- أعد عنوان بريد إلكتروني خاص يمكن للأشخاص المستهدفين إعادة توجيه رسائل البريد الإلكتروني المشبوهة التي يتلقونها. (إذا تلقوا رسائل مشبوهة من منصة مثل واتسآب يمكنهم إرسال لقطة شاشة للرسالة عبر البريد الإلكتروني). لا يلزم أن يكون عنوان البريد الإلكتروني هذا فريدًا لكل شخص مستهدف، ولكن تأكد من أن هذا الحساب محمي بكلمة مرور فريدة ومصادقة ثنائية وتأكد من منع عميل بريدك الإلكتروني تحميل المحتوى الخارجي مثل الصور تلقائيًا، ويعود سبب ذلك إلى أن الصور التي يتم تحميلها من الخادم يمكن أن تُنبه المهاجم إلى أنه يخضع للفحص وتحول التحقيق من تحقيق غير نشط إلى تحقيق نشط (انظر الموضوع الفرعي 6 لمزيد من التفاصيل).
+- تأكد من وجود جهاز كمبيوتر محمي مزود بحماية محدثة من البرمجيات الضارة لحماية جهاز الكمبيوتر الخاص بك من تحليل البرمجيات الضارة من أي انتشار محتمل لإصابة البرمجيات الضارة إلى جهاز الكمبيوتر الخاص بك.
 
-This is commonly done by replacing the protocol section of the URL with an invalid equivalent, and enclosing dots in the URL with [square brackets]. For example:
+### إزالة الضرر من عناوين الويب
+
+أثناء قيامك بتوثيق عناوين مواقع الويب التي يحتمل أن تكون ضارة، من الشائع "إزالة الضرر منها" بحيث لا تقوم تلقائيًا التطبيقات التي تستخدمها لتدوين الملاحظات أو التوثيق بإنشاء روابط قابلة للنقر تقودك عن غير قصد (أو أي شخص تتعاون معه) إلى النقر على الرابط أو إرسال حركة مرور إلى عنوان موقع الويب من جهاز العمل الخاص بك. تقوم بعض التطبيقات أيضًا مثل برامج المراسلة بعرض معاينة للروابط تلقائيًا (وتُحمل المحتوى من الخادم من أجل القيام بذلك) وتسمح إزالة ضرر عناوين موقع ويب بمنعهم من القيام بذلك.
+
+يجري ذلك عادة عن طريق استبدال قسم البروتوكول من عنوان موقع الويب بشيء لا يعمل ووضع [أقواس مربعة] حول النقاط في عنوان موقع الويب. على سبيل المثال: 
+
+
 
 | From live URL                                                      | To defanged URL                   |
 |--------------------------------------------------------------------|-----------------------------------|
@@ -55,33 +59,36 @@ This is commonly done by replacing the protocol section of the URL with an inval
 | ftp://192.168.12.20                                                | fxp://192[.]168[.]12[.]20          |
 
 
-This can be done manually using a text-only editor such as NotePad, Textedit, or Gedit. Also see utilities like [https://defang.me/](https://defang.me/) or search for Defang tools in [CyberChef](https://gchq.github.io/CyberChef).
 
-### Communicating with targeted persons and immediate next steps during an incident
+يمكن القيام بذلك يدويًا باستخدام محرر نصي فقط مثل نوتباد (NotePad) أو تكست إيدت (Textedit) أو جي إيدت (Gedit). راجع أيضًا الأدوات المساعدة مثل[https://defang.me/](https://defang.me/)  أو ابحث عن أدوات إزالة الضرر على[ سايبر شيف (CyberChef)](https://gchq.github.io/CyberChef).
 
-If you suspect that an attacker might have gained access to the targeted person’s email or messaging account or is monitoring their machine (the former might have been the result of a successful phishing attack, while the latter might be caused by malware, caused for example by running a malicious attachment), ask the targeted person not to use this machine and account until you can figure out what is going on. If possible, communicate with the targeted person through another account and another device—for example, Signal or WhatsApp on their personal device.
 
-If you suspect that a targeted person’s accounts might have been compromised, ask them to immediately change their passwords and force the account to log out of all other locations (most major services have a setting like this). This should stop the attacker from having any further access to the account. It will, however, alert them that the targeted person has realized that something is wrong. The attacker might already have downloaded a significant amount of data from the account.
+### لتواصل مع الأشخاص المستهدفين والخطوات التالية الفورية خلال وقوع حادث
+ا
+إذا كنت تشك بأن المهاجم قد تمكن من الوصول إلى البريد الإلكتروني للشخص المستهدف أو حساب مراسلته أو أنه يراقب أجهزته (قد يكون الأمر الأول نتيجة لهجوم تصيد ناجح، في حين يكون الأمر الثاني ناتجًا عن برمجيات ضارة، على سبيل المثال نتيجة تشغيل مرفق ضار)، اطلب من الشخص المستهدف عدم استخدام هذا الجهاز والحساب حتى تتمكن من معرفة ما يحدث. إذا كان ذلك ممكنًا، تواصل مع الشخص المستهدف من خلال حساب وجهاز آخرين - على سبيل المثال، سيغنال (Signal) أو واتسآب على جهازه الشخصي.
 
-If you suspect that a targeted person’s device has been compromised, ask them to change their account passwords on a different device and avoid using that device until an investigation is complete. Follow the steps outlined in the Malware Detection learning path.
+إذا كنت تشك باحتمال تعرض حسابات شخص مستهدف للاختراق، اطلب منه تغيير كلمات المرور الخاصة به على الفور وفرض تسجيل الخروج من حسابات من جميع المواقع الأخرى (تحتوي معظم الخدمات الرئيسية على خيار مشابه). ويجب أن يمنع هذا المهاجم من الوصول إلى الحساب مرة أخرى. لكن سوف ينبههم إلى أن الشخص المستهدف قد أدرك أن هناك خطأ ما. وربما يكون المهاجم قد قام بالفعل بتنزيل كمية كبيرة من بيانات الحساب.
 
-## Practice
+إذا كنت تشك في تعرض جهاز شخص مستهدف للاختراق، اطلب منه تغيير كلمات مرور حسابه على جهاز مختلف وتجنب استخدام هذا الجهاز حتى يكتمل التحقيق واتبع الخطوات الموضحة في مسار تعلّم اكتشاف البرمجيات الضارة.
 
-- With your VPN turned off (if it is safe to do so), go to a website which displays your IP address (those websites are easy to find, just look up ‘what is my IP’ in your favorite search engine). Think about what would happen if an attacker were to learn your IP address: does your IP address belong to a company or an office? \
-  Following this, turn on a reputable VPN and once again check what your IP address is. \
-  Finally, [read up on DNS leaks](https://mullvad.net/en/help/all-about-dns-servers-and-privacy) and test if your VPN is leaking DNS information (most VPNs have their own website which tests for DNS leaks, you can use your favorite search engine to find it!).
-- Defang the URL for [https://www.wikipedia.org/](https://www.wikipedia.org/). Paste the defanged URL into your web browser address bar and press enter. If it refuses to load the webpage, then it means that you have properly defanged the URL (the web browser might instead try to look for the defanged URL in a search engine, this is completely normal behavior).
 
-## Skill Check
+## الممارسة
 
-- Work with a peer or mentor who will send you a web bug token generated [here](https://canarytokens.org/generate#). Open this web bug on your analysis machine. Once you do, your peer or mentor will receive some information on the email address with which they registered the web bug, including your IP address and a brief description of your web browser called a user agent. Discuss those results with your peer or mentor: if you were conducting an active analysis, the attacker would likely see those details as well, since you would be using this machine to connect to servers they control.
+- بعد إيقاف تشغيل الشبكة الظاهرية الخاصة بك (إذا كان ذلك آمنًا)، انتقل إلى موقع ويب يعرض عنوان بروتوكول الإنترنت الخاص بك (يسهل العثور على مواقع الويب هذه، ما عليك سوى البحث عن "ما هو عنوان بروتوكول إنترنت الخاص بي" في محرك البحث المفضل لديك). فكر بم سيحدث إذا عرف المهاجم عنوان بروتوكول الإنترنت الخاص بك، هل يخص شركة أو مكتبًا؟
+ثم قم بتشغيل شبكة ظاهرية خاصة ذات سمعة طيبة وتحقق مرة أخرى من عنوان بروتوكول الإنترنت الخاص بك.
+أخيرًا، [اطلّع على تسريبات نظام أسماء المجالات (DNS)](https://mullvad.net/en/help/all-about-dns-servers-and-privacy) وجرّب الشبكة الظاهرية الخاصة بك لترى ما إذا كانت تُسرب معلومات خدمة أسماء المجالات (تتمتع معظم الشبكات الظاهرية الخاصة بموقع ويب خاص يختبر تسريب خدمة أسماء المجالات ويمكنك استخدام محرك بحثك المفضل لديك للعثور عليها).
+- قم بإزالة الضرر من عنوان موقع ويب [https://www.wikipedia.org/](https://www.wikipedia.org/) ثم الصق عنوان موقع ويب التي تمت إزالة ضرره في شريط عناوين متصفح الويب واضغط على إدخال. إذا لم يقم بتحميل صفحة الويب، سيعني ذلك أنك قد أزلت ضرره بشكل صحيح (قد يحاول متصفح الويب بدلًا من ذلك البحث عن عنوان موقع الويب منزوع الضرر في محرك بحث وهذا سلوك طبيعي تمامًا).
+  
+## اختبار مهارة
 
-## Learning Resources
+اعمل مع نظير أو مُرشِد ليرسل لك رمز تتبع تم إنشاؤه [هنا](https://canarytokens.org/generate#). افتح رمز التتبع هذا على جهاز التحليل الخاص بك. بمجرد القيام بذلك، سيتلقى النظير أو المُرشِد بعض المعلومات على عنوان البريد الإلكتروني الذي استخدمه للتسجيل والحصول على رمز التحليل، بما في ذلك عنوان بروتوكول الإنترنت الخاص بك ووصفًا موجزًا لمتصفح الويب الخاص بك يسمى وكيل المستخدم. ناقش هذه النتائج مع نظير أو مُرشِد، علمًا أنه في حال كنت تجري تحليلًا نشطًا من المحتمل أن يرى المهاجم هذه التفاصيل أيضًا لأنك ستستخدم هذا الجهاز للاتصال بالخوادم التي يتحكم فيها.
 
-{{% resource title="NoScript" languages="English" cost="Free" description="A browser extension for Firefox and Chromium-based browsers, which allows you to selectively block or allow the execution of JavaScript. When looking at potentially malicious websites, it enables you to load the site while disabling much of its potentially damaging functionality." url="https://noscript.net/" %}}
+## موارد التعلّم
 
-{{% resource title="Defang.me" languages="English" cost="Free" description="A tool which automatically defangs URLs and IP addresses." url="https://defang.me/" %}}
+{{% resource title="(NoScript) نو سكريبت" description="إضافة إلى متصفحات فايرفوكس والمتصفحات المستندة إلى كروميوم تسمح لك بحظر أو السماح بتنفيذ جافا سكريبت بشكل انتقائي. عند النظر إلى مواقع الويب التي يحتمل أن تكون ضارة، تسمح لك بتحميل الموقع مع تعطيل الكثير من وظائفه التي يحتمل أن تكون ضارة." languages="الإنجليزية" cost="مجانًا" url="https://noscript.net/" %}}
 
-{{% resource title="CyberChef" languages="English" cost="Free" description="A comprehensive tool for converting between different formats, also able to automatically defang URLs and IP addresses." url="https://gchq.github.io/CyberChef/" %}}
+{{% resource title="(Defang.me)  أداة ديفانغ دوت مي" description="الوصف : أداة تقوم تلقائيًا بإزالة الضرر من عناوين مواقع الويب وعناوين بروتوكول الإنترنت" languages="الإنجليزية" cost="مجانًا" url="https://defang.me/" %}}
+
+{{% resource title="(CyberChef)  أداة سايبر شيف" description="الوصف : أداة شاملة للتحويل بين التنسيقات المختلفة، وقادرة أيضًا تلقائيًا على إزالة الضرر من عناوين مواقع الويب وعناوين بروتوكول الإنترنت" languages="الإنجليزية" cost="مجانًا" url="https://gchq.github.io/CyberChef/" %}}
 
 
