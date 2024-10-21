@@ -66,8 +66,8 @@ weight: 1
    - [برو غيت بوك (Pro Git Book)](https://book.git-scm.com/book/en/v2) (متوفر بسبعة عشر لغة) لمقدمة ممتازة يمكن دراسة الفصول 1 حتى 3 بالإضافة إلى مواضيع مختارة في فصول أخرى
    - [غيت - الدليل البسيط (git - the simple guide)](https://rogerdudler.github.io/git-guide/index.html) (متوفر بستة عشر لغة) هو دليل ملخص لأوامر غيت. مفيد في حال كان لديك اطلاع عام على غيت ولكنك تحتاج إلى مرجع حول الأوامر وبناء الجملة.
    - [مرجع غيت المرئي (A Visual Git Reference ) ](https://marklodato.github.io/visual-git-guide/index-en.html) (متوفر بأربعة عشر لغة) - مرجع مرئي أكثر تقدمًا لفهم سير عمل غيت وأوامره.
-    - [مهارات غيت هب(GitHub Skills)](https://skills.github.com/)(الإنجليزية فقط).
-    - [أساسيات غيت لاب من غيت GitLab Git Essentials](https://levelup.gitlab.com/courses/gitlab-with-git-essentials-s2) (الإنجليزية فقط).
+   - [مهارات غيت هب(GitHub Skills)](https://skills.github.com/)(الإنجليزية فقط).
+   - [أساسيات غيت لاب من غيت GitLab Git Essentials](https://levelup.gitlab.com/courses/gitlab-with-git-essentials-s2) (الإنجليزية فقط).
 
  ## ما هي الأجهزة أو البرمجيات التي تحتاجها للتمارين؟
  
