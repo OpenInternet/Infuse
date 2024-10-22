@@ -1,8 +1,7 @@
 ---
 style: module
 title: "Passive Investigation - Analyze URLs, hostnames, and IP addresses"
-description: "يمكن للممارس استخدام المهارات الموضحة في هذا الموضوع الفرعي لبدء فحص غير نشط ضد الخوادم على الإنترنت. الفحص غير النشط هو فحص لا يقوم بتحميل أي مواقع ويب ولكنه يبحث فقط عن البيانات المتاحة للعامة عليها، وبالتالي لن يتم تنبيه المهاجم إلى أن موقعه على الويب تلقى زيارات إضافية مما قد ينبهه إلى وجود فحص جارٍ.  من خلال تقييم معلومات النطاق والملكية الفكرية، يمكن للمحقق العمل على توليد معلومات تقنية غنية حول الهجوم مفيدة لتثقيف المجتمع، ومشاركة معلومات التهديد، واكتشاف البنية التحتية للمهاجمين المرتبطين، ووضع الهجمات في سياق أنماط هجوم أوسع. 
-قد تكون بعض هذه المهارات ضرورية كجزء ضمن عملية التصنيف الأولية، على سبيل المثال لمساعدة المحلل على تحديد ما إذا كان الرابط مشبوهًا، وسيثبت أنها مفيدة للغاية أثناء التحليل المتعمق لرؤوس البريد الإلكتروني الموضحة في القسم التالي."
+description:يمكن للممارس استخدام المهارات الموضحة في هذا الموضوع الفرعي لبدء فحص غير نشط ضد الخوادم على الإنترنت. الفحص غير النشط هو فحص لا يقوم بتحميل أي مواقع ويب ولكنه يبحث فقط عن البيانات المتاحة للعامة عليها، وبالتالي لن يتم تنبيه المهاجم إلى أن موقعه على الويب تلقى زيارات إضافية مما قد ينبهه إلى وجود فحص جارٍ.  من خلال تقييم معلومات النطاق والملكية الفكرية، يمكن للمحقق العمل على توليد معلومات تقنية غنية حول الهجوم مفيدة لتثقيف المجتمع، ومشاركة معلومات التهديد، واكتشاف البنية التحتية للمهاجمين المرتبطين، ووضع الهجمات في سياق أنماط هجوم أوسع. قد تكون بعض هذه المهارات ضرورية كجزء ضمن عملية التصنيف الأولية، على سبيل المثال لمساعدة المحلل على تحديد ما إذا كان الرابط مشبوهًا، وسيثبت أنها مفيدة للغاية أثناء التحليل المتعمق لرؤوس البريد الإلكتروني الموضحة في القسم التالي.
 weight: 4
 ---
 
@@ -77,209 +76,159 @@ weight: 4
 
 #### الحصول على المعلومات الأساسية حول بروتوكول الإنترنت/نظام أسماء المجالات
 
-
-#### Discovering Hidden DNS/IP Information
-
-There are a variety of ways that one can obtain additional information about hosts in a domain. Do note, however, that most of those techniques only work some of the time and often fail. If one of them does not work, do not be discouraged. Some of these methods include:
-
-- Using DNS Zone Transfers. A feature (usually disabled over the internet) of authoritative DNS servers is to give out their entire set of DNS records for a given domain. Its intended use is to synchronize replica servers to the primary server. Check [out this guide](https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/) on how to use dig and other tools to figure out subdomains based on DNS zone transfers.
-- Brute-forcing subdomains. One can simply guess subdomains using a list of common subdomain prefixes and ask the DNS server for those servers’ IP addresses. (e.g. webmail.attacker.com, vpn.attacker.com, remoteaccess.attacker.com, etc.) So long as the server gives a NXDOMAIN (no such domain) response for non-existent hostnames, one can often find hidden domains this way. This [guide on enumerating subdomains](https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/) also lists some brute forcing tools.
-- Reverse-lookup of adjacent IP addresses. Some DNS servers will let you look up the hostname for an IP address. It is common for self-hosted infrastructure to exist in a small block of IP addresses. Given this, it’s sometimes possible to, given one hostname's IP address (e.g. 127.0.0.5), look up the hostnames of nearby IP addresses (e.g. 127.0.0.1-127.0.0.254).
-
-There exist tools that use these and other techniques to try to discover additional network resources. One of the first of these, still under development, is called [Fierce](https://www.kali.org/tools/fierce/). Another popular tool is [DNS Recon](https://securitytrails.com/blog/dnsrecon-tool). This [blog post describing DNSRecon](https://securitytrails.com/blog/dnsrecon-tool#content-alternatives-to-dnsrecon) also includes a list of other popular DNS enumeration tools.
-
-#### Enriching IP/DNS information using Internet Scanner Services
-
-Once you have obtained identifier information (domains and IPs) you can search this data in greater depth using some services which allow you to investigate additional information about the host and any associated activity around it.
-
-Learn how to view open ports, active services, and service banners from a given IP by using one of numerous web intelligence scanning services. Note that this is still a passive investigation technique as these services repeatedly scan the web for their data sets and you will not be initiating new activity on the infrastructure of interest:
-
-- Use [Censys Search](https://search.censys.io/) to observe open ports, running services, TLS certificates, and more for a given IP.
-- Use [Shodan ](https://www.shodan.io/)(subscription required for some features, and requires utilization of Shodan filters in queries, see [reference](https://www.shodan.io/search/filters) and [examples](https://www.shodan.io/search/examples)) to search for information on services running on a server by IP address. Shodcan can also search for all servers running a service with a particular banner.
-- Use [DNS Dumpster](https://dnsdumpster.com/) to look up the potential attack surfaces of internet facing services.
-
-These and similar services and databases can help you identify the activities and history of a specified server/service.
-
-Other scanner services also collect **DNS history**, allowing you to peer back in time to learn what other domain _resolutions_ have appeared for a given IP, when they appeared/disappeared, as well as subdomains for a given domain.
-
-- [Security Trails](https://securitytrails.com/)
-- [Microsoft Defender XDR](https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr)(formerly RiskIQ) provides limited DNS history and resolutions data to free-tier customers.
-
-#### Enriching IP/DNS information using threat intelligence databases
-
-Several services will collect indicators of threats and history of malicious behavior. If you need to ensure that no new scanning activity is initiated (which would be active investigation), ensure that you are not initiating a new scan with your search (for instance, while VirusTotal allows you to check a URL, it will launch a new scan against the URL, thereby initiating activity which could be detected as an investigation).
-
-- [Alienvault OTX](https://otx.alienvault.com/) is a community-driven open resource for malicious indicators. Searching for an IP or host name will display useful OSINT information as well as records of any malicious activity previously obtained.
-- [Mandiant Advantage](https://www.mandiant.com/multi-vendor-security-platform-free-access) (owned by Google) provides search limited functionality on their free tier.
-
-#### Using Certificate Search
-
-Almost every website a user will encounter now uses HTTPS, which uses a technology known as TLS (Transport Layer Security). Malicious websites use it too, in part playing on users' beliefs that HTTPS and a lock appearing in the browser's URL bar means that the website is therefore safe, regardless of other factors.
-
-As TLS certificates must be signed by a trusted Certificate Authority (CA) in order to be trusted by the browser, a substantial amount of data about the domain may be available for your investigation as you look for shared infrastructure, subdomains, identifiers, and other assets.
-
-Rich certificate data is publicly available thanks to the practice of Certificate Transparency, in which Certificate Authorities add all certificates issued to a tamper-resistant public log. It can be helpful to understand this system - see a brief overview at the [Certificate Transparency website](https://certificate.transparency.dev/) or take a deeper dive in their technical overview at [How CT Works](https://certificate.transparency.dev/howctworks/). It’s useful for learners who want to learn more about tracking and detecting malicious infrastructure to have a broad understanding of this system.
-
-Making practice use of certificate search involves searching for domains, subdomains, IPs, identifying interesting information such as dates of issue, and correlating information found in issued certificates.
-
-Read through the guide at [Certificates: The OSINT Gift that Keeps on Giving…](https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/) which describes key investigative fields and searches using Censys and Shodan, and watch the accompanying [10-minute video on YouTube](https://www.youtube.com/watch?v=XHltHamQVoA) which carries out the same search using [crt.sh](https://crt.sh/). It is useful to be able to use all three search utilities. In particular, ensure you understand:
-
-- What are some of the ‘interesting’ fields within a certificate when conducting an investigation
-- How to search within those fields on the various platforms
-- How to identify subdomains, host IPs, alternative domains issued for a certificate.
-
-Note that the Censys search API syntax changed in 2021 and some of the searches in the above tutorials will not work. For instance instead of “parsed.names:” simply use “names:” in the new syntax.
-
-Many tools have been built around certificate transparency logs. For instance, try enumerating for subdomains using [MassDNS ](https://github.com/blechschmidt/massdns#reconnaissance-by-brute-forcing-subdomains)(see instructions for using scripts/ct.py on the READMe page).
-
-Censys offers further reading on advanced techniques for tracking and hunting for threat actors using their platform at [Advanced Persistent Infrastructure Tracking](https://censys.com/advanced-persistent-infrastructure-tracking/).
-
-**Things to note**
-
-When you use a tool such as WHOIS, you will find many addresses which are hidden behind Cloudflare or similar services. This means that the administrators of this address are partially hosting it using a major third party service, for example to maintain greater anonymity or for DDoS protection. Similarly, many domains use privacy services to make sure that their data does not show up in WHOIS. Some people also put fake data into WHOIS. If this is the case, then analyzing the address through WHOIS will not yield a lot of good information (save perhaps for the creation date of the domain) and you'll need to use alternative forms of analysis.
-
-Many malicious URLs used in phishing emails utilize (sometimes multiple) redirects, meaning the initial URL may be less relevant for analysis. Identifying redirects and other IPs involved will require active interaction with the URL, which is covered in Active Investigation skill.
-
-Attackers can host their own DNS server and track requests. In this case, DNS requests may not be "passive" and may alert the attacker of the investigation. Especially look out for hostnames that might have identifiers in them, like r2378r233yr39wjwr.example.com.
-
-
-## Practice
-
-Choose a random-ish domain name, making sure that it is not hosted behind a content distribution/reverse-proxy service such as Cloudflare (you can figure it out by quickly searching for it using a tool such as dig and using the NS option to look for name servers). Using the above tool categories, investigate the domain and try to explain:
-
-- Where is the domain registered, and if available, who registered the domain?
-- What is the domain’s IP address?
-- Who manages that IP address?
-- Where is that server located?
-- (If practitioners have access to Shodan or Censys) What services are running on that server?
-- What other domains are hosted at the same IP?
-- Can you find any sub-domains for that domain?
-
-## Skill Check
-
-Sit down with a peer or a mentor who has significant experience in passive investigation against servers on the internet. Then:
-
-- Complete the [passive reconnaissance room](https://tryhackme.com/room/passiverecon) on TryHackMe.
-- Carry out the above Practice Exercises, ideally on a different domain, and go through your process and findings with your peer or mentor. Have them review your work and provide feedback on both the process and results. It might be a good exercise to discuss specifically how to find subdomains running on that domain and to discuss the accuracy of geoIP lookups concerning those domains. As an optional extra, sit down with the mentor or peer to run through some advanced dig settings and set up a basic automation together, for example asking dig to load a list of domains from a text file and provide information on them.
-- If you have a real-world phishing message (or alternatively, take a phishing domain from [PhishTank](https://phishtank.org/) and analyze that, note that the website collects domains rather than messages), carry out the passive investigation outlined in the practice exercise (carefully!) while conferring with a peer or mentor. Document your findings and your process. Have them review your work and provide feedback on both the process and results.
-
-
-
- 
-
-اكتشاف المعلومات المخفية من نظام أسماء المجالات/بروتوكول الإنترنت
 توجد مجموعة متنوعة من الطرق التي يمكن للمرء من خلالها الحصول على معلومات إضافية حول المضيفين في النطاق. لكن لاحظ أن معظم هذه التقنيات لا تعمل إلا في بعض الأحيان وغالبًا ما تفشل، ولكن لا تدع عزيمتك تثبط في حال عدم عمل إحداها، وتشمل بعض هذه الطرق ما يلي:
-استخدام عمليات نقل منطقة نظام أسماء المجالات. تتمثل إحدى ميزات خوادم نظام أسماء المجالات الموثوقة (عادةً ما يتم تعطيلها عبر الإنترنت) في تقديم مجموعة كاملة من سجلات نظام أسماء المجالات لنطاق معين. الغرض من استخدامها في مزامنة خوادم النسخة المتماثلة مع الخادم الأساسي. اطلّع على هذا الدليل حول كيفية استخدام dig والأدوات الأخرى لمعرفة النطاقات الفرعية بناءً على عمليات نقل منطقة نظام أسماء المجالات.
-استخدام القوة العمياء لمعرفة نطاقات فرعية. يمكن للمرء ببساطة تخمين النطاقات الفرعية باستخدام قائمة من بادئات النطاقات الفرعية الشائعة وسؤال خادم نظام أسماء المجالات عن عناوين بروتوكول الإنترنت لتلك الخوادم. (على سبيل المثال webmail.attacker.com وvpn.attacker.com وremoteaccess.attacker.com، إلخ.) طالما أن الخادم يعطي استجابة NXDOMAIN (هذا النطاق غير موجود) لأسماء المضيف غير الموجودة، يمكن للمرء في كثير من الأحيان العثور على النطاقات المخفية بهذه الطريقة. يسرد هذا الدليل حول تعداد النطاقات الفرعية أيضًا بعض أدوات القوة العمياء.
-إجراء بحث عكسي لعناوين بروتوكول الإنترنت المجاورة، حيث ستتيح لك بعض خوادم نظام أسماء المجالات البحث عن اسم المضيف لعنوان بروتوكول إنترنت. من الشائع وجود البنية التحتية المستضافة ذاتيًا في مجموعة صغيرة من عناوين بروتوكول الإنترنت. بالنظر إلى ذلك، من الممكن أحيانًا بالنظر إلى عنوان بروتوكول إنترنت لاسم مضيف واحد (على سبيل المثال 127.0.0.5)، البحث عن أسماء المضيف لعناوين بروتوكول الإنترنت القريبة (على سبيل المثال 127.0.0.1-127.0.0.254).
-توجد أدوات تستخدم هذه التقنيات وغيرها لمحاولة اكتشاف موارد الشبكة الإضافية، وإحدى أولى هذه الأدوات التي لا تزال قيد التطوير هي فيرس (Fierce) وإحدى الأدوات الشائعة الأخرى هي دي إن إس ريكون (DNS Recon). يتضمن منشور المدونة هذا الذي يصف دي إن إس ريكون (DNSRecon) أيضًا قائمة بأدوات تعداد نظام أسماء المجالات الشائعة الأخرى.
-إثراء معلومات بروتوكول الإنترنت/نظام أسماء المجالات باستخدام خدمات ماسح الإنترنت 
+
+- استخدام عمليات نقل منطقة نظام أسماء المجالات. تتمثل إحدى ميزات خوادم نظام أسماء المجالات الموثوقة (عادةً ما يتم تعطيلها عبر الإنترنت) في تقديم مجموعة كاملة من سجلات نظام أسماء المجالات لنطاق معين. الغرض من استخدامها في مزامنة خوادم النسخة المتماثلة مع الخادم الأساسي. اطلّع على هذا [الدليل](https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/) حول كيفية استخدام dig والأدوات الأخرى لمعرفة النطاقات الفرعية بناءً على عمليات نقل منطقة نظام أسماء المجالات.
+- استخدام القوة العمياء لمعرفة نطاقات فرعية. يمكن للمرء ببساطة تخمين النطاقات الفرعية باستخدام قائمة من بادئات النطاقات الفرعية الشائعة وسؤال خادم نظام أسماء المجالات عن عناوين بروتوكول الإنترنت لتلك الخوادم. (على سبيل المثال webmail.attacker.com وvpn.attacker.com وremoteaccess.attacker.com، إلخ.) طالما أن الخادم يعطي استجابة NXDOMAIN (هذا النطاق غير موجود) لأسماء المضيف غير الموجودة، يمكن للمرء في كثير من الأحيان العثور على النطاقات المخفية بهذه الطريقة. يسرد هذا [الدليل حول تعداد النطاقات الفرعية](https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/) أيضًا بعض أدوات القوة العمياء.
+- إجراء بحث عكسي لعناوين بروتوكول الإنترنت المجاورة، حيث ستتيح لك بعض خوادم نظام أسماء المجالات البحث عن اسم المضيف لعنوان بروتوكول إنترنت. من الشائع وجود البنية التحتية المستضافة ذاتيًا في مجموعة صغيرة من عناوين بروتوكول الإنترنت. بالنظر إلى ذلك، من الممكن أحيانًا بالنظر إلى عنوان بروتوكول إنترنت لاسم مضيف واحد (على سبيل المثال 127.0.0.5)، البحث عن أسماء المضيف لعناوين بروتوكول الإنترنت القريبة (على سبيل المثال 127.0.0.1-127.0.0.254).
+- 
+توجد أدوات تستخدم هذه التقنيات وغيرها لمحاولة اكتشاف موارد الشبكة الإضافية، وإحدى أولى هذه الأدوات التي لا تزال قيد التطوير هي [فيرس (Fierce)](https://www.kali.org/tools/fierce/) وإحدى الأدوات الشائعة الأخرى هي د[ي إن إس ريكون (DNS Recon)](https://securitytrails.com/blog/dnsrecon-tool). يتضمن [منشور المدونة هذا الذي يصف دي إن إس ريكون (DNSRecon)](https://securitytrails.com/blog/dnsrecon-tool#content-alternatives-to-dnsrecon) أيضًا قائمة بأدوات تعداد نظام أسماء المجالات الشائعة الأخرى.
+
+
+
+#### إثراء معلومات بروتوكول الإنترنت/نظام أسماء المجالات باستخدام خدمات ماسح الإنترنت
+
 بمجرد حصولك على معلومات المعرّف (النطاقات وعناوين بروتوكول الإنترنت)، يمكنك البحث في هذه البيانات بعمق أكبر باستخدام بعض الخدمات التي تسمح لك بالتحقيق في معلومات إضافية حول المضيف وأي نشاط مرتبط به. 
+
 تعرّف على كيفية عرض المنافذ المفتوحة والخدمات النشطة وشرائط الخدمة من عنوان بروتوكول إنترنت معين باستخدام واحدة من العديد من خدمات المسح الذكي للويب. لاحظ أن هذا لا يزال أسلوب فحص غير نشط لأن هذه الخدمات تفحص الويب بشكل متكرر بحثًا عن مجموعات بياناتها ولن تبدأ نشاطًا جديدًا على البنية التحتية قيد الدراسة:
-استخدم سينسيس سيرش (Censys Search) لمراقبة المنافذ المفتوحة، وتشغيل الخدمات، وشهادات بروتوكول أمان طبقة النقل، والمزيد حول عنوان بروتوكول إنترنت معين.
-استخدم شودان (Shodan)(تتطلب الاشتراك لبعض الميزات وتتطلب استخدام فلاتر شودان في الاستعلامات، انظر المرجع والأمثلة) للبحث عن معلومات حول الخدمات التي تعمل على الخادم حسب عنوان بروتوكول إنترنت. يمكن لشودان أيضًا البحث عن جميع الخوادم التي تدير خدمة ذات شعار معين.
-استخدم دي إن إس دمبستر (DNS Dumpster) للبحث عن الأجزاء المعرضة للهجوم المحتملة للخدمات التي تواجه الإنترنت.
+
+- استخدم [سينسيس سيرش (Censys Search)](https://search.censys.io/)  لمراقبة المنافذ المفتوحة، وتشغيل الخدمات، وشهادات بروتوكول أمان طبقة النقل، والمزيد حول عنوان بروتوكول إنترنت معين.
+- استخدم [شودان (Shodan)](https://www.shodan.io/)(تتطلب الاشتراك لبعض الميزات وتتطلب استخدام فلاتر شودان في الاستعلامات، انظر المرجع والأمثلة) للبحث عن معلومات حول الخدمات التي تعمل على الخادم حسب عنوان بروتوكول إنترنت. يمكن لشودان أيضًا البحث عن جميع الخوادم التي تدير خدمة ذات شعار معين.
+- استخدم )[دي إن إس دمبستر (DNS Dumpster](https://dnsdumpster.com/) للبحث عن الأجزاء المعرضة للهجوم المحتملة للخدمات التي تواجه الإنترنت.
+
 يمكن أن تساعدك هذه الخدمات وقواعد البيانات المماثلة في تحديد أنشطة وتاريخ خادم/خدمة محددة.
-تجمع خدمات المسح الأخرى أيضًا سجل نظام أسماء النطاقات مما يسمح لك بالرجوع في الوقت المناسب لمعرفة تحليلات النطاق الأخرى التي ظهرت لعنوان بروتوكول إنترنت معين ومتى ظهرت أو اختفت، بالإضافة إلى النطاقات الفرعية لنطاق معين.
-المسارات الأمنية (Security Trails)
- يوفر تحليل مايكروسوفت ديفندر الذكي للمخاطر (Microsoft Defender Threat Intelligence) (المعروف سابقًا باسم ريسك آي كيو) تاريخًا محدودًا لنظام أسماء النطاقات والتحليلات لعملاء درجتاه المجانية.
-إثراء معلومات بروتوكول الإنترنت/نظام أسماء المجالات باستخدام قواعد بيانات معلومات التهديد
+
+تجمع خدمات المسح الأخرى أيضًا **سجل نظام أسماء النطاقات** مما يسمح لك بالرجوع في الوقت المناسب لمعرفة تحليلات النطاق الأخرى التي ظهرت لعنوان بروتوكول إنترنت معين ومتى ظهرت أو اختفت، بالإضافة إلى النطاقات الفرعية لنطاق معين.
+
+- [المسارات الأمنية (Security Trails)](https://securitytrails.com/)
+- يوفر تحليل[ مايكروسوفت ديفندر الذكي للمخاطر (Microsoft Defender Threat Intelligence)](https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr) (المعروف سابقًا باسم ريسك آي كيو) تاريخًا محدودًا لنظام أسماء النطاقات والتحليلات لعملاء درجتاه المجانية.
+
+
+#### إثراء معلومات بروتوكول الإنترنت/نظام أسماء المجالات باستخدام قواعد بيانات معلومات التهديد
+
 ستقوم عدة خدمات بجمع مؤشرات التهديدات وتاريخ السلوك الضار. إذا كنت بحاجة إلى التأكد من عدم بدء أي نشاط مسح جديد (والذي سيكون تحقيقًا نشطًا)، تأكد من أنك لا تبدأ فحصًا جديدًا باستخدام بحثك (على سبيل المثال، بينما يسمح لك فايروس توتال (VirusTotal) بالتحقق من عنوان موقع ويب، فسيطلق فحصًا جديدًا مقابل عنوان موقع ويب، وبالتالي بدء النشاط الذي يمكن كشف أنه تحقيق). 
-ألين فولت أو تي إكس (Alienvault OTX) هو مورد مفتوح يوجهه المجتمع متعلق بالمؤشرات الضارة، وسيعرض البحث عن عنوان بروتوكول إنترنت أو اسم مضيف معلومات مفيدة عن استخبارات المصادر المفتوحة بالإضافة إلى سجلات أي نشاط ضار تم الحصول عليه مسبقًا.
-توفر مانديانت أدفنتيج (Mandiant Advantage) (التي تملكها شركة غوغل (Google)) وظائف بحث محدودة على درجتها المجانية. 
-استخدام البحث عن الشهادات
+
+- ألين فولت أو تي إكس [Alienvault OTX](https://otx.alienvault.com) هو مورد مفتوح يوجهه المجتمع متعلق بالمؤشرات الضارة، وسيعرض البحث عن عنوان بروتوكول إنترنت أو اسم مضيف معلومات مفيدة عن استخبارات المصادر المفتوحة بالإضافة إلى سجلات أي نشاط ضار تم الحصول عليه مسبقًا.
+- توفر [مانديانت أدفنتيج (Mandiant Advantage)](https://www.mandiant.com/multi-vendor-security-platform-free-access) (التي تملكها شركة غوغل (Google)) وظائف بحث محدودة على درجتها المجانية. 
+
+
+#### استخدام البحث عن الشهادات
+
 يستخدم كل موقع ويب تقريبًا يواجهه المستخدم الآن بروتوكول نقل نص تشعبي (HTTPS)، والذي يستخدم تقنية تعرف باسم بروتوكول أمان طبقة النقل (Transport Layer Security واختصارًا TLS). تستخدمه مواقع الويب الضارة أيضًا مما يؤدي جزئيًا إلى اعتقاد المستخدمين بأن بروتوكول نقل نص تشعبي والقفل الذي يظهر في شريط عناوين مواقع ويب للمتصفح يعني أن موقع الويب آمن بغض النظر عن العوامل الأخرى.
 
 نظرًا لأنه يجب توقيع شهادات بروتوكول أمان طبقة النقل من قبل هيئة شهادات موثوقة (Certificate Authority) حتى يثق بها المتصفح، قد تتوفر كمية كبيرة من البيانات حول النطاق لتحقق فيه أثناء البحث عن البنية التحتية المشتركة والنطاقات الفرعية والمعرفات والأصول الأخرى. 
 
-تتوفر كمية كبيرة من بيانات الشهادات للعامة بفضل ممارسة شفافية الشهادات حيث تضيف سلطات الشهادات جميع الشهادات الصادرة إلى سجل عام مقاوم للتلاعب. قد يكون من المفيد فهم هذا النظام، لذا اطلّع على نظرة عامة موجزة على موقع شفافية الشهادات أو تعمّق في نظرة عامة فنية حول كيفية عمل شفافية الشهادات ومن المفيد للمتعلّمين الذين يرغبون في معرفة المزيد حول تتبع واكتشاف البنية التحتية الضارة أن يكون لديهم فهم واسع لهذا النظام.
+تتوفر كمية كبيرة من بيانات الشهادات للعامة بفضل ممارسة شفافية الشهادات حيث تضيف سلطات الشهادات جميع الشهادات الصادرة إلى سجل عام مقاوم للتلاعب. قد يكون من المفيد فهم هذا النظام، لذا اطلّع على نظرة عامة موجزة على  [ موقع شفافية الشهادات Certificate Transparency website](https://certificate.transparency.dev/) أو تعمّق في نظرة عامة فنية حول [كيفية عمل شفافية الشهادات](https://certificate.transparency.dev/howctworks/) ومن المفيد للمتعلّمين الذين يرغبون في معرفة المزيد حول تتبع واكتشاف البنية التحتية الضارة أن يكون لديهم فهم واسع لهذا النظام.
 
 يمكن التمرّن على استخدام البحث عن الشهادات للنطاقات والنطاقات الفرعية وعناوين بروتوكول الإنترنت وتحديد المعلومات المثيرة للاهتمام مثل تواريخ الإصدار والمعلومات المرتبطة الموجودة في الشهادات الصادرة.
 
-اقرأ الدليل في الشهادات: هدية استخبارات المصادر المفتوحة التي تتابع العطاء... والتي تصف مجالات الفحص الرئيسية وعمليات البحث باستخدام سينسيس وشودان، وشاهد الفيديو المرفق الذي مدته 10 دقائق على يوتيوب  والذي ينفذ البحث ذاته باستخدام سي آر تي دوت إس إش (crt.sh). من المفيد أن تكون قادرًا على استخدام جميع أدوات البحث الثلاثة وعلى وجه الخصوص تأكد من فهمك لما يلي:
-ماهية بعض الحقول "المثيرة للاهتمام" ضمن الشهادة عند إجراء تحقيق
-كيفية البحث ضمن تلك الحقول على المنصات المختلفة
-كيفية تحديد النطاقات الفرعية وعناوين بروتوكول الإنترنت المضيفة والنطاقات البديلة الصادرة لشهادة.
+اقرأ الدليل في [الشهادات: هدية استخبارات المصادر المفتوحة التي تتابع العطاء...](https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/) والتي تصف مجالات الفحص الرئيسية وعمليات البحث باستخدام سينسيس وشودان، وشاهد الفيديو المرفق الذي مدته  10 دقائق على يوتيوب](https://www.youtube.com/watch?v=XHltHamQVoA) والذي ينفذ البحث ذاته باستخدام [سي آر تي دوت إس إش (crt.sh)](https://crt.sh/). من المفيد أن تكون قادرًا على استخدام جميع أدوات البحث الثلاثة وعلى وجه الخصوص تأكد من فهمك لما يلي:
+
+- ماهية بعض الحقول "المثيرة للاهتمام" ضمن الشهادة عند إجراء تحقيق
+- كيفية البحث ضمن تلك الحقول على المنصات المختلفة
+- كيفية تحديد النطاقات الفرعية وعناوين بروتوكول الإنترنت المضيفة والنطاقات البديلة الصادرة لشهادة.
 
 لاحظ أن بناء جملة واجهة برمجة تطبيقات البحث لسينسيس قد تغير في عام 2021 وأن بعض عمليات البحث في الأدلة التعليمية المذكورة أعلاه لن تعمل. على سبيل المثال، بدلًا من "parsed.names :" استخدم ببساطة ":names" في بناء الجملة الجديد.
 
-بُنيت العديد من الأدوات حول سجلات شفافية الشهادة، وعلى سبيل المثال حاول تعداد النطاقات الفرعية باستخدام ماس دي إن إس (MassDNS) (انظر تعليمات استخدام scripts/ct.py على صفحة READMe).
+بُنيت العديد من الأدوات حول سجلات شفافية الشهادة، وعلى سبيل المثال حاول تعداد النطاقات الفرعية باستخدام [ماس دي إن إس (MassDNS) ](https://github.com/blechschmidt/massdns#reconnaissance-by-brute-forcing-subdomains) (انظر تعليمات استخدام scripts/ct.py على صفحة READMe).
 
-تُقدم سينسيس مقالات إضافية القراءة حول التقنيات المتقدمة لتتبع ممثلي التهديد ومطاردتهم باستخدام منصتها في التتبع المتقدم للبنية التحتية التي تستمر في البقاء.
-موارد التعلّم
-
+تُقدم سينسيس مقالات إضافية القراءة حول التقنيات المتقدمة لتتبع ممثلي التهديد ومطاردتهم باستخدام منصتها في  [التتبع المتقدم للبنية التحتية Advanced Persistent Infrastructure Tracking](https://censys.com/advanced-persistent-infrastructure-tracking/)التي تستمر في البقاء
 
 
-## Learning Resources
+## الممارسة
 
-{{% resource title="What is a URL?" languages="Chinese, English, French, Japanese, Korean, Russian, Spanish" cost="Free" description="A brief overview of what URLs are, how they are constructed, and what additional features (anchors and the like) they might have." url="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" %}}
+اختر اسم نطاق عشوائي، وتأكد من عدم استضافته خلف خدمة توزيع المحتوى/الوكيل العكسي مثل كلاود فلير (يمكنك اكتشافه من خلال البحث السريع عنه باستخدام أداة مثل dig واستخدام خيار NS للبحث عن خوادم الأسماء). باستخدام فئات الأدوات المذكورة أعلاه، تحقق من المجال وحاول شرح:
 
-{{% resource title="Introduction to DNS" languages="Video in English, text in Arabic, Bahasa Indonesian, German, Spanish, French, Italian, Portuguese, Vietnamese, Turkish, Russian, Thai, Japanese, Korean, Chinese, Taiwanese" cost="Free" description="A basic overview of how DNS works." url="https://aws.amazon.com/route53/what-is-dns/" %}}
+- مكان تسجيل النطاق وفي حال كان متاحًا، فمن قام بتسجيله؟
+- ما هو عنوان بروتوكول إنترنت؟
+- من يدير عنوان بروتوكول الإنترنت هذا؟
+- أين يقع هذا الخادم؟
+- (إذا كان بإمكان الممارسين الوصول إلى شودان أو سينسيس) ما هي الخدمات التي يتم تشغيلها على هذا الخادم؟
+- ما النطاقات الأخرى المستضافة على عنوان بروتوكول الإنترنت ذاته؟
+- هل يمكنك العثور على أي نطاقات فرعية لهذا المجال؟
 
-{{% resource title="Overview of DNS record types" languages="English, German, Spanish, French, Italian, Japanese, Korean, Portuguese, Taiwanese, Mandarin" cost="Free" description="Includes the most common record types, and some less common ones." url="https://www.cloudflare.com/learning/dns/dns-records/" %}}
+## اختبار مهارة
 
-{{% resource title="Using the dig command" languages="English" cost="Free" description="How to query for information about IP addresses." url="https://phoenixnap.com/kb/linux-dig-command-examples" %}}
+اجلس مع نظير أو مُرشِد لديه خبرة كبيرة في الفحص غير النشط ضد الخوادم على الإنترنت، ثم:
 
-{{% resource title="doggo" languages="English" cost="Free" description="An alternative to the dig command, with very similar functionality but differently formatted output." url="https://github.com/mr-karan/doggo" %}}
+- أكمل غرفة  على تراي هاك مي (TryHackMe)[الاستطلاع غير النشط passive reconnaissance room](https://tryhackme.com/room/passiverecon).
+- نفّذ تمارين التدريب المذكورة أعلاه، ومن الناحية المثالية على مجال مختلف واستعرض عمليتك ونتائجك مع نظير أو مُرشِد، اطلب منه مراجعة عملك وتقديم ملاحظات حول كل من العملية والنتائج. قد يكون من الجيد مناقشة كيفية العثور على النطاقات الفرعية التي تعمل على هذا المجال على وجه التحديد ومناقشة دقة عمليات بحث قاعدة بيانات جيو آي بي المتعلقة بتلك المجالات. ويمكن أيضًا أن تجلس مع النظير أو المُرشِد للمرور على بعض إعدادات dig المتقدمة وإعداد أتمتة أساسية معًا على سبيل المثال كي تطلب من dig تحميل قائمة بالنطاقات من ملف نصي وتقديم معلومات عنها.
+- ذا كان لديك رسالة تصيد احتيالي فعلية (أو بدلًا من ذلك احصل على نطاق تصيد احتيالي من [فيش تانك (PhishTank](https://phishtank.org/)) وحللها ولاحظ أن موقع الويب يجمع النطاقات بدلًا من الرسائل)، ثم أجر الفحص غير النشط الموضح في تمرين الممارسة بحذر شديد أثناء التشاور مع نظير أو مُرشِد ثم وثّق النتائج التي توصلت إليها وعمليتك. اطلب منه مراجعة عملك وتقديم ملاحظات حول كل من العملية والنتائج.
 
-{{% resource title="host command in Linux with examples" languages="English" cost="Free" description="A guide on how to use the host command in Linux, another commonly used tool to analyze servers and other types of infrastructure." url="https://www.geeksforgeeks.org/host-command-in-linux-with-examples/" %}}
 
-{{% resource title="Further DNS reconnaissance: DNSRecon" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://securitytrails.com/blog/dnsrecon-tool" %}}
 
-{{% resource title="Further DNS reconnaissance: Fierce (resoucrce 1)" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://www.kali.org/tools/fierce/" %}}
 
-{{% resource title="Further DNS reconnaissance: Fierce (resource 2)" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
+## موارد التعلّم
 
-{{% resource title="Further DNS reconnaissance: VirusTotal" languages="English" cost="Free" description="Various tools to automate searching for related servers." url="https://docs.virustotal.com/docs/how-it-works" %}}
+{{% resource title="ما هي عنوان موقع الويب؟" description="نظرة عامة موجزة على عناوين مواقع الويب، وكيفية إنشائها، والميزات الإضافية (نصوص الربط وما شابه ذلك) التي قد تكون لديها" languages="الإسبانية والإنجليزية والروسية والصينية والعربية والفرنسية" cost="مجانًا" url="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" %}}
 
-{{% resource title="GeoIP" languages="English" cost="Free for limited quantities" description="Look up the (likely) physical location of a server by IP address." url="https://www.maxmind.com/en/geoip-demo" %}}
+{{% resource title="مقدمة إلى نظام أسماء المجالات" description="نظرة عامة أساسية حول كيفية عمل نظام أسماء النطاقات" languages="فيديو باللغة الإنجليزية مع نص باللغة العربية والبهاسا الإندونيسية والألمانية والإسبانية والفرنسية والإيطالية والبرتغالية والفيتنامية والتركية والروسية والتايلاندية واليابانية والكورية والصينية والتايوانية" cost="مجانًا" url="https://aws.amazon.com/route53/what-is-dns/" %}}
 
-{{% resource title="whois/RDAP: who.is search" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://who.is/" %}}
+{{% resource title="نظرة عامة على أنواع سجلات نظام أسماء النطاقات" description="تتضمن أنواع السجلات الأكثر شيوعًا وبعضها الأقل شيوعًا" languages="الإنجليزية والألمانية والإسبانية والفرنسية والإيطالية واليابانية والكورية والبرتغالية والتايوانية والماندرين" cost="مجانًا" url="https://www.cloudflare.com/learning/dns/dns-records/" %}}
 
-{{% resource title="whois/RDAP: ARIN RDAP search" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://search.arin.net/rdap/" %}}
+{{% resource title="dig  استخدام أمر" description="الوصف : كيفية الاستعلام عن معلومات حول عناوين بروتوكول الإنترنت" languages="الإنجليزية" cost="مجانًا" url="https://phoenixnap.com/kb/linux-dig-command-examples" %}}
 
-{{% resource title="whois/RDAP: ICANN lookup" languages="English" cost="Free" description="Shows ownership information for a domain or IP address." url="https://lookup.icann.org/en" %}}
+{{% resource title="doggo  أمر" description="بديل لأمر يتمتع بوظائف متشابهة للغاية ولكن مخرجات مرتبة بتنسيق مختلف dig" languages="الإنجليزية" cost="مجانًا" url="https://github.com/mr-karan/doggo" %}}
+{{% resource title="أمر في لينوكس مع أمثلة host" description="الوصف : دليل حول كيفية استخدام أمر المضيف في لينوكس وهو أداة أخرى شائعة الاستخدام لتحليل الخوادم وأنواع البنية التحتية الأخرى" languages="الإنجليزية" cost="مجانًا" url="https://www.geeksforgeeks.org/host-command-in-linux-with-examples/" %}}
 
-{{% resource title="What is whois and how is it used" languages="English" cost="Free" description="A quick summary of what a whois database is and what its potential limitations are." url="https://www.domain.com/blog/what-is-whois-and-how-is-it-used/" %}}
+{{% resource title="المزيد من الاستكشاف لنظام أسماء النطاقات" description="أدوات مختلفة لأتمتة البحث عن الخوادم ذات الصلة" languages="الإنجليزية" cost="مجانًا" url="https://securitytrails.com/blog/dnsrecon-tool" %}}
 
-{{% resource title="The ultimate guide to the whois database" languages="English" cost="Free" description="Offers a look at what whois can (and cannot) be used for." url="https://domainnamestat.com/blog/the-ultimate-guide-to-the-whois-database" %}}
+{{% resource title="المزيد من الاستكشاف لنظام أسماء النطاقات" description="أدوات مختلفة لأتمتة البحث عن الخوادم ذات الصلة" languages="الإنجليزية" cost="مجانًا" url="https://www.kali.org/tools/fierce/" %}}
 
-{{% resource title="What is an IPv4 address?" languages="English" cost="Free" description="There are two types of IP addresses, IPv4 and IPv6. This guide provides an introduction to the former." url="https://bluecatnetworks.com/glossary/what-is-ipv4/" %}}
+{{% resource title="المزيد من الاستكشاف لنظام أسماء النطاقات" description="أدوات مختلفة لأتمتة البحث عن الخوادم ذات الصلة" languages="الإنجليزية" cost="مجانًا" url="https://salsa.debian.org/pkg-security-team/fierce" %}}
 
-{{% resource title="Differences between IPv4 and IPv6" languages="English" cost="Free" description="Outlines the key differences between the two types of IP addresses." url="https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/" %}}
+{{% resource title="(geoIP) قاعدة بيانات جيو آي ب" description="البحث عن الموقع الفعلي (المحتمل) للخادم بواسطة عنوان بروتوكول إنترنت" languages="الإنجليزية" cost="مجانًا بكميات محدودة" url="https://www.maxmind.com/en/geoip-demo" %}}
 
-{{% resource title="Understanding IP addresses" languages="English" cost="Free" description="A quick introduction to what IP addresses are, what the different types thereof are." url="https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/" %}}
+{{% resource title="(whois/RDAP) هو إز / السجل الأمريكي لأرقام الإنترنت" description="تعرض معلومات الملكية لنطاق أو عنوان بروتوكول إنترنت" languages="الإنجليزية" cost="مجانًا" url="https://who.is/" %}}
 
-{{% resource title="What are port numbers and how do they work?" languages="English" cost="Free" description="A quick introduction to port numbers, includes a list of some key ones." url="https://www.techtarget.com/searchnetworking/definition/port-number" %}}
+{{% resource title="(whois/RDAP) هو إز / السجل الأمريكي لأرقام الإنترنت" description="تعرض معلومات الملكية لنطاق أو عنوان بروتوكول إنترنت" languages="الإنجليزية" cost="مجانًا" url="https://search.arin.net/rdap/" %}}
 
-{{% resource title="Subdomain enumeration: the ultimate guide" languages="English" cost="Free" description="A guide which contains several techniques on enumerating (figuring out) which subdomains a specific domain contains. It’s worth remembering that not all techniques will work on all domains/servers." url="https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/" %}}
+{{% resource title="(whois/RDAP) هو إز / السجل الأمريكي لأرقام الإنترنت" description="تعرض معلومات الملكية لنطاق أو عنوان بروتوكول إنترنت" languages="الإنجليزية" cost="مجانًا" url="https://lookup.icann.org/en" %}}
 
-{{% resource title="Threat intelligence services with DNS history: Security Trails" languages="English" cost="Free with premium features (security trails) / Free (Microsoft Defender)" description="Those services perform DNS scans and add history; analysts who use them can therefore see whether certain websites or addresses moved or changed." url="https://securitytrails.com/" %}}
+{{% resource title="كيفية استخدام هو إز وما هو؟" description="ملخص سريع لماهية قاعدة بيانات هو إز وحدودها المحتملة" languages="الإنجليزية" cost="مجانًا" url="https://www.domain.com/blog/what-is-whois-and-how-is-it-used/" %}}
 
-{{% resource title="Threat intelligence services with DNS history: Microsoft XDR" languages="English" cost="Free with premium features (security trails) / Free (Microsoft Defender)" description="Those services perform DNS scans and add history; analysts who use them can therefore see whether certain websites or addresses moved or changed." url="https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr" %}}
+{{% resource title="الدليل الأمثل لقاعدة بيانات هو إز" description="يقدم نظرة على ما يمكن (وما لا يمكن) استخدام هو إز لأجله" languages="الإنجليزية" cost="مجانًا" url="https://domainnamestat.com/blog/the-ultimate-guide-to-the-whois-database" %}}
 
-{{% resource title="Alienvault OTX" languages="English" cost="Free" description="A service that compiles threat intelligence and indicators put forward by the community." url="https://otx.alienvault.com/" %}}
+{{% resource title="ما هو عنوان بروتوكول إنترنت من الإصدار الرابع؟" description="هناك نوعان من عناوين بروتوكول الإنترنت، بروتوكول الإنترنت الإصدار 4 والإصدار 6، ويُقدم هذا الدليل مقدمة عن الإصدار 4" languages="الإنجليزية" cost="مجانًا" url="https://bluecatnetworks.com/glossary/what-is-ipv4/" %}}
 
-{{% resource title="Mandiant Advantage" languages="English" cost="Some features are available on the free tier" description="Another threat intelligence service, currently owned by Google." url="https://www.mandiant.com/multi-vendor-security-platform-free-access" %}}
+{{% resource title="الاختلافات بين بروتوكول الإنترنت الإصدار 4 والإصدار 6" description="يحدد الاختلافات الرئيسية بين نوعي عناوين بروتوكول الإنترنت" languages="الإنجليزية" cost="مجانًا" url="https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/" %}}
 
-{{% resource title="Shodan" languages="English" cost="Free tier\nBasic $49\nMore volume available as monthly subscriptions\n(Free basic for academic emails, occasionally has great discounts, e.g. membership for $5 when they got 5 million users in July 2022, and $4 when they hit 4 million users in March of 2021)" description="Shows information on services running on a server by IP address, can also search for all servers running a service with a particular banner." url="https://www.shodan.io/" %}}
+{{% resource title="فهم عناوين بروتوكول الإنترنت" description="الوصف : مقدمة سريعة لماهية عناوين بروتوكول الإنترنت، وأنواعها المختلفة" languages="الإنجليزية" cost="مجانًا" url="https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/" %}}
 
-{{% resource title="Censys Search" languages="English" cost="Free" description="A tool which can observe open ports, running services, TLS certificates, and more for a given IP." url="https://search.censys.io/" %}}
+{{% resource title="إذن ما هي بالضبط أرقام المنافذ وكيف تعمل؟" description="الوصف : مقدمة سريعة إلى أرقام المنافذ تتضمن قائمة ببعض الأرقام الرئيسية" languages="الإنجليزية" cost="مجانًا" url="https://www.techtarget.com/searchnetworking/definition/port-number" %}}
 
-{{% resource title="DNS Dumpster" languages="English" cost="Free" description="A tool used to look up the potential attack surfaces of internet facing services." url="https://dnsdumpster.com/" %}}
+{{% resource title="تعداد النطاق الفرعي: الدليل الأمثل" description="الوصف : دليل يحتوي على عدد من التقنيات حول تعداد (التعرّف على) المجالات الفرعية التي يضمها مجال معين. تجدر الإشارة إلى أنه لن تعمل جميع التقنيات على جميع المجالات/الخوادم" languages="الإنجليزية" cost="مجانًا" url="https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/" %}}
 
-{{% resource title="DNS Checker" languages="English" cost="Free" description="‘Swiss Army Knives’ of DNS and IP lookups - allows various fast searches on domain/DNS, IP, and email records." url="https://dnschecker.org/all-tools.php" %}}
+{{% resource title="خدمات استخبارات التهديدات مع سجل نظام أسماء النطاقات" description="تقوم هذه الخدمات بمسح نظام أسماء النطاقات وإضافة السجلات وبالتالي يمكن للمحللين الذين يستخدمونها معرفة ما إذا كانت بعض مواقع الويب أو العناوين قد تم نقلها أو تغييرها" languages="الإنجليزية" cost="مجانًا مع ميزات مدفوعة" url="https://securitytrails.com/" %}}
 
-{{% resource title="MXToolbox" languages="English" cost="Free" description="‘Swiss Army Knives’ of DNS and IP lookups - allows various fast searches on domain/DNS, IP, and email records." url="https://mxtoolbox.com/SuperTool.aspx" %}}
+{{% resource title="خدمات استخبارات التهديدات مع سجل نظام أسماء النطاقات" description="تقوم هذه الخدمات بمسح نظام أسماء النطاقات وإضافة السجلات وبالتالي يمكن للمحللين الذين يستخدمونها معرفة ما إذا كانت بعض مواقع الويب أو العناوين قد تم نقلها أو تغييرها" languages="الإنجليزية" cost="مجانًا مع ميزات مدفوعة" url="https://ti.defender.microsoft.com/" %}}
 
-{{% resource title="How certificate transparency works" languages="English" cost="Free" description="A quick introduction to what certificate transparency is, what issues it addresses, and how it functions." url="https://certificate.transparency.dev/howctworks/" %}}
+{{% resource title="(Alienvault OTX) إيلين فولت أو تي إكس" description="الوصف : خدمة تجمع المعلومات والمؤشرات المتعلقة بالتهديدات التي يطرحها المجتمع" languages="الإنجليزية" cost="مجانًا" url="https://otx.alienvault.com/" %}}
 
-{{% resource title="Certificates: the OSINT Gift that keeps on giving (text version)" languages="English" cost="Free" description="A guide for analysts on how to use tools like Shodan to search for certificates and get good data on web servers they are investigating." url="https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/" %}}
+{{% resource title="(Mandiant Advantage)  مانديانت أدفنتيج" description="الوصف : خدمة أخرى للتحليل الذكي للتهديدات، تملكه حاليًا شركة غوغل" languages="الإنجليزية" cost="تتوفر بعض الميزات في الدرجة المجانية" url="https://www.mandiant.com/multi-vendor-security-platform-free-access" %}}
 
-{{% resource title="Certificates: the OSINT Gift that keeps on giving (video version)" languages="English" cost="Free" description="A guide for analysts on how to use tools like Shodan to search for certificates and get good data on web servers they are investigating." url="https://www.youtube.com/watch?v=XHltHamQVoA" %}}
+{{% resource title="(Shodan) العنوان : شودان" description="يعرض معلومات حول الخدمات التي تعمل على خادم بواسطة عنوان بروتوكول إنترنت، ويمكنه أيضًا البحث عن جميع الخوادم التي تعمل على شرائط خدمة معينة" languages="الإنجليزية" cost="تتوفر بعض الميزات في الدرجة المجانية" url="https://en.wikipedia.org/wiki/Banner_grabbing" %}}
 
-{{% resource title="crt.sh" languages="English" cost="Free" description="A search engine which focuses specifically on certificate search." url="https://crt.sh/" %}}
+{{% resource title="(Shodan) العنوان : شودان" description="يعرض معلومات حول الخدمات التي تعمل على خادم بواسطة عنوان بروتوكول إنترنت، ويمكنه أيضًا البحث عن جميع الخوادم التي تعمل على شرائط خدمة معينة" languages="الإنجليزية" cost="تتوفر بعض الميزات في الدرجة المجانية" url="https://www.shodan.io/" %}}
 
-{{% resource title="massdns" languages="English" cost="Free" description="A tool which can be used to brute force searches for subdomains." url="https://github.com/blechschmidt/massdns#reconnaissance-by-brute-forcing-subdomains" %}}
+{{% resource title="(Shodan) العنوان : شودان" description="يعرض معلومات حول الخدمات التي تعمل على خادم بواسطة عنوان بروتوكول إنترنت، ويمكنه أيضًا البحث عن جميع الخوادم التي تعمل على شرائط خدمة معينة" languages="الإنجليزية" cost="تتوفر بعض الميزات في الدرجة المجانية" url="https://help.shodan.io/" %}}
 
-{{% resource title="Advanced Persistent Infrastructure Tracking" languages="English" cost="Free" description="A guide on various methods which could be used to track attacker infrastructure, which also looks at certificate searches." url="https://cobaltstrike.com/downloads/csmanual38.pdf" %}}
+{{% resource title="(Censys Search) سينسيس سيرش" description="أداة يمكنها مراقبة المنافذ المفتوحة وتشغيل الخدمات وشهادات بروتوكول أمان طبقة النقل والمزيد لعنوان بروتوكول إنترنت معين" languages="الإنجليزية" cost="مجانًا" url="https://search.censys.io/" %}}
+
+{{% resource title="(DNS Dumpster)  دي إن إس دمبستر" description="أداة تستخدم للبحث عن أسطح الهجمات المحتملة للخدمات المكشوفة على الإنترنت" languages="الإنجليزية" cost="مجانًا" url="https://dnsdumpster.com/" %}}
+
+{{% resource title="(MX ToolBox) دي إن إس تشكر" description="مجموعة أدوات متعددة لعمليات بحث نظام أسماء المجالات وبروتوكول الإنترنت وتسمح بعمليات بحث سريعة مختلفة على سجلات النطاق/نظام أسماء المجالات وبروتوكول الإنترنت والبريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://mxtoolbox.com/" %}}
+
+{{% resource title="(DNS Checker) إم إكس تول بوكس" description="مجموعة أدوات متعددة لعمليات بحث نظام أسماء المجالات وبروتوكول الإنترنت وتسمح بعمليات بحث سريعة مختلفة على سجلات النطاق/نظام أسماء المجالات وبروتوكول الإنترنت والبريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://dnschecker.org/" %}}
+
+{{% resource title="كيفية عمل شفافية الشهادات" description="مقدمة سريعة لماهية شفافية الشهادة والمشكلات التي تعالجها وكيفية عملها" languages="الإنجليزية" cost="مجانًا" url="https://certificate.transparency.dev/howctworks/" %}}
+
+{{% resource title="هدية استخبارات المصادر المفتوحة التي تستمر بالعطاء" description="- دليل للمحللين حول كيفية استخدام أدوات مثل شودان للبحث عن الشهادات والحصول على بيانات جيدة على خوادم الويب التي يحققون فيها" languages="الإنجليزية" cost="مجانًا" url="https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/" %}}
+
+{{% resource title="هدية استخبارات المصادر المفتوحة التي تستمر بالعطاء" description="- دليل للمحللين حول كيفية استخدام أدوات مثل شودان للبحث عن الشهادات والحصول على بيانات جيدة على خوادم الويب التي يحققون فيها" languages="الإنجليزية" cost="مجانًا" url="https://www.youtube.com/watch?v=XHltHamQVoA" %}}
+
+{{% resource title="(crt.sh) موقع سي آر تي دوت إس إش" description="محرك بحث يُركز بشكل خاص على البحث المتعلق بالشهادات" languages="الإنجليزية" cost="مجانًا" url="https://crt.sh/" %}}
+
+{{% resource title="(MassDNS)  ماس دي إن إس" description="أداة يمكن استخدامها لإجراء عمليات بحث بالقوة العمياء للنطاق الفرعي" languages="الإنجليزية" cost="مجانًا" url="https://github.com/blechschmidt/massdns#reconnaissance-by-brute-forcing-subdomains" %}}
+
+{{% resource title="(Advanced Persistent Infrastructure Tracking) - التتبع المتقدم للبنية التحتية التي تستمر في البقاء" description="دليل حول الطرق المختلفة التي يمكن استخدامها لتتبع البنية التحتية للمهاجمين، والذي يبحث أيضًا في عمليات البحث المتعلقة بالشهادات" languages="الإنجليزية" cost="مجانًا" url="https://censys.com/advanced-persistent-infrastructure-tracking/" %}}
