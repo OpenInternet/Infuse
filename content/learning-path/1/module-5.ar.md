@@ -95,9 +95,9 @@ weight: 5
 
 {{% resource title="تقييم الرؤوس المُستَلمة" description="كيفية استخدام رؤوس البريد الإلكتروني للعثور على الخادم الذي أرسل البريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
 
-{{% resource title="تحليل الرؤوس "المُستَلمة" المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين "المستلمة" المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
+{{% resource title="تحليل الرؤوس المُستَلمة المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين المستلمة المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
 
-{{% resource title="تحليل الرؤوس "المُستَلمة" المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين "المستلمة" المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
+{{% resource title="تحليل الرؤوس المُستَلمة المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين المستلمة المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
 
 {{% resource title="العثور على الرسائل باستخدام البحث في سجل البريد الإلكتروني" description="تصف كيفية قيام مسؤولي حسابات الأعمال والمؤسسات من غوغل بمراقبة سجلات الرسائل" languages="الإنجليزية" cost="أدوات لا تشمل الوثائق متاحة فقط لمستخدمي الأعمال والمؤسسات" url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
 
