@@ -1,87 +1,113 @@
 ---
 style: module
 title: Response - Infrastructure takedown
-description: Here, we cover abuse-reporting and other safe browsing and sinkhole
-  mechanisms. This includes contacting the infrastructure provider to report
-  malicious infrastructure so that it can be taken down
+description:ظرنا في الموضوعات الفرعية السابقة في كيفية كشف البنية التحتية التي تقدم المحتوى الضار سواء كان ذلك محتوى غير مرغوب فيه أو برمجيات ضارة أو تصيد احتيالي. بمجرد الانتهاء من ذلك بنجاح، يحين وقت تحذير الآخرين منها وفي هذا الموضوع الفرعي نغطي الإبلاغ عن الإساءة وآليات التصفح الآمن الأخرى وآليات الثقب. يشمل ذلك الاتصال بمزود البنية التحتية للإبلاغ عن البنية التحتية الضارة بحيث يمكن إزالتها.
+قم بإقران هذا الجهد بأنشطة أوسع للاستجابة للحوادث بما في ذلك مشاركة التهديدات والتواصل مع المجتمعات التي ربما تكون قد استهدفت أيضًا بالهجمات الناشئة عن البنية التحتية ذاتها.
 weight: 9
 ---
 
-## Use Case
+## حالة استخدام
+
+نظرنا في الموضوعات الفرعية السابقة في كيفية كشف البنية التحتية التي تقدم المحتوى الضار سواء كان ذلك محتوى غير مرغوب فيه أو برمجيات ضارة أو تصيد احتيالي. بمجرد الانتهاء من ذلك بنجاح، يحين وقت تحذير الآخرين منها وفي هذا الموضوع الفرعي نغطي الإبلاغ عن الإساءة وآليات التصفح الآمن الأخرى وآليات الثقب. يشمل ذلك الاتصال بمزود البنية التحتية للإبلاغ عن البنية التحتية الضارة بحيث يمكن إزالتها.
+قم بإقران هذا الجهد بأنشطة أوسع للاستجابة للحوادث بما في ذلك مشاركة التهديدات والتواصل مع المجتمعات التي ربما تكون قد استهدفت أيضًا بالهجمات الناشئة عن البنية التحتية ذاتها.
+الأهداف 
+
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
+فهم أساسي لكيفية عمل الإبلاغ عن الإساءة وقواعد البيانات.
+تحديد قواعد بيانات إساءة الاستخدام التي تدرج عناوين مواقع ويب والنطاقات المشتبه بأنها ضارة.
+طلب البيانات من قواعد البيانات هذه والكتابة فيها.
+تحديد واستخدام آليات الإبلاغ عن إساءة الاستخدام لدى موفري البنية التحتية الأكبر.
+
+
+
+
+
 
 In the previous sub-topics, we looked at how you can identify infrastructure that serves malicious content, be it spam, malware, or phishing. Once you have successfully done so, it’s time to warn others about it. In this subtopic, we cover **abuse-reporting and other safe browsing and sinkhole mechanisms**. This includes contacting the infrastructure provider to report malicious infrastructure so that it can be taken down.
 
 Pair this effort with broader incident response activities including threat sharing and reaching out to communities which may have also been targeted by the attacks originating from the same infrastructure.
 
-## Objectives
 
-After completing this subtopic, practitioners should be able to do the following:
-
-- Have a basic understanding of how abuse reporting and databases work;
-- Identify abuse databases which list URLs and domains suspected of being malicious;
-- Request data from and write to such databases;
-- Identify and use abuse reporting mechanisms at bigger infrastructure providers.
 
 ---
-## Main Section
-### Abuse Reporting at hosting service providers
+## العرض
 
-Many instances of malicious infrastructure run on mainstream commercial service providers concerned with maintaining their system safety, stability, reputation, and tackling cyber threats. Responsible service providers offer effective abuse reporting mechanisms. Utilizing these mechanisms may lead to a prompt takedown of active infrastructure.
+### الإبلاغ عن الإساءة في مقدمي خدمات الاستضافةs
+ 
+تعمل العديد من نُسخ البنية التحتية الضارة على مزودي خدمات تجارية رئيسية تُعنى بالحفاظ على سلامة نظامهم واستقراره وسمعته ومواجهة التهديدات السيبرانية. يقدم موفرو الخدمات المسؤولون آليات فعالة للإبلاغ عن الإساءة وقد يؤدي استخدام هذه الآليات إلى الإزالة البنية التحتية النشطة على الفور. 
 
-Learn how to locate and utilize these abuse reporting mechanisms. Abuse contacts are available through numerous mechanisms:
+تعلّم كيفية تحديد واستخدام آليات الإبلاغ عن سوء المعاملة هذه حيث تتوفر جهات اتصال إساءة بشأن المعاملة من خلال آليات عديدة:
 
-- WHOIS records for a domain will provide an Abuse contact email and phone number.
-- Search for the abuse contact relevant to a given IP at [RIPEstat](https://stat.ripe.net/app/launchpad).
-- For a programmatic utility, see the Abusix Abuse Contacts Database’s [Getting Started](https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee) page which explains how to use a Python utility or a simple host lookup to obtain abuse contacts.
-- Use web search to obtain abuse reporting details for other types of service providers which may not be available through the above methods, such as abuse on platforms such as [Twilio](https://www.twilio.com/help/abuse) and [Mailchimp](https://mailchimp.com/contact/abuse/).
+- ستوفر سجلات النطاق على هو إز بريدًا إلكترونيًا لجهة اتصال معنية بإساءة الاستخدام ورقم هاتف.
+- ابحث عن جهة اتصال إساءة الاستخدام ذات الصلة بعنوان بروتوكول إنترنت معين في رايب ستات [RIPEstat](https://stat.ripe.net/app/launchpad).
+- تتوفر أداة مساعدة برمجية على صفحة البدءبالعمل لقاعدة بيانات إساءة استخدام من أبيوزكس (Abusix Abuse Contacts Database)[Getting Started](https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee) والتي تشرح كيفية استخدام أداة بايثون (Python) أو بحث مضيف بسيط للحصول على جهات الاتصال المعنية بإساءة الاستخدام.
+- استخدم البحث على الويب للحصول على تفاصيل الإبلاغ عن إساءة الاستخدام لأنواع أخرى من مقدمي الخدمات التي قد لا تكون متاحة من خلال الطرق المذكورة أعلاه، مثل إساءة الاستخدام على منصات مثل تويليو [Twilio](https://www.twilio.com/help/abuse وميل تشيمب [Mailchimp](https://mailchimp.com/contact/abuse/).
 
-Remember there may be multiple service providers involved. For instance, a phishing landing page can be reported both to the web hosting provider and to the domain registrar.
+تذكر أنه قد يكون هناك العديد من مقدمي الخدمات المعنيين، على سبيل المثال يمكن الإبلاغ عن صفحة تهدف إلى التصيد الاحتيالي إلى كل من مزود استضافة الويب ومسجل النطاق.
 
-Learn how to write an abuse report with the technical information you have collected. Your report should include sufficient details so that the service provider can identify what specific account on their platform is serving malicious content. This may include the following:
+تعرف على كيفية كتابة تقرير إساءة باستخدام المعلومات التقنية التي جمعتها، علمًا أن تقريرك يجب أن يتضمن تفاصيل كافية حتى يتمكن مزود الخدمة من تحديد الحساب المعين على منصته الذي يقدم محتوى ضارًا، ويمكن أن يشمل ذلك:
 
-- URLs of the content
-- IPs of the hosted
-- Any other identifier relevant to the service
-- Any archives/snapshots taken of the content
-- Screenshots
-- Email headers, if relevant
-- Positive security scans or indicators of threats
-- How the service/resource is being abused
+- عناوين مواقع ويب للمحتوى
+- عناوين بروتوكول الإنترنت للمحتوى المستضاف
+- أي معرّف آخر ذي صلة بالخدمة
+- أي أرشيفات/لقطات مأخوذة من المحتوى
+- لقطات الشاشة
+- رؤوس البريد الإلكتروني إذا كانت ذات صلة
+- مسح أمني إيجابي أو مؤشرات للتهديدات
+- كيفية إساءة استخدام الخدمة/المورد
+- 
+أثناء تقديم لقطات الشاشة أو المرفقات، تأكد من عدم كشفك عن المعلومات الحساسة خاصتك أو الخاصة بعملائك المستهدفين بالمحتوى الضار.
 
-While providing screenshots or attachments, ensure you are not compromising sensitive information from yourself or your clients being targeted by the malicious content.
+في حين أنه من غير المحتمل أن يقدم مقدمو الخدمة معلومات إضافية عن حساب المستخدم الذي ينشر محتوى مسيئًا، يمكنك محاولة طلب هذه المعلومات في حال كانت مفيدة لتحقيقاتك.
 
-While it is unlikely that service providers will offer additional information on the user account perpetrating abusive content, you may attempt to request such information in case it is helpful to your investigations.
+في بعض الحالات، تبذل شركات خدمات الإنترنت والتكنولوجيا جهدًا خاصًا للتنسيق مع المجتمع المدني بشأن الهجمات المستهدفة وقد تقدم دعمًا إضافيًا. قد يكون من المفيد العمل مع أحد أعضاء منظمة سيفي سيرت[CiviCERT member](https://www.civicert.org) للبحث عن جهة اتصال للشركة لأغراض التحقيقات والاستجابة السريعة.
 
-In some cases, internet service and technology companies make a special effort to coordinate with civil society on targeted attacks and may offer additional support. It may be worth working with a [CiviCERT member](https://www.civicert.org) organization to seek a company contact for purposes of investigations and expedited rapid response.
+لاحظ أنه في كثير من الحالات تُستضاف البنية التحتية الضارة على حسابات أو خوادم مخترقة لأطراف ليس لها علاقة بالهجوم (على سبيل المثال، حساب غوغل مخترق أو موقع ويب مخترق أو جهاز مصاب مُنسق ضمن شبكات روبوتات). 
+إذا كنت تسعى إلى الإلهام حول كيفية كتابة رسالة بريد إلكتروني إلى موفر البنية التحتية، راجع القوالب التالية التي أنشأها خط مساعدة آكسس ناو (Access Now):
 
-Note that in many cases malicious infrastructure is hosted on compromised accounts or servers of parties unrelated to the attack (e.g. a compromised Google account, a hacked website, or an infected device coordinated in a botnet).
+- قالب بريد إلكترونيإلى مسجل نطاق ضار [to a registrar of a malicious domain](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html)
+- نموذج بريد إلكتروني إلى موفر خدمة استضافة [to a hosting provider](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html
+- نموذج بريد إلكتروني إلى عميل، يطلب الإذن منه لمشاركة مؤشرات الاختراق مع المجتمع [to a client](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html)
 
-If you are looking for inspiration on how to write an email message to an infrastructure provider, check out the following templates created by the Access Now Helpline:
 
-- Email template [to a registrar of a malicious domain](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html)
-- Email template [to a hosting provider](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html)
-- Email template [to a client](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html), asking them for permission to share IoCs with the community
+### التصفح الآمن وآلية الثقب وقوائم الحظر
 
-### Safe Browsing, sinkholes, and blocklists
+بالإضافة إلى التواصل مع جهات الاتصال المعنية بإساءة الاستخدام لإزالة المحتوى، توجد آليات مختلفة لإضافة البنية التحتية الضارة أو المؤشرات الضارة الأخرى إلى قوائم الحظر وقواعد البيانات المدمجة في الأدوات والخدمات المستخدمة على نطاق واسع.
 
-In addition to reaching out to abuse contacts for content takedown, there exists various mechanisms to have malicious infrastructure or other malicious indicators be added to blocklists and databases which are integrated in widely utilized tools and services.
+ينطبق المبدأ نفسه على وسائل التواصل الاجتماعي ومنصات المراسلة ويعتمد على إجراءات إساءة الاستخدام أو الإبلاغ عن المحتوى على تلك المنصات (أو خدمات السلامة التكميلية).
+تعرف على بعض قوائم الحظر هذه والأماكن المدرجة فيها وكيفية الإبلاغ عنها مثل:
 
-The same principle applies to social media and messaging platforms, and they rely on the abuse or content reporting procedures on those platforms (or complementary safety services).
-
-Learn about some of these blocklists, where they are integrated, and how to report to them, such as:
-
-- [Google Safe Browsing](https://safebrowsing.google.com/safebrowsing/report_general/)
-- [PhishTank](https://phishtank.org/)
-- [Abuse IP DB](https://www.abuseipdb.com/)
-- [Phishing Database](https://github.com/mitchellkrogza/Phishing.Database#additions) (Send additions through GitHub)
-- More specific reporting and threat databases are offered by [abuse.ch](https://abuse.ch) and require authentication in order to submit, such as [URLhaus](https://urlhaus.abuse.ch/), [ThreatFox](https://threatfox.abuse.ch/), and [SSL Blacklist](https://sslbl.abuse.ch/).
-- Report Discord Phishing to [phish.gg ](https://docs.phish.gg/)(or add a server to their service).
+- غوغل سيف براوزنع [Google Safe Browsing](https://safebrowsing.google.com/safebrowsing/report_general/)
+- فيش تانك [PhishTank](https://phishtank.org/)
+- أبيوس آي ب دي بي [Abuse IP DB](https://www.abuseipdb.com/)
+- قاعدة بيانات التصيد الاحتيالي[Phishing Database](https://github.com/mitchellkrogza/Phishing.Database#additions) (إرسال إضافات من خلال غيت هب)
+- تُقدم قواعد بيانات تقارير وتهديدات أكثر تحديدًا بواسطة أبيوس دوت سي إتش [abuse.ch](https://abuse.ch) وتتطلب المصادقة من أجل الإرسال مثل يو آر إل هاوس [URLhaus](https://urlhaus.abuse.ch/) وثريت فوكس [ThreatFox](https://threatfox.abuse.ch/) وإس إس إل بلاك ليست[SSL Blacklist](https://sslbl.abuse.ch/).
+- لإبلاغ عن التصيد الاحتيالي على ديسكورد (Discord) إلى فيش دوت جي جي [phish.gg ](https://docs.phish.gg/) (أو إضافة خادم إلى خدمتهم).
 
 ## Practice
 
 - Find the abuse contacts for 3 web hosting companies, including at least one major platform (use as AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud). Look for any additional information they offer on their abuse reporting process.
 - Investigate how abuse databases and Google Safe Browsing work. Lists several tools and services that they are integrated with.
 - Build your own incident-response flowchart and checklist containing relevant links and actions to take in case of an incident of malicious online infrastructure.
+
+
+[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
+الممارسة
+اعثر على جهات اتصال إساءة الاستخدام لثلاث شركات استضافة مواقع، بما في ذلك منصة رئيسية واحدة على الأقل (مثل إيه دبليو إس (AWS) وجي سي ب (GCP) وأزور (Azure) وأوراكل كلاود (Oracle Cloud) وعلي بابا كلاود (Alibaba Cloud)، وابحث عن أي معلومات إضافية يقدمونها حول عملية الإبلاغ عن الإساءة.
+تحقق من كيفية عمل قواعد بيانات إساءة الاستخدام والتصفح الآمن من غوغل واطلّع على عدد من الأدوات والخدمات المدمجة معها.
+جهّز مخطط سير عمل للاستجابة للحوادث وقائمة مرجعية تحتوي على الروابط والإجراءات ذات الصلة التي يجب اتخاذها في حالة وقوع حادث بنية تحتية ضارة على الإنترنت.
+اختبار مهارة
+
+تعاون مع مُرشِد أو نظير لديه بعض الخبرة في إزالة البنية التحتية الضارة لأداء المهام التالية:
+حضّر جميع الأدلة (عناوين بروتوكول الإنترنت وشفرات التجزئة والنطاقات وأي أدلة أخرى) ستحتاجها لتقديم تقرير إساءة الاستخدام. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد اجمع هذه الأدلة عنها وإذا لم تكن لديك فقم بجمع الأدلة من صفحة ويب سليمة (ولكن دون تقديم تقرير إساءة استخدام بالطبع). ناقش الأدلة مع نظيرك أو مرشدك الذي سيتحقق من أنك جمعت الأدلة الصحيحة ووثقتها بشكل صحيح.
+اشرح كيفية عمل التصفح الآمن وقاعدة بيانات إساءة الاستخدام ومقدمي قوائم الحظر. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد، أرسله إلى قاعدة بيانات أو موفر الخدمة. إذا لم يكن لديك مثال، انتقل إلى صفحة الويب الخاصة بمزود الخدمة وجرب عملية الإرسال مع نظير أو مُرشِد (اشرح المعلومات التي ستقوم بتحضيرها ولكن دون إرسالها).
+اطلب من مرشدك أو نظيرك إدراج ثلاثة من مقدمي خدمات استضافة الويب أو مقدمي الخدمات السحابية أو المسجلين أو غيرهم من مقدمي الخدمات، وبالنسبة لكل واحد من هؤلاء ابحث عن آلية الاتصال أو الإبلاغ عن الإساءة ذات الصلة.
+تحدث إلى مُرشِد أو النظير حول المخاطر الاستراتيجية والشخصية لبدء الإزالة والإفصاح المحتمل عن بيانات العميل واحتمال إعلام المهاجم بأن هجومه يخضع لفحص تحليلي. جرّب تمرين تمثيل الأدوار حيث تقوم بالإبلاغ عن هذه الاعتبارات إلى هدف الهجوم.
+
+العنوان | الوصف | اللغة | التكلفة | رابط عنوان موقع الويب
+سير عمل مكتب المساعدة: يتلقى العميل بريدًا إلكترونيًا مشبوهًا/تصيد احتيالي | وثائق المجتمع لخط مساعدة وثائق آكسس ناو للاستجابة إلى رسائل البريد الإلكتروني المشبوهة/الاحتيالية | الإنجليزية | مجانًا | يتلقى العميل بريدًا إلكترونيًا مشبوهًا/تصيدًا احتياليًا | وثائق عامة خط مساعدة الأمن الرقمي من آكسس ناو (accessnowhelpline.gitlab.io)
+قائمة بجميع أنواع سجلات نظام أسماء النطاقات | يتضمن (تقريبًا؟) جميع أنواع سجلات نظام أسماء النطاقات. | الإنجليزية والصينية واليابانية والكورية والروسية والصربية والأوكرانية والإسبرانتو والهنغارية والفيتنامية والإيطالية والإسبانية والفرنسية | مجانًا | https://en.wikipedia.org/wiki/List_of_DNS_record_types
+تقارير منظمة العفو الدولية عن حملات التصيد الاحتيالي | قائمة بأمثلة على حملات التصيد الاحتيالي المستهدفة ضد المدافعين عن حقوق الإنسان والناشطين والصحفيين | متعددة، حسب التقرير | مجانًا | https://www.amnesty.org/en/search/phishing/
 
 ## Skill Check
 
@@ -92,30 +118,41 @@ Work with a mentor or peer who has some experience in taking down malicious infr
 - Ask your mentor or peer to list three web hosting providers, cloud providers, registrars, or other service providers. For each of those, find the relevant abuse contact or reporting mechanism.
 - Talk to your mentor or peer about the strategic and personal risks of initiating takedown, potentially disclosing client’s data, and potentially indicating to an attacker that their attack is being critically examined. Do a draft role-play in which you communicate these considerations to the target of the attack.
 
-## Learning Resources
+## موارد التعلّم
 
-{{% resource title="RIPEstat launchpad" languages="English, Spanish, Arabic, Russian, French, Farsi, Italian, Turkish" cost="Free" description="A service which allows you to search for and list relevant abuse reporting mechanisms." url="https://stat.ripe.net/app/launchpad" %}}
+{{% resource title="(RIPEstat)  منصة إطلاق رايب ستات" description="خدمة تسمح لك بالبحث عن آليات الإبلاغ عن الإساءة ذات الصلة وإدراجها" languages="الإنجليزية والإسبانية والعربية والروسية والفرنسية والفارسية والإيطالية والتركية" cost="مجانًا" url="https://stat.ripe.net/app/launchpad" %}}
 
-{{% resource title="Getting Started - Abusix" languages="English" cost="Free" description="A getting started guide to the Abuse Contact DB." url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
+{{% resource title="(Abusix)  الشروع في العمل - أبيوزكس" description="دليل الشروع في العمل لقاعدة بيانات جهة اتصال إساءة الاستخدام" languages="الإنجليزية" cost="مجانًا" url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
 
-{{% resource title="Twilio abuse reports" languages="English" cost="Free" description="You can report unwanted phone calls or SMS messages from phone numbers hosted on Twilio here." url="https://www.twilio.com/en-us/help/abuse" %}}
+{{% resource title="(Twilio)  تقارير إساءة الاستخدام على تويليو" description="يمكنك الإبلاغ عن المكالمات الهاتفية غير المرغوب فيها أو الرسائل النصية القصيرة من أرقام الهواتف المستضافة على تويليو هنا" languages="الإنجليزية" cost="مجانًا" url="https://www.twilio.com/en-us/help/abuse" %}}
 
-{{% resource title="Mailchimp abuse reports" languages="English" cost="Free" description="You can report any abuse that takes place on Mailchimp’s platform here." url="https://mailchimp.com/contact/abuse/" %}}
+{{% resource title="(Mailchimp)  تقارير إساءة الاستخدام على ميل تشيمب" description="يمكنك الإبلاغ عن أي إساءة تحدث على منصة ميل تشيمب هنا" languages="الإنجليزية" cost="مجانًا" url="https://mailchimp.com/contact/abuse/" %}}
 
-{{% resource title="CiviCERT" languages="English" cost="Free" description="A network of security professionals who help civil society address cybersecurity issues." url="https://www.civicert.org/" %}}
+{{% resource title="(CiviCERT)  سيفي سيرت" description="شبكة من المتخصصين في مجال الأمن الذين يساعدون المجتمع المدني في معالجة قضايا الأمن السيبراني" languages="الإنجليزية" cost="مجانًا" url="https://www.civicert.org/" %}}
 
-{{% resource title="Templates of emails we could send to report malicious activity" languages="English" cost="Free" description="Three email templates that allow you to easily craft an email to a domain registrar, hosting provider, or client to inform them about the presence of malicious infrastructure. Registrar: [Link](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html), Hosting provider: [Link](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html), Client: [Link](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html)" %}}
+{{% resource title="قوالب رسائل البريد الإلكتروني التي يمكننا إرسالها للإبلاغ عن النشاط الضار" description="ثلاثة قوالب بريد إلكتروني تسمح لك بصياغة بريد إلكتروني بسهولة إلى مسجل النطاق أو مزود الاستضافة أو العميل لإبلاغهم بوجود بنية تحتية ضارة" languages="الإنجليزية" cost="مجانًا" url="https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html" %}}
 
-{{% resource title="Send a SafeBrowsing report" languages="English" cost="Free" description="Here you can send SafeBrowsing reports to a Google-maintained database which reaches a huge amount of users." url="https://safebrowsing.google.com/safebrowsing/report_general/" %}}
+{{% resource title="قوالب رسائل البريد الإلكتروني التي يمكننا إرسالها للإبلاغ عن النشاط الضار" description="ثلاثة قوالب بريد إلكتروني تسمح لك بصياغة بريد إلكتروني بسهولة إلى مسجل النطاق أو مزود الاستضافة أو العميل لإبلاغهم بوجود بنية تحتية ضارة" languages="الإنجليزية" cost="مجانًا" url="https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html" %}}
 
-{{% resource title="PhishTank" languages="English" cost="Free" description="A collaborative list of phishing site submissions, allows users to search for and submit URLs." url="https://phishtank.org/" %}}
+{{% resource title="قوالب رسائل البريد الإلكتروني التي يمكننا إرسالها للإبلاغ عن النشاط الضار" description="ثلاثة قوالب بريد إلكتروني تسمح لك بصياغة بريد إلكتروني بسهولة إلى مسجل النطاق أو مزود الاستضافة أو العميل لإبلاغهم بوجود بنية تحتية ضارة" languages="الإنجليزية" cost="مجانًا" url="https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html" %}}
 
-{{% resource title="AbusiveIP" languages="English" cost="Free" description="Allows users to both search for and report IP addresses linked to malicious behavior." url="https://www.abuseipdb.com/" %}}
+{{% resource title="(SafeBrowsing) إرسال تقرير التصفح الآمن" description="يمكنك هنا إرسال تقارير التصفح الآمن إلى قاعدة بيانات تخص غوغل والتي تضم عددًا كبيرًا من المستخدمين" languages="الإنجليزية" cost="مجانًا" url="https://safebrowsing.google.com/safebrowsing/report_general/" %}}
 
-{{% resource title="Phishing Database" languages="English" cost="Free" description="One more crowdsourced database of suspected phishing domains and links." url="https://github.com/mitchellkrogza/Phishing.Database#additions" %}}
+{{% resource title="(PhishTank)  فيش تانك" description="قائمة تعاونية لعمليات إرسال موقع التصيد الاحتيالي تسمح للمستخدمين بالبحث عن عناوين مواقع الويب وإرسالها" languages="الإنجليزية" cost="مجانًا" url="https://phishtank.org/" %}}
 
-{{% resource title="Abuse ch" languages="English" cost="Free" description="A community-driven platform focusing on threat intelligence regarding malware and botnets." url="https://abuse.ch/" %}}
+{{% resource title="(AbusiveIP)  أبيوسف آي ب" description="تسمح للمستخدمين بالبحث عن عناوين بروتوكول الإنترنت المرتبطة بالسلوك الضار والإبلاغ عنها" languages="الإنجليزية" cost="مجانًا" url="https://www.abuseipdb.com/" %}}
 
-{{% resource title="Phish.gg documentation" languages="English" cost="Free" description="A service where you can report phishing on services such as Discord." url="https://docs.phish.gg/docs/get-started/welcome/" %}}
+{{% resource title="قاعدة بيانات التصيد الاحتيالي" description="قاعدة بيانات أخرى من مصادر جماعية لنطاقات وروابط التصيد الاحتيالي المشتبه بها" languages="الإنجليزية" cost="مجانًا" url="https://github.com/mitchellkrogza/Phishing.Database#additions" %}}
+
+{{% resource title="(Abuse ch)  أبيوس سي إتش" description="الوصف : منصة مجتمعية تركز على المعلومات المتعلقة بالتهديدات فيما يتعلق بالبرمجيات الضارة وشبكات الروبوتات" languages="الإنجليزية" cost="مجانًا" url="https://abuse.ch/" %}}
+
+{{% resource title="(Phish.gg)  وثائق فيش دوت جي جي" description="خدمة يمكنك من خلالها الإبلاغ عن التصيد الاحتيالي على خدمات مثل ديسكورد" languages="الإنجليزية" cost="مجانًا" url="https://docs.phish.gg/docs/get-started/welcome/" %}}
+
+{{% resource title="سير عمل مكتب المساعدة: يتلقى العميل بريدًا إلكترونيًا مشبوهًا/تصيد احتيالي" description="وثائق المجتمع لخط مساعدة وثائق آكسس ناو للاستجابة إلى رسائل البريد الإلكتروني المشبوهة/الاحتيالية" languages="الإنجليزية" cost="مجانًا" url="https://accessnowhelpline.gitlab.io/" %}}
+
+{{% resource title="قائمة بجميع أنواع سجلات نظام أسماء النطاقات" description="يتضمن (تقريبًا؟) جميع أنواع سجلات نظام أسماء النطاقات" languages="الإنجليزية والصينية واليابانية والكورية والروسية والصربية والأوكرانية والإسبرانتو والهنغارية والفيتنامية والإيطالية والإسبانية والفرنسية" cost="مجانًا" url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
+
+{{% resource title="تقارير منظمة العفو الدولية عن حملات التصيد الاحتيالي" description="قائمة بأمثلة على حملات التصيد الاحتيالي المستهدفة ضد المدافعين عن حقوق الإنسان والناشطين والصحفيين" languages="متعددة، حسب التقرير" cost="مجانًا" url="https://www.amnesty.org/en/search/phishing/" %}}
+
 
 
