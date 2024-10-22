@@ -93,7 +93,7 @@ weight: 5
 
 {{% resource title="مقدمة إلى تزييف البريد الإلكتروني" description="عدة مقالات تصف أساسيات تزييف البريد الإلكتروني" languages="عدة" cost="مجانًا" url="https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
 
-{{% resource title="تقييم الرؤوس "المُستَلمة"" description="كيفية استخدام رؤوس البريد الإلكتروني للعثور على الخادم الذي أرسل البريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
+{{% resource title="تقييم الرؤوس المُستَلمة" description="كيفية استخدام رؤوس البريد الإلكتروني للعثور على الخادم الذي أرسل البريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
 
 {{% resource title="تحليل الرؤوس "المُستَلمة" المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين "المستلمة" المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
 
