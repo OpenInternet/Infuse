@@ -303,9 +303,9 @@ key:
   - id: download-badge
     one: null
     other: "Télécharger le badge"
-  - id: rights-reserved
+  - id: licensed-under
     one: null
-    other: "Tous droits réservés."
+    other: "Disponibles sous"
   - id: open-language
     one: null
     other: "Ouvrir le menu des langues"
