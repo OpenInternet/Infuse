@@ -105,7 +105,7 @@ Find an email in your inbox or spam folder. Alternatively, ask for a peer or men
 
 {{% resource title="Analyzing potentially forged 'Received' headers" languages="English" cost="Free" description="How to identify fake 'received' headers." url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
 
-{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="Un regard plus approfondi sur l’analyse des en-têtes." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
+{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="A closer examination of email headers in phishing messages." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
 
 {{% resource title="Find messages with Email Log Search" languages="English" cost="Documentation free, tools only available to business & enterprise users" description="Describes how administrators of Google business and enterprise accounts can monitor message logs." url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
 
