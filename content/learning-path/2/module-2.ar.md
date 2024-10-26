@@ -131,5 +131,8 @@ Talk to your peer / mentor about what data stays on your VM and what doesn’t. 
 
 {{% resource title="Technical simulation with canary tokens" languages="English" cost="Free" description="A guide on how to use canary tokens, an offensive security tool, to simulate malware trackers. Can be very useful in teaching defenders what data can be easily exfiltrated" url="https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/" %}}
 
+{{% resource title="دليل متوسط - كيفية التعامل مع جهاز يُحتمل أنه مُخترق" description="دليل خطوة بخطوة حول كيفية التعامل مع الأجهزة التي تعمل بنظام آي أو إس أو أندرويد والتي يُشتبه بإصابتها ببرمجيات ضارة قبل بدء أعمال الكشف" languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/guides/g6/" %}}
+{{% resource title="فصل الجهاز الظاهري من الدليل الميداني للاستجابة لحوادث المجتمع المدني ووسائل الإعلام (الفصل 6)" description="نظرة عامة تمهيدية حول كيفية بدء محللي البرمجيات الضارة في العمل على الأجهزة الافتراضية وتثبيت توزيعة لينوكس" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="محاكاة فنية باستخدام الرمز المميز لقيمة الكاناري" description="دليل حول كيفية استخدام الرمز المميز لقيمة الكاناري، وهي أداة أمان هجومية تحاكي متتبعات البرمجيات الضارة. يمكن أن تكون مفيدة جدًا في تثقيف المدافعين حول البيانات التي يمكن تسريبها بسهولة" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.google.com/document/d/14YViryXq2id2PaLeT91KxS-u67-26BDuLPTP\_O5BHTM/edit?usp=sharing*](https://docs.google.com/document/d/14YViryXq2id2PaLeT91KxS-u67-26BDuLPTP_O5BHTM/edit?usp=sharing" %}}
 
 
