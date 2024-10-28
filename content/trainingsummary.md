@@ -1,10 +1,8 @@
 +++
-title = "Peer verification report"
+title = "Report on Peer Verification Systems in Digital Protector Spaces"
 navbar = false
 weight = 1
 +++
-
-# Report on Peer Verification Systems in Digital Protector Spaces
 
 ## Introduction
 
@@ -13,7 +11,7 @@ The Infuse resource aims to implement a decentralized peer verification framewor
 
 ## Methodology
 
-This report summarizes and identifies common themes from key informant interviews (KIIs), focus group discussions (FGDs ), and desk research conducted between April and June 2023. KIIs were conducted with 12 individuals involved in upskilling programs and talent identification. Most of those interviewed are working on upskilling programming in internet freedom and digital protector spaces, and others are subject matter experts from other disciplines, including the diving, medical, and rescue fields . Two FGDs were conducted with Internews team members, one with members of the Internet Freedom & Resilience team (four participants) and another with staff from other Internews teams (six participants). Insights from interviews were coded into five categories (defining peer verification, benefits of peer verification, challenges and barriers, best practices and lessons learned – as well as indicators of success, and sustainability) and sub-categorized into numerous themes. Additionally, desk research was conducted on examples of peer verification in several contexts and; the findings thereof are incorporated into this report.  Following this work, Internews convened a global gathering of digital security experts and partners to discuss and validate the work performed thus far in Nairobi, Kenya in July 2023. A significant component of the convening was creating spaces for meaningful FGDs . These FGDs were designed to garner a diverse array of insights, questions, concerns, and issues directly from individuals engaged in the practice of digital security. The richness of the discussions and the depth of the insights gathered significantly informed the findings and recommendations presented in this report.
+This report summarizes and identifies common themes from key informant interviews (KIIs), focus group discussions (FGDs), and desk research conducted between April and June 2023. KIIs were conducted with 12 individuals involved in upskilling programs and talent identification. Most of those interviewed are working on upskilling programming in internet freedom and digital protector spaces, and others are subject matter experts from other disciplines, including the diving, medical, and rescue fields . Two FGDs were conducted with Internews team members, one with members of the Internet Freedom & Resilience team (four participants) and another with staff from other Internews teams (six participants). Insights from interviews were coded into five categories (defining peer verification, benefits of peer verification, challenges and barriers, best practices and lessons learned – as well as indicators of success, and sustainability) and sub-categorized into numerous themes. Additionally, desk research was conducted on examples of peer verification in several contexts and; the findings thereof are incorporated into this report.  Following this work, Internews convened a global gathering of digital security experts and partners to discuss and validate the work performed thus far in Nairobi, Kenya in July 2023. A significant component of the convening was creating spaces for meaningful FGDs . These FGDs were designed to garner a diverse array of insights, questions, concerns, and issues directly from individuals engaged in the practice of digital security. The richness of the discussions and the depth of the insights gathered significantly informed the findings and recommendations presented in this report.
 
 
 ## Peer Verification & Case Studies
