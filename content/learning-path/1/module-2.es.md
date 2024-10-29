@@ -35,9 +35,9 @@ Una vez que esté familiarizado con el conocimiento fundamental anterior, tómes
 
 Debería ser capaz de:
 
-- Observe cómo puede hablar sobre el (phishing) y de infraestructura malintencionada de la forma más empática posible. Todos pueden hacer clic en un vínculo incorrecto o leer mal una dirección URL; asegúrese de que no avergüenza a nadie. Cuando discuta públicamente estudios de casos, hágalo con cuidado y empatía para no culpar a ningún usuario individual ni identificar a personas que preferirían permanecer en el anonimato;
-- Esté preparado para discutir la diferencia entre el análisis activo y pasivo de la infraestructura de tolerancia al riesgo;
-- Esté preparado para explicar cómo el mismo método de análisis puede producir a veces muchos datos y a veces muy pocos, y gestione las expectativas en consecuencia.
+- Observar cómo puede hablar sobre el (phishing) y de infraestructura malintencionada de la forma más empática posible. Todos pueden hacer clic en un vínculo incorrecto o leer mal una dirección URL; asegúrese de que no avergüenza a nadie. Cuando discuta públicamente estudios de casos, hágalo con cuidado y empatía para no culpar a ningún usuario individual ni identificar a personas que preferirían permanecer en el anonimato;
+- Estar preparado/a para discutir la diferencia entre el análisis activo y pasivo de la infraestructura de tolerancia al riesgo;
+- Estar preparado/a para explicar cómo el mismo método de análisis puede producir a veces muchos datos y a veces muy pocos, y gestionar las expectativas en consecuencia.
 
 Tenga en cuenta que las habilidades que se describen más adelante en esta ruta de aprendizaje también contienen consejos sobre el desarrollo de las habilidades interpersonales para ofrecer un apoyo reflexivo que reduzca los daños.
 
@@ -64,7 +64,7 @@ Reflexione y responda/discuta lo siguiente con sus compañeros, colegas, amigos 
 
 ## Comprobación de Habilidades
 
-Haga un ejercicio de juego de roles con un compañero o mentor, en el que usted desempeñe el papel de protector digital, y ellos desempeñen el papel de alguien que recibió un correo electrónico de phishing que todavía está en su buzón de correo. Recibieron el correo electrónico hace varias horas, no recuerdan si hicieron clic en él, y solo comenzaron a pensar que es sospechoso y que deberían alertar a los demás ahora. Están muy estresados, preocupados de que puedan haber puesto en riesgo a sus colegas y a la organización. Algunos de los temas que la conversación podría tocar incluyen:
+Haga un ejercicio de juego de roles con un compañero o mentor, en el que usted desempeñe el papel de protector digital y ellos desempeñen el papel de alguien que recibió un correo electrónico de phishing que todavía está en su buzón de correo. Recibieron el correo electrónico hace varias horas, no recuerdan si hicieron clic en él, y solo comenzaron a pensar que es sospechoso y que deberían alertar a los demás ahora. Están muy estresados, preocupados de que puedan haber puesto en riesgo a sus colegas y a la organización. Algunos de los temas que la conversación podría tocar incluyen:
 
 - Explicar qué es un mensaje de phishing y cuáles podrían ser los objetivos de los atacantes.
 - Hablar con la persona objetivo sobre el riesgo que podría correr si hiciera clic en el correo electrónico de phishing.
