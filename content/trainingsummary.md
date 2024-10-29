@@ -1,6 +1,6 @@
 +++
-title = "Report on Peer Verification Systems in Digital Protector Spaces"
 style = "module"
+title = "Report on Peer Verification Systems in Digital Protector Spaces"
 navbar = false
 weight = 1
 +++
