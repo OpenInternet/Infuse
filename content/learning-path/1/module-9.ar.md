@@ -7,26 +7,16 @@ weight: 9
 
 ## حالة استخدام
 
-نظرنا في الموضوعات الفرعية السابقة في كيفية كشف البنية التحتية التي تقدم المحتوى الضار سواء كان ذلك محتوى غير مرغوب فيه أو برمجيات ضارة أو تصيد احتيالي. بمجرد الانتهاء من ذلك بنجاح، يحين وقت تحذير الآخرين منها وفي هذا الموضوع الفرعي نغطي الإبلاغ عن الإساءة وآليات التصفح الآمن الأخرى وآليات الثقب. يشمل ذلك الاتصال بمزود البنية التحتية للإبلاغ عن البنية التحتية الضارة بحيث يمكن إزالتها.
+نظرنا في الموضوعات الفرعية السابقة في كيفية كشف البنية التحتية التي تقدم المحتوى الضار سواء كان ذلك محتوى غير مرغوب فيه أو برمجيات ضارة أو تصيد احتيالي. بمجرد الانتهاء من ذلك بنجاح، يحين وقت تحذير الآخرين منها وفي هذا الموضوع الفرعي نغطي **الإبلاغ عن الإساءة وآليات التصفح الآمن الأخرى وآليات الثقب**. يشمل ذلك الاتصال بمزود البنية التحتية للإبلاغ عن البنية التحتية الضارة بحيث يمكن إزالتها.
 قم بإقران هذا الجهد بأنشطة أوسع للاستجابة للحوادث بما في ذلك مشاركة التهديدات والتواصل مع المجتمعات التي ربما تكون قد استهدفت أيضًا بالهجمات الناشئة عن البنية التحتية ذاتها.
-الأهداف 
+
+## الأهداف 
 
 بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
-فهم أساسي لكيفية عمل الإبلاغ عن الإساءة وقواعد البيانات.
-تحديد قواعد بيانات إساءة الاستخدام التي تدرج عناوين مواقع ويب والنطاقات المشتبه بأنها ضارة.
-طلب البيانات من قواعد البيانات هذه والكتابة فيها.
-تحديد واستخدام آليات الإبلاغ عن إساءة الاستخدام لدى موفري البنية التحتية الأكبر.
-
-
-
-
-
-
-In the previous sub-topics, we looked at how you can identify infrastructure that serves malicious content, be it spam, malware, or phishing. Once you have successfully done so, it’s time to warn others about it. In this subtopic, we cover **abuse-reporting and other safe browsing and sinkhole mechanisms**. This includes contacting the infrastructure provider to report malicious infrastructure so that it can be taken down.
-
-Pair this effort with broader incident response activities including threat sharing and reaching out to communities which may have also been targeted by the attacks originating from the same infrastructure.
-
-
+- فهم أساسي لكيفية عمل الإبلاغ عن الإساءة وقواعد البيانات.
+- تحديد قواعد بيانات إساءة الاستخدام التي تدرج عناوين مواقع ويب والنطاقات المشتبه بأنها ضارة.
+- طلب البيانات من قواعد البيانات هذه والكتابة فيها.
+- تحديد واستخدام آليات الإبلاغ عن إساءة الاستخدام لدى موفري البنية التحتية الأكبر.
 
 ---
 ## العرض
@@ -83,39 +73,23 @@ Pair this effort with broader incident response activities including threat shar
 - تُقدم قواعد بيانات تقارير وتهديدات أكثر تحديدًا بواسطة أبيوس دوت سي إتش [abuse.ch](https://abuse.ch) وتتطلب المصادقة من أجل الإرسال مثل يو آر إل هاوس [URLhaus](https://urlhaus.abuse.ch/) وثريت فوكس [ThreatFox](https://threatfox.abuse.ch/) وإس إس إل بلاك ليست[SSL Blacklist](https://sslbl.abuse.ch/).
 - لإبلاغ عن التصيد الاحتيالي على ديسكورد (Discord) إلى فيش دوت جي جي [phish.gg ](https://docs.phish.gg/) (أو إضافة خادم إلى خدمتهم).
 
-## Practice
+## الممارسة
 
-- Find the abuse contacts for 3 web hosting companies, including at least one major platform (use as AWS, GCP, Azure, Oracle Cloud, and Alibaba Cloud). Look for any additional information they offer on their abuse reporting process.
-- Investigate how abuse databases and Google Safe Browsing work. Lists several tools and services that they are integrated with.
-- Build your own incident-response flowchart and checklist containing relevant links and actions to take in case of an incident of malicious online infrastructure.
+- اعثر على جهات اتصال إساءة الاستخدام لثلاث شركات استضافة مواقع، بما في ذلك منصة رئيسية واحدة على الأقل (مثل إيه دبليو إس (AWS) وجي سي ب (GCP) وأزور (Azure) وأوراكل كلاود (Oracle Cloud) وعلي بابا كلاود (Alibaba Cloud)، وابحث عن أي معلومات إضافية يقدمونها حول عملية الإبلاغ عن الإساءة.
+- تحقق من كيفية عمل قواعد بيانات إساءة الاستخدام والتصفح الآمن من غوغل واطلّع على عدد من الأدوات والخدمات المدمجة معها.
+- جهّز مخطط سير عمل للاستجابة للحوادث وقائمة مرجعية تحتوي على الروابط والإجراءات ذات الصلة التي يجب اتخاذها في حالة وقوع حادث بنية تحتية ضارة على الإنترنت.
 
 
-[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
-الممارسة
-اعثر على جهات اتصال إساءة الاستخدام لثلاث شركات استضافة مواقع، بما في ذلك منصة رئيسية واحدة على الأقل (مثل إيه دبليو إس (AWS) وجي سي ب (GCP) وأزور (Azure) وأوراكل كلاود (Oracle Cloud) وعلي بابا كلاود (Alibaba Cloud)، وابحث عن أي معلومات إضافية يقدمونها حول عملية الإبلاغ عن الإساءة.
-تحقق من كيفية عمل قواعد بيانات إساءة الاستخدام والتصفح الآمن من غوغل واطلّع على عدد من الأدوات والخدمات المدمجة معها.
-جهّز مخطط سير عمل للاستجابة للحوادث وقائمة مرجعية تحتوي على الروابط والإجراءات ذات الصلة التي يجب اتخاذها في حالة وقوع حادث بنية تحتية ضارة على الإنترنت.
-اختبار مهارة
+## اختبار مهارة
+
 
 تعاون مع مُرشِد أو نظير لديه بعض الخبرة في إزالة البنية التحتية الضارة لأداء المهام التالية:
-حضّر جميع الأدلة (عناوين بروتوكول الإنترنت وشفرات التجزئة والنطاقات وأي أدلة أخرى) ستحتاجها لتقديم تقرير إساءة الاستخدام. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد اجمع هذه الأدلة عنها وإذا لم تكن لديك فقم بجمع الأدلة من صفحة ويب سليمة (ولكن دون تقديم تقرير إساءة استخدام بالطبع). ناقش الأدلة مع نظيرك أو مرشدك الذي سيتحقق من أنك جمعت الأدلة الصحيحة ووثقتها بشكل صحيح.
-اشرح كيفية عمل التصفح الآمن وقاعدة بيانات إساءة الاستخدام ومقدمي قوائم الحظر. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد، أرسله إلى قاعدة بيانات أو موفر الخدمة. إذا لم يكن لديك مثال، انتقل إلى صفحة الويب الخاصة بمزود الخدمة وجرب عملية الإرسال مع نظير أو مُرشِد (اشرح المعلومات التي ستقوم بتحضيرها ولكن دون إرسالها).
-اطلب من مرشدك أو نظيرك إدراج ثلاثة من مقدمي خدمات استضافة الويب أو مقدمي الخدمات السحابية أو المسجلين أو غيرهم من مقدمي الخدمات، وبالنسبة لكل واحد من هؤلاء ابحث عن آلية الاتصال أو الإبلاغ عن الإساءة ذات الصلة.
-تحدث إلى مُرشِد أو النظير حول المخاطر الاستراتيجية والشخصية لبدء الإزالة والإفصاح المحتمل عن بيانات العميل واحتمال إعلام المهاجم بأن هجومه يخضع لفحص تحليلي. جرّب تمرين تمثيل الأدوار حيث تقوم بالإبلاغ عن هذه الاعتبارات إلى هدف الهجوم.
 
-العنوان | الوصف | اللغة | التكلفة | رابط عنوان موقع الويب
-سير عمل مكتب المساعدة: يتلقى العميل بريدًا إلكترونيًا مشبوهًا/تصيد احتيالي | وثائق المجتمع لخط مساعدة وثائق آكسس ناو للاستجابة إلى رسائل البريد الإلكتروني المشبوهة/الاحتيالية | الإنجليزية | مجانًا | يتلقى العميل بريدًا إلكترونيًا مشبوهًا/تصيدًا احتياليًا | وثائق عامة خط مساعدة الأمن الرقمي من آكسس ناو (accessnowhelpline.gitlab.io)
-قائمة بجميع أنواع سجلات نظام أسماء النطاقات | يتضمن (تقريبًا؟) جميع أنواع سجلات نظام أسماء النطاقات. | الإنجليزية والصينية واليابانية والكورية والروسية والصربية والأوكرانية والإسبرانتو والهنغارية والفيتنامية والإيطالية والإسبانية والفرنسية | مجانًا | https://en.wikipedia.org/wiki/List_of_DNS_record_types
-تقارير منظمة العفو الدولية عن حملات التصيد الاحتيالي | قائمة بأمثلة على حملات التصيد الاحتيالي المستهدفة ضد المدافعين عن حقوق الإنسان والناشطين والصحفيين | متعددة، حسب التقرير | مجانًا | https://www.amnesty.org/en/search/phishing/
+- حضّر جميع الأدلة (عناوين بروتوكول الإنترنت وشفرات التجزئة والنطاقات وأي أدلة أخرى) ستحتاجها لتقديم تقرير إساءة الاستخدام. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد اجمع هذه الأدلة عنها وإذا لم تكن لديك فقم بجمع الأدلة من صفحة ويب سليمة (ولكن دون تقديم تقرير إساءة استخدام بالطبع). ناقش الأدلة مع نظيرك أو مرشدك الذي سيتحقق من أنك جمعت الأدلة الصحيحة ووثقتها بشكل صحيح.
+- اشرح كيفية عمل التصفح الآمن وقاعدة بيانات إساءة الاستخدام ومقدمي قوائم الحظر. إذا كان لديك مثال على بنية تحتية ضارة في متناول اليد، أرسله إلى قاعدة بيانات أو موفر الخدمة. إذا لم يكن لديك مثال، انتقل إلى صفحة الويب الخاصة بمزود الخدمة وجرب عملية الإرسال مع نظير أو مُرشِد (اشرح المعلومات التي ستقوم بتحضيرها ولكن دون إرسالها).
+- اطلب من مرشدك أو نظيرك إدراج ثلاثة من مقدمي خدمات استضافة الويب أو مقدمي الخدمات السحابية أو المسجلين أو غيرهم من مقدمي الخدمات، وبالنسبة لكل واحد من هؤلاء ابحث عن آلية الاتصال أو الإبلاغ عن الإساءة ذات الصلة.
+- تحدث إلى مُرشِد أو النظير حول المخاطر الاستراتيجية والشخصية لبدء الإزالة والإفصاح المحتمل عن بيانات العميل واحتمال إعلام المهاجم بأن هجومه يخضع لفحص تحليلي. جرّب تمرين تمثيل الأدوار حيث تقوم بالإبلاغ عن هذه الاعتبارات إلى هدف الهجوم.
 
-## Skill Check
-
-Work with a mentor or peer who has some experience in taking down malicious infrastructure. Do the following tasks with them:
-
-- Prepare all of the evidence (IP addresses, hashes, domains, and any other evidence) you would need to submit an abuse report. If you have an example of malicious infrastructure at hand, collect that evidence for this infrastructure. If you do not, collect the evidence from a legitimate web page (but without submitting an abuse report, of course). Discuss the evidence with your peer or mentor who will verify that you collected the right evidence and have correctly documented it.
-- Explain how safe browsing, abuse database, and blocklist providers work. If you have an example of malicious infrastructure on hand, submit it to such a database or provider. If you do not, go to the provider’s web page and do a dry run of the submission process with your peer or mentor (explain what information you would prepare, without submitting it).
-- Ask your mentor or peer to list three web hosting providers, cloud providers, registrars, or other service providers. For each of those, find the relevant abuse contact or reporting mechanism.
-- Talk to your mentor or peer about the strategic and personal risks of initiating takedown, potentially disclosing client’s data, and potentially indicating to an attacker that their attack is being critically examined. Do a draft role-play in which you communicate these considerations to the target of the attack.
 
 ## موارد التعلّم
 
