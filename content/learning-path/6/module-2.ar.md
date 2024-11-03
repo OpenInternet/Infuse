@@ -2,73 +2,84 @@
 style = "module"
 weight = 2
 title = "Website Logging for Security"
-description = "Website logs can be crucial in identifying potential attacks and attackers. We look at how to effectively use them"
+description = "يُعدّ أي موقع ويب على الإنترنت معرضًا لشكل مستمر للهجوم، وعلى أقل تقدير تغرق بهجمات غير موجّهة من أعداد كبيرة من روبوتات تُديرها جهات إجرامية"
 +++
 
-## Use Case
+## حالة استخدام
 
-Any website that’s exposed to the internet is under constant attack. At the very least, it’s being deluged by undirected attacks by hordes of robots operated by criminal actors. More concerning are targeted attacks; even unskilled attackers, given perseverance and luck, can find vulnerabilities in a website.
+يُعدّ أي موقع ويب على الإنترنت معرضًا لشكل مستمر للهجوم، وعلى أقل تقدير تغرق بهجمات غير موجّهة من أعداد كبيرة من روبوتات تُديرها جهات إجرامية. والأمر الأكثر إثارة للقلق هو الهجمات المستهدفة لأن حتى المهاجمين غير المهرة مع القليل من المثابرة والحظ، يمكنهم العثور على نقاط ضعف في موقع الويب. 
 
-Ideally, the website owner should be able to be aware of the threats they are facing. Site owners especially will want to know if an attacker is close to finding, or has recently found, a vulnerability in their site. Finally, if a vulnerability is exploited, site owners will want to know where the vulnerability is, and for how long it’s been exploited. Website logs can support all of these desires.
+من الناحية المثالية، يجب أن يكون مالك موقع الويب قادرًا على إدراك التهديدات التي يواجهها، وسيرغب في معرفة ما إذا كان المهاجم قريبًا من العثور على ثغرة أمنية في موقعه أو وجدها مؤخرًا. وأخيرًا في حالة استغلال ثغرة أمنية سيرغب مالكو الموقع في معرفة مكانها ومدة استغلالها، ويمكن أن تدعم سجلات موقع الويب كل هذه الرغبات.
 
-On the other hand, excessive logging can present a risk to the users of web sites. If a site logs sensitive information, and those logs are acquired by an adversary (e.g., seizure by law enforcement or compromise by hackers), then sensitive information could easily end up in the wrong hands.
+من ناحية أخرى يمكن أن يشكل فرط إبقاء السجلات خطرًا على مستخدمي مواقع الويب، حيث إذا قام الموقع بتسجيل معلومات حساسة وحصل المتطفل على هذه السجلات (على سبيل المثال، الاستيلاء عليها من قبل سلطات إنفاذ القانون أو سرقها المخترقون)، فقد تنتهي المعلومات الحساسة بسهولة في الأيدي الخطأ.
 
-This subtopic will cover approaches to website logging to maximize utility to website owners and minimize risk to site users.
+سيغطي هذا الموضوع الفرعي مناهج تسجيل مواقع الويب لتعظيم الفائدة لأصحاب مواقع الويب وتقليل المخاطر التي يتعرض لها مستخدمو الموقع.
 
-## Objectives
 
-After completing this subtopic, the practitioner should be able to do the following:
+## الأهداف 
 
-- Understand built-in logging for major web servers
-- Understand what application-specific logs to add to detect attacks
-- Know how to minimize sensitive information in logs
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارس قادرًا على القيام بما يلي:
+
+- فهم تسجيل الأحداث المدمجة لخوادم الويب الرئيسية
+- فهم سجلات التطبيق التي يجب إضافتها لاكتشاف الهجمات
+- معرفة كيفية تقليل المعلومات الحساسة في السجلات
+
 
 ---
-## Main Section
-Even with the best possible skills, dedication, processes, and intentions, it’s nearly impossible to develop a website that’s completely resistant to any kind of attack. Given enough time and bad luck, every site will have a security incident. When that happens, it’s important to have logging in place that supports the detection and investigation of security events. At the same time, it’s important that a website's logs don’t pose additional risks themselves. This subtopic will teach you how to approach logging to maximize a site’s security. It will discuss:
+## العرض 
 
-- Built-in logs for popular platforms
-- Adding logs to catch important security events
-- Minimizing risks associated with logging
 
-### Built-in Logging
+حتى مع توفر المهارات والتفاني والعمليات بأفضل صورة، من شبه المستحيل تطوير موقع ويب يكون محصناً تماماً ضد أي نوع من الهجمات، ومع مرور الوقت وبعض الحظ السيئ سيتعرض كل موقع لحادث أمني. عندما يحدث ذلك من المهم أن يكون لديك سجلات أحداث تدعم اكتشاف الأحداث الأمنية والتحقيق فيها، وفي الوقت نفسه من المهم ألا تشكل سجلات موقع الويب مخاطر إضافية بحد ذاتها. سيعلمك هذا الموضوع الفرعي كيفية التعامل مع التسجيل لزيادة أمان الموقع، وسيناقش:
 
-Various web platforms have their own logging systems. They can be relied upon to record data on every request and response, but are generally not sufficient for all incident response needs. Let’s go over what’s available in some common frameworks’ logs.
+- سجلات أحداث مدمجة للمنصات الشائعة(Built-in logs for popular platforms)
+- إضافة سجلات لتسجيل الأحداث الأمنية المهمة (Adding logs to catch important security events)
+- تقليل المخاطر المرتبطة بتسجيل الأحداث
 
-#### Apache
+### سجلات أحداث مدمجة
 
-Apache is the most popular full-featured web server on the internet, serving more active sites than any other. By default, it logs events to file on the web server’s filesystem. There are two files: `access_log` and `error_log`. The access log contains structured information about each request, while the error log contains more semi-structured data about things that have gone wrong.
+تمتلك منصات الويب المختلفة أنظمة تسجيل خاصة بها، ويمكن الاعتماد عليها لتسجيل البيانات عند كل طلب واستجابة، ولكنها لا تكفي عمومًا لجميع احتياجات الاستجابة للحوادث. لنراجع ما هو متاح في بعض سجلات الأطر الشائعة.
 
-The access log has one line per entry, with a configurable format. The default format is the following fields, each separated by a space:
 
-- The requester’s IP address
-- The logged-in user on the requesting device. This is almost never sent, and so is almost always just a dash.
-- The user logged in if the web site uses HTTP Basic authentication. This will also almost always be a dash.
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The HTTP request line sent from the client, surrounded by quotes (e.g. `"GET / HTTP/1.1"`). These fields will always have spaces.
-- The HTTP response code from the server, e.g. 200, 404, 500, etc.
-- The size of the response returned from the server
+#### أباتشي (Apache)
+
+
+أباتشي هو خادم ويب مكتمل الميزات والأكثر شعبية على الإنترنت ويخدم مواقع أكثر نشاطًا من أي خادم آخر، وبشكل افتراضي يُسجل الأحداث للملف على نظام ملفات خادم الويب. يوجد ملفان: access_log  وerror_log. ويضم سجل الوصول معلومات منظمة حول كل طلب بينما يحتوي سجل الأخطاء على المزيد من البيانات شبه المنظمة حول الأشياء التي حدثت بشكل خاطئ.
+
+يحتوي سجل الوصول على سطر واحد لكل إدخال بصيغة قابلة للتكوين، والصيغة الافتراضية هي الحقول التالية، كل منها مفصولة بمسافة:
+
+- عنوان بروتوكول الإنترنت لمقدم الطلب The requester’s IP address
+- المستخدم مسجل الدخول على الجهاز مقدم الطالب، لكن غالبا ما لا يرسل هذا وكذلك دائمًا ما يكون مجرد شَرطة  a dash .
+- قام المستخدم بتسجيل الدخول إذا كان موقع الويب يستخدم مصادقة أساسية لبروتوكول نقل النص التشعبي وسيكون هذا أيضًا دائمًا شرطة. 
+- تاريخ ووقت الطلب محاطين بأقواس معقوفة. لاحظ أن هذا الحقل سيحتوي عادةً على مسافات فيه.
+- خط طلب بروتوكول نقل النص التشعبي المرسل من العميل، محاطًا بقوسين (على سبيل المثال "GET / HTTP/1.1"). ستحتوي هذه الحقول دائمًا على مسافات..
+- رمز استجابة بروتوكول نقل النص التشعبي من الخادم، على سبيل المثال 200، 404، 500، وما إلى ذلك.
+- حجم الاستجابة التي تم إرجاعها من الخادم
+
+
+إليك مثال على ذلك:
+
 
 Here’s an example:
 
 ```
 127.0.0.1 - - [13/Dec/2023:13:55:36 -0700] "GET / HTTP/1.1" 200 2326
 ```
+لاحظ أنه يمكن تكوين كل خادم أباتشي لتسجيل المزيد من بيانات أقل. لمزيد من المعلومات، راجع وثائق أباتشي ولمزيد من المعلومات حول سجل وصول أباتشي وكيفية استخدامه[the Apache documentation](https://httpd.apache.org/docs/2.4/logs.html#accesslog)، راجع هذه [المقالة.](https://www.keycdn.com/support/apache-access-log).
 
-Note that each Apache server can be configured to log more of less data. For more information, see [the Apache documentation](https://httpd.apache.org/docs/2.4/logs.html#accesslog). For more about the apache access log and how to use it, see [this article.](https://www.keycdn.com/support/apache-access-log)
+يتكون سجل الأخطاء من مزيج من الرسائل من أباتشي بتنسيق شبه منظم ورسائل خطأ من مواقع الويب التي تعمل على الخادم، دون أي بنية مهيكلة، والهيكل الافتراضي لإدخالات سجل الأخطاء من أباتشي نفسها هو سطر واحد لكل إدخال، مع الحقول التالية، مفصولة مرة أخرى بمسافات:
 
-The error log consists of a mix of messages from Apache that are in a semi-structured format and error messages from websites running on the server, without any enforced structure. The default structure of error log entries from Apache itself is one line per entry, with the following fields, again separated by spaces:
+- تاريخ ووقت الطلب محاطين بأقواس معقوفة. لاحظ أن هذا الحقل سيحتوي عادةً على مسافات فيه.
+- مستوى الخطأ (مثل الإشعار والخطأ) محاطًا بأقواس معقوفة.
+- إذا كان الخطأ مرتبطًا بطلب فإن كلمة "العميل" وعنوان بروتوكول الإنترنت لمقدم الطلب ستكون بين قوسين معقوفين. 
+- رسالة الخطأ الفعلية نفسها ستحتوي دائمًا على عدد من المسافات>
 
-- The date and time of the request, surrounded by square brackets. Note that this field will usually have spaces in it.
-- The error level (e.g. notice, error) surrounded by square brackets.
-- If the error is associated with a request, the word “client” and the IP address of the requester, all within square brackets.
-- The actual error message itself, which will almost always contain a number of spaces
+توفر هذه المقالة معلومات إضافية حول استخدام[سجل أخطاء أباتشي](https://www.dataset.com/blog/apache-error-log-detail/).
 
-[This article](https://www.dataset.com/blog/apache-error-log-detail/) provides more information about using the Apache error log.
+ 
 
-#### IIS
+#### إنترنت إنفورميشن سيرفيسيز (IIS) 
 
-IIS is the default Windows web server, and is also a very popular web server. Like Apache, IIS also, by default, logs requests to the web server’s filesystem. There are several log formats available, but the default is the W3C format, which logs the following, separated by spaces:
+نترنت إنفورميشن سيرفيسيز هو خادم الويب الافتراضي لويندوز وهو أيضًا خادم ويب شائع جدًا. مثل أباتشي يقوم إنترنت إنفورميشن سيرفيسيز أيضًا افتراضيًا بتسجيل الطلبات إلى نظام ملفات خادم الويب. توجد العديد من تنسيقات السجلات المتاحة، ولكن الافتراضي هو صيغة دبليو 3 سي (W3C) التي تسجل ما يلي مفصولة بمسافات:
 
 - Request time
 - Requester’s IP address
@@ -77,38 +88,38 @@ IIS is the default Windows web server, and is also a very popular web server. Li
 - Server response code (e.g. `200`, `404`, `500`, etc.)
 - HTTP protocol version (e.g. `HTTP/1.1`)
 
-Note that the default logs do not log the query string, so for example a request to [http://example.com/profile?profileID=34](http://example.com/profile?profileID=34) will only log `/profile`. For more information on the IIS access logs, see the [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0).
+لاحظ أن السجلات الافتراضية لا تسجل سلسلة الاستعلام، لذلك على سبيل المثال سيسجل طلب [http://example.com/profile?profileID=34](http://example.com/profile?profileID=34) will only log `/profile`. 
+اجع وثائق مايكروسوفت. [Microsoft documentation](https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0).
 
-Error logs under IIS are slightly more complicated. Depending on the error, they may go to the HTTP.SYS HTTPERR log file, or in the Windows event log.
 
-The HTTPERR file contains protocol-level errors and is in a structured format, with the following fields separated by spaces:
+سجلات الأخطاء ضمن إنترنت إنفورميشن سيرفيسيز أكثر تعقيدًا قليلًا. حسب نوع الخطأ قد ينتقل إلى ملف سجل HTTP.SYS HTTPERR أو سجل أحداث ويندوز.
 
-- Request date
-- Request time
-- Requester’s IP address
-- Requester’s port (not the server port)
-- Server IP address
-- Server port
-- HTTP protocol ( e.g. `HTTP/1.1`)
-- HTTP method (e.g. `GET`, `POST`, `HEAD`, etc.)
-- The URL and query string
-- Server response code (e.g. `200`, `404`, `500`, etc.)
-- A literal dash
-- An error type string (no spaces)
+يحتوي ملف HTTPERR على أخطاء على مستوى البروتوكول وهو بصيغة منظمة مع فصل الحقول التالية بمسافات:
 
-For more information on the error log, see the [Microsoft documentation](https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis).
+- تاريخ الطلب
+- وقت الطلب
+- عنوان بروتوكول الإنترنت لمقدم الطلب
+- منفذ مقدم الطلب (وليس منفذ الخادم)
+- عنوان بروتوكول إنترنت الخادم
+- منفذ الخادم
+- بروتوكول نقل نص تشعبي (مثل HTTP/1.1)
+- طرق بروتوكول نقل نص تشعبي (على سبيل المثال، غت (GET)، بوست (POST)، هيد (HEAD)، وما إلى ذلك.)
+- عنوان موقع ويب وسلسلة الاستعلام
+- رمز استجابة الخادم (على سبيل المثال 200، 404، 500، وما إلى ذلك)
 
-The Windows event log contains errors generated from the application server (e.g. ASP.NET) or application. These are available in the Windows Event Viewer and are semi-structured:
+لمزيد من المعلومات حول سجل الأخطاء، راجع وثائق مايكروسوفت[Microsoft documentation](https://learn.microsoft.com/en-us/troubleshoot/developer/webapps/aspnet/site-behavior-performance/error-logging-http-apis).
 
-- Error level (e.g. `Information`, `Warning`, `Error`)
-- Date and time
-- The software that logged the error (log entries can come from any software on the system, not just the web server)
-- A unique ID of the event/error
-- Category
-- Unstructured information specific to the error
 
-For more information on finding error logs on Windows, see [this article](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
+يحتوي سجل أحداث ويندوز على أخطاء تم إنشاؤها من خادم التطبيق (مثل ASP.NET) أو التطبيق، وهي متوفرة في عارض أحداث ويندوز وهي شبه منظمة:
 
+- مستوى الخطأ (مثل المعلومات، التحذير، الخطأ)
+- التاريخ والوقت
+- البرنامج الذي سجّل الخطأ (يمكن أن تأتي إدخالات السجل من أي برنامج على النظام وليس فقط خادم الويب)
+- معرّف فريد للحدث/الخطأ
+- الفئة
+- معلومات غير منظمة خاصة بالخطأ
+
+لمزيد من المعلومات حول العثور على سجلات الأخطاء على ويندوز، راجع هذه[ المقالة](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
 #### nginx
 
 Depending on how you count, nginx may be the most popular web server on the internet, however it is fairly limited, usually acting as a reverse proxy to a back-end web server or serving static files.
@@ -170,6 +181,47 @@ When overcoming the limitations of built-in server logging, we want to make sure
 
 [This article](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) prevents some general best practices for handling sensitive data during logging. Here are some approaches to consider for specific sorts of data:
 
+إن جي آي إن إكس (nginx)
+حسب طريقة الحساب قد يكون إن جي آي إن إكس هو خادم الويب الأكثر شيوعًا على الإنترنت ولكنه محدود إلى حد ما وعادةً ما يعمل على شكل وكيل عكسي لخادم الويب الخلفي أو يقدم ملفات ثابتة. 
+تتشابه سجلات الوصول الافتراضية مع سجلات أباتشي الافتراضية، ولكن مع الحقول التالية في نهاية كل سطر:
+قيمة رأس المُحيل المرسل مع الطلب
+تم إرسال وكيل المستخدم (إصدار المتصفح) مع الطلب
+لمزيد من المعلومات حول سجلات إن جي آي إن إكس، راجع الوثائق الرسمية.
+سجلات أخطاء إن جي آي إن إكس شبه منظمة وتشمل الحقول التالية مفصولة بمسافات:
+تاريخ الطلب
+وقت الطلب
+مستوى الخطأ داخل الأقواس المعقوفة
+معلومات معرّف العملية حول مثيل إن جي آي إن إكس الذي سجل الخطأ
+معرّف اتصال (اختياري)
+رسالة الخطأ بشكل نص حر
+للاطلاع على مزيد من المعلومات، انظر هذه المقالة.
+سجلات شبكة توصيل المحتوى بالاتجاه الصاعد
+إذا كان الموقع خلف شبكة توصيل المحتوى، فغالبًا ما يكون من المفيد الاطلاع على سجلات طلبات المرسلة إلى شبكة توصيل المحتوى بدلًا من الطلبات من شبكة توصيل المحتوى إلى موقع المنشأ. يوفر كل مزود شبكة توصيل المحتوى سجلات مختلفة ولديه هياكل تسعير مختلفة للسجلات. 
+إعداد سجلات الخادم
+عند إعداد سجلات الخادم، توجد بعض خطوات يجب اتخاذها لزيادة قيمة أمان السجلات.
+تأكد من أن السجلات تحتوي على الأقل على عنوان بروتوكول الإنترنت لمقدم الطلب، وكامل عنوان معرف الموارد المنتظم المطلوب (بما في ذلك سلسلة الاستعلام)، والوقت المستغرق لخدمة الطلب وحجم الاستجابة والمُحيل ووكيل المستخدم. يمكن أن تكون هذه المعلومات مفيدة للغاية عند التحقيق في حادث ما.
+حاول إخراج السجلات من خادم الويب في أسرع وقت ممكن لأنه تعرض الخادم نفسه للاختراق من المحتمل أن يحاول المهاجمون إخفاء مساراتهم عن طريق حذف سجلات الخادم أو تعديلها. تشمل بعض طرق تحقيق ذلك ما يلي:
+إجراء عملية تسحب ملفات السجل من الخادم بشكل دوري، ولا بأس بدفع السجلات من خادم الويب على الرغم من أنه من المهم عدم استخدام عملية الدفع لحذف السجلات الاحتياطية.
+سجلات "البث" من خادم الويب إلى جهاز تحكم عن بعد من أي وقت مضى، على سبيل المثال، باستخدام syslog-ng، وهذا يوفر حماية كبيرة ضد فقدان السجلات. عادة ما يكون من المستحسن إبقاء السجلات على خادم الويب أيضًا في حالة انقطاع الشبكة.
+قيود تسجيل الخادم
+حتى عند تكوينها بالكامل غالبًا ما تفقد سجلات الخادم المضمّنة الكثير من المعلومات المهمة، ومن الأمثلة على ذلك:
+لا تتضمن معلومات معلمة بوست، وإذا كان المهاجم ينفذ هجمات على مستوى التطبيق ضد صفحة تقبل معلمات بوست فلن تكون هناك طريقة لرؤية هذه الهجمات في السجلات.
+على الرغم من أن سجلات الأخطاء قد تحتوي على معلومات حول أخطاء نظام الملفات وقاعدة البيانات التي تحدث عندما يستغل المهاجمون الثغرات الأمنية، إلا أنها لا تكفي عمومًا لفهم الكثير عن الهجوم. على سبيل المثال، قد تشير سجلات الأخطاء المرتفعة إلى هجوم يجري ولكنها قد تشير أيضًا إلى خطأ غير أمني وقد يكون من الصعب جدًا التمييز بين الاثنين.
+لم يتم تضمين أي معلومات هوية في حين أن جميع السجلات تتضمن عنوان بروتوكول الإنترنت ويمكن أن يكون لدى العديد من المستخدمين عنوان البروتوكول ذاته.
+لم يتم تضمين الكثير من هذه المعلومات لسبب وجيه ويمكن أن يكون للكثير منها آثار سيئة على خصوصية المستخدم، يتطلب بعضها الآخر (مثل تسجيل الأخطاء المفيدة) معرفة متعمّقة بالتطبيق نفسه ولذلك لا يمكن القيام بذلك بواسطة خادم الويب.
+مقاربة تسجيل الأحداث من أجل الأمن 
+يتمثل الغرض الرئيسي من تسجيل الأحداث على مستوى التطبيق في تطبيق الويب في التغلب على قيود تسجيل الخادم للأحداث، وهناك العديد من المقالات التي تصف أفضل الممارسات لتسجيل الأحداث، وفيما يلي بعض منها:
+نظرة عامة على تسجيل أحداث الأمنية
+مقالة من مشروع أمان تطبيق الويب المفتوح حول تسجيل الأحداث لمواقع الويب
+مقالة من مشروع أمان تطبيق الويب المفتوح حول وجود تنسيق متسق للسجلات
+يجب أن تُوفر لك هذه الموارد المعرفة التي تحتاجها لدمج تسجيل الأحداث الأمنية في تطبيق ويب موجود (أو جديد).
+تسجيل الأحداث والمعلومات الحساسة
+عند التغلب على قيود تسجيل الأحداث في الخادم المدمج، سنرغب بالتأكد من أننا لا نعرض مستخدمي الموقع للخطر، وغالبًا ما تكون السجلات ذات حماية أقل من قواعد بيانات الإنتاج. أولًا، ليست السجلات هدفًا واضحًا مثل قاعدة بيانات الإنتاج ولذلك يميل الناس إلى عدم التركيز عليها كثيرًا عند وضع التدابير الأمنية. ثانيًا، غالبًا ما يُمنح عدد أكبر من المستخدمين في المؤسسة حق الوصول إلى السجلات مقارنةً بالوصول إلى قاعدة بيانات الإنتاج. ثالثًا، عادة ما تُرسل السجلات إلى العديد من الأنظمة المختلفة، في حين تميل قواعد بيانات الإنتاج إلى البقاء مركزية ولهذا السبب يجدر النظر في تنقيح المعلومات الحساسة في السجلات. 
+توفر هذه المقالة بعض أفضل الممارسات العامة للتعامل مع البيانات الحساسة أثناء التسجيل، وفيما يلي بعض الأساليب التي يجب مراعاتها لأنواع محددة من البيانات:
+معلمات بوست
+من الممارسات الموصى بها عدم تضمين المعلومات الحساسة في معلمات غت، وبالتالي الحصول على المعلمات التي يتم تسجيلها، ولكن ليس معلمات بوست، لكن قد يكون من المفيد للغاية الوصول إلى معلومات حول معلمات بوست عند الاستجابة للهجوم، وتوجد عدة أمور يجب أخذها في الاعتبار عند التنفيذ:
+يجب إعفاء صفحات معينة (مثل صفحة تسجيل الدخول) و/أو المعلمات (رقم بطاقة الائتمان وحقول كلمة المرور) من تسجيل الأحداث.
+بالنسبة لمعلمات النشر التي سيتم تسجيلها، يجب أن تراعي تنقيحها لإخفاء المعلومات التي يحتمل أن تكون حساسة مع متابعة تحديد حركة المرور الضارة. يمكن لتعليمات بايثون البرمجية التالية أن تساعدك:
 ##### POST parameters
 
 It is a recommended practice to not include sensitive information in GET parameters, hence GET parameters being logged, but not POST parameters. However, it can be extremely useful to have access to information about POST parameters when responding to an attack. A few things to put in place:
