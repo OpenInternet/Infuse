@@ -2,121 +2,75 @@
 style = "module"
 weight = 3
 title = "Sandboxes and dynamic analysis"
-description = "Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing this is by running a piece of software in a safe, isolated environment called a sandbox."
+description = "يُعدّ التحليل الديناميكي عملية لتشغيل برمجية ضار ومراقبة ما يفعله، وأسهل طريقة لإجراء التحليل الديناميكي هي تشغيل البرنامج في بيئة اختبار معزولة. تُعد بيئة الاختبار المعزولة بيئة آمنة مستقلة لفتح ملف أو عنوان موقع ويب أو برمجية تحتمل أن تكون ضارة وإنشاء كمية هائلة من البيانات عنه."
 +++
 
-## Use Case
+## حالة استخدام
 
-Dynamic analysis is the process of running a piece of malware and observing what it does. The easiest way of doing dynamic analysis is by running a piece of software in a sandbox. A sandbox is a safe, isolated environment which opens a potentially malicious file, URL, or program and generates a huge amount of data on it. This subtopic looks at sandbox analysis, what it can and cannot do, and how to do it.
-
-## Objectives
-
-After completing this subtopic, practitioners should be able to do the following:
-
-- Understand the use case for and limitations of dynamic analysis
-- Understand the advantages and limitations of sandboxes
-- Open a suspicious file, URL, or program in a sandbox
-- Be able to perform some basic dynamic analysis on either Windows or Android binaries using off-the-shelf tools
-
----
-## Main Section
-### Dynamic analysis
-
-When you conduct dynamic analysis on a potentially suspicious file, you will open and execute the file in a specialized tool and observe what this file does, whether it tries to access other files, if it makes network connections, and the like. Static analysis, outlined in subtopic 4, on the other hand, disassembles the file rather than opening or executing it.
-
-Depending on the situation, dynamic analysis can be easier or harder than static analysis, and it can also be more or less accurate. In practice, a combination of static and dynamic analysis will likely produce the best results. Most dynamic analysis will also involve some static analysis, so the line between the two techniques is often blurred.
-
-The general setup for dynamic analysis includes a sandbox in which the malware is run, a debugger to control and monitor program execution, system monitoring to watch for changes to the sandbox system’s state, and something to mediate internet access to block, observe, and/or modify network traffic. These might all exist on one system, or they might be separate virtual or physical devices. For example, you may use a jailbroken iPhone as your sandbox, one tool for remote debugging and system monitoring, and another tool for internet mediation. Not all systems may be used in every situation, for example you might just capture network traffic and monitor system changes without using a debugger.
-
-There are many different methods in which we could conduct dynamic analysis, including by opening up the executable in a sandbox and checking the network connections it makes. For a great resource on detecting malware through the network traffic it generates, check out [this guide](https://malware-traffic-analysis.net/).
-
-In theory, dynamic analysis could tip off a threat actor that you are analyzing their malware. In practice, adversaries often expect their malware to be analyzed and it is very rare to encounter completely novel malware in your career. With the exception of some very sensitive cases, we would not worry about this risk.
-
-### Sandboxes
-
-A (malware) sandbox is a safe environment in which you can open and run a file or an URL. It is essentially a custom-designed virtual machine that is launched before the file or URL is opened, and is then shut down after a certain amount of time.
-
-All the activities in the sandbox, such as files that are opened or created as well as network connections made, are recorded and accessible through an activity report. The activity report can help you understand whether the file or URL was malicious. It can also help you link malware to previously seen activities, for example based on specific network connections or files that are created.
-
-Running known malware inside a sandbox can also be very helpful as you are learning more about malware. It helps you understand what malware does and what changes it makes on the system. For example, a lot of malware when initially run tries to ensure persistence so that it will still run following a reboot. These persistence methods are something you can look for when you perform manual forensics on a possible infected device.
-
-A lot of malware has anti-sandbox features built in: when the malware detects it is running inside a sandbox environment, it will terminate or sometimes do something harmless to confuse the analysis. Moreover, some malware is designed to only run if specific conditions are met, for example a specific version of the operating system, or an IP address located in a specific country. Sandboxes are often updated to respond to anti-sandbox methods and many sandboxes let you choose the certain properties.
-
-This is important to keep in mind when reading a sandbox report: a lack of malicious activity doesn’t automatically mean the file or URL isn’t malicious. On the other hand, if malicious activity was shown, you can be certain that the file or URL was malicious.
-
-Check out [Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for a more in-depth introduction to sandboxes.
-
-It is possible to run a sandbox locally. [Cuckoo](https://cuckoosandbox.org/) is an open source sandbox that has been around for many years. A [new version](https://github.com/cert-ee/cuckoo3) is being developed but is not yet recommended for production use at the time of writing (July 2024).
-
-While running a sandbox locally gives you full control of the environment and means you can keep your files and URLs fully private, it can be quite a lot of work to set up and maintain. Thankfully, there are many online sandboxes available, such as [ANY.RUN](https://any.run/), [Hybrid Analysis](https://www.hybrid-analysis.com/), [Joe Sandbox](https://www.joesandbox.com/), [Triage](https://tria.ge/) and even an online version of [Cuckoo](https://cuckoo.cert.ee/). All of them have free versions that allow you to upload malware and URLs, though some do require registration. Do keep in mind that if you use a free version, anything you run inside a sandbox will be publicly available. This can be a concern if you don’t want to tip off an adversary or are dealing with very private data, such as potentially infected confidential documents.
-
-### Dynamic analysis of Windows binaries
-
-We recommend starting out with an overview class, this time from [OpenSecurityTraining](https://opensecuritytraining.info/Training.html). Their [Malware Dynamic Analysis](https://opensecuritytraining.info/MalwareDynamicAnalysis.html) class includes slides, lab materials, and videos, and it covers setup, analysis, and creating IoCs.
-
-### Dynamic analysis of Android binaries
-
-Many tools can be used to dynamically analyze Android binaries. Those include some of the sandboxes outlined above and [Frida](https://frida.re/docs/android/) (check out [this tool](https://github.com/nccgroup/house) for a GUI frontend to Frida).
-
-PiRogue Tool Suite (outlined in the detecting malware learning path) can also [do excellent dynamic analysis](https://pts-project.org/guides/g8/) of Android binaries, though some of those analysis methods require you to first root your device.
-
-## Skill Check
-
-الموضوع الفرعي 3: بيئات اختبار معزولة والتحليل الديناميكي
-حالة استخدام
 يُعدّ التحليل الديناميكي عملية لتشغيل برمجية ضار ومراقبة ما يفعله، وأسهل طريقة لإجراء التحليل الديناميكي هي تشغيل البرنامج في بيئة اختبار معزولة. تُعد بيئة الاختبار المعزولة بيئة آمنة مستقلة لفتح ملف أو عنوان موقع ويب أو برمجية تحتمل أن تكون ضارة وإنشاء كمية هائلة من البيانات عنه. يبحث هذا الموضوع الفرعي في تحليل بيئة الاختبار المعزولة وما يمكن وما لا يمكن القيام به وكيفية القيام بذلك.
-الأهداف 
+ 
+
+## الأهداف
 
 بعد استكمال هذا الموضوع الفرعي، يتوقع من الممارسين أن يكونوا قادرين على:
-فهم حالة الاستخدام وقيود التحليل الديناميكي
-فهم مزايا وقيود بيئات الاختبار المعزولة
-فتح ملف أو عنوان موقع ويب أو برنامج مشبوه في بيئة اختبار معزولة
-إجراء بعض التحليلات الديناميكية الأساسية على ملفات ثنائية لنظام ويندوز أو أندرويد باستخدام أدوات جاهزة
-العرض 
-تحليل ديناميكي 
+
+- فهم حالة الاستخدام وقيود التحليل الديناميكي
+- فهم مزايا وقيود بيئات الاختبار المعزولة
+- فتح ملف أو عنوان موقع ويب أو برنامج مشبوه في بيئة اختبار معزولة
+- إجراء بعض التحليلات الديناميكية الأساسية على ملفات ثنائية لنظام ويندوز أو أندرويد باستخدام أدوات جاهزة
+  
+---
+## العرض
+### تحليل ديناميكي 
+
 عند إجراء تحليل ديناميكي على ملف يحتمل أن يكون مشبوهًا، ستقوم بفتح الملف وتنفيذه باستخدام أداة متخصصة ومراقبة ما يفعله هذا الملف، سواء كان يحاول الوصول إلى ملفات أخرى، أو إذا كان يقوم بإجراء اتصالات بالشبكة، أو ما شابه ذلك. من ناحية أخرى، يقوم تحليل التعليمات البرمجية بحالتها الثابتة الموضح في الموضوع الفرعي 4 بتفكيك الملف بدلاً من فتحه أو تنفيذه.
 
 حسب الموقف، يمكن أن يكون التحليل الديناميكي أسهل أو أصعب من تحليل التعليمات البرمجية بحالتها الثابتة ويمكن أن يكون أيضًا أكثر أو أقل دقة. من الناحية العملية، من المرجح أن يؤدي الجمع بين التحليلين الثابت والديناميكي إلى أفضل النتائج. يشتمل معظم التحليل الديناميكي أيضًا على القليل من تحليل التعليمات البرمجية بحالتها الثابتة ولذلك غالبًا ما يكون الخط الفاصل بين التقنيتين غير ثابت.
 
 يتضمن الإعداد العام للتحليل الديناميكي بيئة اختبار معزولة تُشغل فيه البرمجيات الضارة ومصحح أخطاء للتحكم في تنفيذ البرمجية ومراقبتها ومراقبة النظام للانتباه إلى التغييرات في حالة نظام بيئة الاختبار المعزولة، بالإضافة إلى الأداة التي تتحكم في الوصول إلى الإنترنت لحظر حركة المرور على الشبكة ومراقبتها و/أو تعديلها. يمكن أن تكون جميعها موجودة على نظام واحد أو قد تكون أجهزة ظاهرية أو مادية منفصلة. على سبيل المثال، يمكنك استخدام iPhone مكسور الحماية ليكون بيئة الاختبار المعزولة الخاصة بك مع أداة واحدة لتصحيح الأخطاء عن بُعد ومراقبة النظام وأداة أخرى للتحكم في الوصول إلى الإنترنت. لا يمكن استخدام جميع الأنظمة في كل حالة، على سبيل المثال قد تلتقط فقط حركة مرور الشبكة وتراقب تغييرات النظام دون استخدام مصحح أخطاء.
 
-هناك العديد من الطرق المختلفة التي يمكننا من خلالها إجراء تحليل ديناميكي بما فيها فتح الملف التنفيذي في بيئة اختبار معزولة والتحقق من اتصالات الشبكة التي يقوم بها. وللحصول على مورد رائع حول اكتشاف البرمجيات الضارة من خلال حركة مرور الشبكة التي تولدها، راجع هذا الدليل.
+هناك العديد من الطرق المختلفة التي يمكننا من خلالها إجراء تحليل ديناميكي بما فيها فتح الملف التنفيذي في بيئة اختبار معزولة والتحقق من اتصالات الشبكة التي يقوم بها. وللحصول على مورد رائع حول اكتشاف البرمجيات الضارة من خلال حركة مرور الشبكة التي تولدها، راجع هذا [الدليل](https://malware-traffic-analysis.net/).
+
 من الناحية النظرية، يمكن للتحليل الديناميكي أن يُحذر ممثل تهديد من أنك تقوم بتحليل برمجياته الضارة، ولكن من الناحية العملية غالبًا ما يتوقع المخترقون تحليل برمجياتهم الضارة ومن النادر جدًا مواجهة برمجيات ضارة جديدة تمامًا في حياتك المهنية، وباستثناء بعض الحالات الحساسة للغاية لا داعي للقلق بشأن هذا الخطر.
-بيئات الاختبار المعزولة
+
+### بيئات الاختبار المعزولة
+
+
 بيئة الاختبار المعزولة (للبرمجيات الضارة) هي بيئة آمنة يمكنك من خلالها فتح وتشغيل ملف أو عنوان موقع ويب، وهي في الأساس جهاز ظاهري مصمم خصيصًا يتم تشغيله قبل فتح الملف أو عنوان موقع الويب، ثم يتم إيقاف تشغيله بعد فترة زمنية معينة. 
+
 تُسجل جميع الأنشطة في بيئة الاختبار المعزولة مثل الملفات التي يتم فتحها أو إنشاؤها وكذلك اتصالات الشبكة التي يتم إجراؤها ويمكن الوصول إليها من خلال تقرير النشاط. يمكن أن يساعدك تقرير النشاط في فهم ما إذا كان الملف أو عنوان موقع الويب ضارًا. يمكن أن يساعدك أيضًا في ربط البرمجيات الضارة بالأنشطة التي سبق أن شهدتها، على سبيل المثال، استنادًا إلى اتصالات شبكة محددة أو ملفات تم إنشاؤها.
+
 يمكن أن يكون تشغيل البرمجيات الضارة المعروفة داخل بيئة الاختبار المعزولة مفيدًا جدًا أيضًا لأنك تتعلم المزيد عن البرمجيات الضارة. ويساعدك على فهم ما تفعله البرمجيات الضارة والتغييرات التي تجريها على النظام. على سبيل المثال، تحاول الكثير من البرمجيات الضارة عند تشغيلها في البداية ضمان البقاء بحيث تستمر في العمل بعد إعادة التشغيل، وطرق البقاء هذه هي شيء يمكنك البحث عنه عند إجراء التحليل الجنائي اليدوي على جهاز تشك بأنه مخترق.
+
 تحتوي الكثير من البرمجيات الضارة على ميزات مضمّنة لمكافحة بيئات الاختبار المعزولة: حيث عندما تكتشف البرمجيات الضارة أنها تعمل داخل بيئة اختبار معزولة ستقوم بالتوقف عن العمل أو في بعض الأحيان تفعل شيئًا غير ضار للعبث بالتحليل. كما تُصمم بعض البرمجيات الضارة لتعمل فقط إذا تم استيفاء شروط محددة، على سبيل المثال وجود إصدار معين من نظام التشغيل أو عنوان بروتوكول الإنترنت موجود في بلد معين. غالبًا ما تُحدث بيئات الاختبار المعزولة للرد على طرق مكافحتها وتتيح لك العديد من بيئات الاختبار المعزولة اختيار خصائص معينة.
 وهذا أمر مهم يجب مراعاته عند قراءة تقرير بيئة الاختبار المعزولة حيث إن عدم وجود نشاط ضار لا يعني تلقائيًا أن الملف أو عنوان موقع الويب غير ضار. ومن ناحية أخرى، إذا ظهر نشاط ضار يمكنك التأكد من أن الملف أو عنوان موقع الويب ضار.
-راجع الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام للتعرّف بتعمّق أكبر على بيئات الاختبار المعزولة.
-من الممكن تشغيل بيئة الاختبار المعزولة محليًا ومن بينها Cuckoo مفتوحة المصدر الموجود منذ سنوات عديدة ويجري حاليًا تطوير نسخة جديدة ولكنها غير متوفرة اعتبارًا من وقت الكتابة (فبراير 2024).
-في حين أن تشغيل بيئة الاختبار المعزولة محليًا يمنحك التحكم الكامل في البيئة ويعني أنه يمكنك الحفاظ على الخصوصية التامة لملفاتك وعناوين مواقع الويب الخاصة بك، قد يتطلب إعدادها وصيانتها الكثير من العمل. لحسن الحظ، تُتاح العديد من بيئات الاختبار المعزولة عبر الإنترنت مثل إني ران (ANY.RUN) وهايبرد اناليسيس (Hybrid Analysis) وجو ساندبوكس (Joe Sandbox) و تصنيف الترياج Triage وحتى إصدار على الإنترنت من كوكو (Cuckoo). وتحتوي جميعها على إصدارات مجانية تسمح لك بتحميل البرمجيات الضارة وعناوين مواقع الويب ولكن بعضها يتطلب التسجيل. يجب مراعاة أنك إذا كنت تستخدم إصدارًا مجانيًا فإن أي شيء تقوم بتشغيله داخل بيئة الاختبار المعزولة سيكون متاحًا للعامة وقد يكون هذا مصدر قلق إذا كنت لا ترغب في إعلام المتطفل أو في حال كنت تتعامل مع بيانات خاصة للغاية مثل المستندات السرية التي يحتمل أن تكون مصابة. 
-التحليل الديناميكي للملفات الثنائية على ويندوز
-نوصي بالبدء بفصل يُقدم نظرة عامة هذه المرة من OpenSecurityTraining يتضمن فصل التحليل الديناميكي للبرمجيات الضارة شرائح ومواد مختبرية ومقاطع فيديو ويغطي الإعداد والتحليل وإنشاء مؤشرات الاختراق.
-التحليل الديناميكي للملفات الثنائية لنظام أندرويد
-يمكن استخدام العديد من الأدوات لإجراء تحليل ديناميكي للملفات الثنائية لنظام أندرويد وتشمل هذه بعض بيئات الاختبار المعزولة الموضحة أعلاه وFrida (اطلّع على هذه الأداة التي توفر واجهة مستخدم رسومية لاستخدام Frida).
-يمكن لمجموعة أدوات بيروج (الموضحة في مسار تعلّم اكتشاف البرمجيات الضارة) أيضًا إجراء تحليل ديناميكي ممتاز للملفات الثنائية لنظام أندرويد ولكن بعض طرق التحليل هذه تتطلب منك أولاً الحصول على صلاحيات الجذر في جهازك (الروت).
-موارد التعلّم
-[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
-اختبار مهارة
-عام
-انتقل إلى قسم "بيئة الاختبار المعزولة" في الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام وأكمل التمارين 10.2 حتى 10.4. في التمرين الأخير، تأكد من تشغيل عينة واحدة على الأقل من ر الضارة لنظامي التشغيل ماك أو إس (macOS) وأندرويد. 
-في نفس الفصل، انتقل إلى القسم الفرعي "تحليل الروابط" وأكمل التمرين 10.12.
 
-خاص بنظام ويندوز
+راجع الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام للتعرّف بتعمّق أكبر على بيئات الاختبار المعزولة[Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+
+من الممكن تشغيل بيئة الاختبار المعزولة محليًا ومن بينها[Cuckoo](https://cuckoosandbox.org/) مفتوحة المصدر الموجود منذ سنوات عديدة ويجري حاليًا تطوير نسخة جديدة ولكنها غير متوفرة اعتبارًا من وقت الكتابة (فبراير 2024).
+في حين أن تشغيل بيئة الاختبار المعزولة محليًا يمنحك التحكم الكامل في البيئة ويعني أنه يمكنك الحفاظ على الخصوصية التامة لملفاتك وعناوين مواقع الويب الخاصة بك، قد يتطلب إعدادها وصيانتها الكثير من العمل. لحسن الحظ، تُتاح العديد من بيئات الاختبار المعزولة عبر الإنترنت مثل إني ران [ANY.RUN](https://any.run/) وهايبرد اناليسيس [Hybrid Analysis](https://www.hybrid-analysis.com/) وجو ساندبوكس [Joe Sandbox](https://www.joesandbox.com/) و تصنيف الترياج[Triage](https://tria.ge/) وحتى إصدار على الإنترنت من كوكو [Cuckoo](https://cuckoo.cert.ee/). وتحتوي جميعها على إصدارات مجانية تسمح لك بتحميل البرمجيات الضارة وعناوين مواقع الويب ولكن بعضها يتطلب التسجيل. يجب مراعاة أنك إذا كنت تستخدم إصدارًا مجانيًا فإن أي شيء تقوم بتشغيله داخل بيئة الاختبار المعزولة سيكون متاحًا للعامة وقد يكون هذا مصدر قلق إذا كنت لا ترغب في إعلام المتطفل أو في حال كنت تتعامل مع بيانات خاصة للغاية مثل المستندات السرية التي يحتمل أن تكون مصابة. 
+
+### التحليل الديناميكي للملفات الثنائية على ويندوز
+
+نوصي بالبدء بفصل يُقدم نظرة عامة هذه المرة من [OpenSecurityTraining](https://opensecuritytraining.info/Training.html) يتضمن فصل التحليل الديناميكي للبرمجيات الضارة[Malware Dynamic Analysis](https://opensecuritytraining.info/MalwareDynamicAnalysis.html) شرائح ومواد مختبرية ومقاطع فيديو ويغطي الإعداد والتحليل وإنشاء مؤشرات الاختراق.
+
+### التحليل الديناميكي للملفات الثنائية لنظام أندرويد
+
+يمكن استخدام العديد من الأدوات لإجراء تحليل ديناميكي للملفات الثنائية لنظام أندرويد وتشمل هذه بعض بيئات الاختبار المعزولة الموضحة أعلاه و[Frida](https://frida.re/docs/android/)  (اطلّع على هذه [الأداة](https://github.com/nccgroup/house) التي توفر واجهة مستخدم رسومية لاستخدام Frida).
+يمكن لمجموعة أدوات بيروج (الموضحة في مسار تعلّم اكتشاف البرمجيات الضارة) أيضًا إجراء  [تحليل ديناميكي ممتاز](https://pts-project.org/guides/g8/)للملفات الثنائية لنظام أندرويد ولكن بعض طرق التحليل هذه تتطلب منك أولاً الحصول على صلاحيات الجذر في جهازك (الروت).
+
+## اختبار مهارة
+
+### عام
+
+1- انتقل إلى قسم "بيئة الاختبار المعزولة" في الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلامField Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) وأكمل التمارين 10.2 حتى 10.4. في التمرين الأخير، تأكد من تشغيل عينة واحدة على الأقل من ر الضارة لنظامي التشغيل ماك أو إس (macOS) وأندرويد. 
+2- في نفس الفصل، انتقل إلى القسم الفرعي "تحليل الروابط" وأكمل التمرين 10.12.
+   
+### خاص بنظام ويندوز
+
 أجر تحليلًا ديناميكيًا على برنامج ويندوز غير ضار الذي ربما يتضمن برنامج تثبيت يقوم بتنفيذ إجراءات مماثلة البرمجيات الضارة. ما هي الملفات التي ينشئها؟ ما هي مُدخلات السجل التي ينشئها؟ ما هي حركة مرور الشبكة التي يرسلها؟
 
-
-### General
-
-1. Go to the ‘Sandbox’ section in Chapter 10 of the [Field Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) and do exercises 10.2 to 10.4. In the last exercise, make sure you run at least one macOS and Android malware sample each.
-2. In the same chapter, skip to the ‘Analyzing links’ subsection and do exercise 10.12.
-
-### Windows-specific
-
-Perform dynamic analysis on a piece of non-malicious Windows software. It probably includes an installer, which will perform similar actions to malware. What files does it create? What registry keys does it create? What network traffic does it send?
-
-## Learning Resources
+## موارد التعلّم
 
 {{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
 
