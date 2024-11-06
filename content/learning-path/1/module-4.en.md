@@ -38,7 +38,7 @@ This dives into the basics of URLs, DNS, and IPv4/IPv6. If you feel comfortable 
 - DNS
   - [Introduction to Domain Name System ](https://aws.amazon.com/route53/what-is-dns/)
   - [DNS record types](https://www.cloudflare.com/learning/dns/dns-records/)
-  - WHOIS - You should be able to understand how WHOIS records are created and stored, read a WHOIS record, query the WHOIS record for any domain [replace with a resource]. If you need more info on that, see [this guide](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
+  - WHOIS - You should be able to understand how WHOIS records are created and stored, read a WHOIS record, and query the WHOIS record for any domain. If you need more info on that, see [this guide](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
 - IPv4/IPv6
   - What is IPv4?
     [https://bluecatnetworks.com/glossary/what-is-ipv4/](https://bluecatnetworks.com/glossary/what-is-ipv4/)
