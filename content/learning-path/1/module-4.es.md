@@ -37,7 +37,7 @@ Esta subtarea profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si s
 - DNS
   - [Introduction to Domain Name System](https://aws.amazon.com/route53/what-is-dns/)
   - [DNS record types](https://www.cloudflare.com/learning/dns/dns-records/)
-  - WHOIS: Usted debe poder comprender cómo se crean y almacenan los registros WHOIS, leer un registro WHOIS, consultar el registro WHOIS para cualquier dominio \[reemplazar con un recurso\] Si necesita más información al respecto, consulte [esta guía](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
+  - WHOIS: Usted debe poder comprender cómo se crean y almacenan los registros WHOIS, leer un registro WHOIS, consultar el registro WHOIS para cualquier dominio. Si necesita más información al respecto, consulte [esta guía](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
 - IPv4/IPv6
   - ¿Qué es una dirección IPv4?
 
