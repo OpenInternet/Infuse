@@ -46,20 +46,20 @@ Ativa
 
 Profissionais vão aprender a:
 
-- fazer triagem de e-mails para entender se são maliciosos/vale a pena investigá-los com profundidade
-- entender métodos de ataque e atacantes
-- analisar cabeçalhos de e-mails para identificar infraestruturas de ataque
-- analisar páginas iniciais maliciosas
-- documentar e reportar investigações
-- iniciar ações de derrubada para reduzir danos
+- Fazer triagem de e-mails para entender se são maliciosos/vale a pena investigá-los com profundidade
+- Entender métodos de ataque e atacantes
+- Analisar cabeçalhos de e-mails para identificar infraestruturas de ataque
+- Analisar páginas iniciais maliciosas
+- Documentar e reportar investigações
+- Iniciar ações de derrubada para reduzir danos
 
 ## A que ameaças essa habilidade visa mitigar ou responder?
 
 Competências em investigação, rastreio e detecção de infraestruturas maliciosas podem ajudar a lidar com:
 
-- ataques de phishing com alvo
-- phishings baseados em serviços de mensageria
-- infraestruturas relativas a phishing
+- Ataques de phishing com alvo
+- Phishings baseados em serviços de mensageria
+- Infraestruturas relativas a phishing
 
 ## Quais são os pré-requisitos?
 
