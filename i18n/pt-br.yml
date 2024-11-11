@@ -1,0 +1,522 @@
+filename: Translations in Brazilian Portuguese
+key:
+  - id: hero-title
+    translation:
+      one: null
+      other: Elevando a Expertise de Protetores Digitais
+  - id: hero-subtitle
+    translation:
+      one: null
+      other: No Infuse, empoderamos pessoas para conquistar uma maior segurança online através de uma educação em segurança digital abrangente, equipando-as com conhecimento para se protegerem online de forma efetiva.
+  - id: feature-one-title
+    translation:
+      one: null
+      other: Aprenda no seu ritmo com diferentes trilhas de aprendizado
+  - id: feature-one-subtitle
+    translation:
+      one: null
+      other: Isso enfatiza flexibilidade e controle de usuário, o que é um atrativo para estudantes que preferem educação individualizada.
+  - id: feature-two-title
+    translation:
+      one: null
+      other: Conquiste insígnias e ganhe certificados
+  - id: feature-two-subtitle
+    translation:
+      one: null
+      other: Essa funcionalidade destaca conquistas e oferece uma prova concreta de competência, que pode ser motivadora para usuários.
+  - id: feature-three-title
+    translation:
+      one: null
+      other: Disponível em vários idiomas
+  - id: feature-three-subtitle
+    translation:
+      one: null
+      other: Acessibilidade é crucial, e oferecer o conteúdo em múltiplos idiomas assegura uma alcance e inclusão maiores.
+  - id: learning-paths-title
+    translation:
+      one: null
+      other: Trilhas de Aprendizado
+  - id: learning-paths-subtitle
+    translation:
+      one: null
+      other: Escolha por onde você quer começar a sua jornada com essa curadoria de trilhas de aprendizado.
+  - id: how-works
+    translation:
+      one: null
+      other: Como funciona
+  - id: create-account
+    translation:
+      one: null
+      other: Criar uma nova conta
+  - id: username
+    translation:
+      one: null
+      other: Nome de usuário*
+  - id: username-description
+    translation:
+      one: null
+      other: Esta informação será usada como o seu método de autenticação primário na página do Infuse.
+  - id: full-name
+    translation:
+      one: null
+      other: Nome completo*
+  - id: name-description
+    translation:
+      one: null
+      other: Esta informação será usada para preparar e gerar certificados após a conclusão de cada trilha de aprendizado.
+  - id: avatar-image
+    translation:
+      one: null
+      other: Imagem de avatar
+  - id: upload
+    translation:
+      one: null
+      other: "Enviar"
+  - id: avatar-description
+    translation:
+      one: null
+      other: Este campo é opcional. Você pode configurar uma imagem de avatar (apenas visual) ou manter o avatar padrão.
+  - id: required
+    translation:
+      one: null
+      other: Itens marcados com * são obrigatórios
+  - id: no-password
+    translation:
+      one: null
+      other: Não usamos autenticação por senha. Todas as informações são armazenadas localmente em seu navegador, e não são transmitidas para fontes primárias ou de terceiros.
+  - id: signup
+    translation:
+      one: null
+      other: Cadastre-se
+  - id: have-backup
+    translation:
+      one: null
+      other: Já tem um backup?
+  - id: have-account
+    translation:
+      one: null
+      other: Já tem uma conta?
+  - id: import-data
+    translation:
+      one: null
+      other: Importar os seus dados
+  - id: login-header
+    translation:
+      one: null
+      other: Entrar na sua conta
+  - id: login-subheader
+    translation:
+      one: null
+      other: Boas-vindas! Insira as suas credenciais.
+  - id: sign-in
+    translation:
+      one: null
+      other: Iniciar sessão
+  - id: no-account
+    translation:
+      one: null
+      other: Não possui uma conta?
+  - id: login
+    translation:
+      one: null
+      other: Entrar
+  - id: tab-profile
+    translation:
+      one: null
+      other: Dados do perfil
+  - id: tab-export
+    translation:
+      one: null
+      other: Exportar dados
+  - id: tab-delete
+    translation:
+      one: null
+      other: Excluir dados
+  - id: profile
+    translation:
+      one: null
+      other: Perfil
+  - id: profile-warning
+    translation:
+      one: null
+      other: Essa informação pode ser acessada por outros usuários neste computador, então se atente ao que você compartilha.
+  - id: unlock
+    translation:
+      one: null
+      other: Desbloquear e editar perfil
+  - id: change
+    translation:
+      one: null
+      other: Mudar
+  - id: save-changes
+    translation:
+      one: null
+      other: Salvar Mudanças
+  - id: export-information
+    translation:
+      one: null
+      other: Exportar as suas informações
+  - id: export-details
+    translation:
+      one: null
+      other: Para uma experiência initerrupta de aprendizado, você pode exportar o seu perfil junto com o seu progresso atual e importá-lo para outro dispositivo.
+  - id: info
+    translation:
+      one: null
+      other: Atenção
+  - id: info-export
+    translation:
+      one: null
+      other: O arquivo JSON criado por este processo NÃO é criptografado.
+  - id: export-includes
+    translation:
+      one: null
+      other: Este arquivo inclui TODAS as suas informações de perfil e o seu progresso em todos os módulos.
+  - id: export-data
+    translation:
+      one: null
+      other: Exportar Dados
+  - id: delete-information
+    translation:
+      one: null
+      other: Excluir as suas informações
+  - id: delete-details
+    translation:
+      one: null
+      other: Você pode excluir a sua conta atual e todo o progresso associado a seguir.
+  - id: warning
+    translation:
+      one: null
+      other: Atenção
+  - id: warning-delete
+    translation:
+      one: null
+      other: Esta ação NÃO pode ser desfeita, e todos os seus dados serão permanentemente excluídos a não ser que você tenha um backup.
+  - id: final-confirmation
+    translation:
+      one: null
+      other: Uma confirmação final será solicitada antes de progredir.
+  - id: delete-account
+    translation:
+      one: null
+      other: Excluir Conta
+  - id: your-profile
+    translation:
+      one: null
+      other: Seu perfil
+  - id: badges
+    translation:
+      one: Insígnia
+      other: Insígnias
+  - id: settings
+    translation:
+      one: null
+      other: Configurações
+  - id: sign-out
+    translation:
+      one: null
+      other: Sair
+  - id: modules
+    translation:
+      one: Módulo
+      other: Módulos
+  - id: start-here
+    translation:
+      one: null
+      other: Comece aqui
+  - id: what-learn
+    translation:
+      one: null
+      other: O que você vai aprender
+  - id: modules-description
+    translation:
+      one: null
+      other: " "
+  - id: visit-site
+    translation:
+      one: null
+      other: Visitar Site
+  - id: out-of
+    translation:
+      one: null
+      other: de
+  - id: modules-completed
+    translation:
+      one: null
+      other: módulos concluídos
+  - id: progress-bar
+    translation:
+      one: null
+      other: Barra de progresso
+  - id: todo
+    translation:
+      one: null
+      other: Pendente
+  - id: done
+    translation:
+      one: null
+      other: Concluído
+  - id: congratulations-introduction
+    translation:
+      one: null
+      other: Parabéns por ter concluído a introdução!
+  - id: congratulations-module
+    translation:
+      one: null
+      other: Parabéns por ter concluído 
+  - id: mark-intro-complete
+    translation:
+      one: null
+      other: Clique na caixa de seleção para confirmar que você leu a introdução e continuar para o próximo módulo.
+  - id: mark-module-complete
+    translation:
+      one: null
+      other: Clique na caixa de seleção para confirmar a conclusão do módulo e continuar para o próximo módulo.
+  - id: mark-as-complete
+    translation:
+      one: null
+      other: Marcar módulo como concluído
+  - id: mark-intro-as-complete
+    translation:
+      one: null
+      other: Marcar introdução como concluída
+  - id: mark-as-complete-aria
+    translation:
+      one: null
+      other: Marca o módulo atual como concluído e salva o progresso do usuário.
+  - id: mark-intro-as-complete-aria
+    translation:
+      one: null
+      other: Marca a introdução como concluída e salva o progresso do usuário.
+  - id: all-completed
+    translation:
+      one: null
+      other: Você completou todos os módulos desta trilha de aprendizagem.
+  - id: only-one-module-left
+    translation:
+      one: null
+      other: Apenas mais 1 módulo para conquistar a sua insígnia
+  - id: multiple-modules-left
+    translation:
+      one: null
+      other: Conlua mais 'count' módulos para conquistar a sua insígnia
+  - id: modules-left
+    translation:
+      one: Mais 1 módulo para conquistar a sua insígnia
+      other: "Mais 'count' módulos para conquistar a sua insígnia"
+  - id: no-modules
+    translation:
+      one: null
+      other: Você ainda não concluiu nenhum módulo!
+  - id: badge-completed
+    translation:
+      one: null
+      other: Você conquistou uma insígnia!
+  - id: keep-learning
+    translation:
+      one: null
+      other: Continue aprendendo para conquistar a sua insígnia!
+  - id: congratulations
+    translation:
+      one: null
+      other: Parabéns!
+  - id: get-badge
+    translation:
+      one: null
+      other: Pegue a sua insígnia!
+  - id: skip-link
+    translation:
+      one: null
+      other: Pular para conteúdo
+  - id: search
+    translation:
+      one: null
+      other: Busca
+  - id: table-of-contents
+    translation:
+      one: null
+      other: Sumário
+  - id: faq
+    translation:
+      one: null
+      other: Perguntas Frequentes
+  - id: faq-description
+    translation:
+      one: null
+      other: Não encontrou a resposta que procurava? Procure a nossa 
+  - id: faq-link
+    translation:
+      one: null
+      other: equipe de suporte
+  - id: aria-language
+    translation:
+      one: null
+      other: "O idioma atual é "
+  - id: aria-translation
+    translation:
+      one: null
+      other: "Traduzido em "
+  - id: previous-module
+    translation:
+      one: null
+      other: Módulo anterior
+  - id: next-module
+    translation:
+      one: null
+      other: Próximo módulo
+  - id: overview-path
+    translation:
+      one: null
+      other: Página de resumo
+  - id: languages
+    translation:
+      one: Idioma
+      other: Idiomas
+  - id: for-path
+    translation:
+      one: null
+      other: para
+  - id: home
+    translation:
+      one: null
+      other: Início
+  - id: close
+    translation:
+      one: null
+      other: Fechar
+  - id: download-badge
+    translation:
+      one: null
+      other: Baixar insígnia
+  - id: licensed-under
+    translation:
+      one: null
+      other: Licenciado sob
+  - id: open-language
+    translation:
+      one: null
+      other: Abrir menu de idiomas
+  - id: open-user
+    translation:
+      one: null
+      other: Abrir menu de usuário
+  - id: confirm-delete
+    translation:
+      one: null
+      other: Tem certeza que quer excluir a sua conta? Esta ação não pode ser desfeita.
+  - id: completed
+    translation:
+      one: null
+      other: concluído
+  - id: readingTime
+    translation:
+      one: Leitura de 1 min
+      other: "Leitura de {{ .Count }} min"
+  - id: eta
+    translation:
+      one: null
+      other: Tempo estimado de leitura
+  - id: minutes
+    translation:
+      one: minuto
+      other: minutos
+  - id: tableOfContents
+    translation:
+      one: null
+      other: Sumário
+  - id: wordCount
+    translation:
+      one: Uma Palavra
+      other: "{{ .Count }} Palavras"
+  - id: publishDate
+    translation:
+      one: null
+      other: Publicado em
+  - id: updated-on
+    translation:
+      one: null
+      other: Última atualização em
+  - id: git-unavailable
+    translation:
+      one: null
+      other: A informação de Git não está disponível.
+  - id: edit-github
+    translation:
+      one: null
+      other: Editar esta página no GitHub
+  - id: print-pdf
+    translation:
+      one: null
+      other: Imprimir como PDF
+  - id: cookie-banner
+    translation:
+      one: null
+      other: Este site usa [Clean Insights](https://cleaninsights.org/) para realizar análises de dados de navegação respeitando a sua privacidade. Ao usar o site, você concorda com a coleta de informações básicas sobre país, idioma, navegação, e agente de usuário da sua conexão.
+  - id: accept
+    translation:
+      one: null
+      other: Aceitar
+  - id: reject
+    translation:
+      one: null
+      other: Rejeitar
+  - id: upload-file
+    translation:
+      one: null
+      other: Enviar um arquivo
+  - id: drag-drop
+    translation:
+      one: null
+      other: ou arraste e solte
+  - id: json-size
+    translation:
+      one: null
+      other: JSON, até 2MB
+  - id: January
+    translation:
+      one: null
+      other: de janeiro de
+  - id: February
+    translation:
+      one: null
+      other: de fevereiro de
+  - id: March
+    translation:
+      one: null
+      other: de março de
+  - id: April
+    translation:
+      one: null
+      other: de abril de
+  - id: May
+    translation:
+      one: null
+      other: de maio de
+  - id: June
+    translation:
+      one: null
+      other: de junho de
+  - id: July
+    translation:
+      one: null
+      other: de julho de
+  - id: August
+    translation:
+      one: null
+      other: de agosto de
+  - id: September
+    translation:
+      one: null
+      other: de setembro de
+  - id: October
+    translation:
+      one: null
+      other: de outubro de
+  - id: November
+    translation:
+      one: null
+      other: de novembro de
+  - id: December
+    translation:
+      one: null
+      other: de dezembro de
