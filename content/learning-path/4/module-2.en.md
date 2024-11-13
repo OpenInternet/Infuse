@@ -94,7 +94,10 @@ As it is, this demonstration of XSS doesn’t do anything malicious, and the onl
 
 Log into your DVWA and make sure the security level is set to low (see the “Setup” section in the introduction of this learning path for more information on this). Navigate to the “XSS (Reflected)” section. The “What’s your name?” input is vulnerable to XSS. Try to enter a name that causes a JavaScript alert box to pop up when you click the “Submit” button.
 
+_If you get stuck on any DVWA exercise and want a hint, just click on the "View Help" button on the bottom right of the screen to receive hints_
+
 ![A screenshot of DVWA, with the "Vulnerability: Reflected Cross Site Scripting (XSS)" page currently loaded](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png)
+
 
 ### XSS Prevention
 
