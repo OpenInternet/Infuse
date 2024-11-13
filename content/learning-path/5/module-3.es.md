@@ -7,7 +7,7 @@ description = "Muchas aplicaciones web solo permiten que determinados usuarios v
 
 ## Caso de Uso
 
-Muchas aplicaciones web solo permitirán que usuarios concretos vean determinados contenidos y les exigirán que inicien sesión o demuestren su identidad de otras formas. Los adversarios que desean acceder a datos confidenciales a menudo intentarán eludir esas restricciones e intentarán ver información que no pueden ver. Este subtema analiza la idea de autenticación y autorización, y sus posibles vulnerabilidades.
+Muchas aplicaciones web solo permitirán que usuarios concretos vean determinados contenidos y les exigirán que inicien sesión o demuestren su identidad de otras formas. Los adversarios que desean acceder a datos confidenciales a menudo intentarán eludir esas restricciones e intentarán ver información que no tienen permitido ver. Este subtema analiza la idea de autenticación y autorización, y sus posibles vulnerabilidades.
 
 ## Objetivos
 
@@ -33,7 +33,7 @@ Diríjase al [tema Autenticación de PortSwigger Academy](https://portswigger.ne
 
 #### Autorización
 
-Es muy raro que las estructuras de aplicaciones web proporcionen automáticamente servicios de autorización a los desarrolladores y desarrolladoras, por lo que deben implementar sus propios sistemas de manera consistente. Aunque los controles de autorización suelen ser muy simples, en algunos lugares es muy fácil pasarlos por alto. Al igual que la implementación de controles de autorización, las pruebas de controles de autorización son simples en concepto, pero requieren una coherencia muy alta.
+Es muy raro que las estructuras de aplicaciones web proporcionen automáticamente servicios de autorización a los desarrolladores y desarrolladoras, por lo que deben implementar sus propios sistemas de manera consistente. Aunque los controles de autorización suelen ser muy simples, en algunos lugares es muy fácil pasarlos por alto. Al igual que la implementación de controles de autorización, las pruebas de controles de autorización son simples en concepto, pero requieren una consistencia muy alta.
 
 Generalmente, los controles de autorización se dividen en controles verticales y horizontales. La autorización vertical garantiza que los usuarios solo tengan las capacidades para las que están autorizados. Un ejemplo de esto podría ser que los remitentes de un sistema de emisión de boletos en línea no deberían poder acceder a la interfaz de administración. La autorización horizontal garantiza que los usuarios solo puedan acceder a los datos para los que están autorizados. Un ejemplo podría ser que los remitentes de un sistema de emisión de tickets deberían ver su propio historial de tickets pero no el de los demás.
 
