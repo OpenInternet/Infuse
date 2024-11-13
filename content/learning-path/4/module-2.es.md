@@ -98,6 +98,8 @@ Tal como están las cosas, esta demostración de XSS no hace nada malicioso y la
 
 Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté configurado en bajo (consulte la sección "Configuración" en la introducción de esta Ruta de Aprendizaje para obtener más información al respecto). Navega a la sección "XSS (Reflejado)". El mensaje de entrada "¿Cómo te llamas?" es vulnerable a XSS. Intente ingresar un nombre que haga que aparezca un cuadro de alerta de JavaScript cuando haga clic en el botón "Enviar".
 
+_Si te quedas atascado en algún ejercicio de DVWA y quieres una pista, simplemente haz clic en el botón "View Help" en la parte inferior derecha de la pantalla para recibir pistas._
+
 ![Una captura de pantalla de DVWA, con la página "Vulnerabilidad: Secuencias de comandos entre sitios reflejadas (XSS)" actualmente cargada](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png)
 
 ### Prevención XSS
