@@ -100,6 +100,8 @@ En l'état, cette démonstration de XSS ne fait rien de malveillant et la seule 
 
 Connectez-vous à votre DVWA et assurez-vous que le niveau de sécurité est faible (voir la section « Configuration » dans l'introduction de ce parcours d'apprentissage pour en savoir plus à ce sujet). Accédez à la section « XSS (Reflected) ». L'entrée « Quel est votre nom ? » est vulnérable au XSS. Essayez de saisir un nom qui fait apparaître une boîte d'alerte JavaScript lorsque vous cliquez sur le bouton « Envoyer ».
 
+_Si vous êtes bloqué sur un exercice DVWA et que vous souhaitez un indice, cliquez simplement sur le bouton « View Help » en bas à droite de l'écran pour recevoir des indices._
+
 ![alt_text](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png "image_tooltip")
 
 ### Prévention du XSS
