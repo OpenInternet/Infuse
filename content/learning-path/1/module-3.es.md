@@ -45,7 +45,7 @@ Dependiendo de la sofisticación de los ataques a los que se enfrente, de la sen
 
 ### Defanging URLs
 
-Al documentar URLs potencialmente maliciosas, es una práctica común 'defang' (desarmar) la URL para que las aplicaciones que utiliza para notas o documentación no generen automáticamente enlaces clicables que involuntariamente le lleven a usted (o a cualquier persona con la que esté colaborando) a hacer clic en el enlace o instigar de otro modo el tráfico a la URL desde su máquina de trabajo. Algunas aplicaciones, por ejemplo messengers, también previsualizan automáticamente los enlaces (y obtienen el contenido de un servidor para hacerlo). La modificación de las URL les impide hacerlo. La modificación de las URL les impide hacerlo.
+Al documentar URLs potencialmente maliciosas, es una práctica común 'defang' (desarmar) la URL para que las aplicaciones que utiliza para notas o documentación no generen automáticamente enlaces clicables que involuntariamente le lleven a usted (o a cualquier persona con la que esté colaborando) a hacer clic en el enlace o instigar de otro modo el tráfico a la URL desde su máquina de trabajo. Algunas aplicaciones, por ejemplo messengers, también previsualizan automáticamente los enlaces (y obtienen el contenido de un servidor para hacerlo). La modificación de las URL les impide hacerlo.
 
 Esto se hace comúnmente reemplazando la sección de protocolo de la URL con un equivalente no válido y cubriendo los puntos en la URL con \[corchetes\]. Por ejemplo:
 
@@ -58,18 +58,18 @@ Esto puede hacerse manualmente utilizando un editor sólo de texto como NotePad,
 
 ### Comunicación con las personas objetivo y medidas inmediatas durante un incidente
 
-Si sospecha que un atacante podría haber obtenido acceso al correo electrónico o la cuenta de mensajería de la persona objetivo o está monitoreando su máquina (el primero podría haber sido el resultado de un ataque de phishing exitoso, mientras que el segundo podría ser causado por malware, causado por ejemplo, al ejecutar un archivo adjunto malicioso), pídale a la persona objetivo que no use esa máquina y cuenta hasta que pueda averiguar qué está pasando. Si es posible, comuníquese con la persona objetivo a través de otra cuenta y otro dispositivo, por ejemplo, Signal o WhatsApp en su dispositivo personal.
+Si sospecha que un atacante podría haber obtenido acceso al correo electrónico o la cuenta de mensajería de la persona objetivo o está monitoreando su máquina (el primero podría haber sido el resultado de un ataque de phishing exitoso, mientras que el segundo podría ser causado por malware, por ejemplo, al ejecutar un archivo adjunto malicioso), pídale a la persona objetivo que no use esa máquina y cuenta hasta que pueda averiguar qué está pasando. Si es posible, comuníquese con la persona objetivo a través de otra cuenta y otro dispositivo, por ejemplo, Signal o WhatsApp en su dispositivo personal.
 
 Si sospecha que las cuentas de una persona objetivo podrían haberse visto comprometidas, pídale que cambie inmediatamente sus contraseñas y obligue a la cuenta a cerrar sesión en todas las demás ubicaciones (la mayoría de los servicios principales tienen una configuración como esta). Esto debería evitar que el atacante tenga más acceso a la cuenta. Sin embargo, les alertará de que la persona objetivo se ha dado cuenta de que algo está mal. Es posible que el atacante ya haya descargado una cantidad significativa de datos de la cuenta.
 
-Si sospecha que el dispositivo de una persona objetivo se ha visto comprometido, pídale que cambie las contraseñas de su cuenta en un dispositivo diferente y evite usar ese dispositivo hasta que se complete una investigación. Siga los pasos descritos en ruta de aprendizaje Detección de Malware
+Si sospecha que el dispositivo de una persona objetivo se ha visto comprometido, pídale que cambie las contraseñas de su cuenta en un dispositivo diferente y evite usar ese dispositivo hasta que se complete una investigación. Siga los pasos descritos en ruta de aprendizaje [Detección de Malware](https://infuse.quest/es/learning-path/2/)
 
 ## Practique
 
 - Con su VPN activada (si es seguro hacerlo), vaya a un sitio web que muestre su dirección IP (esos sitios web son fáciles de encontrar, solo busque “cuál es mi IP” en su motor de búsqueda favorito). Piense en lo que sucedería si un atacante se enterara de su dirección IP: ¿su dirección IP pertenece a una empresa o a una oficina?  
     Después de esto, active una VPN de buena reputación y compruebe una vez más cuál es su dirección IP.  
     Finalmente, [lea sobre las fugas de DNS](https://mullvad.net/en/help/all-about-dns-servers-and-privacy) y pruebe si su VPN está filtrando información de DNS (la mayoría de las VPN tienen su propio sitio web que prueba las fugas de DNS, ¡puede usar su motor de búsqueda favorito para encontrarlo!).
-- Desactive la dirección URL de <https://www.wikipedia.org/>. Pegue la URL modificada en la barra de direcciones de su navegador y pulse Intro. Si se niega a cargar la página web, significa que ha modificado correctamente la URL (el navegador puede intentar buscar la URL modificada en un motor de búsqueda, lo cual es completamente normal).
+- Desarme (defang) la dirección URL de <https://www.wikipedia.org/>. Pegue la URL modificada en la barra de direcciones de su navegador y pulse Intro. Si se niega a cargar la página web, significa que ha modificado correctamente la URL (el navegador puede intentar buscar la URL modificada en un motor de búsqueda, lo cual es completamente normal).
 
 ## Comprobación de Habilidades
 

@@ -7,7 +7,7 @@ weight: 1
 
 ## Estudios de caso
 
-Cuando reciba o le reenvíen un mensaje sospechoso, realice una clasificación inicial para determinar si es realmente malicioso, averiguar cuál es la mejor respuesta rápida para el destinatario o destinatarios en caso afirmativo y determinar si es necesario seguir investigando. Para la mayoría de los mensajes, basta con realizar una heurística básica para separar las amenazas no dirigidas de las dirigidas e identificar las acciones que reducen el daño.
+Cuando reciba o le reenvíen un mensaje sospechoso, realice una clasificación inicial para determinar si es realmente malicioso, si la respuesta es positiva, averigue cuál es la mejor respuesta rápida para el destinatario o destinatarios y determine si es necesario seguir investigando. Para la mayoría de los mensajes, basta con realizar una heurística básica para separar las amenazas no dirigidas de las dirigidas e identificar las acciones que reducen el daño.
 
 ## Objetivos
 
@@ -48,8 +48,8 @@ Dedique algo de tiempo al cuestionario de phishing de [Shira](https://shira.app/
 
 ## Recursos de Aprendizaje
 
-{{% resource title="Shira by Horizontal" description="Un cuestionario en línea con correos electrónicos de muestra, donde el usuario debe decidir si son maliciosos" languages="Inglés, Español, Mandarín" cost="Gratis" url="https://shira.app" %}}
-{{% resource title="Phishing Quiz by Jigsaw" description="Un cuestionario en línea con correos electrónicos de muestra, donde el usuario debe decidir si son maliciosos" languages="27 idiomas" cost="Gratis" url="https://phishingquiz.withgoogle.com/?hl=es-419" %}}
+{{% resource title="Shira de Horizontal" description="Un cuestionario en línea con correos electrónicos de muestra, donde el usuario debe decidir si son maliciosos" languages="Inglés, Español, Mandarín" cost="Gratis" url="https://shira.app" %}}
+{{% resource title="Phishing Quiz de Jigsaw" description="Un cuestionario en línea con correos electrónicos de muestra, donde el usuario debe decidir si son maliciosos" languages="27 idiomas" cost="Gratis" url="https://phishingquiz.withgoogle.com/?hl=es-419" %}}
 {{% resource title="6 ataques de phishing comunes y cómo protegerse contra ellos" description="Un resumen de algunos ataques de phishing comunes, que también incluye algunos métodos más sofisticados utilizados por los atacantes" languages="Inglés" cost="Gratis" url="https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them" %}}
 {{% resource title="5 técnicas comunes de phishing" description="Un vistazo a algunas técnicas que utilizan los atacantes para hacer que los correos electrónicos de phishing sean más convincentes y, ocasionalmente, escapen a la detección" languages="Inglés" cost="Gratis" url="https://www.vadesecure.com/en/blog/5-common-phishing-techniques" %}}
 {{% resource title="CiviCERT" description="Una red de organizaciones de la sociedad civil y grupos de respuesta rápida que se centran en ciberataques y amenazas similares" languages="Inglés" cost="Gratis" url="https://www.civicert.org/" %}}
