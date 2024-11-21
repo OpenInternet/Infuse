@@ -52,7 +52,7 @@ O endereço de e-mail exibido como endereço de e-mail do remetente é [paypal@s
 Aqui estão alguns pontos-chave nos quais você deve prestar a atenção em um e-mail de phishing:
 
 * Senso de urgência
-* Começo de mensagem estranho, que não se dirige a você pelo seu nome
+* Começo de mensagem incomum, estranho, que não se dirige a você pelo seu nome
 * Erros gramaticais
 * O endereço de e-mail do remetente ou as URLs do e-mail foram ofuscadas ou não correspondem ao site ao qual alegam pertencer
 {{< /question >}}
