@@ -35,7 +35,7 @@ In this walkthrough we will just open the email (paypal.eml) in an email program
 
 As we look into the email, we see the visible sender email address
 
-![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CFT2_sender_address.png)
+![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CTF2_sender_address.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -60,7 +60,7 @@ Here are some key trigger points to watch out for in a phishing email:
 {{< /question >}}
 
 {{< question title="Answer" >}}
-The email subject line is: _We called you and you didn't answer_
+The email subject line is: _We called you, you didn't answer_
 {{< /question >}}
 
 ### Question 3: What is the action requested?
@@ -86,7 +86,7 @@ As we go deeper in the analysis, the first step to do is to understand the diffe
 {{< /question >}}
 
 {{< question title="Hints" >}}
-You can defang a link in a text editor. Here we will use [CyberChef](gchq.github.io/CyberChef) to defang the URL as we will use CyberChef for other steps as well. CyberChef is a web application with a huge number of functions which can help you with analyzing security-related data. Here’s a [very brief introduction](https://udel.codes/cyberchef.html) to its layout and functions.
+You can defang a link in a text editor. Here we will use [CyberChef](https://gchq.github.io/CyberChef) to defang the URL as we will use CyberChef for other steps as well. CyberChef is a web application with a huge number of functions which can help you with analyzing security-related data. Here’s a [very brief introduction](https://udel.codes/cyberchef.html) to its layout and functions.
 
 As part of this exercise, play around with CyberChef and defang the “please confirm” link from the attached email.
 
@@ -204,13 +204,13 @@ Once you press “Analyze Header”, you can see the return path
 {{< /question >}}
 
 {{< question title="Answer" >}}
-paparazi@rjttznyzjjzydnillquh.designclub.uk.com
+`paparazi@rjttznyzjjzydnillquh.designclub.uk.com`
 {{< /question >}}
 
 ### Question 12: What are the first hop and SMTP server address of that email?
 
 {{< question title="Instructions" open="true" >}}
-Go to the file “mx-toolbox-header-analysis”, look into the relay information section.
+Go to the file `mx-toolbox-header-analysis.pdf`, look into the relay information section.
 
 ![Another screenshot of the MX Toolbox analytics, with an initial relay highlighted](/media/uploads/CTF14_relay.png)
 The address of the mail server
@@ -246,11 +246,13 @@ we search for the victimID in the source code
 
 Then we can paste the value we discovered into CyberChef. The tool has a magic wand feature which automatically detects and converts encoding–we could use that!
 
-![A screenshot of CyberChef decoding Base64 input into plain text](/media/uploads/CTF18_cyberchef_result.png)
+![A screenshot of CyberChef's magic wand feature](/media/uploads/CTF19_cyberchef_wand.png)
 
 Yay! The magic wand detected that the input is encoded with Base64 and decoded it automatically, giving us the answer!
 
-![A screenshot of CyberChef's magic wand feature](/media/uploads/CTF19_cyberchef_wand.png)
+![A screenshot of CyberChef decoding Base64 input into plain text](/media/uploads/CTF18_cyberchef_result.png)
+
+
 {{< /question >}}
 
 {{< question title="Answer" >}}

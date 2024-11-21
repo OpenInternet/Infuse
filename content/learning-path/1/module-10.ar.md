@@ -35,7 +35,7 @@ In this walkthrough we will just open the email (paypal.eml) in an email program
 
 As we look into the email, we see the visible sender email address
 
-![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CFT2_sender_address.png)
+![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CTF2_sender_address.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
