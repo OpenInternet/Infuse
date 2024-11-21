@@ -261,7 +261,7 @@ Th1s_1s_pH1sh1ng_Em3il
 
 ## Outros recursos e links
 
-{{% resource title="Documentação da comunidade da linha de emergência Access Now para atendimentos a situações de e-mails suspeitos ou phishing" languages="Inglês" cost="Free" description="Cliente recebe um e-mail suspeito ou phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
+{{% resource title="Documentação da comunidade da linha de emergência Access Now para atendimentos a situações de e-mails suspeitos ou phishing" languages="Inglês" cost="Grátis" description="Cliente recebe um e-mail suspeito ou phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
 {{% resource title="Lista de todos os tipos de registros DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Grátis" description="Lista (quase?) todos os tipos de registros DNS" url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
 
