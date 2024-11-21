@@ -177,7 +177,7 @@ Internet Technology Solutions
 ### Questão 10: Qual é a localização geográfica do endereço IP atribuído que identificamos? 
 
 {{< question title="Instruções" open="true" >}}
-Endereços IP têm uma ligação "fraco" com localizações geográficas, como cidades ou distritos. Há vários serviços online nos quais você pode fazer consultas sobre endereços IP e descobrir mais sobre a sua possível localização. Apesar desse tipo de checagem não ser perfeita — às vezes, ela pode ser errônea —, ela ainda é uma parte importante de investigações sobre infraestruturas maliciosas.
+Endereços IP têm uma ligação "fraca" com localizações geográficas, como cidades ou distritos. Há vários serviços online nos quais você pode fazer consultas sobre endereços IP e descobrir mais sobre a sua possível localização. Apesar desse tipo de checagem não ser perfeita — às vezes, ela pode ser errônea —, ela ainda é uma parte importante de investigações sobre infraestruturas maliciosas.
 
 É interessante comparar a informação que você coleta através de uma consulta WHOIS com a informação que você recebe através de buscas de localizações de endereços IP. Talvez você descubra que o endereço IP que você está investigando pertence a um provedor de serviços de VPN ou uma grande empresa de tecnologia como Google — se esse for o caso, então você não vai muito longe com essas investigações; a localização do endereço IP provavelmente corresponderá a um dos parques de servidores dessas empresas, e talvez isso tenha pouca relação com a pessoa ou entidade que você está investigando.
 
