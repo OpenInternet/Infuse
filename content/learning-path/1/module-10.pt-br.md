@@ -232,7 +232,7 @@ Servidor SMTP: `2002:a59:ce05:0:b0:2d3:3de5:67a9`
 ### Questão 13: Qual é a `victimID` presente no código do site? 
 
 {{< question title="Instruções" open="true" >}}
-Se o destinatário do e-mail clicasse no link, ele seria direcionado para uma página inicial. Abra o arquivo `paypal.html` em um editor de texto, dê uma olhada no código-fonte e procure pela `victimID`. Use o CyberChef para decodificá-lo para encontrar uma cadeia de caracteres.
+Se o destinatário do e-mail clicasse no link, ele seria direcionado para uma página inicial. Abra o arquivo `paypal.html` em um editor de texto, dê uma olhada no código-fonte e procure pela `victimID`. Use o CyberChef para decodificá-lo e encontrar uma cadeia de caracteres.
 {{< /question >}}
 
 {{< question title="Dicas" >}}
