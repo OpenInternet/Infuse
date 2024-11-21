@@ -265,4 +265,4 @@ Th1s_1s_pH1sh1ng_Em3il
 
 {{% resource title="Lista de todos os tipos de registros DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Free" description="Lista (quase?) todos os tipos de registros DNS" url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
 
-{{% resource title="Relatórios da Amnesty sobre campanhas de phishing" languages="Vários, dependendo do relatório" cost="Free" description="Uma lista de exemplos de campanhas direcionadas de phishing contra jornalistas, ativistas, e defensores de direitos humanos" url="https://www.amnesty.org/en/search/phishing/" %}}
+{{% resource title="Relatórios da Amnesty sobre campanhas de phishing" languages="Vários, dependendo do relatório" cost="Grátis" description="Uma lista de exemplos de campanhas direcionadas de phishing contra jornalistas, ativistas, e defensores de direitos humanos" url="https://www.amnesty.org/en/search/phishing/" %}}
