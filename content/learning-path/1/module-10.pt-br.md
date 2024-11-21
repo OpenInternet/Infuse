@@ -216,7 +216,7 @@ Uma vez que você aperte o botão "Analyze Header", você conseguirá visualizar
 Abra o arquivo `mx-toolbox-header-analysis.pdf` e dê uma olhada na seção de transmissão de informação ("relay information").
 
 ![Captura de tela do MxToolbox mostrando que o primeiro salto se deu em efianalytics.com 216.244.76.116.](/media/uploads/CTF14_relay.png)
-The address of the mail server
+Endereço do servidor de e-mail:
 
 ![Captura de tela do MxToolbox mostrando que o servidor SMTP é 2002:a59:ce05:0:b0:2d3:3de5:67a9.](/media/uploads/CTF15_address.png)
 {{< /question >}}
