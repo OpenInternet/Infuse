@@ -5,9 +5,6 @@ description: Lea la descripción general de la ruta de aprendizaje, los objetivo
 weight: 1
 ---
 
-**Colaboradores**
-
-Ninoslava Bogdanović
 
 ## Descripción general
 
