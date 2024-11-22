@@ -263,7 +263,7 @@ key:
   - id: congratulations-module
     translation:
       one: null
-      other: Parabéns por ter concluído 
+      other: Parabéns por ter concluído o 
   - id: mark-intro-complete
     translation:
       one: null
