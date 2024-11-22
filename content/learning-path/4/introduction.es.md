@@ -8,8 +8,6 @@ description = "Lea la descripción general de la ruta de aprendizaje, los objeti
 
 **Con agradecimiento a**
 
-Ninoslava Bogdanović
-
 Michał "czesiek" Czyżewski (<https://czesiek.net>)
 
 Yana Ghahramanyan

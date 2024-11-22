@@ -5,9 +5,6 @@ description: Read the learning path overview, objectives, associated threats, an
 weight: 1
 ---
 
-**With thanks to**
-
-Ninoslava Bogdanović
 
 ## Overview
 
