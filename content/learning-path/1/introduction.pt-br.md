@@ -89,6 +89,6 @@ Esta trilha oferece uma fantástica introdução às demais. Depois de completá
 
 {{% resource title="Fluxo de trabalho de Helpdesk: cliente recebe e-mail suspeito/de phishing" languages="Inglês" cost="Grátis" description="Documentação comunitária do canal de ajuda da Access Now para responder a e-mails suspeitos/de phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
-{{% resource title="Lista com todos os tipos de registros de DNS" languages="Inglês, Chinês, Japonês, Coreano, Russo, Sérvio, Ucrariano, Esperanto, Húngaro, Vietnamita, Italiano, Espanhol, Francês" cost="Grátis" description="Inclui (quase?) todos os tipos de registros de DNS." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
+{{% resource title="Lista com todos os tipos de registros de DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Grátis" description="Inclui (quase?) todos os tipos de registros de DNS." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
 
 {{% resource title="Anistia informa sobre campanhas de phishing" languages="Múltiplas, de acordo com a reportagem" cost="Grátis" description="Lista e exemplos de como é uma campanha de phishing dirigida a defensores de direitos humanos, ativistas e jornalistas" url="https://www.amnesty.org/en/search/phishing/" %}}
