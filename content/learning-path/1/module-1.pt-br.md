@@ -46,7 +46,7 @@ Dedique algum tempo ao quiz do [Shira (em inglês)](https://shira.app/) até que
 
 ## Recursos de aprendizagem
 
-{{% resource title="Shira, por Horizontal" languages="Inglês, Espanhol, Mandarin" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não" url="https://shira.app" %}}
+{{% resource title="Shira, por Horizontal" languages="Inglês, espanhol, mandarim" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não" url="https://shira.app/" %}}
 
 {{% resource title="Phishing Quiz, por Jigsaw" languages="27 Languages" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não" url="https://phishingquiz.withgoogle.com/?hl=pt-BR" %}}
 
@@ -56,6 +56,6 @@ Dedique algum tempo ao quiz do [Shira (em inglês)](https://shira.app/) até que
 
 {{% resource title="CiviCERT" languages="Inglês" cost="Grátis" description="Rede de organizações da sociedade civil e grupos de resposta rápida que se concentram em ataques cibernéticos e similares" url="https://www.civicert.org/" %}}
 
-{{% resource title="Kit de primeiros socorros digitais" languages="Árabe, Espanhol, Farsi, Francês, Indonésio, Armênio, Quirguistanês, Burmês, Português, Russo, Albanês, Tailandês, Ucraniano" cost="Grátis" description="Guia de apoio a protetores digitais que lidam com uma variedade de problemas" url="https://digitalfirstaid.org/pt/" %}}
+{{% resource title="Kit de primeiros socorros digitais" languages="Árabe, espanhol, farsi, francês, indonésio, armênio, quirguistanês, burmês, português, russo, albanês, tailandês, ucraniano" cost="Grátis" description="Guia de apoio a protetores digitais que lidam com uma variedade de problemas" url="https://digitalfirstaid.org/pt/" %}}
 
-{{% resource title="Recuperação de possível conta comprometida" languages="Árabe, Indonésio, Inglês, Espanhol, Farsi, Francês, Português, Russo, Tailandês, Turco, Vietnamita, Chinês, Tibetano, Quemer, Burmês" cost="Grátis" description="Guia com passos imediatos e a longo prazo no comprometimento de contas digitais" url="https://securityinabox.org/pt/communication/account-compromise/" %}}
+{{% resource title="Recuperação de possível conta comprometida" languages="Árabe, indonésio, inglês, espanhol, farsi, francês, português, russo, tailandês, turco, vietnamita, chinês, tibetano, quemer, burmês" cost="Grátis" description="Guia com passos imediatos e a longo prazo no comprometimento de contas digitais" url="https://securityinabox.org/pt/communication/account-compromise/" %}}
