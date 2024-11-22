@@ -7,8 +7,6 @@ weight: 1
 
 **Colaboradores**
 
-Ninoslava Bogdanović
-
 Michał "czesiek" Czyżewski <https://czesiek.net>
 
 Yana Ghahramanyan
