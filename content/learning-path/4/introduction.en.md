@@ -7,8 +7,6 @@ description = "Read the learning path overview, objectives, associated threats, 
 
 **With thanks to**
 
-Ninoslava Bogdanović
-
 Michał "czesiek" Czyżewski (<https://czesiek.net>)
 
 Yana Ghahramanyan

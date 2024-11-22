@@ -7,7 +7,6 @@ weight: 1
 
 **Avec les remerciements à**
 
-- Ninoslava Bogdanović
 - Michał "czesiek" Czyżewski <https://czesiek.net>
 - Yana Ghahramanyan
 
