@@ -11,7 +11,7 @@ weight: 7
 
 Phishing emails are usually just the first step in an attack. Most try to get the targeted person to visit a web page with a specific attack objective. This skill module will teach you to **look at attacker-controlled websites to understand their actions** and potentially **uncover further attacker-controlled infrastructure** or attack vectors used in the attacks. Note that websites can be extremely complicated, with behavior ranging from simple credential-stealing impersonation pages to complex attacks against the web browser or browsing device itself.
 
-Note that interacting with malicious websites can put the analyst themself at risk. Make sure to set up and use an isolated environment ([see Subtopic 3](#subtopic-3-operational-security-safe-handling-of-links-and-infrastructure)), and to collect and safely store all web pages. Lastly, this skill intersects with and leads into the Malware Analysis learning path.
+Note that interacting with malicious websites can put the analyst themself at risk. Make sure to set up and use an isolated environment ([see Module 3](/en/learning-path/1/module-3/)), and to collect and safely store all web pages. Lastly, this skill intersects with and leads into the Malware Analysis learning path.
 
 ## Objectives
 
@@ -58,7 +58,7 @@ Focusing on the[ HRW case study](https://www.hrw.org/news/2022/12/05/iran-state-
 
 ### Automated sandboxed inspection of a website
 
-The first step when you are ready to inspect a website linked to from a phishing message may be to safely look at the website. This entails some degree of interaction with the website. For direct handling of a potentially malicious website, you should have implemented precautions to give yourself a safe working environment, as covered in [Subtopic 3](#subtopic-3-operational-security-safe-handling-of-links-and-infrastructure). However you can also use online tools to inspect a website in a safe remote sandbox:
+The first step when you are ready to inspect a website linked to from a phishing message may be to safely look at the website. This entails some degree of interaction with the website. For direct handling of a potentially malicious website, you should have implemented precautions to give yourself a safe working environment, as covered in [Subtopic 3](/en/learning-path/1/module-3/). However you can also use online tools to inspect a website in a safe remote sandbox:
 
 - 🧰 Tools such as[ UrlScan](https://urlscan.io/) allow the performance of a scan of an URL. Note some of the key features needed to interpret the results:
 
@@ -77,7 +77,7 @@ The first step when you are ready to inspect a website linked to from a phishing
 
 - 🧰 [Hybrid Analysis](https://www.hybrid-analysis.com/) is a hosted sandbox which can load a web page within a test environment and match website behavior against various heuristics of malicious activity and checking internal indicators against known threats. Note some of the key features and the skills needed to interpret the results:
   - After submitting an URL, select the environment to be used as a sandbox. In case you select ‘Quick Scan’, a full sandbox execution will not take place, but rather a smaller set of static analysis and indicator checks.
-- [VirusTotal ](https://www.virustotal.com/)can also check an URL for malicious content using . Note that Hybrid Analysis includes VirusTotal lookups and considers a broader range of issues in determining its rating.
+- [VirusTotal ](https://www.virustotal.com/)can also check an URL for malicious content. Note that Hybrid Analysis includes VirusTotal lookups and considers a broader range of issues in determining its rating.
 
 Note that a sophisticated web application could detect that a request comes from the IP ranges of these tools and serve different data or no data to the request, while delivering malicious content to other IPs.
 
@@ -119,7 +119,7 @@ Complete this room by TryHackMe: [Walking An Application](https://tryhackme.com/
 
 {{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="English" cost="Free" description="A good write-up and analysis of a highly sophisticated phishing campaign which targeted civil society groups. Includes extensive discussions on infrastructure and attribution." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
 
-{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="English" cost="Free" description="A write-up of an earlier phishing campaign which specifically targeted civil groups working on Russia. The attack itself included an MFA bypass." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
+{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="English" cost="Free" description="A write-up of an earlier phishing campaign which specifically targeted Russian-focused civil groups. The attack itself included an MFA bypass." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
 
 {{% resource title="UrlScan" languages="English" cost="Free, with additional premium features" description="A tool where you input a URL and which analyzes the resulting website, looking out for malware or other suspicious behavior." url="https://urlscan.io/" %}}
 
