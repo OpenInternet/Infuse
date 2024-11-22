@@ -155,11 +155,11 @@ Junto a pares ou a pessoa mentora mais experientes em investigação passiva de 
 
 ## Recursos de aprendizagem
 
-{{% resource title="O que é uma URL?" languages="Chinês, Inglês, Francês, Japonês, Coreano, Russo, Espanhol" cost="Grátis" description="Resumo sobre o que são URLs, como são construídas, e que funcionalidades adicionais (âncoras, etc.) elas podem ter." url="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" %}}
+{{% resource title="O que é uma URL?" languages="Chinês, inglês, francês, japonês, coreano, russo, espanhol" cost="Grátis" description="Resumo sobre o que são URLs, como são construídas, e que funcionalidades adicionais (âncoras, etc.) elas podem ter." url="https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL" %}}
 
-{{% resource title="Introdução ao DNS" languages="Vídeo em Inglês, texto em Árabe, Indonésio, Alemão, Espanhol, Francês, Italiano, Português, Vietnamita, Turco, Russo, Tailandês, Japonês, Coreano, Chinês, Taiwanês" cost="Grátis" description="Resumo básico sobre o funcionamento de DNS." url="https://aws.amazon.com/route53/what-is-dns/" %}}
+{{% resource title="Introdução ao DNS" languages="Vídeo em inglês, texto em árabe, indonésio, alemão, espanhol, francês, italiano, português, vietnamita, turco, russo, tailandês, japonês, coreano, chinês, taiwanês" cost="Grátis" description="Resumo básico sobre o funcionamento de DNS." url="https://aws.amazon.com/route53/what-is-dns/" %}}
 
-{{% resource title="Resumo sobre tipos de registro DNS" languages="Inglês, Alemão, Espanhol, Francês, Italiano, Japonês, Coreano, Português, Taiwanês, Mandarim" cost="Grátis" description="Inclui os tipos de registro mais e menos comuns." url="https://www.cloudflare.com/learning/dns/dns-records/" %}}
+{{% resource title="Resumo sobre tipos de registro DNS" languages="Inglês, alemão, espanhol, francês, italiano, japonês, coreano, português, taiwanês, mandarim" cost="Grátis" description="Inclui os tipos de registro mais e menos comuns." url="https://www.cloudflare.com/learning/dns/dns-records/" %}}
 
 {{% resource title="Usando o comando dig" languages="Inglês" cost="Grátis" description="Como consultar informações sobre endereços IP." url="https://phoenixnap.com/kb/linux-dig-command-examples" %}}
 
