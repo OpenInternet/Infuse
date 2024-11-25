@@ -30,7 +30,7 @@ Vamos aprender como encontrar e usar esses mecanismos de denúncia de abuso. Os 
 - Consultando registros WHOIS de um domínio. Eles listarão um endereço de e-mail e número de telefone para denúncias.
 - Buscando por contatos para denúncias de um endereço IP específico no [RIPEstat](https://stat.ripe.net/app/launchpad).
 - Usando um utilitário escrito em Python ou uma consulta de *host* (o hospedeiro, ou seja, aquele que hospeda a infraestrutura) como descrito em *Abusix Abuse Contacts Database’s [Getting Started](https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee)* (em inglês).
-- Realizando buscas em buscadores para encontrar contatos que podem não estar listados nos bancos de dados citados ou obtidos pelos mecanismos que mencionamos, como é o caso do [Twilio](https://www.twilio.com/help/abuse) e do [Mailchimp](https://mailchimp.com/contact/abuse/). 
+- Pesquisando em buscadores para encontrar contatos que podem não estar listados nos bancos de dados citados ou obtidos pelos mecanismos que mencionamos, como é o caso do [Twilio](https://www.twilio.com/help/abuse) e do [Mailchimp](https://mailchimp.com/contact/abuse/). 
 
 Lembre-se, é possível que vários provedores de serviços estejam envolvidos com a atividade maliciosa que você está investigando. Por exemplo, uma página inicial utilizada como isca (para *phishing*) pode ser denunciada tanto para o serviço de hospedagem web quanto para o serviço de registro de domínios.
 
