@@ -60,7 +60,7 @@ Las habilidades de evaluación de aplicaciones web pueden ayudar a responder a l
   - Abra "Activar o desactivar las funciones de Windows" en el panel de control de Windows y asegúrese de que "Plataforma de Máquina Virtual" y "Subsistema de Windows para Linux" estén marcados.
   - Descargue e instale WSL 2 desde [Microsoft Store](https://apps.microsoft.com/detail/9p9tqf7mrm4r?hl=es-es). Una vez instalado, reinicie su computadora para aplicar los cambios.
   - Abra Windows PowerShell o símbolo del sistema en modo administrador haciendo clic con el botón derecho y seleccionando "Ejecutar como administrador" y ejecute el comando  
-        wsl --set-default-version 2
+        `wsl --set-default-version 2`
   - El resultado de este comando se verá así:
 
 ```
