@@ -46,11 +46,11 @@ Agora vamos entender como escrever um relatório com todas as informações téc
 
 Certifique-se de que você não está compartilhando informações sensíveis relacionadas a você ou aos clientes alvos do conteúdo malicioso.
 
-Embora seja improvável que provedores de serviços compartilharão com você mais informações sobre a conta distribuindo conteúdo abusivo, você pode tentar requisitar mais detalhes caso isso seja útil para as suas investigações.
+Embora seja improvável que provedores de serviços compartilhem com você mais informações sobre a conta distribuindo conteúdo abusivo, você pode tentar requisitar mais detalhes caso isso seja útil para as suas investigações.
 
 Em alguns casos, empresas de serviços de internet e tecnologia se esforçam para coordenar ações com a sociedade civil contra ataques direcionados e podem oferecer suporte adicional. Pode ser interessante falar com alguém [membro do CiviCERT](https://www.civicert.org) para pedir o contato de um funcionário da empresa para ajuda em investigações e respostas mais rápidas.
 
-Note que, em muitos casos, a infraestrutura maliciosa está hospedada em contas comprometidas em servidores de entidades não-relacionadas ao ataque (por exemplo, uma conta da Google comprometida, um site invadido, ou um aparelho infectado controlado de forma coordenada por uma *botnet* — uma rede formada por robôs).
+Note que, em muitos casos, a infraestrutura maliciosa está hospedada em contas comprometidas em servidores de entidades não-relacionadas ao ataque (por exemplo, uma conta do Google comprometida, um site invadido, ou um aparelho infectado controlado de forma coordenada por uma *botnet* — uma rede formada por robôs).
 
 Se você está procurando por inspiração para escrever um e-mail para um provedor de infraestrutura, dê uma olhada nos modelos criados pela *Access Now Helpline*:
 
@@ -70,7 +70,7 @@ Vamos aprender sobre algumas dessas listas de bloqueio, onde elas são integrada
 - [PhishTank](https://phishtank.org/)
 - [Abuse IP DB](https://www.abuseipdb.com/)
 - [Phishing Database](https://github.com/mitchellkrogza/Phishing.Database#additions) (Envie submissões via GitHub)
-- Algumas formas de denúncia de bancos de dados de ameaças mais específicas são oferecidas por [abuse.ch](https://abuse.ch) e exigem autenticação para submissões, como[URLhaus](https://urlhaus.abuse.ch/), [ThreatFox](https://threatfox.abuse.ch/), e [SSL Blacklist](https://sslbl.abuse.ch/).
+- Algumas formas de denúncia de bancos de dados de ameaças mais específicas são oferecidas por [abuse.ch](https://abuse.ch) e exigem autenticação para submissões, como [URLhaus](https://urlhaus.abuse.ch/), [ThreatFox](https://threatfox.abuse.ch/), e [SSL Blacklist](https://sslbl.abuse.ch/).
 - Denuncie iniciativas de phishing no Discord ao [phish.gg](https://docs.phish.gg/) (ou adicione um servidor ao serviço).
 
 ## Prática
@@ -97,7 +97,7 @@ Trabalhe com um mentor ou um par que tenha alguma experiência na derrubada de i
 
 {{% resource title="Getting Started - Abusix" languages="Inglês" cost="Grátis" description="Uma introdução ao banco de dados chamado Abuse Contact" url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
 
-{{% resource title="Canal denúncias do Twilio" languages="Inglês" cost="Gratuito" description="Você você denunciar ligações ou mensagens SMS indesejadas enviadas por números de telefone do Twilio aqui." url="https://www.twilio.com/en-us/help/abuse" %}}
+{{% resource title="Canal de denúncias do Twilio" languages="Inglês" cost="Gratuito" description="Você você denunciar ligações ou mensagens SMS indesejadas enviadas por números de telefone do Twilio aqui." url="https://www.twilio.com/en-us/help/abuse" %}}
 
 {{% resource title="Canal de denúncia do Mailchimp" languages="Inglês" cost="Grátis" description="Você você denunciar abusos na plataforma do Mailchimp aqui." url="https://mailchimp.com/contact/abuse/" %}}
 
@@ -105,7 +105,7 @@ Trabalhe com um mentor ou um par que tenha alguma experiência na derrubada de i
 
 {{% resource title="Modelos de e-mail que podemos usar para denunciar atividade maliciosa" languages="Inglês" cost="Grátis" description="Três modelos de e-mail que podem te ajudar a escrever uma mensagem para provedores de serviços ou clientes para informá-los sobre a presença de uma infraestrutura maliciosa. Registradores de domínio: [Link](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html), provedores de hospedagem: [Link](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html), clientes: [Link](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html)" %}}
 
-{{% resource title="Submeter uma denúncia ao SafeBrowsing" languages="Inglês" cost="Grátis" description="Canal de denúncias da ferramenta do SafeBrowsing, um banco de dados mantido pela Google que alcança muitos usuários." url="https://safebrowsing.google.com/safebrowsing/report_general/" %}}
+{{% resource title="Submeter uma denúncia ao SafeBrowsing" languages="Inglês" cost="Grátis" description="Canal de denúncias da ferramenta do SafeBrowsing, um banco de dados mantido pelo Google que alcança muitos usuários." url="https://safebrowsing.google.com/safebrowsing/report_general/" %}}
 
 {{% resource title="PhishTank" languages="Inglês" cost="Grátis" description="Uma lista colaborativa de sites para submissão de infraestrutura de *phishing* que permite que usuários procurem e submetam URLs." url="https://phishtank.org/" %}}
 
