@@ -85,7 +85,7 @@ Para obtener un breve resumen de qué son los IoCs y cómo podrían verse, [cons
 
 Para una discusión extensa sobre los IoC y sus usos en la respuesta a incidentes, echa un vistazo a [este seminario web de CISA](https://www.youtube.com/watch?v=zs-AEaSd2vk) (inglés, 46 minutos).
 
-Consulta los IoCs descritos en la página 52 [de este Informe de Amnistía](https://www.amnesty.org/en/documents/act10/7245/2023/en/) un artículo sobre el poderoso spyware comercial: en su mayoría consisten en nombres de dominios que se utilizaron como infraestructura durante esta campaña de malware. Después de haber hecho eso, revisa [esta página](https://github.com/AmnestyTech/investigations), que recopila IoCs de varias investigaciones realizadas por Amnesty Tech.
+Consulta los IoCs descritos en la página 52 [de este Informe de Amnistía](https://www.amnesty.org/en/documents/act10/7245/2023/ess/) un artículo sobre el poderoso spyware comercial: en su mayoría consisten en nombres de dominios que se utilizaron como infraestructura durante esta campaña de malware. Después de haber hecho eso, revisa [esta página](https://github.com/AmnestyTech/investigations), que recopila IoCs de varias investigaciones realizadas por Amnesty Tech.
 
 Hay muchas maneras diferentes de detectar indicadores de compromiso. Incluyen revisar los registros de red para ver si algún dispositivo intentó contactar con un dominio específico y verificar si algún archivo en un dispositivo coincide con ciertos _hashes_. Si desea aprender un poco más sobre ellos, te recomendamos consultar los artículos de [Microsoft](https://www.microsoft.com/es-es/security/business/security-101/what-are-indicators-of-compromise-ioc) y [Fortinet](https://www.fortinet.com/resources/cyberglossary/indicators-of-compromise).
 
