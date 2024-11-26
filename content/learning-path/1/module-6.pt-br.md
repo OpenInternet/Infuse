@@ -28,7 +28,7 @@ Após concluir este subtópico, profissionais devem ser capazes de fazer o segui
 
 ### Conhecimento fundamental: E-mails HTML e MIME
 
-Para praticar isto, você precisa entender o básico de e-mails HTML e MIME. Se achar necessário relembrar um pouco desse tópico, consulte alguns dos recursos sobre tópicos-chave abaixo:
+Para praticar isto, você precisa entender o básico de e-mails HTML e MIME. Se achar necessário relembrar um pouco desse tópico, consulte alguns dos recursos sobre os tópicos-chave abaixo:
 
 - A maioria dos e-mails é enviada no formato HTML, que permite o uso de vários métodos inteligentes de apresentação e enganação por *phishers* (pessoas que utilizam "iscas" para "fisgar" os seus alvos).
 - Embora não seja necessário ser capaz de escrever HTML ou projetar páginas web, você deve se sentir confiante na sua capacidade de abrir e analisar o código-fonte de um email HTML, e entender os seus elementos mais essenciais. Para fazer isso, leia esta introdução a [MIME](<https://learn.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2010/aa494197(v=exchg.140)>) e e-mails HTML.
@@ -47,16 +47,16 @@ Após entender os conceitos fundamentais e as ameaças em potencial, você preci
 - [VirusTotal](https://virustotal.com/) pode ser usado para avaliar URLs e anexos quanto a existência de conteúdo malicioso conhecido. Observe que URLs e arquivos enviados podem ser acessados ​​por outros usuários e podem levar o agressor a ser alertado sobre a análise que está sendo realizada nele. Isso geralmente é um risco apenas durante campanhas muito direcionadas; em outras, os adversários geralmente assumem que alguém detectou e está analisando seus padrões de ataque.
 - Confira [algumas das ferramentas de análise de email listadas neste artigo](https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/). Elas podem investigar o conteúdo e os anexos de e-mails e várias delas são baseadas em linha de comando, o que ajuda analistas que estão investigando o conteúdo criado por atores sofisticados, que podem tentar criar mensagens de maneiras que exploram falhas de segurança nos programas de e-mail. O artigo também detalha algumas técnicas que os atores maliciosos usam para frustrar a análise. [Este artigo](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91), de forma similar, analisa como converter arquivos do Outlook para texto puro e analisá-los através de um bloco de notas ou linha de comando, para reduzir a superfície de ataque de emails maliciosos que exploram os bugs do Outlook.
 
-## Prática
+## Atividade prática
 
-- Leia totalmente os dois estudos de caso abaixo, observando todos os elementos novos para você e podem exigir prática adicional:
+- Leia os dois estudos de caso abaixo na íntegra, observando todos os elementos novos para você, e que podem exigir prática adicional:
  - [Analyzing Malicious Email Files | por Josh Lemon | Medium](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91)
  - [Analyzing Malicious Emails. An intro to analyzing a phishing email | por Kyle Bubp | Medium](https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e)
 - Um projeto da Internews, com foco na segurança de jornalistas [criou um exercício de simulação](https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/) para ajudar as pessoas a entender melhor e praticar o trabalho com rastreadores. Leia o projeto e complete alguns dos exercícios.
 
 ## Checagem de habilidades
 
-Peça para um colega ou mentor te enviar um e-mail. Idealmente, o e-mail conteria vários elementos, como pixels rastreadores, anexos, e links que se beneficiariam de uma análise aprofundada. Como alternativa, entre em sua própria caixa de entrada e escolha um e-mail que (esperamos que) não seja malicioso. Use as habilidades usadas neste módulo para analisá-lo:
+Peça para colegas ou quem está te mentorando te enviar um e-mail. Idealmente, o e-mail conteria vários elementos, como pixels rastreadores, anexos, e links que se beneficiariam de uma análise aprofundada. Como alternativa, entre em sua própria caixa de entrada e escolha um e-mail que (esperamos que) não seja malicioso. Use as habilidades usadas neste módulo para analisá-lo:
 
 - Você pode ler os cabeçalhos do e-mail para descobrir o endereço do remetente?
 - Você pode confirmar a autenticidade do remetente? É provável que o e-mail tenha sido falsificado?
@@ -85,9 +85,9 @@ Discuta suas respostas para as perguntas acima com seu colega ou mentor.
 
 {{% resource title="Manual de investigação de e-mails maliciosos do Microsoft Exchange" languages="Inglês" cost="Grátis" description="Um manual para investigar e-mails maliciosos usando um ambiente do Microsoft Exchange (em que o investigador tem acesso de administrador)." url="https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing" %}}
 
-{{% resource title="Exemplo 1 de  análises de malware de e-mails" languages="Inglês" cost="Grátis" description="Análises de exemplos de e-mails de *phishing*. Inclui uma análise de arquivos HTML com scripts e conteúdo maliciosos incorporados e codificados." url="https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e" %}}
+{{% resource title="Exemplo 1 de análises de malware de e-mails" languages="Inglês" cost="Grátis" description="Análises de exemplos de e-mails de *phishing*. Inclui uma análise de arquivos HTML com scripts e conteúdo maliciosos incorporados e codificados." url="https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e" %}}
 
-{{% resource title="Exemplo 2 de  análises de malware de e-mails" languages="Inglês" cost="Grátis" description="Análises de exemplos de e-mails de *phishing*. Inclui uma análise de arquivos HTML com scripts e conteúdo maliciosos incorporados e codificados." url="https://www.vadesecure.com/en/blog/m365-phishing-email-analysis-eevilcorp" %}}
+{{% resource title="Exemplo 2 de análises de malware de e-mails" languages="Inglês" cost="Grátis" description="Análises de exemplos de e-mails de *phishing*. Inclui uma análise de arquivos HTML com scripts e conteúdo maliciosos incorporados e codificados." url="https://www.vadesecure.com/en/blog/m365-phishing-email-analysis-eevilcorp" %}}
 
 {{% resource title="Exemplo 3 de análises de malware de e-mails" languages="Inglês" cost="Grátis" description="Já que e-mails podem explorar furos de segurança em clientes de e-mail, esse guia demonstra como melhor analisá-los usando ferramentas de linha de comando e editores de texto." url="https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/" %}}
 
