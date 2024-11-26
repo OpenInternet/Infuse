@@ -49,7 +49,8 @@ As respostas a essas perguntas ajudarão no apoio de redução de danos e nas in
 
 Para que haja segurança operacional durante o trabalho com e-mails maliciosos, consulte o próximo subtópico.
 
-## Pratique
+## Atividade prática
+
 
 Reflita e responda às perguntas a seguir/discuta com pares, colegas, amizades ou mentores. Se houver disponibilidade e for apropriado, converse com uma pessoa “cliente” com quem tenha trabalhado anteriormente para pedir sua opinião e experiências.
 
@@ -62,7 +63,8 @@ Reflita e responda às perguntas a seguir/discuta com pares, colegas, amizades o
 
 ## Checagem de habilidades
 
-Faça um exercício de simulação com pares ou pessoa mentora: seu papel será o de alguém responsável pela proteção online, enquanto a outra pessoa simulará alguém que recebeu um e-mail de phishing que continua na caixa de entrada. O e-mail foi recebido há algumas horas, e a pessoa não se lembra de ter clicado nele, e somente suspeitou e pensou que deveria avisar outras pessoas agora. Ela está bastante perturbada, preocupada de ter colocado colegas e a organização em risco. Alguns dos tópicos pertinentes à conversa incluem:
+Faça um exercício de simulação com colegas ou quem está te mentorando: seu papel será o de alguém responsável pela proteção online, enquanto a outra pessoa simulará alguém que recebeu um e-mail de phishing que continua na caixa de entrada. O e-mail foi recebido há algumas horas, e a pessoa não se lembra de ter clicado nele, e somente suspeitou e pensou que deveria avisar outras pessoas agora. Ela está bastante perturbada, preocupada de ter colocado colegas e a organização em risco. Alguns dos tópicos pertinentes à conversa incluem:
+
 
 * Explicação sobre o que é uma mensagem de phishing e possíveis objetivos de atacantes.
 * Os riscos provenientes dela ter clicado no e-mail de phishing.
