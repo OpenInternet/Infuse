@@ -63,7 +63,8 @@ Se as suspeitas são de que as contas da pessoa alvo tenham sido comprometidas, 
 
 Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida, peça para que ela mude as senhas em um outro dispositivo, e evite usar o dispositivo comprometido até que a investigação seja finalizada. Siga os passos reforçados na trilha de aprendizagem de [Detecção de malware](https://infuse.quest/pt-br/learning-path/2/).
 
-## Pratique
+## Atividade prática
+
 
 - Com o VPN desabilitado (caso seja seguro), acesse algum site que mostre seu endereço IP (procure por “qual é meu IP” em seu mecanismo de busca favorito). Reflita sobre o que poderia acontecer caso atacantes soubessem de seu endereço IP. O endereço pertence a alguma empresa ou escritório? \
   Em seguida, habilite uma VPN bem reconhecida e cheque seu endereço IP mais uma vez. \
