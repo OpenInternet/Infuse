@@ -73,7 +73,7 @@ Vamos aprender sobre algumas dessas listas de bloqueio, onde elas são integrada
 - Algumas formas de denúncia de bancos de dados de ameaças mais específicas são oferecidas por [abuse.ch](https://abuse.ch) e exigem autenticação para submissões, como [URLhaus](https://urlhaus.abuse.ch/), [ThreatFox](https://threatfox.abuse.ch/), e [SSL Blacklist](https://sslbl.abuse.ch/).
 - Denuncie iniciativas de phishing no Discord ao [phish.gg](https://docs.phish.gg/) (ou adicione um servidor ao serviço).
 
-## Prática
+## Atividade prática
 
 - Encontre os contatos de equipes de combate à abuso de três empresas de hospedagem web, incluindo pelo menos uma grande plataforma de hospedagem (como AWS, GCP, Azure, Oracle Cloud, e Alibaba Cloud). Procure por quaisquer informações que eles oferecem em seus processos de denúncia de abuso.
 - Investigue como bancos de dados de abuso e Google Safe Browsing funcionam. Liste as ferramentas e serviços que se integram a esses mecanismos.
@@ -81,7 +81,7 @@ Vamos aprender sobre algumas dessas listas de bloqueio, onde elas são integrada
 
 ## Checagem de habilidades
 
-Trabalhe com um mentor ou um par que tenha alguma experiência na derrubada de infraestrutura maliciosa. Complete as seguintes tarefas com eles:
+Trabalhe com quem está te mentorando ou colegas que tenham alguma experiência na derrubada de infraestrutura maliciosa. Complete as seguintes tarefas com eles:
 
 - Prepare todas as provas (endereços IP, *hashes*, domínios, e qualquer outra evidência) que você precisaria para submeter uma denúncia. Se você já tem um exemplo de infraestrutura maliciosa em mente, colete essas informações sobre essa infraestrutura. Se você não tem, colete essas informações de uma página legítima (mas não submeta uma denúncia). Discuta essas informações com o seu par ou mentor — eles verificarão se você coletou as informações certas e as documentou de forma adequada.
 
