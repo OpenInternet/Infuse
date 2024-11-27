@@ -120,114 +120,84 @@ Here’s an example:
 - معلومات غير منظمة خاصة بالخطأ
 
 لمزيد من المعلومات حول العثور على سجلات الأخطاء على ويندوز، راجع هذه[ المقالة](https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/).
-#### nginx
 
-Depending on how you count, nginx may be the most popular web server on the internet, however it is fairly limited, usually acting as a reverse proxy to a back-end web server or serving static files.
+#### إن جي آي إن إكس (nginx)
 
-The default access logs are similar to the default Apache logs, but with the following fields at the end of each line:
 
-- Value of the referer header sent with the request
-- User agent (browser version) sent with the request
+حسب طريقة الحساب قد يكون إن جي آي إن إكس هو خادم الويب الأكثر شيوعًا على الإنترنت ولكنه محدود إلى حد ما وعادةً ما يعمل على شكل وكيل عكسي لخادم الويب الخلفي أو يقدم ملفات ثابتة. 
 
-For more information about nginx logs, see [the official documentation](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
+تتشابه سجلات الوصول الافتراضية مع سجلات أباتشي الافتراضية، ولكن مع الحقول التالية في نهاية كل سطر:
 
-nginx error logs are semi-structured, with the following fields, separated by spaces:
+- قيمة رأس المُحيل المرسل مع الطلب
+- تم إرسال وكيل المستخدم (إصدار المتصفح) مع الطلب
+- 
+لمزيد من المعلومات حول سجلات إن جي آي إن إكس، [راجع الوثائق الرسمية](https://docs.nginx.com/nginx/admin-guide/monitoring/logging/).
 
-- The request date
-- The request time
-- The error level inside of square brackets
-- Process ID information about the nginx instance that logged the error
-- An (optional) connection ID
-- The error message in free-form text
+سجلات أخطاء إن جي آي إن إكس شبه منظمة وتشمل الحقول التالية مفصولة بمسافات:
+- تاريخ الطلب
+- وقت الطلب
+- مستوى الخطأ داخل الأقواس المعقوفة
+- معلومات معرّف العملية حول مثيل إن جي آي إن إكس الذي سجل الخطأ
+- معرّف اتصال (اختياري)
+- رسالة الخطأ بشكل نص حر
 
-For more information, see [this article](https://trunc.org/learning/nginx-log-analysis).
+للاطلاع على مزيد من المعلومات، انظر هذه [المقالة](https://trunc.org/learning/nginx-log-analysis).
 
-#### Upstream CDN logs
 
-If a site is behind a CDN, it’s often useful to see the logs of the requests to the CDN, as opposed to the requests from the CDN to the origin site. Each CDN provider provides logs differently and has different pricing structures for logging.
+#### سجلات شبكة توصيل المحتوى بالاتجاه الصاعد
 
-#### Setting up server logging
+إذا كان الموقع خلف شبكة توصيل المحتوى، فغالبًا ما يكون من المفيد الاطلاع على سجلات طلبات المرسلة إلى شبكة توصيل المحتوى بدلًا من الطلبات من شبكة توصيل المحتوى إلى موقع المنشأ. يوفر كل مزود شبكة توصيل المحتوى سجلات مختلفة ولديه هياكل تسعير مختلفة للسجلات. 
 
-When setting up server logging, there are a few steps that should be taken to maximize the security value of the logs.
+#### إعداد سجلات الخادم
 
-- Make sure the logs contain at least the IP address of the requestor, full URI requested (including the query string), time taken to serve the request, response size, referer, and user-agent. This information can be extremely helpful when investigating an incident.
-- Try to get the logs off of the web server as quickly as possible. If the server itself is compromised, attackers will likely try to hide their tracks by deleting or modifying the server logs. Some ways of accomplishing this include:
-  - Have a process that pulls log files from the server periodically. Pushing logs from the web server is okay, though it’s important that the push process cannot be used to delete the backed-up logs.
-  - “Stream” logs from the web server to a remote ever, for example, with syslog-ng. This provides great protection against loss of logs. It’s usually a good idea to keep logs on the web server as well, in case of network interruption.
+عند إعداد سجلات الخادم، توجد بعض خطوات يجب اتخاذها لزيادة قيمة أمان السجلات.
 
-#### Limitations of server logging
+- تأكد من أن السجلات تحتوي على الأقل على عنوان بروتوكول الإنترنت لمقدم الطلب، وكامل عنوان معرف الموارد المنتظم المطلوب (بما في ذلك سلسلة الاستعلام)، والوقت المستغرق لخدمة الطلب وحجم الاستجابة والمُحيل ووكيل المستخدم. يمكن أن تكون هذه المعلومات مفيدة للغاية عند التحقيق في حادث ما.
+- حاول إخراج السجلات من خادم الويب في أسرع وقت ممكن لأنه تعرض الخادم نفسه للاختراق من المحتمل أن يحاول المهاجمون إخفاء مساراتهم عن طريق حذف سجلات الخادم أو تعديلها. تشمل بعض طرق تحقيق ذلك ما يلي:
+  - إجراء عملية تسحب ملفات السجل من الخادم بشكل دوري، ولا بأس بدفع السجلات من خادم الويب على الرغم من أنه من المهم عدم استخدام عملية الدفع لحذف السجلات الاحتياطية.
+  - سجلات "البث" من خادم الويب إلى جهاز تحكم عن بعد من أي وقت مضى، على سبيل المثال، باستخدام syslog-ng، وهذا يوفر حماية كبيرة ضد فقدان السجلات. عادة ما يكون من المستحسن إبقاء السجلات على خادم الويب أيضًا في حالة انقطاع الشبكة.
 
-Even when fully configured, built-in server logs miss a lot of important information. Some examples:
+#### قيود تسجيل الخادم
 
-- POST parameter information isn’t included. If an attacker is performing application-level attacks against a page that accepts POST parameters, there will be no way to see those attacks in the logs.
-- Although error logs may contain information about filesystem and database errors that occur as attackers exploit vulnerabilities, they generally are not sufficient to understand much about the attack. E.g., elevated error logs may indicate an attack in progress but may also indicate a non-security bug, and it can be very difficult to distinguish between the two.
-- No identity information is included. While all logs include the IP address, multiple users can have the same IP.
+حتى عند تكوينها بالكامل غالبًا ما تفقد سجلات الخادم المضمّنة الكثير من المعلومات المهمة، ومن الأمثلة على ذلك:
 
-Much of this information isn’t included for good reason. Much of it can have bad implications for user privacy. Others (like useful error logging) require insight into the application itself, so can’t be done by the web server.
+- لا تتضمن معلومات معلمة بوست، وإذا كان المهاجم ينفذ هجمات على مستوى التطبيق ضد صفحة تقبل معلمات بوست فلن تكون هناك طريقة لرؤية هذه الهجمات في السجلات.
+- على الرغم من أن سجلات الأخطاء قد تحتوي على معلومات حول أخطاء نظام الملفات وقاعدة البيانات التي تحدث عندما يستغل المهاجمون الثغرات الأمنية، إلا أنها لا تكفي عمومًا لفهم الكثير عن الهجوم. على سبيل المثال، قد تشير سجلات الأخطاء المرتفعة إلى هجوم يجري ولكنها قد تشير أيضًا إلى خطأ غير أمني وقد يكون من الصعب جدًا التمييز بين الاثنين.
+- لم يتم تضمين أي معلومات هوية في حين أن جميع السجلات تتضمن عنوان بروتوكول الإنترنت ويمكن أن يكون لدى العديد من المستخدمين عنوان البروتوكول ذاته.
+  
+لم يتم تضمين الكثير من هذه المعلومات لسبب وجيه ويمكن أن يكون للكثير منها آثار سيئة على خصوصية المستخدم، يتطلب بعضها الآخر (مثل تسجيل الأخطاء المفيدة) معرفة متعمّقة بالتطبيق نفسه ولذلك لا يمكن القيام بذلك بواسطة خادم الويب.
 
-#### Approaching Logging for security
+#### مقاربة تسجيل الأحداث من أجل الأمن 
 
-The main purpose of application-level logging in a web application is to overcome the limitations of server logging. There are numerous articles describing best practices for logging, here are a few:
+يتمثل الغرض الرئيسي من تسجيل الأحداث على مستوى التطبيق في تطبيق الويب في التغلب على قيود تسجيل الخادم للأحداث، وهناك العديد من المقالات التي تصف أفضل الممارسات لتسجيل الأحداث، وفيما يلي بعض منها:
 
-- [An overview of security logging](https://www.dnsstuff.com/security-log-best-practices)
-- [An article from OWASP on logging for web sites](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
-- [An article from OWASP on having a consistent format for logs](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
+- [نظرة عامة على تسجيل أحداث الأمنية](https://www.dnsstuff.com/security-log-best-practices)
+-  [مقالة من مشروع أمان تطبيق الويب المفتوح حول تسجيل الأحداث لمواقع الويب](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html)
+-  [مقالة من مشروع أمان تطبيق الويب المفتوح حول وجود تنسيق متسق للسجلات](https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html)
+  
+يجب أن تُوفر لك هذه الموارد المعرفة التي تحتاجها لدمج تسجيل الأحداث الأمنية في تطبيق ويب موجود (أو جديد).
 
-These resources should get you set up with the knowledge you need to integrate security logging into an existing (or new) web application.
 
-#### Logging and sensitive information
+#### تسجيل الأحداث والمعلومات الحساسة
 
 When overcoming the limitations of built-in server logging, we want to make sure that we don’t put site users at risk. It is frequently the case that logs are less well protected than production databases. First off, logs are not as obvious a target as a production database, so people tend to not focus on them as much when putting security measures in place. Secondly, it’s often the case that more users at an organization are given access to logs than are granted to access to a production database. Third, logs tend to be sent to many different systems, whereas production databases tend to stay centralized. Because of this, it’s worth considering redacting sensitive information in logs.
 
-[This article](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) prevents some general best practices for handling sensitive data during logging. Here are some approaches to consider for specific sorts of data:
+ prevents some general best practices for handling sensitive data during logging. Here are some approaches to consider for specific sorts of data:
 
-إن جي آي إن إكس (nginx)
-حسب طريقة الحساب قد يكون إن جي آي إن إكس هو خادم الويب الأكثر شيوعًا على الإنترنت ولكنه محدود إلى حد ما وعادةً ما يعمل على شكل وكيل عكسي لخادم الويب الخلفي أو يقدم ملفات ثابتة. 
-تتشابه سجلات الوصول الافتراضية مع سجلات أباتشي الافتراضية، ولكن مع الحقول التالية في نهاية كل سطر:
-قيمة رأس المُحيل المرسل مع الطلب
-تم إرسال وكيل المستخدم (إصدار المتصفح) مع الطلب
-لمزيد من المعلومات حول سجلات إن جي آي إن إكس، راجع الوثائق الرسمية.
-سجلات أخطاء إن جي آي إن إكس شبه منظمة وتشمل الحقول التالية مفصولة بمسافات:
-تاريخ الطلب
-وقت الطلب
-مستوى الخطأ داخل الأقواس المعقوفة
-معلومات معرّف العملية حول مثيل إن جي آي إن إكس الذي سجل الخطأ
-معرّف اتصال (اختياري)
-رسالة الخطأ بشكل نص حر
-للاطلاع على مزيد من المعلومات، انظر هذه المقالة.
-سجلات شبكة توصيل المحتوى بالاتجاه الصاعد
-إذا كان الموقع خلف شبكة توصيل المحتوى، فغالبًا ما يكون من المفيد الاطلاع على سجلات طلبات المرسلة إلى شبكة توصيل المحتوى بدلًا من الطلبات من شبكة توصيل المحتوى إلى موقع المنشأ. يوفر كل مزود شبكة توصيل المحتوى سجلات مختلفة ولديه هياكل تسعير مختلفة للسجلات. 
-إعداد سجلات الخادم
-عند إعداد سجلات الخادم، توجد بعض خطوات يجب اتخاذها لزيادة قيمة أمان السجلات.
-تأكد من أن السجلات تحتوي على الأقل على عنوان بروتوكول الإنترنت لمقدم الطلب، وكامل عنوان معرف الموارد المنتظم المطلوب (بما في ذلك سلسلة الاستعلام)، والوقت المستغرق لخدمة الطلب وحجم الاستجابة والمُحيل ووكيل المستخدم. يمكن أن تكون هذه المعلومات مفيدة للغاية عند التحقيق في حادث ما.
-حاول إخراج السجلات من خادم الويب في أسرع وقت ممكن لأنه تعرض الخادم نفسه للاختراق من المحتمل أن يحاول المهاجمون إخفاء مساراتهم عن طريق حذف سجلات الخادم أو تعديلها. تشمل بعض طرق تحقيق ذلك ما يلي:
-إجراء عملية تسحب ملفات السجل من الخادم بشكل دوري، ولا بأس بدفع السجلات من خادم الويب على الرغم من أنه من المهم عدم استخدام عملية الدفع لحذف السجلات الاحتياطية.
-سجلات "البث" من خادم الويب إلى جهاز تحكم عن بعد من أي وقت مضى، على سبيل المثال، باستخدام syslog-ng، وهذا يوفر حماية كبيرة ضد فقدان السجلات. عادة ما يكون من المستحسن إبقاء السجلات على خادم الويب أيضًا في حالة انقطاع الشبكة.
-قيود تسجيل الخادم
-حتى عند تكوينها بالكامل غالبًا ما تفقد سجلات الخادم المضمّنة الكثير من المعلومات المهمة، ومن الأمثلة على ذلك:
-لا تتضمن معلومات معلمة بوست، وإذا كان المهاجم ينفذ هجمات على مستوى التطبيق ضد صفحة تقبل معلمات بوست فلن تكون هناك طريقة لرؤية هذه الهجمات في السجلات.
-على الرغم من أن سجلات الأخطاء قد تحتوي على معلومات حول أخطاء نظام الملفات وقاعدة البيانات التي تحدث عندما يستغل المهاجمون الثغرات الأمنية، إلا أنها لا تكفي عمومًا لفهم الكثير عن الهجوم. على سبيل المثال، قد تشير سجلات الأخطاء المرتفعة إلى هجوم يجري ولكنها قد تشير أيضًا إلى خطأ غير أمني وقد يكون من الصعب جدًا التمييز بين الاثنين.
-لم يتم تضمين أي معلومات هوية في حين أن جميع السجلات تتضمن عنوان بروتوكول الإنترنت ويمكن أن يكون لدى العديد من المستخدمين عنوان البروتوكول ذاته.
-لم يتم تضمين الكثير من هذه المعلومات لسبب وجيه ويمكن أن يكون للكثير منها آثار سيئة على خصوصية المستخدم، يتطلب بعضها الآخر (مثل تسجيل الأخطاء المفيدة) معرفة متعمّقة بالتطبيق نفسه ولذلك لا يمكن القيام بذلك بواسطة خادم الويب.
-مقاربة تسجيل الأحداث من أجل الأمن 
-يتمثل الغرض الرئيسي من تسجيل الأحداث على مستوى التطبيق في تطبيق الويب في التغلب على قيود تسجيل الخادم للأحداث، وهناك العديد من المقالات التي تصف أفضل الممارسات لتسجيل الأحداث، وفيما يلي بعض منها:
-نظرة عامة على تسجيل أحداث الأمنية
-مقالة من مشروع أمان تطبيق الويب المفتوح حول تسجيل الأحداث لمواقع الويب
-مقالة من مشروع أمان تطبيق الويب المفتوح حول وجود تنسيق متسق للسجلات
-يجب أن تُوفر لك هذه الموارد المعرفة التي تحتاجها لدمج تسجيل الأحداث الأمنية في تطبيق ويب موجود (أو جديد).
-تسجيل الأحداث والمعلومات الحساسة
-عند التغلب على قيود تسجيل الأحداث في الخادم المدمج، سنرغب بالتأكد من أننا لا نعرض مستخدمي الموقع للخطر، وغالبًا ما تكون السجلات ذات حماية أقل من قواعد بيانات الإنتاج. أولًا، ليست السجلات هدفًا واضحًا مثل قاعدة بيانات الإنتاج ولذلك يميل الناس إلى عدم التركيز عليها كثيرًا عند وضع التدابير الأمنية. ثانيًا، غالبًا ما يُمنح عدد أكبر من المستخدمين في المؤسسة حق الوصول إلى السجلات مقارنةً بالوصول إلى قاعدة بيانات الإنتاج. ثالثًا، عادة ما تُرسل السجلات إلى العديد من الأنظمة المختلفة، في حين تميل قواعد بيانات الإنتاج إلى البقاء مركزية ولهذا السبب يجدر النظر في تنقيح المعلومات الحساسة في السجلات. 
-توفر هذه المقالة بعض أفضل الممارسات العامة للتعامل مع البيانات الحساسة أثناء التسجيل، وفيما يلي بعض الأساليب التي يجب مراعاتها لأنواع محددة من البيانات:
-معلمات بوست
+
+
+
+
+عند التغلب على قيود تسجيل الأحداث في الخادم المدمج، سنرغب بالتأكد من أننا لا نعرض مستخدمي الموقع للخطر، وغالبًا ما تكون السجلات ذات حماية أقل من قواعد بيانات الإنتاج. أولًا، ليست السجلات هدفًا واضحًا مثل قاعدة بيانات الإنتاج ولذلك يميل الناس إلى عدم التركيز عليها كثيرًا عند وضع التدابير الأمنية. ثانيًا، غالبًا ما يُمنح عدد أكبر من المستخدمين في المؤسسة حق الوصول إلى السجلات مقارنةً بالوصول إلى قاعدة بيانات الإنتاج. ثالثًا، عادة ما تُرسل السجلات إلى العديد من الأنظمة المختلفة، في حين تميل قواعد بيانات الإنتاج إلى البقاء مركزية ولهذا السبب يجدر النظر في تنقيح المعلومات الحساسة في السجلات.
+
+توفر هذه [المقالة](https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices) بعض أفضل الممارسات العامة للتعامل مع البيانات الحساسة أثناء التسجيل، وفيما يلي بعض الأساليب التي يجب مراعاتها لأنواع محددة من البيانات:
+
+##### معلمات بوست
+
 من الممارسات الموصى بها عدم تضمين المعلومات الحساسة في معلمات غت، وبالتالي الحصول على المعلمات التي يتم تسجيلها، ولكن ليس معلمات بوست، لكن قد يكون من المفيد للغاية الوصول إلى معلومات حول معلمات بوست عند الاستجابة للهجوم، وتوجد عدة أمور يجب أخذها في الاعتبار عند التنفيذ:
-يجب إعفاء صفحات معينة (مثل صفحة تسجيل الدخول) و/أو المعلمات (رقم بطاقة الائتمان وحقول كلمة المرور) من تسجيل الأحداث.
-بالنسبة لمعلمات النشر التي سيتم تسجيلها، يجب أن تراعي تنقيحها لإخفاء المعلومات التي يحتمل أن تكون حساسة مع متابعة تحديد حركة المرور الضارة. يمكن لتعليمات بايثون البرمجية التالية أن تساعدك:
-##### POST parameters
 
-It is a recommended practice to not include sensitive information in GET parameters, hence GET parameters being logged, but not POST parameters. However, it can be extremely useful to have access to information about POST parameters when responding to an attack. A few things to put in place:
-
-- Certain pages (e.g. the login page) and/or parameters (credit card number, password fields) should be exempted from logging
-- For POST parameters that will be logged, consider redacting them to hide potentially sensitive information, while still being able to identify malicious traffic. The following Python code may give some inspiration:
+- يجب إعفاء صفحات معينة (مثل صفحة تسجيل الدخول) و/أو المعلمات (رقم بطاقة الائتمان وحقول كلمة المرور) من تسجيل الأحداث.
+- بالنسبة لمعلمات النشر التي سيتم تسجيلها، يجب أن تراعي تنقيحها لإخفاء المعلومات التي يحتمل أن تكون حساسة مع متابعة تحديد حركة المرور الضارة. يمكن لتعليمات بايثون البرمجية التالية أن تساعدك:
 
   {{< highlight python "linenos=table" >}}
   import re
