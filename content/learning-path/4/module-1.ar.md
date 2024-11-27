@@ -5,7 +5,7 @@ title = "Infrastructure Vulnerabilities"
 description = "We introduce different types of infrastructure vulnerabilities and what impact they could have"
 +++
 
-## Use Case
+## حالة استخدام
 
 While this learning path focuses on web application security, web applications run on top of numerous pieces of software infrastructure. Any vulnerability in the application’s underlying infrastructure will compromise the application. Understanding some infrastructure security is therefore part of understanding application security.
 
@@ -62,7 +62,7 @@ If possible, discuss your answers to those questions with a peer or mentor who w
 
 
 الموضوع الفرعي 1: ثغرات البنية التحتية
-حالة استخدام
+
 
 بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب، تعمل تطبيقات الويب بالإضافة إلى العديد من أجزاء البنية التحتية للبرمجيات. ستؤدي أي ثغرة أمنية في البنية التحتية الخاصة بالتطبيق إلى تعريض التطبيق للخطر، وبالتالي فإن فهم بعض أمن البنية التحتية جزءٌ من فهم أمن التطبيقات.
 عند فحص تطبيق ويب إما لأغراض تقييم الثغرات الأمنية أو الرقابة الأمنية أو لفحص ثغرة، يجب على الممارس فهم المجموعة الأساسية من التكنولوجيات التي توفر البيئة اللازمة لتشغيل التطبيق أثناء البحث عن ثغرات في تلك المجموعة.
