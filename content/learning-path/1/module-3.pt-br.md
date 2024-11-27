@@ -11,7 +11,8 @@ Durante a investigação de e-mails de phishing, anexos, sites e outras infraest
 
 ## Objetivos
 
-Após completar este subtópico, profissionais serão capazes de:
+Após completar este módulo, profissionais serão capazes de:
+
 
 - Demonstrar como manejar e-mails mal intencionados e URLs com segurança durante a investigação da infraestrutura maliciosa;
 - Descrever os passos a serem tomados para a prevenção de vazamentos de endereços IP de máquinas/dispositivos comprometidos durante a condução de uma investigação;
@@ -22,11 +23,12 @@ Após completar este subtópico, profissionais serão capazes de:
 
 ## Seção principal 
 
-Muitos e-mails de phishing e mensagens similares não só tentam manipular a pessoa alvo a clicar em um link, como também podem tentar coletar dados sobre ela (sobre isso, discutiremos mais aprofundadamente no subtópico 6). Ao conduzir uma investigação, é imprescindível manejar mensagens e outras infraestruturas com cuidado para não revelar informação sobre identidade, trabalho e organização além do estritamente necessário, e para proteger dispositivos e contas.
+Muitos e-mails de phishing e mensagens similares não só tentam manipular a pessoa alvo a clicar em um link, como também podem tentar coletar dados sobre ela (sobre isso, discutiremos mais aprofundadamente no [Módulo 6](/pt-br/learning-path/1/module-6/)). Ao conduzir uma investigação, é imprescindível manejar mensagens e outras infraestruturas com cuidado para não revelar informação sobre identidade, trabalho e organização além do estritamente necessário, e para proteger dispositivos e contas.
+
 
 ### Precauções básicas
 
-Usualmente, dividimos a análise em: passiva (subtópicos 4 e 5) e ativa (subtópicos 6 e 7). A análise passiva não deve incluir nenhum contato com servidores de atacantes, diferentemente da análise ativa.
+Geralmente, dividimos a análise em análise passiva ([Módulo 4](/pt-br/learning-path/1/module-4) e [Módulo 5](/pt-br/learning-path/1/module-5)) e análise ativa ([Módulo 6](/pt-br/learning-path/1/module-6) e [Módulo 7](/pt-br/learning-path/1/module-4)). A análise passiva não deve incluir nenhum contato com servidores de atacantes, diferentemente da análise ativa.
 
 Para a análise, é importante entender que tipos de atividades interagem diretamente com a infraestrutura atacante, e podem, portanto, ser detectadas. Assim, profissionais serão capazes de adaptar os métodos relevantes de modelagem de ameaças.
 
@@ -61,7 +63,7 @@ Caso haja suspeitas de que atacantes tenham obtido acesso ao e-mail ou conta da 
 
 Se as suspeitas são de que as contas da pessoa alvo tenham sido comprometidas, peça para que ela mude imediatamente as senhas, e force o “deslogamento” (logout) da conta de todas as localidades (a maioria dos serviços possui tal configuração). Isso deve inviabilizar outros acessos indevidos por parte da pessoa atacante. No entanto, isso alertará que a pessoa alvo percebeu algo errado, e a pessoa atacante pode já ter baixado uma quantidade significativa de dados da conta em questão.
 
-Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida, peça para que ela mude as senhas em um outro dispositivo, e evite usar o dispositivo comprometido até que a investigação seja finalizada. Siga os passos reforçados na trilha de aprendizagem de [Detecção de malware](https://infuse.quest/pt-br/learning-path/2/).
+Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida, peça para que ela mude as senhas em um outro dispositivo, e evite usar o dispositivo comprometido até que a investigação seja finalizada. Siga os passos reforçados na trilha de aprendizagem de [Detecção de Malware](/pt-br/learning-path/2/).
 
 ## Atividade prática
 
@@ -73,7 +75,7 @@ Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida
 
 ## Checagem de habilidades
 
-- Trabalhe com uma pessoa par ou mentora, que te enviará um web token de bug gerado [no Canarytokens (em inglês)](https://canarytokens.org/generate#). Abra o web bug na sua máquina de análise. Isso fará com que a outra pessoa receba informações pelo e-mail utilizado para cadastrar o web bug, incluindo seu endereço IP e uma breve descrição do navegador chamado agente de usuário. Discutam sobre estes resultados: caso estivesse conduzindo uma análise ativa, pessoas atacantes provavelmente também teriam acesso a suas informações, já que você estaria usando a mesma máquina para se conectar aos servidores controlados por elas.
+- Peça para colegas ou para a pessoa te mentorando que elas criem um web token de bug gerado [no Canarytokens (em inglês)](https://canarytokens.org/generate#). Abra o web bug na sua máquina de análise. Isso fará com que a outra pessoa receba informações pelo e-mail utilizado para cadastrar o web bug, incluindo seu endereço IP e uma breve descrição do navegador chamado agente de usuário. Discuta estes resultados: caso estivesse conduzindo uma análise ativa, pessoas atacantes provavelmente também teriam acesso a suas informações, já que você estaria usando a mesma máquina para se conectar aos servidores controlados por elas.
 
 ## Recursos de aprendizagem
 
