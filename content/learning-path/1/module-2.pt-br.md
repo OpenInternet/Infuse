@@ -1,7 +1,8 @@
 ---
 style: module
 title: "Habilidades interpessoais para infraestrutura maliciosa/ resposta a phishing"
-description: "Após completar este subtópico, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida"
+description: "Após completar este módulo, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida"
+
 weight: 2
 ---
 ## Caso de uso
@@ -10,7 +11,8 @@ Em quase todo caso de intervenção ou apoio, profissionais estarão trabalhando
 
 ## Objetivos
 
-Após completar este subtópico, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida.
+Após completar este módulo, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida.
+
 
 - - -
 
@@ -29,13 +31,13 @@ Após a leitura, você deve ser capaz de:
 
 ## Conhecimento específico da trilha
 
-Uma vez familiarizade com os conhecimentos básicos citados acima, tome um tempo para considerar habilidades interpessoais particulares que possam ser necessárias para esta trilha de aprendizagem. Cada trilha de aprendizagem e intervenção são levemente distintas, e podem trazer narrativas ou preocupações variadas por parte de estudantes/profissionais.
+Assim que você se familiarizar com os conhecimentos básicos citados acima, tome um tempo para considerar habilidades interpessoais particulares que possam ser necessárias para esta trilha de aprendizagem. Cada trilha de aprendizagem e intervenção são levemente distintas, e podem trazer narrativas ou preocupações variadas por parte de estudantes/profissionais.
 
-Deve-se ser capaz de:
+Você deve:
 
 * Entender como se comunicar sobre phishing e infraestruturas maliciosas da forma mais empática possível. Todo mundo pode acabar clicando em um link ou confundindo URLs. Certifique-se de não envergonhar ninguém. Ao discutir casos de estudo publicamente, faça-o com cuidado e com empatia para não culpar alguém especificamente, nem identificar quem prefere se manter no anonimato; 
-* Esteja preparade para discutir sobre as diferenças entre as análises passiva e ativa da infraestrutura de tolerância a riscos;
-* Esteja preparade para explicar como o mesmo método de análise às vezes pode render grande quantidade de dados, às vezes muito pouca, e gerencie as expectativas de acordo.
+* Ter preparo para discutir sobre as diferenças entre as análises passiva e ativa da infraestrutura de tolerância a riscos;
+* Ser capaz de explicar como o mesmo método de análise às vezes pode render grande quantidade de dados, às vezes muito pouca, e gerencie as expectativas de acordo.
 
 Note que as habilidades dispostas no fim dessa trilha de aprendizagem também contêm recomendações de desenvolvimento de habilidades interpessoais para fornecer apoio atento e que reduza danos.
 
@@ -47,7 +49,7 @@ A redução de danos à pessoa alvo deve começar com a coleta de informações 
 
 As respostas a essas perguntas ajudarão no apoio de redução de danos e nas investigações. Conforme for progredindo na análise e entendimento do conteúdo malicioso, mantenha a pessoa alvo atualizada, especialmente no que for relevante para a redução de danos.
 
-Para que haja segurança operacional durante o trabalho com e-mails maliciosos, consulte o próximo subtópico.
+Para que haja segurança operacional durante o trabalho com e-mails maliciosos, consulte o próximo módulo.
 
 ## Atividade prática
 
