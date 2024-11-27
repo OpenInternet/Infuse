@@ -53,7 +53,7 @@ Você também pode publicar as suas descobertas em um blog ou em uma plataforma 
 
 Pegue um dos e-mails de phishing ou e-mails maliciosos que você analisou no [Módulo 2](/pt-br/learning-path/1/module-3) ou um domínio que você encontrou no [PhishTank](https://phishtank.org/) (muito cuidado ao analisar conteúdo desta plataforma, e assuma que todos os domínios listados ali são maliciosos). Você também pode usar um e-mail ou domínio que você analisou em um módulo anterior. Imagine como você escreveria um relatório descrevendo uma campanha mais ampla por trás desses e-mails. Já que o relatório não será compartilhado com ninguém, sinta-se à vontade para inventar alguns detalhes. Em seguida, escreva um resumo dos pontos principais do relatório.
 
-Se você está estudando com o auxílio de um colega ou um mentor, discuta as suas anotações com eles. Eles devem prestar a atenção em algumas coisas:
+Se você está estudando com o auxílio de colegas ou uma pessoa mentora, discuta as suas anotações com eles. Eles devem prestar a atenção em algumas coisas:
 
 - As suas anotações descrevem com precisão o tipo de ataque relatado?
 - O relatório contém e apresenta informações que podem ser úteis em espaços da sociedade civil, como por exemplo, indicadores de comprometimento (IoCs)?
