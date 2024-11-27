@@ -7,9 +7,9 @@ weight: 7
 
 ## Caso de uso
 
-E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por agressores para entender suas ações** e potencialmente **descobrir mais infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
+E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por agressores para entender suas ações** e potencialmente **descobrir outras infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
 
-Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia Modulo 3)](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
+Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3)](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
 
 ## Objetivos
 
@@ -26,8 +26,8 @@ Tudo isso será significativamente mais fácil de praticar se você souber um po
 
 Vale a pena destacar algumas diferenças básicas entre um e-mail e uma página web:
 
-- As páginas web podem ser dinâmicas, então o servidor pode gerar uma página web diferente com base em variáveis ​​como o endereço IP do solicitante,navegador, hora do dia, etc.
-- Os navegadores são capazes devprocessar mais elementos HTML do que os clientes de e-mail, e com menos proteções. Mais importante, navegadores podem executar JavaScript, algo que os clientes de e-mail não fazem.
+- As páginas web podem ser dinâmicas, então o servidor pode gerar uma página web diferente com base em variáveis ​​como o endereço IP do solicitante, navegador, hora do dia, etc.
+- Os navegadores são capazes de processar mais elementos HTML do que os clientes de e-mail, e com menos proteções. Mais importante, navegadores podem executar JavaScript, algo que os clientes de e-mail não fazem.
 - E-mails HTML são gerados quando o e-mail é enviado; a ação é iniciada pelo atacante. Com as páginas web, a ação é iniciada pelo visitante. Quando você vê uma página web maliciosa, o atacante pode sempre estar ciente de suas ações. Embora mecanismos como VPNs ou Tor possam impedir que o administrador da página web capture seu endereço IP, o próprio site pode conter referências vinculadas ao e-mail de phishing ou ser personalizado para cada destinatário. Dessa forma, o atacante saberá com um alto grau de certeza que apenas aqueles que tinham acesso ao e-mail de phishing visitariam a página web.
 
 Por esse motivo, recomendamos analisar as páginas web somente em um ambiente seguro projetado especificamente para abrir arquivos potencialmente suspeitos, como uma máquina virtual ou uma *sandbox* ("caixa de areia" — um ambiente virtual seguro, isolado, e descartável). Além disso, discuta o modelo de ameaça específico do destinatário do e-mail para garantir que seja seguro para ele que você conduza mais atividades de análise que possam ser detectadas pelo atacante.
@@ -41,7 +41,7 @@ Leia dois estudos de caso que analisam ataques de phishing que tiveram como alvo
 
 Com o [estudo de caso da HRW](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) mencionado acima em mente, observe algumas características-chave de análise usadas em cada investigação. Algumas delas exigem habilidades técnicas, enquanto outras exigem pesquisa, pensamento crítico e habilidades interpessoais. Alguns dos métodos identificados no estudo de caso incluem:
 
-- Os atacantes usaram um serviço encurtador de URL. Isso é comum para e-mails legítimos e ilegítimos. Você deve ser capaz de reconhecer encurtadores de URL e saber como expandir esses URLs sempre que possível (por exemplo, usando o mecanismo embutido do encurtador, como adicionar um + ao final do URL, ou usando uma ferramenta de expansão como [Urlex](https://urlex.org/)), ou rastrear os estágios de redirecionamentos HTTP. Notavelmente, o atacante criou o seu próprio serviço de encurtador de URL neste caso, se passando (através de uma pequena mudança de digitação no domínio) por outro encurtador de URL conhecido.
+- Os atacantes usaram um serviço encurtador de URL. Isso é comum para e-mails legítimos e ilegítimos. Você deve ser capaz de reconhecer encurtadores de URL e saber como expandi-los sempre que possível (por exemplo, usando o mecanismo embutido do encurtador, como adicionar um + ao final do URL, usando uma ferramenta de expansão como [Urlex](https://urlex.org/)), ou rastrear os estágios de redirecionamentos HTTP. Notavelmente, o atacante criou o seu próprio serviço de encurtador de URL neste caso, se passando (através de uma pequena mudança de digitação no domínio) por outro encurtador de URL conhecido.
 - Foram registrados múltiplos domínios com a intenção de confundir o alvo (por exemplo, sharefilesonline[.]live, que faz referência aos nomes dos produtos da Microsoft: SharePoint e Live.com).
 - Links exclusivos enviados para alvos individuais com um identificador de cinco caracteres (isso pode ser feito pelo uso de qualquer cadeia de caracteres exclusiva em um URL, geralmente dentro do caminho da URL ou passada em um parâmetro, por exemplo, após um '?').
 - Usando força bruta para tentar todas as possíveis combinações de identificadores e URLs com cinco caracteres, os analistas puderam descobrir várias outras páginas usadas pela campanha de phishing. Eles se passaram por provedores de e-mail populares e usaram um kit de phishing que permite técnicas de evasão de autenticação multifatores (também conhecida como MFA — de _Multi-factor Authenticaton_ — ou 2FA — _Two-factor Authentication_).
@@ -60,7 +60,7 @@ O primeiro passo quando você estiver pronto para inspecionar um site vinculado 
 
 - 🧰 Ferramentas como [UrlScan](https://urlscan.io/) permitem a execução de uma análise de um URL. Tome nota sobre alguns dos principais recursos que usaremos para interpretar os resultados:
 
-    - Ao executar uma análise, escolha entre Public, Unlisted, or Private. Você pode ler [uma explicação mais detalhada sobre as diferenças entre os tipos de análise](https://urlscan.io/docs/api/) na documentação do UrlScan, mas saiba de antemão que uma análise Public (a opção padrão) listará o URL na página inicial do UrlScan.
+    - Ao executar uma análise, escolha entre Public, Unlisted, or Private. Você pode ler uma explicação mais detalhada sobre as diferenças entre os tipos de análise na [documentação do UrlScan](https://urlscan.io/docs/api/), mas saiba de antemão que uma análise Public (a opção padrão) listará o URL na página inicial do UrlScan.
     - Imagem ao vivo do site (este pode ser o primeiro passo de uma triagem simples se o modelo de ameaça permitir que você inicie esta análise)
     - Informações de domínio e IP
     - Recursos carregados, incluindo scripts e AJAX (aba _HTTP_)
@@ -79,7 +79,39 @@ O primeiro passo quando você estiver pronto para inspecionar um site vinculado 
 
 Observe que um aplicativo web sofisticado pode detectar que uma solicitação vem dos intervalos de endereços IP dessas ferramentas e fornecer dados diferentes ou nenhum dado à solicitação, ao mesmo tempo em que fornece conteúdo malicioso a outros IPs.
 
+### Ferramentas manuais e específicas para inspeção de um site
 
+Uma das formas mais simples de analisarmos um site é [utilizando a ferramenta de inspeção do navegador](https://blog.hubspot.com/website/how-to-inspect), que usualmente quebra o site em diferentes partes menores, e pode identificar que partes do código o site solicita de qual servidor, e permite que modifiquemos o código para verificar, de forma automática e temporária, a mudança no layout e funcionalidade do site.
+
+#### Força bruta
+
+Como visto no artigo da Human Rights Watch linkado acima, utilizar meios programáticos para aplicar força bruta em URLs é uma técnica bastante comum durante OSINT. Há muitas ferramentas e abordagens possíveis de serem aprendidas:
+
+- OWASP [DirBuster](https://gitlab.com/kalilinux/packages/dirbuster)
+- Wordlist Generators: frequentemente usadas para descobertas de senha, listas de palavras são também utilizadas em ataques de força bruta em pastas e subdomínios. Tais listas trabalharão em conjunto com as ferramentas listadas anteriormente. Observe ferramentas como Crunch ([Tutorial 1](https://www.hackers-arise.com/post/creating-a-custom-wordlist-with-crunch) | [Tutorial 2](https://null-byte.wonderhowto.com/how-to/tutorial-create-wordlists-with-crunch-0165931/))
+
+#### Análise de kits de phishing
+
+A maioria dos ataques que você encontrará vai utilizar um kit previamente construído ou modificado de phishing, uma coleção de códigos e templates/modelos que permitem que atacantes construam um site convincente de phishing. Alguns destes kits possuem indicativos; muitos deles, por exemplo, utilizam de certos mecanismos para evitar serem [detectados e indexados por buscadores](https://arxiv.org/pdf/2210.08273.pdf), e podem até recusar carregamento a partir [do endereço IP de buscadores web ou empresas de segurança](https://blog.sucuri.net/2017/07/protecting-phishing-pages-via-htaccess.html).
+
+Alguns kits de phishing também são capazes de burlar autenticação multifator, por exemplo, capturando um código que uma pessoa alvo digitou e imediatamente utilizando-o para fazer login na página real, como se fosse a própria pessoa. [Este artigo é um ótimo relatório](https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/) sobre como um um kit de phishing de código aberto utilizado por times de segurança que testam mecanismos de segurança podem capturar e utilizar dados de autenticação de 2 fatores (e o que pode ser feito para preveni-lo). Você também pode [conferir outro relatório de um kit de phishing](https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/) (este kit foi escrito por cibercriminosos, e não por pesquisadores de segurança), com contorno de MFA (_Multifactor Authentication_) e técnicas fascinantes para evasão de detecção.
+
+## Atividade prática
+
+- [Leia o seguinte artigo](https://www.linkedin.com/pulse/security-analyst-skills-pt-1-qualifying-domains-craig-smith), que mostra como analisar uma página usando urlscan.io. Conduza as mesmas buscas e análises do artigo, e considere as formas como o autor chegou às conclusões alcançadas.
+- [Leia atentamente uma segunda análise](https://www.linkedin.com/pulse/security-analyst-skills-pt-2-techniques-analyzing-web-craig-smith) do mesmo autor. Acompanhe os links fornecidos de VirusTotal, UrlScan, e Hybrid Analysis, e veja se consegue entender como ele chegou às conclusões do texto.
+
+## Checagem de habilidades
+
+Complete esta sala/fase do TryHackMe: [Walking An Application](https://tryhackme.com/room/walkinganapplication)
+
+- Confira a [tarefa dois](https://tryhackme.com/room/activerecon) nesta sala do TryHackMe
+- Analize um site malicioso (um domínio listado no [PhishTank](https://phishtank.org/), por exemplo) utilizando uma mistura de análise passiva e ativa, certificando-se de que a análise ativa seja feita em uma sandbox, ou com ferramentas como UrlScan. Responda às seguintes questões sobre o site e discuta as respostas com colegas ou quem está te mentorando:
+  - De quem é a infraestrutura que está hospedando o site?
+  - Que outros domínios o site carrega, ou referencia? O que eles fazem?
+  - Quando o domínio foi registrado?
+  - (opcional) Que software está sendo utilizado no site?
+  - O site foi listado como malicioso por outras pessoas?
 ## Recursos de aprendizado
 
 {{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="Inglês" cost="Grátis" description="Um bom relatório de análise de uma campanha de phishing bastante sofisticada que tinha como alvo grupos da sociedade civil. Ele inclui extensas discussões a respeito de infraestrutura e atribuição." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}

@@ -58,7 +58,7 @@ Focusing on the[ HRW case study](https://www.hrw.org/news/2022/12/05/iran-state-
 
 ### Automated sandboxed inspection of a website
 
-The first step when you are ready to inspect a website linked to from a phishing message may be to safely look at the website. This entails some degree of interaction with the website. For direct handling of a potentially malicious website, you should have implemented precautions to give yourself a safe working environment, as covered in [Subtopic 3](/en/learning-path/1/module-3/). However you can also use online tools to inspect a website in a safe remote sandbox:
+The first step when you are ready to inspect a website linked to from a phishing message may be to safely look at the website. This entails some degree of interaction with the website. For direct handling of a potentially malicious website, you should have implemented precautions to give yourself a safe working environment, as covered in [Module 3](/en/learning-path/1/module-3/). However you can also use online tools to inspect a website in a safe remote sandbox:
 
 - 🧰 Tools such as[ UrlScan](https://urlscan.io/) allow the performance of a scan of an URL. Note some of the key features needed to interpret the results:
 
