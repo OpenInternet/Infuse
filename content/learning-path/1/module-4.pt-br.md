@@ -133,7 +133,7 @@ Muitas URLs maliciosas em e-mails de phishing usam (às vezes múltiplos) redire
 
 Atacantes podem hospedar seus próprios servidores DNS e rastrear solicitações de acesso. Sendo assim, as solicitações podem não ser “passivas”, e podem alertar atacantes sobre a investigação em andamento. Tome cuidado especialmente com hostnames que podem conter identificadores, como r2378r233yr39wjwr.example.com.
 
-## Pratique
+## Atividade prática
 
 Escolha um domínio aleatório, certificando-se de que ele não esteja hospedado por uma proxy de distribuição de conteúdo/reversa como Cloudflare (é possível descobrir isso por meio de ferramentas como dig e a opção de NS ao buscar nameservers). Utilizando as ferramentas citadas, investigue o domínio, e tente explicar:
 
@@ -147,10 +147,10 @@ Escolha um domínio aleatório, certificando-se de que ele não esteja hospedado
 
 ## Checagem de habilidades
 
-Junto a pares ou a pessoa mentora mais experientes em investigação passiva de servidores na internet:
+Faça os seguintes exercícios com colegas ou uma pessoa mentora mais experientes em investigação passiva de servidores na internet:
 
 - Complete o room (ou “sala”, em tradução adaptada) [do reconhecimento passivo (em inglês)](https://tryhackme.com/room/passiverecon) no TryHackMe.
-- Faça o exercício da seção “Pratique”, idealmente com um domínio diferente, e repasse o processo e descobertas com a pessoa par ou mentora. Peça para que revisem seu trabalho e comentem sobre o processo e os resultados obtidos. Pode ser um bom exercício discutir especificamente como encontrar subdomínios existentes no domínio, e sobre a precisão das pesquisas com geoIP relacionadas a estes domínios. Como atividade extra, fuce as configurações avançadas do dig e monte uma automação básica, por exemplo, solicitando uma lista de domínios a partir de um arquivo de texto, e forneça informações sobre eles.
+- Faça o exercício da seção “Atividade prática”, idealmente com um domínio diferente, e repasse o processo e descobertas com a pessoa par ou mentora. Peça para que revisem seu trabalho e comentem sobre o processo e os resultados obtidos. Pode ser um bom exercício discutir especificamente como encontrar subdomínios existentes no domínio, e sobre a precisão das pesquisas com geoIP relacionadas a estes domínios. Como atividade extra, fuce as configurações avançadas do dig e monte uma automação básica, por exemplo, solicitando uma lista de domínios a partir de um arquivo de texto, e forneça informações sobre eles.
 - Caso tenha uma mensagem real de phishing (ou, alternativamente, use um domínio de phishing no [PhishTank (em inglês; o nome vem de um trocadilho com “tanque de peixes”, ou “fish tank”)](https://phishtank.org/) e o analise — perceba que o site coleta domínios, e não mensagens. 
 
 ## Recursos de aprendizagem
