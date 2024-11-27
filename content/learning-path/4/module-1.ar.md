@@ -7,24 +7,26 @@ description = "We introduce different types of infrastructure vulnerabilities an
 
 ## حالة استخدام
 
-While this learning path focuses on web application security, web applications run on top of numerous pieces of software infrastructure. Any vulnerability in the application’s underlying infrastructure will compromise the application. Understanding some infrastructure security is therefore part of understanding application security.
+بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب، تعمل تطبيقات الويب بالإضافة إلى العديد من أجزاء البنية التحتية للبرمجيات. ستؤدي أي ثغرة أمنية في البنية التحتية الخاصة بالتطبيق إلى تعريض التطبيق للخطر، وبالتالي فإن فهم بعض أمن البنية التحتية جزءٌ من فهم أمن التطبيقات.
+عند فحص تطبيق ويب إما لأغراض تقييم الثغرات الأمنية أو الرقابة الأمنية أو لفحص ثغرة، يجب على الممارس فهم المجموعة الأساسية من التكنولوجيات التي توفر البيئة اللازمة لتشغيل التطبيق أثناء البحث عن ثغرات في تلك المجموعة.
 
-When inspecting a web application either for purposes of vulnerability assessment, security monitoring, or to investigate a compromise, the practitioner must understand the underlying stack of technology which provides the necessary environment for the application to run while looking for vulnerabilities in that stack.
+## الأهداف 
 
-## Objectives
 
-After completing this subtopic, practitioners should be able to do the following:
 
-- Understand common types of infrastructure software vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand essentials of vulnerability frameworks
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
+- الإلمام بالأنواع الشائعة من ثغرات برامج البنية التحتية
+- فهم الآثار المحتملة لهذه الأنواع من الثغرات
+- فهم أساسيات أطر الثغرات
 
 ---
-## Main Section
-### Foundation Knowledge
+## العرض
+### المعرفة الأساسية 
 
-Websites do not exist without some underlying software and hardware that takes care of the low level operations of handling requests serving the web content. This includes the underlying hardware and firmware, operating system, web server software, web application framework(s), and even unrelated software running on the machine. The security of a web application depends on the security of this infrastructure, even if developers of the website may have little visibility into or control over this infrastructure. Infrastructure vulnerabilities typically affect a large number of websites (possibly hundreds of millions), and are often assigned identifiers such as CVEs (for a more general introduction to what CVEs are, check out this [article](https://www.redhat.com/en/topics/security/what-is-cve)). These vulnerabilities could belong to almost any technical class, but from the point of view as a website operator, we only really care about their impact, not the underlying technical details. This is because we do not maintain the infrastructure software, we just deploy and configure it.
-
+Websites do not exist without some underlying software and hardware that takes care of the low level operations of handling requests serving the web content. This includes the underlying hardware and firmware, operating system, web server software, web application framework(s), and even unrelated software running on the machine. The security of a web application depends on the security of this infrastructure, even if developers of the website may have little visibility into or control over this infrastructure. Infrastructure vulnerabilities typically affect a large number of websites (possibly hundreds of millions), and are often assigned identifiers such as CVEs ([article](https://www.redhat.com/en/topics/security/what-is-cve) لأجل تعريف أكثر عمومية لماهية الثغرات الأمنية والتعرضات الشائعة راجع هذه المقالة)
+(for a more general introduction to what CVEs are, check out this [article](https://www.redhat.com/en/topics/security/what-is-cve)). 
+ يمكن أن تنتمي هذه الثغرات إلى أي فئة تقنية تقريبًا ولكن من وجهة نظر مشغل موقع الويب نهتم فقط بتأثيرها وليس بالتفاصيل التقنية الأساسية، وذلك لأننا لا نقوم بصيانة برامج البنية التحتية وإنما نقوم فقط بنشرها وتكوينها. 
+ 
 The impact of a vulnerability in infrastructure software can be nearly anything, but some issues and impacts that are likely to pop up include the types below.
 
 ### Denial of service (DoS)
