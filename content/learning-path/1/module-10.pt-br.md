@@ -18,7 +18,7 @@ Descubra como o endereço de e-mail do remetente seria exibido em um cliente de 
 {{< /question >}}
 
 {{< question title="Dicas" >}}
-Há várias formas de visualizar o e-mail da forma como ele seria exibido para o destinatário. A maneira mais direta seria abrir o arquivo em um cliente de e-mail, que é o que fizemos nos exemplos abaixo. No entanto, no contexto de uma ameaça direcionada, isso pode ser uma péssima ideia: o arquivo pode conter scripts que podem explorar vulnerabilidades em clientes de e-mail, coletar informações sobre o dispositivo, ou carregar recursos externos (como arquivos de mídia ou pixels de rastreamento), que podem revelar o seu endereço IP ao agressor. No caso deste exercício, é seguro abrir o arquivo EML em seu cliente de e-mail de escolha. Para casos reais, porém, considere as seguintes alternativas:
+Há várias formas de visualizar o e-mail da forma como ele seria exibido para o destinatário. A maneira mais direta seria abrir o arquivo em um cliente de e-mail, que é o que fizemos nos exemplos abaixo. No entanto, no contexto de uma ameaça direcionada, isso pode ser uma péssima ideia: o arquivo pode conter scripts que podem explorar vulnerabilidades em clientes de e-mail, coletar informações sobre o dispositivo, ou carregar recursos externos (como arquivos de mídia ou pixels de rastreamento), que podem revelar o seu endereço IP ao atacante. No caso deste exercício, é seguro abrir o arquivo EML em seu cliente de e-mail de escolha. Para casos reais, porém, considere as seguintes alternativas:
 
 * Usar um cliente de e-mail em uma máquina virtual que pode ser revertida para uma cópia anterior segura
 * Abrir o arquivo em um editor de texto e leia diretamente o conteúdo HTML

@@ -89,7 +89,7 @@ Trabalhe com quem está te mentorando ou colegas que tenham alguma experiência 
 
 - Peça para que o seu mentor ou par liste três provedores de hospedagem web, serviços em nuvem, entre outros. Para cada um deles, encontre os contatos ou mecanismos de denúncia.
 
-- Converse com o seu mentor ou par sobre os riscos estratégicos e pessoais de se iniciar uma derrubada, compartilhar dados sobre os seus clientes, e potencialmente alertar um agressor de uma análise crítica sobre o seu ataque. Escreva uma cena em que você comunica essas considerações ao alvo do ataque.
+- Converse com o seu mentor ou par sobre os riscos estratégicos e pessoais de se iniciar uma derrubada, compartilhar dados sobre os seus clientes, e potencialmente alertar um atacante de uma análise crítica sobre o seu ataque. Escreva uma cena em que você comunica essas considerações ao alvo do ataque.
 
 ## Recursos de aprendizagem
 

@@ -1,13 +1,13 @@
 ---
 style: module
 title: Investigação ativa - Análise de páginas web maliciosas
-description: Este módulo te ensinará a analisar sites controlados por agressores para que você entenda as ações deles ou vetores de ataque usados em ataques.
+description: Este módulo te ensinará a analisar sites controlados por atacantes para que você entenda as ações deles ou vetores de ataque usados em ataques.
 weight: 7
 ---
 
 ## Caso de uso
 
-E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por agressores para entender suas ações** e potencialmente **descobrir outras infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
+E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por atacantes para entender suas ações** e potencialmente **descobrir outras infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
 
 Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3)](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
 
