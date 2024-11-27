@@ -1,7 +1,7 @@
 ---
 style: module
-title: "Investigação Passiva - Análise de URLs, hostnames, e endereços IP"
-description: "As habilidades descritas neste subtópico podem ser utilizadas para iniciar uma investigação passiva de servidores na internet. Uma investigação passiva é aquela em que nenhum site é carregado, sobre a qual buscam-se apenas dados públicos disponíveis a partir de ferramentas de inteligência de fontes abertas (OSINT, de “open source intelligence”) e recursos que podem nos dar detalhes sobre as “pegadas digitais” de uma infraestrutura de ataque sem que percebam que estão sob investigação"
+title: "Investigação passiva - Análise de URLs, hostnames, e endereços IP"
+description: "As habilidades descritas neste módulo podem ser utilizadas para iniciar uma investigação passiva de servidores na internet. Uma investigação passiva é aquela em que nenhum site é carregado, sobre a qual buscam-se apenas dados públicos disponíveis a partir de ferramentas de inteligência de fontes abertas (OSINT, de “open source intelligence”) e recursos que podem nos dar detalhes sobre as “pegadas digitais” de uma infraestrutura de ataque sem que percebam que estão sob investigação"
 weight: 4
 ---
 
@@ -26,9 +26,9 @@ Após completar este subtópico, profissionais serão capazes de:
 
 A investigação passiva faz uso de ferramentas e recursos de inteligência de fontes abertas (OSINT), que podem nos dar muitos detalhes sobre as “pegadas digitais” de uma infraestrutura de ataque sem que percebam que estão sob investigação.
 
-### Conhecimento básico
+### Conhecimento fundamental
 
-Nos aprofundaremos no básico de URLs, DNS, e IPv4/IPv6. Caso se sinta confortável com estes conceitos, excelente! Pule para a seção de “Fluxo de trabalho”. Caso contrário, dê uma lida nos documentos e recursos a seguir:
+Nos aprofundaremos no básico de URLs, DNS, e IPv4/IPv6. Se você se sente confortável com esses conceitos, excelente! Pule para a seção de “Fluxo de trabalho”. Caso contrário, dê uma lida nos documentos e recursos a seguir:
 
 - Construção de uma URL
   - É importante saber ler uma URL e entender o significado de suas partes, incluindo esquema, subdomínios, domínio primário, domínios de nível superior (“top-level domains”), e a identificação do caminho ou parâmetros de uma URL. Caso precise revisar o conhecimento, acesse [esta página da MDN (em inglês)](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL).

@@ -14,7 +14,7 @@ Após completar este subtópico, e tendo como base alguns indicadores heurístic
 
 - - -
 
-## Conhecimento básico
+## Conhecimento fundamental
 
 A pessoa profissional deve ser capaz de reconhecer técnicas comuns de e-mails de phishing e objetivos de atacantes, além de detectar indícios de mensagens de phishing. Caso seja necessário reforçar estes conhecimentos, experimente o [Teste sobre phishing](https://phishingquiz.withgoogle.com/?hl=pt-BR).
 

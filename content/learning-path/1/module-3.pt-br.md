@@ -1,8 +1,7 @@
 ---
 style: module
-title: "Segurança Operacional - Manuseio seguro de links e infraestrutura"
-description: >
-  "Durante a investigação de e-mails de phishing, anexos, sites e outras infraestruturas maliciosas, é importante tomar medidas proativas para garantir sua segurança, bem como das pessoas que estiver ajudando. Não deixe de estudar esta habilidade e, caso necessário, prepare um ambiente seguro antes de interagir com e-mails ou sites suspeitos e maliciosos"
+title: "Segurança operacional - Manuseio seguro de links e infraestrutura"
+description: Durante a investigação de e-mails de phishing, anexos, sites e outras infraestruturas maliciosas, é importante tomar medidas proativas para garantir sua segurança, bem como das pessoas que estiver ajudando. Não deixe de estudar esta habilidade e, caso necessário, prepare um ambiente seguro antes de interagir com e-mails ou sites suspeitos e maliciosos.
 weight: 3
 ---
 ## Caso de uso
@@ -26,11 +25,11 @@ Após completar este módulo, profissionais serão capazes de:
 Muitos e-mails de phishing e mensagens similares não só tentam manipular a pessoa alvo a clicar em um link, como também podem tentar coletar dados sobre ela (sobre isso, discutiremos mais aprofundadamente no [Módulo 6](/pt-br/learning-path/1/module-6/)). Ao conduzir uma investigação, é imprescindível manejar mensagens e outras infraestruturas com cuidado para não revelar informação sobre identidade, trabalho e organização além do estritamente necessário, e para proteger dispositivos e contas.
 
 
-### Precauções básicas
+### Precauções fundamentais
 
 Geralmente, dividimos a análise em análise passiva ([Módulo 4](/pt-br/learning-path/1/module-4) e [Módulo 5](/pt-br/learning-path/1/module-5)) e análise ativa ([Módulo 6](/pt-br/learning-path/1/module-6) e [Módulo 7](/pt-br/learning-path/1/module-4)). A análise passiva não deve incluir nenhum contato com servidores de atacantes, diferentemente da análise ativa.
 
-Para a análise, é importante entender que tipos de atividades interagem diretamente com a infraestrutura atacante, e podem, portanto, ser detectadas. Assim, profissionais serão capazes de adaptar os métodos relevantes de modelagem de ameaças.
+Para a análise, é importante entender que tipos de atividades interagem diretamente com a infraestrutura atacante, e podem, portanto, ser detectadas. Assim, profissionais poderão adaptar os métodos relevantes de modelagem de ameaças.
 
 Recomendamos as seguintes precauções de segurança operacional ao conduzir análises:
 

@@ -20,7 +20,7 @@ Após concluir este subtópico, profissionais devem ser capazes de fazer o segui
 
 ---
 ## Seção principal
-### Conhecimento base
+### Conhecimento fundamental
 
 Tudo isso será significativamente mais fácil de praticar se você souber um pouco de JavaScript e HTML, embora esses não sejam pré-requisitos estritamente necessários.
 

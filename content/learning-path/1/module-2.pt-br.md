@@ -1,7 +1,7 @@
 ---
 style: module
 title: "Habilidades interpessoais para infraestrutura maliciosa/ resposta a phishing"
-description: "Após completar este módulo, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida"
+description: "Após completar este módulo, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida."
 
 weight: 2
 ---
@@ -16,7 +16,7 @@ Após completar este módulo, profissionais serão capazes de apoiar pessoas que
 
 - - -
 
-## Conhecimento básico
+## Conhecimento fundamental
 
 A Security Education Companion contém conselhos atenciosos e cuidadosos, junto a maneiras de reduzir danos na intervenção como auxiliar de tecnologia. Caso ainda não tenha familiaridade com este tipo de conteúdo, recomendamos fortemente que o revise em [Educação em segurança 101 (em inglês)](https://www.securityeducationcompanion.org/articles).
 

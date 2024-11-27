@@ -1,7 +1,7 @@
 ---
 style: module
 title: Exercício de Capture-a-Bandeira (CTF)
-description: Criamos um exercício do tipo Capture-a-Bandeira (CTF, do inglês *Capture the Flag*) no qual estudantes podem analisar um email de *phishing* e a sua infraestrutura associada. Ele pode ser usado como um exercício de prática ou de checagem de habilidades adicional.
+description: Este módulo é um exercício do tipo Capture-a-Bandeira (CTF, do inglês Capture the Flag) no qual estudantes podem analisar um email de phishing e a sua infraestrutura associada. Ele pode ser usado como um exercício de prática ou de checagem de habilidades adicional.
 weight: 10
 ---
 

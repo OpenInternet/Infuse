@@ -1,7 +1,7 @@
 ---
 style: module
-title: “Investigação passiva - Análise de cabeçalhos de e-mail”
-description: “Este módulo te ensinará a analisar extensos metadados contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.”
+title: Investigação passiva - Análise de cabeçalhos de e-mail
+description: Este módulo te ensinará a analisar extensos metadados contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.
 weight: 5
 ---
 
@@ -26,7 +26,7 @@ Após completar este subtópico, profissionais serão capazes de:
 
 Todo e-mail possui cabeçalho, com metadados essenciais sobre remetente, destinatário e o e-mail em si. Nesta seção, trabalharemos com os cabeçalhos de e-mails, entendendo como podemos analisá-los, e de que maneira eles podem ser falsificados. Isso requer conhecimento prévio.
 
-## Conhecimento básico
+## Conhecimento fundamental
 
 Leia os recursos e documentos a seguir para se familiarizar um pouco (ou revisar o conhecimento) acerca de cabeçalhos de e-mails, e protocolos SPF e DKIM.
 
@@ -104,4 +104,4 @@ Encontre um e-mail na sua caixa de entrada, ou pasta de spam. Ou então peça pa
 
 {{% resource title="Encontre mensagens com a Pesquisa de registro de e-mail" languages="Português" cost="Documentação gratuita, ferramentas disponíveis apenas para contas corporativas/empresariais" description="Descreve como administradores com contas empresariais do Google podem monitorar registros de mensagens." url="https://support.google.com/a/answer/2618874?hl=pt-BR&fl=1&sjid=11639880525202383695-SA" %}}
 
-{{% resource title="Monitoramento, denúncia e rastreio de mensagem com Exchange Online" languages="Inglês" cost=”Documentação gratuita, ferramentas disponíveis apenas para contas corporativas/empresariais" description="Descreve como administradores com contas empresariais da Microsoft podem monitorar registros de mensagens." url="https://learn.microsoft.com/en-us/exchange/monitoring/monitoring" %}}
+{{% resource title="Monitoramento, denúncia e rastreio de mensagem com Exchange Online" languages="Inglês" cost="Documentação gratuita, ferramentas disponíveis apenas para contas corporativas/empresariais" description="Descreve como administradores com contas empresariais da Microsoft podem monitorar registros de mensagens." url="https://learn.microsoft.com/en-us/exchange/monitoring/monitoring" %}}
