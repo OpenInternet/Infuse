@@ -1,15 +1,15 @@
 ---
 style: module
 title: “Investigação passiva - Análise de cabeçalhos de e-mail”
-description: “O subtópico te ensinará a analisar extensos metadados contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.”
+description: “Este módulo te ensinará a analisar extensos metadados contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.”
 weight: 5
 ---
 
 ## Caso de uso
 
-E-mails são muito mais do que parecem ser. Este subtópico te ensinará a **analisar extensos metadados** contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.
+E-mails são muito mais do que parecem ser. Este módulo te ensinará a **analisar extensos metadados** contendo a origem de um e-mail, os servidores pelos quais ele passou, informações sobre possíveis checagens de spam, e muito mais. Os metadados podem integrar uma parte fundamental de qualquer investigação aprofundada sobre e-mails potencialmente mal-intencionados.
 
-Use esta habilidade após ou junto do subtópico de [Triagem](#subtopic-4-passive-investigation-analyze-urls-hostnames-and-ip-addresses) nesta trilha de aprendizagem. Algumas dessas competências podem ser exigidas no processo de triagem para decidir se uma mensagem é, de fato, suspeita.
+Use esta habilidade após ou junto do módulo de [Triagem](/pt-br/learning-path/1/module-1/) nesta trilha de aprendizagem. Algumas dessas competências podem ser exigidas no processo de triagem para decidir se uma mensagem é, de fato, suspeita.
 
 Uma vez que cabeçalhos de e-mails podem conter referências a outros domínios e infraestruturas, profissionais devem ter passado pelo subtópico 4, que envolve a análise de informações de domínio/IP.
 
@@ -56,7 +56,7 @@ Conforme for analisando cabeçalhos, você aprenderá bastante sobre diferentes 
 
 Administradores de sistemas que usam domínios de ambiente de trabalho como Google Workspace e Microsoft 365 frequentemente possuem acesso a ferramentas de busca de logs e registros, possíveis de serem utilizados para varrer sistemas em busca de identificadores encontrados em cabeçalhos de e-mail (como no caso de domínios suspeitos), que podem ajudá-les a descobrir quem, se este for o caso, tornou-se alvo em sua organização. Veja as documentações do [Google](https://support.google.com/a/answer/2618874?hl=pt-BR&fl=1&sjid=7619119996016038770-SA) e da [Microsoft](https://learn.microsoft.com/pt-br/exchange/monitoring/monitoring) em relação a buscas por logs. Note que tais funcionalidades de busca são usualmente restritas a contas empresariais ou corporativas.
 
-## Pratique
+## Atividade prática
 
 Após a leitura de todos os materiais da [análise de cabeçalho de e-mail da Nebraska GenCyber (em inglês)](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/), faça os exercícios ali propostos. O site possui problemas com links, muitas vezes inviabilizando acesso direto às atividades, porém, elas podem ser baixadas [por este link](https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers).
 
