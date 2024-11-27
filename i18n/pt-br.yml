@@ -439,7 +439,7 @@ key:
   - id: git-unavailable
     translation:
       one: null
-      other: A informação de Git não está disponível.
+      other: Informações sobre a última atualização da página não estão disponíveis.
   - id: edit-github
     translation:
       one: null
