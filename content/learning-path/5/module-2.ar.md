@@ -5,11 +5,11 @@ title = "Data Validation"
 description = "Every web application accepts and processes untrusted input. Here we learn how to discover common vulnerabilities that take advantage thereof"
 +++
 
-## Use Case
+## حالة استخدام
 
 One way or another, every web application accepts and processes untrusted input. This input usually comes from end users and their browsers but may also come from other websites or backend systems. Depending on where this information flows, the processing of the data may have undesirable effects on the website or its users.
 
-## Objectives
+## الأهداف
 
 After completing this subtopic, practitioners will be able to find ways that the format or structure of the data sent to a website may expose and exploit vulnerabilities.
 
@@ -24,7 +24,7 @@ They should also be able to find and exploit the following types of data validat
 - NoSQL injection
 
 ---
-## Main Section
+## العرض 
 ### What are data validation vulnerabilities?
 
 As you may remember from the Web Application Security Fundamentals learning path, data validation vulnerabilities can take many forms. In web applications, they are commonly triggered by the presence of certain characters when data is interpreted in a changing context. For example, the characters &lt; or > may be harmless in an application’s code, but can trigger a cross-site scripting vulnerability when put into a web page. The single-quote or space characters may be harmless in a web page or application’s code, but can trigger a SQL injection vulnerability when included in a database query. Generally, for every system involved in a web application (HTML, JavaScript, SQL, filesystems, unix shell, etc) there’s a different type of possible data validation vulnerability.
@@ -186,7 +186,7 @@ XXE injection uses the ability of XML files to refer to other files. Application
 
 Head over to the [PortSwigger Academy XXE injection topic](https://portswigger.net/web-security/xxe) and complete the reading and labs.
 
-## Skill Check
+## اختبار مهارة
 
 PortSwigger academy contains a series of labs which you can use to test and validate your skills. For each of the following topics, complete 1-3 of the ‘practitioner’ level labs:
 
