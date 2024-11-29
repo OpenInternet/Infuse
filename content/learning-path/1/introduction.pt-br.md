@@ -83,12 +83,12 @@ Competências em investigação, rastreio e detecção de infraestruturas malici
 
 ## Trilhas de aprendizagem relacionadas
 
-Esta trilha oferece uma fantástica introdução às demais trilhas de aprendizado. Depois de completá-la, recomendamos que estudantes sigam as trilhas [Detectando Malware](/en/learning-path/2/) ou [Fundamentos de Segurança Web](/en/learning-path/4/).
+Esta trilha oferece uma fantástica introdução às demais trilhas de aprendizagem. Depois de completá-la, recomendamos que estudantes sigam as trilhas [Detectando Malware](/en/learning-path/2/) ou [Fundamentos de Segurança Web](/en/learning-path/4/).
 
 ## Outros recursos e links
 
-{{% resource title="Fluxo de trabalho de Helpdesk: cliente recebe e-mail suspeito/de phishing" languages="Inglês" cost="Grátis" description="Documentação comunitária do canal de ajuda da Access Now para responder a e-mails suspeitos/de phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
+{{% resource title="Fluxo de trabalho de suporte: O cliente recebeu um e-mail suspeito ou de phishing" languages="Inglês" cost="Grátis" description="Documentação comunitária do canal de ajuda da Access Now para orientação de resposta a incidentes envolvendo e-mails suspeitos ou de phishing." url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
 {{% resource title="Lista com todos os tipos de registros de DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Grátis" description="Inclui (quase?) todos os tipos de registros de DNS." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
 
-{{% resource title="Anistia informa sobre campanhas de phishing" languages="Múltiplas, de acordo com a reportagem" cost="Grátis" description="Lista e exemplos de como é uma campanha de phishing dirigida a defensores de direitos humanos, ativistas e jornalistas" url="https://www.amnesty.org/en/search/phishing/" %}}
+{{% resource title="Reportagens da Anistia Internacional sobre campanhas de phishing" languages="Múltiplas, de acordo com a reportagem" cost="Grátis" description="Reportagens com exemplos de campanhas de phishing que tiveram como alvo defensores de direitos humanos, ativistas e jornalistas." url="https://www.amnesty.org/en/search/phishing/" %}}

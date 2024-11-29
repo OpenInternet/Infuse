@@ -75,4 +75,4 @@ Faça um exercício de simulação com colegas ou quem está te mentorando: seu 
 
 ## Recursos de aprendizagem
 
-{{% resource title="Educação em segurança 101" languages="Inglês" cost="Free" description="Recurso comunitário sobre como ensinar e falar sobre segurança digital" url="https://www.securityeducationcompanion.org/articles" %}}
+{{% resource title="Introdução à educação em segurança" languages="Inglês" cost="Grátis" description="Recurso comunitário sobre como ensinar e falar sobre segurança digital." url="https://www.securityeducationcompanion.org/articles" %}}

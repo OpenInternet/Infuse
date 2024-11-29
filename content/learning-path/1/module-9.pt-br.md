@@ -95,7 +95,7 @@ Trabalhe com quem está te mentorando ou colegas que tenham alguma experiência 
 
 {{% resource title="RIPEstat launchpad" languages="Inglês, espanhol, árabe, russo, francês, persa, italiano, turco" cost="Grátis" description="Um serviço que te permite consultar e listar mecanismos de denúncia relevantes." url="https://stat.ripe.net/app/launchpad" %}}
 
-{{% resource title="Getting Started - Abusix" languages="Inglês" cost="Grátis" description="Uma introdução ao banco de dados chamado Abuse Contact" url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
+{{% resource title="Introdução - Abusix" languages="Inglês" cost="Grátis" description="Uma introdução ao banco de dados chamado Abuse Contact" url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
 
 {{% resource title="Canal de denúncias do Twilio" languages="Inglês" cost="Gratuito" description="Você você denunciar ligações ou mensagens SMS indesejadas enviadas por números de telefone do Twilio aqui." url="https://www.twilio.com/en-us/help/abuse" %}}
 
@@ -111,7 +111,7 @@ Trabalhe com quem está te mentorando ou colegas que tenham alguma experiência 
 
 {{% resource title="AbusiveIP" languages="Inglês" cost="Grátis" description="Site que permite que usários procurem e denunciem endereços IP relacionados a comportamentos maliciosos." url="https://www.abuseipdb.com/" %}}
 
-{{% resource title="Phishing Database" languages="Inglês" cost="Grátos" description="Mais um banco de dados colaborativo de domínios e links suspeitos de *phishing*." url="https://github.com/mitchellkrogza/Phishing.Database#additions" %}}
+{{% resource title="Phishing Database" languages="Inglês" cost="Grátis" description="Mais um banco de dados colaborativo de domínios e links suspeitos de *phishing*." url="https://github.com/mitchellkrogza/Phishing.Database#additions" %}}
 
 {{% resource title="Abuse.ch" languages="Inglês" cost="Grátis" description="Uma plataforma da comunidade focada em compartilhamento de inteligência relacionada a *malware* e *botnets*." url="https://abuse.ch/" %}}
 

@@ -1,4 +1,4 @@
 +++
-title = "Trilhas de Aprendizado"
+title = "Trilhas de Aprendizagem"
 layout = "unique"
 +++

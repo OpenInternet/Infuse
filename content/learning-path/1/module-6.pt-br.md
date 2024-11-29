@@ -13,7 +13,7 @@ Observe que, durante a investigação ativa, pode ser necessário executar açõ
 
 É melhor fazer esse tipo de análise a partir de uma máquina virtual ou dispositivo dedicado. Para proteção adicional, pode ser uma boa ideia usar uma VPN com boa reputação, para que seu endereço IP não vaze quando você estiver conduzindo uma investigação ativa.
 
-Este módulo lida com a análise do _corpo_ de um e-mail malicioso, enquanto o módulo [Investigação passiva - Análise de cabeçalhos de e-mail](/pt-br/learning-path/1/module-5/) lida com o _cabeçalho_ do e-mail. Para investigações adequadas, convém usar as duas habilidades. Observe que a análise dos conteúdos e comportamentos dos anexos de e-mail é abordada na trilha de aprendizado de Análise de Malware.
+Este módulo lida com a análise do _corpo_ de um e-mail malicioso, enquanto o módulo [Investigação passiva - Análise de cabeçalhos de e-mail](/pt-br/learning-path/1/module-5/) lida com o _cabeçalho_ do e-mail. Para investigações adequadas, convém usar as duas habilidades. Observe que a análise dos conteúdos e comportamentos dos anexos de e-mail é abordada na trilha de aprendizagem de Análise de Malware.
 
 ## Objetivos
 
@@ -67,7 +67,7 @@ Peça para colegas ou quem está te mentorando te enviar um e-mail. Idealmente, 
 
 Discuta suas respostas para as perguntas acima com seu colega ou mentor.
 
-## Recursos de aprendizado
+## Recursos de aprendizagem
 
 {{% resource title="Introdução a e-mails HTML" languages="Múltiplos" cost="Grátis" description="Uma breve introdução ao conceito de enviar e-mails que contêm HTML." url="https://en.wikipedia.org/wiki/HTML_email" %}}
 

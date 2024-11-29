@@ -9,7 +9,7 @@ weight: 7
 
 E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por atacantes para entender suas ações** e potencialmente **descobrir outras infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
 
-Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
+Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizagem de Análise de Malware.
 
 ## Objetivos
 
@@ -36,8 +36,8 @@ Por esse motivo, recomendamos analisar as páginas web somente em um ambiente se
 
 Leia dois estudos de caso que analisam ataques de phishing que tiveram como alvo grupos da sociedade civil. Ambos os ataques foram parcialmente bem-sucedidos:
 
-- Human Rights Watch: [Iran: State-Backed Hacking of Activists, Journalists, Politicians](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) (A seção introdutória é uma contextualização útil sobre táticas e motivações de atacantes; no entanto, concentre-se na seção _Technical Analysis of the Phishing Campaign_ para fins de aprendizado.)
-- Bellingcat: [Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs](https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/)
+- Human Rights Watch: [Irã: Comprometimento de ativistas, jornalistas, políticos financiado pelo Estado (em inglês)](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) (A seção introdutória é uma contextualização útil sobre táticas e motivações de atacantes; no entanto, concentre-se na seção _Technical Analysis of the Phishing Campaign_ para fins de aprendizado.)
+- Bellingcat: [Açscensão de Guccifer? Campanha de phishing com duração de meses tem como alvo dezenas de jornalistas e ONGs com foco na Rússia (em inglês)](https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/)
 
 Com o [estudo de caso da HRW](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) mencionado acima em mente, observe algumas características-chave de análise usadas em cada investigação. Algumas delas exigem habilidades técnicas, enquanto outras exigem pesquisa, pensamento crítico e habilidades interpessoais. Alguns dos métodos identificados no estudo de caso incluem:
 
@@ -111,11 +111,11 @@ Alguns kits de phishing também são capazes de burlar autenticação multifator
   - Quando o domínio foi registrado?
   - (Opcional) Que software está sendo utilizado no site?
   - O site foi listado como malicioso por outras pessoas?
-## Recursos de aprendizado
+## Recursos de aprendizagem
 
-{{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="Inglês" cost="Grátis" description="Um bom relatório de análise de uma campanha de phishing bastante sofisticada que tinha como alvo grupos da sociedade civil. Ele inclui extensas discussões a respeito de infraestrutura e atribuição." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
+{{% resource title="Irã: Comprometimento de ativistas, jornalistas, políticos financiado pelo Estado" languages="Inglês" cost="Grátis" description="Um bom relatório de análise de uma campanha de phishing bastante sofisticada que tinha como alvo grupos da sociedade civil. Ele inclui extensas discussões a respeito de infraestrutura e atribuição." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
 
-{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="Inglês" cost="Grátis" description="Um relatório de uma campanha de phishing anterior que tinha como alvo grupos da sociedade civil realizando trabalhos relacionados à Rússia. O ataque envolveu evasão de autenticação multi-fatores." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
+{{% resource title="Ascensão de Guccifer? Campanha de phishing com duração de meses tem como alvo dezenas de jornalistas e ONGs com foco na Rússia" languages="Inglês" cost="Grátis" description="Um relatório de uma campanha de phishing anterior que tinha como alvo grupos da sociedade civil realizando trabalhos relacionados à Rússia. O ataque envolveu evasão de autenticação multi-fatores." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
 
 {{% resource title="UrlScan" languages="Inglês" cost="Grátis, com algumas funcionalidades pagas" description="Uma plataforma na qual você submete uma URL para análise. A ferramenta analisará o site resultante, procurando por malware ou outros comportamentos estranhos." url="https://urlscan.io/" %}}
 
@@ -129,12 +129,12 @@ Alguns kits de phishing também são capazes de burlar autenticação multifator
 
 {{% resource title="Exemplo 2 de análises de sites maliciosos" languages="Inglês" cost="Grátis" description="Outro bom guia sobre como fazer uma análise inicial e triagem de sites para entendermos se ele é malicioso e se ele já foi categorizado dessa forma." url="https://www.linkedin.com/pulse/security-analyst-skills-pt-2-techniques-analyzing-web-craig-smith" %}}
 
-{{% resource title="Classification of Web Phishing Kits for early detection by platform providers" languages="Inglês" cost="Grátis" description="Um artigo acadêmico que analisa kits de phishing, os mecanismos que alguns deles usam, e como podemos usar ferramentas como aprendizado de máquina para detectá-los." url="https://arxiv.org/pdf/2210.08273.pdf" %}}
+{{% resource title="Classificação de kits para phishing na web para detecção precoce por detentores de plataformas" languages="Inglês" cost="Grátis" description="Um artigo acadêmico que analisa kits de phishing, os mecanismos que alguns deles usam, e como podemos usar ferramentas como aprendizagem de máquina para detectá-los." url="https://arxiv.org/pdf/2210.08273.pdf" %}}
 
 {{% resource title="Protegendo páginas de phishing via .htaccess" languages="Inglês" cost="Grátis" description="Páginas de phishing podem usar várias técnicas para tentar evadir a sua detecção. Uma delas acontece pelo uso de .htaccess, um arquivo que contém instruções para servidores web para excluir ou incluir certos intervalos de endereços IP." url="https://blog.sucuri.net/2017/07/protecting-phishing-pages-via-htaccess.html" %}}
 
 {{% resource title="StalkPhish" languages="Inglês" cost="Grátis" description="Uma ferramenta projetada para automatizar a descoberta e identificação de kits de phishing." url="https://github.com/t4d/StalkPhish" %}}
 
-{{% resource title="Bypassing MFA: A Forensic Look At Evilginx2 Phishing Kit" languages="Inglês" cost="Grátis" description="Este artigo analisa um kit de phishing que encontrou uma forma de evadir algumas formas de autenticação multi-fatores. Ele analisa como isso é alcançado e lista formas de mitigar esses mecanismos." url="https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/" %}}
+{{% resource title="Contornando MFA: Uma perspectiva forense sobre o kit de phishing Evilginx2" languages="Inglês" cost="Grátis" description="Este artigo analisa um kit de phishing que encontrou uma forma de evadir algumas formas de autenticação multi-fatores. Ele analisa como isso é alcançado e lista formas de mitigar esses mecanismos." url="https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/" %}}
 
-{{% resource title="W3LL phishing kit hijacks thousands of Microsoft 365 accounts, bypasses MFA" languages="Inglês" cost="Grátis" description="Este artigo analisa um kit de phishing criado e vendido por criminosos que contém múltiplos mecanismos para frustrar tentativas de análise. Ele também usa técnicas de evasão de autenticação multi-fatores." url="https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/" %}}
+{{% resource title="Kit de phishing W3LL sequestra milhares de contas Microsoft 365, contorna MFA" languages="Inglês" cost="Grátis" description="Este artigo analisa um kit de phishing criado e vendido por criminosos que contém múltiplos mecanismos para frustrar tentativas de análise. Ele também usa técnicas de evasão de autenticação multi-fatores." url="https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/" %}}

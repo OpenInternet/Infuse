@@ -3,7 +3,7 @@ key:
   - id: hero-title
     translation:
       one: null
-      other: Elevando a Expertise de Protetores Digitais
+      other: Elevando a Conhecimento de Protetores Digitais
   - id: hero-subtitle
     translation:
       one: null
@@ -11,7 +11,7 @@ key:
   - id: feature-one-title
     translation:
       one: null
-      other: Aprenda no seu ritmo com diferentes trilhas de aprendizado
+      other: Aprenda no seu ritmo com diferentes trilhas de aprendizagem
   - id: feature-one-subtitle
     translation:
       one: null
@@ -35,11 +35,11 @@ key:
   - id: learning-paths-title
     translation:
       one: null
-      other: Trilhas de Aprendizado
+      other: Trilhas de Aprendizagem
   - id: learning-paths-subtitle
     translation:
       one: null
-      other: Escolha por onde você quer começar a sua jornada com essa curadoria de trilhas de aprendizado.
+      other: Escolha por onde você quer começar a sua jornada com essa curadoria de trilhas de aprendizagem.
   - id: how-works
     translation:
       one: null
@@ -63,7 +63,7 @@ key:
   - id: name-description
     translation:
       one: null
-      other: Esta informação será usada para preparar e gerar certificados após a conclusão de cada trilha de aprendizado.
+      other: Esta informação será usada para preparar e gerar certificados após a conclusão de cada trilha de aprendizagem.
   - id: avatar-image
     translation:
       one: null
@@ -159,7 +159,7 @@ key:
   - id: export-details
     translation:
       one: null
-      other: Para uma experiência initerrupta de aprendizado, você pode exportar o seu perfil junto com o seu progresso atual e importá-lo para outro dispositivo.
+      other: Para uma experiência initerrupta de aprendizagem, você pode exportar o seu perfil junto com o seu progresso atual e importá-lo para outro dispositivo.
   - id: info
     translation:
       one: null

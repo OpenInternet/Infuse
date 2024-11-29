@@ -167,15 +167,15 @@ Faça os seguintes exercícios com colegas ou uma pessoa mentora mais experiente
 
 {{% resource title="Comando host em Linux, com exemplos" languages="Inglês" cost="Grátis" description="Guia de como usar o comando host no Linux, outra ferramenta comum para análise de servidores e outros tipos de infraestrutura." url="https://www.geeksforgeeks.org/host-command-in-linux-with-examples/" %}}
 
-{{% resource title="Reconhecimento adicional do DNS: DNSRecon (recurso 1)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://securitytrails.com/blog/dnsrecon-tool" %}}
+{{% resource title="Reconhecimento adicional do DNS: DNSRecon (Recurso 1)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://securitytrails.com/blog/dnsrecon-tool" %}}
 
-{{% resource title="Reconhecimento adicional do DNS: Fierce (recurso 2)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://www.kali.org/tools/fierce/" %}}
+{{% resource title="Reconhecimento adicional do DNS: Fierce (Recurso 2)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://www.kali.org/tools/fierce/" %}}
 
-{{% resource title="Reconhecimento adicional do DNS: Fierce (recurso 3)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
+{{% resource title="Reconhecimento adicional do DNS: Fierce (Recurso 3)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
 
-{{% resource title="Reconhecimento adicional do DNS: VirusTotal (recurso 4)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://docs.virustotal.com/docs/how-it-works" %}}
+{{% resource title="Reconhecimento adicional do DNS: VirusTotal (Recurso 4)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://docs.virustotal.com/docs/how-it-works" %}}
 
-{{% resource title="GeoIP" languages="Inglês" cost="Grátis para quantidades limitadas" description="Busque a (provável) localização física de um servidor através do endereço  IP." url="https://www.maxmind.com/en/geoip-demo" %}}
+{{% resource title="GeoIP" languages="Inglês" cost="Grátis para consultas limitadas" description="Busque a (provável) localização física de um servidor através do endereço  IP." url="https://www.maxmind.com/en/geoip-demo" %}}
 
 {{% resource title="whois/RDAP: busca de who.is" languages="Inglês" cost="Grátis" description="Informações de propriedade de um domínio ou endereço IP." url="https://who.is/" %}}
 
@@ -183,15 +183,15 @@ Faça os seguintes exercícios com colegas ou uma pessoa mentora mais experiente
 
 {{% resource title="whois/RDAP: consulta de ICANN" languages="Inglês" cost="Grátis" description="Informações de propriedade de um domínio ou endereço IP." url="https://lookup.icann.org/en" %}}
 
-{{% resource title="O que é whois e como ele é usado" languages="Inglês" cost="Grátis" description="Resumo sobre o que é o banco de dados whois, e quais são as suas possíveis limitações." url="https://www.domain.com/blog/what-is-whois-and-how-is-it-used/" %}}
+{{% resource title="O que é WHOIS e como ele é usado" languages="Inglês" cost="Grátis" description="Resumo sobre o que é o banco de dados whois, e quais são as suas possíveis limitações." url="https://www.domain.com/blog/what-is-whois-and-how-is-it-used/" %}}
 
-{{% resource title="O guia definitivo do banco de dados whois" languages="Inglês" cost="Grátis" description="Uma perspectiva sobre pra quê whois pode (e não pode) ser utilizado." url="https://domainnamestat.com/blog/the-ultimate-guide-to-the-whois-database" %}}
+{{% resource title="O guia definitivo do banco de dados WHOIS" languages="Inglês" cost="Grátis" description="Uma perspectiva sobre pra quê whois pode (e não pode) ser utilizado." url="https://domainnamestat.com/blog/the-ultimate-guide-to-the-whois-database" %}}
 
 {{% resource title="O que é um endereço IPv4?" languages="Inglês" cost="Grátis" description="Há dois tipos de endereços IP, IPv4 e IPv6. Este guia fornece uma introdução ao IPv4." url="https://bluecatnetworks.com/glossary/what-is-ipv4/" %}}
 
 {{% resource title="Diferenças entre IPv4 e IPv6" languages="Inglês" cost="Grátis" description="Diferenças mais marcantes entre os dois tipos de endereços IP." url="https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/" %}}
 
-{{% resource title="Understanding IP addresses" languages="Inglês" cost="Grátis" description="Breve introdução do que são endereços IP, e quais são os seus diferentes tipos." url="https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/" %}}
+{{% resource title="Entendendo endereços IP" languages="Inglês" cost="Grátis" description="Breve introdução do que são endereços IP, e quais são os seus diferentes tipos." url="https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/" %}}
 
 {{% resource title="O que são números de portas e como eles funcionam?" languages="Inglês" cost="Grátis" description="Breve introdução a números de portas, incluindo uma lista com as principais." url="https://www.techtarget.com/searchnetworking/definition/port-number" %}}
 

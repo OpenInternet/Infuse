@@ -36,7 +36,7 @@ Por fim, assim que você concluir a sua investigação, você deve escrever um r
 
 Este relatório deve conter uma descrição factual sobre que aconteceu e que infraestrutura foi usada, assim como as suas impressões e conclusões. Geralmente, essa investigação pode ser engatalhada por um ataque de engenharia social (via e-mail, SMS, WhatsApp). Nesse caso, você deve descrever quaisquer descobertas sobre a natureza do ataque. Esse foi um ataque direcionado? Se possível, você pode listar outras pessoas que receberam a mesma mensagem? Que técnicas o atacante usou para criar uma isca que figasse a pessoa que foi alvo dessa campanha?
 
-Dependendo do público-alvo, talvez você queira descrever as ações tomadas pelo alvo e quaisquer conclusões que você tenha tirado sobre o grau de conhecimento do atacante sobre a situação. O alvo clicou em links, inseriu informações sensíveis em um site controlado pelo atacante, fez o download ou abriu anexos? Qual é a probabilidade das suas ações e das ações da pessoa-alvo terem sido rastreadas? Note que, se a pessoa-alvo inseriu credenciais em um site infectado ou abriu um arquivo malicioso, uma investigação mais profunda e esforços de remediação se tornarão necessários (mas isso está fora do escopo desta trilha de aprendizado).
+Dependendo do público-alvo, talvez você queira descrever as ações tomadas pelo alvo e quaisquer conclusões que você tenha tirado sobre o grau de conhecimento do atacante sobre a situação. O alvo clicou em links, inseriu informações sensíveis em um site controlado pelo atacante, fez o download ou abriu anexos? Qual é a probabilidade das suas ações e das ações da pessoa-alvo terem sido rastreadas? Note que, se a pessoa-alvo inseriu credenciais em um site infectado ou abriu um arquivo malicioso, uma investigação mais profunda e esforços de remediação se tornarão necessários (mas isso está fora do escopo desta trilha de aprendizagem).
 
 Uma vez que você tenha escrito e compartilhado um relatório com o seu cliente (se aplicável), há algumas coisas que você pode fazer com ele:
 
@@ -59,12 +59,12 @@ Se você está estudando com o auxílio de colegas ou uma pessoa mentora, discut
 - O relatório contém e apresenta informações que podem ser úteis em espaços da sociedade civil, como por exemplo, indicadores de comprometimento (IoCs)?
 - O relatório resume as suas descobertas de forma responsável, por exemplo, desabilitando URLs e censurando dados sensíveis das pessoas-alvo?
 
-## Recursos de aprendizado
+## Recursos de aprendizagem
 
 {{% resource title="Maltego" languages="Inglês" cost="Grátis para uso não-comercial, com uma versão profissional paga" description="Maltego pode ser usado para criar uma representação visual das suas descobertas, tornando a identificação de conexões entre indicadores diferentes mais fácil." url="https://www.maltego.com/" %}}
 
-{{% resource title="Guccifer Rising? Months-Long Phishing Campaign on ProtonMail Targets Dozens of Russia-Focused Journalists and NGOs" languages="Inglês" cost="Grátis" description="Um relatório detalhado de uma grande campanha de phishing. Você não precisa escrever um relatório tão completo, mas use-o como inspiração para relatórios futuros." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
+{{% resource title="Ascensão de Guccifer? Campanha de phishing com duração de meses tem como alvo dezenas de jornalistas e ONGs com foco na Rússia" languages="Inglês" cost="Grátis" description="Um relatório detalhado de uma grande campanha de phishing. Você não precisa escrever um relatório tão completo, mas use-o como inspiração para relatórios futuros." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
 
-{{% resource title="Iran: State-Backed Hacking of Activists, Journalists, Politicians" languages="Inglês" cost="Grátis" description="Outro ótimo relatório e resumo de uma investigação. Mais uma vez, o seu será menos detalhado, mas esse é um ótimo exemplo!" url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
+{{% resource title="Irã: Comprometimento de ativistas, jornalistas, políticos financiado pelo Estado" languages="Inglês" cost="Grátis" description="Outro ótimo relatório e resumo de uma investigação. Mais uma vez, o seu será menos detalhado, mas esse é um ótimo exemplo!" url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
 
 

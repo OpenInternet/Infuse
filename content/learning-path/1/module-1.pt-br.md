@@ -46,16 +46,16 @@ Dedique algum tempo ao quiz do [Shira (em inglês)](https://shira.app/) até que
 
 ## Recursos de aprendizagem
 
-{{% resource title="Shira, por Horizontal" languages="Inglês, espanhol, mandarim" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não" url="https://shira.app/" %}}
+{{% resource title="Shira, criado por Horizontal" languages="Inglês, espanhol, mandarim" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não." url="https://shira.app/" %}}
 
-{{% resource title="Phishing Quiz, por Jigsaw" languages="27 Languages" cost="Grátis" description="Quiz online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não" url="https://phishingquiz.withgoogle.com/?hl=pt-BR" %}}
+{{% resource title="Phishing Quiz, criado por Jigsaw" languages="27 idiomas, incluindo português" cost="Grátis" description="Teste online com amostras de e-mails que usuáries devem determinar se são maliciosos ou não." url="https://phishingquiz.withgoogle.com/?hl=pt-BR" %}}
 
-{{% resource title="6 ataques comuns de phishing e como se proteger contra eles" languages="Inglês" cost="Grátis" description="Um resumo de alguns dos ataques comuns de phishing, incluindo métodos mais sofisticados" url="https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them" %}}
+{{% resource title="6 ataques comuns de phishing e como se proteger contra eles" languages="Inglês" cost="Grátis" description="Um resumo de alguns dos ataques comuns de phishing, incluindo métodos mais sofisticados." url="https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them" %}}
 
-{{% resource title="5 técnicas comuns de phishing" languages="Inglês" cost="Grátis" description="Perspectiva sobre algumas técnicas utilizadas por atacantes para tornar os e-mails mais convincentes e indetectáveis" url="https://www.vadesecure.com/en/blog/5-common-phishing-techniques" %}}
+{{% resource title="5 técnicas comuns de phishing" languages="Inglês" cost="Grátis" description="Perspectiva sobre algumas técnicas utilizadas por atacantes para tornar os e-mails mais convincentes e indetectáveis." url="https://www.vadesecure.com/en/blog/5-common-phishing-techniques" %}}
 
-{{% resource title="CiviCERT" languages="Inglês" cost="Grátis" description="Rede de organizações da sociedade civil e grupos de resposta rápida que se concentram em ataques cibernéticos e similares" url="https://www.civicert.org/" %}}
+{{% resource title="CiviCERT" languages="Inglês" cost="Grátis" description="Rede de organizações da sociedade civil e grupos de resposta rápida que se concentram em ataques cibernéticos e similares." url="https://www.civicert.org/" %}}
 
-{{% resource title="Kit de primeiros socorros digitais" languages="Árabe, espanhol, farsi, francês, indonésio, armênio, quirguistanês, burmês, português, russo, albanês, tailandês, ucraniano" cost="Grátis" description="Guia de apoio a protetores digitais que lidam com uma variedade de problemas" url="https://digitalfirstaid.org/pt/" %}}
+{{% resource title="Kit de primeiros socorros digitais" languages="Árabe, espanhol, farsi, francês, indonésio, armênio, quirguistanês, burmês, português, russo, albanês, tailandês, ucraniano" cost="Grátis" description="Guia de apoio a protetores digitais que lidam com uma variedade de problemas." url="https://digitalfirstaid.org/pt/" %}}
 
-{{% resource title="Recuperação de possível conta comprometida" languages="Árabe, indonésio, inglês, espanhol, farsi, francês, português, russo, tailandês, turco, vietnamita, chinês, tibetano, quemer, burmês" cost="Grátis" description="Guia com passos imediatos e a longo prazo no comprometimento de contas digitais" url="https://securityinabox.org/pt/communication/account-compromise/" %}}
+{{% resource title="Recuperação de possível conta comprometida" languages="Árabe, indonésio, inglês, espanhol, farsi, francês, português, russo, tailandês, turco, vietnamita, chinês, tibetano, quemer, burmês" cost="Grátis" description="Guia com passos imediatos e a longo prazo no comprometimento de contas digitais." url="https://securityinabox.org/pt/communication/account-compromise/" %}}
