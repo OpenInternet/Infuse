@@ -7,7 +7,7 @@ weight: 8
 
 ## Caso de uso
 
-Organizações da sociedade civil podem escolher não compartilhar as suas descobertas por vários motivos. Talvez lhes falte tempo, ou talvez elas estejam preocupadas com o processo de compartilhar amostras de malware ou indicadores de comprometimento, ou talvez elas não tenham a expertise necessária para documentar — de forma responsável – as suas descobertas após uma investigação de malware. Este módulo falará sobre esse último fator.
+Organizações da sociedade civil podem escolher não compartilhar as suas descobertas por vários motivos. Talvez lhes falte tempo, ou talvez elas estejam preocupadas com o processo de compartilhar amostras de malware ou indicadores de comprometimento. Ou talvez elas não tenham a perícia necessária para documentar — de forma responsável – as suas descobertas após uma investigação de malware. Este módulo falará sobre essa última situação.
 
 Antes de concluir este módulo, certifique-se de que você leu e entendeu completamente os relatórios escritos por Amnesty/HRW e Bellingcat que destscamos no [Módulo 7](/pt-br/learning-path/1/module-7).
 
@@ -15,14 +15,14 @@ Antes de concluir este módulo, certifique-se de que você leu e entendeu comple
 
 Após concluir este módulo, profissionais devem ser capazes de:
 
-- Escrever um relatório curto sobre uma investigação
-- Selecionar os indicadores de comprometimento apropriados e compartilhá-los de forma responsável
-- Entender como melhor compartilhar as descobertas de um relatório
+- Escrever um relatório curto sobre uma investigação;
+- Selecionar os indicadores de comprometimento apropriados e compartilhá-los de forma responsável;
+- Entender como melhor compartilhar as descobertas de um relatório.
 
 ---
 
 ## Seção principal
-À medida em que você investiga a infraestrutura associada a uma campanha de phishing ou qualquer outra ameaça, é fundamental que você anote tudo — talvez você se esqueça de detalhes que podem se tornar importantes lá na frente. Além disso, atacantes podem mudar a infraestrutura que estão usando (por exemplo, desligando os servidores) durante a sua investigação! Por isso, você deve anotar tudo que você faz e tudo que você descobrir. Isso inclui todas as informações que você coletar, incluindo coisas como resultados de consultas WHOIS ou DNS, e-mails dos atacantes, e páginas web (código-fonte e capturas de tela), etc. O formato dessas anotações não é importante, mas elas devem ser detalhadas e fáceis de entender.
+À medida em que você investiga a infraestrutura associada a uma campanha de phishing ou qualquer outra ameaça, é fundamental que você anote tudo — talvez você se esqueça de detalhes que podem se tornar importantes lá na frente. Além disso, atacantes podem mudar a infraestrutura que estão usando (por exemplo, desligando os servidores) durante a sua investigação! Por isso, você deve anotar tudo que você faz e tudo que você descobrir. Isso inclui todas as informações que você coletar, incluindo coisas como resultados de consultas WHOIS ou DNS, e-mails dos atacantes, páginas web (código-fonte e capturas de tela), etc. O formato dessas anotações não é importante, mas elas devem ser detalhadas e fáceis de entender.
 
 Conforme a sua investigação avança, você também deve manter um documento separado com as anotações mais importantes para que você não perca vista de descobertas mais significativas. Você também pode escrever sobre elas nas suas anotações mais detalhadas, mas é bom listá-las separadamente, já que o documento detalhado pode se tornar muito longo. As suas anotações sobre descobertas significativas devem conter conclusões sobre várias partes da infraestrutura e as conexões entre elas. Pense nesse documento como o documento com tudo que você quer relatar em um relatório final. Já para as suas anotações sem filtro, apesar do formato não ser importante, muitas pessoas usam a ferramenta [Maltego](https://www.maltego.com/) para registrar conexões.
 
@@ -40,8 +40,8 @@ Dependendo do público-alvo, talvez você queira descrever as ações tomadas pe
 
 Uma vez que você tenha escrito e compartilhado um relatório com o seu cliente (se aplicável), há algumas coisas que você pode fazer com ele:
 
-- Compartilhá-lo com outros defensores digitais da sociedade civil
-- Publicá-lo online
+- Compartilhá-lo com outros defensores digitais da sociedade civil;
+- Publicá-lo online.
 
 Esses passos não são obrigatórios. Se você estiver trabalhando com un cliente cujos dispositivos foram comprometidos, você deve se certificar de que ele se sente confortável com o compartilhamento do relatório. Lembre-se de obter a aprovação do seu cliente por escrito.
 

@@ -68,10 +68,10 @@ Reflita e responda às perguntas a seguir/discuta com pares, colegas, amizades o
 Faça um exercício de simulação com colegas ou quem está te mentorando: seu papel será o de alguém responsável pela proteção online, enquanto a outra pessoa simulará alguém que recebeu um e-mail de phishing que continua na caixa de entrada. O e-mail foi recebido há algumas horas, e a pessoa não se lembra de ter clicado nele, e somente suspeitou e pensou que deveria avisar outras pessoas agora. Ela está bastante perturbada, preocupada de ter colocado colegas e a organização em risco. Alguns dos tópicos pertinentes à conversa incluem:
 
 
-* Explicação sobre o que é uma mensagem de phishing e possíveis objetivos de atacantes.
-* Os riscos provenientes dela ter clicado no e-mail de phishing.
-* Potenciais adversáries, e o fato de muitos ataques não possuírem alvo.
-* Discussões sobre próximos passos que a pessoa alvo e a organização podem tomar para manter a segurança.
+* Uma explicação sobre o que é uma mensagem de phishing e possíveis objetivos de atacantes;
+* Os riscos de se interagir com um e-mail de phishing, e o que pode acontecer a partir de um clique;
+* Uma explicação sobre potenciais partes adversárias, e como muitos ataques não são direcionados a um alvo específico;
+* Discussões sobre próximos passos que a pessoa-alvo e a organização podem tomar para aumentar a sua segurança.
 
 ## Recursos de aprendizagem
 

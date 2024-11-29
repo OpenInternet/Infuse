@@ -20,12 +20,12 @@ Descubra como o endereço de e-mail do remetente seria exibido em um cliente de 
 {{< question title="Dicas" >}}
 Há várias formas de visualizar o e-mail da forma como ele seria exibido para o destinatário. A maneira mais direta seria abrir o arquivo em um cliente de e-mail, que é o que fizemos nos exemplos abaixo. No entanto, no contexto de uma ameaça direcionada, isso pode ser uma péssima ideia: o arquivo pode conter scripts que podem explorar vulnerabilidades em clientes de e-mail, coletar informações sobre o dispositivo, ou carregar recursos externos (como arquivos de mídia ou pixels de rastreamento), que podem revelar o seu endereço IP ao atacante. No caso deste exercício, é seguro abrir o arquivo EML em seu cliente de e-mail de escolha. Para casos reais, porém, considere as seguintes alternativas:
 
-* Usar um cliente de e-mail em uma máquina virtual que pode ser revertida para uma cópia anterior segura
-* Abrir o arquivo em um editor de texto e leia diretamente o conteúdo HTML
-* Renomear o arquivo para `.mht` e abra-o em um navegador (considere usar uma máquina segura e isolada e se conectar a uma VPN para evitar a captura de seu endereço IP através de pixels de rastreamento)
+* Usar um cliente de e-mail em uma máquina virtual que pode ser revertida para uma cópia anterior segura.
+* Abrir o arquivo em um editor de texto e leia diretamente o conteúdo HTML.
+* Renomear o arquivo para `.mht` e abra-o em um navegador (considere usar uma máquina segura e isolada e se conectar a uma VPN para evitar a captura de seu endereço IP através de pixels de rastreamento).
 * Usar um serviço online como <https://www.emlreader.com/> ou <https://www.encryptomatic.com/viewer/> para visualizar o e-mail. A ferramenta de análise de cabeçalho do MXToolBox <https://mxtoolbox.com/EmailHeaders.aspx> (utilizada mais à frente neste exercício) também renderiza o conteúdo HTML do e-mail se você incluí-lo com os cabeçalhos fornecidos.
-* Usar uma ferramenta do eDiscovery que pode renderizar arquivos EML
-* Hospedar o seu próprio serviço de renderização de arquivos EML, como <https://github.com/xme/emlrender>
+* Usar uma ferramenta do eDiscovery que pode renderizar arquivos EML.
+* Hospedar o seu próprio serviço de renderização de arquivos EML, como <https://github.com/xme/emlrender>.
 
 Neste exercício, iremos abrir o e-mail (`paypal.eml`) em um cliente de e-mail.
 
@@ -51,10 +51,10 @@ O endereço de e-mail exibido como endereço de e-mail do remetente é [paypal@s
 
 Aqui estão alguns pontos-chave nos quais você deve prestar a atenção em um e-mail de phishing:
 
-* Senso de urgência
-* Começo de mensagem incomum, estranho, que não se dirige a você pelo seu nome
-* Erros gramaticais
-* O endereço de e-mail do remetente ou as URLs do e-mail foram ofuscadas ou não correspondem ao site ao qual alegam pertencer
+* Provocação de um senso de urgência (por exemplo, requisitando uma ação imediata);
+* Início de mensagem incomum, estranho, que não se dirige a você pelo seu nome;
+* Erros gramaticais;
+* O endereço de e-mail do remetente ou as URLs do e-mail foram ofuscados ou não correspondem ao site ao qual alegam pertencer.
 {{< /question >}}
 
 {{< question title="Resposta" >}}
@@ -74,7 +74,7 @@ Quando analisamos um e-mail potencialmente malicioso, nós precisamos entender o
 {{< question title="Resposta" >}}
 O remetente está tentando induzir o destinatário a clicar em um dos dois links no corpo da mensagem:
 * "To activate the delivery, please confirm."
-* "Continue the delivery"
+* "Continue the delivery".
 {{< /question >}}
 
 ## Reconhecendo a ameaça

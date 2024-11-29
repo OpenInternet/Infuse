@@ -25,41 +25,41 @@ Para melhor apoiar tanto a pessoa que você estará ajudando quanto a comunidade
 
 Por fim, é importante reconhecer que muitas das técnicas de investigação nesta trilha de aprendizagem podem alertar atacantes de que há uma investigação em andamento, ou mesmo colocar a pessoa investigadora – ou a comunidade – em risco. Dividimos as técnicas entre métodos passivos e ativos. Tenha cautela ao considerar métodos ativos de investigação, e avise a organização/indivídue antes de iniciar, para que possam discutir sobre modelagem de ameaças e permitir que façam escolhas conscientes acerca da continuidade das investigações.
 
-Passiva
+A investigação passiva (apropriada para todos os casos):
 
-- Utiliza informações que a pessoa alvo já tem
-- Não envolve comunicação com a infraestrutura de ataque
-- Geralmente mais simples
-- Geralmente não alerta as pessoas atacantes sobre o andamento de uma investigação
-- Mais segura
+- Utiliza informações que a pessoa alvo já tem;
+- Não envolve comunicação com a infraestrutura de ataque;
+- É geralmente mais simples;
+- Geralmente não alerta as pessoas atacantes sobre o andamento de uma investigação;
+- Mais segura.
 
-Ativa
+A investigação ativa:
 
-- Geralmente utilizada apenas para lançar malware e servidores comando e controle
-- Investigadores interagem com a infraestrutura atacante
-- Frequentemente requer mais habilidades e investigações aprofundadas
-  - “Jogo de gato e rato” com atacante
-- Pode alertar atacantes de que estão sob investigação
-- Risco de que a pessoa investigadora se comprometa ou se torne um alvo
+- É geralmente utilizada apenas para casos relacionados a lançamentos de malware e servidores de comando-e-controle;
+- Envolve interação com a infraestrutura atacante;
+- Frequentemente requer mais habilidades e investigações aprofundadas;
+  - “Jogo de gato e rato” com atacante;
+- Pode alertar atacantes de que estão sob investigação;
+- Aumenta o risco de que a pessoa investigadora tenha sistemas ou informações comprometidas ou se torne um alvo.
 
 ## Objetivos
 
 Profissionais vão aprender a:
 
-- Fazer triagem de e-mails para entender se são maliciosos/vale a pena investigá-los com profundidade
-- Entender métodos de ataque e atacantes
-- Analisar cabeçalhos de e-mails para identificar infraestruturas de ataque
-- Analisar páginas iniciais maliciosas
-- Documentar e reportar investigações
-- Iniciar ações de derrubada para reduzir danos
+- Fazer triagem de e-mails para entender se são maliciosos/vale a pena investigá-los com profundidade;
+- Entender métodos de ataque e atacantes;
+- Analisar cabeçalhos de e-mails para identificar infraestruturas de ataque;
+- Analisar páginas iniciais maliciosas;
+- Documentar e reportar investigações;
+- Iniciar ações de derrubada para reduzir danos.
 
 ## A que ameaças essa habilidade visa mitigar ou responder?
 
 Competências em investigação, rastreio e detecção de infraestruturas maliciosas podem ajudar a lidar com:
 
-- Ataques de phishing com alvo
-- Phishings baseados em serviços de mensageria
-- Infraestruturas relativas a phishing
+- Ataques de phishing com alvo;
+- Phishings baseados em serviços de mensagens;
+- Infraestruturas relativas a phishing.
 
 ## Quais são os pré-requisitos?
 
@@ -83,7 +83,7 @@ Competências em investigação, rastreio e detecção de infraestruturas malici
 
 ## Trilhas de aprendizagem relacionadas
 
-Esta trilha oferece uma fantástica introdução às demais. Depois de completá-la, recomendamos que aprendizes trabalhem em [Detectando malware](/en/learning-path/2/) ou [Fundamentos de segurança web](/en/learning-path/4/).
+Esta trilha oferece uma fantástica introdução às demais trilhas de aprendizado. Depois de completá-la, recomendamos que estudantes sigam as trilhas [Detectando Malware](/en/learning-path/2/) ou [Fundamentos de Segurança Web](/en/learning-path/4/).
 
 ## Outros recursos e links
 

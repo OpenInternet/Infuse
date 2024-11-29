@@ -60,7 +60,7 @@ Na investigação, um dos primeiros passos a serem tomados é obter informaçõe
 
 - dig & host
 
-  **dig** é uma ferramenta de linha de comando pré-instalada ou disponível para os principais sistemas operacionais, que permite a busca (siga o [tutorial aqui, em inglês](https://phoenixnap.com/kb/linux-dig-command-examples)) de registros DNS de qualquer domínio, diferenciando-o entre diferentes tipos de registro. Embora este tutorial contenha muitos elementos da sintaxe do **dig**, a busca por tipos de registro A (hostname) e MX (para troca de e-mails) é mais comum. dig é bem popular entre analistas por ser simples e fácil de automatizar. **host **(acesse o [tutorial em inglês](https://www.geeksforgeeks.org/host-command-in-linux-with-examples/)) é outra ferramenta de linha de comando, que rapidamente converte um hostname em um endereço IP com sintaxe mais simples ainda. Ainda, há muitas alternativas ao dig, com mais funcionalidades ou melhor legibilidade, [como o doggo (em inglês)](https://github.com/mr-karan/doggo).
+  **dig** é uma ferramenta de linha de comando pré-instalada ou disponível para os principais sistemas operacionais, que permite a busca (siga o [tutorial aqui, em inglês](https://phoenixnap.com/kb/linux-dig-command-examples)) de registros DNS de qualquer domínio, diferenciando-o entre diferentes tipos de registro. Embora este tutorial contenha muitos elementos da sintaxe do **dig**, a busca por tipos de registro A (hostname) e MX (para troca de e-mails) é mais comum. dig é bem popular entre analistas por ser simples e fácil de automatizar. **host** (acesse o [tutorial em inglês](https://www.geeksforgeeks.org/host-command-in-linux-with-examples/)) é outra ferramenta de linha de comando, que rapidamente converte um hostname em um endereço IP com sintaxe mais simples ainda. Ainda, há muitas alternativas ao dig, com mais funcionalidades ou melhor legibilidade, [como o doggo (em inglês)](https://github.com/mr-karan/doggo).
 
   Procure por nameservers/servidores de nome de proxy reverso de distribuição comum, como os oferecidos por Akamai (por exemplo, a1-64.akam.net), CloudFlare (por exemplo, eve.ns.cloudflare.com), Fastly (por exemplo, ns3.fastly.net), pois eles ocultarão o IP real do servidor de origem. Após algum tempo, você será capaz de reconhecer facilmente muitos destes proxies. Por exemplo, se você rodar o comando `dig` para buscar por theguardian.com, verá que ele é mantido por servidores da Fastly (pelo menos no momento em que isso foi escrito).
 
@@ -116,8 +116,8 @@ O uso prático de busca por certificados envolve procurar domínios, subdomínio
 
 Leia atentamente o [guia sobre certificados (em inglês)](https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/), que descreve campos chave de investigação e buscas utilizando Censys e Shodan, e veja o [vídeo de 10 minutos no YouTube (em inglês)](https://www.youtube.com/watch?v=XHltHamQVoA) com a mesma pesquisa utilizando [crt.sh (em inglês)](https://crt.sh/). Ser capaz de utilizar essas três ferramentas de busca é bem vantajoso. Em particular, assegure-se de entender:
 
-- Que campos são relevantes em um certificado ao conduzir uma investigação
-- Como realizar buscas dentre tais campos em plataformas variadas
+- Que campos são relevantes em um certificado ao conduzir uma investigação;
+- Como realizar buscas dentre tais campos em plataformas variadas;
 - Como identificar subdomínios, IPs de hosts, domínios alternativos emitidos para um certificado.
 
 Perceba que a sintaxe da API de busca do Censys mudou em 2021, e algumas buscas nos tutoriais citados anteriormente não funcionarão. Por exemplo, em vez de `parsed.names:`, simplesmente utilize `names:`.
@@ -171,7 +171,7 @@ Faça os seguintes exercícios com colegas ou uma pessoa mentora mais experiente
 
 {{% resource title="Reconhecimento adicional do DNS: Fierce (recurso 2)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://www.kali.org/tools/fierce/" %}}
 
-{{% resource title="Reconhecimento adicional do DNS: Fierce (recurso 3)" languages=”Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
+{{% resource title="Reconhecimento adicional do DNS: Fierce (recurso 3)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://salsa.debian.org/pkg-security-team/fierce" %}}
 
 {{% resource title="Reconhecimento adicional do DNS: VirusTotal (recurso 4)" languages="Inglês" cost="Grátis" description="Várias ferramentas de automação de busca por servidores relacionados." url="https://docs.virustotal.com/docs/how-it-works" %}}
 

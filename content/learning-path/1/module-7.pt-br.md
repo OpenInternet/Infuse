@@ -9,7 +9,7 @@ weight: 7
 
 E-mails de *phishing* geralmente são apenas o primeiro passo em um ataque. A maioria tenta fazer com que a pessoa atacada visite uma página na web com um objetivo de ataque específico. Este módulo te ensinará a **examinar os sites controlados por atacantes para entender suas ações** e potencialmente **descobrir outras infraestruturas controladas por eles** ou vetores de ataque usados ​​em seus ataques. Observe que sites podem ser extremamente complicados, com comportamento que varia desde simples imitações para roubar credenciais até ataques complexos contra o navegador ou o próprio dispositivo de navegação.
 
-Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3)](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
+Observe que interagir com sites maliciosos pode colocar quem os analisa em risco. Certifique-se de configurar e usar um ambiente isolado ([leia o Módulo 3](/pt-br/learning-path/1/module-3/)), e coletar e armazenar todas as páginas web de forma segura. Vale dizer, também, que esta habilidade é útil e acessória para a trilha de aprendizado de Análise de Malware.
 
 ## Objetivos
 
@@ -44,7 +44,7 @@ Com o [estudo de caso da HRW](https://www.hrw.org/news/2022/12/05/iran-state-bac
 - Os atacantes usaram um serviço encurtador de URL. Isso é comum para e-mails legítimos e ilegítimos. Você deve ser capaz de reconhecer encurtadores de URL e saber como expandi-los sempre que possível (por exemplo, usando o mecanismo embutido do encurtador, como adicionar um + ao final do URL, usando uma ferramenta de expansão como [Urlex](https://urlex.org/)), ou rastrear os estágios de redirecionamentos HTTP. Notavelmente, o atacante criou o seu próprio serviço de encurtador de URL neste caso, se passando (através de uma pequena mudança de digitação no domínio) por outro encurtador de URL conhecido.
 - Foram registrados múltiplos domínios com a intenção de confundir o alvo (por exemplo, sharefilesonline[.]live, que faz referência aos nomes dos produtos da Microsoft: SharePoint e Live.com).
 - Links exclusivos enviados para alvos individuais com um identificador de cinco caracteres (isso pode ser feito pelo uso de qualquer cadeia de caracteres exclusiva em um URL, geralmente dentro do caminho da URL ou passada em um parâmetro, por exemplo, após um '?').
-- Usando força bruta para tentar todas as possíveis combinações de identificadores e URLs com cinco caracteres, os analistas puderam descobrir várias outras páginas usadas pela campanha de phishing. Eles se passaram por provedores de e-mail populares e usaram um kit de phishing que permite técnicas de evasão de autenticação multifatores (também conhecida como MFA — de _Multi-factor Authenticaton_ — ou 2FA — _Two-factor Authentication_).
+- Usando força bruta para tentar todas as possíveis combinações de identificadores e URLs com cinco caracteres, os analistas puderam descobrir várias outras páginas usadas pela campanha de phishing. Eles se passaram por provedores de e-mail populares e usaram um kit de phishing que permite técnicas de evasão de autenticação multifatores (também conhecida como MFA — de _Multi-Factor Authentication_ — ou 2FA — _Two-Factor Authentication_).
 - Os analistas entraram em contato com outras pessoas que poderiam ter sido alvo da mesma campanha para compartilhar ainda mais informações — dados de inteligência — sobre ameaças e entender melhor as técnicas do adversário.
 - Os atacantes usaram táticas, como acessar dados e usar [Google Takeout](https://support.google.com/accounts/answer/3024190?hl=en) (uma ferramenta que permite que os usuários baixem todos os dados da própria conta Google).
 - Os autores do relatório analisaram o histórico do Google Takeout e outros registros das pessoas que foram alvo do ataque. Isso os ajudou a rastrear a atividade ocorrida após o comprometimento, os nomes de dispositivos dos atacantes, assim como endereços IP dessas conexões.
@@ -103,14 +103,13 @@ Alguns kits de phishing também são capazes de burlar autenticação multifator
 
 ## Checagem de habilidades
 
-Complete esta sala/fase do TryHackMe: [Walking An Application](https://tryhackme.com/room/walkinganapplication)
-
-- Confira a [tarefa dois](https://tryhackme.com/room/activerecon) nesta sala do TryHackMe
-- Analize um site malicioso (um domínio listado no [PhishTank](https://phishtank.org/), por exemplo) utilizando uma mistura de análise passiva e ativa, certificando-se de que a análise ativa seja feita em uma sandbox, ou com ferramentas como UrlScan. Responda às seguintes questões sobre o site e discuta as respostas com colegas ou quem está te mentorando:
+- Complete a sala [Walking An Application](https://tryhackme.com/room/walkinganapplication) do TryHackMe.
+- Dê uma olhada na [tarefa dois](https://tryhackme.com/room/activerecon) da sala Active Reconnaissance do TryHackMe.
+- Analise um site malicioso (um domínio listado no [PhishTank](https://phishtank.org/), por exemplo) utilizando uma mistura de análise passiva e ativa, certificando-se de que a análise ativa seja feita em uma sandbox, ou com ferramentas como UrlScan. Responda às seguintes questões sobre o site, e discuta as respostas com colegas ou quem está te mentorando:
   - De quem é a infraestrutura que está hospedando o site?
   - Que outros domínios o site carrega, ou referencia? O que eles fazem?
   - Quando o domínio foi registrado?
-  - (opcional) Que software está sendo utilizado no site?
+  - (Opcional) Que software está sendo utilizado no site?
   - O site foi listado como malicioso por outras pessoas?
 ## Recursos de aprendizado
 
