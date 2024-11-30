@@ -31,7 +31,7 @@ A investigação passiva (apropriada para todos os casos):
 - Não envolve comunicação com a infraestrutura de ataque;
 - É geralmente mais simples;
 - Geralmente não alerta as pessoas atacantes sobre o andamento de uma investigação;
-- Mais segura.
+- É mais segura.
 
 A investigação ativa:
 
