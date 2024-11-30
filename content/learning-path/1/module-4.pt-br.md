@@ -1,7 +1,7 @@
 ---
 style: module
 title: "Investigação passiva - Análise de URLs, hostnames, e endereços IP"
-description: "As habilidades descritas neste módulo podem ser utilizadas para iniciar uma investigação passiva de servidores na internet. Uma investigação passiva é aquela em que nenhum site é carregado, sobre a qual buscam-se apenas dados públicos disponíveis a partir de ferramentas de inteligência de fontes abertas (OSINT, de “open source intelligence”) e recursos que podem nos dar detalhes sobre as “pegadas digitais” de uma infraestrutura de ataque sem que percebam que estão sob investigação"
+description: "As habilidades descritas neste módulo podem ser utilizadas para iniciar uma investigação passiva de servidores na internet. Uma investigação passiva é aquela em que nenhum site é carregado, sobre a qual buscam-se apenas dados públicos disponíveis a partir de ferramentas de inteligência de fontes abertas (OSINT, de “open source intelligence”) e recursos que podem nos dar detalhes sobre as “pegadas digitais” de uma infraestrutura de ataque sem que percebam que estão sob investigação."
 weight: 4
 ---
 
@@ -13,12 +13,12 @@ Algumas destas habilidades podem ser necessárias em uma triagem inicial, por ex
 
 ## Objetivos
 
-Após completar este subtópico, profissionais serão capazes de:
+Após completar este módulo, profissionais serão capazes de:
 
 - Entender a estrutura de uma URL;
 - Compreender os tipos de registro DNS, o que é WHOIS, e as diferenças entre IPv4 e IPv6;
 - Conduzir reconhecimento básico de domínios;
-- Identificar proxies reversos comuns que “escondem” endereços IP originais para fins de proteção contra DDoS (ataques de rede distribuídos com objetivo de negação de serviço) ou otimização de entrega, como CloudFlare, Akamai, e Fastly;
+- Identificar proxies reversos comuns que “escondem” endereços IP originais para fins de proteção contra DDoS (ataques de rede distribuídos com objetivo de negação de serviço) ou otimização de entrega, como Cloudflare, Akamai, e Fastly;
 - Descobrir/enumerar subdomínios.
 - - -
 
@@ -54,7 +54,7 @@ Na investigação, um dos primeiros passos a serem tomados é obter informaçõe
 
 - WHOIS
 
-  Registros WHOIS são publicamente acessíveis e contêm informações úteis sobre um determinado domínio. Aprenda a utilizar, por exemplo, ferramentas web como [ARIN whois (em inglês)](https://search.arin.net/rdap/), [who.is (em inglês)](https://who.is/)) ou [serviços via linha de comando (em inglês)](https://www.arin.net/resources/registry/whois/rws/cli/) para visualizar registros WHOIS, e aprenda a tirar conclusões a partir da informação de quem solicitou o registro (caso tenha sido divulgada), de quem fez o registro, data do registro e os nameservers (servidores de nomes) que indicam onde estão hospedados os registros oficiais para a zona de DNS.
+  Registros WHOIS são publicamente acessíveis e contêm informações úteis sobre um determinado domínio. Aprenda a utilizar, por exemplo, ferramentas web como [ARIN whois (em inglês)](https://search.arin.net/rdap/), [who.is (em inglês)](https://who.is/) ou [serviços via linha de comando (em inglês)](https://www.arin.net/resources/registry/whois/rws/cli/) para visualizar registros WHOIS, e aprenda a tirar conclusões a partir da informação de quem solicitou o registro (caso tenha sido divulgada), de quem fez o registro, data do registro e os nameservers (servidores de nomes) que indicam onde estão hospedados os registros oficiais para a zona de DNS.
 
   WHOIS também pode ser executado com um endereço na tentativa de identificar a empresa responsável pelo IP, isto é, a empresa de hospedagem que está atendendo o site.
 
@@ -62,9 +62,9 @@ Na investigação, um dos primeiros passos a serem tomados é obter informaçõe
 
   **dig** é uma ferramenta de linha de comando pré-instalada ou disponível para os principais sistemas operacionais, que permite a busca (siga o [tutorial aqui, em inglês](https://phoenixnap.com/kb/linux-dig-command-examples)) de registros DNS de qualquer domínio, diferenciando-o entre diferentes tipos de registro. Embora este tutorial contenha muitos elementos da sintaxe do **dig**, a busca por tipos de registro A (hostname) e MX (para troca de e-mails) é mais comum. dig é bem popular entre analistas por ser simples e fácil de automatizar. **host** (acesse o [tutorial em inglês](https://www.geeksforgeeks.org/host-command-in-linux-with-examples/)) é outra ferramenta de linha de comando, que rapidamente converte um hostname em um endereço IP com sintaxe mais simples ainda. Ainda, há muitas alternativas ao dig, com mais funcionalidades ou melhor legibilidade, [como o doggo (em inglês)](https://github.com/mr-karan/doggo).
 
-  Procure por nameservers/servidores de nome de proxy reverso de distribuição comum, como os oferecidos por Akamai (por exemplo, a1-64.akam.net), CloudFlare (por exemplo, eve.ns.cloudflare.com), Fastly (por exemplo, ns3.fastly.net), pois eles ocultarão o IP real do servidor de origem. Após algum tempo, você será capaz de reconhecer facilmente muitos destes proxies. Por exemplo, se você rodar o comando `dig` para buscar por theguardian.com, verá que ele é mantido por servidores da Fastly (pelo menos no momento em que isso foi escrito).
+  Procure por nameservers/servidores de nome de proxy reverso de distribuição comum, como os oferecidos por Akamai (por exemplo, a1-64.akam.net), Cloudflare (por exemplo, eve.ns.cloudflare.com), Fastly (por exemplo, ns3.fastly.net), pois eles ocultarão o IP real do servidor de origem. Após algum tempo, você será capaz de reconhecer facilmente muitos destes proxies. Por exemplo, se você rodar o comando `dig` para buscar por theguardian.com, verá que ele é mantido por servidores da Fastly (pelo menos no momento em que isso foi escrito).
 
-- geoIP
+- GeoIP
 
   Endereços de IP são mais ou menos vinculados a localidades físicas. Isso significa que, se você conhece um endereço IP, [você pode descobrir](https://www.maxmind.com/en/geoip-demo) (demo de pesquisa MaxMind GeoIP) com alguma certeza, em que lugar do mundo (país, região) está o dispositivo que utiliza tal endereço. Note que a precisão de pesquisas com base em IPs pode variar enormemente: às vezes, é possível rastrear um endereço IP até alcançar uma organização específica, enquanto que em outras vezes só se consegue uma granularidade a nível de país.
 
@@ -87,7 +87,7 @@ Ao conseguir informações acerca do identificador (domínios e IPs), você pode
 Aprenda a visualizar portas abertas, serviços ativos, banner de serviços de um dado IP usando inúmeros serviços de varredura de inteligência da web. É importante notar que continua sendo uma técnica de investigação passiva, uma vez que tais serviços escaneiam a web repetidamente para obter conjuntos de dados, e que você não iniciará atividades novas na infraestrutura de interesse:
 
 - Use [Censys Search (em inglês)](https://search.censys.io/) para observar portas abertas, serviços em andamento, certificados TLS, e mais, para um determinado IP.
-- Use [Shodan (em inglês)](https://shodan.io) (a assinatura é exigida para algumas funcionalidades, bem como o uso de filtros em buscas; acesse [a referência (em inglês)](https://www.shodan.io/search/filters) e [exemplos (em inglês)](https://www.shodan.io/search/examples) para mais informações sobre os serviços rodando em um servidor pelo endereço IP. Além disso, Shodan também realiza buscas por todos os servidores que rodam serviços com um banner específico.
+- Use [Shodan (em inglês)](https://shodan.io) (a assinatura é exigida para algumas funcionalidades, bem como o uso de filtros em buscas); acesse [a referência (em inglês)](https://www.shodan.io/search/filters) e [exemplos (em inglês)](https://www.shodan.io/search/examples) para mais informações sobre os serviços rodando em um servidor pelo endereço IP. Além disso, Shodan também realiza buscas por todos os servidores que rodam serviços com um banner específico.
 - Use [DNS Dumpster (em inglês)](https://dnsdumpster.com/) para buscar potenciais superfícies de ataque de serviços voltados para a internet.
 
 Serviços similares e bancos de dados podem ajudar a identificar as atividades e o histórico de um determinado servidor/serviço.
@@ -95,7 +95,7 @@ Serviços similares e bancos de dados podem ajudar a identificar as atividades e
 Outros serviços de escaneamento também reúnem **histórico de DNS**, para consultar outras _resoluções_ de domínio ou subdomínio para um determinado IP ou domínio, quando apareceram/desapareceram, e assim por diante.
 
 - [Security Trails (em inglês)](https://securitytrails.com/)
-- [Microsoft Defender XDR (em inglês)](https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr)(anteriormente RiskIQ) fornece histórico limitado de DNS e resoluções de dados para clientes free-tier (nível gratuito).
+- [Microsoft Defender XDR (em inglês)](https://www.microsoft.com/en-us/security/business/solutions/extended-detection-response-xdr) (anteriormente RiskIQ) fornece histórico limitado de DNS e resoluções de dados para clientes _free-tier_ (nível gratuito).
 
 #### Melhores informações sobre IP/DNS com bancos de dados de inteligência de ameaças
 
@@ -150,8 +150,8 @@ Escolha um domínio aleatório, certificando-se de que ele não esteja hospedado
 Faça os seguintes exercícios com colegas ou uma pessoa mentora mais experientes em investigação passiva de servidores na internet:
 
 - Complete o room (ou “sala”, em tradução adaptada) [do reconhecimento passivo (em inglês)](https://tryhackme.com/room/passiverecon) no TryHackMe.
-- Faça o exercício da seção “Atividade prática”, idealmente com um domínio diferente, e repasse o processo e descobertas com a pessoa par ou mentora. Peça para que revisem seu trabalho e comentem sobre o processo e os resultados obtidos. Pode ser um bom exercício discutir especificamente como encontrar subdomínios existentes no domínio, e sobre a precisão das pesquisas com geoIP relacionadas a estes domínios. Como atividade extra, fuce as configurações avançadas do dig e monte uma automação básica, por exemplo, solicitando uma lista de domínios a partir de um arquivo de texto, e forneça informações sobre eles.
-- Caso tenha uma mensagem real de phishing (ou, alternativamente, use um domínio de phishing no [PhishTank (em inglês; o nome vem de um trocadilho com “tanque de peixes”, ou “fish tank”)](https://phishtank.org/) e o analise — perceba que o site coleta domínios, e não mensagens. 
+- Faça o exercício da seção “Atividade prática”, idealmente com um domínio diferente, e repasse o processo e descobertas com a pessoa par ou mentora. Peça para que revisem seu trabalho e comentem sobre o processo e os resultados obtidos. Pode ser um bom exercício discutir especificamente como encontrar subdomínios existentes no domínio, e sobre a precisão das pesquisas com GeoIP relacionadas a estes domínios. Como atividade extra, fuce as configurações avançadas do dig e monte uma automação básica, por exemplo, solicitando uma lista de domínios a partir de um arquivo de texto, e forneça informações sobre eles.
+- Caso tenha uma mensagem real de phishing ou, alternativamente, use um domínio de phishing no [PhishTank (em inglês; o nome vem de um trocadilho com “tanque de peixes”, ou “fish tank”)](https://phishtank.org/) e o analise — perceba que o site coleta domínios, e não mensagens. 
 
 ## Recursos de aprendizagem
 
