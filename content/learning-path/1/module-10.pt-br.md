@@ -21,8 +21,8 @@ Descubra como o endereço de e-mail do remetente seria exibido em um cliente de 
 Há várias formas de visualizar o e-mail da forma como ele seria exibido para o destinatário. A maneira mais direta seria abrir o arquivo em um cliente de e-mail, que é o que fizemos nos exemplos abaixo. No entanto, no contexto de uma ameaça direcionada, isso pode ser uma péssima ideia: o arquivo pode conter scripts que podem explorar vulnerabilidades em clientes de e-mail, coletar informações sobre o dispositivo, ou carregar recursos externos (como arquivos de mídia ou pixels de rastreamento), que podem revelar o seu endereço IP ao atacante. No caso deste exercício, é seguro abrir o arquivo EML em seu cliente de e-mail de escolha. Para casos reais, porém, considere as seguintes alternativas:
 
 * Usar um cliente de e-mail em uma máquina virtual que pode ser revertida para uma cópia anterior segura.
-* Abrir o arquivo em um editor de texto e leia diretamente o conteúdo HTML.
-* Renomear o arquivo para `.mht` e abra-o em um navegador (considere usar uma máquina segura e isolada e se conectar a uma VPN para evitar a captura de seu endereço IP através de pixels de rastreamento).
+* Abrir o arquivo em um editor de texto e ler diretamente o conteúdo HTML.
+* Renomear o arquivo para `.mht` e abri-lo em um navegador (considere usar uma máquina segura e isolada e se conectar a uma VPN para evitar a captura de seu endereço IP através de pixels de rastreamento).
 * Usar um serviço online como <https://www.emlreader.com/> ou <https://www.encryptomatic.com/viewer/> para visualizar o e-mail. A ferramenta de análise de cabeçalho do MXToolBox <https://mxtoolbox.com/EmailHeaders.aspx> (utilizada mais à frente neste exercício) também renderiza o conteúdo HTML do e-mail se você incluí-lo com os cabeçalhos fornecidos.
 * Usar uma ferramenta do eDiscovery que pode renderizar arquivos EML.
 * Hospedar o seu próprio serviço de renderização de arquivos EML, como <https://github.com/xme/emlrender>.
@@ -98,7 +98,6 @@ Primeiro, nós copiamos o link do e-mail.
 
 Em seguida, nós arrastamos a opção "Defang URL" do CyberChef para a seção de "Recipe".
 
-
 ![Captura de tela do CyberChef demonstrando os resultados da funcionalidade "Defang URL". Pedimos para que ele desativasse pontos, o indicativo do protocolo HTTP, e o elemento ://. Obtemos como resposta hxxps[://]d[.]pr/mUxkOm.](/media/uploads/CTF7_defanged.png)
 
 Assim que colarmos a URL no campo de entrada do CyberChef, a ferramenta automaticamente gera uma saída com a versão desativada da URL.
@@ -115,7 +114,7 @@ Você pode usar o CyberChef para realizar muitas tarefas diferentes de análise.
 {{< /question >}}
 
 {{< question title="Resposta" >}}
-Você pode usar uma "receita" — ou uma série de etapas interconectadas — no CyberChef para realizar uma análise mais ocmplexa. Para obter e desativar todas as URLs em uma mensagem, tudo que você precisa fazer é usar uma receita com os fluxos de trabalho "Extract URLs" e "Defang URLs", e colar o conteúdo do e-mail (copiado de um editor de texto) como entrada. Se você selecionar a opção "Unique" abaixo de "Extract URLs", você verá que os resultados são diferentes dos demonstrados na captura de tela, e ele irá responder com uma única URL, a mesma que você desativou acima. O fato de que é apenas uma URL, repetida várias vezes, dentro do e-mail é uma ótima notícia para nós — isso vai tornar a nossa análise muito mais fácil.
+Você pode usar uma "receita" — ou uma série de etapas interconectadas — no CyberChef para realizar uma análise mais complexa. Para obter e desativar todas as URLs em uma mensagem, tudo que você precisa fazer é usar uma receita com os fluxos de trabalho "Extract URLs" e "Defang URLs", e colar o conteúdo do e-mail (copiado de um editor de texto) como entrada. Se você selecionar a opção "Unique" abaixo de "Extract URLs", você verá que os resultados são diferentes dos demonstrados na captura de tela, e ele irá responder com uma única URL, a mesma que você desativou acima. O fato de que é apenas uma URL, repetida várias vezes, dentro do e-mail é uma ótima notícia para nós — isso vai tornar a nossa análise muito mais fácil.
 
 ![Captura de tela do CyberChef demonstrando os resultados de uma receita que combina a funcionalidade "Extract URLs" com a funcionalidade "Defang URL". Colamos o conteúdo do arquivo e pedimos para que ele desativasse pontos, o indicativo do protocolo HTTP, e o elemento ://. Recebemos uma lista de 5 links — todos são a repetição de uma mesma saída, hxxps[://]d[.]pr/mUxkOm.](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
@@ -136,7 +135,7 @@ Cole a URL da Questão 4 no VirusTotal (dessa vez, você vai precisar da URL int
 20 de agosto de 2018.
 {{< /question >}}
 
-### Questão 7: Qual é o endereço IP que VirusTotal indica como o endereço IP atribuiído ("Serving IP Address") à URL que desativamos na Questão 4?
+### Questão 7: Qual é o endereço IP que VirusTotal indica como o endereço IP atribuído ("Serving IP Address") à URL que desativamos na Questão 4?
 
 {{< question title="Dicas" >}}
 Ao analisar a aba "Details" no VirusTotal, procure pelo endereço IP atribuído ("Serving IP Address").
@@ -261,8 +260,8 @@ Th1s_1s_pH1sh1ng_Em3il
 
 ## Outros recursos e links
 
-{{% resource title="Documentação da comunidade da linha de emergência Access Now para atendimentos a situações de e-mails suspeitos ou phishing" languages="Inglês" cost="Grátis" description="Cliente recebe um e-mail suspeito ou phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
+{{% resource title="Documentação da comunidade da linha de emergência Access Now para atendimentos a situações de e-mails suspeitos ou phishing" languages="Inglês" cost="Grátis" description="Cliente recebe um e-mail suspeito ou phishing." url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
-{{% resource title="Lista de todos os tipos de registros DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Grátis" description="Lista (quase?) todos os tipos de registros DNS" url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
+{{% resource title="Lista de todos os tipos de registros DNS" languages="Inglês, chinês, japonês, coreano, russo, sérvio, ucraniano, esperanto, húngaro, vietnamita, italiano, espanhol, francês" cost="Grátis" description="Lista (quase?) todos os tipos de registros DNS." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
 
-{{% resource title="Relatórios da Amnesty sobre campanhas de phishing" languages="Vários, dependendo do relatório" cost="Grátis" description="Uma lista de exemplos de campanhas direcionadas de phishing contra jornalistas, ativistas, e defensores de direitos humanos" url="https://www.amnesty.org/en/search/phishing/" %}}
+{{% resource title="Relatórios da Amnesty sobre campanhas de phishing" languages="Vários, dependendo do relatório" cost="Grátis" description="Uma lista de exemplos de campanhas direcionadas de phishing contra jornalistas, ativistas, e defensores de direitos humanos." url="https://www.amnesty.org/en/search/phishing/" %}}
