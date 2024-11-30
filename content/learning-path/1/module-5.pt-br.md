@@ -15,7 +15,7 @@ Uma vez que cabeçalhos de e-mails podem conter referências a outros domínios 
 
 ## Objetivos
 
-Após completar este subtópico, profissionais serão capazes de:
+Após completar este módulo, profissionais serão capazes de:
 
 - Extrair cabeçalhos completos de um e-mail que tenham recebido ou estejam analisando;
 - Analisar os cabeçados extraídos, prestando atenção:
@@ -30,9 +30,9 @@ Todo e-mail possui cabeçalho, com metadados essenciais sobre remetente, destina
 
 Leia os recursos e documentos a seguir para se familiarizar um pouco (ou revisar o conhecimento) acerca de cabeçalhos de e-mails, e protocolos SPF e DKIM.
 
-- Entenda [o que são cabeçalhos de e-mails](https://support.google.com/mail/answer/29436?hl=pt-BR&sjid=168222457786878862-SA) e como podemos analisá-los em múltiplos sistemas
-- Entenda o básico sobre falsificação de e-mails e o uso de SPF e DKIM para combatê-la
-  - Aprenda sobre [falsificação de e-mails e como identificá-la (em inglês)](https://docs.sendgrid.com/glossary/spoofing)
+- Entenda [o que são cabeçalhos de e-mails](https://support.google.com/mail/answer/29436?hl=pt-BR&sjid=168222457786878862-SA) e como podemos analisá-los em múltiplos sistemas.
+- Entenda o básico sobre falsificação de e-mails e o uso de SPF e DKIM para combatê-la.
+  - Aprenda sobre [falsificação de e-mails e como identificá-la (em inglês)](https://docs.sendgrid.com/glossary/spoofing).
   - Aprenda sobre o Sender Policy Framework (“Framework de Política de Remetente”, em tradução livre) e seu objetivo de prevenir que o endereço de remetente seja forjado.
     - Use dig/doggo para buscar registros válidos de SPF (é possível fazê-lo [rodando o comando dig com o argumento `txt` (em inglês)](https://easydmarc.com/tools/spf-lookup#how-to-check-spf-record-via-command-line-via-dig-tool)), analise seu conteúdo (acesse um guia [aqui, em inglês](https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain)) e responda as seguintes questões:
 
@@ -52,7 +52,7 @@ Leia os recursos e documentos a seguir para se familiarizar um pouco (ou revisar
 
 O [time da Nebraska GenCyber criou um guia rápido e abrangente sobre cabeçalhos de e-mails (em inglês)](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers), recomendado para todo mundo que queira aprender sobre o assunto.
 
-Conforme for analisando cabeçalhos, você aprenderá bastante sobre diferentes domínios envolvidos na configuração de um e-mail. Uma vez de posse de uma lista de tais domínios, é possível usar as mesmas ferramentas da seção anterior (dig, whois, geoIP, e outras) para aprofundar o aprendizado.
+Conforme for analisando cabeçalhos, você aprenderá bastante sobre diferentes domínios envolvidos na configuração de um e-mail. Uma vez de posse de uma lista de tais domínios, é possível usar as mesmas ferramentas da seção anterior (dig, WHOIS, GeoIP, e outras) para aprofundar o aprendizado.
 
 Administradores de sistemas que usam domínios de ambiente de trabalho como Google Workspace e Microsoft 365 frequentemente possuem acesso a ferramentas de busca de logs e registros, possíveis de serem utilizados para varrer sistemas em busca de identificadores encontrados em cabeçalhos de e-mail (como no caso de domínios suspeitos), que podem ajudá-les a descobrir quem, se este for o caso, tornou-se alvo em sua organização. Veja as documentações do [Google](https://support.google.com/a/answer/2618874?hl=pt-BR&fl=1&sjid=7619119996016038770-SA) e da [Microsoft](https://learn.microsoft.com/pt-br/exchange/monitoring/monitoring) em relação a buscas por logs. Note que tais funcionalidades de busca são usualmente restritas a contas empresariais ou corporativas.
 
@@ -62,7 +62,7 @@ Após a leitura de todos os materiais da [análise de cabeçalho de e-mail da Ne
 
 ## Checagem de habilidades
 
-Encontre um e-mail na sua caixa de entrada, ou pasta de spam. Ou então peça para que uma pessoa par ou mentora te envie cabeçalhos de e-mail recebidos recentemente. Analise-os usando as mesmas técnicas descritas na parte “Pratique”, incluindo o carregamento deles na ferramenta [Google Admin Toolbox Message Header](https://toolbox.googleapps.com/apps/messageheader/?lang=pt-BR). Em seguida, responda às questões 1, 2, 3 e 5 descritas na [seção de investigação (em inglês)](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#investigation) do guia de análise de cabeçalhos de e-mails da Nebraska GenCyber, dessa vez usando os cabeçalhos dos e-mails encontrados, não dos exemplos do guia.
+Encontre um e-mail na sua caixa de entrada, ou pasta de spam. Ou então peça para que uma pessoa par ou mentora te envie cabeçalhos de e-mail recebidos recentemente. Analise-os usando as mesmas técnicas descritas na parte “Atividade prática”, incluindo o carregamento deles na ferramenta [Google Admin Toolbox Message Header](https://toolbox.googleapps.com/apps/messageheader/?lang=pt-BR). Em seguida, responda às questões 1, 2, 3 e 5 descritas na [seção de investigação (em inglês)](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#investigation) do guia de análise de cabeçalhos de e-mails da Nebraska GenCyber, dessa vez usando os cabeçalhos dos e-mails encontrados, não dos exemplos do guia.
 
 ## Recursos de aprendizagem
 
@@ -76,7 +76,7 @@ Encontre um e-mail na sua caixa de entrada, ou pasta de spam. Ou então peça pa
 
 {{% resource title="Curso do time da Nebraska GenCyber de cabeçalhos de e-mails" languages="Inglês" cost="Grátis" description="Curso abrangente de como analizar cabeçalhos de e-mails na investigação de potenciais casos de phishing." url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" %}}
 
-{{% resource title="Exemplos de atividades para o guia da Nebraska GenCyber." languages="Inglês" cost="Grátis" description="Exercícios hospedados no GitHub." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
+{{% resource title="Exemplos de atividades para o guia da Nebraska GenCyber" languages="Inglês" cost="Grátis" description="Exercícios hospedados no GitHub." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
 
 {{% resource title="Conferindo cabeçalhos de e-mails no Proton Mail" languages="Inglês" cost="Grátis" description="Guia de como conferir cabeçalhos de e-mails no Proton Mail." url="https://proton.me/support/check-email-headers" %}}
 
