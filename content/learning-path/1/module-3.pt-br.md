@@ -27,7 +27,7 @@ Muitos e-mails de phishing e mensagens similares não só tentam manipular a pes
 
 ### Precauções fundamentais
 
-Geralmente, dividimos a análise em análise passiva ([Módulo 4](/pt-br/learning-path/1/module-4) e [Módulo 5](/pt-br/learning-path/1/module-5)) e análise ativa ([Módulo 6](/pt-br/learning-path/1/module-6) e [Módulo 7](/pt-br/learning-path/1/module-4)). A análise passiva não deve incluir nenhum contato com servidores de atacantes, diferentemente da análise ativa.
+Geralmente, dividimos a análise em análise passiva ([Módulo 4](/pt-br/learning-path/1/module-4) e [Módulo 5](/pt-br/learning-path/1/module-5)) e análise ativa ([Módulo 6](/pt-br/learning-path/1/module-6) e [Módulo 7](/pt-br/learning-path/1/module-7)). A análise passiva não deve incluir nenhum contato com servidores de atacantes, diferentemente da análise ativa.
 
 Para a análise, é importante entender que tipos de atividades interagem diretamente com a infraestrutura atacante, e podem, portanto, ser detectadas. Assim, profissionais poderão adaptar os métodos relevantes de modelagem de ameaças.
 
@@ -40,7 +40,7 @@ Dependendo da sofisticação dos ataques, e da sensibilidade da máquina, dados 
 - Use uma VPN com boa reputação na possibilidade de interações com infraestruturas mal intencionadas, para evitar que seu IP seja registrado pela pessoa atacante.
 - Utilize um navegador pré configurado e específico em seu dispositivo somente para este fim, para reduzir o risco de que o conteúdo malicioso ativo seja operado no dispositivo. [NoScript](https://noscript.net/) é uma excelente extensão de navegador, disponível no Firefox e em navegadores baseados em Chromium, que impedirá a execução de scripts, inspecionando previamente qualquer conteúdo malicioso ativo.
 - Tente usar um dispositivo dedicado à análise, ou uma máquina virtual, os quais não devem ser conectados a nenhuma conta empresarial ou pessoal, e/ou possuir armazenamento conectado à rede pública ou rede pessoal. O dispositivo ou máquina não deve conter nenhuma informação sensível (a menos que você descubra essas informações durante a investigação).
-- Configure um endereço de e-mail específico para o qual pessoas alvo possam encaminhar e-mails suspeitos recebidos (caso a mensagem tenha sido recebida via aplicativos como WhatsApp, uma captura de tela poderá ser enviada por e-mail). Este e-mail não precisa ser único para cada pessoa alvo. Garanta que a conta esteja protegida por uma senha exclusiva, e com autenticação de dois fatores habilitada, e configure o cliente de e-mail para prevenir que conteúdos externos sejam baixados automaticamente, como imagens, pois são baixadas por um servidor que pode alertar a pessoa atacante sobre a investigação em andamento, tornando a investigação passiva em ativa (acesse o subtópico 6 para mais detalhes);
+- Configure um endereço de e-mail específico para o qual pessoas alvo possam encaminhar e-mails suspeitos recebidos (caso a mensagem tenha sido recebida via aplicativos como WhatsApp, uma captura de tela poderá ser enviada por e-mail). Este e-mail não precisa ser único para cada pessoa alvo. Garanta que a conta esteja protegida por uma senha exclusiva, e com autenticação de dois fatores habilitada, e configure o cliente de e-mail para prevenir que conteúdos externos, como imagens, sejam baixados automaticamente, pois são baixadas por um servidor que pode alertar a pessoa atacante sobre a investigação em andamento, tornando a investigação passiva em ativa (acesse o Módulo 6 para mais detalhes);
 - Certifique-se de que seu computador esteja protegido e atualizado contra malwares para precaver seu computador contra qualquer potencial infecção.
 
 ### Desativando URLs
@@ -66,7 +66,6 @@ Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida
 
 ## Atividade prática
 
-
 - Com o VPN desabilitado (caso seja seguro), acesse algum site que mostre seu endereço IP (procure por “qual é meu IP” em seu mecanismo de busca favorito). Reflita sobre o que poderia acontecer caso atacantes soubessem de seu endereço IP. O endereço pertence a alguma empresa ou escritório? \
   Em seguida, habilite uma VPN bem reconhecida e cheque seu endereço IP mais uma vez. \
   Por fim, [leia sobre vazamentos de DNS (em inglês)](https://mullvad.net/en/help/all-about-dns-servers-and-privacy) e teste se a VPN está vazando informações de DNS (a maioria das VPNs possuem sites próprios que fazem estes testes, você pode usar seu mecanismo de busca favorito para encontrá-los!).
@@ -74,7 +73,7 @@ Caso a suspeita seja de que o dispositivo da pessoa alvo tenha sido comprometida
 
 ## Checagem de habilidades
 
-- Peça para colegas ou para a pessoa te mentorando que elas criem um web token de bug gerado [no Canarytokens (em inglês)](https://canarytokens.org/generate#). Abra o web bug na sua máquina de análise. Isso fará com que a outra pessoa receba informações pelo e-mail utilizado para cadastrar o web bug, incluindo seu endereço IP e uma breve descrição do navegador chamado agente de usuário. Discuta estes resultados: caso estivesse conduzindo uma análise ativa, pessoas atacantes provavelmente também teriam acesso a suas informações, já que você estaria usando a mesma máquina para se conectar aos servidores controlados por elas.
+- Peça para colegas ou para a pessoa mentora que criem um web token de bug gerado [no Canarytokens (em inglês)](https://canarytokens.org/generate#). Abra o web bug na sua máquina de análise. Isso fará com que a outra pessoa receba informações pelo e-mail utilizado para cadastrar o web bug, incluindo seu endereço IP e uma breve descrição do navegador chamado agente de usuário. Discuta estes resultados: caso estivesse conduzindo uma análise ativa, pessoas atacantes provavelmente também teriam acesso a suas informações, já que você estaria usando a mesma máquina para se conectar aos servidores controlados por elas.
 
 ## Recursos de aprendizagem
 
