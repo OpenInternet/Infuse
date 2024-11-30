@@ -13,7 +13,7 @@ Observe que interagir com sites maliciosos pode colocar quem os analisa em risco
 
 ## Objetivos
 
-Após concluir este subtópico, profissionais devem ser capazes de fazer o seguinte:
+Após concluir este módulo, profissionais devem ser capazes de fazer o seguinte:
 
 - Analisar os sites controlados por atacantes através da leitura do código-fonte usando os recursos de inspeção dos navegadores e opcionalmente usando ferramentas como interceptação de proxies ou depuradores de JavaScript.
 - Descobrir com quais outras infraestruturas esses sites poderiam se conectar, procurando URLs, redirecionamentos, domínios vinculados e outros ativos ou identificadores.
@@ -61,17 +61,17 @@ O primeiro passo quando você estiver pronto para inspecionar um site vinculado 
 - 🧰 Ferramentas como [UrlScan](https://urlscan.io/) permitem a execução de uma análise de um URL. Tome nota sobre alguns dos principais recursos que usaremos para interpretar os resultados:
 
     - Ao executar uma análise, escolha entre Public, Unlisted, or Private. Você pode ler uma explicação mais detalhada sobre as diferenças entre os tipos de análise na [documentação do UrlScan](https://urlscan.io/docs/api/), mas saiba de antemão que uma análise Public (a opção padrão) listará o URL na página inicial do UrlScan.
-    - Imagem ao vivo do site (este pode ser o primeiro passo de uma triagem simples se o modelo de ameaça permitir que você inicie esta análise)
-    - Informações de domínio e IP
-    - Recursos carregados, incluindo scripts e AJAX (aba _HTTP_)
-    - Elementos dinâmicos, cookies, variáveis ​​(aba _Behaviour_)
-    - Redirecionamentos (se houver)
-    - Indicadores como domínios, IPs, strings, hashes (aba _Indicators_)
+    - Imagem ao vivo do site (este pode ser o primeiro passo de uma triagem simples se o modelo de ameaça permitir que você inicie esta análise).
+    - Informações de domínio e IP.
+    - Recursos carregados, incluindo scripts e AJAX (aba _HTTP_).
+    - Elementos dinâmicos, cookies, variáveis ​​(aba _Behaviour_).
+    - Redirecionamentos (se houver).
+    - Indicadores como domínios, IPs, strings, hashes (aba _Indicators_).
         - Um hash é como uma pequena impressão digital de um arquivo — ele pode ser usado para identificar um arquivo único sem revelar seu conteúdo. Você pode calcular um hash usando [a linha de comando no Windows, macOS e Linux](https://techdocs.akamai.com/download-ctr/docs/verify-checksum).
-    - Conteúdo, como formulários (aba _Content_)
-    - Tecnologias usadas (como um CMS)
-    - Vereditos (caso outros tenham sinalizado a URL como maliciosa)
-    - Botão _Lookup_ para verificar o site em outros mecanismos de análise
+    - Conteúdo, como formulários (aba _Content_).
+    - Tecnologias usadas (como um CMS).
+    - Vereditos (caso outros tenham sinalizado a URL como maliciosa).
+    - Botão _Lookup_ para verificar o site em outros mecanismos de análise.
 
 - 🧰 [Hybrid Analysis](https://www.hybrid-analysis.com/) é uma sandbox hospedada que pode carregar uma página web em um ambiente de teste e comparar o comportamento do site com várias heurísticas de atividade maliciosa e verificar indicadores internos contra ameaças conhecidas. Observe alguns dos principais recursos e as habilidades necessárias para interpretar os resultados:
     - Após enviar uma URL, selecione o ambiente a ser usado como sandbox. Caso você selecione ‘Quick Scan’, uma execução completa do sandbox não ocorrerá, mas sim um conjunto menor de análises estáticas e verificações de indicadores.
@@ -88,32 +88,33 @@ Uma das formas mais simples de analisarmos um site é [utilizando a ferramenta d
 Como visto no artigo da Human Rights Watch linkado acima, utilizar meios programáticos para aplicar força bruta em URLs é uma técnica bastante comum durante OSINT. Há muitas ferramentas e abordagens possíveis de serem aprendidas:
 
 - OWASP [DirBuster](https://gitlab.com/kalilinux/packages/dirbuster)
-- Wordlist Generators: frequentemente usadas para descobertas de senha, listas de palavras são também utilizadas em ataques de força bruta em pastas e subdomínios. Tais listas trabalharão em conjunto com as ferramentas listadas anteriormente. Observe ferramentas como Crunch ([Tutorial 1](https://www.hackers-arise.com/post/creating-a-custom-wordlist-with-crunch) | [Tutorial 2](https://null-byte.wonderhowto.com/how-to/tutorial-create-wordlists-with-crunch-0165931/))
+- Wordlist Generators: frequentemente usadas para descobertas de senha, listas de palavras são também utilizadas em ataques de força bruta em pastas e subdomínios. Tais listas trabalharão em conjunto com as ferramentas listadas anteriormente. Observe ferramentas como Crunch ([Tutorial 1](https://www.hackers-arise.com/post/creating-a-custom-wordlist-with-crunch) | [Tutorial 2](https://null-byte.wonderhowto.com/how-to/tutorial-create-wordlists-with-crunch-0165931/)).
 
 #### Análise de kits de phishing
 
 A maioria dos ataques que você encontrará vai utilizar um kit previamente construído ou modificado de phishing, uma coleção de códigos e templates/modelos que permitem que atacantes construam um site convincente de phishing. Alguns destes kits possuem indicativos; muitos deles, por exemplo, utilizam de certos mecanismos para evitar serem [detectados e indexados por buscadores](https://arxiv.org/pdf/2210.08273.pdf), e podem até recusar carregamento a partir [do endereço IP de buscadores web ou empresas de segurança](https://blog.sucuri.net/2017/07/protecting-phishing-pages-via-htaccess.html).
 
-Alguns kits de phishing também são capazes de burlar autenticação multifator, por exemplo, capturando um código que uma pessoa alvo digitou e imediatamente utilizando-o para fazer login na página real, como se fosse a própria pessoa. [Este artigo é um ótimo relatório](https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/) sobre como um um kit de phishing de código aberto utilizado por times de segurança que testam mecanismos de segurança podem capturar e utilizar dados de autenticação de 2 fatores (e o que pode ser feito para preveni-lo). Você também pode [conferir outro relatório de um kit de phishing](https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/) (este kit foi escrito por cibercriminosos, e não por pesquisadores de segurança), com contorno de MFA (_Multifactor Authentication_) e técnicas fascinantes para evasão de detecção.
+Alguns kits de phishing também são capazes de burlar autenticação multifator, por exemplo, capturando um código que uma pessoa alvo digitou e imediatamente utilizando-o para fazer login na página real, como se fosse a própria pessoa. [Este artigo é um ótimo relatório](https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/) sobre como um um kit de phishing de código aberto utilizado por times de segurança que testam mecanismos de segurança podem capturar e utilizar dados de autenticação de 2 fatores (e o que pode ser feito para preveni-lo). Você também pode [conferir outro relatório de um kit de phishing](https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/) (este kit foi escrito por cibercriminosos, e não por pesquisadores de segurança), com contorno de MFA (_Multi-Factor Authentication_) e técnicas fascinantes para evasão de detecção.
 
 ## Atividade prática
 
-- [Leia o seguinte artigo](https://www.linkedin.com/pulse/security-analyst-skills-pt-1-qualifying-domains-craig-smith), que mostra como analisar uma página usando urlscan.io. Conduza as mesmas buscas e análises do artigo, e considere as formas como o autor chegou às conclusões alcançadas.
+- [Leia o seguinte artigo](https://www.linkedin.com/pulse/security-analyst-skills-pt-1-qualifying-domains-craig-smith), que mostra como analisar uma página usando URLScan. Conduza as mesmas buscas e análises do artigo, e considere as formas como o autor chegou às conclusões alcançadas.
 - [Leia atentamente uma segunda análise](https://www.linkedin.com/pulse/security-analyst-skills-pt-2-techniques-analyzing-web-craig-smith) do mesmo autor. Acompanhe os links fornecidos de VirusTotal, UrlScan, e Hybrid Analysis, e veja se consegue entender como ele chegou às conclusões do texto.
 
 ## Checagem de habilidades
 
 - Complete a sala [Walking An Application](https://tryhackme.com/room/walkinganapplication) do TryHackMe.
-- Dê uma olhada na [tarefa dois](https://tryhackme.com/room/activerecon) da sala Active Reconnaissance do TryHackMe.
-- Analise um site malicioso (um domínio listado no [PhishTank](https://phishtank.org/), por exemplo) utilizando uma mistura de análise passiva e ativa, certificando-se de que a análise ativa seja feita em uma sandbox, ou com ferramentas como UrlScan. Responda às seguintes questões sobre o site, e discuta as respostas com colegas ou quem está te mentorando:
+- Dê uma olhada na [segunda tarefa](https://tryhackme.com/room/activerecon) da sala Active Reconnaissance do TryHackMe.
+- Analise um site malicioso (um domínio listado no [PhishTank](https://phishtank.org/), por exemplo) utilizando uma mistura de análises passiva e ativa, certificando-se de que a análise ativa seja feita em uma sandbox, ou com ferramentas como UrlScan. Responda às seguintes questões sobre o site, e discuta as respostas com colegas ou quem está te mentorando:
   - De quem é a infraestrutura que está hospedando o site?
   - Que outros domínios o site carrega, ou referencia? O que eles fazem?
   - Quando o domínio foi registrado?
-  - (Opcional) Que software está sendo utilizado no site?
+  - (Opcional) Que software(s) está(ão) sendo utilizado(s) no site?
   - O site foi listado como malicioso por outras pessoas?
+
 ## Recursos de aprendizagem
 
-{{% resource title="Irã: Comprometimento de ativistas, jornalistas, políticos financiado pelo Estado" languages="Inglês" cost="Grátis" description="Um bom relatório de análise de uma campanha de phishing bastante sofisticada que tinha como alvo grupos da sociedade civil. Ele inclui extensas discussões a respeito de infraestrutura e atribuição." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
+{{% resource title="Irã: comprometimento de ativistas, jornalistas, políticos, financiado pelo Estado" languages="Inglês" cost="Grátis" description="Um bom relatório de análise de uma campanha de phishing bastante sofisticada que tinha como alvo grupos da sociedade civil. Ele inclui extensas discussões a respeito de infraestrutura e atribuição." url="https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians" %}}
 
 {{% resource title="Ascensão de Guccifer? Campanha de phishing com duração de meses tem como alvo dezenas de jornalistas e ONGs com foco na Rússia" languages="Inglês" cost="Grátis" description="Um relatório de uma campanha de phishing anterior que tinha como alvo grupos da sociedade civil realizando trabalhos relacionados à Rússia. O ataque envolveu evasão de autenticação multi-fatores." url="https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/" %}}
 
@@ -121,7 +122,7 @@ Alguns kits de phishing também são capazes de burlar autenticação multifator
 
 {{% resource title="Hybrid Analysis" languages="Inglês" cost="Grátis" description="Uma ferramenta capaz de analisar arquivos e links, tentando identificar conteúdo ou comportamento malicioso. Diferente do UrlScan, ele também pode inspecionar amostras de malware ou abrir arquivos executáveis." url="https://www.hybrid-analysis.com/" %}}
 
-{{% resource title="Aprenda JavaScript" languages="Inglês" cost="Grátis" description="Além de HTML, a maioria das páginas web usa JavaScript. Apesar de não ser necessário se tornar um especialista em JavaScript, aprender um pouco de JavaScript é importante para entender o que sites estão fazendo." url="https://www.codecademy.com/learn/introduction-to-javascript" %}}
+{{% resource title="Aprenda JavaScript" languages="Inglês" cost="Grátis" description="Além de HTML, a maioria das páginas web usa JavaScript. Apesar de não ser necessário se tornar um especialista, aprender um pouco de JavaScript é importante para entender o que sites estão fazendo." url="https://www.codecademy.com/learn/introduction-to-javascript" %}}
 
 {{% resource title="Como inspecionar um elemento no Chrome, Safari, e Firefox" languages="Inglês" cost="Grátis" description="Todo grande navegador agora oferece uma funcionalidade de inspeção de elementos. Essa ferramenta te permite estudar e modificar componentes de código de uma página web. Este artigo oferece uma visão geral dessa funcionalidade, e mostra como ativá-la nos principais navegadores." url="https://blog.hubspot.com/website/how-to-inspect" %}}
 
