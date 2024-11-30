@@ -1,18 +1,18 @@
 ---
 style: module
-title: Resposta - Derrubada de Infraestrutura
+title: Resposta - Derrubada de infraestrutura
 description: Neste módulo, falaremos sobre formas de denunciar conteúdo e comportamento abusivo e outros mecanismos de navegação segura e sumidouro. Eles incluem contatar o provedor de infraestrutura para denunciarmos o seu uso malicioso para que ela possa ser derrubada.
 weight: 9
 ---
 
 ## Caso de uso
-Nos subtópicos anteriores, nós estudamos como identificar infraestruturas que hospedam conteúdo malicioso — seja ele *spam* (conteúdo indesejado de envio em massa), *malware*, ou *phishing* (uma "isca" para "fisgar" a atenção de alguém). Uma vez que essa infraestrutura seja identificada com sucesso, nós precisamos alertar outras pessoas sobre essa ocorrrência. Neste subtópico, falaremos sobre formas de denunciar conteúdo e comportamento abusivo e outros mecanismos de navegação segura e *sinkhole* (sumidouro). Eles incluem contatar o provedor de infraestrutura para denunciarmos o seu uso malicioso para que ela possa ser derrubada.
+Nos módulos anteriores, nós estudamos como identificar infraestruturas que hospedam conteúdo malicioso — seja ele *spam* (conteúdo indesejado de envio em massa), *malware*, ou *phishing* (uma "isca" para "fisgar" a atenção de alguém). Uma vez que essa infraestrutura seja identificada com sucesso, nós precisamos alertar outras pessoas sobre essa ocorrrência. Neste módulo, falaremos sobre formas de denunciar conteúdo e comportamento abusivo e outros mecanismos de navegação segura e *sinkhole* (sumidouro). Eles incluem contatar o provedor de infraestrutura para denunciarmos o seu uso malicioso para que ela possa ser derrubada.
 
 Você deve combinar essas técnicas e esforços com atividades maiores de resposta a incidentes e aproximação de comunidades que também podem ter recebido ataques direcionados provindos da mesma infraestrutura.
 
 ## Objetivos
 
-Após o estudo deste subtópico, profissionais devem ser capazes de:
+Após o estudo deste módulo, profissionais devem ser capazes de:
 
 - Demonstrar um entendimento básico sobre o processo de denúncia e compilação de denúncias em bancos de dados;
 - Identificar bancos de dados de denúncias que listam URLs e domínios suspeitos de serem maliciosos;
@@ -95,15 +95,15 @@ Trabalhe com quem está te mentorando ou colegas que tenham alguma experiência 
 
 {{% resource title="RIPEstat launchpad" languages="Inglês, espanhol, árabe, russo, francês, persa, italiano, turco" cost="Grátis" description="Um serviço que te permite consultar e listar mecanismos de denúncia relevantes." url="https://stat.ripe.net/app/launchpad" %}}
 
-{{% resource title="Introdução - Abusix" languages="Inglês" cost="Grátis" description="Uma introdução ao banco de dados chamado Abuse Contact" url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
+{{% resource title="Introdução - Abusix" languages="Inglês" cost="Grátis" description="Uma introdução ao banco de dados chamado Abuse Contact." url="https://docs.abusix.com/abuse-contact-db/5BScLdS3SxHV1giQYpXpKm/getting-started/rGzH6UQZpzjXBhqtjNqRee" %}}
 
-{{% resource title="Canal de denúncias do Twilio" languages="Inglês" cost="Gratuito" description="Você você denunciar ligações ou mensagens SMS indesejadas enviadas por números de telefone do Twilio aqui." url="https://www.twilio.com/en-us/help/abuse" %}}
+{{% resource title="Canal de denúncias do Twilio" languages="Inglês" cost="Gratuito" description="Link para denunciar ligações ou mensagens SMS indesejadas enviadas por números de telefone do Twilio." url="https://www.twilio.com/en-us/help/abuse" %}}
 
-{{% resource title="Canal de denúncia do Mailchimp" languages="Inglês" cost="Grátis" description="Você você denunciar abusos na plataforma do Mailchimp aqui." url="https://mailchimp.com/contact/abuse/" %}}
+{{% resource title="Canal de denúncia do Mailchimp" languages="Inglês" cost="Grátis" description="Link para denunciar abusos na plataforma do Mailchimp." url="https://mailchimp.com/contact/abuse/" %}}
 
 {{% resource title="CiviCERT" languages="Inglês" cost="Grátis" description="Uma rede de profissionais de segurança que ajudam a sociedade civil na resposta a questões de segurança digital." url="https://www.civicert.org/" %}}
 
-{{% resource title="Modelos de e-mail que podemos usar para denunciar atividade maliciosa" languages="Inglês" cost="Grátis" description="Três modelos de e-mail que podem te ajudar a escrever uma mensagem para provedores de serviços ou clientes para informá-los sobre a presença de uma infraestrutura maliciosa. Registradores de domínio: [Link](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html), provedores de hospedagem: [Link](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html), clientes: [Link](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html)" %}}
+{{% resource title="Modelos de e-mail para denúncia de atividade maliciosa" languages="Inglês" cost="Grátis" description="Três modelos de e-mail que podem te ajudar a escrever uma mensagem para provedores de serviços ou clientes para informá-los sobre a presença de uma infraestrutura maliciosa. [Registradores de domínio](https://accessnowhelpline.gitlab.io/community-documentation/259-Disable_Malicious_Server_registrar.html), [provedores de hospedagem](https://accessnowhelpline.gitlab.io/community-documentation/260-Disable_Malicious_Server_hosting_provider.html), [clientes](https://accessnowhelpline.gitlab.io/community-documentation/261-Disable_Malicious_Server_client.html)" %}}
 
 {{% resource title="Submeter uma denúncia ao SafeBrowsing" languages="Inglês" cost="Grátis" description="Canal de denúncias da ferramenta do SafeBrowsing, um banco de dados mantido pelo Google que alcança muitos usuários." url="https://safebrowsing.google.com/safebrowsing/report_general/" %}}
 
