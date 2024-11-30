@@ -10,7 +10,7 @@ Ao receber mensagem suspeita, ainda que encaminhada, conduza uma triagem inicial
 
 ## Objetivos
 
-Após completar este subtópico, e tendo como base alguns indicadores heurísticos, a distinção entre e-mails legítimos, spam, e-mails de phishing e aqueles com alvo deve ser nítida.
+Após completar este módulo, e tendo como base alguns indicadores heurísticos, a distinção entre e-mails legítimos, spam, e-mails de phishing e aqueles com alvo deve ser nítida.
 
 - - -
 
