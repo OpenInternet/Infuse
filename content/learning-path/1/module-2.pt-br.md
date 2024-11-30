@@ -35,9 +35,9 @@ Assim que você se familiarizar com os conhecimentos básicos citados acima, tom
 
 Você deve:
 
-* Entender como se comunicar sobre phishing e infraestruturas maliciosas da forma mais empática possível. Todo mundo pode acabar clicando em um link ou confundindo URLs. Certifique-se de não envergonhar ninguém. Ao discutir casos de estudo publicamente, faça-o com cuidado e com empatia para não culpar alguém especificamente, nem identificar quem prefere se manter no anonimato; 
+* Entender como se comunicar sobre phishing e infraestruturas maliciosas da forma mais empática possível. Qualquer pessoa pode acabar clicando em um link ou confundindo URLs. Certifique-se de não envergonhar ninguém. Ao discutir casos de estudo publicamente, faça-o com cuidado e com empatia para não culpar alguém especificamente, nem identificar quem prefere se manter no anonimato; 
 * Ter preparo para discutir sobre as diferenças entre as análises passiva e ativa da infraestrutura de tolerância a riscos;
-* Ser capaz de explicar como o mesmo método de análise às vezes pode render grande quantidade de dados, às vezes muito pouca, e gerencie as expectativas de acordo.
+* Ser capaz de explicar como o mesmo método de análise às vezes pode render grande quantidade de dados, às vezes muito pouca, e de gerenciar as expectativas de acordo.
 
 Note que as habilidades dispostas no fim dessa trilha de aprendizagem também contêm recomendações de desenvolvimento de habilidades interpessoais para fornecer apoio atento e que reduza danos.
 
@@ -45,7 +45,7 @@ Note que as habilidades dispostas no fim dessa trilha de aprendizagem também co
 
 No momento em que um e-mail de phishing é compartilhado com você, é possível que o alvo planejado já tenha sofrido danos: pode ser que já tenham clicado no e-mail e fornecido dados, ou pode ser que tenham sofrido impacto psicossocial por se sentirem em ameaça ou monitoramento. É importante apoiar a pessoa alvo e, ao mesmo tempo, evitar causar mais dano durante a interação ativa com o conteúdo malicioso.
 
-A redução de danos à pessoa alvo deve começar com a coleta de informações sobre as ações tomadas e circunstâncias ao redor do e-mail recebido. Pode-se fazer diversas perguntas para pessoas que você conhece bem, como colegas, e aquelas beneficiárias que você conhece menos. Algumas perguntas úteis são: qual a sua modelagem de ameaças? Você é uma pessoa blogueira anônima? Ou uma pessoa dissidente em exílio querendo ocultar sua localização? Estava usando VPN? O navegador e sistema operacional estão atualizados? Com que gerenciador de e-mail você recebeu e abriu a mensagem? Houve interação com links, formulários, ou anexos? O e-mail foi respondido, ou encaminhado para alguém? Outras pessoas na mesma organização ou comunidade receberam o mesmo e-mail, ou parecido?
+A redução de danos à pessoa alvo deve começar com a coleta de informações sobre as ações tomadas e circunstâncias ao redor do e-mail recebido. Pode-se fazer diversas perguntas para pessoas que você conhece bem, como colegas, e aquelas beneficiárias que você conhece menos. Algumas perguntas úteis são: qual a sua modelagem de ameaças? Você é uma pessoa blogueira anônima? Ou uma pessoa dissidente em exílio querendo ocultar sua localização? Estava usando VPN? O navegador e sistema operacional estão atualizados? Com que gerenciador de e-mail você recebeu e abriu a mensagem? Houve interação com links, formulários, ou anexos? O e-mail foi respondido, ou encaminhado para alguém? Outras pessoas na mesma organização ou comunidade receberam o mesmo e-mail, ou um parecido?
 
 As respostas a essas perguntas ajudarão no apoio de redução de danos e nas investigações. Conforme for progredindo na análise e entendimento do conteúdo malicioso, mantenha a pessoa alvo atualizada, especialmente no que for relevante para a redução de danos.
 
