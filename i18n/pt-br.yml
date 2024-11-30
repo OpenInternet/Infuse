@@ -3,7 +3,7 @@ key:
   - id: hero-title
     translation:
       one: null
-      other: Elevando a Conhecimento de Protetores Digitais
+      other: Elevando o Conhecimento de Protetores Digitais
   - id: hero-subtitle
     translation:
       one: null
@@ -367,7 +367,7 @@ key:
   - id: overview-path
     translation:
       one: null
-      other: Página de resumo
+      other: Página da trilha
   - id: languages
     translation:
       one: Idioma
@@ -426,8 +426,8 @@ key:
       other: Sumário
   - id: wordCount
     translation:
-      one: Uma Palavra
-      other: "{{ .Count }} Palavras"
+      one: Uma palavra
+      other: "{{ .Count }} palavras"
   - id: publishDate
     translation:
       one: null

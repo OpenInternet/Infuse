@@ -1,6 +1,6 @@
 ---
 style: module
-title: "Habilidades interpessoais para infraestrutura maliciosa/ resposta a phishing"
+title: "Habilidades interpessoais para infraestrutura maliciosa e resposta a phishing"
 description: "Após completar este módulo, profissionais serão capazes de apoiar pessoas que podem ter recebido ou clicado em e-mails maliciosos ou links, de maneira responsável, empática, e com foco na redução de danos a partir da modelagem de ameaças fornecida."
 
 weight: 2
