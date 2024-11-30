@@ -17,7 +17,7 @@ Este módulo lida com a análise do _corpo_ de um e-mail malicioso, enquanto o m
 
 ## Objetivos
 
-Após concluir este subtópico, profissionais devem ser capazes de fazer o seguinte:
+Após concluir este módulo, profissionais devem ser capazes de fazer o seguinte:
 
 - Analisar o código HTML de um e-mail e entender o básico de MIME;
 - Entender e detectar pixels de rastreamento e conteúdo ativo semelhante;
@@ -26,7 +26,7 @@ Após concluir este subtópico, profissionais devem ser capazes de fazer o segui
 ---
 ## Seção principal
 
-### Conhecimento fundamental: E-mails HTML e MIME
+### Conhecimento fundamental: e-mails HTML e MIME
 
 Para praticar isto, você precisa entender o básico de e-mails HTML e MIME. Se achar necessário relembrar um pouco desse tópico, consulte alguns dos recursos sobre os tópicos-chave abaixo:
 
@@ -35,9 +35,9 @@ Para praticar isto, você precisa entender o básico de e-mails HTML e MIME. Se 
 - Saber algo sobre HTML é inevitável, e recursos como [W3Schools](https://www.w3schools.com/html/) podem te oferecer um bom ponto de partida. Observe também que alguns clientes de e-mail (por exemplo, Outlook) não te permitem baixar todo o corpo do e-mail.
 - MIME é um padrão da Internet que estende o formato de e-mails além dos e-mails de texto simples e permite texto em conjuntos de caracteres que não sejam ASCII, anexos que não são em formato de texto, corpos de mensagens com várias partes e informações de cabeçalho em conjuntos de caracteres que não são ASCII. Funcionalidades MIME podem ser abusadas para ocultar conteúdo e anexar conteúdo malicioso. [Este artigo da Wikipédia](https://en.wikipedia.org/wiki/MIME) fornece uma boa introdução inicial.
 
-### Identificando potenciais ameaças: Imagens incorporadas e Pixels rastreadores
+### Identificando potenciais ameaças: imagens incorporadas e pixels rastreadores
 
-Ao investigar e-mails potencialmente maliciosos para descobrir infraestrutura de atacantes, não procure apenas por links e anexos. Os atacantes podem incluir rastreadores em seus e-mails, assim como os profissionais de marketing. [Este artigo para profissionais de marketing](https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work) explica como funciona o rastreamento de e-mail. Observe que qualquer recurso carregado na Web, não apenas imagens, pode ser usado para rastreamento. Revise os tipos de informações que podem ser obtidas através de um pixel rastreador ou um elemento rastreador, incluindo informações de IP (geolocalização) e dados únicos de navegador. A Internews criou um exercício de treinamento (descrito na seção de prática abaixo) que ajudará você a se familiarizar com os rastreadores e algumas das informações que eles podem identificar.
+Ao investigar e-mails potencialmente maliciosos para descobrir infraestrutura de atacantes, não procure apenas por links e anexos. Os atacantes podem incluir rastreadores em seus e-mails, assim como os profissionais de marketing. [Este artigo para profissionais de marketing](https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work) explica como funciona o rastreamento de e-mail. Observe que qualquer recurso carregado na web, não apenas imagens, pode ser usado para rastreamento. Revise os tipos de informações que podem ser obtidas através de um pixel rastreador ou um elemento rastreador, incluindo informações de IP (geolocalização) e dados únicos de navegador. A Internews criou um exercício de treinamento (descrito na seção de prática abaixo) que ajudará você a se familiarizar com os rastreadores e algumas das informações que eles podem identificar.
 
 ### Ferramentas e fluxo de trabalho para análise de e-mails maliciosos
 
