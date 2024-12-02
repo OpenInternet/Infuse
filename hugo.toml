@@ -109,6 +109,13 @@ pluralizeListTitles = false
     languageName = "Arabic (coming soon)"
     direction = "rtl"
 
+  [languages.pt-br]
+  languageName = "Brazilian Portuguese"
+  weight    = 5
+  [languages.pt-br.params]
+    languageName = "Brazilian Portuguese"
+    direction = "ltr"
+
 [privacy]
   [privacy.instagram]
     disable = false
