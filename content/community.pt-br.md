@@ -3,6 +3,9 @@ title: Comunidade
 weight: 4
 navbar: true
 ---
+
+⚠️ Esta página será traduzida em breve; enquanto isso, aqui está o texto original em inglês:
+
 ## Mentorship
 
 ### Role of Mentorship for Infuse

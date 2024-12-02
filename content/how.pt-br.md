@@ -3,6 +3,9 @@ title: Como funciona
 weight: 2
 navbar: true
 ---
+
+⚠️ Esta página será traduzida em breve; enquanto isso, aqui está o texto original em inglês:
+
 ## General instructions
 
 You will find on the [homepage](https://infuse.quest/en/) a number of ***[learning paths](/en/badge-descriptions/)*** which help you gain specialized technical expertise in a given topic. Some of these learning paths focus on different aspects of a related topic, while others stand alone. In the case of some of the linked learning paths, there may be a sequential relationship between them, where foundational skills are covered first and permit the development of deeper analysis and support skills. Your **first step** will be reading the **Introduction module** for your chosen learning path, which contains an overview (an explanation of the skill being developed, its relevance to civil society, media and other high-risk user contexts for whom digital protectors serve), the prerequisites assumed to be in place before starting the learning path, and the devices and/or software you require. You should consider whether the learning path of interest is relevant for your work and the communities you support, whether you have the prerequisites or can obtain them prior to following the learning path, and whether the necessary hardware and software are available to you. 

@@ -3,6 +3,9 @@ title: Contribuir
 weight: 3
 navbar: true
 ---
+
+⚠️ Esta página será traduzida em breve; enquanto isso, aqui está o texto original em inglês:
+
 ## Submitting contributions and feedback
 
 Infuse is Open Source! We welcome any efforts you make to report issues, propose opportunities to collaborate on developing content, directly contributing content, adding new resources, making corrections, or providing further translations. A coalition of organizations ([Conexo](https://conexo.org/), [DefendDefenders](https://defenddefenders.org/), and [Internews](https://internews.org/)) maintain the site and will review all contributions made. Please allow up to two weeks for a response and understand that there may be limitations in the actions which can be taken to address feedback. You can submit general feedback and requests for support to [contact@infuse.quest](mailto:contact@infuse.quest) in order to reach the project maintainers. 
