@@ -14,28 +14,20 @@ jobs:
       - name: Checkout code with full history
         uses: actions/checkout@v2
         with:
-          fetch-depth: 0  # Fetch the full commit history
+          fetch-depth: 1  # Use shallow clone to speed up checkout
 
       - name: Check if PR is from a fork and if deploy.yml was modified
         run: |
-          # Check if the PR is from a fork
           if [[ "${{ github.event.pull_request.head.repo.fork }}" == "true" ]]; then
             echo "PR is from a fork. Fetching deploy.yml from the main repository."
-            
-            # Fetch the specific deploy.yml file from the main repository
-            git fetch origin main:.github/workflows/deploy.yml --depth=1
-
-            # Check if deploy.yml has been modified between the fork and the main branch
-            MODIFIED_FILES=$(git diff --name-only origin/main .github/workflows/deploy.yml)
+            git fetch origin main --depth=1  # Fetch the main branch
+            git checkout origin/main -- .github/workflows/deploy.yml  # Checkout only deploy.yml
+            MODIFIED_FILES=$(git diff --name-only HEAD .github/workflows/deploy.yml)
 
             if echo "$MODIFIED_FILES" | grep -q ".github/workflows/deploy.yml"; then
               echo "Deploy.yml was modified in a PR from a fork. Aborting workflow."
               exit 1
-            else
-              echo "PR from fork, but deploy.yml was not modified. Proceeding with workflow."
             fi
-          else
-            echo "PR is not from a fork. Proceeding with workflow."
           fi
           
   build:
