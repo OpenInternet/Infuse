@@ -94,7 +94,7 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GH_PAT_PR }}
+        personal_token: ${{ secrets.GH_PAT_PR }}
         publish_dir: ./public
         destination_dir: pr-${{ github.event.pull_request.number }}
 
@@ -107,15 +107,13 @@ jobs:
 
     - name: Post Preview URL in PR Comments
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_PAT_PR }}
       run: |
         PR_NUMBER=${{ github.event.pull_request.number }}
         BASE_URL="https://infuse.quest/pr-${PR_NUMBER}"
         COMMENT="🌐 Preview your changes here:\n"
         COMMENT="${COMMENT}: [${BASE_URL}/en](${BASE_URL}/en)\n"
         curl -X POST \
-          -H "Authorization: token $GITHUB_TOKEN" \
+          -H "Authorization: token ${{ secrets.GH_PAT_PR }}" \
           -H "Content-Type: application/json" \
           -d "{\"body\": \"${COMMENT}\"}" \
           "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
@@ -128,6 +126,6 @@ jobs:
     - name: Remove Preview Deployment
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        personal_token: ${{ secrets.GH_PAT_PR }}
         destination_dir: pr-${{ github.event.pull_request.number }}
         remove_files: true
