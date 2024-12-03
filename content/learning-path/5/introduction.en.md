@@ -56,11 +56,10 @@ Web application assessment skills can help respond to hacking threats by:
 - If you are running macOS, it’s a good idea to install [Homebrew](https://brew.sh/) or [Macports](https://www.macports.org/); those are package managers which can automate the process of installing some of the tools outlined throughout the learning path.
 - Alternatively, if you have an installation of Kali Linux (you can use the same one you used for the Web Application Security Fundamentals learning path), most of the tools outlined below should already come pre-installed.
 - If you are running Windows, we recommend you install WSL (Windows Subsystem for Linux) to run some of the tools outlined below. While many of them can run in Docker, those which require Python might be much easier to run within WSL, which will require less fiddling with dependencies.
-  _ Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-  _ Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
-  _ Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
-  _ Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command \
-  `wsl --set-default-version 2` \* The output from this command will look like:
+  - Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+  - Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
+  - Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
+  - Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command  `wsl --set-default-version 2` The output from this command will look like:
 
   ```
   For information on key differences with WSL 2 please visit https://aka.ms/wsl2
