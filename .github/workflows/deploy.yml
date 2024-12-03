@@ -20,8 +20,13 @@ jobs:
         run: |
           # Check if the PR is from a fork
           if [[ "${{ github.event.pull_request.head.repo.fork }}" == "true" ]]; then
-            # Check if deploy.yml has been modified in the PR
-            MODIFIED_FILES=$(git diff --name-only ${{ github.event.before }} ${{ github.sha }})
+            echo "PR is from a fork. Fetching deploy.yml from the main repository."
+            
+            # Fetch the specific deploy.yml file from the main repository
+            git fetch origin main:.github/workflows/deploy.yml --depth=1
+
+            # Check if deploy.yml has been modified between the fork and the main branch
+            MODIFIED_FILES=$(git diff --name-only origin/main .github/workflows/deploy.yml)
 
             if echo "$MODIFIED_FILES" | grep -q ".github/workflows/deploy.yml"; then
               echo "Deploy.yml was modified in a PR from a fork. Aborting workflow."
