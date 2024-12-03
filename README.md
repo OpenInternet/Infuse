@@ -51,6 +51,46 @@ Additionally, in order to build the search index we have to run the following co
 
 With this we're ready to start editing the website. If we do not want to make changes to the CSS or use the CMS locally, we can just run the `hugo server` command and start editing the markdown files.
 
+## Updating Dependencies
+
+### Hugo Version
+The website deployment workflow is set up using **GitHub Actions**, which ensures that the **latest Hugo version** is always used. This process is fully automated, so there is **no need to manually update Hugo**. The deployment system handles this seamlessly in the backend.
+
+---
+
+### NPM Dependencies
+
+The website uses 5 npm dependencies:
+
+1. **TailwindCSS** – The primary CSS framework.
+2. **Tailwind Typography Plugin** – For enhanced typography styling.
+3. **Tailwind Forms Plugin** – Improves form styles (used in login/sign-up pages and general forms).
+4. **Prettier Plugin for TailwindCSS** – Makes code more readable and consistent.
+5. **Additional Tailwind Plugins** – For extended functionality.
+
+To update these dependencies, run:
+```bash
+npm update
+```
+
+**Recommendation**: Update these dependencies no more than once every 2 months. While automating this is possible, we avoid frequent updates due to potential breaking changes introduced by new versions. For stability, the dependencies are currently locked to specific versions.
+
+### JavaScript Libraries
+
+The website also incorporates several JavaScript libraries to enhance functionality:
+
+- **Alpine.js** – Handles front-end interactivity and animations.
+- **Clean Insights** – For analytics.
+- **InstantPage** – Enables page preloading.
+- **jsPDF & svg2pdf** – Tools for PDF generation.
+
+These libraries can be updated manually by replacing the existing files with newer versions. However:
+
+- They are already stable and secure.
+- They do not currently have any known exploits or critical issues.
+
+**Important**: Before updating, carefully review the release notes of these libraries to ensure compatibility and avoid breaking changes.
+
 ## Docs
 
 For further changes and customization, refer to the [Hugo docs](https://gohugo.io/documentation/).
