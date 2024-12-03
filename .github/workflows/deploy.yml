@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened, closed]
 
 jobs:
@@ -94,7 +94,7 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
       uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+        github_token: ${{ secrets.GH_PAT_PR }}
         publish_dir: ./public
         destination_dir: pr-${{ github.event.pull_request.number }}
 
@@ -108,7 +108,7 @@ jobs:
     - name: Post Preview URL in PR Comments
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GH_PAT_PR }}
       run: |
         PR_NUMBER=${{ github.event.pull_request.number }}
         BASE_URL="https://infuse.quest/pr-${PR_NUMBER}"
