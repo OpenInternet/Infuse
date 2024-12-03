@@ -46,14 +46,6 @@ jobs:
         node-version: '20.16.0'
         cache: 'npm'
 
-    - name: Cache Hugo 
-      uses: actions/cache@v2
-      with:
-        path: ~/.hugo_cache
-        key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml') }}
-        restore-keys: |
-          ${{ runner.os }}-hugo-
-
     - name: Cache Hugo & Node modules
       uses: actions/cache@v2
       with:
@@ -65,6 +57,11 @@ jobs:
           ${{ runner.os }}-hugo-
           ${{ runner.os }}-npm-
 
+    - name: Install Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest' 
+          
     - name: Install dependencies
       run: |
         if [ -f package-lock.json ]; then
