@@ -3135,9 +3135,9 @@ details summary::marker {
   background-color: rgb(243 135 68 / var(--tw-bg-opacity));
 }
 
-.hover\:text-gray-400:hover {
+.hover\:text-gray-500:hover {
   --tw-text-opacity: 1;
-  color: rgb(169 162 157 / var(--tw-text-opacity));
+  color: rgb(121 113 107 / var(--tw-text-opacity));
 }
 
 .hover\:text-gray-600:hover {
