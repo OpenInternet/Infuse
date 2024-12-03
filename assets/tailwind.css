@@ -151,6 +151,10 @@ details summary::marker {
   @apply text-gray-700;
 }
 
+.prose code {
+  @apply break-all;
+}
+
 .toc-container {
   max-height: calc(100vh - 5rem);
 }

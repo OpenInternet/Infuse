@@ -2,7 +2,7 @@
     <nav aria-label="Global">
         <div class="mx-auto max-w-7xl px-6 lg:px-8" x-data="{ open: false }">
             <div class="relative flex h-16 items-center justify-between">
-                <div class="flex items-center sm:hidden">
+                <div class="flex items-center lg:hidden">
                     <!-- Mobile menu button-->
                     <button type="button" 
                             :aria-expanded="open.toString()" 
@@ -89,7 +89,7 @@
                             x-transition:leave="transition ease-in duration-75"
                             x-transition:leave-start="transform opacity-100 scale-100"
                             x-transition:leave-end="transform opacity-0 scale-95"
-                            class="absolute right-0 z-10 mt-2.5 w-24 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
+                            class="absolute right-0 z-10 mt-2.5 w-max origin-top-center rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
                             role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
                             {{ range $.Translations }}
                             <a title="{{ .Language.LanguageName }}" href="{{ .Permalink }}"
@@ -155,7 +155,7 @@
             </div>
 
             <!-- Mobile menu, show/hide based on menu state. -->
-            <div class="sm:hidden" id="mobile-menu" x-show="open" x-cloak>
+            <div class="lg:hidden" id="mobile-menu" x-show="open" x-cloak>
                 <div class="space-y-1 pb-3 pt-2">
                     {{ $currentPage := . }}
                     {{ range where .Site.Pages "Params.navbar" "=" true }}
