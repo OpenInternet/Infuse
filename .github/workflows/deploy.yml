@@ -11,6 +11,11 @@ jobs:
   check-fork-and-deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout code with full history
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0  # Fetch the full commit history
+
       - name: Check if PR is from a fork and if deploy.yml was modified
         run: |
           # Check if the PR is from a fork
@@ -27,7 +32,7 @@ jobs:
           else
             echo "PR is not from a fork. Proceeding with workflow."
           fi
-
+          
   build:
     runs-on: ubuntu-latest
     needs: check-fork-and-deploy
