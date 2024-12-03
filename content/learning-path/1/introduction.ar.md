@@ -1,6 +1,6 @@
 ---
 style: introduction
-title: Introduction
+title: مقدمة
 description:  كشف البنية التحتية الضارة وفحصها وتتبعها
 weight: 1
 ---
