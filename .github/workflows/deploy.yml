@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
+  pull_request_target:
     types: [opened, synchronize, reopened, closed]
 
 jobs:
@@ -46,7 +46,7 @@ jobs:
         node-version: '20.16.0'
         cache: 'npm'
 
-    - name: Cache Hugo
+    - name: Cache Hugo 
       uses: actions/cache@v2
       with:
         path: ~/.hugo_cache
@@ -54,13 +54,24 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-hugo-
 
-    - name: Install Hugo
-      uses: peaceiris/actions-hugo@v2
+    - name: Cache Hugo & Node modules
+      uses: actions/cache@v2
       with:
-        hugo-version: 'latest'
+        path: |
+          ~/.hugo_cache
+          node_modules
+        key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml') }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-
+          ${{ runner.os }}-npm-
 
     - name: Install dependencies
-      run: npm install
+      run: |
+        if [ -f package-lock.json ]; then
+          npm ci  # Faster installation when lockfile exists
+        else
+          npm install
+        fi
 
     - name: Build TailwindCSS
       run: npm run build-tw
@@ -76,7 +87,6 @@ jobs:
       if: github.ref == 'refs/heads/main'
       env:
         HUGO_ENVIRONMENT: production
-        HUGO_BASEURL: "https://infuse.quest/"
       run: hugo --minify -d ./public
 
     - name: Create CNAME file
