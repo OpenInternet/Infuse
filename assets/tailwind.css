@@ -168,6 +168,10 @@ details summary::marker {
   @apply w-full max-w-full;
 }
 
+#congratulationsModal[x-cloak] {
+  display: none !important;
+}
+
 @media print {
   body * {
     @apply invisible;
