@@ -112,7 +112,7 @@ jobs:
           node -e "
           const jwt = require('jsonwebtoken');
           const fs = require('fs');
-          const privateKey = fs.readFileSync('private-key.pem');
+          const privateKey = fs.readFileSync('private-key.pem', 'utf8');
           const token = jwt.sign({}, privateKey, {
             algorithm: 'RS256',
             expiresIn: '10m',
