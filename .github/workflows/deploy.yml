@@ -90,11 +90,44 @@ jobs:
       if: github.ref == 'refs/heads/main'
       run: echo 'infuse.quest' > public/CNAME
 
+    - name: Authenticate with GitHub App
+      id: github-app-auth
+      run: |
+        # Decode and save the private key from the INFUSE_DEPLOY_SECRET
+        echo "${{ secrets.INFUSE_DEPLOY_SECRET }}" | base64 -d > private-key.pem
+
+        # Generate a JWT for the GitHub App
+        npm install -g @technote-space/jwt-cli
+        APP_ID=1077537
+        JWT=$(jwt sign --secret private-key.pem --aud github --iss $APP_ID)
+
+        # Use the JWT to get an installation token
+        INSTALLATION_ID=$(curl -s -H "Authorization: Bearer $JWT" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/app/installations \
+          | jq -r '.[0].id')
+
+        INSTALLATION_TOKEN=$(curl -s -X POST \
+          -H "Authorization: Bearer $JWT" \
+          -H "Accept: application/vnd.github.v3+json" \
+          https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens \
+          | jq -r '.token')
+
+        echo "INSTALLATION_TOKEN=${INSTALLATION_TOKEN}" >> $GITHUB_ENV
+
     - name: Deploy PR Preview to GitHub Pages
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.GH_PAT_PR }}
+        personal_token: ${{ env.INSTALLATION_TOKEN }}
+        publish_dir: ./public
+        destination_dir: pr-${{ github.event.pull_request.number }}
+
+    - name: Deploy PR Preview to GitHub Pages
+      if: github.event_name == 'pull_request' && github.event.action != 'closed'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        personal_token: ${{ env.INSTALLATION_TOKEN }}
         publish_dir: ./public
         destination_dir: pr-${{ github.event.pull_request.number }}
 
@@ -113,7 +146,7 @@ jobs:
         COMMENT="🌐 Preview your changes here:\n"
         COMMENT="${COMMENT}: [${BASE_URL}/en](${BASE_URL}/en)\n"
         curl -X POST \
-          -H "Authorization: token ${{ secrets.GH_PAT_PR }}" \
+          -H "Authorization: token ${{ env.INSTALLATION_TOKEN }}" \
           -H "Content-Type: application/json" \
           -d "{\"body\": \"${COMMENT}\"}" \
           "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
@@ -126,6 +159,6 @@ jobs:
     - name: Remove Preview Deployment
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.GH_PAT_PR }}
+        personal_token: ${{ env.INSTALLATION_TOKEN }}
         destination_dir: pr-${{ github.event.pull_request.number }}
         remove_files: true
