@@ -104,7 +104,7 @@ jobs:
     steps:
       - name: Decode GitHub App private key
         run: |
-          echo "${{ secrets.INFUSE_DEPLOY_SECRET }}" | base64 -d > private-key.pem
+          echo "${{ secrets.INFUSE_DEPLOY_SECRET }}" > private-key.pem
 
       - name: Generate JWT for GitHub App
         run: |
