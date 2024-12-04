@@ -108,7 +108,7 @@ jobs:
 
       - name: Generate JWT for GitHub App
         run: |
-          npm install jsonwebtoken -g
+          npm install jsonwebtoken
           node -e "
           const jwt = require('jsonwebtoken');
           const fs = require('fs');
