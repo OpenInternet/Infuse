@@ -50,7 +50,7 @@ Angie Ballesteros \
 Cheekay Cinco \
 Carlos Guerra \
 [Cecilia Maundu](https://linktr.ee/digitaldada) \
-Houssem Kaabi \
+[Houssem Kaabi](https://www.linkedin.com/in/hkaabi) \
 [Michał "czesiek" Czyżewski](https://czesiek.net/) \
 [Jeremiah Blatz](https://jeremiahblatz.com/) \
 [Laura Tich](https://boltech.global/) \
