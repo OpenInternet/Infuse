@@ -51,7 +51,7 @@ Esto se hace comúnmente reemplazando la sección de protocolo de la URL con un 
 
 | Desde URL en directo                                               | A URL desarmada                   |
 |--------------------------------------------------------------------|-----------------------------------|
-| [https://www.sitio-malicioso.com](https://www.malicious-site.com)  | hxxps://www[.]sito-malicioso[.]com |
+| https://www.sitio-malicioso.com                                    | hxxps://www[.]sito-malicioso[.]com |
 | ftp://192.168.12.20                                                | fxp://192[.]168[.]12[.]20          |
 
 Esto puede hacerse manualmente utilizando un editor sólo de texto como NotePad, Textedit o Gedit. También vea utilidades como <https://defang.me/> o busque herramientas Defang en [CyberChef](https://gchq.github.io/CyberChef).

@@ -51,7 +51,7 @@ This is commonly done by replacing the protocol section of the URL with an inval
 
 | From live URL                                                      | To defanged URL                   |
 |--------------------------------------------------------------------|-----------------------------------|
-| [https://www.malicious-site.com](https://www.malicious-site.com)   | hxxps://www[.]malicious-site[.]com |
+| https://www.malicious-site.com                                     | hxxps://www[.]malicious-site[.]com |
 | ftp://192.168.12.20                                                | fxp://192[.]168[.]12[.]20          |
 
 
