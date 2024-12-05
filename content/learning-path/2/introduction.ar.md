@@ -1,70 +1,73 @@
 ---
-style: introduction
-title: Introduction
-description: "Read the learning path overview, objectives, associated threats, and prerequisites"
+style: مقدمة
+title: مقدمة
+description: "يُغطي مسار التعلّم هذا المعرفة والمهارات متوسطة المستوى اللازمة لكشف البرمجيات الضارة"
 weight: 1
 ---
 
-## Overview
+## نظرة عامة
+يُغطي مسار التعلّم هذا المعرفة والمهارات متوسطة المستوى اللازمة لكشف البرمجيات الضارة وتحديدها إما من عينة معينة أو تلك الفاعلة على جهاز على مجموعة متنوعة من منصات الجهاز. يمكن أن يكون الفرق بين البرمجيات الضارة وغيرها من البرمجيات دقيقًا جدًا ويتطلب التمتع بخبرة على مستوى متقدم لإجراء التحليل التفصيلي للعمليات والملفات الثنائية لتحديد ماهية البرمجيات الضارة في نهاية المطاف في بعض الأحيان، ولكن يمكن للمهارات التي يغطيها هذا المسار أن تمنحك دفعة لبدء جهود الكشف، حيث يغطي مسار التعلّم هذا:
 
-This learning path covers intermediate-level knowledge and skills needed to detect and identify malware either from a given sample, or actively operating on a device on a variety of device platforms. The distinction between malware and software can be very subtle, and a detailed analysis of processes and binaries to ultimately determine what is malware sometimes requires advanced-level expertise. However, the skills covered here will give you a start in detection efforts. This learning path covers:
+- المهارات الشخصية والاعتبارات الأخلاقية للتعامل مع الأشخاص الذين يحتمل أن تستهدفهم البرمجيات الضارة 
+- حماية خصوصية العميل وبياناته 
+- أدوات كشف البرمجيات الضارة الجاهزة للاستخدام
+- الطرق الثابتة والديناميكية لفحص عينة لتحديد ما إذا كانت ضارة
+- الطرق القائمة على الشبكة لفحص في عينة لتحديد ما إذا كانت ضارة
+- جمع البيانات لتحليلها من جهاز يحتمل أن يكون مصابًا والاحتفاظ الآمن بالعينات لإجراء التحليلات الإضافية
+- ما يجب القيام به بعد كشف البرمجيات الضارة: الفحص والتنظيف وإدارة المخاطر
+- تنظيف البرمجيات الضارة من الأنظمة المصابة
 
-- Soft skills and ethical considerations for engaging with people potentially targeted by malware
-- Protecting client’s’ privacy and data
-- Off-the-shelf malware detection tools
-- Static and dynamic methods of investigating a sample to determine if it is malicious
-- Network-based methods of investigating a sample to determine if it is malicious
-- Collecting data for analysis from a potentially infected device and safe retention of samples for further analysis
-- What to do after malware discovery: Investigation, clean-up, and risk management
-- Clean-up of malware from infected systems
+## قائمة القراءة المرجعية
 
-## Background reading
+📕 لطالما استخدم المتطفلون وبالأخص المدعمون من قبل الدول البرمجيات الضارة لمهاجمة مجموعات المجتمع المدني. تمكنّت هجمات من هذا النوع من [إغلاق موقع إخباري](https://www.amnesty.org/en/latest/research/2016/12/how-a-hacking-campaign-helped-shut-down-an-award-winning-news-site/) حيث قبلت مجموعات قرصنة توفر خدماتها لقاء أجور عقودًا من كبرى الحكومات، كما هو موضح في المقالات المكتوبة حول المرتزقة الإلكترونيين في الهند من مجلة ذا نيويوركر [The New Yorker](https://www.newyorker.com/news/annals-of-crime/a-confession-exposes-indias-secret-hacking-industry) ورويترز [Reuters](https://www.reuters.com/investigates/special-report/usa-hackers-litigation/) وسيتزن لاب Citizen Lab](https://citizenlab.ca/2020/06/dark-basin-uncovering-a-massive-hack-for-hire-operation/)].
 
-📕 Adversaries, especially state-based ones, have long used malware to attack civil society groups. Such attacks managed to [shut down a news site](https://www.amnesty.org/en/latest/research/2016/12/how-a-hacking-campaign-helped-shut-down-an-award-winning-news-site/), with hacking-for-hire outfits taking in major state contracts, as shown in those pieces on India’s cyber mercenaries by [The New Yorker](https://www.newyorker.com/news/annals-of-crime/a-confession-exposes-indias-secret-hacking-industry), [Reuters](https://www.reuters.com/investigates/special-report/usa-hackers-litigation/), and [Citizen Lab](https://citizenlab.ca/2020/06/dark-basin-uncovering-a-massive-hack-for-hire-operation/).
+في أوائل عشرينيات القرن العشرين، سيطرت برمجيات التجسس المنتجة لقاء أجور مثل بريدتور [Predator](https://eic.network/projects/predator-files.html)وبالأخص بيغاسوس [Pegasus](https://www.amnesty.org/en/latest/news/2022/03/the-pegasus-project-how-amnesty-tech-uncovered-the-spyware-scandal-new-video/) على العناوين الرئيسية حيث استهدف كلاهما بانتظام الصحفيين والناشطين والسياسيين. في حين أن معظم البرمجيات الضارة أكثر تقليدية وتُستخدم لتقديم الإعلانات أو لتحصيل العملات المشفرة، يعني وجود برمجيات ضارة متطورة ترعاها دول أن العديد من نشطاء المجتمع المدني سيكونون من المرجح قلقين للغاية بشأن أي إصابات محتملة.
 
-In the early 2020s, commercially produced spyware such as [Predator ](https://eic.network/projects/predator-files.html)and [especially Pegasus](https://www.amnesty.org/en/latest/news/2022/03/the-pegasus-project-how-amnesty-tech-uncovered-the-spyware-scandal-new-video/) dominated the headlines, with both of them regularly targeting journalists, activists, and politicians. While most malware is much more mundane and used to deliver ads or mine for cryptocurrency, the existence of sophisticated, state-sponsored malware means that many civil society activists will likely be very concerned about any potential infections.
+## الهدف
+ سيتعلم الممارسون كيفية:
+ 
+- التمرن على المهارات الشخصية والاعتبارات الأخلاقية للتعامل مع الأشخاص الذين يحتمل أن تستهدفهم البرمجيات الضارة 
+- اتخاذ خطوات لحماية خصوصية العميل وبياناته 
+- استخدام أدوات كشف البرمجيات الضارة الجاهزة للاستخدام بشكل مفيد
+- استخدام طرق ثابتة وديناميكية لفحص عينة لتحديد ما إذا كانت ضارة
+- استخدام الطرق القائمة على الشبكة لفحص عينة لتحديد ما إذا كانت ضارة
+- فحص مستندات مايكروسوفت أوفيس (Microsoft Office) لتحديد ما إذا كانت ضارة أم لا
+- جمع البيانات لتحليلها من جهاز يُحتمل أن يكون مصابًا والاحتفاظ الآمن بالعينات لإجراء التحاليل الإضافية
+- أداء مهام ما بعد الكشف بما في ذلك التخطيط للفحص والتنظيف وإدارة المخاطر
+ 
 
-## Objective
+## ما هي التهديدات التي تخففها أو تستجيب لها هذه المهارة؟
 
-Practitioners will learn how to:
+يمكن أن تساعد مهارات كشف البرمجيات الضارة في الاستجابة لما يلي:
 
-- Practice soft skills and ethical considerations for engaging with people potentially targeted by malware
-- Take steps to protect client’s privacy and data
-- Usefully utilize off-the-shelf malware detection tools
-- Utilize static and dynamic methods of investigating a sample to determine if it is malicious
-- Utilize network-based methods of investigating a sample to determine if it is malicious
-- Investigate Microsoft Office Documents to determine if they are potentially malicious
-- Collect data for analysis from a potentially infected device and safely retain samples for further analysis
-- Carry out post-detection work, including planning for investigation, clean-up, and risk management
+- اختراق الجهاز أو موقع الويب أو الحساب
+- إصابات بالبرمجيات الضارة (برمجيات الفدية برمجيات التجسس والبرمجيات الدِعائية وما إلى ذلك)
+- فحص احتمالية وجود اختراق
 
-## What threats does this skill mitigate or respond to?
 
-Malware detection skills can help respond to:
+## ما هي المتطلبات المسبقة؟
 
-- Device, website, account compromise
-- Malware infections (ransomware, spyware, adware etc)
-- Investigating possibility of compromise
+- مهارات تقنية المعلومات الأساسية: إدراك مفاهيم مثل صور القرص والملفات القابلة للتنفيذ والأنواع المختلفة من البرمجيات الضارة
+- فهم ممارسات حماية/تعزيز حماية نظام التشغيل الشائعة واستخدامات "المستخدم المتمرّس" لمنصة نظام التشغيل التي اخترتها.
+- المعرفة الأساسية بسطر الأوامر: القدرة على تشغيل الأوامر من سطر الأوامر وفهم بناء جمل وسيطات سطر الأوامر.
 
-## What are the prerequisites?
 
-- Basic IT skills: Understanding concepts such as disk images, executable files, and different types of malware
-- Understanding of common Operating System protection/hardening practices and ‘power-user’ usage of your chosen OS platform.
-- Basic command line knowledge: Being able to run commands from the command line and understanding what command line arguments syntax are.
+## ما هي الأجهزة أو البرامج التي تحتاجها للتمارين؟
 
-## What devices or software do you need for the exercises?
+ حسب السيناريو، يمكن تنفيذ خطوات الكشف مباشرة على الجهاز المعني، بينما في حالات أخرى قد تحتاج إلى جهاز منفصل مهيأ للتحليل، وفي هذه الحالة يُنصح بما يلي:
+ 
+- الجهاز الأول (الجهاز قيد الدراسة): جهاز واحد على الأقل يعمل بنظام تشغيل ويندوز (Windows) أو ماك أو إس (macOS) أو لينوكس (Linux) أو أندرويد (Android) أو آي أو إس (iOS) ستبحث عن البرمجيات الضارة عليه
+- الجهاز الثاني (جهاز التحليل): جهاز آخر يعمل بنظام تشغيل ويندوز أو ماك أو إس أو لينوكس والذي يمكنك استخدامه لإجراء عمليات الفحص على الجهاز الأول. فحص أجهزة آي أو إس باستخدام مجموعة الأدوات المغطاة ممكن فقط (في وقت كتابة هذا التقرير) عبر ماك أو إس أو لينوكس
+- مساحة تخزين كافية إما على الجهاز الثاني أو على محرك أقراص ثابت خارجي/وسيط تخزين ذو حالة ثابتة لعمل نسخة احتياطية كاملة من الجهاز الأول (في حالة الحاجة إلى تخزين صور احتياطية للنظام أو التحاليل الجنائية)
 
-Depending on the scenario, you may be implementing detection steps directly on the concerned device, while in other cases you may need a separate machine configured for analysis, in which case the following is advised:
+(اختياري) بالنسبة للقسم 5 ب فقط، ستحتاج إلى جهاز رازبيري باي (Raspberry Pi).
 
-- First device (device of concern): At least one device running Windows, macOS, Linux, Android, or iOS on which you will look for malware
-- Second device (analysis device): Another device running Windows, macOS, or Linux which you can use to run scans on the first device. Scanning iOS devices using the covered toolset is only possible (at time of writing) via macOS or Linux
-- Enough storage space either on the second device or on an external hard drive/ solid state drive to back up the entirety of the first device (in case imaging and forensics are required)
+## مسارات التعلّم ذات الصلة
 
-(Optional) For section 5b alone, you will need access to a Raspberry Pi.
+مثل كل أنواع الأمن، يُفيد مسار التعلّم هذا ويستفيد من المعرفة في المجالات ذات الصلة ويجدر ذكر أن مسارات التعلّم التالية تتآزر بشكل جيد مع هذا المسار:
 
-## Related learning paths
+- تحليل البرمجيات الضارة[Analyzing Malware](/en/learning-path/3/): تفكيك البرمجيات الضارة لفهم كيفية عملها وما تفعله. بالإضافة إلى ذلك، يتضمن هذا المسار التعليمي نهجًا من المستوى المبتدئ إلى المتوسط لتحديد ما إذا كانت العينة المعطاة ضارة باستخدام طرق ثابتة، ديناميكية، ومعتمدة على الشبكة، وفي الحالات التي لا تكون فيها هذه الأساليب كافية للتحديد، يتم تغطية مهارات تحليل إضافية في المسار التعليمي اللاحق.
+- فحص البنية التحتية الضارة وتتبعها وكشفها[Detecting, Investigating and Tracking Malicious Infrastructure](/en/learning-path/1/): تتصل البرمجيات الضارة المستهدفة عمومًا بالبنية الأساسية للأوامر والتحكم أو التصفية أو التسليم، وسيساعد مسار التعلّم هذا في فحص هذه البنية الأساسية وفهمها.
+أساسيات أمان تطبيقات الويب: تُنقل بعض البرمجيات الضارة على شكل تطبيق ويب أو ثغرة في المتصفح، وستساعدك بعض المهارات في مسار التعلّم هذا على كشف البرمجيات الضارة القائمة على الويب وتحليلها
 
-Like all of security, this learning path benefits and is benefited by knowledge in related areas. Notably, the following learning paths synergize well with this one:
 
-- [Analyzing Malware](/en/learning-path/3/): Taking malware apart to understand how it functions and what it does. In addition, this learning path contains beginner-to-intermediate approaches to static, dynamic, and network-based determination of whether a given sample is malicious; in cases such methods are not sufficient for a determination, additional analysis skills are covered in this subsequent learning path.
-- [Detecting, Investigating and Tracking Malicious Infrastructure](/en/learning-path/1/): Targeted malware generally communicates with command & control, exfiltration, or delivery infrastructure. This learning path will help with investigating and understanding this infrastructure.
-- Web Application Security Fundamentals: Some malware is delivered as a web application or a browser exploit. Some of the skills covered in this learning path will help you with browser-based malware detection and analysis.
