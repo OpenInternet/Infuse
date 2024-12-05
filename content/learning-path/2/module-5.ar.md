@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 5
-title = "Forensic methods on live Windows and macOS systems"
+title = "طرق التحليل الجنائي على أنظمة ويندوز وماك أو إس قيد التشغيل"
 description = "قد يكون الفحص المباشر للجهاز ضروريًا لفهم ما يحدث عليه وتحديد العمليات المشبوهة أو آثارها أو حركة المرور."
 +++
 ## حالة استخدام
@@ -68,7 +68,7 @@ description = "قد يكون الفحص المباشر للجهاز ضروريً
 
 ## موارد التعلّم
 
-{{% resource title="Mobile forensics" languages="English" cost="Free" description="A comprehensive guide on how to conduct forensics and triage for many leading operating systems." url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
+{{% resource title="التحليل الجنائي للأجهزة المحمولة" description="أنشأ هذا الدليل الشامل في البداية منظمة أمن بلا حدود (Security Without Borders) ويبحث في كيفية القيام بالأدلة الجنائية الأساسية وجمع البيانات على كل منصة رئيسية." languages="اللغة الإنجليزية" cost="مجانًا" url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
 
 {{% resource title="Sysinternals" languages="English" cost="Free" description="A series of excellent tools analysts can use to better understand what is happening on a Windows system." url="https://learn.microsoft.com/en-us/sysinternals/" %}}
 
