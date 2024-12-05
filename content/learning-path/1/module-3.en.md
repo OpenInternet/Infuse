@@ -47,7 +47,7 @@ Depending on the sophistication of the attacks which you are dealing with, the s
 
 As you document potentially malicious URLs, it is common practice to ‘defang’ the URL so that the applications you use for notes or documentation do not automatically generate clickable links which unintentionally lead you (or anyone you are collaborating with) to click the link or otherwise instigate traffic to the URL from your working machine. Some applications, for example messengers, also automatically preview links (and fetch the content from a server in order to do so). Defanging URLs prevents them from doing so.
 
-This is commonly done by replacing the protocol section of the URL with an invalid equivalent, and enclosing dots in the URL with [square brackets]. For example:
+This is commonly done by replacing the protocol section of the URL with an invalid equivalent, and enclosing dots in the URL with \[square brackets\]. For example:
 
 | From live URL                                                      | To defanged URL                   |
 |--------------------------------------------------------------------|-----------------------------------|
