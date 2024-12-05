@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 9
-title = "Malicious document analysis"
+title = "تحليل المستندات الضارة"
 description = "حين يعرف العديد من الأشخاص أنه يجب التشكيك في الملفات الثنائية القابلة للتنفيذ، توجد تنسيقات مستندات مكتبية"
 +++
 
@@ -40,14 +40,14 @@ description = "حين يعرف العديد من الأشخاص أنه يجب ا
 
 ## مصادر التعلّم
 
-{{% resource title="Analysis of malicious documents – Part 01 – Introduction and VMs" languages="English" cost="Free" description="Introduces the topic of malicious document analysis and guides learners on setting up a VM for the task." url="https://greaterinternetfreedom.org/course/part01-intro-and-vms/" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 01 – مقدمة والأجهزة الظاهرية" description="يُقدم موضوع تحليل المستندات الضارة ويوضح للمتعلمين كيفية إعداد جهاز ظاهري مناسب للمهمة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://greaterinternetfreedom.org/course/part01-intro-and-vms/" %}}
 
-{{% resource title="Analysis of malicious documents – Part 02 – PDF documents" languages="English" cost="Free" description="Covers tools like text editors and PDF disassemblers for analyzing PDF files and detecting executable scripts." url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-02-pdf-documents/" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 02 – مستندات PDF" description="يوضح كيف يمكن استخدام أدوات مثل محررات النصوص وأجهزة تفكيك ملفات PDF المتخصصة لتحليل الملفات بهذا التنسيق للبحث عن أشياء مثل البرمجيات النصية القابلة للتنفيذ" languages="اللغة الإنجليزية" cost="مجانًا" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-02-pdf-documents/" %}}
 
-{{% resource title="Analysis of malicious documents – Part 03 – Microsoft Office documents" languages="English" cost="Free" description="Explores the structure of Microsoft Office documents and their potential for embedding active content." url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-03-microsoft-office-documents/" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 03 – مستندات مايكروسوفت أوفيس" description="نظرة على بنية مستندات مايكروسوفت أوفيس وكيف يمكنها تضمين المحتوى النشط" languages="اللغة الإنجليزية" cost="مجانًا" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-03-microsoft-office-documents/" %}}
 
-{{% resource title="Analysis of malicious documents – Part 04 – Defensive measures, next steps, and closure" languages="English" cost="Free" description="Demonstrates steps and defensive measures when handling documents from unknown or potentially malicious sources." url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-04-defensive-measures-next-steps-and-closure/" %}}
+{{% resource title="تحليل الوثائق الضارة – الجزء 04 – التدابير الدفاعية والخطوات التالية والإغلاق" description="توضيح لبعض الخطوات والتدابير المضادة التي يمكننا اتخاذها عند العمل مع مستندات من مصادر غير معروفة أو ملفات يحتمل أن تكون ضارة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-04-defensive-measures-next-steps-and-closure/" %}}
 
-{{% resource title="Analyzing malicious PDFs" languages="English" cost="Free" description="Discusses various tools for in-depth analysis of malicious PDF files." url="https://resources.infosecinstitute.com/topics/hacking/analyzing-malicious-pdf/" %}}
+{{% resource title="تحليل ملفات PDF الضارة" description="سلسلة من الأدوات التي يمكننا استخدامها لتحليل أكثر عمقًا لملفات PDF" languages="اللغة الإنجليزية" cost="مجانًا" url="https://resources.infosecinstitute.com/topics/hacking/analyzing-malicious-pdf/" %}}
 
-{{% resource title="How to analyze malicious Microsoft Office files" languages="English" cost="Free" description="Provides insights into detecting malicious payloads in Microsoft Office files and methods for analysis." url="https://intezer.com/blog/malware-analysis/analyze-malicious-microsoft-office-files/" %}}
+{{% resource title="كيفية تحليل ملفات مايكروسوفت أوفيس الضارة" description="مورد إضافي يبحث في كيف يمكن لملفات مايكروسوفت أوفيس أن تنقل الحمولات الضارة وكيف يمكننا اكتشافها" languages="اللغة الإنجليزية" cost="مجانًا" url="https://intezer.com/blog/malware-analysis/analyze-malicious-microsoft-office-files/" %}}
