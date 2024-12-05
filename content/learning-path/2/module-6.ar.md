@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 6
-title = "Detecting malware through traffic analysis"
+title = "كشف البرمجيات الضارة من خلال تحليل حركة المرور"
 description = "ستقوم معظم البرمجيات الضارة بإجراء اتصال بالشبكة سواء كان ذلك للاتصال بخادم الأوامر والتحكم للحصول على مزيد من التعليمات أو تسريب البيانات من جهاز الكمبيوتر."
 +++
 
@@ -113,58 +113,46 @@ description = "ستقوم معظم البرمجيات الضارة بإجراء 
 
 ## موارد التعلّم
 
-{{% resource title="Pirogue Tool Suite Documentation" languages="English" cost="Free" description="The documentation for PiRogue tool suite." url="https://pts-project.org/docs/prologue/introduction/" %}}
+{{% resource title="وثائق مستخدم مجموعة أدوات باي روغ" description="وثائق المستخدم الخاصة بمجموعة أدوات باي روغ" languages="اللغة الإنجليزية" cost="مجانًا" url="https://pts-project.org/docs/prologue/introduction/" %}}
 
-{{% resource title="PiRogue Tool Suite Guides" languages="English" cost="Free" description="Additional set of guides for PiRogue tool suite." url="https://pts-project.org/docs/" %}}
+{{% resource title="أدلة مجموعة أدوات باي روغ" description="مجموعة إضافية من الأدلة لمجموعة أدوات باي روغ" languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/docs/" %}}
+{{% resource title="ويكي سباي غارد" description="وثائق سباي غارد" languages="اللغة الإنجليزية" cost="مجاني" url="https://github.com/SpyGuard/SpyGuard/wiki" %}}
 
-{{% resource title="SpyGuard wiki" languages="English" cost="Free" description="The documentation for SpyGuard." url="https://github.com/SpyGuard/SpyGuard/wiki" %}}
+{{% resource title="موقع مالوير ترافك أناليسس (Malware Traffic Analysis)" description="مورد متقدم مع عينة من ملفات ب سي إيه ب لأولئك الذين يرغبون في الذهاب أبعد من ذلك في رحلتهم لتطوير مهارات تحليل حركة المرور" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.malware-traffic-analysis.net/" %}}
 
-{{% resource title="Malware Traffic Analysis" languages="English" cost="Free" description="Advanced resource with sample PCAP files for those who wish to develop traffic analysis skills." url="https://www.malware-traffic-analysis.net/" %}}
+{{% resource title="إميرجنسي في ب إن" description="مشروع من سيفيل سفير يسمح لك بالاتصال بشبكة ظاهرية خاصة تجمع بيانات الاتصال بالإنترنت لجهازك ثم تُجمّع تقارير مفصلة عنها" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.civilsphereproject.org/emergency-vpn" %}}
 
-{{% resource title="Emergency VPN" languages="English" cost="Free" description="A project by CivilSphere, which allows you to connect to a special VPN collecting your device’s internet data for detailed reports." url="https://www.civilsphereproject.org/emergency-vpn" %}}
+{{% resource title="دورة تدريبية حول البحث عن التهديدات" description="دورة مجانية ليوم واحد حول تحليل وتفسير بيانات الشبكة لمطاردة التهديدات" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.activecountermeasures.com/hunt-training/" %}}
 
-{{% resource title="Threat Hunting Training Course" languages="English" cost="Free" description="A free, one day course on analyzing and interpreting network data for threat hunting." url="https://www.activecountermeasures.com/hunt-training/" %}}
+{{% resource title="دورة حول مراقبة أمن الشبكات مع سوريكاتا" description="دورة مجانية حول كيفية استخدام سوريكاتا الأداة الشائعة للكشف عن التهديدات مفتوحة المصدر" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.pluralsight.com/courses/network-security-monitoring-suricata" %}}
 
-{{% resource title="Course on network security monitoring with Suricata" languages="English" cost="Free" description="A free course on how to use Suricata, a commonly used open source threat detection tool." url="https://www.pluralsight.com/courses/network-security-monitoring-suricata" %}}
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://objective-see.org/products/lulu.html" %}}
 
-{{% resource title="Outbound firewalls" languages="Various" cost="Most are either free or have free versions available" description="An outbound firewall analyzes outbound traffic and connects to servers. Includes tools like LuLu, Little Snitch, PortMaster, GlassWire, NetGuard, AFWall+, and OpenSnitch." url="https://" %}}
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://www.obdev.at/products/littlesnitch" %}}
 
-<ul>
-<li>macOS:
-  <ul>
-    <li><a href="https://objective-see.org/products/lulu.html">LuLu</a> (Open Source, Free)</li>
-    <li><a href="https://www.obdev.at/products/littlesnitch">Little Snitch</a> (Paid) or <a href="https://www.obdev.at/products/index.html">Little Snitch Mini</a> (Proprietary, Free)</li>
-  </ul>
-</li>
-<li>Windows:
-  <ul>
-    <li><a href="https://safing.io/">PortMaster</a> (Open Source, Free/Paid version available)</li>
-    <li><a href="https://www.glasswire.com/">GlassWire</a> (Proprietary, Free/Paid Version available)</li>
-  </ul>
-</li>
-<li>Android:
-  <ul>
-    <li><a href="https://github.com/M66B/NetGuard">NetGuard</a> (Open Source Free/Freemium version available)</li>
-    <li><a href="https://github.com/ukanth/afwall">AFWall+</a> (Open Source, Free)</li>
-  </ul>
-</li>
-<li>Linux:
-  <ul>
-    <li><a href="https://github.com/evilsocket/opensnitch">OpenSnitch</a> (Open Source, Free)</li>
-  </ul>
-</li>
-</ul>
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://www.obdev.at/products/index.html" %}}
 
-{{% resource title="Threat hunting platforms" languages="Several" cost="Free" description="Several platforms using network data to detect threats within systems, including Security Onion, pfSense, OPNsense, AC Hunter Community Edition, RITA, Wazuh, and Suricata." url="https://" %}}
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://safing.io/" %}}
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://www.glasswire.com/" %}}
 
-<ul>
-  <li><a href="https://github.com/Security-Onion-Solutions/securityonion">Security Onion</a></li>
-  <li><a href="https://www.pfsense.org/">pfSense</a></li>
-  <li><a href="https://opnsense.org/">OPNsense</a></li>
-  <li><a href="https://www.activecountermeasures.com/ac-hunter-community-edition/">AC Hunter Community Edition</a></li>
-  <li><a href="https://github.com/activecm/rita">RITA</a></li>
-  <li><a href="https://wazuh.com/">Wazuh</a></li>
-  <li><a href="https://suricata.io/features/">Suricata</a></li>
-</ul>
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://github.com/M66B/NetGuard" %}}
+
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://github.com/ukanth/afwall" %}}
+
+{{% resource title="جدران حماية الاتصالات الصادرة" description="جدار حماية الاتصال الصادر هو برنامج مثبت على جهاز كمبيوتر يحلل كل حركة المرور التي تتركها وجميع الخوادم التي يتصل بها وفي حين أنه يمكن أن يجمع الكثير من البيانات إلا أن نسبة المعلومات الفعلية مقابل غير الفعلية يمكن أن تكون أسوأ مقارنة بالأدوات الأخرى." languages="عدة" cost="معظمها إما مجانية أو تتوفر إصدارات مجانية منها" url="https://github.com/evilsocket/opensnitch" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://github.com/Security-Onion-Solutions/securityonion" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://www.pfsense.org/" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://opnsense.org/" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://www.activecountermeasures.com/ac-hunter-community-edition/" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://github.com/activecm/rita" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://wazuh.com/" %}}
+
+{{% resource title="منصات اصطياد التهديدات" description="نُوفر هنا عددًا من المنصات التي تستخدم بيانات الشبكة من أجل اكتشاف التهديدات المحتملة ضمن النظام" languages="عدة" cost="مجاني" url="https://suricata.io/features/" %}}
 
 
