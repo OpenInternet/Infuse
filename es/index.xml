@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Infuse</title><link>https://infuse.quest/es/</link><description>Recent content on Infuse</description><generator>Hugo</generator><language>es</language><atom:link href="https://infuse.quest/es/index.xml" rel="self" type="application/rss+xml"/><item><title>Acerca de Infuse</title><link>https://infuse.quest/es/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/about/</guid><description/></item><item><title>Configuración</title><link>https://infuse.quest/es/learning-path/5/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/5/module-1/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Infuse</title><link>https://infuse.quest/es/</link><description>Recent content on Infuse</description><generator>Hugo</generator><language>es</language><atom:link href="https://infuse.quest/es/index.xml" rel="self" type="application/rss+xml"/><item><title>Acerca de Infuse</title><link>https://infuse.quest/es/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/about/</guid><description>&lt;p>Construir Infuse fue un verdadero esfuerzo en equipo. Nos gustaría expresar nuestro especial agradecimiento a las siguientes personas:&lt;/p>
+&lt;p>&lt;a href="https://www.miaan.org/" target="_blank" >Amir Rashidi&lt;/a> &lt;br>
+&lt;a href="https://notapplicable.dev" target="_blank" >Anna e só&lt;/a> &lt;br>
+Angie Ballesteros &lt;br>
+&lt;a href="http://www.rtafrica.org/" target="_blank" >Anthony Sule&lt;/a> &lt;br>
+&lt;a href="https://www.accessnow.org/help/" target="_blank" >Beatrice Martini&lt;/a> &lt;br>
+Cheekay Cinco &lt;br>
+Carlos Guerra &lt;br>
+&lt;a href="https://linktr.ee/digitaldada" target="_blank" >Cecilia Maundu&lt;/a> &lt;br>
+&lt;a href="https://www.linkedin.com/in/hkaabi" target="_blank" >Houssem Kaabi&lt;/a> &lt;br>
+&lt;a href="https://czesiek.net/" target="_blank" >Michał &amp;ldquo;czesiek&amp;rdquo; Czyżewski&lt;/a> &lt;br>
+&lt;a href="https://jeremiahblatz.com/" target="_blank" >Jeremiah Blatz&lt;/a> &lt;br>
+&lt;a href="https://boltech.global/" target="_blank" >Laura Tich&lt;/a> &lt;br>
+&lt;a href="https://conexo.org/" target="_blank" >Mario Felaco&lt;/a> &lt;br>
+mtk &lt;br>
+&lt;a href="https://www.linkedin.com/in/nour-elias-rafraf-4041721ba" target="_blank" >Nour-Elias Rafraf&lt;/a> &lt;br>
+&lt;a href="https://www.linkedin.com/in/patriciamusomba" target="_blank" >Patricia Musomba&lt;/a> &lt;br>
+&lt;a href="http://penserbjorne.com/" target="_blank" >Paul Aguilar (Penserbjorne)&lt;/a> &lt;br>
+Shaque &lt;br>
+Ronald Kakembo &lt;br>
+&lt;a href="https://www.linkedin.com/in/samuel-eibu-1b6097aa" target="_blank" >Samuel Eibu&lt;/a> &lt;br>
+&lt;a href="https://digitalsociety.africa/" target="_blank" >Tawanda Mugari&lt;/a> &lt;br>
+&lt;a href="https://am.linkedin.com/in/yana-ghahramanyan-b1129250" target="_blank" >Yana Ghahramanyan&lt;/a>&lt;/p></description></item><item><title>Configuración</title><link>https://infuse.quest/es/learning-path/5/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/5/module-1/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
 &lt;p>Probar eficazmente aplicaciones web en busca de vulnerabilidades de seguridad requiere herramientas especializadas, que se analizan en este subtema.&lt;/p>
 &lt;p>La más importante de estas herramientas es un servidor proxy de interceptación, que le permitirá interactuar directamente con los datos HTTP a medida que fluyen entre su navegador y el servidor web de destino. Esto le permitirá observar qué datos se intercambian y manipularlos sin la interferencia de su navegador o de cualquier control que exista del lado del cliente .&lt;/p></description></item><item><title>Configuración de un entorno de análisis de malware</title><link>https://infuse.quest/es/learning-path/3/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/3/module-1/</guid><description>&lt;h2 id="caso-práctico">Caso práctico&lt;/h2>
 &lt;p>Antes de comenzar a analizar cualquier malware, debe configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta. No desees ejecutarlo en tu sistema principal. Además, probablemente querrás evitar que el malware realmente establezca conexiones con los servidores de C&amp;amp;C (comando y control) del autor de amenazas. Ambos significan que debes configurar una máquina virtual para utilizarla al realizar análisis de malware.&lt;/p></description></item><item><title>Fortificación del Sitio Web</title><link>https://infuse.quest/es/learning-path/6/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/es/learning-path/6/module-1/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
