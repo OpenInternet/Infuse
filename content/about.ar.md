@@ -98,3 +98,31 @@ STE ليست مجرد معرفة وحقائق، ولكنها أيضًا مهار
 (ليس) ‘**الضحايا**’ - تجنبنا استخدام مصطلح 'الضحايا' (أو 'الهدف') في الإشارة إلى الشخص المستهدف بواسطة البرمجيات التجسسية أو البرمجيات الخبيثة أو الحوادث السلبية الأخرى. وجدنا أن هذا المصطلح وصم وتنازل. بدلاً من ذلك، اخترنا بعض العبارات الأكثر تفصيلاً مثل 'الشخص الذي تلقى البريد الإلكتروني التصيدي'، أو 'مالك الجهاز المصاب'، أو ببساطة 'عميلك' (انظر أعلاه).
 
 قد تجد استخدامًا متبادلًا لمصطلحي **المتعلم** و **الممارس** في الإشارة إلى الجمهور المستهدف لهذه المسارات التعليمية. نتوقع أن يكون جمهور هذه المادة يمارس الحماية الرقمية والدعم التقني للأشخاص المعرضين للخطر بالفعل، وبالتالي نعتبر 'الممارس' اعترافًا بخبراتهم ومساهمتهم. في نفس الوقت، نحن جميعًا متعلمون مدى الحياة وأردنا تسليط الضوء على أن هذه لحظة وفرصة لتطوير المهارات والتضحية بالوقت الصعب لإعطاء الأولوية للتعلم.
+
+
+
+
+كان بناء Infuse نتيجة جهد جماعي حقيقي. نود أن نعرب عن شكرنا الخاص للأشخاص التاليين:
+
+[Amir Rashidi](https://www.miaan.org/) \
+[Anna e só](https://notapplicable.dev) \
+Angie Ballesteros \
+[Anthony Sule](http://www.rtafrica.org/) \
+[Beatrice Martini](https://www.accessnow.org/help/) \
+Cheekay Cinco \
+Carlos Guerra \
+[Cecilia Maundu](https://linktr.ee/digitaldada) \
+[Houssem Kaabi](https://www.linkedin.com/in/hkaabi) \
+[Michał "czesiek" Czyżewski](https://czesiek.net/) \
+[Jeremiah Blatz](https://jeremiahblatz.com/) \
+[Laura Tich](https://boltech.global/) \
+[Mario Felaco](https://conexo.org/) \
+mtk \
+[Nour-Elias Rafraf](https://www.linkedin.com/in/nour-elias-rafraf-4041721ba) \
+[Patricia Musomba](https://www.linkedin.com/in/patriciamusomba) \
+[Paul Aguilar (Penserbjorne)](http://penserbjorne.com/) \
+Shaque \
+Ronald Kakembo \
+[Samuel Eibu](https://www.linkedin.com/in/samuel-eibu-1b6097aa) \
+[Tawanda Mugari](https://digitalsociety.africa/) \
+[Yana Ghahramanyan](https://am.linkedin.com/in/yana-ghahramanyan-b1129250)
