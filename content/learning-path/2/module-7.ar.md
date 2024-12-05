@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 7
-title = "Detecting malware through image acquisition (iOS, Android)"
+title = "كشف البرمجيات الضارة من خلال الحصول على الصور (آي أو إس وأندرويد)"
 description = "تتمثل الخطوة الأولى في كشف البرمجيات الضارة على الجهاز في جمع البيانات من الجهاز نفسه لتحليلها ومن الناحية المثالية يمكن نقل البيانات من الجهاز إلى مساحة آمنة مع أدنى حد من التعطيل للجهاز نفسه."
 +++
 ## حالة استخدام
@@ -94,33 +94,35 @@ description = "تتمثل الخطوة الأولى في كشف البرمجيا
 
 ## موارد التعلّم
 
-{{% resource title="Smartphone malware forensics: An introduction" languages="Original talk is in German, translated into French and English. Slides are in English." cost="Free" description="A talk by two mobile malware researchers outlining smartphone malware forensics basics, tools, and methods." url="https://media.ccc.de/v/37c3-11874-einfuhrung_in_smartphone_malware_forensik" %}}
+{{% resource title="الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام" description="دليل حول كيفية تحليل المحتوى الذي يُحتمل أن يكون ضارًا وإعداد الأجهزة الظاهرية والمزيد" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.mvt.re/en/latest/ios/backup/itunes/" %}}
 
-{{% resource title="Mobile forensics" languages="English" cost="Free" description="Comprehensive guide by Security Without Borders on mobile forensics across major platforms." url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
+{{% resource title="التحليل الجنائي للبرمجيات الضارة على الهواتف الذكية: مقدمة" description="حديث بين اثنين من الباحثين في مجال البرمجيات الضارة المتنقلة الذين يعملون مع الصحفيين يحددون فيه أساسيات التحليل الجنائي للبرمجيات الضارة للهواتف الذكية، وكيف تختلف عن التحليل الجنائي لسطح المكتب والأدوات والأساليب الرائدة" languages="المحادثة الأصلية باللغة الألمانية ومترجمة إلى الفرنسية والإنجليزية. الشرائح باللغة الإنجليزية" cost="مجانًا" url="https://media.ccc.de/v/37c3-11874-einfuhrung_in_smartphone_malware_forensik" %}}
 
-{{% resource title="How to make a Windows 10/11 image backup" languages="English" cost="Free" description="Guide on creating a system backup for malware analysis on Windows." url="https://www.computerworld.com/article/3655693/how-to-make-image-backup-windows-10-windows-11.html" %}}
+{{% resource title="التحليل الجنائي للأجهزة المحمولة" description="أنشأ هذا الدليل الشامل في البداية منظمة أمن بلا حدود (Security Without Borders) ويبحث في كيفية القيام بالأدلة الجنائية الأساسية وجمع البيانات على كل منصة رئيسية." languages="اللغة الإنجليزية" cost="مجانًا" url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
 
-{{% resource title="How to back up a Mac or Macbook" languages="English" cost="Free" description="Article focusing on disk images for macOS backups." url="https://www.macworld.com/article/671336/how-to-back-up-a-mac-or-macbook.html" %}}
+{{% resource title="كيفية إجراء صورة نسخة احتياطية لنظام ويندوز 10/11" description="من أجل تحليل نظام بحثًا عن البرمجيات الضارة، نحتاج أولًا إلى إجراء نسخة من الملفات والمجلدات الموجودة على هذا النظام ويوضح لنا هذا الدليل حول كيفية تمكننا من القيام بذلك على ويندوز." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.computerworld.com/article/3655693/how-to-make-image-backup-windows-10-windows-11.html" %}}
 
-{{% resource title="How To Backup Your Entire Linux System Using Rsync" languages="English" cost="Free" description="Guide on using rsync to clone a Linux system for forensic analysis." url="https://ostechnix.com/backup-entire-linux-system-using-rsync/" %}}
+{{% resource title="كيفية إجراء نسخة احتياطية لجهاز ماك أو ماك بوك (Macbook)" description="تُركز هذه المقالة على صور نظام ماك أو إس." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.macworld.com/article/671336/how-to-back-up-a-mac-or-macbook.html" %}}
 
-{{% resource title="MVT, mobile verification toolkit" languages="English" cost="Free" description="Tool to analyze iOS and Android backups for malware IoCs." url="https://docs.mvt.re/en/latest/" %}}
+{{% resource title="كيفية إجراء نسخة احتياطية لنظام لينوكس بأكمله باستخدام آر سينك(Rsync)" description="تستخدم هذه المقالة أداة آر سينك وهي أداة مساعدة قوية جدًا على سطر الأوامر يمكن استخدامها أيضًا لنسخ نظام لينوكس لأغراض تحليل صورة القرص اللاحقة." languages="اللغة الإنجليزية" cost="مجاني" url="https://ostechnix.com/backup-entire-linux-system-using-rsync/" %}}
 
-{{% resource title="Backing up with iTunes" languages="English" cost="Free" description="Using iTunes to create iOS backups for analysis with MVT." url="https://docs.mvt.re/en/latest/ios/backup/itunes/" %}}
+{{% resource title="موبايل فيريفيكيشن تولكيت، مجموعة أدوات التحقق من الهاتف المحمول" description="أداة مجانية يمكنها تحليل النسخ الاحتياطية لأنظمة آي أو إس وأندرويد للبحث عن مؤشرات الاختراق المرتبطة بالبرمجيات الضارة أو إصابة برمجيات التجسس وتستخدم على نطاق واسع في التحليل الجنائي لأجهزة للمجتمع المدني" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.mvt.re/en/latest/" %}}
 
-{{% resource title="I analyzed my phone for Pegasus spyware" languages="English" cost="Free" description="Video guide using MVT to find IoCs related to Pegasus on iOS." url="https://www.youtube.com/watch?v=iLOSlHhGI9U" %}}
+{{% resource title="النسخ الاحتياطي باستخدام آي تونز" description="توضح هذه المقالة في وثائق موبايل فيريفيكيشن تولكيت كيفية استخدام آي تونز لإنشاء نسخة احتياطية يمكن تحليلها لاحقًا باستخدام الأداة." languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.mvt.re/en/latest/ios/backup/itunes/" %}}
 
-{{% resource title="Beginner guide - How to backup a mobile device for forensic analysis purpose" languages="English" cost="Free" description="Introductory guide on using tools to backup iOS and Android devices for malware scanning." url="https://pts-project.org/guides/g4/" %}}
+{{% resource title="لقد قمت بتحليل هاتفي بحثًا عن برمجية التجسس بيغاسوس" description="فيديو خطوة بخطوة يوضح كيف يمكنك استخدام موبايل فيريفيكيشن تولكيت من أجل العثور على مؤشرات الاختراق المرتبطة ببيغاسوس على آي أو إس" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.youtube.com/watch?v=iLOSlHhGI9U" %}}
 
-{{% resource title="libimobiledevice" languages="English" cost="Free" description="Software library to access and backup iOS devices from Windows, macOS, or Linux." url="https://libimobiledevice.org/" %}}
+{{% resource title="دليل المبتدئين - كيفية إجراء نسخة احتياطية من الجهاز المحمول لغرض تحليل التحليل الجنائي" description="دليل تمهيدي حول كيفية استخدام الأدوات الشائعة لإجراء نسخة احتياطية من أجهزة آي أو إس وأندرويد من أجل فحصها بحثًا عن البرمجيات الضارة لاحقًا" languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/guides/g4/" %}}
 
-{{% resource title="Simplifying Android Forensics" languages="English" cost="Free" description="Write-up on tools for Android device backups and their limitations." url="https://securitylab.amnesty.org/latest/2023/09/fellowship-apkqf-simplifying-android-forensics/" %}}
+{{% resource title="ليبي موبايل ديفايس" description="الصفحة الرئيسية لمكتبة البرامج التي يمكن استخدامها للوصول إلى أجهزة آي أو إس ونسخها احتياطيًا من جهاز يعمل بنظام التشغيل Windows أو ماك أو إس أو Linux" languages="اللغة الإنجليزية" cost="مجاني" url="https://libimobiledevice.org/" %}}
 
-{{% resource title="Install libimobiledevice" languages="English" cost="Free" description="Guide on installing libimobiledevice for forensic investigations." url="https://docs.mvt.re/en/latest/ios/install/" %}}
+{{% resource title="تبسيط التحليل الجنائي للأندرويد" description="مقال كتبه زميل فني في منظمة العفو الدولية حول الأدوات الحالية التي يمكن استخدامها للنسخ الاحتياطي لأجهزة أندرويد للتحليل الجنائي وبعض قيودها" languages="اللغة الإنجليزية" cost="مجاني" url="https://securitylab.amnesty.org/latest/2023/09/fellowship-apkqf-simplifying-android-forensics/" %}}
 
-{{% resource title="androidqf" languages="English" cost="Free" description="Tool for accessing data from Android devices for forensic analysis." url="https://github.com/botherder/androidqf" %}}
+{{% resource title="تثبيت ليبي موبايل ديفايس" description="دليل سريع حول كيفية تثبيت ليبي موبايل ديفايس لأغراض تحقيق التحليل الجنائي" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.mvt.re/en/latest/ios/install/" %}}
 
-{{% resource title="SANS Course on Digital Acquisition and Rapid Triage" languages="English" cost="around 8000+ USD" description="Comprehensive course on acquiring and analyzing data from mobile devices." url="https://www.sans.org/cyber-security-courses/digital-acquisition-rapid-triage/" %}}
+{{% resource title="أندرويد كيو إف" description="أندرويد كويك فورنزكس (Android Quick Forensics) هي أداة يمكن استخدامها للوصول بسهولة إلى بيانات جهاز أندرويد لإجراء التحليلات الجنائية والتحليلات وفحص البرمجيات الضارة في المستقبل." languages="اللغة الإنجليزية" cost="مجاني" url="https://github.com/botherder/androidqf" %}}
+
+{{% resource title="دورة من إس إيه إن إس (SANS) حول الاستحواذ الرقمي والتصنيف السريع" description="دورة شاملة وطويلة ومكلّفة للغاية حول الاستحواذ على البيانات وتحليلها من الأجهزة المحمولة" languages="اللغة الإنجليزية" cost="حوالي 8000+ دولار أمريكي" url="https://www.sans.org/cyber-security-courses/digital-acquisition-rapid-triage/" %}}
 
 
 
