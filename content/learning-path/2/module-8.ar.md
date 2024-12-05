@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 8
-title = "Sample-based detection and determination"
+title = "الكشف والتحديد القائم على العينات"
 description = "لديك عينة ملف وتحتاج إلى تحديد ما إذا كان ضارًا وربما يكون قد تم إرساله إلى الهدف عن طريق البريد الإلكتروني أو وسائل التواصل الاجتماعي أو المراسلة الفورية أو تم نقله عبر الوسائط القابلة للإزالة أو غير ذلك."
 +++
 
@@ -72,16 +72,18 @@ description = "لديك عينة ملف وتحتاج إلى تحديد ما إذ
 
 ## موارد التعلّم
 
-{{% resource title="Verify SHA256 checksum" languages="English" cost="Free" description="Quick guide on using the command line to verify sha256 checksums for files." url="https://techdocs.akamai.com/download-ctr/docs/verify-checksum" %}}
+{{% resource title="تحقق من المجموع الاختباري SHA256" description="دليل سريع حول كيفية استخدام سطر الأوامر للتحقق من المجموع الاختباري sha256 للملفات" languages="اللغة الإنجليزية" cost="مجاني" url="https://techdocs.akamai.com/download-ctr/docs/verify-checksum" %}}
 
-{{% resource title="VirusTotal" languages="English" cost="Free, with rate limits" description="Web service to check files or hashes against known malware using multiple detection engines." url="https://www.virustotal.com/gui/home/upload" %}}
+{{% resource title="فايروستوتال" description="خدمة ويب حيث يمكن للمستخدمين تحميل إما الملفات أو شفرات تجزئتها للتحقق منها باستخدام البرمجيات الضارة المعروفة من قبل مجموعة واسعة من محركات كشف البرمجيات الضارة. تملكها شركة ألفابت (Alphabet) / غوغل (Google)" languages="اللغة الإنجليزية" cost="مجانًا، مع حدود على المعدلات" url="https://www.virustotal.com/gui/home/upload" %}}
 
-{{% resource title="Hybrid Analysis" languages="English" cost="Free, with premium features" description="Service similar to VirusTotal, offering dynamic analysis capabilities." url="https://www.hybrid-analysis.com/" %}}
+{{% resource title="أدأة هايبرد أناليسس" description="خدمة تشبه فايروستوتال إلى حد ما ولكن يمكنها أيضًا إجراء تحليل ديناميكي (تشغيل الملف ومراقبة ما يحدث)" languages="اللغة الإنجليزية" cost="مجانًا مع ميزات مدفوعة" url="https://www.hybrid-analysis.com/" %}}
 
-{{% resource title="Any.run" languages="English" cost="Free for non-commercial use" description="Commercial sandbox service for analyzing malware behavior." url="https://any.run/" %}}
+{{% resource title="أني دوت رن" description="بيئة اختبار معزولة تجارية" languages="اللغة الإنجليزية" cost="مجانًا للاستخدام في الأغراض غير التجارية" url="https://any.run/" %}}
 
-{{% resource title="Joe Sandbox" languages="English" cost="Free for public accounts (results published)" description="Commercial sandbox service for analyzing malware." url="https://www.joesandbox.com/#windows" %}}
+{{% resource title="جو ساندبوكس" description="بيئة اختبار معزولة تجارية" languages="اللغة الإنجليزية" cost="مجانًا للحسابات العامة (سيتم نشر نتائج التحليل على الموقع الإلكتروني)" url="https://www.joesandbox.com/#windows" %}}
 
-{{% resource title="Cuckoo Sandbox" languages="English" cost="Free" description="Sandbox service provided by the Estonian CERT for malware analysis." url="https://cuckoo.cert.ee/" %}}
+{{% resource title="كوكو ساندبوكس" description="خدمة رمل يديرها فريق الاستجابة لطوارئ الكمبيوتر الإستوني (CERT)" languages="اللغة الإنجليزية" cost="مجاني" url="https://cuckoo.cert.ee/" %}}
 
-{{% resource title="Windows Sandbox" languages="Requires Windows Pro, Education, or Enterprise" cost="Free" description="Built-in sandbox tool in Windows for safely running applications." url="https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview" %}}
+{{% resource title="كوكو ساندبوكس" description="خدمة رمل يديرها فريق الاستجابة لطوارئ الكمبيوتر الإستوني (CERT)" languages="اللغة الإنجليزية" cost="مجاني" url="https://cuckoo-hatch.cert.ee/" %}}
+
+{{% resource title="بيئة الاختبار المعزولة على ويندوز" description="أداة بيئة اختبار معزولة قوية مضمّنة في ويندوز" languages="اللغة الإنجليزية" cost="تتطلب إصدارات ويندوز برو أو إجيوكيشن أو إنتربرايز" url="https://learn.microsoft.com/en-us/windows/security/application-security/application-isolation/windows-sandbox/windows-sandbox-overview" %}}
