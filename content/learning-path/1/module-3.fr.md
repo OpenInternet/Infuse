@@ -48,7 +48,7 @@ Selon la sophistication des attaques auxquelles vous faites face, la sensibilit�
 
 Lorsque vous documentez des URL potentiellement malveillantes, il est pratique courante de « neutraliser » l'URL afin que les applications que vous utilisez pour les notes ou la documentation ne génèrent pas automatiquement des liens cliquables qui risqueraient de vous mener (ou qui que ce soit avec qui vous collaborez) à cliquer involontairement sur le lien ou à générer du trafic vers l'URL à partir de votre machine de travail. Certaines applications, par exemple les messageries, prévisualisent également automatiquement les liens (et extraient le contenu d'un serveur pour le faire). La neutralisation des URL les empêche de le faire.
 
-Ceci est généralement réalisé en remplaçant la section de protocole de l'URL par un équivalent non valide, et en incluant des points dans l'URL avec des [crochets]. Par exemple :
+Ceci est généralement réalisé en remplaçant la section de protocole de l'URL par un équivalent non valide, et en incluant des points dans l'URL avec des \[crochets\]. Par exemple :
 
 | D'une URL active                 | Vers une URL neutralisée             |
 | :------------------------------- | :----------------------------------- |

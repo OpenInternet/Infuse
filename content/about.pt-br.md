@@ -4,6 +4,32 @@ weight: 1
 navbar: true
 ---
 
+A construção da Infuse veio de um verdadeiro esforço coletivo. Gostaríamos de agradecer especialmente as seguintes pessoas:
+
+[Amir Rashidi](https://www.miaan.org/)
+[Anna e só](https://notapplicable.dev)
+Angie Ballesteros
+[Anthony Sule](http://www.rtafrica.org/)
+[Beatrice Martini](https://www.accessnow.org/help/)
+Cheekay Cinco
+Carlos Guerra
+[Cecilia Maundu](https://linktr.ee/digitaldada)
+Houssem Kaabi
+[Michał "czesiek" Czyżewski](https://czesiek.net/)
+[Jeremiah Blatz](https://jeremiahblatz.com/)
+[Laura Tich](https://boltech.global/)
+[Mario Felaco](https://conexo.org/)
+mtk
+[Nour-Elias Rafraf](https://www.linkedin.com/in/nour-elias-rafraf-4041721ba)
+[Patricia Musomba](https://www.linkedin.com/in/patriciamusomba)
+[Paul Aguilar (Penserbjorne)](http://penserbjorne.com/)
+Shaque
+Ronald Kakembo
+[Samuel Eibu](https://www.linkedin.com/in/samuel-eibu-1b6097aa)
+[Tawanda Mugari](https://digitalsociety.africa/)
+[Yana Ghahramanyan](https://am.linkedin.com/in/yana-ghahramanyan-b1129250)
+
+
 ⚠️ Esta página será traduzida em breve; enquanto isso, aqui está o texto original em inglês:
 
 **Infuse is a community-developed framework providing pathways for digital protectors (digital security trainers, technologists, auditors, etc.) to advance their knowledge and skill sets in areas of specialized technical expertise (STE).** Infuse aims to make much-needed STE more widely available in contexts where at-risk communities need it the most, by upskilling protectors who already have established trust with these communities. By localizing expertise, Infuse expands accessibility to and increases the diversity of providers of specialized digital security support.
