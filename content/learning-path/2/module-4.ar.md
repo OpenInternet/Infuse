@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 4
-title = "Initial steps and checks for detecting malware"
+title = "الخطوات الأولية والفحوصات للكشف عن البرمجيات الضارة"
 description = "وجد جهاز ذو حالة أمنية غير معروفة ويريد المالك فحص إمكانية الإصابة أو الاختراق السابق."
 +++
 ## حالة استخدام
