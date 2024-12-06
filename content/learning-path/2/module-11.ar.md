@@ -98,7 +98,7 @@ description = "Removing malware and supporting people post-infection can prove c
 
 {{% resource title="تشارك مايكروسوفت الإرشادات للكشف عن هجمات مجموعة تمهيد الواجهة الموحّدة للبرامج الثابتة الموسعة المسماة بلاك لوتس (BlackLotus)" description="نظرة عامة على برمجية ضارة أخرى أحدث يعمل على مستوى يسبق التشغيل إلى جانب الخطوات التي يمكن للمحلل اتخاذها لاكتشافها" languages="اللغة الإنجليزية" cost="مجانًا" url="https://www.bleepingcomputer.com/news/security/microsoft-shares-guidance-to-detect-blacklotus-uefi-bootkit-attacks/" %}}
 
-{{% resource title="فيروس حصان طروادة "تروجان"، على جميع المستويات: بادبوكس وبيتشبت (PEACHPIT)" description="تقرير متعمّق يبحث في البرمجيات الضارة المثبتة مسبقًا على الأجهزة على الأرجح في المصنع وبالتالي يصعب إزالتها للغاية. مثال جيد لوجوب أن تأتي الأجهزة المستخدمة في العمل الحساس من الشركات المصنعة ذات السمعة الطيبة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://www.humansecurity.com/hubfs/HUMAN_Report_BADBOX-and-PEACHPIT.pdf" %}}
+{{% resource title="فيروس حصان طروادة تروجان، على جميع المستويات: بادبوكس وبيتشبت (PEACHPIT)" description="تقرير متعمّق يبحث في البرمجيات الضارة المثبتة مسبقًا على الأجهزة على الأرجح في المصنع وبالتالي يصعب إزالتها للغاية. مثال جيد لوجوب أن تأتي الأجهزة المستخدمة في العمل الحساس من الشركات المصنعة ذات السمعة الطيبة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://www.humansecurity.com/hubfs/HUMAN_Report_BADBOX-and-PEACHPIT.pdf" %}}
 
 {{% resource title="كيف يعمل التحقق من السلامة على آيفون للحفاظ على سلامتك" description="ميزة آي أو إس تسمح لأي مستخدم بمراجعة المعلومات التي يشاركها مع الآخرين وإذا لزم الأمر إيقاف حدوث تلك المشاركة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://support.apple.com/guide/personal-safety/how-safety-check-works-ips2aad835e1/1.0/web/1.0" %}}
 
