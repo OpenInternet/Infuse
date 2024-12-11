@@ -4,7 +4,7 @@ weight: 5
 navbar: true
 footer: false
 ---
-Below are descriptions of the available Infuse learning paths and associated badges. Please note that Infuse does not have a centralized system for verifying a Learner's knowledge and skills. Learners are intended to only claim a badge once they have undergone skill verification with a qualified Mentor or peer, but there is no centralized system in place to enforce this.[](/en/learning-path/1/)
+Below are descriptions of the available Infuse learning paths and associated badges. Please note that Infuse does not have a centralized system for verifying a Learner's knowledge and skills. Learners are intended to only claim a badge once they have undergone skill verification with a qualified Mentor or peer, but there is no centralized system in place to enforce this.
 
 [Detecting, Investigating and Tracking Malicious Infrastructure](/en/learning-path/1/)
 
