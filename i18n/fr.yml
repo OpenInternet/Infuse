@@ -2,34 +2,34 @@ filename: "Translations in French"
 key:
   - id: hero-title
     one: null
-    other: "Élever l'expertise pour les protecteurs numériques"
+    other: "Élever l'Expertise des Protecteurs Numériques"
   - id: hero-subtitle
     one: null
-    other: "Chez Infuse, nous permettons aux individus d'atteindre une plus grande sécurité en ligne grâce à une éducation complète en cybersécurité, en les dotant des connaissances nécessaires pour se protéger efficacement en ligne."
+    other: "Chez Infuse, nous accueillons les protecteurs numériques au sein d'une communauté d'apprentissage et leur fournissons des ressources pour développer leur expertise technique spécialisée. Grâce à des parcours d'apprentissage collaboratifs et au mentorat, nous les aidons à diffuser cette expertise et à protéger les communautés à haut risque."
   - id: feature-one-title
     one: null
     other: "Apprenez à votre rythme avec différents parcours d'apprentissage"
   - id: feature-one-subtitle
     one: null
-    other: "Cela met en avant la flexibilité et le contrôle de l'utilisateur, ce qui est attrayant pour les apprenants qui préfèrent l'éducation à leur propre rythme."
+    other: "Cela met l'accent sur la flexibilité et le contrôle de l'utilisateur, ce qui est intéressant pour les apprenants qui préfèrent une formation autonome."
   - id: feature-two-title
     one: null
-    other: "Gagnez des badges et enregistrez des certificats"
+    other: "Gagnez des badges et obtenez des certificats"
   - id: feature-two-subtitle
     one: null
-    other: "Cette fonctionnalité met en valeur les réalisations et fournit une preuve tangible de la maîtrise, ce qui peut être motivant pour les utilisateurs."
+    other: "Cette fonctionnalité met en évidence les réalisations et fournit une preuve tangible de maîtrise, ce qui peut favoriser la motivation des utilisateurs."
   - id: feature-three-title
     one: null
-    other: "Disponible en plusieurs langues"
+    other: "Disponible dans plusieurs langues"
   - id: feature-three-subtitle
     one: null
-    other: "L'accessibilité est cruciale, et offrir du contenu en plusieurs langues garantit une plus grande portée et inclusivité."
+    other: "L'accessibilité est cruciale, et le fait de proposer du contenu dans plusieurs langues assure une plus grande portée et une meilleure inclusivité."
   - id: learning-paths-title
     one: null
     other: "Parcours d'apprentissage"
   - id: learning-paths-subtitle
     one: null
-    other: " "
+    other: "Choisissez où commencer votre parcours avec cette sélection de parcours d'apprentissage Infuse."
   - id: how-works
     translation:
       one: null
@@ -48,31 +48,31 @@ key:
     other: "Nom complet*"
   - id: name-description
     one: null
-    other: "Cette information est utilisée pour préparer et générer des certificats à l'issue de chaque parcours d'apprentissage."
+    other: "Cette information sert à préparer et à produire des certificats au terme de chaque parcours d'apprentissage."
   - id: avatar-image
     one: null
     other: "Image d'avatar"
   - id: avatar-description
     one: null
-    other: "Ce champ est facultatif. Vous pouvez soit définir une image d'avatar (uniquement visuelle) soit conserver l'image par défaut."
+    other: "Ce champ est facultatif. Vous pouvez soit définir une image d'avatar (uniquement visuelle) ou conserver celle fournie par défaut."
   - id: upload
     one: null
-    other: "Télécharger"
+    other: "Importer"
   - id: required
     one: null
     other: "Les éléments marqués d'un * sont obligatoires"
   - id: no-password
     one: null
-    other: "Nous n'utilisons pas l'authentification par mot de passe car toutes les informations sont stockées localement dans votre navigateur et ne sont pas transmises à des sources internes ou externes."
+    other: "Nous n'utilisons pas l'authentification par mot de passe, car toutes les informations sont stockées localement dans votre navigateur et ne sont pas transmises à des sources tierces."
   - id: signup
     one: null
     other: "S'inscrire"
   - id: have-backup
     one: null
-    other: "Avez-vous déjà une sauvegarde existante?"
+    other: "Vous avez une sauvegarde existante ?"
   - id: have-account
     one: null
-    other: "Vous avez déjà un compte?"
+    other: "Vous avez déjà un compte ?"
   - id: import-data
     one: null
     other: "Importer vos données"
@@ -81,25 +81,25 @@ key:
     other: "Connectez-vous à votre compte"
   - id: login-subheader
     one: null
-    other: "Bon retour ! Veuillez entrer vos coordonnées."
+    other: "Bienvenue ! Veuillez saisir vos informations."
   - id: sign-in
     one: null
-    other: "Se connecter"
+    other: "Connexion"
   - id: no-account
     one: null
     other: "Vous n'avez pas de compte?"
   - id: login
     one: null
-    other: "Se connecter"
+    other: "Connexion"
   - id: tab-profile
     one: null
     other: "Données de profil"
   - id: tab-export
     one: null
-    other: "Exporter des données"
+    other: "Exporter les données"
   - id: tab-delete
     one: null
-    other: "Supprimer des données"
+    other: "Supprimer les données"
   - id: profile-information
     one: null
     other: "Vos informations de profil"
@@ -111,10 +111,10 @@ key:
     other: "Profil"
   - id: profile-warning
     one: null
-    other: "Ces informations peuvent être consultées par d'autres utilisateurs sur cet ordinateur, soyez donc attentif à ce que vous partagez."
+    other: "Ces informations peuvent être consultées par d'autres utilisateurs sur cet ordinateur. Faites donc attention à ce que vous partagez."
   - id: unlock
     one: null
-    other: "Déverrouiller et éditer le profil"
+    other: "Déverrouiller et modifier le profil"
   - id: change
     one: null
     other: "Modifier"
@@ -126,34 +126,34 @@ key:
     other: "Exporter vos informations"
   - id: export-details
     one: null
-    other: "Vous pouvez exporter votre profil ainsi que vos progrès actuels et les importer sur un autre appareil, pour un apprentissage fluide en déplacement."
+    other: "Vous pouvez exporter votre profil avec votre progression actuelle et l'importer sur un autre appareil, pour un apprentissage fluide en déplacement."
   - id: info
     one: null
     other: "Information"
   - id: info-export
     one: null
-    other: "Le fichier JSON produit par cette exportation n'est PAS crypté."
+    other: "Le fichier JSON produit par cette exportation n'est PAS chiffré."
   - id: export-includes
     one: null
-    other: "Cette exportation inclut TOUTES vos informations de profil et votre progression à travers les modules."
+    other: "Cette exportation inclut TOUTES les informations de votre profil et votre progression dans les modules."
   - id: export-data
     one: null
-    other: "Exporter des données"
+    other: "Exporter les données"
   - id: delete-information
     one: null
     other: "Supprimer vos informations"
   - id: delete-details
     one: null
-    other: "Vous pouvez supprimer votre compte actuel et tous les progrès associés dans la section suivante."
+    other: "Vous pouvez supprimer votre compte actuel et votre progression associée dans la section suivante."
   - id: warning
     one: null
     other: "Avertissement"
   - id: warning-delete
     one: null
-    other: "Cette action est IRRÉVERSIBLE, et toutes vos données seront définitivement perdues à moins que vous n'ayez une sauvegarde."
+    other: "Cette action ne peut PAS être annulée et toutes vos données seront définitivement perdues à moins que vous disposiez d'une sauvegarde."
   - id: final-confirmation
     one: null
-    other: "Une confirmation finale vous sera demandée avant de continuer."
+    other: "Il vous sera demandé de confirmer votre choix avant de poursuivre."
   - id: delete-account
     one: null
     other: "Supprimer le compte"
@@ -168,7 +168,7 @@ key:
     other: "Paramètres"
   - id: sign-out
     one: null
-    other: "Se déconnecter"
+    other: "Déconnexion"
   - id: modules
     one: "Module"
     other: "Modules"
@@ -199,7 +199,7 @@ key:
     other: "À faire"
   - id: done
     one: null
-    other: "Fait"
+    other: "Terminé"
   - id: congratulations-introduction
     one: null
     other: "Félicitations pour avoir terminé l'introduction !"
@@ -208,10 +208,10 @@ key:
     other: "Félicitations pour avoir terminé"
   - id: mark-intro-complete
     one: null
-    other: "Cochez la case pour confirmer que vous avez lu l'introduction et continuez vers le module suivant."
+    other: "Cochez la case pour confirmer que vous avez lu l'introduction et passer au module suivant."
   - id: mark-module-complete
     one: null
-    other: "Cochez la case pour confirmer votre achèvement et continuez vers le module suivant."
+    other: "Cochez la case pour confirmer que vous avez terminé et passer au module suivant."
   - id: mark-as-complete
     one: null
     other: "Marquer le module comme terminé"
@@ -220,39 +220,39 @@ key:
     other: "Marquer l'introduction comme terminée"
   - id: mark-as-complete-aria
     one: null
-    other: "Marque le module actuel comme terminé et enregistre la progression de l'utilisateur."
+    other: "Marque le module actuel comme terminé et enregistre la progression pour l'utilisateur."
   - id: mark-intro-as-complete-aria
     one: null
-    other: "Marque l'introduction comme terminée et enregistre la progression de l'utilisateur."
+    other: "Marque l'introduction comme terminée et enregistre la progression pour l'utilisateur."
   - id: all-completed
     translation:
       one: null
       other: Vous avez complété tous les modules de ce parcours d'apprentissage.
   - id: only-one-module-left
     one: null
-    other: "Il ne reste qu'un module pour obtenir votre badge"
+    other: "Il ne reste plus qu'un module à effectuer pour gagner votre badge"
   - id: multiple-modules-left
     one: null
-    other: "Terminez encore 'count' modules pour obtenir votre badge"
+    other: "Terminez 'count' modulessupplémentaires pour gagner votre badge"
   - id: modules-left
-    one: "1 module restant pour obtenir votre badge"
-    other: "'count' modules restants pour obtenir votre badge"
+    one: "Il reste un module pour gagner votre badge"
+    other: "'count' modules supplémentaires pour gagner votre badge"
   - id: no-modules
     one: null
-    other: "Vous n'avez encore complété aucun module!"
+    other: "Vous n'avez encore terminé aucun module !"
   - id: badge-completed
     one: null
-    other: "Vous avez obtenu un badge!"
+    other: "Vous avez gagné un badge !"
   - id: keep-learning
     one: null
-    other: "Continuez à apprendre pour obtenir votre badge!"
+    other: "Continuez à apprendre pour gagner votre badge !"
   - id: congratulations
     one: null
-    other: "Félicitations!"
+    other: "Félicitations !"
   - id: get-badge
     translation:
       one: null
-      other: Obtenez le badge!
+      other: Obtenez le badge !
   - id: skip-link
     one: null
     other: "Passer au contenu"
@@ -264,7 +264,7 @@ key:
     other: "Table des matières"
   - id: faq
     one: null
-    other: "Questions fréquemment posées"
+    other: "Foire aux questions"
   - id: faq-description
     one: null
     other: "Vous ne trouvez pas la réponse que vous cherchez? Contactez notre"
@@ -273,7 +273,7 @@ key:
     other: "équipe de support client"
   - id: aria-language
     one: null
-    other: "La langue actuelle est "
+    other: "Langue actuelle : "
   - id: aria-translation
     one: null
     other: "Traduit en "
@@ -286,7 +286,7 @@ key:
   - id: overview-path
     translation:
       one: null
-      other: Page de vue d'ensemble
+      other: "Page d'aperçu"
   - id: languages
     one: "Langue"
     other: "Langues"
@@ -305,16 +305,16 @@ key:
     other: "Télécharger le badge"
   - id: licensed-under
     one: null
-    other: "Disponibles sous"
+    other: "Sou licence :"
   - id: open-language
     one: null
     other: "Ouvrir le menu des langues"
   - id: open-user
     one: null
-    other: "Ouvrir le menu utilisateur"
+    other: "Ouvrir le menu de l'utilisateur"
   - id: confirm-delete
     one: null
-    other: "Êtes-vous sûr de vouloir supprimer votre compte? Cette action ne peut pas être annulée."
+    other: "Voulez-vous vraiment supprimer votre compte ? Cette action ne peut pas être annulée."
   - id: completed
     one: null
     other: "terminé"
@@ -324,7 +324,7 @@ key:
   - id: eta
     translation:
       one: null
-      other: Temps de lecture estimé
+      other: "Estimation du temps de lecture"
   - id: minutes
     translation:
       one: minute
@@ -343,18 +343,18 @@ key:
     other: "Dernière mise à jour le"
   - id: git-unavailable
     one: null
-    other: "Les informations Git ne sont pas disponibles."
+    other: "Les informations sur Git ne sont pas disponibles."
   - id: edit-github
     one: null
     other: "Modifier cette page sur GitHub"
   - id: print-pdf
     translation:
       one: null
-      other: "Imprimer au format PDF"
+      other: "Imprimer en PDF"
   - id: cookie-banner
     translation:
       one: null
-      other: Ce site utilise [Clean Insights](https://cleaninsights.org/) pour des analyses web respectueuses de la vie privée. En utilisant ce site, vous acceptez la collecte d'informations de base telles que le pays, la langue, la navigation et l'agent utilisateur.
+      other: "Ce site Web utilise [Clean Insights](https://cleaninsights.org/) pour fournir des analyses Web préservant la confidentialité. En utilisant le site, vous acceptez d'autoriser la collecte d'informations de base concernant le pays, la langue, la navigation et l'agent utilisateur."
   - id: accept
     translation:
       one: null
@@ -362,15 +362,15 @@ key:
   - id: reject
     translation:
       one: null
-      other: Rejeter
+      other: Refuser
   - id: upload-file
     translation:
       one: null
-      other: Télécharger un fichier
+      other: Importer un fichier
   - id: drag-drop
     translation:
       one: null
-      other: ou faites glisser-déposer
+      other: "ou glisser-déposer"
   - id: json-size
     translation:
       one: null

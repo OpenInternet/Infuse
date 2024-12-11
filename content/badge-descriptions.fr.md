@@ -1,5 +1,5 @@
 ---
-title: Descriptions des badges
+title: Badges
 weight: 5
 navbar: true
 footer: false

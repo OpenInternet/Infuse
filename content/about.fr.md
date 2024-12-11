@@ -1,5 +1,5 @@
 ---
-title: À propos d'Infuse
+title: À propos
 weight: 1
 navbar: true
 ---

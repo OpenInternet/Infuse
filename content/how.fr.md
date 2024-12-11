@@ -1,5 +1,5 @@
 ---
-title: Comment ça fonctionne
+title: Fonctionnement
 weight: 2
 navbar: true
 ---
