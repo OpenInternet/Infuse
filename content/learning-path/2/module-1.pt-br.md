@@ -126,7 +126,7 @@ Com um Mentor ou Colega
 
 ## Learning Resources
 
-{{% resource title="Security Education 101" languages="Inglês" cost="Free" description="Um recurso popular sobre como ensinar e falar sobre segurança digital" url="https://www.securityeducationcompanion.org/articles" %}}
+{{% resource title="Security Education 101" languages="Inglês" cost="Grátis" description="Um recurso popular sobre como ensinar e falar sobre segurança digital" url="https://www.securityeducationcompanion.org/articles" %}}
 
 ## Notes
 
