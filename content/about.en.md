@@ -9,6 +9,8 @@ Infuse provides digital protectors who are looking to upskill with **in-depth le
 
 Infuse is **community-developed and owned**. At its core, the framework was developed based on premises, ideas, and feedback identified through interviews, focus group discussions, workshops, and sprints with dozens of digital protectors and members of the Internet Freedom community from across the globe. From 2023 to 2024, a coalition of organizations, [Conexo](https://conexo.org/en/home/), [DefendDefenders](https://defenddefenders.org/), [Internews](https://internews.org/), and [Jordan Open Source Association (JOSA)](https://josa.ngo/), led the development and piloting of the Infuse framework (comprising the first six learning paths). Some of the core values which guided the development of Infuse have been harm reduction, accessibility, and adaptability to different contexts.
 
+You can read about the methodologies and findings of the research we conducted in preparation for the design of Infuse. To learn about the research conducted on peer verification systems in digital protector spaces, click [here](https://internews.org/resource/peer-verification-systems-in-digital-protector-spaces/). To learn about the research conducted on the development and maintenance of digital security resources, click [here](https://internews.org/resource/the-development-and-maintenance-of-digital-security-community-resources-and-curricula/).
+
 ***Much like how your favorite tea infuses hot water, making for a delicious, aromatic, cozy (maybe even caffeinated) beverage, we hope that Infuse will be a rich source of learning, growth, and connection for digital protectors and the communities they support. Pinkies up!*** 
 
 ## What is Specialized Technical Expertise (STE)?
