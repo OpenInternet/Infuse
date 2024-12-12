@@ -74,7 +74,6 @@ No Android, instale um app (não malicioso) e use o gerenciador de arquivos para
 
 {{% resource title="Descubra de onde um arquivo foi baixado no macOS" languages="Inglês" cost="Grátis" description="Os arquivos macOS que foram baixados do URL geralmente possuem o URL integrado nos seus metadados. Isto mostra como extrair o dito URL." url="https://osxdaily.com/2010/10/12/find-out-where-a-file-was-downloaded-from/" %}}
 
-## Notes
 
 [^1]:
     No Windows, você também verá um número correspondente a um ID de Zona. As Zonas associadas aos arquivos baixados são as seguintes:
