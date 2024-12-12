@@ -59,7 +59,7 @@ Depending on the scenario, you may be implementing detection steps directly on t
 - Second device (analysis device): Another device running Windows, macOS, or Linux which you can use to run scans on the first device. Scanning iOS devices using the covered toolset is only possible (at time of writing) via macOS or Linux
 - Enough storage space either on the second device or on an external hard drive/ solid state drive to back up the entirety of the first device (in case imaging and forensics are required)
 
-(Optional) For section 5b alone, you will need access to a Raspberry Pi.
+(Optional) For a part of module 6 alone, you will need access to a Raspberry Pi.
 
 ## Related learning paths
 

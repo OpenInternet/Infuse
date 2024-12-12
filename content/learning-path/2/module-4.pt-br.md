@@ -163,4 +163,4 @@ Se você estiver trabalhando com um colega ou mentor, fale com eles sobre as sua
 [^1]:  Um Programa Potencialmente Indesejado é algo que o usuário não quer no seu sistema, ainda que possa tê-lo baixado e executado voluntariamente. Isso pode incluir programas que enganam acerca da sua funcionalidade ou que exibem várias propagandas.
 [^2]: Um hash é como uma breve impressão digital de um arquivo - pode ser usado para identificar um arquivo único, sem revelar o seu conteúdo. Você pode calcular um hash usando [a linha de comando no Windows, macOS, e Linux](https://techdocs.akamai.com/download-ctr/docs/verify-checksum).
 [^3]: Ter uma extensão maliciosa no seu sistema não necessariamente significa que você tem outros tipos de malware. Um hacker também pode usar a engenharia social para convencer um usuário a instalar um malware.
-[^4]: Se você deseja saber mais sobre o comando spctl, que é responsável pelo Gatekeeper, execute "man spctl" no Terminal macOS para ver a página de manual/documentação.
+[^4]: Se você deseja saber mais sobre o comando spctl, que é responsável pelo Gatekeeper, execute `man spctl` no Terminal macOS para ver a página de manual/documentação.

@@ -59,7 +59,7 @@ Selon le scénario, vous pouvez implémenter des étapes de détection directeme
 - Deuxième appareil (appareil d'analyse) : un autre appareil exécutant Windows, macOS ou Linux que vous pouvez utiliser pour exécuter des analyses sur le premier appareil. L'analyse des appareils iOS à l'aide du jeu d'outils présenté est uniquement possible (au moment de la rédaction) via macOS ou Linux
 - Un espace de stockage suffisant sur le deuxième périphérique ou sur un disque dur externe/disque SSD pour sauvegarder l'intégralité du premier appareil (dans le cas où l'imagerie et la criminalistique sont nécessaires)
 
-(Facultatif) Pour la section 5b uniquement, vous devrez accéder à un Raspberry Pi.
+(Facultatif) Pour la module 6 uniquement, vous devrez accéder à un Raspberry Pi.
 
 ## Parcours d'apprentissage connexes
 

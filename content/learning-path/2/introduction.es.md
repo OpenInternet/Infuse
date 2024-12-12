@@ -59,7 +59,7 @@ Dependiendo del escenario, es posible que estés implementando pasos para la det
 - Segundo dispositivo (dispositivo de análisis): Otro dispositivo que ejecute Windows, macOS o Linux que puedas utilizar para ejecutar escaneo en el primer dispositivo. Escanear dispositivos iOS utilizando el conjunto de herramientas solo es posible (en el momento de escribir) vía macOS o Linux.
 - Suficiente espacio de almacenamiento en el segundo dispositivo o en un disco duro externo/unidad de estado sólido para realizar una copia de seguridad de la totalidad del primer dispositivo (en caso de que se requieran imágenes y análisis forenses)
 
-(Opcional) Solo para la sección 5b, necesitarás acceso a una Raspberry Pi.
+(Opcional) Solo para la módulo 6, necesitarás acceso a una Raspberry Pi.
 
 ## Rutas de aprendizaje relacionadas
 

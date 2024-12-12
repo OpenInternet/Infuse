@@ -164,4 +164,4 @@ It’s worth noting that security configurations vary between different versions
 [^1]: A Potentially Unwanted Program is something that the user does not want on their system, even if they might have downloaded and run it themselves. It could include programs which mis-advertise their functionality or run many ads.
 [^2]: A hash is like a short fingerprint of a file—it can be used to identify a unique file without revealing its contents. You can calculate a hash by using [the command line on Windows, macOS, and Linux](https://techdocs.akamai.com/download-ctr/docs/verify-checksum).
 [^3]: Having a malicious extension on your system does not necessarily mean that you have other types of malware as well. An attacker could also use social engineering to convince a user to install malware.
-[^4]: If you want to learn more about the spctl command, which is responsible for Gatekeeper, run “man spctl” in the macOS Terminal to see the manual/ documentation page.
+[^4]: If you want to learn more about the spctl command, which is responsible for Gatekeeper, run `man spctl` in the macOS Terminal to see the manual/ documentation page.

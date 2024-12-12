@@ -57,7 +57,7 @@ Dependendo do caso, você pode implementar as etapas de detecção diretamente n
 - Para o segundo dispositivo (de análise): Um outro dispositivo dotado de Windows, macOS, ou Linux, que você poderá usar para fazer as análises no primeiro dispositivo. A análise de dispositivos dotados de iOS com o uso da ferramenta só é possível (até o presente momento) usando macOS ou Linux
 - Espaço de armazenamento suficiente, quer seja no segundo dispositivo ou num dispositivo externo, para salvar um backup total do primeiro dispositivo (caso sejam necessárias imagens e perícia)
 
-(Opcional) Para a seção 5b, você precisará de acesso a um Raspberry Pi.
+(Opcional) Para a módulo 6, você precisará de acesso a um Raspberry Pi.
 
 
 ## Trilhas de aprendizagem relacionadas
