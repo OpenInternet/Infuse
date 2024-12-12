@@ -60,11 +60,11 @@ Using a ‘noisy’ device firewall which asks permission for every process requ
   - [LuLu ](https://objective-see.org/products/lulu.html)(Open Source, Free)
   - [Little Snitch](https://www.obdev.at/products/littlesnitch) (Paid) or [Little Snitch Mini](https://www.obdev.at/products/index.html) (Proprietary, Free)
 - Windows
-  - [PortMaster ](https://safing.io/)(Open Source, Free/Paid version available with network history/investigation feature)
+  - [PortMaster](https://safing.io/) (Open Source, Free/Paid version available with network history/investigation feature)
   - [GlassWire](https://www.glasswire.com/) (Proprietary Free/Paid Version available)
 - Android
   - [NetGuard](https://github.com/M66B/NetGuard) (Open Source Free/Freemium version available with traffic capture/history)
-  - [AFWall+ ](https://github.com/ukanth/afwall)(Open Source, Free)
+  - [AFWall+](https://github.com/ukanth/afwall) (Open Source, Free)
 - Linux
   - [OpenSnitch](https://github.com/evilsocket/opensnitch) (Open Source, Free)
 
@@ -87,7 +87,7 @@ In other cases, if you are working with an external analyst, they may request yo
 If you are ready to take this skill further, you will need to develop skills around traffic capture, filtering, and analysis using tools such as Suricata, Zeek, and Wireshark. See some suggested resources for learning these below:
 
 - [Malware-traffic-analysis.net](https://www.malware-traffic-analysis.net/) - Contains years of blog and tutorial write-ups including PCAP files for practicing detection and analysis skills
-- Course: [Network Security Monitoring with Suricata ](https://www.pluralsight.com/courses/network-security-monitoring-suricata)(Pluralsight, Free)
+- Course: [Network Security Monitoring with Suricata](https://www.pluralsight.com/courses/network-security-monitoring-suricata) (Pluralsight, Free)
 - Course: [Threat Hunting Training course ](https://www.activecountermeasures.com/hunt-training/)(Active Countermeasures, uses AC-Hunter CE, offered live monthly)
 
 Consider also learning the organizational deployments of such tools across various categories, for instance using [Security Onion](https://github.com/Security-Onion-Solutions/securityonion), [pfsense](https://www.pfsense.org/)/[Opensense](https://opnsense.org/), [AC-Hunter CE](https://www.activecountermeasures.com/ac-hunter-community-edition/), [RITA](https://github.com/activecm/rita), and [Wazuh](https://wazuh.com/).
