@@ -62,7 +62,7 @@ La réduction des dommages pour la personne ciblée devrait commencer par recuei
 
 Les réponses à ces questions aideront à la fois à fournir un soutien utile en matière de réduction des dommages et à faciliter vos enquêtes. À mesure que vous progressez dans l'analyse et la compréhension du contenu malveillant, informez la personne ciblée des avancées, en particulier dans la mesure où cela est pertinent pour la réduction des risques.
 
-Pour assurer une sécurité opérationnelle afin de vous protéger lorsque vous travaillez avec des e-mails malveillants, complétez le sous-thème 3 (manipulation sécuritaire des liens et de l'infrastructure) du parcours d'apprentissage sur la détection, l'enquête et le suivi des infrastructures malveillantes.
+Pour assurer une sécurité opérationnelle afin de vous protéger lorsque vous travaillez avec des e-mails malveillants, complétez [le sous-thème 3](https://infuse.quest/fr/learning-path/1/module-3/) (manipulation sécuritaire des liens et de l'infrastructure) du parcours d'apprentissage sur la détection, l'enquête et le suivi des infrastructures malveillantes.
 
 ### Comprenez : détection, résultats négatifs et paranoïa
 
