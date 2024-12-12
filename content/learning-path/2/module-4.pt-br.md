@@ -125,7 +125,7 @@ Se você estiver trabalhando com um colega ou mentor, fale com eles sobre as sua
 
 {{% resource title="Avast" languages="Múltiplos" cost="Gratuito com funcionalidades premium" description="Um outro antivírus de verificação com uma boa oferta gratuita." url="https://www.avast.com/en-us/Grátis-antivirus-download#pc" %}}
 
-{{% resource title="ClamAV" languages="Múltiplos"Um verificador de vírus open source." url="https://www.clamav.net/" %}}
+{{% resource title="ClamAV" languages="Múltiplos" description="Um verificador de vírus open source." url="https://www.clamav.net/" %}}
 
 {{% resource title="Lookout" languages="Múltiplos" cost="Várias ofertas de preços" description="Uma empresa bem conhecida que fornece serviços de segurança para Android." url="https://www.lookout.com/" %}}
 
