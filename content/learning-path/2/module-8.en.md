@@ -47,11 +47,11 @@ After completing the activity, you should be able to:
 - Read the overview of results including automated detections
 - Have a general understanding of the other categories of information being presented in the sandbox analysis. For the purpose of detection detailed understanding is not necessary but for Malware Analysis or threat hunting you will need to understand these further.
 
-You can find a deeper dive on Sandboxes in the Infuse Malware Analysis learning path.
+You can find a deeper dive on Sandboxes in the Infuse [Malware Analysis learning path](/en/learning-path/3/).
 
 Note that advanced malware may initiate checks to discover if it is in a virtualized/sandboxed environment thus may behave differently depending on the environment, therefore no sandbox environment will be 100% reliable.
 
-To learn more about the kinds of techniques that Hybrid Analysis uses, you can learn to do your own hybrid (static and dynamic) malware analysis in the Malware Analysis learning path.
+To learn more about the kinds of techniques that Hybrid Analysis uses, you can learn to do your own hybrid (static and dynamic) malware analysis in the [Malware Analysis learning path](/en/learning-path/3/).
 
 ## Practice
 
