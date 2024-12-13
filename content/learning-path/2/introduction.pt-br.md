@@ -1,6 +1,6 @@
 ---
 style: introduction
-title: Introduction
+title: Introdução
 description: "Leia a visão geral do trilha de aprendizagem, objetivos, ameaças associadas e pré-requisitos"
 weight: 1
 ---
