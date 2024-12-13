@@ -1,5 +1,5 @@
 ---
-title: Acerca
+title: Acerca de
 weight: 1
 navbar: true
 ---
