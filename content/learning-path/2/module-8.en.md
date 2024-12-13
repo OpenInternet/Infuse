@@ -35,7 +35,7 @@ Sandboxes provide a virtual environment simulating an ordinary computer which ca
 
 Several freely available commercial sandbox services include [Hybrid Analysis](https://www.hybrid-analysis.com/), [Any.Run](https://any.run/), [Joe Sandbox](https://www.joesandbox.com/), and [Triage](https://tria.ge/). These services run files that you send it and perform dynamic analysis. This has great advantages in being able to heuristically detect new malware, and also being able to evaluate multiple malware stages. Note that samples submitted will be collected and become available to paying customers and analysts.
 
-Cuckoo Sandbox is a free and open source malware analysis sandbox tool which you can self-host. CERT-EE in Estonia offers a free hosted version online: [Cuckoo V2](https://cuckoo.cert.ee/), [Cuckoo V3 (Beta)](https://cuckoo-hatch.cert.ee/).
+Cuckoo Sandbox is a free and open source malware analysis sandbox tool which you can self-host. CERT-EE in Estonia offers a free hosted version online: [Cuckoo V2](https://cuckoo.cert.ee/), [Cuckoo V3](https://cuckoo-hatch.cert.ee/).
 
 To learn more about using Sandboxes for detection of samples, complete the “Sandboxes” section in Chapter 10 of Internews’ [Field Guide to Incident Response for Civil Society and Media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/), which uses the Triage sandbox as an example
 
