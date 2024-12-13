@@ -2,7 +2,7 @@
 style = "module"
 weight = 4
 title = "Etapas iniciais e verificações para a detecção de malware"
-description = "This subtopic looks at the ways in which we can conduct initial triage and check for malware when we are handed a potentially infected device"
+description = "Aprendemos como usar ferramentas básicas de análise padrão ou integradas e varreduras para identificar uma violação ou malware suspeito específico.."
 +++
 
 ## Caso de Uso

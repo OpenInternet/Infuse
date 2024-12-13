@@ -1,9 +1,10 @@
 ---
 style: module
 title: Competências interpessoais para a detecção de malware
-description: Before you start looking into any malware, you need to set up a
-  safe environment to do so. Since malware does bad things to the systems it
-  runs on, you do not want to run it on your primary system
+description: Antes de você começar a analisar qualquer malware,
+  você precisa configurar um ambiente seguro. Os malwares prejudica
+  os sistemas nos quais funcionam e você não deve fazê-lo funcionar
+  no seu sistema primário.
 weight: 1
 ---
 ## Caso de Uso

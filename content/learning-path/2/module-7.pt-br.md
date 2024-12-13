@@ -2,7 +2,7 @@
 style = "module"
 weight = 7
 title = "Detectando malware através da aquisição de imagens (iOS, Android)"
-description = "Sometimes, we need to take data from the device itself and analyze it in a different environment"
+description = "Malwares mais avançados podem tentar detectar atividade forense e dificultar a detecção e a análise. Podemos precisar coletar dados do próprio dispositivo para análise."
 +++
 
 ## Caso de Uso

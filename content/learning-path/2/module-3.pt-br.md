@@ -2,7 +2,7 @@
 style = "module"
 weight = 3
 title = "Como o malware funciona e os diferentes tipos de malware"
-description = "Viruses, spyware, backdoors, ransomware, and adware all behave differently. Here, we study different types of malware and understand how infections begin"
+description = "Vírus, spyware, backdoors, ransomware e adware se comportam de forma diferente e são inspirados por motivações diferentes. Estudamos como eles diferem e como as infecções começam."
 +++
 
 ## Caso de Uso

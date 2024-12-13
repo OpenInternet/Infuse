@@ -2,7 +2,7 @@
 style = "module"
 weight = 10
 title = "Descobrindo de onde veio o malware "
-description = "We look at how we can use timestamps and metadata to figure out where malware originated"
+description = "Analisamos como podemos usar carimbos de data/hora e metadados para descobrir de onde vem o malware"
 +++
 
 ## Caso de Uso

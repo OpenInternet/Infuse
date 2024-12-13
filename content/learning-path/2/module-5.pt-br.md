@@ -2,7 +2,7 @@
 style = "module"
 weight = 5
 title = "Métodos de perícia dos sistemas Windows e macOS "
-description = "Sometimes, it's necessary to dig deeper into a system to figure out what's wrong. We can do this by investigating processes, persistence mechanisms, and network traffic"
+description = "A inspeção direta do dispositivo pode ser necessária para identificar processos suspeitos, artefatos ou tráfego. Verificar de forma mais aprofundada o que está acontecendo com o dispositivo."
 +++
 
 ## Caso de Uso

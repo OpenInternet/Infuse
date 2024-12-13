@@ -2,7 +2,7 @@
 style = "module"
 weight = 6
 title = "Detectando malware através da análise de tráfego"
-description = "This optional subtopic teaches you to use a Raspberry Pi to conduct traffic analysis while searching for potential malware"
+description = "(Tópico opcional) Use isto quando puder configurar uma solução de análise de tráfego em linha, por exemplo, usando um dispositivo de ponto de acesso WiFi executado em um Raspberry Pi."
 +++
 
 ## Caso de Uso

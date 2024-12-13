@@ -2,7 +2,9 @@
 style: module
 title: Pré-requisitos OPSEC para detecção de malware
 weight: 2
-description: When you set up your malware detection environment, it's a good idea to create some rules and processes to reduce the risk of any security breaches
+description: Aprendemos como implementar uma política
+    de segurança no ambiente computacional utilizado
+    pelo profissional para detecção de malware.
 ---
 
 ## Caso de Uso

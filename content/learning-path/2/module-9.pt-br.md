@@ -2,7 +2,7 @@
 style = "module"
 weight = 9
 title = "Análise de documento malicioso"
-description = "We learn how to triage and analyze potentially suspicious malicious documents"
+description = "Aprendemos como triar e analisar documentos suspeitos e potencialmente maliciosos"
 +++
 
 ## Caso de Uso

@@ -2,7 +2,7 @@
 style = "module"
 weight = 8
 title = "Detecção e determinação baseada na amostra"
-description = "You have a sample of a file and need to determine if it is malicious. This may have been sent to the target by email, social media, or instant messenger, or transferred over removable media or otherwise. Here, we learn how to view this sample in analysis platforms or sandboxes"
+description = "Você tem uma amostra de um arquivo. O arquivo em si pode ser binário, comprimido, uma captura de página web ou ter outros formatos. O principal objetivo consiste em determinar se o arquivo é malicioso."
 +++
 
 ## Caso de Uso

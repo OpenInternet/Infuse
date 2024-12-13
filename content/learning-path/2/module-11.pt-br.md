@@ -2,7 +2,7 @@
 style = "module"
 weight = 11
 title = "Limpeza, cuidados posteriores, gerenciamento de riscos pós-incidente e compartilhamento de informações"
-description = "Removing malware and supporting people post-infection can prove challenging. We look at some of the best ways to do so"
+description = "Se um malware ou algum tráfego malicioso for encontrado no dispositivo da pessoa alvo, precisaremos fornecer recomendações específicas"
 +++
 
 ## Caso de Uso
