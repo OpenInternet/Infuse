@@ -103,10 +103,10 @@ pluralizeListTitles = false
     direction = "ltr"
   
   [languages.ar]
-  languageName = "Arabic (coming soon)"
+  languageName = "Arabic"
   weight    = 4
   [languages.ar.params]
-    languageName = "Arabic (coming soon)"
+    languageName = "Arabic"
     direction = "rtl"
 
   [languages.pt-br]
