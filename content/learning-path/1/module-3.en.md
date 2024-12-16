@@ -2,7 +2,7 @@
 style: module
 title: "Operational Security - Safe Handling of links and infrastructure"
 description: >
-  "As you go about investigating malicious phishing emails, attachments, websites, and other infrastructure, you will need to take some proactive steps to make sure that you keep yourself and the people you support safe. Be sure to study this skill and, if necessary, set up a safe environment before interacting with suspected malicious emails or web pages"
+  As you go about investigating malicious phishing emails, attachments, websites, and other infrastructure, you will need to take some proactive steps to make sure that you keep yourself and the people you support safe. Be sure to study this skill and, if necessary, set up a safe environment before interacting with suspected malicious emails or web pages
 weight: 3
 ---
 
@@ -47,11 +47,11 @@ Depending on the sophistication of the attacks which you are dealing with, the s
 
 As you document potentially malicious URLs, it is common practice to ‘defang’ the URL so that the applications you use for notes or documentation do not automatically generate clickable links which unintentionally lead you (or anyone you are collaborating with) to click the link or otherwise instigate traffic to the URL from your working machine. Some applications, for example messengers, also automatically preview links (and fetch the content from a server in order to do so). Defanging URLs prevents them from doing so.
 
-This is commonly done by replacing the protocol section of the URL with an invalid equivalent, and enclosing dots in the URL with [square brackets]. For example:
+This is commonly done by replacing the protocol section of the URL with an invalid equivalent, and enclosing dots in the URL with \[square brackets\]. For example:
 
 | From live URL                                                      | To defanged URL                   |
 |--------------------------------------------------------------------|-----------------------------------|
-| [https://www.malicious-site.com](https://www.malicious-site.com)   | hxxps://www[.]malicious-site[.]com |
+| https://www.malicious-site.com                                     | hxxps://www[.]malicious-site[.]com |
 | ftp://192.168.12.20                                                | fxp://192[.]168[.]12[.]20          |
 
 

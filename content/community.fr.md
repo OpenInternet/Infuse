@@ -1,5 +1,96 @@
-+++
-title = "Community"
-navbar = true
-weight = 4
-+++
+---
+title: Communauté et mentorat
+weight: 4
+navbar: true
+---
+
+## Mentorat
+
+### Rôle du mentorat pour Infuse
+
+Bien qu'il ne soit pas nécessaire de suivre un parcours d'apprentissage pour obtenir un badge, les apprenants Infuse sont fortement encouragés à travailler avec un mentor ou un protecteur numérique qui possède une certaine expertise dans le domaine d'expertise technique spécialisée (ETS) du parcours d'apprentissage choisi. De cette façon, les apprenants reçoivent des conseils et du soutien tout au long du processus d'apprentissage, et peuvent mieux valider leurs connaissances et compétences nouvellement acquises. Les rôles de mentor et d'apprenant peuvent toutefois être fluides, certaines personnes étant des apprenants dans un parcours d'apprentissage et des mentors dans un autre, ou certaines personnes devenant mentor dans un parcours d'apprentissage après avoir été apprenant dans le même parcours d'apprentissage.
+
+### Évaluation par le mentor des progrès de l'apprenant
+
+Afin de valider les compétences et d'obtenir un badge, Infuse recommande fortement aux apprenants de faire appel à un mentor ou de faire évaluer par des pairs leur travail dans le cadre des exercices de contrôle des compétences inclus à la fin de la plupart des modules. Pour aider les mentors à effectuer cette évaluation, Infuse a élaboré des fiches d'évaluation, une par parcours d'apprentissage, qui peuvent être utilisées pour (1) suivre les progrès des apprenants dans les modules et (2) enregistrer les évaluations des contrôles de compétences et calculer un score pour déterminer si l'apprenant est admissible à un badge (une note d'au moins 2,5 sur 4 est nécessaire pour l'obtention d'un badge).
+
+[Téléchargez les modèles de fiches d'évaluation ici](https://github.com/OpenInternet/Infuse/blob/464d57a6a4c79c438314c0e06e741d013d45d8fe/learner-assets/Infuse%20Scorecard%20Templates%20%26%20Guidance_Sep%202024.xlsx) (chaque onglet correspond à un parcours d'apprentissage différent). Le lien vous mènera à GitHub et vous devrez lancer le téléchargement à partir de là en cliquant sur les trois points situés dans le coin supérieur droit, puis en sélectionnant « Télécharger ». Vous pourrez trouver d'autres directives sur l'utilisation des fiches d'évaluation dans le premier onglet du fichier. Vous n'avez pas besoin de vous connecter à GitHub pour télécharger le fichier.
+
+Les fiches d'évaluation peuvent aussi être utilisées dans le cadre de discussions avant et après l'apprentissage afin d'évaluer les connaissances de base et finales dans les domaines thématiques du module.
+
+### Chercher un mentor
+
+Un mentor peut être une personne qui possède un niveau de connaissances et de compétences suffisant dans un domaine donné de l'ETS pour fournir des conseils à l'apprenant, répondre à ses questions et évaluer ses contrôles de compétences et ses connaissances. Les apprenants peuvent identifier des mentors à partir de leurs réseaux existants ou chercher à se mettre en relation avec quelqu'un de la communauté plus large des mentors d'Infuse. Les coordonnées de certains mentors disponibles [se trouvent ici](https://docs.google.com/spreadsheets/d/1AZlVAbjWuV7iw1nohpzjoKWkpuv2vg0VhRz9XLK-2q0/edit?usp=sharing) (elles seront mises à jour régulièrement).
+
+Il y a d'autres mentors admissibles qui ne sont pas inscrits sur la liste publique. Les organisations de la coalition Infuse peuvent recommander des mentors potentiels aux apprenants intéressés. Contactez contact@infuse.quest et partagez le parcours d'apprentissage qui vous intéresse, la ou les langues dans lesquelles vous préférez recevoir un mentorat et toute autre information pertinente. Nous ferons de notre mieux pour vous mettre en contact avec des mentors potentiels.
+
+### Critères de mentorat
+
+Il n'est pas nécessaire de comprendre absolument tout sur les sujets abordés dans un parcours d'apprentissage particulier pour encadrer un apprenant. Peu importe le niveau d'expertise, tout le monde doit parfois consulter la documentation et nous ne nous attendons pas à ce que quelqu'un ait toutes les réponses. Nous espérons qu'Infuse offrira également des occasions d'apprentissage aux mentors. Un mentor doit toutefois en savoir suffisamment sur un sujet pour pouvoir guider les apprenants dans leur exploration d'un parcours d'apprentissage. Cela signifie qu'ils doivent être en mesure de diriger les apprenants vers des ressources où ils peuvent trouver des réponses à leurs questions, les soutenir par des exercices de vérification des compétences et d'évaluation de leur travail, et avoir une bonne compréhension du matériel pédagogique.
+
+Quelques signes qui indiquent que vous pouvez entreprendre votre parcours de mentorat :
+
+* Vous avez terminé ou considérez pouvoir terminer la vérification des exercices pratiques et des compétences pour un parcours d'apprentissage, et vous êtes en mesure d'aider les apprenants à les terminer.  
+* Si le parcours d'apprentissage repose fortement sur des documents de référence ou des outils comme OWASP ou VirusTotal, vous pouvez expliquer en toute confiance à l'apprenant comment ils fonctionnent, comment les utiliser et quelles pourraient être leurs limites.  
+* Vous pouvez aider les apprenants à mettre en place des environnements matériels et logiciels, comme les machines virtuelles, les conteneurs ou autres ensembles d'outils, qui pourraient s'avérer nécessaires pour achever des parcours d'apprentissage.  
+* Vous êtes prêt(e) à expliquer les concepts du parcours d'apprentissage aux personnes qui pourraient avoir des difficultés à le comprendre.  
+* Vous pouvez évaluer le niveau de difficulté du parcours d'apprentissage et comprendre les modules ou les sections dans lesquelles les apprenants pourraient avoir des difficultés ou nécessiter plus de temps.  
+* Vous comprenez les aspects psychosociaux du rôle de protecteur numérique dans le cadre du parcours d'apprentissage que vous avez choisi. Cela peut signifier comprendre comment parler avec empathie et rassurer les personnes qui ont été ciblées par l'hameçonnage ou qui ont des logiciels malveillants sur leurs systèmes, ou comment discuter de la sécurité Web avec les gestionnaires d'ONG et les administrateurs de systèmes.  
+* Le soutien des apprenants vous intéresse et vous pouvez consacrer un temps approprié à la tâche. Le temps requis dépendra de l'apprenant, du parcours d'apprentissage et des conditions convenues entre le mentor et l'apprenant.
+
+Vous pourriez avoir quelques difficultés à proposer du mentorat si vous ne vous sentez pas encore confiant(e) dans tous les points énumérés ci-dessus.
+
+### Payer pour obtenir un mentorat
+
+Le paiement du mentorat est décidé entre l'apprenant et le mentor. Il n'est pas toujours nécessaire de payer pour obtenir un mentorat, car de nombreux mentors peuvent être disposés à offrir gratuitement leur mentorat et/ou avoir accès à d'autres sources de financement pour le temps qu'ils consacrent au mentorat.
+
+## Conseils pour les mentors (par des mentors !)
+
+* Rappelez-vous d'adopter une attitude positive, de faire preuve d'empathie et de sensibilité culturelle lorsque vous travaillez avec des apprenants. Il est important d'équilibrer la patience (y compris comprendre les retards et les circonstances) avec la motivation (encourager les apprenants à suivre le cours dans la mesure de leurs capacités, même lorsque le sujet peut s'avérer difficile).  
+* Tenez compte des fuseaux horaires, des barrières linguistiques (parfois même si vous parlez la même langue) et des limites (y compris les autres responsabilités et l'horaire de l'apprenant). Les apprenants sont encouragés à faire de même lorsqu'ils travaillent avec vous. Les mentors et les apprenants devraient aussi s'efforcer de se faire entendre et d'exprimer leurs besoins.  
+* Faites preuve de patience et de flexibilité avec les apprenants. Les gens apprennent à des rythmes distincts et de manières très différentes. Essayez de faire preuve de créativité dans la façon dont vous les impliquez dans différents sujets. Soyez flexible avec les apprenants et essayez de vous adapter à leur(s) méthode(s) d'apprentissage.  
+* Consultez le parcours d'apprentissage avant de travailler avec un apprenant pour vous assurer que vous avez des connaissances suffisantes pour assurer un mentorat sur le sujet.  
+* Prévoyez judicieusement votre temps et n'hésitez pas à être honnête avec vos apprenants au sujet du temps que vous pouvez leur consacrer. Si un apprenant demande plus de temps que vous ne pouvez lui donner, discutez-en ouvertement avec lui.  
+* Évaluer les progrès des apprenants à mesure qu'ils progressent. Par exemple, nous vous recommandons fortement de passer en revue et d'évaluer les vérifications des compétences au fur et à mesure qu'elles sont effectuées plutôt que de tout examiner à la fin du parcours d'apprentissage. La dernière solution représenterait beaucoup de travail et l'apprenant pourrait avoir du mal à se rappeler pourquoi il a pris certaines décisions.  
+* Les mentors ne sont pas supposés tout savoir dans un parcours d'apprentissage donné. Soyez honnête avec les apprenants au sujet de ce que vous ne connaissez peut-être pas en détail et demandez l'aide d'autres protecteurs numériques ou faites des recherches sur les sujets sur lesquels vous devez travailler.  
+* Demandez aux apprenants d'annoter un document partagé pour permettre une collaboration asynchrone. Cet espace peut servir à ajouter des questions et des réponses aux exercices pratiques et de vérification des compétences.
+
+## Conseils pour les apprenants (par les apprenants !)
+
+* Prévoyez du temps pour vous-même afin de travailler sur le parcours d'apprentissage régulièrement pour vous aider à progresser à un bon rythme. Vous pourriez également envisager de faire appel à quelqu'un pour vous maintenir sur la bonne voie (comme votre mentor, un autre apprenant ou un ami).  
+* Il ne suffit pas de passer en revue le parcours d'apprentissage. Pour saisir le contenu et acquérir des connaissances et des compétences pratiques, vous devez également utiliser les ressources externes liées au parcours d'apprentissage et effectuer des exercices pratiques.  
+  * Il y a beaucoup de ressources associées dans les parcours d'apprentissage, nous vous encourageons donc de prioriser celles qui sont les plus importantes et pertinentes. Vous n'avez pas besoin de passer en revue chaque ressource liée.  
+* Après une séance d'étude, assurez-vous de noter où vous vous êtes arrêté(e) afin de pouvoir vous en souvenir lorsque vous y reviendrez.  
+* Engagez-vous activement dans le matériel d'apprentissage en prenant des notes, en posant des questions et en demandant des éclaircissements sur les concepts que vous trouvez difficiles.  
+* Ne vous lancez pas dans des sujets plus avancés avant d'avoir pris le temps de comprendre les bases. Ne vous précipitez pas lors de l'apprentissage des notions de base, car elles faciliteront le reste du processus d'apprentissage.  
+* Recherchez des documents et des actualités supplémentaires sur les sujets du parcours d'apprentissage qui sont particulièrement pertinents pour le contexte de votre pays ou de votre communauté.  
+* Dans la mesure du possible, établissez des liens avec d'autres apprenants, collaborez et apprenez avec eux. Infuse est une opportunité d'élargir vos réseaux et vos possibilités de collaborations internationales.  
+* Posez des questions à un mentor, à un apprenant ou à d'autres membres de la communauté des protecteurs numériques.  
+* Partagez les connaissances et les exercices pratiques avec d'autres apprenants, ainsi qu'avec des membres de leurs propres organisations ou communautés, dès le début.  
+* Ne vous mettez pas trop de pression, faites preuve de curiosité et amusez-vous !
+
+## Développement des affaires et génération de revenus pour les protecteurs numériques
+
+Quelques conseils pour ceux qui débutent dans la formation et le conseil en sécurité numérique.
+
+**Rémunération**
+
+* **Déterminez les tarifs habituels pour les consultants et formateurs dans le domaine de la sécurité numérique.** Les tarifs que les consultants facturent habituellement dépendent du lieu, du contexte, de votre expérience et du niveau de spécialisation technique impliqué dans le travail. La meilleure façon de déterminer ces tarifs est de parler à d'autres membres de l'espace (y compris ceux qui embauchent des consultants) ou de faire une recherche en ligne. N'oubliez pas que les clients s'attendent rarement à ce qu'un « tarif journalier » représente exactement huit heures de travail. Il s'agit d'une mesure grossière. Dans la mesure où de nombreuses formations comprennent des frais généraux (temps de préparation, temps de déplacement, comptabilité, recherche de nouveaux clients), les engagements plus courts ont généralement un tarif plus élevé que ceux de plusieurs jours ou de plusieurs semaines.  
+* **Certains clients proposeront un budget (d'autres non)**. Il est toujours utile de demander à un client quel est *son* budget et d'ajuster votre offre en conséquence. Tous les clients ne pourront pas indiquer un budget précis : certains voudront négocier le prix le plus bas possible, d'autres voudront recevoir votre offre en premier, mais d'autres auront déjà alloué un certain montant pour l'engagement. Demandez à vos clients si leurs budgets sont souples, ce qui pourrait vous donner un effet de levier supplémentaire dans les négociations si vos tarifs dépassent les budgets initiaux des clients.  
+* **Ne vous bradez pas**. Vous pourriez être tenté(e) de réduire vos tarifs pour attirer de nouveaux clients. Il s'agit souvent d'une erreur. De nombreux clients considèrent les consultants les moins chers comme étant moins compétents ou moins expérimentés. Si vous devez vraiment facturer moins que vos tarifs standard pour obtenir un contrat, définissez vos tarifs plus bas comme une réduction et soyez très explicite à ce sujet. Expliquez par exemple que votre tarif standard est deux fois plus élevé, mais que vous êtes prêt(e) à accorder une réduction de 50 % aux organismes sans but lucratif.  
+* **Si possible, facturez par projet, jour ou livrable et non pas par heure**. La facturation à l'heure peut devenir très compliquée, d'autant plus que vous pourriez avoir de nombreuses petites interactions avec les clients, comme l'échange de courriers électroniques. La facturation par projet, jour ou livrable est souvent plus facile pour le consultant et le client. Notez toutefois que certains clients ne vous permettront de facturer qu'à l'heure.  
+* **Prenez en compte le temps de préparation, le temps d'administration et le temps de communication**. De nombreux clients prennent beaucoup de temps pour vous envoyer les documents nécessaires, passent du temps dans le cadre de réunions avec vous ou s'attendent à ce que vous fassiez un travail de préparation approfondi, par exemple la lecture de la documentation et l'adaptation de votre engagement à leurs besoins exacts. Les projets ont tendance à s'étendre plus longtemps que prévu, ne l'oubliez pas lorsque vous planifiez le projet et les tarifs.
+
+**Engagements de consultation**
+
+* **Faites de grands plans ...** Avant votre engagement, renseignez-vous sur le client/le public cible et les menaces qui les touchent. Adaptez votre approche à votre public et préparez-vous aux questions ou problèmes qu'il pourrait poser. Si possible, organisez une évaluation préalable ou une réunion d'évaluation des besoins avec votre client (ou envoyez-lui un courrier électronique) pour mieux comprendre ce qu'il recherche et la façon dont vous pouvez l'aider.  
+* **... et soyez disposé(e) à éventuellement les abandonner**. Vous ne serez pas toujours en mesure de prédire comment l'engagement se déroulera ou sur quoi les clients voudront se concentrer. Par exemple, si vous réalisez pendant une formation que les participants savent déjà ce que vous allez dire ou s'ils ont des modèles de menace très différents, soyez prêt(e) à improviser une séance qui correspond mieux à leurs besoins. Les séances improvisées et ponctuelles ne doivent pas nécessairement être parfaites, et les clients et les participants apprécient souvent profondément que vous tentiez d'adapter rapidement votre contenu pour répondre à leurs questions et priorités.  
+* **Perfectionnez vos compétences en matière de facilitation et de formation**. Il est très important de connaître la sécurité numérique et de donner des conseils fondés sur des faits qui traitent des modèles de menace. Il est également crucial de les transmettre d'une manière que les participants gens comprennent et dont ils peuvent se souvenir. Pour obtenir des conseils fantastiques sur la façon de perfectionner vos compétences en matière de formation, consultez les [guides du Compagnon de formation à la sécurité destinés aux formateurs débutants](https://www.securityeducationcompanion.org/articles).  
+* **Demandez des commentaires**. Les bons consultants se demandent toujours comment ils peuvent s'améliorer. Si vous en avez l'occasion, parlez au client ou à d'autres intervenants au sujet de vos services. Demandez-leur ce qui s'est bien passé et ce que vous pourriez améliorer la prochaine fois. N'oubliez pas que vous ne pouvez pas toujours intégrer tous les commentaires et que certains peuvent être contradictoires, il est très courant qu'une personne dise que le travail était trop complexe, tandis qu'un autre participant le considère comme étant trop basique.
+
+**Cherchez de nouveaux clients et travaillez avec les clients existants.**
+
+* **Demandez aux autres de vous recommander !** Pour de nombreux protecteurs numériques, le moyen le plus simple de trouver un client est simplement d'obtenir une recommandation. Dites aux autres intervenants dans le milieu à but non lucratif que vous êtes consultant(e) et que vous cherchez du travail. De même, si vous terminez un engagement auprès d'un client, vous pouvez toujours dire à certaines personnes qui travaillent sur le site que vous êtes à la recherche de nouveaux projets. Les gens aiment souvent recommander d'autres personnes et faire appel à des consultants qui leur ont été recommandés !  
+* **Trouvez de nouvelles façons de vendre vos services**. Apprenez en observant la façon dont les autres intervenants sur le marché vendent leurs services, par exemple, par le biais de sites Web qui mettent en valeur leur expérience, d'un CV qu'ils partagent, de cartes de visite ou de médias sociaux. Les différentes communautés utilisent des pratiques de marketing différentes. Adaptez la vôtre à la communauté dans laquelle vous essayez d'obtenir de nouveaux clients. Si vous avez reçu des commentaires (espérons-le positifs) de la part de vos clients, demandez-leur si vous pouvez partager des informations sur les clients, des extraits d'avis ou des citations dans votre contenu de marketing.  
+* **Tâchez d'obtenir des engagements répétés auprès des mêmes clients**. La recherche de nouveaux clients peut prendre beaucoup de temps et d'efforts. Il est souvent beaucoup plus facile de simplement répéter les engagements auprès d'un même client, si possible. Lorsque vous aurez terminé votre formation et que vous aurez passé un bon moment à travailler avec le client, dites-lui que vous seriez également ouvert(e) à d'éventuels futurs engagements. Il est également utile d'avoir une ou deux personnes-ressources chez le client avec qui vous pouvez faire un suivi régulier, afin de vérifier comment se déroule leur travail et de leur faire savoir que vous seriez disponible pour de nouveaux projets.  
+* **Personne ne s'attend à ce que votre participation soit parfaite**. De nombreux protecteurs numériques sont souvent déçus après un engagement, et pensent qu'ils auraient pu mieux faire. Bien que ce soit un sentiment très naturel, n'oubliez pas que nous sommes tous généralement plus critiques à l'égard de notre propre travail. De nombreux clients seront extrêmement reconnaissants pour le soutien que vous leur aurez fourni. Même si le client est un organisme à but non lucratif ou une organisation dont vous admirez les valeurs, n'oubliez pas que vous êtes payé(e) pour fournir du bon travail, pas pour atteindre la perfection.

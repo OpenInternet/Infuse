@@ -13,7 +13,7 @@ Algunas de esas habilidades pueden ser necesarias como parte de un proceso de cl
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 - Comprender cómo está estructurada una URL;
 - Comprender los tipos de registros DNS, WHOIS y la diferencia entre IPv4 e IPv6;
@@ -28,7 +28,7 @@ La investigación pasiva utiliza herramientas y recursos de inteligencia de cód
 
 ### Conocimiento Fundamental
 
-Esta subhabilidad profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se siente cómodo con esos conceptos, ¡excelente! Vaya y salte a la sección ‘flujos de trabajo’. De lo contrario, revise los documentos y recursos a continuación:
+Esta subtarea profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se siente cómodo con esos conceptos, ¡excelente! Vaya y salte a la sección ‘flujos de trabajo’. De lo contrario, revise los documentos y recursos a continuación:
 
 - Construcción de URL
   - Debería poder leer una URL y comprender el significado de sus partes, incluida la identificación del esquema, los subdominios, el dominio principal, los dominios de nivel superior y cualquier característica de identificación del itinerario o los parámetros en la URL. Si necesita repasar este conocimiento, [este documento de MDN](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL).
@@ -37,7 +37,7 @@ Esta subhabilidad profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. 
 - DNS
   - [Introduction to Domain Name System](https://aws.amazon.com/route53/what-is-dns/)
   - [DNS record types](https://www.cloudflare.com/learning/dns/dns-records/)
-  - WHOIS: Usted debe poder comprender cómo se crean y almacenan los registros WHOIS, leer un registro WHOIS, consultar el registro WHOIS para cualquier dominio \[reemplazar con un recurso\] Si necesita más información al respecto, consulte [esta guía](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
+  - WHOIS: Usted debe poder comprender cómo se crean y almacenan los registros WHOIS, leer un registro WHOIS, consultar el registro WHOIS para cualquier dominio. Si necesita más información al respecto, consulte [esta guía](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
 - IPv4/IPv6
   - ¿Qué es una dirección IPv4?
 

@@ -1,15 +1,16 @@
-+++
-style = "module"
-weight = 2
-title = " Registro de Sitios Web para Mayor Seguridad"
-description = "Los registros de sitios web pueden ser cruciales para identificar posibles ataques y atacantes. Analizamos cómo utilizarlos de manera eficaz"
-+++
+---
+style: module
+title: " Registro de Sitios Web para Mayor Seguridad"
+description: Los registros de sitios web pueden ser cruciales para identificar
+  posibles ataques y atacantes. Analizamos cómo utilizarlos de manera eficaz
+weight: 2
+---
 
 ## Caso de Uso
 
 Cualquier sitio web que esté expuesto a Internet está bajo ataque constante. Como mínimo, está siendo inundado por ataques no dirigidos por hordas de robots operados por agentes criminales. Más preocupantes son los ataques dirigidos; incluso los atacantes no cualificados, con perseverancia y suerte, pueden encontrar vulnerabilidades en un sitio web.
 
-Idealmente, la personas propietaria del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente los propietarios de sitios querrán saber si un atacante está cerca de encontrar, o ha encontrado recientemente, una vulnerabilidad en su sitio. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
+Idealmente, el propietario del sitio web debería poder ser consciente de las amenazas a las que se enfrenta. Especialmente Los propietarios de sitios querrán saber si un atacante ha encontrado o está cerca de encontrar una vulnerabilidad. Finalmente, si se explota una vulnerabilidad, los propietarios del sitio querrán saber dónde está y durante cuánto tiempo ha estado explotada. Los registros del sitio web pueden respaldar todos estos deseos.
 
 Por otro lado, el registro excesivo puede representar un riesgo para los usuarios de los sitios web. Si un sitio registra información confidencial y esos registros son adquiridos por un adversario (por ejemplo, incautación por parte de las autoridades o piratería informática), entonces la información confidencial podría terminar fácilmente en las manos equivocadas.
 
@@ -20,8 +21,8 @@ Este subtema cubrirá enfoques para el registro de sitios web para maximizar la 
 Después de completar este subtema, el profesional debe ser capaz de realizar lo siguiente:
 
 - Comprender el registro integrado para los principales servidores web
-- Comprenda qué registros específicos de la aplicación agregar para detectar ataques
-- Sepa cómo minimizar la información confidencial en los registros.
+- Comprender qué registros específicos de la aplicación agregar para detectar ataques
+- Saber cómo minimizar la información confidencial en los registros
 
 ---
 ## Sección Principal
@@ -37,15 +38,15 @@ Varias plataformas web tienen sus propios sistemas de registro. Se puede confiar
 
 #### Apache
 
-Apache es el servidor web con todas las funciones más popular de Internet y ofrece más sitios activos que cualquier otro. De forma predeterminada, registra eventos para archivarlos en el sistema de archivos del servidor web. Hay dos archivos: access_log y error_log. El registro de acceso contiene información estructurada sobre cada solicitud, mientras que el registro de errores contiene más datos semiestructurados sobre cosas que salieron mal.
+Apache es el servidor web con todas las funciones más popular de Internet y ofrece más sitios activos que cualquier otro. De forma predeterminada, registra eventos para archivarlos en el sistema de archivos del servidor web. Hay dos archivos: `access_log` y `error_log`. El registro de acceso contiene información estructurada sobre cada solicitud, mientras que el registro de errores contiene más datos semiestructurados sobre cosas que salieron mal.
 
 El registro de acceso tiene una línea por entrada, con un formato configurable. El formato predeterminado son los siguientes campos, cada uno separado por un espacio:
 
 - La dirección IP del solicitante
 - El usuario que inició sesión en el dispositivo solicitante. Esto casi nunca se envía, por lo que casi siempre es solo un guión.
-- El usuario con la sesión iniciada sesión si el sitio web utiliza autenticación HTTP básica. Esto también será casi siempre un guión.
+- El usuario con la sesión iniciada si el sitio web utiliza autenticación HTTP básica. Esto también será casi siempre un guión.
 - La fecha y hora de la solicitud, entre corchetes. Tenga en cuenta que este campo normalmente tendrá espacios.
-- La línea de solicitud HTTP enviada desde el cliente, entre comillas (por ej. "GET / HTTP/1.1"). Estos campos siempre tendrán espacios.
+- La línea de solicitud HTTP enviada desde el cliente, entre comillas (por ej. `"GET / HTTP/1.1"`). Estos campos siempre tendrán espacios.
 - El código de respuesta HTTP del servidor, por ej. 200, 404, 500, etc.
 - El tamaño de la respuesta devuelta por el servidor.
 
@@ -177,32 +178,32 @@ Es una práctica recomendada no incluir información confidencial en los paráme
 - Ciertas páginas (por ejemplo, la página de inicio de sesión) y/o parámetros (número de tarjeta de crédito, campos de contraseña) deben estar exentos del registro.
 - Para los parámetros POST que se registrarán, considere redactarlos para ocultar información potencialmente confidencial y, al mismo tiempo, poder identificar el tráfico malicioso. El siguiente código Python puede servir de inspiración:
 
-  {{< highlight python >}}
-  import re
+{{< highlight python >}}
+import re
 
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Errores relacionados con la seguridad
 
@@ -399,19 +400,23 @@ Para este ejercicio, utilizamos archivos de registro de [esta colección](https:
 
 En esta tarea vamos a utilizar expresiones regulares. Las expresiones regulares (regex) son como potentes herramientas de búsqueda que le ayudan a encontrar patrones específicos en los datos. Por ejemplo, si está investigando tráfico de red sospechoso y sabe que las solicitudes maliciosas a menudo contienen ciertos patrones de caracteres, puede usar expresiones regulares para buscar registros o capturas de tráfico para encontrar esas solicitudes. Regex le permite definir estándares de búsqueda flexibles. Por ejemplo:
 
-    **Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
+**Rango \[a-z\]**: coincide con un carácter en el rango "a" a "z". Distingue mayúsculas y minúsculas.
 
-    abcdef**ghijklmnopqrs**tuvwxyz
+Es decir, \[g-s\] coincide con un carácter entre g y s inclusive
 
-    **Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
+abcdef**ghijklmnopqrs**tuvwxyz
 
-    **Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
+**Rango \[A-Z\]**: coincide con un carácter en el rango "A" a "Z". Distingue mayúsculas y minúsculas.
 
-    También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+**Rango \[0-9\]**: coincide con un carácter en el rango "0" a "9". Distingue mayúsculas y minúsculas.
 
-\[a-d\]{3} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc. Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
+También podemos usar **cuantificadores** para hacer coincidir la cantidad especificada del token anterior. {1,3} coincidirá con 1 y 3. {3} coincidirá exactamente con 3. {3,} coincidirá con 3 o más.
+
+\[a-d\]\{3\} coincide con cualquier secuencia de exactamente tres caracteres dentro del rango dado, cada uno de los cuales puede ser cualquier letra minúscula desde la 'a' hasta la 'd'. Entonces, coincidiría con cadenas como 'abc', 'bda', 'cad', etc.
+
+
+Algunos caracteres tienen significados especiales dentro de las regexes, estos caracteres son:
 
 | Símbolo| Nombre                                | Descripción                                                    |
 |--------|---------------------------------------|----------------------------------------------------------------|
@@ -445,26 +450,26 @@ Usaremos el comando `grep` para buscar el estándar especificado en el texto. Po
 
 `grep 'abcd'` filtrará todas las líneas que contengan la cadena “abcd”.
 
-La opción “`-E`” en el comando grep permite el uso de expresiones regulares extendidas para la coincidencia de estándares `grep -E 'abcd\\\[0-9\]{2}'` para filtrar texto como `abcd\\34, abcd\\47` etc.
+La opción “`-E`” en el comando grep permite el uso de expresiones regulares extendidas para la coincidencia de estándares `grep -E 'abcd\\[0-9\]{2}'` para filtrar texto como `abcd\34, abcd\47` etc.
 
 ### Ejercicio de práctica 4: usando expresiones regulares (regexes)
 
 Para esos ejercicios, utilizamos archivos de registro de [esta colección](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (la misma colección que los otros archivos en esta sección de práctica)
 
-1\. Utilice grep y la regex ['\\\\x\[a-fA-F0-9\]{2}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x\[a-fA-F0-9\]{3}' coincide con una secuencia que comienza con '\\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
+1\. Utilice grep y la regex ['\\x[a-fA-F0-9]{3}'](https://en.wikipedia.org/wiki/Regular_expression) para filtrar solicitudes de nginx access.log que contienen una carga sospechosa. La regex '\\x[a-fA-F0-9]{3}' coincide con una secuencia que comienza con '\x' seguida de exactamente tres caracteres hexadecimales (0-9, a-f, o A-F). ¿Cuántas líneas hay?
 
 {{< question title="Respuesta" >}}
-Respuesta correcta: 113 líneas
+Respuesta correcta: 131 líneas
 
-Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|wc|awk '{print $1}' `
 {{< /question >}}
 
 2\. Usando el mismo filtro, determine qué dirección IP realiza la mayor cantidad de solicitudes.
 
 {{< question title="Respuesta" >}}
-Respuesta correcta: 222.186.13.131 20 líneas
+Respuesta correcta: 222.186.13.131 19 líneas
 
-Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+Comando(s) a ejecutar: `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
 {{< /question >}}
 
 3\. Examine `error.log` ejecutando `more error.log`. Puede salir de este comando con Ctrl+c o presionar la tecla "q" para regresar al símbolo del sistema. Excluyendo errores de "Aviso PHP". ¿Qué tipo de errores críticos puedes encontrar en el registro?
@@ -493,7 +498,7 @@ Comando(s) a ejecutar: `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 
 Esta prueba de habilidades será mucho más fácil si primero completa el ejercicio de práctica anterior.
 
-Se le proporciona un registro de acceso nginx de un sitio web atacado para que lo investigue, que puede [descargar aquí](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+Se le proporciona un registro de acceso nginx de un sitio web atacado para que lo investigue, que puede [descargar aquí](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log).
 
 Localice una ruta sospechosa a la que se dirige, extraiga las direcciones IP que envían solicitudes sospechosas y descubra en qué países se encuentran esas IP (para esto, puede utilizar bases de datos geoIP, que se describen con más detalle en la ruta de aprendizaje de infraestructura maliciosa). Puede utilizar herramientas CLI estándar como `awk`, `grep`, `sort`, `uniq`. Para conocer los números de AS y los países, recomendamos utilizar los servicios de búsqueda en línea relevantes.
 

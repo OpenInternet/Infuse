@@ -35,7 +35,7 @@ Les bacs à sable fournissent un environnement virtuel simulant un ordinateur or
 
 Il existe plusieurs services de bacs à sable commerciaux disponibles gratuitement, notamment [Hybrid Analysis](https://www.hybrid-analysis.com/), [Any.Run](https://any.run/), [Joe Sandbox](https://www.joesandbox.com/) et [Triage](https://tria.ge/). Ces services exécutent les fichiers que vous envoyez et effectuent une analyse dynamique. Cela offre le grand avantage d'être en mesure de détecter heuristiquement de nouveaux logiciels malveillants, et également d'être en mesure d'évaluer les différentes étapes des logiciels malveillants. Notez que les échantillons soumis seront recueillis et mis à la disposition des clients payants et des analystes.
 
-Cuckoo Sandbox est un outil gratuit et open source d'analyse de malware en bac à sable que vous pouvez autohéberger. CERT-EE en Estonie propose une version gratuite hébergée en ligne : [Cuckoo V2](https://cuckoo.cert.ee/), [Cuckoo V3 (Bêta)](https://cuckoo-hatch.cert.ee/).
+Cuckoo Sandbox est un outil gratuit et open source d'analyse de malware en bac à sable que vous pouvez autohéberger. CERT-EE en Estonie propose une version gratuite hébergée en ligne : [Cuckoo V2](https://cuckoo.cert.ee/), [Cuckoo V3](https://cuckoo-hatch.cert.ee/).
 
 Pour en savoir plus sur l'utilisation des bacs à sable pour la détection d'échantillons, parcourez la section « Bacs à sable » du chapitre 10 du [Guide d'intervention sur le terrain pour la société civile et les médias](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) d'Internews, qui utilise le bac à sable Triage à titre d'exemple.
 

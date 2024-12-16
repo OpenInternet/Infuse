@@ -61,7 +61,7 @@ La reducción de daños para la persona objetivo debe comenzar con la recopilaci
 
 Las respuestas a estas preguntas te ayudarán a proporcionar soporte útil para reducir los daños y te ayudarán en tus investigaciones. A medida que avances en el análisis y la comprensión del contenido malicioso, actualiza a la persona objetivo, especialmente en lo que respecta a la reducción de daños.
 
-Para la seguridad operativa y protegerte mientras trabajas con correos electrónicos maliciosos, completa el subtema 3 (Manejo Seguro de Enlaces e Infraestructura) de la ruta de aprendizaje sobre la detección, seguimiento e investigación de la infraestructura maliciosa.
+Para la seguridad operativa y protegerte mientras trabajas con correos electrónicos maliciosos, completa el [subtema 3](https://infuse.quest/es/learning-path/1/module-3/) (Manejo Seguro de Enlaces e Infraestructura) de la ruta de aprendizaje sobre la detección, seguimiento e investigación de la infraestructura maliciosa.
 
 ### Entender: Detección, Hallazgos Negativos y Paranoia
 

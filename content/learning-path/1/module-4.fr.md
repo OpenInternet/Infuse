@@ -38,7 +38,7 @@ Cela nous oriente vers les bases des URL, DNS et IPv4/IPv6. Si vous vous sentez 
 - DNS
   - [Introduction au système de noms de domaine ](https://aws.amazon.com/route53/what-is-dns/)
   - [Types d'enregistrements DNS](https://www.cloudflare.com/learning/dns/dns-records/)
-  - WHOIS : vous devriez pouvoir comprendre comment les enregistrements WHOIS sont créés et stockés, lire un enregistrement WHOIS, interroger l'enregistrement WHOIS pour tout domaine [remplacer par une ressource]. Si vous avez besoin de plus d'informations à ce sujet, consultez [ce guide](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
+  - WHOIS : vous devriez pouvoir comprendre comment les enregistrements WHOIS sont créés et stockés, lire un enregistrement WHOIS, interroger l'enregistrement WHOIS pour tout domaine. Si vous avez besoin de plus d'informations à ce sujet, consultez [ce guide](https://www.domain.com/blog/what-is-whois-and-how-is-it-used/).
 - IPv4/IPv6
 
   - Qu'est-ce que l'IPv4?\

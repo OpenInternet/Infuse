@@ -98,6 +98,8 @@ Tal como están las cosas, esta demostración de XSS no hace nada malicioso y la
 
 Inicia sesión en tu DVWA y asegúrate de que el nivel de seguridad esté configurado en bajo (consulte la sección "Configuración" en la introducción de esta Ruta de Aprendizaje para obtener más información al respecto). Navega a la sección "XSS (Reflejado)". El mensaje de entrada "¿Cómo te llamas?" es vulnerable a XSS. Intente ingresar un nombre que haga que aparezca un cuadro de alerta de JavaScript cuando haga clic en el botón "Enviar".
 
+_Si te quedas atascado en algún ejercicio de DVWA y quieres una pista, simplemente haz clic en el botón "View Help" en la parte inferior derecha de la pantalla para recibir pistas._
+
 ![Una captura de pantalla de DVWA, con la página "Vulnerabilidad: Secuencias de comandos entre sitios reflejadas (XSS)" actualmente cargada](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png)
 
 ### Prevención XSS
@@ -430,17 +432,17 @@ D) Incorrecta. Deshabilitar el cifrado HTTPS expone los datos confidenciales a l
 ¿Qué técnica es eficaz para prevenir ataques de inyección SQL en aplicaciones web?
 
 A) Uso de consultas SQL dinámicas  
-B) Emplear desinfección de entradas y consultas parametrizadas  
+B) Emplear sanitización de entrada y consultas parametrizadas
 C) Almacenamiento de datos confidenciales en texto sin formato  
 D) Deshabilitar mensajes de error
 
 {{< question title="Respuesta correcta y explicación" >}}
-**Pregunta 3 Respuesta Correcta:** B) Emplear desinfección de entradas y consultas parametrizadas
+**Pregunta 3 Respuesta Correcta:** B) Emplear sanitización de entradas y consultas parametrizadas
 
 Explicación:
 
-A) Incorrecta. El uso de consultas SQL dinámicas sin una validación y desinfección de entrada adecuadas aumenta el riesgo de ataques de inyección SQL.
-B) Correcta. El uso de desinfección de entradas y consultas parametrizadas ayuda a prevenir ataques de inyección SQL al garantizar que las entradas del usuario se traten como datos en lugar de código ejecutable, neutralizando así los intentos maliciosos de inyección SQL.
+A) Incorrecta. El uso de consultas SQL dinámicas sin una validación y sanitización de entrada adecuadas aumenta el riesgo de ataques de inyección SQL.
+B) Correcta. El uso de sanitización de entradas y consultas parametrizadas ayuda a prevenir ataques de inyección SQL al garantizar que las entradas del usuario se traten como datos en lugar de código ejecutable, neutralizando así los intentos maliciosos de inyección SQL.
 C) Incorrecta. El almacenamiento de datos confidenciales en texto sin formato aumenta el riesgo de exposición de los datos, pero no previene directamente los ataques de inyección SQL.
 D) Incorrecta. Deshabilitar los mensajes de error puede ocultar vulnerabilidades potenciales a los atacantes, pero no aborda la causa raíz de las vulnerabilidades de inyección SQL.
 {{< /question >}}
@@ -450,7 +452,7 @@ D) Incorrecta. Deshabilitar los mensajes de error puede ocultar vulnerabilidades
 ¿Cuál de las siguientes afirmaciones explica mejor cómo la validación adecuada de los datos ayuda a prevenir ataques de inyección de comandos en la seguridad de las aplicaciones web?
 
 A) La validación de datos restringe la entrada a caracteres y patrones predefinidos, minimizando así la probabilidad de que se inyecten comandos maliciosos en la aplicación.
-B) Las técnicas de validación adecuadas, como la desinfección de entradas y las consultas parametrizadas, ayudan a neutralizar los comandos maliciosos incrustados en las entradas del usuario, mitigando así las vulnerabilidades de inyección de comandos.
+B) Las técnicas de validación adecuadas, como la sanitización de entradas y las consultas parametrizadas, ayudan a neutralizar los comandos maliciosos incrustados en las entradas del usuario, mitigando así las vulnerabilidades de inyección de comandos.
 C) La implementación de métodos de validación, como comprobaciones de longitud de entrada y listas blancas de caracteres aceptables, reduce la superficie de ataque y evita la ejecución de comandos no autorizados dentro de la aplicación web.
 D) Todo lo anterior.
 

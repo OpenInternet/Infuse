@@ -59,7 +59,7 @@ Selon le scénario, vous pouvez implémenter des étapes de détection directeme
 - Deuxième appareil (appareil d'analyse) : un autre appareil exécutant Windows, macOS ou Linux que vous pouvez utiliser pour exécuter des analyses sur le premier appareil. L'analyse des appareils iOS à l'aide du jeu d'outils présenté est uniquement possible (au moment de la rédaction) via macOS ou Linux
 - Un espace de stockage suffisant sur le deuxième périphérique ou sur un disque dur externe/disque SSD pour sauvegarder l'intégralité du premier appareil (dans le cas où l'imagerie et la criminalistique sont nécessaires)
 
-(Facultatif) Pour la section 5b uniquement, vous devrez accéder à un Raspberry Pi.
+(Facultatif) Pour la module 6 uniquement, vous devrez accéder à un Raspberry Pi.
 
 ## Parcours d'apprentissage connexes
 
@@ -67,4 +67,4 @@ Comme pour tous les sujets de sécurité, ce parcours d'apprentissage est avanta
 
 - [Analyse des logiciels malveillants](/fr/learning-path/3/) : démonter les logiciels malveillants pour comprendre comment ils fonctionnent et ce qu'ils font. En outre, ce parcours d'apprentissage contient des approches de débutant à intermédiaire pour déterminer si un échantillon donné est malveillant. Dans les cas où ces méthodes ne sont pas suffisantes pour assurer une détermination exacte, des compétences supplémentaires en analyse sont abordées ultérieurement dans ce parcours d'apprentissage.
 - [Détection, enquête et suivi des infrastructures malveillantes](/fr/learning-path/1/) : les logiciels malveillants ciblés communiquent généralement avec l'infrastructure de commande et de contrôle, d'exfiltration ou de livraison. Ce parcours d'apprentissage aidera à étudier et à comprendre cette infrastructure.
-- Principes fondamentaux de la sécurité des applications Web : certains logiciels malveillants sont fournis sous forme d'application Web ou d'exploitation de failles des navigateurs. Certaines des compétences abordées dans ce parcours d'apprentissage vous aideront à détecter et à analyser les logiciels malveillants sur les navigateurs.
+- [Principes fondamentaux de la sécurité des applications Web](/fr/learning-path/4/): certains logiciels malveillants sont fournis sous forme d'application Web ou d'exploitation de failles des navigateurs. Certaines des compétences abordées dans ce parcours d'apprentissage vous aideront à détecter et à analyser les logiciels malveillants sur les navigateurs.

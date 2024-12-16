@@ -61,7 +61,7 @@ Harm reduction for the targeted person should start with collecting some informa
 
 The answers to these questions will both help provide useful harm reduction support and aid in your investigations. As you progress in analysis and understanding of the malicious content, update the targeted person especially insofar as is relevant to harm reduction.
 
-For operational security to protect yourself while working with malicious emails, complete subtopic 3 (Safe Handling of Links and Infrastructure) of the learning path on detecting, tracking, and investigating malicious infrastructure.
+For operational security to protect yourself while working with malicious emails, complete [subtopic 3](https://infuse.quest/en/learning-path/1/module-3/) (Safe Handling of Links and Infrastructure) of the learning path on detecting, tracking, and investigating malicious infrastructure.
 
 ### Understand: Detection, Negative Findings, and Paranoia
 
@@ -102,14 +102,13 @@ In order to move malware files around, the standard practice is to put them in e
 Reflect on and answer/discuss the following with peers, colleagues, friends, or a mentor. If available and if appropriate, talk to a ‘client’ you have worked with before to ask their input and experiences on some of these questions.
 
 * Describe how touching and gaining access to someone's device might present unforeseen risks.
-* Imagine you are assisting someone with sensitive data on their device. How would you approach a discussion with this person regarding your access and data handling.
+* Imagine you are assisting someone with sensitive data on their device. How would you approach a discussion with this person regarding your access and data handling?
 * Why is it impossible to say that a device is free from malware?
 * How does understanding a person’s specific threat model impact your harm-reduction efforts, for instance if they are an anonymous blogger or dissident in exile?
 * How do you navigate providing factual technical evidence according to your ability, while balancing the need not to provide false confidence while also not fostering paranoia?
 * Describe your own abilities and limitations in conducting malware detection work. After making a first attempt at this description, attempt to add further nuance and accuracy to your description.
-
   * What might be the risks if you proceed without this recognition of your limitations?
-* Role Play an interaction in which you report to a client on finding active malware on a device.
+* Roleplay an interaction in which you report to a client on finding active malware on a device.
 
 ## Skill check
 

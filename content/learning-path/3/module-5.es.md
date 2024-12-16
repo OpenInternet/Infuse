@@ -7,7 +7,7 @@ description = "Analizamos cómo puede crear y compartir indicadores de compromis
 
 ## Caso práctico
 
-Una vez que hayas analizado un malware, puedes ayudar a la comunidad (y también a ti mismo y al resto del mundo) compartiendo tus hallazgos. El malware novedoso es bastante raro y, una vez utilizado, tiende a reutilizarse ampliamente. Al compartir sus hallazgos, puede ayudar a todos de varias maneras:
+Una vez que hayas analizado un malware, puedes ayudar a la comunidad (y también a ti mismo y al resto del mundo) compartiendo tus hallazgos. El malware novedoso es bastante raro y, una vez utilizado, tiende a reutilizarse ampliamente. Al compartir sus hallazgos, puedes ayudar a todos de varias maneras:
 
 - Si un miembro de la comunidad ha sido atacado por un actor de amenazas, es muy posible que el actor de amenazas esté atacando a otros miembros de la comunidad. Al compartir sus hallazgos, puede ayudar a crear conciencia y, con suerte, ayudar a los defensores digitales a prevenir o mitigar otros ataques.
 - Analizar una nueva pieza de malware es un logro significativo. Debes estar orgulloso de ello y también ser recompensado por tus esfuerzos. Al compartir su proceso y hallazgos, es más probable que seas reconocido por su experiencia, lo que aumenta sus oportunidades de trabajo interesante y colaboración en el campo.

@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 2
-title = "Journalisation du site Web pour la sécurité"
-description = "Les journaux de site web peuvent être essentiels pour identifier des attaques potentielles et les attaquants. Nous examinons comment les utiliser efficacement."
-+++
+---
+style: module
+title: Journalisation du site Web pour la sécurité
+description: Les journaux de site web peuvent être essentiels pour identifier
+  des attaques potentielles et les attaquants. Nous examinons comment les
+  utiliser efficacement.
+weight: 2
+---
 
 ## Cas d'utilisation
 
@@ -178,32 +180,32 @@ Il est recommandé de ne pas inclure d'informations sensibles dans les paramètr
 - Certaines pages (p. ex., la page d'ouverture de session) et/ou certains paramètres (numéro de carte de crédit, champs de mot de passe) devraient être exemptés de journalisation
 - Pour les paramètres POST qui seront enregistrés, envisagez de les supprimer pour masquer les informations potentiellement sensibles, tout en restant en mesure d'identifier le trafic malveillant. Le code Python suivant peut vous inspirer :
 
-  {{< highlight python >}}
-  import re
+{{< highlight python >}}
+import re
 
-  keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
-  output = ''
+keep = ['select', 'where', 'from', 'and', 'script', 'on', 'src', '../', '<', '>']
+output = ''
 
-  i = 0
-  while i < len(target):
-  	matched = False
-  	for j in keep:
-  		if target[i:i+len(j)].lower() == j.lower():
-  			output = output + target[i:i+len(j)]
-  			i=i+len(j)
-  			matched = True
-  	if not matched:
-  		if ' ' == target[i:i+1]:
-  			output = output + ' '
-  		elif re.search('\w', target[i:i+1]):
-  			output = output + "A"
-  		elif re.search('\d', target[i:i+1]):
-  			output = output + "1"
-  		else:
-  			output = output + "*"
-  		i = i+1
+i = 0
+while i < len(target):
+  matched = False
+  for j in keep:
+    if target[i:i+len(j)].lower() == j.lower():
+      output = output + target[i:i+len(j)]
+      i=i+len(j)
+      matched = True
+  if not matched:
+    if ' ' == target[i:i+1]:
+      output = output + ' '
+    elif re.search('\w', target[i:i+1]):
+      output = output + "A"
+    elif re.search('\d', target[i:i+1]):
+      output = output + "1"
+    else:
+      output = output + "*"
+    i = i+1
 
-  {{< / highlight >}}
+{{< / highlight >}}
 
 ##### Erreurs liées à la sécurité
 
@@ -398,19 +400,26 @@ Pour cet exercice, nous utilisons des fichiers journaux de [cette collection](ht
 
 Dans cette tâche, nous allons utiliser des expressions régulières. Les expressions régulières (regex) sont de puissants outils de recherche qui vous aident à trouver des modèles spécifiques dans les données. Par exemple, si vous enquêtez sur un trafic réseau suspect et que vous savez que les requêtes malveillantes contiennent souvent certains modèles de caractères, vous pouvez utiliser regex pour rechercher dans les journaux ou les captures de trafic pour trouver ces requêtes. Regex vous permet de définir des modèles de recherche flexibles. Par exemple :
 
-    **\[a-z\] range** \- Correspond à un caractère dans la plage « a » à « z ». Sensible à la casse.
 
-    Par ex., \[g-s\] correspond à un caractère compris entre « g » et « s »
+**\[a-z\] range** - Correspond à un caractère dans la plage « a » à « z ». Sensible à la casse.
 
-    abcdef**ghijklmnopqrs**tuvwxyz
 
-    **\[A-Z\] range** \- Correspond à un caractère dans la plage « A » à « Z ». Sensible à la casse.
+Par ex., \[g-s\] correspond à un caractère compris entre « g » et « s »
 
-    **\[0-9\] range** \- Correspond à un caractère dans la plage « 0 » à « 9 ». Sensible à la casse.
 
-    Nous pouvons également utiliser des **quantificateurs** pour correspondre à la quantité spécifiée du jeton précédent. {1,3} correspondra à 1 à 3. {3} correspondra exactement à 3. {3,} correspondra à 3 ou plus.
+abcdef**ghijklmnopqrs**tuvwxyz
 
-    [a-d\]{3} correspond à n'importe quelle séquence de trois caractères exactement dans la plage donnée, chacun pouvant être une lettre minuscule de « a » à « d ». Donc, cela correspondrait à des chaînes comme « abc », « bda », « cad », etc. 
+
+**\[A-Z\] range** - Correspond à un caractère dans la plage « A » à « Z ». Sensible à la casse.
+
+**\[0-9\] range** - Correspond à un caractère dans la plage « 0 » à « 9 ». Sensible à la casse.
+
+
+Nous pouvons également utiliser des **quantificateurs** pour correspondre à la quantité spécifiée du jeton précédent. {1,3} correspondra à 1 à 3. {3} correspondra exactement à 3. {3,} correspondra à 3 ou plus.
+
+
+\[a-d\]\{3\} correspond à n'importe quelle séquence de trois caractères exactement dans la plage donnée, chacun pouvant être une lettre minuscule de « a » à « d ». Donc, cela correspondrait à des chaînes comme « abc », « bda », « cad », etc. 
+
 
 Certains caractères ont une signification particulière dans les regex :
 
@@ -445,26 +454,26 @@ Nous utiliserons la commande `grep` pour rechercher le motif spécifié dans le 
 
 `grep 'abcd'` filtrera toutes les lignes contenant la chaîne « abcd ».
 
-L'option « `-E` » de la commande `grep` permet d'utiliser des expressions régulières étendues pour la correspondance de modèle `grep -E 'abcd\[0-9]{2}'` pour le filtrage de texte comme `abcd\34, abcd\47`, etc.
+L'option « `-E` » de la commande `grep` permet d'utiliser des expressions régulières étendues pour la correspondance de modèle `grep -E 'abcd\\[0-9]{2}'` pour le filtrage de texte comme `abcd\34, abcd\47`, etc.
 
 #### Exercice pratique 4 : utiliser des expressions régulières (regex)
 
-Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/nginx%20and%20apache%20logs.zip) (même collection que les autres fichiers de cette section d'exercice)
+Pour ces exercices, nous utilisons les fichiers journaux nginx de [cette collection](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log) (même collection que les autres fichiers de cette section d'exercice)
 
-1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{2}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
+1. Utilisez grep et l'expression régulière ` '\\x[a-fA-F0-9]{32}'` [regex](https://en.wikipedia.org/wiki/Regular_expression) pour filtrer les requêtes de nginx access.log contenant une charge utile suspecte. L'expression régulière `'\x[a-fA-F0-9]{3}'` correspond à une séquence commençant par '`\x`' suivie exactement de trois caractères hexadécimaux (0-9, a-f, ou A-F). Combien y a-t-il de lignes ?
 
 {{< question title="Réponse" >}}
-Bonne réponse : 113 lignes
+Bonne réponse : 131 lignes
 
-Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|wc|awk '{print $1}' `
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|wc|awk '{print $1}' `
 {{< /question >}}
 
 2. En utilisant le même filtre, déterminez quelle adresse IP fait le plus de requêtes
 
 {{< question title="Réponse" >}}
-Bonne réponse : 222.186.13.131 20 lignes
+Bonne réponse : 222.186.13.131 19 lignes
 
-Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{2}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
+Commande(s) à exécuter : `grep -E '\\x[a-fA-F0-9]{3}' nginx_access.log|sort|awk '{print $1}'| sort | uniq -c | sort -nr`
 {{< /question >}}
 
 3. Examinez `error.log` en exécutant `more error.log`. Vous pouvez quitter cette commande avec ctrl+c ou appuyer sur la touche « q » pour retourner à l'invite de commande. Exclusion des erreurs « PHP Notice ». Quels types d'erreurs critiques pouvez-vous trouver dans le journal ?
@@ -492,7 +501,7 @@ Commande(s) à exécuter : `cat nginx_error.log|grep -v "PHP"|grep forbidden`
 
 Ce contrôle de compétences sera beaucoup plus facile si vous avez d'abord terminé l'exercice ci-dessus.
 
-Vous recevez un journal d'accès nginx à partir d'un site Web attaqué que devez examiner, que vous pouvez {{< fontawesome "solid/download" >}} [télécharger ici](https://github.com/OpenInternet/Infuse/blob/main/web-app-hardening-skill-check.log).
+Vous recevez un journal d'accès nginx à partir d'un site Web attaqué que devez examiner, que vous pouvez {{< fontawesome "solid/download" >}} [télécharger ici](https://github.com/OpenInternet/Infuse/blob/main/learner-assets/web-app-hardening-skill-check.log).
 
 Localisez un chemin d'accès suspect qui est ciblé, extrayez les adresses IP qui envoient des requêtes suspectes et découvrez dans quels pays se trouvent ces adresses IP (vous pouvez utiliser les bases de données geoIP décrites plus en détail dans le parcours d'apprentissage sur les infrastructures malveillantes). Vous pouvez utiliser des outils CLI standard comme awk, grep, sort et uniq. Pour connaître les numéros AS et les pays, nous vous recommandons d'utiliser les services de recherche en ligne appropriés.
 

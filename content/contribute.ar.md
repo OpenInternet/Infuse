@@ -1,5 +1,5 @@
-+++
-title = "المساهمة"
-navbar = true
-weight = 3
-+++
+---
+title: المساهمة
+weight: 3
+navbar: true
+---

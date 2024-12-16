@@ -7,9 +7,7 @@ key:
   - id: hero-subtitle
     translation:
       one: null
-      other: At Infuse, we empower individuals to achieve greater online safety
-        through comprehensive cybersecurity education, equipping them with the
-        knowledge to effectively protect themselves online.
+      other: At Infuse, we welcome digital protectors to join a learning community and provide them with resources to develop their specialized technical expertise. Through collaborative learning paths and mentorship, we empower them to spread this expertise and safeguard high-risk communities.
   - id: feature-one-title
     translation:
       one: null

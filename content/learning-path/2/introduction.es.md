@@ -59,13 +59,12 @@ Dependiendo del escenario, es posible que estés implementando pasos para la det
 - Segundo dispositivo (dispositivo de análisis): Otro dispositivo que ejecute Windows, macOS o Linux que puedas utilizar para ejecutar escaneo en el primer dispositivo. Escanear dispositivos iOS utilizando el conjunto de herramientas solo es posible (en el momento de escribir) vía macOS o Linux.
 - Suficiente espacio de almacenamiento en el segundo dispositivo o en un disco duro externo/unidad de estado sólido para realizar una copia de seguridad de la totalidad del primer dispositivo (en caso de que se requieran imágenes y análisis forenses)
 
-(Opcional) Solo para la sección 5b, necesitarás acceso a una Raspberry Pi.
+(Opcional) Solo para la módulo 6, necesitarás acceso a una Raspberry Pi.
 
 ## Rutas de aprendizaje relacionadas
 
-Como toda en seguridad, esta ruta de aprendizaje beneficia y se ve beneficiada por el conocimiento en áreas relacionadas. En particular, las siguientes rutas de aprendizaje tienen una buena sinergia:
+Como todo en seguridad, esta ruta de aprendizaje beneficia y se ve beneficiada por el conocimiento en áreas relacionadas. En particular, las siguientes rutas de aprendizaje tienen una buena sinergia:
 
 - [Analizando el Malware](/es/learning-path/3/): Analizar el malware para entender cómo funciona y qué hace. Además, esta ruta de aprendizaje contiene enfoques para personas principiantes hasta intermedios, para determinar de forma estática, dinámica y basada en red si una muestra determinada es maliciosa; en caso de que dichos métodos no sean suficientes para una determinación, las habilidades de análisis adicionales se cubren en una ruta de aprendizaje subsecuente.
 - [Investigación, Seguimiento y Detección de Infraestructura Maliciosa](/es/learning-path/1/): El malware dirigido generalmente se comunica con la infraestructura de comando y control, exfiltración o entrega. Esta ruta de aprendizaje ayudará a investigar y comprender esta infraestructura.
-
-Fundamentos de Seguridad de Aplicaciones Web: un malware se entrega como aplicación web o exploit de navegador. Algunas de las habilidades que se cubren en esta ruta de aprendizaje te ayudarán con la detección y análisis de malware basado en navegador.
+- [Fundamentos de Seguridad de Aplicaciones Web](/es/learning-path/4/): un malware se entrega como aplicación web o exploit de navegador. Algunas de las habilidades que se cubren en esta ruta de aprendizaje te ayudarán con la detección y análisis de malware basado en navegador.

@@ -12,9 +12,9 @@
     {{ partial "header.html" . }}
 
     <main id="content" class="content mb-auto">
-        <div class="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
+        <div class="relative flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
             <section
-                class="prose prose-stone mx-auto w-full max-w-3xl flex-col px-8 prose-hr:w-full lg:flex lg:items-center lg:justify-between lg:px-8">
+                class="relative prose prose-stone mx-auto w-full max-w-3xl flex-col px-8 prose-hr:w-full lg:flex lg:items-center lg:justify-between lg:px-8">
 
                 <article class="flex w-full flex-col items-start justify-between border-b border-gray-300">
                     <h1 class="mb-0 mt-2 text-3xl font-semibold leading-9 text-gray-900 group-hover:text-gray-600">
@@ -44,6 +44,108 @@
                     </a>${4}` $content | safeHTML }}
                     {{ $content | safeHTML }}
                 </article>
+
+                <!-- Table of Contents (ToC) Panel -->
+                {{ if not (in .TableOfContents "<nav id=\"TableOfContents\"></nav>") }}
+                <div class="absolute -left-64 mt-16 hidden h-full xl:block xl:max-w-64 2xl:-left-96 2xl:max-w-full">
+                    <div class="h-full">
+                        <div class="sticky top-0 px-4 py-2">
+                            <h2 class="mb-4 mt-3 text-xl font-bold">{{ i18n "key.table-of-contents" }}</h2>
+                            <div class="toc-container toc-scrollbar h-svh max-w-72 space-y-2 overflow-y-auto">
+                                {{ .TableOfContents }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function () {
+                      const tocLinks = document.querySelectorAll('#TableOfContents a');
+                      const tocItems = Array.from(tocLinks);
+                  
+                      // Get header elements linked by the ToC
+                      const headerElements = tocItems.map(link => {
+                        const targetId = link.getAttribute('href').slice(1);
+                        return document.getElementById(targetId);
+                      });
+                  
+                      let isClicking = false; // Flag to track click events
+                  
+                      function updateActiveState() {
+                        if (isClicking) return; // Skip updating if we are in clicking state
+                  
+                        const scrollPosition = window.scrollY + window.innerHeight / 2; // Center of the viewport
+                  
+                        let activeIndex = -1;
+                        for (let i = 0; i < headerElements.length; i++) {
+                          const header = headerElements[i];
+                          if (header && header.getBoundingClientRect().top + window.scrollY <= scrollPosition) {
+                            activeIndex = i;
+                          } else {
+                            break;
+                          }
+                        }
+                  
+                        // Update active class on ToC links
+                        tocItems.forEach(link => link.classList.remove('active-element'));
+                        if (activeIndex !== -1) {
+                          tocItems[activeIndex].classList.add('active-element');
+                  
+                          // Scroll the toc-container to make the active item visible
+                          const tocContainer = document.querySelector('.toc-container');
+                          if (tocContainer) {
+                            const activeItem = tocItems[activeIndex];
+                            const activeItemRect = activeItem.getBoundingClientRect();
+                            const tocContainerRect = tocContainer.getBoundingClientRect();
+                            const offset = activeItemRect.top - tocContainerRect.top - tocContainer.clientHeight / 2 + activeItem.clientHeight / 2;
+                  
+                            tocContainer.scrollTop = offset;
+                          }
+                        }
+                      }
+
+                      function debounce(func, wait) {
+                            let timeout;
+                            return function (...args) {
+                            clearTimeout(timeout);
+                            timeout = setTimeout(() => func.apply(this, args), wait);
+                            };
+                        }
+                  
+                      // Smooth scrolling and setting active state on click
+                      tocItems.forEach((item) => {
+                        item.addEventListener('click', function (event) {
+                          const targetId = item.getAttribute('href').slice(1);
+                          const targetElement = document.getElementById(targetId);
+                  
+                          if (targetElement) {
+                            event.preventDefault();
+                            isClicking = true; // Set flag to true when clicking
+                            targetElement.scrollIntoView({
+                              behavior: 'auto', // No smooth scrolling
+                              block: 'start'
+                            });
+                  
+                            // Highlight the clicked ToC item
+                            tocItems.forEach(link => link.classList.remove('active-element'));
+                            item.classList.add('active-element');
+                  
+                            // Reset flag after scroll completes
+                            setTimeout(() => isClicking = false, 200); // Timeout to reset flag
+                          }
+                        });
+                      });
+                  
+                      // Handle scroll events
+                      window.addEventListener('scroll', debounce(() => {
+                        updateActiveState();
+                      }, 100)); // Adjust debounce wait time as needed
+                  
+                      // Initial check to set the active element on page load
+                      updateActiveState();
+                    });
+                </script>
+                {{ end }}
 
             </section>
         </div>

@@ -4,15 +4,16 @@ title: Investigación activa - Análisis de páginas web maliciosas
 description: Los correos electrónicos de phishing suelen ser solo el primer paso en un ataque. La mayoría intenta que la persona objetivo visite una página web con el propósito específico de atacar. Este módulo de habilidades le enseñará a observar los sitios web controlados por atacantes para comprender sus acciones y descubrir potencialmente más infraestructura controlada por ellos o vectores empleados en los ataques.
 weight: 7
 ---
+
 ## Estudios de caso
 
 Los correos electrónicos de phishing suelen ser solo el primer paso en un ataque. La mayoría intenta que la persona objetivo visite una página web con el propósito específico de atacar. Este módulo de habilidades le enseñará a observar los sitios web controlados por atacantes para comprender sus acciones y descubrir potencialmente más infraestructura controlada por ellos o vectores empleados en los ataques. Tenga en cuenta que los sitios web pueden ser extremadamente complicados, con comportamientos que van desde simples páginas de suplantación de credenciales hasta ataques complejos contra el navegador web o el propio dispositivo de navegación.
 
-Tenga en cuenta que interactuar con sitios web maliciosos puede poner en riesgo al propio analista. Asegúrese de configurar y utilizar un entorno aislado (consulte el subtema 3), y de recopilar y almacenar de forma segura todas las páginas web. Por último, esta habilidad se cruza y conduce alrutao de aprendizaje del Análisis de Malware.
+Tenga en cuenta que interactuar con sitios web maliciosos puede poner en riesgo al propio analista. Asegúrese de configurar y utilizar un entorno aislado (consulte el subtema 3), y de recopilar y almacenar de forma segura todas las páginas web. Por último, esta habilidad se cruza y conduce a la ruta de aprendizaje del Análisis de Malware.
 
 ## Objetivos
 
-Después de completar esta subhabilidad, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
 
 - Analizar sitios web propiedad de atacantes examinando su código fuente mediante las funciones de inspección de los navegadores web y, opcionalmente, utilizando herramientas como proxies de interceptación o depuradores de JavaScript.
 - Averigüe a qué otras infraestructuras podrían conectarse estos sitios web buscando URL, redireccionamientos, dominios enlazados, etc
@@ -22,7 +23,7 @@ Después de completar esta subhabilidad, el profesional debe ser capaz de hacer 
 
 ### Conocimiento Fundamental
 
-Esta subhabilidad será significativamente más fácil de practicar si conoce los conceptos básicos de JavaScript y HTML, aunque esos no son requisitos previos estrictamente necesarios.
+Esta subtarea será significativamente más fácil de practicar si conoce los conceptos básicos de JavaScript y HTML, aunque esos no son requisitos previos estrictamente necesarios.
 
 Vale la pena destacar algunas diferencias básicas entre un correo electrónico y una página web:
 
@@ -92,7 +93,7 @@ Al igual que en el informe de Human Rights Watch vinculado anteriormente, el uso
 
 La mayoría de los ataques que encontrará utilizarán un kit de phishing prefabricado o modificado, una colección de código y plantillas que permiten a los atacantes crear fácilmente un sitio web de phishing convincente. Algunos kits de phishing tienen signos reveladores; muchos de ellos, por ejemplo, utilizan ciertos mecanismos para evitar ser [detectados e indexados por los motores de búsqueda](https://arxiv.org/pdf/2210.08273.pdf). Incluso pueden negarse a cargar desde las [direcciones IP de los motores de búsqueda o las empresas de seguridad](https://blog.sucuri.net/2017/07/protecting-phishing-pages-via-htaccess.html).
 
-Algunos kits de phishing también tienen la capacidad de eludir la autenticación multifactor, por ejemplo capturando un código que una persona objetivo tecleó e inmediatamente usándolo para iniciar sesión en la página web real en su nombre. [Este artículo es un gran escrito](https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/) sobre cómo un kit de phishing de código abierto utilizado por los equipos de seguridad puede capturar y utilizar datos de autenticación de dos factores (y qué se podría hacer para evitarlo). También puede [consultar otro informe de un kit de pishing](https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/), esta vez escrito por ciberdelincuentes, que utilizaba algunas técnicas fascinantes y de bypass de MFA para frustrar la detección.
+Algunos kits de phishing también tienen la capacidad de eludir la autenticación multifactor, por ejemplo capturando un código que una persona objetivo tecleó e inmediatamente usándolo para iniciar sesión en la página web real en su nombre. [Este artículo es un gran escrito](https://www.aon.com/cyber-solutions/aon_cyber_labs/bypassing-mfa-a-forensic-look-at-evilginx2-phishing-kit/) sobre cómo un kit de phishing de código abierto utilizado por los equipos de seguridad puede capturar y utilizar datos de autenticación de dos factores (y qué se podría hacer para evitarlo). También puede [consultar otro informe de un kit de phishing](https://www.bleepingcomputer.com/news/security/w3ll-phishing-kit-hijacks-thousands-of-microsoft-365-accounts-bypasses-mfa/), esta vez escrito por ciberdelincuentes, que utilizaba algunas técnicas fascinantes y de bypass de MFA para frustrar la detección.
 
 ## Practique
 
