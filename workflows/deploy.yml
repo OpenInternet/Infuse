@@ -1,0 +1,169 @@
+name: Deploy Hugo Site to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    types: [opened, synchronize, reopened, closed]
+
+jobs:
+  check-fork-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code with full history
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1  # Use shallow clone to speed up checkout
+
+      - name: Check if PR is from a fork and if deploy.yml was modified
+        run: |
+          if [[ "${{ github.event.pull_request.head.repo.fork }}" == "true" ]]; then
+            echo "PR is from a fork. Fetching deploy.yml from the main repository."
+            git fetch origin main --depth=1  # Fetch the main branch
+            git checkout origin/main -- .github/workflows/deploy.yml  # Checkout only deploy.yml
+            MODIFIED_FILES=$(git diff --name-only HEAD .github/workflows/deploy.yml)
+
+            if echo "$MODIFIED_FILES" | grep -q ".github/workflows/deploy.yml"; then
+              echo "Deploy.yml was modified in a PR from a fork. Aborting workflow."
+              exit 1
+            fi
+          fi
+          
+  build:
+    runs-on: ubuntu-latest
+    needs: check-fork-and-deploy
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20.16.0'
+        cache: 'npm'
+
+    - name: Cache Hugo & Node modules
+      uses: actions/cache@v2
+      with:
+        path: |
+          ~/.hugo_cache
+          node_modules
+        key: ${{ runner.os }}-hugo-${{ hashFiles('**/hugo.toml') }}-${{ hashFiles('**/package-lock.json') }}
+        restore-keys: |
+          ${{ runner.os }}-hugo-
+          ${{ runner.os }}-npm-
+
+    - name: Install Hugo
+      uses: peaceiris/actions-hugo@v2
+      with:
+        hugo-version: 'latest' 
+          
+    - name: Install dependencies
+      run: |
+        if [ -f package-lock.json ]; then
+          npm ci  # Faster installation when lockfile exists
+        else
+          npm install
+        fi
+
+    - name: Build TailwindCSS
+      run: npm run build-tw
+
+    - name: Build Hugo site for PR Preview
+      if: github.event_name == 'pull_request' && github.event.action != 'closed'
+      env:
+        HUGO_ENVIRONMENT: production
+        HUGO_BASEURL: "https://infusedev.safetag.org/pr-${{ github.event.pull_request.number }}/"
+      run: hugo --minify -d ./public
+
+    - name: Build Hugo site for Main Deployment
+      if: github.ref == 'refs/heads/main'
+      env:
+        HUGO_ENVIRONMENT: production
+      run: hugo --minify -d ./public
+
+    - name: Create CNAME file
+      if: github.ref == 'refs/heads/main'
+      run: echo 'infuse.quest' > public/CNAME
+
+    - name: Build Pagefind index
+      run: npx pagefind --site "public"
+
+    - name: Deploy Main Site to GitHub Pages
+      if: github.ref == 'refs/heads/main'
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+
+  deploy-pr-preview:
+    if: github.event_name == 'pull_request' && github.event.action != 'closed'
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Decode GitHub App private key
+        run: |
+          echo "${{ secrets.INFUSE_DEPLOY_SECRET }}" > private-key.pem
+
+      - name: Generate JWT for GitHub App
+        run: |
+          npm install jsonwebtoken
+          node -e "
+          const jwt = require('jsonwebtoken');
+          const fs = require('fs');
+          const privateKey = fs.readFileSync('private-key.pem', 'utf8');
+          const token = jwt.sign({}, privateKey, {
+            algorithm: 'RS256',
+            expiresIn: '10m',
+            issuer: '1077537',
+          });
+          console.log(token);
+          " > jwt.token
+
+      - name: Fetch GitHub App Installation Token
+        run: |
+          JWT=$(cat jwt.token)
+          INSTALLATION_ID=$(curl -s -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/app/installations | jq -r '.[0].id')
+
+          INSTALLATION_TOKEN=$(curl -s -X POST \
+            -H "Authorization: Bearer $JWT" \
+            -H "Accept: application/vnd.github.v3+json" \
+            https://api.github.com/app/installations/$INSTALLATION_ID/access_tokens | jq -r '.token')
+
+          echo "INSTALLATION_TOKEN=${INSTALLATION_TOKEN}" >> $GITHUB_ENV
+
+      - name: Deploy PR Preview to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ env.INSTALLATION_TOKEN }}
+          publish_dir: ./public
+          destination_dir: pr-${{ github.event.pull_request.number }}
+
+      - name: Post Preview URL in PR Comments
+        run: |
+          PR_NUMBER=${{ github.event.pull_request.number }}
+          BASE_URL="https://infuse.quest/pr-${PR_NUMBER}"
+          COMMENT="🌐 Preview your changes here:\n"
+          COMMENT="${COMMENT}: [${BASE_URL}/en](${BASE_URL}/en)\n"
+          curl -X POST \
+            -H "Authorization: token ${{ env.INSTALLATION_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            -d "{\"body\": \"${COMMENT}\"}" \
+            "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
+
+  cleanup:
+    if: github.event_name == 'pull_request' && github.event.action == 'closed'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Remove Preview Deployment
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ env.INSTALLATION_TOKEN }}
+          destination_dir: pr-${{ github.event.pull_request.number }}
+          remove_files: true
