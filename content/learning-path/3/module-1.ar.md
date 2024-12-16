@@ -1,51 +1,42 @@
 +++
 style = "module"
 weight = 1
-title = "Setting up a malware analysis environment"
+title = "الموضوع الفرعي 1: إعداد بيئة تحليل البرمجيات الضارة"
 description = "Before you analyzing any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
 +++
 
-## Use Case
+ ## حالة استخدام
 
-Before you start analyzing any malware, you need to set up a safe environment to do so. Definitionally, malware does bad things to the systems it runs on. You do not want to run it on your primary system. Additionally, you likely will want to prevent the malware from actually making connections to the threat actor’s C&C (command and control) servers. Both of these mean that you should set up a virtual machine to use when performing malware analysis.
+  قبل البدء في تحليل أي برمجيات ضارة، تحتاج إلى إعداد بيئة آمنة للقيام بذلك لأن البرمجيات الضارة كما يتضح من اسمها تسبب ضررًا للأنظمة التي تعمل عليها. لذا لا نوصي بتشغيلها على نظامك الأساسي. بالإضافة إلى ذلك، من المحتمل أن ترغب في منع البرمجيات الضارة من إجراء اتصالات فعلية بخوادم القيادة والتحكم الخاصة بممثل التهديد. ويعني هذان الأمران أنه عليك إعداد جهاز ظاهري لاستخدامه عند إجراء تحليل البرمجيات الضارة.
 
-## Objectives
+ ## الأهداف 
 
-After completing this subtopic, the practitioner should be able to set up a virtual machine (VM) and take snapshots therein.
+  بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارس قادرًا على إعداد جهاز ظاهري والتقاط لقطات فيه.
 
----
-## Main Section
+ ## العرض 
 
-The exact setup you need depends on your analysis method and the operating system of the malware you’re analyzing. In most cases you can start with a pre-build linux VM like [REMnux](https://remnux.org/). See [Chapter 6 of the Field Guide to Incident Response for Civil Society and Media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for step-by-step instructions on how to configure it. For specific things (for example, dynamic analysis of iOS malware) you will need additional tools (for example, a jailbroken iPhone or iPad). VMs occasionally have vulnerabilities that allow software running in the VM to attack the host operating system. Most malware doesn’t even come close to this level of sophistication, but if in doubt, it’s safest to analyze malware on a separate physical device that is wiped afterwards.
+  يعتمد الإعداد الدقيق الذي تحتاجه على طريقة التحليل ونظام تشغيل البرمجيات الضارة التي تقوم بتحليلها وفي معظم الحالات يمكنك البدء بجهاز لينوكس مثل [ريمنوكس. انظر للاطلاع على تعليمات خطوة بخطوة حول كيفية تكوينه. بالنسبة للأمور الخاصة (على سبيل المثال، التحليل الديناميكي البرمجيات الضارة التي تستهدف نظام آي أو إس (iOS)) ستحتاج إلى أدوات إضافية (على سبيل المثال، جهاز أيفون أو أيباد مُخترق الحماية). تحتوي الأجهزة الظاهرية أحيانًا على ثغرات تسمح للبرامج التي تعمل في الجهاز الظاهري بمهاجمة نظام التشغيل المضيف. لا تقترب معظم البرمجيات الضارة حتى من مستوى التطور هذا، ولكن إذا كنت في شك، من الأسلم تحليل البرمجيات الضارة على جهاز مادي منفصل يمكنك مسحه بعد انتهاء العملية. ](https://remnux.org/)
 
-To set up REMnux, we recommend that you follow the steps outlined in [Chapter 6 of the Field Guide to Incident Response for Civil Society and Media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) and [download the VM](https://docs.remnux.org/install-distro/get-virtual-appliance)[^1]. This is an easy way to start which provides excellent isolation between your host system and the REMnux environment. Be careful not to share sensitive data from your host OS into the VM. Per the instructions linked above, take a snapshot of your VM once it’s been set up, and before you start working on any malware. You can use snapshots to return your VM to a known-good state before analyzing different pieces of malware and to isolate different clients from each other. For more information on VM snapshots in general, see [this article](https://www.nakivo.com/blog/vm-snapshot-vs-backup/).
+  كي تقوم بإعداد ريمنوكس، نوصيك باتباع الخطوات الموضحة في [*الفصل 6 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام*](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) [*وتنزيل الجهاز الظاهري*](https://docs.remnux.org/install-distro/get-virtual-appliance)[^1]. هذه طريقة سهلة للبدء وتوفر عزلًا ممتازًا بين نظام المضيف وبيئة ريمنكوس. احرص على عدم مشاركة البيانات الحساسة من نظام التشغيل المضيف في الجهاز الظاهري. وفقًا للتعليمات المذكورة في الرابط أعلاه، خذ لقطة لجهازك الظاهري بمجرد إعداده وقبل البدء في العمل على أي برمجيات ضارة. يمكنك استخدام اللقطات لإعادة جهازك الظاهري إلى حالة جيدة معروفة قبل تحليل أجزاء مختلفة من البرمجيات الضارة وعزل وكلاء مختلفين عن بعضهم البعض. لمزيد من المعلومات حول لقطات الأجهزة الظاهرية بشكل عام، راجع [*هذه المقالة*](https://www.nakivo.com/blog/vm-snapshot-vs-backup/).
 
-While performing malware analysis, you may find that you want additional tools in your analysis VM. Go ahead and install and configure them, but note what you did. After you’re done with your analysis, you can load up your “clean” VM snapshot, install and configure the tool, and then make a new “clean” snapshot for your next malware analysis adventure.
+  أثناء إجراء تحليل البرمجيات الضارة، قد تحتاج إلى أدوات إضافية في الجهاز الظاهري المخصص للتحميل لذا بإمكانك بتثبيتها وتكوينها ولكن سجّل ما تفعله. بعد الانتهاء من تحليلك، يمكنك تحميل لقطة الجهاز الظاهري "النظيفة" وتثبيت الأداة وتكوينها ثم إنشاء لقطة "نظيفة" جديدة لخوض مغامرة تحليل البرمجيات الضار التالية.
 
-In order to move malware files around, the standard practice is to put them in encrypted ZIP files. In this case, the encryption quality doesn’t matter. The point is not to keep the malware secret, so much as to prevent inadvertently unleashing it on other systems and to prevent anti-malware systems from detecting or deleting it. Feel free to include the password in the ZIP file name.
+  تُعدّ الممارسة القياسية لنقل ملفات البرمجيات الضارة هي وضعها في ملفات مضغوطة مشفرة ولكن لا أهمية لجودة التشفير في هذه الحالة. ليس الهدف الحفاظ على سرية البرمجيات الضارة بقدر ما هو منع إطلاقها عن غير قصد على الأنظمة الأخرى ومنع أنظمة مكافحة البرمجيات الضارة من اكتشافها أو حذفها. بإمكانك تضمين كلمة المرور في اسم الملف المضغوط.
 
-## Practice
+## موارد التعلّم
 
-1. Download (if you haven’t already) virtual machine software (we recommend VirtualBox) and install REMnux.
-2. Update REMnux, and take a VM snapshot.
-3. Configure a single shared folder between your host and the REMnux VM.
-4. Download a piece of random (presumably non-malicious) Windows software from something like download.cnet.com, and transfer it to the REMnux VM using an encrypted ZIP file. (If you have recently completed the Malware Detection learning path, you can re-use the same download).
-5. Grab some malware from MalwareBazaar (**WARNING: this is live malware! Do not run it.**) and transfer it to the REMnux VM. (If you have recently completed the Malware Detection learning path, you can re-use the same download).
+  {{% resource title="الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلا" description="دليل حول كيفية تحليل المحتوى الذي يُحتمل أن يكون ضارًا وإعداد الأجهزة الظاهرية والمزيد" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="ريمنوكس" description="صفحة الويب الخاصة بتوزيعة ريمنوكس لينوكس (REMnux Linux) التي تُستخدم غالبًا لتحليل البرمجيات الضارة" languages="موقع الويب والوثائق الخاصة بالتوزيعة باللغة الإنجليزية ولكن قد تكون الأدوات المختلفة المضمّنة في التوزيعة نفسها مترجمة بلغات أخرى." cost="مجاني" url="https://remnux.org/" %}}
+{{% resource title="الحصول على الجهاز الظاهري" description="دليل حول كيفية تثبيت وتشغيل ريمنوكس كجهاز ظاهري" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
+{{% resource title="الفرق بين اللقطات والنسخ الاحتياطية" description="مقال يُسلط الضوء على كيفية احتواء الجهاز الظاهري على كل من اللقطات والنسخ الاحتياطية والفرق بينهما. سيسهم فهم كليهما بتسهيل إدارة وإعادة ضبط الأجهزة الظاهرية المستخدمة لتحليل البرمجيات الضارة." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
+## الممارسة
 
-## Skill check
+  1.  نزّل (إذا لم تكن قد قمت بذلك بالفعل) برنامج الجهاز الظاهري (نوصي باستخدام فيرتشوال بوكس VirtualBox) وقم بتثبيت ريمنوكس.
 
-Go to the folder which your virtual machine uses to share files between the host and guest operating systems. Add a file there and then [compute a cryptographic hash](https://www.sentinelone.com/cybersecurity-101/hashing/) of this file in both operating systems. Make sure that the hashes match.
+  2.  حدّث ريمنوكس ثم التقط لقطة للجهاز الظاهري.
 
-## Learning Resources
+  3.  أعدّ مجلدًا واحدًا مشتركًا واحد بين النظام المضيف والجهاز الظاهري الذي يعمل عليه نظام ريمنوكس.
 
-{{% resource title="Field Guide to incident response for civil society and media" languages="English" cost="Free" description="Guide on analyzing potentially malicious content, setting up virtual machines, and more." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+  4.  نزّل برنامجًا عشوائيًا لنظام ويندوز (يُفترض أنه غير ضار) من شيء مثل download.cnet.com وانقله إلى الجهاز الظاهري الذي يعمل عليه نظام ريمنوكس باستخدام ملف مضغوط مشفر. (إذا كنت قد أكملت مؤخرًا مسار تعلّم اكتشاف البرمجيات الضارة، فيمكنك إعادة استخدام البرنامج الذي نزلته سابقًا).
 
-{{% resource title="REMnux" languages="English" cost="Free" description="Webpage for the REMnux Linux distro, widely used for malware analysis." url="https://remnux.org/" %}}
-
-{{% resource title="Get the virtual appliance" languages="English" cost="Free" description="Guide on installing and running REMnux as a virtual machine." url="https://docs.remnux.org/install-distro/get-virtual-appliance" %}}
-
-{{% resource title="The difference between snapshots and backups" languages="English" cost="Free" description="Article explaining the distinctions between VM snapshots and backups, crucial for managing and resetting VMs used in malware analysis." url="https://www.nakivo.com/blog/vm-snapshot-vs-backup/" %}}
-
-## Notes
-
-[^1]: REMnux is not available on ARM processors such as Apple Silicon computers. While it is possible to virtualize across CPU architectures using emulators such as QEMU or UTM (VirtualBox does not currently support ARM architectures), performance will be slow and is not advised. It would make more sense to select another Linux distribution which supports your hardware and [install the necessary software packages ](https://www.digitalocean.com/community/tutorials/package-management-basics-apt-yum-dnf-pkg)to complete the activities, if they did not already come with the operating system. Kali Linux is a popular Linux distribution which will include or support many tools also found in REMnux. If you have an Apple Silicon device, you can use UTM ([https://mac.getutm.app/)](https://mac.getutm.app/)) to run the Apple Silicon (ARM64)[ Kali Installer](https://www.kali.org/get-kali/#kali-installer-images) image. Walkthrough guides are available from both[ UTM](https://docs.getutm.app/guides/kali/) and[ Kali](https://www.kali.org/docs/virtualization/install-utm-guest-vm/). At the time of writing, a bug affecting the installer process requires an additional step during installation of attaching a virtual serial terminal display – both walkthroughs describe this process. You can also obtain an[ ARM version of Kali for the Raspberry Pi](https://www.kali.org/get-kali/#kali-arm), with most models of Raspberry Pi supported.
+  5.  احصل على بعض البرمجيات الضارة من مالوير بازار (MalwareBazaar) **تحذير: هذه برمجيات ضارة فعّالة! لا تقم بتشغيلها.**) ثم قم بنقلها إلى الجهاز الظاهري الذي يعمل عليه نظام ريمنوكس. (إذا كنت قد أكملت مؤخرًا مسار تعلّم اكتشاف البرمجيات الضارة، فيمكنك إعادة استخدام البرنامج الذي نزلته سابقًا).

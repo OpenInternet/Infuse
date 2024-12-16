@@ -1,68 +1,67 @@
 ---
 style: module
-title: Triage - Deciding when to investigate
-description: When you receive or are forwarded a suspicious message, conduct
-  initial triage in order to determine if it is indeed malicious, to figure out
-  the best rapid response for the targeted recipient(s) if it is, and to
-  determine if further investigation is needed. For most messages, it’s enough
-  to conduct basic heuristics to separate untargeted from targeted threats and
-  to identify harm-reducing actions
+title: التصنيف (الترياج) - تقرير إجراء الفحص
+description: عندما تتلقى رسالة مشبوهة أو تمت إعادة توجيهها، أجرِ تصنيفًا أوليًا لتحديد ما إذا كانت ضارة بالفعل ولتحديد أفضل استجابة سريعة للمستلم (أو المستلمين) المستهدفين في حال كان ضارًا، ولتحديد ما إذا كانت هناك حاجة إلى إجراء فحوص إضافية. بالنسبة لمعظم الرسائل، يكفي إجراء التحليلات التجريبية البسيطة لفصل التهديدات غير المستهدفة عن التهديدات المستهدفة وتحديد إجراءات الحد من الضرر.
 weight: 1
 ---
-## Use Case
+## حالة استخدام
 
-When you receive or are forwarded a suspicious message, conduct initial triage in order to determine if it is indeed malicious, to figure out the best rapid response for the targeted recipient(s) if it is, and to determine if further investigation is needed. For most messages, it’s enough to conduct basic heuristics to separate untargeted from targeted threats and to identify harm-reducing actions.
+عندما تتلقى رسالة مشبوهة أو تمت إعادة توجيهها، أجرِ تصنيفًا أوليًا لتحديد ما إذا كانت ضارة بالفعل ولتحديد أفضل استجابة سريعة للمستلم (أو المستلمين) المستهدفين في حال كان ضارًا، ولتحديد ما إذا كانت هناك حاجة إلى إجراء فحوص إضافية. بالنسبة لمعظم الرسائل، يكفي إجراء التحليلات التجريبية البسيطة لفصل التهديدات غير المستهدفة عن التهديدات المستهدفة وتحديد إجراءات الحد من الضرر.
 
-## Objectives
+## الأهداف
 
-After completing this subtopic, the practitioner should be able to differentiate between legitimate emails, untargeted spam or phishing emails, and targeted ones based on several heuristic indicators.
-
-- - -
-
-## Foundation Knowledge
-
-The practitioner should be able to recognize common phishing email techniques and attacker objectives. They should be able to spot common telltale signs of a phishing message. If you need to brush up on this topic, check out Jigsaw’s [Phishing Quiz](https://phishingquiz.withgoogle.com/).
-
-Low-tech approaches to determining if a message was actually sent by a person you know are often the simplest and fastest way to determine if that message is authentic. A great example of such a low tech approach is following up with the sender of a potentially suspicious email (assuming you know them) on another communication medium like an instant messenger to make sure that it was indeed them who sent the email and that it’s legitimate.
-
-Also check out these two articles with examples of tactics and deceptive techniques commonly used in phishing messages: [6 Common Phishing Attacks and How to Protect Against Them ](https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them)and [5 Common Phishing Techniques (vadesecure.com)](https://www.vadesecure.com/en/blog/5-common-phishing-techniques).
-
-## Practical Triage Criteria
-
-Spam and non targeted phishing messages are an unfortunate reality of the internet. Investigating messages and related malicious infrastructure is only a practical and useful exercise in a small set of cases. Consider the following criteria when deciding if it is worth spending time investigating the message and related infrastructure:
-
-* Targeting: Has the message been customized (displaying social engineering and foreknowledge of the identity of the targeted person) to increase likelihood that they carry out the intended action (for example clicking on a link, downloading a malicious attachment)?
-* Threat: What is the intended objective of the message/campaign? What is the risk/threat context of the targeted person, organization, or community?
-* Value of Intervention: What is the value of investigating and intervening further? Would interrupting the attackers’ infrastructure have a worthwhile impact on stemming current or future attacks? What is the likelihood that the same malicious infrastructure will be reused? Would public exposure/attribution make them less likely to conduct further attacks? Would public exposure help alert other targets who may be compromised?
-* Investment: How much time and how many resources did an attacker need to create that message? Did they for example spin up new domains and infrastructure?
-* Uniqueness: Is the message unique? Can the same text be found by looking up quotes from the message on search engines?
-
-A general rule is that *only targeted messages are usually worth investigating*. Many spam or phishing emails end up being quite low quality or sent en masse. Those are usually sent by adversaries who might have some financial motive but have not targeted the organization specifically due to its human rights or civil society work. They are therefore less likely to attack NGOs in the future, and a write-up of their activities would be of less benefit to the community.
-
-Attackers who use lower quality or mass messaging are also likely to be caught by automated testing and rules and simply change messaging, in contrast to those who pursue targeted attacks which require a far greater investment. Adversaries who send targeted messages often have (geo)political motivations, and might use phishing as part of a wider hybrid campaign, which could also be directed at other NGOs. Investigating targeted messages can therefore often help uncover such broader campaigns.
-
-⚠️ Remember, if you need additional help and do not feel confident that you are able to respond to the level of risk or analysis needs of a malicious message, reach out for help for instance to [CiviCERT Members ](https://www.civicert.org/)or through support providers listed at the [Digital First Aid Kit](https://digitalfirstaid.org/).
-
-⚠️ While considering or conducting an investigation, ensure you balance harm reduction needs and support any targets to implement timely harm reduction actions, such as those listed at [Recover from possible account compromise (securityinabox.org)](https://securityinabox.org/en/communication/account-compromise/).
-
-## Skill Check
-
-Spend some time on the phishing quiz by [Shira](https://shira.app/) until you feel like you can comfortably pass the tests and accurately recognize phishing on several app categories.
-
-## Learning Resources
-
-{{% resource title="Shira by Horizontal" languages="English, Spanish, Mandarin" cost="Free" description="An online quiz with sample emails, where the user must decide whether they are malicious" url="https://shira.app" %}}
-
-{{% resource title="Phishing Quiz by Jigsaw" languages="27 Languages" cost="Free" description="An online quiz with sample emails, where the user must decide whether they are malicious" url="https://phishingquiz.withgoogle.com/" %}}
-
-{{% resource title="6 Common phishing attacks and how to protect against them" languages="English" cost="Free" description="A summary of some common phishing attacks, which also includes some more sophisticated methods used by attackers" url="https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them" %}}
-
-{{% resource title="5 Common phishing techniques" languages="English" cost="Free" description="A look at some techniques attackers use to make phishing emails more convincing and occasionally escape detection" url="https://www.vadesecure.com/en/blog/5-common-phishing-techniques" %}}
-
-{{% resource title="CiviCERT" languages="English" cost="Free" description="A network of civil society organizations and rapid response groups which focus on cyberattacks and similar threats" url="https://www.civicert.org/" %}}
-
-{{% resource title="Digital First Aid Kit" languages="Arabic, Spanish, Farsi, French, Indonesian, Armenian, Kyrgyz, Burmese, Portuguese, Russian, Albanian, Thai, Ukrainian" cost="Free" description="A comprehensive guide supporting digital protectors who deal with a variety of different issues" url="https://digitalfirstaid.org/" %}}
-
-{{% resource title="Recover from possible account compromise" languages="Arabic, Indonesian, English, Spanish, Farsi, French, Portuguese, Russian, Thai, Turkish, Vietnamese, Chinese, Tibetan, Khmer, Burmese" cost="Free" description="A guide on what immediate and long-term steps to take when an account has been compromised" url="https://securityinabox.org/en/communication/account-compromise/" %}}
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارس قادرًا على التمييز بين رسائل البريد الإلكتروني السليمة، ورسائل البريد الإلكتروني غير المرغوب فيها أو رسائل التصيد الاحتيالي والرسائل المستهدفة بناءً على العديد من المؤشرات الاستكشافية
 
 
+## المعرفة الأساسية 
+
+يجب أن يكون الممارس قادرًا على التعرف على تقنيات البريد الإلكتروني الاحتيالي الشائعة وأهداف المهاجم، وقادر على اكتشاف العلامات الدالة الشائعة على رسائل التصيد الاحتيالي. إذا كنت بحاجة إلى مراجعة هذا الموضوع، يمكنك متابعة [اختبار التصيد الاحتيالي](https://phishingquiz.withgoogle.com/) من جيغسو (Jigsaw).
+
+غالبًا ما تكون الأساليب التي لا تحتاج الكثير من التقنيات لتحديد ما إذا كانت الرسالة قد تم إرسالها بالفعل من قبل شخص تعرفه هي أبسط وأسرع طريقة لتحديد ما إذا كانت هذه الرسالة سليمة. ومن الأمثلة الرائعة على مثل هذه النهج منخفض التقنية هي المتابعة مع مرسل بريد إلكتروني يحتمل أن يكون مشبوهًا (على افتراض أنك تعرفه) من خلال وسيط اتصال آخر مثل برنامج المراسلة الفورية للتأكد من أنه هو من أرسل البريد الإلكتروني بالفعل وأنه سليم.
+
+اطلّع أيضًا هلة هاتين المقالتين مع أمثلة على التكتيكات والتقنيات الخادعة التي يشيع استخدامها في رسائل التصيد الاحتيالي: [ 6 هجمات تصيد احتيالي شائعة وكيفية الوقاية ضدها ](https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them)و [5  تقنيات تصيد احتيالي شائع)](https://www.vadesecure.com/en/blog/5-common-phishing-techniques)
+
+## معايير التصنيف العملية
+
+الرسائل غير المرغوب فيها ورسائل التصيد الاحتيالي غير المستهدفة هي واقع مؤسف في عالم الإنترنت وليس التحقيق في الرسائل والبنية التحتية الضارة ذات الصلة سوى تمرين عملي ومفيد في مجموعة صغيرة من الحالات. يجب أن تراعي المعايير التالية عند تحديد ما إذا كان الأمر يستحق قضاء بعض الوقت في فحص الرسالة والبنية التحتية ذات الصلة:
+- الاستهداف: هل تم تخصيص الرسالة (يظهر فيها انتحال بالهندسة الاجتماعية ومعرفة مسبقة بهوية الشخص المستهدف) لزيادة احتمال تحقيقها الإجراء المقصود (على سبيل المثال النقر على رابط أو تنزيل مرفق ضار)؟
+- التهديدات: ما هو الهدف المقصود من الرسالة أو الحملة؟ ما هو سياق الخطر أو التهديد للشخص أو المنظمة أو المجتمع المستهدف؟ 
+- قيمة التدخل: ما القيمة المرجوة من إجراء فحوص وتدخل التحقيق والتدخل بصورة أكبر؟ هل سيكون لمقاطعة البنية التحتية للمهاجمين تأثير جدير بالاهتمام على وقف الهجمات الحالية أو المستقبلية؟  ما هو احتمال إعادة استخدام البنية التحتية الضارة ذاتها؟  هل سيؤدي كشفهم للعلن أو نسب الأفعال إليهم أقل عرضة لشن هجمات إضافية؟ هل سيساعد كشفهم للعلن في تنبيه الأهداف الأخرى التي قد تكون مخترقة؟ 
+- الاستثمار: كم من الوقت وكم من الموارد يحتاجها المهاجم لإنشاء هذه الرسالة؟ هل قاموا على سبيل المثال بإنشاء مجالات وبنية تحتية جديدة؟
+- التفرّد: هل الرسالة فريدة من نوعها؟ هل يمكن العثور على النص ذاته من خلال البحث عن اقتباسات من الرسالة على محركات البحث؟
+- 
+تقول القاعدة العامة إن *الرسائل المستهدفة فقط هي ما يستحق الفحص عادةً*. عادة ما تكون العديد من رسائل البريد الإلكتروني غير المرغوب فيها أو رسائل التصيد الاحتيالي شديدة انخفاض الجودة أو ترسل إلى مجموعات. عادة ما تُرسل من قبل متطفلين قد يكون لديهم بعض الدوافع المالية ولكنهم لم يستهدفوا المنظمة على وجه التحديد بسبب عملها في مجال حقوق الإنسان أو المجتمع المدني. وبالتالي هم أقل عرضة لمهاجمة المنظمات غير الحكومية في المستقبل وستكون مقالة عن أنشطتهم أقل فائدة للمجتمع.
+
+من المرجح أيضًا أن يُكشف المهاجمون الذين يستخدمون رسائل ذات جودة أقل أو الرسائل الجماعية بواسطة خلال الاختبارات والقواعد التلقائية وثم يغيرون الرسائل ببساطة، على النقيض من أولئك الذين يتابعون الهجمات المستهدفة التي تتطلب استثمارًا أكبر بكثير. غالبًا ما يكون لدى المتطفلين الذين يرسلون رسائل مستهدفة دوافع سياسية أو جيوسياسية، وقد يستخدمون التصيد الاحتيالي كجزء من حملة هجينة أوسع يمكن توجيهها أيضًا إلى منظمات غير حكومية أخرى. وبالتالي يمكن للتحقيق في الرسائل المستهدفة أن يساعد في كثير من الأحيان في الكشف عن مثل هذه الحملات الأوسع.
+⚠️ تذكر إنه إذا كنت بحاجة إلى مساعدة إضافية ولا تشعر بالثقة في قدرتك على الاستجابة لمستوى المخاطر أو احتياجات تحليل رسالة ضارة، عليك التواصل للحصول على المساعدة على سبيل المثال مع  [أعضاء سيفيسيرت (CiviCERT)](https://www.civicert.org/)or through support providers listed at the [Digital First Aid Kit](https://digitalfirstaid.org/) أو من خلال مقدمي الدعم المدرجين في [مجموعة الإسعافات الأولية الرقمية](https://digitalfirstaid.org/).
+⚠️ عند التفكير في إجراء الفحص أو خلال إجرائه، تأكد من موازنة احتياجات الحد من الضرر ودعم أي أهداف لتنفيذ إجراءات الحد من الضرر في الوقت المناسب، مثل تلك المدرجة في [التعافي من اختراق محتمل للحساب  (securityinabox.org)](https://securityinabox.org/en/communication/account-compromise/)
+
+## اختبار مهارة
+
+أمض بعض الوقت لاستكمال اختبار التصيد الاحتيالي من [شيرا Shira](https://shira.app/) حتى تشعر أنه يمكنك اجتياز الاختبارات بشكل مريح وأن تتعرف بدقة على التصيد الاحتيالي في عدة فئات تطبيقات
+
+ناقش الموقفين التاليين مع نظير أو مُرشِد:
+
+  - يتلقى المستخدم بريدًا إلكترونيًا مشبوهًا يخاطبه باسمه الكامل ويشير إلى متجر عبر الإنترنت يشتري منه أشياءً في بعض الأحيان. تحدث إلى نظيرك أو مرشدك عن سبب كون هذا بريدًا إلكترونيًا مستهدفًا أو لا.
+إجابة محتملة: قد تكون قاعدة بيانات العملاء في هذا المتجر قد تعرضت لاختراق مما تسمح للمجرمين على الإنترنت بإرسال رسائل بريد إلكتروني "مخصصة" إلى جميع العملاء.   
+
+  - يتلقى المستخدم رسالة بريد إلكتروني وتستنتج أن المرسل هو ممثل ضار معروف قد يكون لديه سبب لاستهدافه، ولكن لا يحتوي البريد الإلكتروني على رابط أو مرفق. تحدث إلى نظيرك أو مرشدك واذكر سببين لذلك.
+إجابات محتملة: قد يكون المرسل ارتكب خطأ، أو قد ينتظر المرسل حتى يرسل المستلم ردًا ثم يرسل ملفًا أو رابطًا ضارًا فقط بعد بناء علاقة ثقة. (هذا سيناريو حقيقي.)
+
+
+
+## موارد التعلّم
+
+{{% resource title="(Shira) من هوريزنتل (Horizontal) شيرا" description="اختبار عبر الإنترنت مع عينات رسائل بريد إلكتروني، حيث يجب على المستخدم أن يقرر ما إذا كانت ضارة أم لا" languages="الإنجليزية والإسبانية والماندرين" cost="مجانًا" url="https://shira.app" %}}
+
+{{% resource title="اختبار التصيد الاحتيالي من جيغزسو" description="اختبار عبر الإنترنت مع عينات رسائل بريد إلكتروني، حيث يجب على المستخدم أن يقرر ما إذا كانت ضارة أم لا" languages="27 لغة" cost="مجانًا" url="https://phishingquiz.withgoogle.com/" %}}
+
+{{% resource title="6 هجمات تصيد احتيالي شائعة وكيفية الوقاية ضدها" description="ملخص لبعض هجمات التصيد الاحتيالي الشائعة التي تتضمن أيضًا بعض الأساليب الأكثر تعقيدًا التي يستخدمها المهاجمون" languages="الإنجليزية" cost="مجانًا" url="https://www.tripwire.com/state-of-security/6-common-phishing-attacks-and-how-to-protect-against-them" %}}
+
+{{% resource title="5 تقنيات تصيد احتيالي شائعة" description="نظرة على بعض التقنيات التي يستخدمها المهاجمون لجعل رسائل البريد الإلكتروني الاحتيالية أكثر إقناعًا وتفادي اكتشافها في بعض الأحيان" languages="الإنجليزية" cost="مجانًا" url="https://www.vadesecure.com/en/blog/5-common-phishing-techniques" %}}
+
+{{% resource title="(CiviCERT) سيفي سيرت" description="شبكة من منظمات المجتمع المدني ومجموعات الاستجابة السريعة التي تركز على الهجمات الإلكترونية والتهديدات المماثلة" languages="الإنجليزية" cost="مجانًا" url="https://www.civicert.org/" %}}
+
+{{% resource title="(Digital First Aid Kit)  مجموعة الإسعافات الأولية الرقمية" description="دليل شامل يدعم الحماة الرقميين الذين يتعاملون مع مجموعة متنوعة من القضايا المختلفة" languages="العربية والإسبانية والفارسية والفرنسية والإندونيسية والأرمنية والقيرغيزية والبورمية والبرتغالية والروسية والألبانية والتايلاندية والأوكرانية" cost="مجانًا" url="https://digitalfirstaid.org/en/index.html" %}}
+
+{{% resource title="التعافي من اختراق محتمل للحساب" description="دليل حول الخطوات الفورية وطويلة الأجل التي يجب اتخاذها عند تعرض الحساب للاختراق" languages="العربية والإندونيسية والإنجليزية والإسبانية والفارسية والفرنسية والبرتغالية والروسية والتايلاندية والتركية والفيتنامية والصينية والتبتية والخميرية والبورمية" cost="مجانًا" url="https://securityinabox.org/en/communication/account-compromise/" %}}

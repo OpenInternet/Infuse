@@ -1,113 +1,105 @@
 ---
 style: module
-title: Passive Investigation - Analyze email headers
-description: The subtopic will teach you how to analyze the extensive metadata
-  which documents an email’s origin, the servers it traveled through,
-  information about possible spam checks, and much more. This metadata can form
-  a crucial part of any in-depth investigation into potentially malicious
-  emails
+title: الفحص غير النشط - تحليل عناوين البريد الإلكتروني
+description: ناك أسرار تخفيها رسائل بريد إلكتروني أكثر مما يبدو في الوهلة الأولى، وسيعلمك الموضوع الفرعي كيفية **تحليل بيانات التعريف الشاملة** التي توثق أصل البريد الإلكتروني والخوادم التي مر عبرها ومعلومات حول عمليات التحقق من البريد العشوائي المحتملة وغير ذلك الكثير. يمكن أن تشكل هذه البيانات الوصفية جزءًا مهمًا من أي تحقيق متعمّق في رسائل البريد الإلكتروني الضارة المحتملة.
 weight: 5
 ---
 
-## Use Case
+## حالة استخدام
 
-There is far more to emails than meets the eye. The subtopic will teach you how to **analyze the extensive metadata** which documents an email’s origin, the servers it traveled through, information about possible spam checks, and much more. This metadata can form a crucial part of any in-depth investigation into potentially malicious emails.
+هناك أسرار تخفيها رسائل بريد إلكتروني أكثر مما يبدو في الوهلة الأولى، وسيعلمك الموضوع الفرعي كيفية **تحليل بيانات التعريف الشاملة** التي توثق أصل البريد الإلكتروني والخوادم التي مر عبرها ومعلومات حول عمليات التحقق من البريد العشوائي المحتملة وغير ذلك الكثير. يمكن أن تشكل هذه البيانات الوصفية جزءًا مهمًا من أي تحقيق متعمّق في رسائل البريد الإلكتروني الضارة المحتملة.
 
-Use this skill after or alongside the [Triage](#subtopic-4-passive-investigation-analyze-urls-hostnames-and-ip-addresses) subtopic within this learning path. Some of these skills may be necessary as part of the triage process in order to decide if a message is suspicious.
+استخدم هذه المهارة بعد أو مع الموضوع الفرعي المتعلق[ بالتصنيف Triage](#subtopic-4-passive-investigation-analyze-urls-hostnames-and-ip-addresses) ضمن مسار التعلّم هذا. قد تكون بعض هذه المهارات ضرورية كجزء من عملية الفرز من أجل تحديد ما إذا كانت الرسالة مشبوهة.
 
-Since email headers can contain references to other domains and infrastructure, practitioners should first be familiar with Subtopic 4, which looks at analyzing domain and IP info, prior to tackling this one.
+نظرًا لأن عناوين البريد الإلكتروني يمكن أن تحتوي على مراجع لمجالات وبنية تحتية أخرى، يجب أن يكون الممارسون على دراية أولًا بالموضوع الفرعي 4، الذي ينظر في تحليل معلومات النطاق والملكية الفكرية قبل معالجة هذا الموضوع.
 
-## Objectives
+## الأهداف 
 
-After completing this subtopic, practitioners should be able to do the following:
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
 
-- Extract full headers from an email that they have received or are analyzing;
-- Analyze the extracted headers, paying particular attention to
-  - The identity of the server or servers which sent the email;
-  - Any information about SPF or DKIM data which those headers contain;
-  - The possibility that any of the information in the header was spoofed
+- استخراج الرؤوس الكاملة من رسالة بريد إلكتروني تلقوها أو يقومون بتحليلها.
+- تحليل الرؤوس المستخرجة مع إيلاء اهتمام خاص لـِ
+- هوية الخادم أو الخوادم التي أرسلت البريد الإلكتروني
+- أي معلومات حول بيانات إطار نهج المرسل أو البريد المعرّف بمفاتيح المجال التي تحتوي عليها هذه الرؤوس
+- احتمالية وجود تزييف في أي من المعلومات الموجودة في العنوان
 
----
+تحتوي كل رسالة بريد إلكتروني على رؤوس تشمل بيانات تعريف مهمة حول المرسل والمستلم والبريد الإلكتروني نفسه. سنلقي في هذا القسم نظرة على عناوين البريد الإلكتروني وكيف يمكن تحليلها وكيف يمكن تزييف رسائل البريد الإلكتروني، وهذا أمر يتطلب بعض المعرفة الأساسية.
 
-Every email has headers, which contain crucial metadata about the sender, recipient, and email itself. In this section, we will look at email headers, how you can analyze them, and how emails could be spoofed. This requires some background knowledge
+## المعرفة الأساسية
+ 
+اقرأ الموارد والمستندات أدناه للتعرف قليلًا على (أو مراجعة معرفتك حول) رؤوس البريد الإلكتروني وإطار نهج المرسل والبريد المعرّف بمفاتيح المجال.
 
-## Foundation Knowledge
+- فهم ماهية [عناوين البريد الإلكتروني](https://support.google.com/mail/answer/29436?hl=en) وكيف يمكننا عرضها في أنظمة متعددة.
+- فهم أساسيات تزييف البريد الإلكتروني واستخدام إطار نهج المرسل وبريد معرّف بمفاتيح المجال (DomainKeys Identified Mail أو اختصارًا DKIM) لمكافحته.
+  - تعرّف على تزييف البريد الإلكتروني / تعلّم كيفية التعرّف على رسائل البريد الإلكتروني المزيفة[https://docs.sendgrid.com/glossary/spoofing](https://docs.sendgrid.com/glossary/spoofing)
+  - تعرّف على إطار نهج المرسل وكيف يهدف إلى منع تزييف عنوان المرسل
+استخدم dig / doggo للبحث عن سجل إطار نهج مرسل صالح (يمكنك القيام بذلك عن طريق  [تشغيل أمر dig باستخدام وسيطة txt argument](https://easydmarc.com/tools/spf-lookup#how-to-check-spf-record-via-command-line-via-dig-tool)))، وتحليل محتواه (انظر  [هنا](https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain) للاطلاع على دليل) والإجابة على الأسئلة التالية.
+    - ما هو إصدار إطار نهج المرسل المستخدم؟
+    - ما هي النطاقات المرسلة للبريد الإلكتروني المصرح بها للنطاق؟
+    - ما الآلية (أو السياسة) التي تم استخدامها لجميع المرسلين "الآخرين"؟
+    - هل هناك أي آليات (أو سياسات) أخرى محددة في السجل؟
+  - استخدم لإجراء بحث واختبار على نطاق إطار نهج مرسل محمي. يمكنك البحث عن سجلات مؤسستك، على سبيل المثال عن طريق التحقق من نطاقها الرئيسي.
+    - تعرّف على البريد معرّف بمفاتيح المجال وكيفية استخدامها كمعيار مصادقة لمنع تزييف البريد الإلكتروني[https://docs.sendgrid.com/ui/account-and-settings/dkim-records](https://docs.sendgrid.com/ui/account-and-settings/dkim-records).
+    -استخدم https://mxtoolbox.com/dkim.aspx لإجراء بحث على نطاق بريد معرّف بمفاتيح المجال جرت المصادقة عليه. يمكنك البحث عن سجلات مؤسستك، على سبيل المثال عن طريق التحقق من نطاقها الرئيسي.
+- **(متقدم)** تعرّف على التقنيات والآليات المختلفة التي تستخدمها فلاتر الرسائل غير المرغوب فيها لتحديد رسائل البريد الإلكتروني غير المرغوب فيها أو المزيفة.
+انظر إلى قائمة الوحدات المتاحة (والمحددات) التي يدعمها النظام السريع لتصفية الرسائل غير المرغوب فيها [https://rspamd.com/doc/modules/](https://rspamd.com/doc/modules/)
 
-Read the resources and documents below to familiarize yourself a bit with (or recap your knowledge on) email headers, SPF, and DKIM.
+## العرض
+### تحليل الرؤوس
 
-- Understand [what email headers are](https://support.google.com/mail/answer/29436?hl=en) and how we can view them in multiple systems
-- Understand the basics of email spoofing and using SPF and DKIM to combat it
-  - Learn about email spoofing / learn to identify spoofed emails
-    - [https://docs.sendgrid.com/glossary/spoofing](https://docs.sendgrid.com/glossary/spoofing)
-  - Learn about the Sender Policy Framework and how it aims to prevent sender address forgery.
-    - Use dig / doggo to lookup a valid SPF record (you can do so by [running the dig command with the txt argument](https://easydmarc.com/tools/spf-lookup#how-to-check-spf-record-via-command-line-via-dig-tool)), analyze its content (see [here](https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain) for a guide) and answer the following questions.
-      - What is the SPF version used?
-      - Which domains are authorized email senders for the domain?
-      - Which mechanism (or policy) was used for all “other” senders?
-      - Are there any other mechanisms (or policies) defined in the record?
-    - Use [https://mxtoolbox.com/spf.aspx](https://mxtoolbox.com/spf.aspx) to conduct a lookup and test on an SPF protected domain. You can look up the records for your own organization, for example, by checking its main domain.
-  - Learn about DomainKeys Identified Mail (DKIM) and how, as an authentication standard, it is used to prevent email spoofing.
-    - [https://docs.sendgrid.com/ui/account-and-settings/dkim-records](https://docs.sendgrid.com/ui/account-and-settings/dkim-records)
-    - Use [https://mxtoolbox.com/dkim.aspx](https://mxtoolbox.com/dkim.aspx) to conduct a lookup on a DKIM authenticated domain. You can look up the records for your own organization, for example, by checking its main domain.
-- **(Advanced)** Familiarize yourself with various techniques and mechanisms spam filters use to identify spam / spoofed emails.
-  - Look at the list of available modules (and selectors) supported by RSPAMD [https://rspamd.com/doc/modules/](https://rspamd.com/doc/modules/)
+أنشأ [فريق نيبراسكا جين سايبر (Nebraska GenCyber) دورة تدريبية سريعة وشاملة نسبيًا حول رؤوس البريد الإلكتروني](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers) ونوصي بها لجميع من يرغب في التعرف على الموضوع.
 
-## Main Section
-### Analyzing headers
+أثناء تحليل الرؤوس ستتعلّم القليل عن المجالات المختلفة التي ينطوي عليها إعداد البريد الإلكتروني، وبمجرد حصولك على قائمة بهذه النطاقات، يمكنك استخدام الأدوات ذاتها التي استخدمناها في القسم السابق (dig وهو إز وجيو آي بي وغيرها) للتعرف على المزيد عنها. 
 
-The [Nebraska GenCyber Team created a quick and relatively comprehensive course on email headers](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers) : we recommend it to all who want to learn about the topic.
+غالبًا ما يتمكن مسؤولو الأنظمة الذين يستخدمون نطاقات مكان العمل مثل غوغل ورك سبيس (Google Workspace) ومايكروسوفت 365 (Microsoft 365) من الوصول إلى أدوات قوية للتسجيل والبحث في السجلات ويمكنهم استخدامها للبحث في أنظمتهم عن المعرفات التي تم العثور عليها في رؤوس البريد الإلكتروني (مثل النطاقات المشبوهة) والتي يمكن أن تساعدهم في معرفة من تم استهدافه في مؤسستهم، إن وجد.  انظر وثائق غوغل[Google’s](https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA) ومايكروسوفت[Microsoft’s](https://learn.microsoft.com/en-us/exchange/monitoring/monitoring) حول البحث من خلال السجلات، ولاحظ أن ميزات البحث هذه عادة ما تقتصر على حسابات الأعمال أو المؤسسات.
 
-As you analyze headers, you will learn quite a bit about the different domains involved in setting up the email. Once you have a list of those domains, you can use the same tools we used in the previous section (dig, whois, geoIP, and others) to learn more about them.
+## الممارسة
 
-Systems administrators who use workplace domains such as Google Workspace and Microsoft 365 often have access to powerful logging and log search tools: they can use those to search their systems for identifiers which were found in email headers (such as suspicious domains), which can help them figure out who, if anyone, has been targeted in their organization. See [Google’s](https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA) and [Microsoft’s](https://learn.microsoft.com/en-us/exchange/monitoring/monitoring) documentation on searching through logs. Do note that those search features are usually restricted to business or enterprise accounts.
+بعد قراءة جميع المواد في دورة تحليل رأس البريد الإلكتروني في نيبراسكا جين سايبر استكمال التمارين المرتبطة فيها. يحتوي الموقع على مشكلة في الروابط وغالبًا ما تكون التمارين غير متاحة مباشرة عليه ولكن يمكن أيضًا تنزيلها من هنا.
 
-## Practice
+## اختبار مهارة
 
-After reading through all of the materials in the [Nebraska GenCyber email header analysis](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/) course, do the exercises linked therein. The site has a link issue, with the exercises often being unavailable directly on it, but they can also be downloaded [here](https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers).
+اعثر على بريد إلكتروني في صندوق الوارد أو مجلد الرسائل غير المرغوب فيها وبدلًا من ذلك اطلب من نظير أو مُرشِد أن يرسل لك عناوين البريد الإلكتروني التي تلقاها مؤخرًا. حلل عناوين البريد الإلكتروني باستخدام نفس التقنيات الموضحة في التمرين بما في ذلك عن طريق تحميلها في أداة رؤوس رسالة مجموعة أدوات المشرفين من غوغل [Google Admin Toolbox Message Header tool](https://toolbox.googleapps.com/apps/messageheader/). أجب بعدها عن الأسئلة 1 و2 و3 و5 الموضحة في قسم التحقيق لدورة تحليل رأس البريد الإلكتروني لنيبراسكا جين سايبر[the investigation section](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#investigation) وهذه المرة باستخدام الرؤوس من البريد الإلكتروني التي وجدتها بدلًا من البريد الإلكتروني المرفق بالدورة
 
-## Skill Check
+## موارد التعلّم
 
-Find an email in your inbox or spam folder. Alternatively, ask for a peer or mentor to send you the headers of an email which they have recently received. Analyze the headers of the email using the same techniques as were outlined in the practice exercise, including by loading them in the [Google Admin Toolbox Message Header tool](https://toolbox.googleapps.com/apps/messageheader/). Then, answer questions 1, 2, 3, and 5 outlined in [the investigation section](https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#investigation) of the Nebraska GenCyber email header analysis course, this time using the headers from the email you found rather than the email attached to the course.
+{{% resource title="ما هي رؤوس البريد الإلكتروني؟" description="مقدمة جيدة حول رؤوس البريد الإلكتروني تسلط الضوء على ثلاث مجموعات مهمة من رؤوس البريد الإلكتروني، وتتضمن قائمة بأدلة خطوة بخطوة لمختلف وكلاء مستخدمي البريد" languages="الإنجليزية" cost="مجانًا" url="https://mailtrap.io/blog/email-headers/" %}}
 
-## Learning Resources
+{{% resource title="عرض كامل رؤوس البريد الإلكتروني" description="كيفية عرض رؤوس البريد الإلكتروني في أنظمة بريد إلكتروني متعددة (جيميل(Gmail) وآوتلوك (Outlook) وآبل ميل (Apple Mail) وثندربرد (Thunderbird)" languages="عدة" cost="مجانًا" url="https://support.google.com/mail/answer/29436?hl=en" %}}
 
-{{% resource title="What are email headers?" languages="English" cost="Free" description="A good introduction to email headers. Highlights three important groupings of email headers. Includes a list of step-by-step guides for different MUAs." url="https://mailtrap.io/blog/email-headers/" %}}
+{{% resource title="dig  التحقق من رؤوس إطار نهج المرسل باستخدام أداة" description="تقدم هذه المقالة دليلًا سريعًا حول كيفية التحقق من مثبّت باستخدام وهي أداة مثبتة على معظم الأنظمة الشبيهة بيونكس" languages="الإنجليزية" cost="مجانًا" url="https://easydmarc.com/tools/spf-lookup#how-to-check-spf-record-via-command-line-via-dig-tool" %}}
 
-{{% resource title="Viewing full email headers" languages="Multiple" cost="Free" description="How to view email headers in multiple email systems (Gmail, Outlook, Apple Mail, Thunderbird, etc)." url="https://support.google.com/mail/answer/29436?hl=en" %}}
+{{% resource title="كيفية التحقق من سجل إطار سياسة المرسل وقراءته لمجال ما" description="توضح هذه المقالة كيفية التحقق من رؤوس إطار نهج المرسل باستخدام nslookup وهي أداة بديلة لأداة dig وتصف كيفية تفسير النتائج." languages="الإنجليزية" cost="مجانًا" url="https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain" %}}
 
-{{% resource title="Checking SPF headers using the dig tool" languages="English" cost="Free" description="This piece offers a quick guide on how to check SPF headers using dig, a tool installed on most Unix-like systems." url="https://easydmarc.com/tools/spf-lookup#how-to-check-spf-record-via-command-line-via-dig-tool" %}}
+{{% resource title="دورة فريق نيبراسكا جين سايبر حول عناوين البريد الإلكتروني" description="دورة شاملة حول كيفية تحليل عناوين البريد الإلكتروني عند التحقيق في الحالات المحتملة للتصيد الاحتيالي" languages="الإنجليزية" cost="مجانًا" url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" %}}
 
-{{% resource title="How to check and read a Sender Policy Framework record for a domain" languages="English" cost="Free" description="This piece shows how to check SPF headers using nslookup, an alternative tool to dig, and describes how to interpret the results." url="https://support.mailessentials.gfi.com/hc/en-us/articles/360015116520-How-to-check-and-read-a-Sender-Policy-Framework-record-for-a-domain" %}}
+{{% resource title="دورة فريق نيبراسكا جين سايبر حول عناوين البريد الإلكتروني" description="دورة شاملة حول كيفية تحليل عناوين البريد الإلكتروني عند التحقيق في الحالات المحتملة للتصيد الاحتيالي" languages="الإنجليزية" cost="مجانًا" url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
 
-{{% resource title="The Nebraska GenCyber Team course on email headers" languages="English" cost="Free" description="A comprehensive course on how to analyze email headers when investigating potential cases of phishing." url="https://mlhale.github.io/nebraska-gencyber-modules/phishing/email-headeranalysis/#email-headers" %}}
+{{% resource title="(Proton Mail) التحقق من رؤوس البريد الإلكتروني في بروتون ميل" description="الإنجليزية" languages="الإنجليزية" cost="مجانًا" url="https://proton.me/support/check-email-headers" %}}
 
-{{% resource title="Exemples d'exercices pour le cours ci-dessus." languages="English" cost="Free" description="Exercices hébergés sur GitHub." url="https://github.com/MLHale/nebraska-gencyber-modules/tree/master/phishing/email-headers" %}}
+{{% resource title="(Zoho)  عرض عناوين البريد الإلكتروني على زوهو" description="الإنجليزية" languages="الإنجليزية" cost="مجانًا" url="https://www.zoho.com/mail/help/mail-options.html#alink1" %}}
 
-{{% resource title="Checking email headers in Proton Mail" languages="English" cost="Free" description="A guide on how to check email headers in Proton Mail." url="https://proton.me/support/check-email-headers" %}}
+{{% resource title="أدوات لتحليل رؤوس البريد الإلكتروني" description="نذكر روابط بعض الأدوات التي يمكنها استخراج عناوين البريد الإلكتروني وتفصيلها وهو أمر بالغ الأهمية لأي تحليل لرسائل البريد الإلكتروني يُحتمل أن تكون ضارة" languages="الإنجليزية" cost="مجانًا" url="https://mxtoolbox.com/EmailHeaders.aspx" %}}
 
-{{% resource title="Viewing email headers on Zoho" languages="English" cost="Free" description="A guide on how to view email headers on Zoho." url="https://www.zoho.com/mail/help/mail-options.html#alink1" %}}
+{{% resource title="أدوات لتحليل رؤوس البريد الإلكتروني" description="نذكر روابط بعض الأدوات التي يمكنها استخراج عناوين البريد الإلكتروني وتفصيلها وهو أمر بالغ الأهمية لأي تحليل لرسائل البريد الإلكتروني يُحتمل أن تكون ضارة" languages="الإنجليزية" cost="مجانًا" url="https://github.com/keraattin/EmailAnalyzer" %}}
 
-{{% resource title="Tools for analyzing email headers, part 1" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://mxtoolbox.com/EmailHeaders.aspx" %}}
+{{% resource title="أدوات لتحليل رؤوس البريد الإلكتروني" description="نذكر روابط بعض الأدوات التي يمكنها استخراج عناوين البريد الإلكتروني وتفصيلها وهو أمر بالغ الأهمية لأي تحليل لرسائل البريد الإلكتروني يُحتمل أن تكون ضارة" languages="الإنجليزية" cost="مجانًا" url="https://github.com/umair9747/headmail" %}}
 
-{{% resource title="Tools for analyzing email headers, part 2" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/keraattin/EmailAnalyzer" %}}
+{{% resource title="أدوات لتحليل رؤوس البريد الإلكتروني" description="نذكر روابط بعض الأدوات التي يمكنها استخراج عناوين البريد الإلكتروني وتفصيلها وهو أمر بالغ الأهمية لأي تحليل لرسائل البريد الإلكتروني يُحتمل أن تكون ضارة" languages="الإنجليزية" cost="مجانًا" url="https://github.com/cyberdefenders/email-header-analyzer" %}}
 
-{{% resource title="Tools for analyzing email headers, part 3" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/umair9747/headmail" %}}
+{{% resource title="مقدمة إلى تزييف البريد الإلكتروني" description="عدة مقالات تصف أساسيات تزييف البريد الإلكتروني" languages="عدة" cost="مجانًا" url="https://en.wikipedia.org/wiki/Email_spoofing" %}}
 
-{{% resource title="Tools for analyzing email headers, part 4" languages="English" cost="Free" description="Links to several tools which can extract and dissect email headers, crucial for any analysis of potentially malicious emails." url="https://github.com/cyberdefenders/email-header-analyzer" %}}
+{{% resource title="مقدمة إلى تزييف البريد الإلكتروني" description="عدة مقالات تصف أساسيات تزييف البريد الإلكتروني" languages="عدة" cost="مجانًا" url="https://docs.sendgrid.com/glossary/spoofing" %}}
 
-{{% resource title="Introduction to email spoofing, article 1" languages="Multiple" cost="Free" description="Several articles describing email spoofing basics." url="https://en.wikipedia.org/wiki/Email_spoofing" %}}
+{{% resource title="مقدمة إلى تزييف البريد الإلكتروني" description="عدة مقالات تصف أساسيات تزييف البريد الإلكتروني" languages="عدة" cost="مجانًا" url="https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
 
-{{% resource title="Introduction to email spoofing, article 2" languages="English" cost="Free" description="Several articles describing email spoofing basics." url="https://docs.sendgrid.com/glossary/spoofing" %}}
+{{% resource title="تقييم الرؤوس المُستَلمة" description="كيفية استخدام رؤوس البريد الإلكتروني للعثور على الخادم الذي أرسل البريد الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
 
-{{% resource title="Introduction to email spoofing, article 3" languages="English" cost="Free" description="Several articles describing email spoofing basics." url=", https://www.fortinet.com/resources/cyberglossary/email-spoofing" %}}
+{{% resource title="تحليل الرؤوس المُستَلمة المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين المستلمة المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
 
-{{% resource title="Evaluating 'Received' headers" languages="English" cost="Free" description="How to use email headers to find the server that sent the email." url="https://www.techlicious.com/how-to/how-to-tell-if-email-has-been-spoofed/" %}}
+{{% resource title="تحليل الرؤوس المُستَلمة المحتمل أن تكون مزوّرة" description="كيفية التعرّف على العناوين المستلمة المزوّرة" languages="الإنجليزية" cost="مجانًا" url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
 
-{{% resource title="Analyzing potentially forged 'Received' headers" languages="English" cost="Free" description="How to identify fake 'received' headers." url="https://luxsci.com/blog/analyzing-forged-email-message.html" %}}
+{{% resource title="العثور على الرسائل باستخدام البحث في سجل البريد الإلكتروني" description="تصف كيفية قيام مسؤولي حسابات الأعمال والمؤسسات من غوغل بمراقبة سجلات الرسائل" languages="الإنجليزية" cost="أدوات لا تشمل الوثائق متاحة فقط لمستخدمي الأعمال والمؤسسات" url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
 
-{{% resource title="Looking at a potential phishing email's headers" languages="English" cost="Free" description="Un regard plus approfondi sur l’analyse des en-têtes." url="https://www.linkedin.com/pulse/anatomy-phishing-email-whats-header-penelope-raquel-bise-" %}}
-
-{{% resource title="Find messages with Email Log Search" languages="English" cost="Documentation free, tools only available to business & enterprise users" description="Describes how administrators of Google business and enterprise accounts can monitor message logs." url="https://support.google.com/a/answer/2618874?hl=en&fl=1&sjid=3562339787569460230-NA" %}}
-
-{{% resource title="Monitoring, reporting, and message tracing in Exchange Online" languages="English" cost="Documentation free, tools only available to enterprise users" description="Describes how administrators of Microsoft enterprise accounts can monitor message logs." url="https://learn.microsoft.com/en-us/exchange/monitoring/monitoring" %}}
+{{% resource title="(Exchange Online)  الرصد والإبلاغ وتتبع الرسائل في إكستشينج أونلاين" description="وصف يوضح كيفية قيام مسؤولي حسابات مايكروسوفت إنتربرايز بمراقبة سجلات الرسائل" languages="الإنجليزية" cost="أدوات لا تشمل الوثائق متاحة فقط لمستخدمي المؤسسات" url="https://learn.microsoft.com/en-us/exchange/monitoring/monitoring" %}}
 

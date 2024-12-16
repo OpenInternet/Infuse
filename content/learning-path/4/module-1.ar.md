@@ -5,62 +5,81 @@ title = "Infrastructure Vulnerabilities"
 description = "We introduce different types of infrastructure vulnerabilities and what impact they could have"
 +++
 
-## Use Case
+## حالة استخدام
 
-While this learning path focuses on web application security, web applications run on top of numerous pieces of software infrastructure. Any vulnerability in the application’s underlying infrastructure will compromise the application. Understanding some infrastructure security is therefore part of understanding application security.
+بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب، تعمل تطبيقات الويب بالإضافة إلى العديد من أجزاء البنية التحتية للبرمجيات. ستؤدي أي ثغرة أمنية في البنية التحتية الخاصة بالتطبيق إلى تعريض التطبيق للخطر، وبالتالي فإن فهم بعض أمن البنية التحتية جزءٌ من فهم أمن التطبيقات.
+عند فحص تطبيق ويب إما لأغراض تقييم الثغرات الأمنية أو الرقابة الأمنية أو لفحص ثغرة، يجب على الممارس فهم المجموعة الأساسية من التكنولوجيات التي توفر البيئة اللازمة لتشغيل التطبيق أثناء البحث عن ثغرات في تلك المجموعة.
 
-When inspecting a web application either for purposes of vulnerability assessment, security monitoring, or to investigate a compromise, the practitioner must understand the underlying stack of technology which provides the necessary environment for the application to run while looking for vulnerabilities in that stack.
-
-## Objectives
-
-After completing this subtopic, practitioners should be able to do the following:
-
-- Understand common types of infrastructure software vulnerabilities
-- Understand the potential impacts of those types of vulnerabilities
-- Understand essentials of vulnerability frameworks
+## الأهداف 
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
+- الإلمام بالأنواع الشائعة من ثغرات برامج البنية التحتية
+- فهم الآثار المحتملة لهذه الأنواع من الثغرات
+- فهم أساسيات أطر الثغرات
 
 ---
-## Main Section
-### Foundation Knowledge
 
-Websites do not exist without some underlying software and hardware that takes care of the low level operations of handling requests serving the web content. This includes the underlying hardware and firmware, operating system, web server software, web application framework(s), and even unrelated software running on the machine. The security of a web application depends on the security of this infrastructure, even if developers of the website may have little visibility into or control over this infrastructure. Infrastructure vulnerabilities typically affect a large number of websites (possibly hundreds of millions), and are often assigned identifiers such as CVEs (for a more general introduction to what CVEs are, check out this [article](https://www.redhat.com/en/topics/security/what-is-cve)). These vulnerabilities could belong to almost any technical class, but from the point of view as a website operator, we only really care about their impact, not the underlying technical details. This is because we do not maintain the infrastructure software, we just deploy and configure it.
+الموضوع الفرعي 1: ثغرات البنية التحتية
 
-The impact of a vulnerability in infrastructure software can be nearly anything, but some issues and impacts that are likely to pop up include the types below.
+بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب، تعمل تطبيقات الويب بالإضافة إلى العديد من أجزاء البنية التحتية للبرمجيات. ستؤدي أي ثغرة أمنية في البنية التحتية الخاصة بالتطبيق إلى تعريض التطبيق للخطر، وبالتالي فإن فهم بعض أمن البنية التحتية جزءٌ من فهم أمن التطبيقات.
+عند فحص تطبيق ويب إما لأغراض تقييم الثغرات الأمنية أو الرقابة الأمنية أو لفحص ثغرة، يجب على الممارس فهم المجموعة الأساسية من التكنولوجيات التي توفر البيئة اللازمة لتشغيل التطبيق أثناء البحث عن ثغرات في تلك المجموعة.
+الأهداف 
 
-### Denial of service (DoS)
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
+الإلمام بالأنواع الشائعة من ثغرات برامج البنية التحتية
+فهم الآثار المحتملة لهذه الأنواع من الثغرات
+فهم أساسيات أطر الثغرات
 
-A vulnerability may allow an attacker to crash a web server or cause it to be unresponsive due to excessive resource consumption. These vulnerabilities are typically exploited to knock a website offline or to extort money from website operators as part of a protection racket. Note that a determined and funded attacker can frequently rent time on a botnet of compromised computers to simply overwhelm a website with a huge number of requests; no vulnerability required. Some examples of DoS vulnerabilities include:
+## العرض 
 
-- [CVE-2011-3192](https://nvd.nist.gov/vuln/detail/CVE-2011-3192): A vulnerability in Apache where the client can request multiple subsections of a web page, resulting in large memory use on the server.
-- [MS ADV190005](https://msrc.microsoft.com/update-guide/vulnerability/ADV190005): A vulnerability in Microsoft IIS allows an attacker to send a large number of settings variables in a HTTP/2 request, causing 100% CPU consumption on the server.
+### المعرفة الأساسية 
 
-### Information leaks
+لا توجد مواقع ويب لا تتمتع ببعض البرامج والأجهزة الأساسية التي تهتم بالعمليات منخفضة المستوى لمعالجة الطلبات التي تخدم محتوى الويب، ويشمل ذلك الأجهزة والبرامج الثابتة الأساسية ونظام التشغيل وبرامج خادم الويب وإطار (أو أطر) تطبيقات الويب وحتى البرامج غير ذات الصلة التي تعمل على الجهاز. يعتمد أمان تطبيق الويب على أمان هذه البنية التحتية حتى لو كان ما يتمتع به مطورو موقع الويب من إمكانية المشاهدة أو التحكم قليلًا في هذه البنية التحتية.
+تُؤثر ثغرات في البنية التحتية عادةً على عدد كبير من مواقع الويب (ربما مئات الملايين)، وغالبًا ما تُعين معرّفات مثل الثغرات الأمنية والتعرضات الشائعة
+(لأجل تعريف أكثر عمومية لماهية الثغرات الأمنية والتعرضات الشائعة راجع هذه([المقالة](https://www.redhat.com/en/topics/security/what-is-cve))
 
-Occasionally a web server can be coerced into returning excessive data in a response. Typically this will be due to the server allocating a large chunk of memory, then only partially writing data to that chunk, and sending the whole chunk to the client. This uninitialized memory could contain data from other requests or responses, or even internal memory from the web server. The most famous of these vulnerabilities is likely [Heartbleed (CVE-2014-0160)](https://en.wikipedia.org/wiki/Heartbleed). These vulnerabilities can be used to steal session tokens (allowing attackers to impersonate other users), machine identities in cloud environments (allowing attackers to access other cloud services as the web server), private SSL keys (allowing attackers to impersonate the web server and launch middle-person attacks), and any other data residing in the web server process’ memory.
+يمكن أن تنتمي هذه الثغرات إلى أي فئة تقنية تقريبًا ولكن من وجهة نظر مشغل موقع الويب نهتم فقط بتأثيرها وليس بالتفاصيل التقنية الأساسية، وذلك لأننا لا نقوم بصيانة برامج البنية التحتية وإنما نقوم فقط بنشرها وتكوينها. 
+يُمكن أن يكون تأثير الثغرات في برامج البنية التحتية أي شيء تقريبًا، ولكن بعض المشكلات والتأثيرات التي من المحتمل أن تظهر تشمل الأنواع أدناه:
 
-### Remote code execution
+### حجب الخدمة
 
-This is the most archetypal type of infrastructure vulnerability. It most commonly occurs when an attacker’s request can overwrite data flow control structures in the server’s memory, causing the target to execute attacker-specified machine code. Fortunately, years of testing and subsequent fixing and secure coding practice improvement have made these vulnerabilities rate in the default configurations of extremely mature server infrastructure software like Apache and IIS. However, they are much more common in non-default configurations of common software and in less mature software. Here are two examples from 2023 ([example 1](https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices/), [example 2](https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html)). Note that while buffer overflows may be the classic way of achieving remote code execution, there are other ways to do so as well. As with all infrastructure vulnerabilities, for the most part we are mainly concerned with what the impact is and whether a fix is available, and less with the technical details.
+قد تسمح الثغرة الأمنية للمهاجم بتوقف خادم الويب أو التسبب في عدم استجابته بسبب فرط استهلاك الموارد، وعادةً ما يجري استغلال ثغرات هذه للتسبب بتوقف عمل موقع الويب أو للابتزاز والمطالبة بالأموال من مشغلي مواقع الويب كجزء من عملية عصابة تستهدف الحماية. لاحظ أنه يمكن لمهاجم يتحلى بالإصرار والتمويل في كثير من الأحيان استئجار الوقت على شبكة روبوتات من أجهزة الكمبيوتر المخترقة لإرباك موقع الويب من خلال عدد كبير من الطلبات دون الحاجة إلى ثغرة أمنية، وتتضمن بعض الأمثلة على نقاط ضعف حجب الخدمة ما يلي:
+- [CVE-2011-3192](https://nvd.nist.gov/vuln/detail/CVE-2011-3192): ثغرة أمنية في أباتشي (Apache) حيث يمكن للعميل طلب أقسام فرعية متعددة من صفحة ويب مما يؤدي إلى استهلاك قسم كبير من الذاكرة على الخادم.
+- [MS ADV190005](https://msrc.microsoft.com/update-guide/vulnerability/ADV190005) : تسمح الثغرة الأمنية في خدمات معلومات الإنترنت من مايكروسوفت (Microsoft) للمهاجم بإرسال عدد كبير من متغيرات الإعدادات في طلب HTTP/2 مما يتسبب في استهلاك 100٪ من وحدة المعالجة المركزية على الخادم.
+### تسريب المعلومات
 
-### Mitigating infrastructure software vulnerabilities
+في بعض الأحيان يمكن إجبار خادم الويب على الرد بكمية مفرطة من البيانات، وعادةً ما يكون ذلك بسبب قيام الخادم بتخصيص جزء كبير من الذاكرة ثم كتابة البيانات جزئيًا فقط في ذلك الجزء ثم إرسال الجزء بأكمله إلى العميل. يمكن أن يحتوي جزء هذه الذاكرة غير المهيأ على بيانات من طلبات أو استجابات أخرى أو حتى ذاكرة داخلية من خادم الويب، ومن المحتمل أن تكون أشهر هذه الثغرات هي هارت بليد[Heartbleed (CVE-2014-0160)](https://en.wikipedia.org/wiki/Heartbleed)
+يمكن استخدام هذه الثغرات لسرقة الرموز المميّزة للجلسة (مما يسمح للمهاجمين بانتحال شخصية مستخدمين آخرين)، وهويات الجهاز في البيئات السحابية (مما يسمح للمهاجمين بالوصول إلى الخدمات السحابية الأخرى مثل خادم ويب)، ومفاتيح طبقة مآخذ توصيل آمنة الخاصة (مما يسمح للمهاجمين بانتحال هوية خادم الويب وإطلاق هجمات الشخص الأوسط) وأي بيانات أخرى موجودة في ذاكرة عملية خادم الويب.
 
-Infrastructure software with vulnerabilities is usually discovered via vulnerability-scanning software (there are many examples of such software, [check out this list](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), notifications from vendors or configuration management systems, or via manual inspection of the deployed software on a server. Depending on the server environment, this software may be fully managed by a third party, automatically updated by software agents or deploy processes, or manually managed. Typically, if a vulnerability is patched, attackers can reverse-engineer the patch to discover the mechanism of the underlying vulnerability, so it is important to keep infrastructure software up to date.
+### تنفيذ التعليمات البرمجية عن بُعد
 
-## Skill Check
+هذا النوع هو الأكثر نموذجية بين ثغرات البنية التحتية، ويحدث ذلك بشكل شائع عندما يتمكن طلب المهاجم من استبدال هياكل التحكم في تدفق البيانات في ذاكرة الخادم مما يتسبب في قيام الهدف بتنفيذ التعليمات البرمجية للآلة التي يحددها المهاجم. لحسن الحظ سمحت سنوات من الاختبار والإصلاح اللاحق وتحسينات ممارسات كتابة التعليمات البرمجية الآمنة بجعل الثغرات نادرة في التكوينات الافتراضية لبرامج البنية التحتية للخوادم شديدة النضوج مثل أباتشي وخدمات معلومات الإنترنت، ولكنها أكثر شيوعًا في التكوينات غير الافتراضية للبرامج الشائعة وفي البرامج الأقل نضجًا.
 
-Look up 2 CVEs which are listed on [https://www.opencve.io/cve](https://www.opencve.io/cve) or another CVE database. Pick those which are both described in some depth (CVE databases usually link out to external writeups which contain such details) and have a vulnerability rating. Since CVEs can often be very technical, select those which deal with a topic or technology which you are comfortable with. Answer the following questions:
+وفيما يلي مثالان من عام 2023 ([المثال 1](https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices/),[المثال 2](https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html)). 
+لاحظ أنه على الرغم من أن تجاوزات سعة المخزن المؤقت قد تكون الطريقة الكلاسيكية للتسبب بتنفيذ التعليمات البرمجية عن بُعد إلا أن هناك طرقًا أخرى للقيام بذلك أيضًا، وكما هو الحال بالنسبة لجميع ثغرات البنية التحتية نهتم في معظم الأحيان بشكل أساسي بالتأثير وما إذا كان الحل متاحًا في حين نهتم أقل بالتفاصيل التقنية.
 
-- Broadly speaking, what is the CVE about? What is the flaw or vulnerability that the attacker could exploit?
-- Do you know of any people or organizations whose systems an adversary could exploit using this CVE? What if this CVE is combined with other vulnerabilities?
-- Why do you think that the CVE has the score it has?
+### تخفيف الثغرات في برامج البنية التحتية
 
-After you have looked up two CVEs which you found interesting, do a search in a CVE database for a tech product which you or people you are supporting are running, see what recent CVEs it had, and once again answer the questions listed above.
+عادةً ما تُكتشف برامج البنية التحتية التي تعاني من ثغرات أمنية من خلال برامج فحص الثغرات الأمنية (هناك العديد من الأمثلة على هذه البرامج، [انظر هذه القائمة](https://owasp.org/www-community/Vulnerability_Scanning_Tools))
 
-If you are self-hosting a web server, look up recent vulnerabilities. If you are running something like Drupal or Wordpress through a third-party provider, check up the vulnerabilities on those services as well and, through your provider’s dashboard (each provider will have a slightly different one) make sure that you are running the latest versions of those tools.
+أو الإخطارات من البائعين أو أنظمة إدارة التكوين أو عن طريق الفحص اليدوي للبرنامج المنشور على الخادم. حسب بيئة الخادم قد تتم إدارة هذا البرنامج بالكامل من قبل طرف ثالث أو يتم تحديثه تلقائيًا بواسطة وكلاء البرامج أو عمليات النشر أو تتم إدارته يدويًا، وعادة إذا تم تطبيق تحديث لتصحيح ثغرة أمنية يمكن للمهاجمين إجراء هندسة عكسية للتصحيح لاكتشاف آلية الثغرة الأمنية الأساسية ولذلك من المهم إبقاء برامج البنية التحتية محدّثة.
 
-If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic.
+## اختبار مهارة
 
-## Learning Resources
+ابحث عن اثنتين من الثغرات الأمنية والتعرضات الشائعة المدرجة على https://www.opencve.io/cve أو قاعدة بيانات أخرى للثغرات الأمنية والمخاطر العامة اختر تلك التي تم وصفها بشكل متعمّق (عادة ما ترتبط قواعد بيانات الثغرات الأمنية والتعرضات الشائعة بالمقالات الخارجية التي تحتوي على مثل هذه التفاصيل) ولها تصنيف ثغرة. نظرًا لأنه يمكن أن تكون الثغرات الأمنية والتعرضات الشائعة في كثير من الأحيان تقنية للغاية، ويجب أن نحدد تلك التي تتعامل مع موضوع أو تقنية ترتاح لاستخدامها ثم حاول الإجابة على الأسئلة التالية:
+
+بشكل عام ما هو موضوع الثغرات الأمنية والتعرضات الشائعة؟ ما هو العيب أو الثغرة الأمنية التي يمكن للمهاجم استغلالها؟
+هل تعرف أي أشخاص أو منظمات يمكن لمتطفل أن يستغل أنظمتها باستخدام الثغرات الأمنية والتعرضات الشائعة هذه؟ ماذا لو تم الجمع بين الثغرات الأمنية والتعرضات الشائعة وثغرات الأخرى؟
+لماذا تعتقد أن الثغرات الأمنية والتعرضات الشائعة حصلت على الدرجة المحددة لها؟
+
+بعد أن تبحث عن اثنتين من الثغرات الأمنية والتعرضات الشائعة التي ترى أنها مثيرة للاهتمام، يمكنك البحث في قاعدة بيانات الثغرات الأمنية والتعرضات الشائعة عن منتج تقني تُشغله أنت أو الأشخاص الذين تدعمهم وانظر الثغرات الأمنية والتعرضات الشائعة الأخيرة الموجودة ومرة أخرى أجب عن الأسئلة المذكورة أعلاه.
+
+إذا كنت تستضيف خادم ويب بنفسك ابحث عن الثغرات الأمنية الحديثة، وإذا كنت تعمل على شيء مثل دروبل أو ووردبرس من خلال مزود طرف ثالث تحقق من ثغرات تلك الخدمات أيضًا ومن خلال لوحة التحكم الخاصة بمزودك (سيكون لكل مزود خدمة مختلفة قليلًا) لذا تأكد من تشغيلك أحدث الإصدارات من تلك الأدوات. 
+
+وإذا كان ذلك ممكنًا ناقش إجاباتك على هذه الأسئلة مع زميل أو مرشد يساعد في التحقق من فهمك للموضوع بشكل صحيح.
+
+
+## موارد التعلّم
+[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
 
 {{% resource title="What’s a CVE" languages="English" cost="Free" description="Introduction to CVEs (Common Vulnerabilities and Exposures) and their importance." url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
 

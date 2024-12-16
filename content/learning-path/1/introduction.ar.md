@@ -1,95 +1,86 @@
 ---
 style: introduction
-title: Introduction
-description: Read the learning path overview, objectives, associated
-  threats, and prerequisites
+title: مقدمة
+description:  كشف البنية التحتية الضارة وفحصها وتتبعها
 weight: 1
 ---
 
-## Overview
+## نظرة عامة
 
-Phishing messages are usually tied to malicious infrastructure that either seeks to capture login credentials and use them to access an organization’s or individual's systems, or otherwise seeks to deliver a socially-engineered compromise such as a browser or device exploit. They are one of the most common techniques used by malicious actors who aim to compromise NGOs. Very often, an NGO that receives such a message might find it difficult to tell with certainty whether it was suspicious, much less what the identity and goal of the attacker were. Checking with the presumed sender through another channel might be the easiest way to verify whether a message was legitimate. If the sender cannot be contacted or if the message was not legitimate, it might be important to analyze it in more depth. This could allow us to stop such attacks before they compromise an NGO’s systems, prevent them from doing so in the future, and alert others within the community to such attackers and their tactics, techniques, and procedures (TTPs). The results of such investigations are then often shared, either through formal reports or networks, or informal discussions between NGO security professionals.
+عادة ما تكون رسائل التصيد الاحتيالي مرتبطة بالبنية التحتية الضارة التي تهدف إما إلى سرقة بيانات اعتماد تسجيل الدخول واستخدامها للوصول إلى أنظمة المؤسسة أو الفرد، أو تسعى بطريقة أخرى إلى تقديم حل وسط مصمم اجتماعيًا مثل استغلال المتصفح أو الجهاز وهي إحدى أكثر التقنيات شيوعًا التي تستخدمها الجهات الفاعلة الخبيثة التي تهدف إلى اختراق المنظمات غير الحكومية. في كثير من الأحيان، قد تجد منظمة غير حكومية تتلقى مثل هذه الرسائل صعوبة في تحديد على وجه اليقين ما إذا كانت مشبوهة ناهيك عن تحديد هوية المهاجم وهدفه وقد يكون التحقق مع المرسل المفترض من خلال قناة أخرى أسهل طريقة للتحقق مما إذا كانت الرسالة سليمة. إذا تعذر الاتصال بالمرسل أو إذا كانت الرسالة غير سليمة، فقد يكون من المهم تحليلها بمزيد من التعمق، مما يسمح لنا بوقف الهجمات الشبيهة قبل أن تعرض أنظمة المنظمات غير الحكومية للخطر، ومنعها من القيام بذلك في المستقبل وتنبيه الآخرين ضمن المجتمع إلى مثل هؤلاء المهاجمين وتكتيكاتهم وتقنياتهم وإجراءاتهم. تجري بعد ذلك عادة مبادلة نتائج هذه التحقيقات إما من خلال التقارير الرسمية أو الشبكات أو المناقشات غير الرسمية بين المتخصصين في أمن المنظمات غير الحكومية.
 
-There have been several cases in which NGOs conducted excellent investigations of malicious infrastructure. These include a joint effort between Bellingcat and several private sector groups [investigating phishing attacks against organizations focusing on Russia-related affairs](https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/), as well as [an HRW-Amnesty project](https://www.hrw.org/the-day-in-human-rights/2022/12/05) which [tracked down phishing attempts](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) attributed to the Iranian government.
+كانت هناك العديد من الحالات التي أجرت فيها المنظمات غير الحكومية تحقيقات ممتازة في أمور البنية التحتية الخبيثة، وتشمل هذه الجهود جهدًا مشتركًا بين بيلينغكات (Bellingcat) والعديد من مجموعات القطاع الخاص التي تحقق في هجمات التصيد الاحتيالي ضد المنظمات التي تركز على الشؤون المتعلقة بروسيا[العديد من مجموعات القطاع الخاص التي تحقق في هجمات التصيد الاحتيالي ضد المنظمات التي تركز على الشؤون المتعلقة بروسيا](https://www.bellingcat.com/news/uk-and-europe/2019/08/10/guccifer-rising-months-long-phishing-campaign-on-protonmail-targets-dozens-of-russia-focused-journalists-and-ngos/)، بالإضافة إلى [مشروع هيومن رايتس ووتش والعفو الدولية](https://www.hrw.org/the-day-in-human-rights/2022/12/05) الذي[ تعقب محاولات التصيد الاحتيالي](https://www.hrw.org/news/2022/12/05/iran-state-backed-hacking-activists-journalists-politicians) المنسوبة إلى الحكومة الإيرانية.
 
-The attacks that this section investigates generally start with a phishing message. The targeted person receives a message (on email, WhatsApp, or another medium) which tries to convince them to click a link. Sometimes, the targeted person will be working for a civil society group and be targeted because of their ties to it, with attackers hoping to dig deeper into the organization’s systems. At other times, attackers will directly target individual researchers or freelancers.
+تبدأ الهجمات التي يدرسها هذا القسم عمومًا برسالة تصيد احتيالي، حيث يتلقى الشخص المستهدف رسالة (على البريد الإلكتروني أو واتسآب أو أي وسيط آخر) تحاول إقناعه بالنقر على رابط. وفي بعض الأحيان يعمل الشخص المستهدف لصالح مجموعة من المجتمع المدني ويصبح هدفًا نتيجة ارتباطه بها، حيث يأمل المهاجمون التسلل أعمق داخل أنظمة المنظمة، وفي حالات أخرى يستهدف المهاجمون بشكل مباشر الباحثين الأفراد أو العاملين لحسابهم الخاص.
 
-A phishing message will often try to trick the targeted person to enter their credentials such as usernames and passwords (as happened with the attacks documented by Bellingcat and HRW), download malware, or in some cases bypass browser security to directly access information in the browser or automatically install malware. The sections “Passive investigation: Analyze URLs, hostnames, and IP addresses” and “Passive investigation: Analyze email headers” cover these phases of an attack.
+غالبًا ما تحاول رسالة التصيد الاحتيالي خداع الشخص المستهدف لإدخال بيانات اعتماده مثل أسماء المستخدمين وكلمات المرور (كما حدث مع الهجمات التي وثقتها بيلنيغكات وهيومن رايتس ووتش) أو تنزيل البرمجيات الضارة أو في بعض الحالات تجاوز أمان المتصفح للوصول مباشرة إلى المعلومات في المتصفح أو تثبيت البرمجيات الضارة تلقائيًا. تغطي أقسام "الفحص غير النشط: تحليل عناوين موقع ويب وأسماء المضيفين وعناوين بروتوكول الإنترنت" و"الفحص غير النشط: تحليل عناوين البريد الإلكتروني" هذه المراحل من الهجوم.
 
-When someone receives a credible phishing message, or otherwise is attacked by malicious software, they may need to try to identify the infrastructure (servers, websites, etc.) used by the attackers. Targeted attacks using dedicated or compromised infrastructure are relatively rare, so the section on “Triage” will help you determine whether it is worth spending time on analysis. It’s a good idea to have a solid understanding of incident management in general prior to starting this learning path.
+عندما يتلقى شخص ما رسالة تصيد احتيالي موثوقة، أو يتعرض لهجوم بطريقة أخرى من خلال برمجيات ضارة، قد يحتاج إلى محاولة تحديد البنية التحتية (الخوادم ومواقع الويب وما إلى ذلك) التي يستخدمها المهاجمون. تُعدّ الهجمات الموجهة باستخدام بنية تحتية مكرّسة أو مخترقة نادرة نسبيًا لذلك سيساعدك قسم "التصنيف" على تحديد ما إذا كان الأمر يستحق قضاء بعض الوقت لإجراء التحليل. من المفيد أن تتمتع بفكرة جيدة حول إدارة الحوادث بشكل عام قبل بدء مسار التعلّم هذا.
 
-Before you visit any attacker-controlled websites, or download any malware, it is important that you learn to do so safely. This learning path looks at both passive investigation techniques, which do not contact the attacker’s server and are therefore unlikely to alert them of an investigation in progress, and active techniques, which do contact servers. Once you have learned how to do passive investigation, you can move on to active techniques to visit the websites linked to in phishing messages, and analyze them to discover further attacker-controlled infrastructure. This is covered in the “Active investigation: Analyze malicious web pages” section.
+قبل زيارة أي مواقع ويب يتحكم فيها المهاجمون، أو تنزيل أي برمجيات ضارة، من المهم أن تتعلّم القيام بذلك بأمان. وينظر مسار التعلّم هذا إلى كل من تقنيات الفحص غير النشط التي لا تتصل بخادم المهاجم وبالتالي من غير المرجح أن تنبههم إلى وجود تحقيق جارٍ، والتقنيات النشطة التي تتصل بالخوادم. بمجرد أن تتعلّم كيفية إجراء فحص غير نشط، يمكنك الانتقال إلى التقنيات النشطة لزيارة مواقع الويب المرتبطة برسائل التصيد الاحتيالي وتحليلها لاكتشاف البنى التحتية الإضافية التي يتحكم فيها المهاجمون. يغطى ذلك في قسم "الفحص النشط: تحليل صفحات الويب الضارة".
+إذا تمكن المهاجم من وضع برمجيات ضارة على جهاز الشخص أو المؤسسة المستهدفة، ستتواصل هذه البرمجيات عادةً مع خادم الأوامر والتحكّم، ويغطى اكتشاف خوادم المهاجم هذه وكيفية عملها في مسار تعلّم تحليل البرمجيات الضارة. يُعدّ تحليل البرمجيات الضارة مهارة أخرى يمكنك استخدامها لاكتشاف البنية التحتية الإضافية الخاصة بالمهاجمين.
 
-If the attacker manages to get malware onto the device of the targeted person or organization, that malware will usually communicate with a command-and-control (C&C) server. Discovering what the attacker’s C&C servers are and how they work is covered in the Malware Analysis learning path. Analyzing malware is another skill you can use to discover more attacker infrastructure.
+كي تتمكن من دعم كل من الشخص الذي تساعده والمجتمع الأكبر بصورة أفضل، من المهم توثيق النتائج التي توصلت إليها ومشاركتها ويغطى ذلك في قسم "توثيق النتائج". هناك عدد من المجتمعات لمشاركة التهديدات والمعلومات داخل مساحة المنظمات غير الحكومية الأوسع ولكن إدراجها يقع خارج نطاق مسار التعلّم هذا.
 
-To better support both the person you’re helping and the greater community, it is important to document and share your findings. This is covered in the “Documenting findings” section. There are several threat and information sharing communities within the wider NGO space, but listing those lies outside of the scope of this learning path.
+وأخيرًا، من المهم أن ندرك مقدمًا أن العديد من تقنيات التحقيق في مسار التعلّم هذا يمكن أن تنبه المهاجم إلى أنه يخضع للتحقيق أو حتى تُعرض المحقق أو المجتمع الأوسع للخطر. نُقسّم التقنيات بين طرق نشطة وغير نشطة  ونوصي بتوخي الحذر عند التفكير باستخدام طرق الفحص النشطة، وتحدث أولًا إلى الفرد/المنظمة المتلقية قبل القيام بذلك من أجل مناقشة نموذج التهديد الخاص بهم والسماح لهم باتخاذ خيار مستنير بشأن المضي قدمًا في إجراء التحقيقات. 
+ غير نشطة (مناسبة في جميع الحالات)
+- تستخدم المعلومات التي تم تسليمها بالفعل إلى الشخص المستهدف
+- لا تنطوي على التواصل مع البنية التحتية للمهاجم
+- أسهل بشكل عام
+- لا تُنبه المهاجم عمومًا إلى أنه قيد التحقيق
+- أكثر أمانًا
 
-Lastly, it is important to recognize up-front that many of the investigation techniques in this learning path can alert an attacker that they are being investigated, or even place the investigator—or the wider community— at risk. We divide the techniques into passive and active methods. Use caution when considering active methods of investigation, and first talk to the recipient individual/organization before doing so in order to discuss their threat model and allow them to make an informed choice about proceeding with investigations.
+ نشطة
+- تستخدم بشكل عام فقط لتسليم البرمجيات الضارة وخوادم الأوامر والتحكّم
+- سيتفاعل المحقق مع البنية التحتية الخاصة بالمهاجم
+- غالبًا ما تتطلب المزيد من المهارة وتحقيقًا أعمق
+   - أشبه "بلعبة قط وفأر" مع المهاجم
+- قد تُنبه المهاجم إلى أنه يخضع للتحقيق
+- يمكن أن تعرض المحقق لخطر الاختراق أو الاستهداف
 
-Passive (appropriate in all cases)
 
-- Uses information that has already been delivered to the targeted person
-- Does not involve communication with the attacker’s infrastructure
-- Generally easier
-- Does not generally alert the attacker that they are under investigation
-- Safer
+## الهدف
 
-Active
+سوف يتعلم الممارسون كيفية:
+- تصنيف رسائل البريد الإلكتروني لفهم ما إذا كانت ضارة/تستحق التحقيق المتعمق
+- فهم المهاجمين وأساليب الهجوم
+- تحليل عناوين البريد الإلكتروني لتحديد البنية التحتية للمهاجمين
+ - تحليل صفحات الويب المقصودة الضارة
+- توثيق نتائج التحقيق والإبلاغ عنها
+- بدء إجراءات الإزالة للحد من الضرر
 
-- Generally only used for malware delivery and command-and-control servers
-- Investigator will interact with the attacker’s infrastructure
-- Often requires more skill and deeper investigation
-  - “Cat-and-mouse game” with the attacker
-- May alert the attacker that they are being investigated
-- Risk that the investigator may become compromised or targeted
 
-## Objective
+## ما هي التهديدات التي تخففها هذه المهارة أو تستجيب لها؟
 
-Practitioners will learn how to:
 
-- Triage email messages to understand if they are malicious/worth investigating in depth
-- Understand attacker and attack methods
-- Analyze email headers to identify attacker infrastructure
-- Analyze malicious web landing pages
-- Document and report investigation findings
-- Initiate takedown actions to reduce harm
+يمكن أن تساعد المهارات في التحقيق في البنية التحتية الضارة ومعالجتها واكتشافها في الاستجابة لما يلي:
+- هجمات التصيد الاحتيالي المستهدفة
+- التصيد الاحتيالي القائم على برامج المراسلة
+- البنية التحتية المتعلقة بالتصيد الاحتيالي
 
-## What threats does this skill mitigate or respond to?
+  ## ما هي المتطلبات المسبقة؟
+  
+- المعرفة الأساسية بسطر الأوامر على نظام تشغيل رئيسي تعرفه. إذا كنت ترغب في تعلّم بعض أساسيات أسطر الأوامر أو تحسينها، فإننا نوصي بهذا [الدليل](https://www.git-tower.com/blog/command-line-cheat-sheet/) وهذا [الدليل](https://github.com/jlevy/the-art-of-command-line) . إذا كنت تبحث عن مقدمة عامة للمبتدئين في سطر الأوامر، فإننا نوصي بإكمال الفصل 4 من [الدليل الميداني لمخابر التهديد](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) حول هذا الموضوع.
+- فهم أساسي للغة تمييز النص التشعبي (HTML) ولغة جافا سكريبت (JavaScript). سواء كنت بحاجة إلى التعرف عليها من الصفر أو ترغب في تحديث معرفتك، فإننا نوصي ب[مستندات مطوري إم دي إن (MDN Developer)](https://developer.mozilla.org/en-US/docs/Learn)
+- فهم أساسي لكيفية عمل مستودعات غيت (Git) وكيفية التفاعل معها. في حين أن المعرفة التفصيلية بالمنصات القائمة على غيت وغيت مثل غيت هب (GitHub) وغيت لاب (GitLab) غير ضرورية، إلا أنها قد تكون مفيدة لجميع مسارات التعلّم حيث إن العديد من الأدوات والموارد موجودة عليها ومع مرور الوقت قد ينتهي بك المطاف في تحديث المستودعات المحلية أو حتى إنشاء فروعك الخاصة. إذا لم تكن قد عملت كثيرًا مع هذه المنصات في الماضي، فإننا نوصي بالبدء بأي من هذه الموارد:
+   - [برو غيت بوك (Pro Git Book)](https://book.git-scm.com/book/en/v2) (متوفر بسبعة عشر لغة) لمقدمة ممتازة يمكن دراسة الفصول 1 حتى 3 بالإضافة إلى مواضيع مختارة في فصول أخرى
+   - [غيت - الدليل البسيط (git - the simple guide)](https://rogerdudler.github.io/git-guide/index.html) (متوفر بستة عشر لغة) هو دليل ملخص لأوامر غيت. مفيد في حال كان لديك اطلاع عام على غيت ولكنك تحتاج إلى مرجع حول الأوامر وبناء الجملة.
+   - [مرجع غيت المرئي (A Visual Git Reference ) ](https://marklodato.github.io/visual-git-guide/index-en.html) (متوفر بأربعة عشر لغة) - مرجع مرئي أكثر تقدمًا لفهم سير عمل غيت وأوامره.
+   - [مهارات غيت هب(GitHub Skills)](https://skills.github.com/)(الإنجليزية فقط).
+   - [أساسيات غيت لاب من غيت GitLab Git Essentials](https://levelup.gitlab.com/courses/gitlab-with-git-essentials-s2) (الإنجليزية فقط).
 
-Skills in investigating, tacking, and detecting malicious infrastructure can help respond to the following:
+ ## ما هي الأجهزة أو البرمجيات التي تحتاجها للتمارين؟
+ 
+- لا تحتاج إلى أي أجهزة متخصصة أو قوية لمسار التعلّم هذا، ولكن يمكن أن تستخدم أي جهاز حاسوب حديث. في حين أن الأدوات في مسار التعلّم هذا قد تم اختبارها فقط على الأنظمة المستندة إلى x86، ولكن يمكن أن تعمل معظمها إن لم يكن جميعها أيضًا على أنظمة إيه آر إم (ARM) مثل أجهزة كمبيوتر رازبيري باي (Raspberry Pi) أو آبل سيليكون (Apple Silicon).
+- تعمل العديد من الأدوات في مسار التعلّم هذا بشكل أفضل على أنظمة تشغيل مشابهة لنظام يونكس (Unix). وهذا يعني أنه من الأسهل استخدام أجهزة لينوكس (Linux) أو ماك أو إس (macOS) أو ويندوز (Windows) المثبت عليها نظام ويندوز الفرعي لنظام لينوكس (Windows Subsystem for Linux).
+- إذا كنت تقوم بتشغيل ويندوز، فستحتاج إلى تثبيت نظام ويندوز الفرعي لنظام لينوكس لتتمكن من تشغيل بعض الأدوات المذكورة أدناه.
+إذا كنت تعمل على ماك أو إس، فمن المستحسن تثبيت [هومبرو (Homebrew)](https://brew.sh/) أو [ماكبورتس (Macports)](https://www.macports.org/) لأنها أدوات إدارة حزم يمكنها أتمتة عملية تثبيت بعض الأدوات الموضحة خلال مسار التعلّم.
+- يجب أن يكون لكل من نظام ويندوز الفرعي لنظام لينوكس ولينوكس أداة إدارة حزم مضمنة يمكنك استخدامها لتثبيت الأدوات الموضحة أدناه.
+من الأفضل تحليل البنية التحتية الضارة على جهاز منفصل لا تستخدمه في أعمال حساسة أخرى وحيث لم يتم تسجيل دخولك إلى أي حسابات حساسة أو حسابات عمل. وإذا لم تتمكن من استخدام جهاز منفصل، فيمكنك أيضًا تشغيل التحليل داخل جهاز افتراضي.
+ إذا كنت قد بدأت للتو باستخدام الأجهزة الافتراضية، راجع هذا [الدليل السريع](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) حول كيفية تشغيل أوبنتو لينوكس (Ubuntu Linux) سهل الاستخدام ضمن جهاز واحد.
 
-- Targeted phishing attacks
-- Messenger-based phishing
-- Phishing-related infrastructure
 
-## What are the prerequisites?
+## مسارات التعلّم ذات الصلة
+يُقدم مسار التعلّم هذا مقدمة رائعة للمسارات الأخرى، وبعد الانتهاء منه، نوصي بأن يعمل المتعلّمون على [اكتشاف البرمجيات الضارة](/en/learning-path/2/) أو أ[ساسيات أمان الويب](/en/learning-path/4/).
 
-- Basic command line knowledge on a major OS of your choice. If you want to learn or brush up on some command line basics, we recommend [this guide](https://www.git-tower.com/blog/command-line-cheat-sheet/) and [this one](https://github.com/jlevy/the-art-of-command-line). If you are looking for a general beginners’ introduction to the command line, we recommend completing Chapter 4 of the [Field Guide to Threat Labs](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) guide on the topic.
-- A basic understanding of HTML and JavaScript. Whether you need to learn about them from scratch or want to refresh your knowledge, we recommend the [MDN Developer docs](https://developer.mozilla.org/en-US/docs/Learn)
-- A basic understanding of how Git repositories work and how to interact with them. While detailed knowledge of Git and Git-based platforms such as GitHub and GitLab is not a must, it can be useful for all learning paths, since many tools and resources are hosted there and in time you may end up updating local repositories or even creating your own branches. If you have not worked much with such platforms in the past, we recommend starting with any of these resources:
-  - [Pro Git Book](https://book.git-scm.com/book/en/v2) (available in 17 languages) - A study of chapters 1-3 plus selected topics in other chapters will give an excellent introduction
-  - [git - the simple guide](https://rogerdudler.github.io/git-guide/index.html) (Available in 16 languages) is a cheatsheet of Git commands. Useful for when you have a general concept of git but need reference on commands and syntax
-  - [A Visual Git Reference ](https://marklodato.github.io/visual-git-guide/index-en.html) (available in 14 languages) - More advanced visual reference to understand Git workflows and commands
-- [GitHub Skills ](https://skills.github.com/)(English Only)
-- [GitLab Git Essentials](https://levelup.gitlab.com/courses/gitlab-with-git-essentials-s2) (English Only)
 
-## What devices or software do you need for the exercises?
-
-- You do not need any specialized or powerful hardware for this learning path. Any modern computer should work. While the tools in this learning path have only been tested on x86-based systems, most if not all should also work on ARM systems like the Raspberry Pi or Apple Silicon computers
-- Many of the tools in this learning path run best on Unix-like operating systems. This means that it’s easiest to use Linux, macOS devices, or Windows devices with WSL (Windows Subsystem for Linux) installed on them.
-- If you are running Windows, you will need to install WSL (Windows Subsystem for Linux) to be able to run some of the tools outlined below
-- If you are running macOS, it’s a good idea to install [Homebrew](https://brew.sh/) or [Macports](https://www.macports.org/); those are package managers which can automate the process of installing some of the tools outlined throughout the learning path.
-- WSL and Linux should both have built-in package managers which you can use to install the tools outlined below.
-- It is best to analyze malicious infrastructure on a separate device which you do not use for other sensitive work and where you are not logged into any sensitive or work accounts. If you cannot use a discrete device, you could also run the analysis within a virtual machine. If you’re just starting out with virtual machines, check out [this quick guide](https://ubuntu.com/tutorials/how-to-run-ubuntu-desktop-on-a-virtual-machine-using-virtualbox#1-overview) on how to run the user-friendly Ubuntu Linux within one.
-
-## Related learning paths
-
-This learning path offers a fantastic introduction to other ones. After completing this one, we would recommend that learners work on either [Detecting Malware](/en/learning-path/2/) or [Web Security Fundamentals](/en/learning-path/4/).
-
-## Other resources and links
-
-{{% resource title="Helpdesk Workflow: Client Receives a Suspicious/Phishing Email" languages="English" cost="Free" description="Access Now helpline community documentation for responding to suspicious/phishing emails" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
-
-{{% resource title="List of all DNS record types" languages="English, Chinese, Japanese, Korean, Russian, Serbian, Ukrainian, Esperanto, Hungarian, Vietnamese, Italian, Spanish, French" cost="Free" description="Includes (almost?) all DNS record types." url="https://en.wikipedia.org/wiki/List_of_DNS_record_types" %}}
-
-{{% resource title="Amnesty reports on phishing campaigns" languages="Multiple depending on the report" cost="Free" description="A list of examples of how a targeted phishing campaign against human right defenders, activists and journalists looks" url="https://www.amnesty.org/en/search/phishing/" %}}

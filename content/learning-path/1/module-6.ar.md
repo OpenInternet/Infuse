@@ -1,99 +1,95 @@
 ---
 style: module
-title: Active Investigation - Analyze malicious emails
-description: Whether they be pure social engineering, phishing, or malware
-  delivery, malicious emails can be quite complex. This module will teach you
-  how to interpret and understand them and find the infrastructure that they
-  link to
+title: الفحص النشط - تحليل رسائل البريد الإلكتروني الضارة
+description: ستعلّمك هذه الوحدة كيفية تفسير وفهم رسائل البريد الإلكتروني الضارة والعثور على البنية التحتية المرتبطة بها. سواءً كانت عبارة عن هندسة اجتماعية بحتة، أو تصيد احتيالي، أو تسليم برامج ضارة، فإن رسائل البريد الإلكتروني الضارة يمكن أن تكون معقدة للغاية. في حين تهدف هذه المهارة مباشرة إلى التعرّف على البنية التحتية للمهاجمين، تُعدّ هذه المهارات المتقدمة لعكس رسائل البريد الإلكتروني المعقدة أيضًا تحضيرًا جيدًا لفهم حملات المهاجمين وهي مقدمة جيدة لتحليل البرمجيات الضارة الأكثر تعقيدًا. يمكن أن تساعدك بعض هذه التقنيات أيضًا في تحليل الرسائل المشبوهة المرسلة عبر وسائل أخرى مثل واتسآب.
 weight: 6
 ---
+## حالة استخدام
 
-## Use Case
+ستعلّمك هذه الوحدة كيفية **تفسير وفهم رسائل البريد الإلكتروني الضارة** و**العثور على البنية التحتية المرتبطة بها**. سواءً كانت عبارة عن هندسة اجتماعية بحتة، أو تصيد احتيالي، أو تسليم برامج ضارة، فإن رسائل البريد الإلكتروني الضارة يمكن أن تكون معقدة للغاية. في حين تهدف هذه المهارة مباشرة إلى التعرّف على البنية التحتية للمهاجمين، تُعدّ هذه المهارات المتقدمة لعكس رسائل البريد الإلكتروني المعقدة أيضًا تحضيرًا جيدًا لفهم حملات المهاجمين وهي مقدمة جيدة لتحليل البرمجيات الضارة الأكثر تعقيدًا. يمكن أن تساعدك بعض هذه التقنيات أيضًا في **تحليل الرسائل المشبوهة المرسلة عبر وسائل أخرى مثل واتسآب**.
 
-This module will teach you how to **interpret and understand malicious emails** and **find the infrastructure that they link to**. Whether they be pure social engineering, phishing, or malware delivery, malicious emails can be quite complex. While the immediate goal of this skill is to identify attacker infrastructure, these advanced skills of reversing complex emails are also good preparation for understanding attacker campaigns, and they are a good introduction to analyzing more complicated malware. Some of those techniques can also **help you analyze suspicious messages sent through other mediums, such as WhatsApp**.
+لاحظ أنه أثناء التحقيق النشط، قد تضطر إلى تنفيذ إجراءات تُنبه المهاجم إلى وجود تحقيق (أو على الأقل أن شخصًا ما يتفاعل مع الفخ)، وضع في اعتبارك ما إذا كانت هذه تكلفة مقبولة لإكمال التحقيق أم لا.
 
-Note that during active investigation, you may have to perform actions that will alert the attacker to the investigation (or at least that someone is interacting with their trap). Consider whether or not this is an acceptable cost to completing an investigation.
+من الأفضل إجراء نوع التحليل هذا من جهاز افتراضي أو جهاز مخصص. لأجل زيادة الحماية قد يكون من الجيد استخدام شبكة ظاهرية خاصة ذات سمعة طيبة لا تُسرب عنوان بروتوكول إنترنت الخاص بك عند إجراء تحقيق نشط.
 
-It is best to do this type of analysis from a virtual machine or dedicated device. For added protection, it might be a good idea to use a reputable VPN so that your IP address does not leak out when you are conducting an active investigation.
+تتناول هذه الوحدة تحليل نص رسالة بريد إلكتروني ضارة، في حين أن وحدة ا[لفحص غير النشط: تحليل رؤوس البريد الإلكتروني](/en/learning-path/1/module-5/) مع رأس البريد الإلكتروني. لإجراء التحقيقات المناسبة، ستحتاج إلى استخدام كلتا المهارتين ولاحظ أن مسار تعلّم تحليل البرمجيات الضارة يغطي تحليل محتويات وسلوكيات مرفقات البريد الإلكتروني.
 
-This module deals with analyzing the _body_ of a malicious email, whereas the [Passive Investigation: Analyze email headers](/en/learning-path/1/module-5/) module deals with the _header_ of the email. For proper investigations, you will want to use both skills. Note that analyzing the contents and behaviors of email attachments is covered in the Malware Analysis learning path.
 
-## Objectives
+## الأهداف
 
-After completing this subtopic, practitioners should be able to do the following:
+بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
 
-- Analyze the HTML code of an email and understand the basics of MIME;
-- Understand and detect tracking pixels and similar active content;
-- Use tools such as VirusTotal and URLScan to evaluate attachments and URLs for malicious content.
-
+- تحليل التعليمات البرمجية للغة تمييز النص التشعبي للبريد الإلكتروني وفهم أساسيات ملحقات بريد الإنترنت متعددة الأغراض.
+- فهم واكتشاف بكسلات التتبع والمحتوى النشط المماثل.
+- استخدم أدوات مثل فايروس توتال ويو آر إل سكان (URLScan) لتقييم المرفقات وعناوين مواقع ويب بحثًا عن المحتوى الضار.
 ---
-## Main Section
+## العرض
 
-### Foundation Knowledge: HTML Emails and MIME
+### المعرفة الأساسية: رسائل البريد الإلكتروني بلغة تمييز النص التشعبي وملحقات بريد الإنترنت متعددة الأغراض
 
-In order to practice this , you need to understand the basics of HTML emails and MIME. If you feel it’s necessary to brush up on this topic a bit, see some of the resources on key topics below:
+من أجل التمرن عليها ستحتاج إلى فهم أساسيات رسائل البريد الإلكتروني بلغة تمييز النص التشعبي وملحقات بريد الإنترنت متعددة الأغراض. إذا كنت تشعر أنه من الضروري تحسين هذا الموضوع قليلًا راجع بعض الموارد حول الموضوعات الرئيسية أدناه:
 
-- The majority of emails are sent in HTML format, which allows the use of various clever methods of presentation and deception by phishers.
-- While it is not necessary to have the ability to write HTML or design webpages, practitioners should be comfortable opening and reviewing the source code of an HTML email and understanding the essential elements present. In order to do so, read through this introduction to [MIME ](<https://learn.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2010/aa494197(v=exchg.140)>)and HTML emails.
-- Learning some HTML is inevitable, and resources like [W3Schools](https://www.w3schools.com/html/) can provide a good starting point. Do also note that some mail clients (for example Outlook) do not allow you to download the whole email body.
-- MIME is an Internet standard that extends the format of emails beyond plaintext emails and allows for text in character sets other than ASCII, non-text attachments, message bodies with multiple parts, and header information in non-ASCII character sets. MIME features can be abused to hide content and attach malicious content. [This Wikipedia article](https://en.wikipedia.org/wiki/MIME) gives a good initial introduction.
+- تُرسل غالبية رسائل البريد الإلكتروني بصيغة لغة تمييز النص التشعبي مما يسمح باستخدام طرق ذكية مختلفة للعرض والخداع من قبل المستخدمين المخادعين.
+- مع أنه من غير الضروري أن تتمتع بالقدرة على كتابة لغة تمييز النص التشعبي أو تصميم صفحات الويب، يجب أن يكون الممارسون مرتاحين لفتح ومراجعة التعليمات البرمجية لمصدر البريد الإلكتروني المكتوب بلغة تمييز النص التشعبي وفهم العناصر الأساسية الموجودة. لأجل القيام بذلك اقرأ هذه المقدمة حول ملحقات بريد الإنترنت متعددة الأغراض [MIME ](<https://learn.microsoft.com/en-us/previous-versions/office/developer/exchange-server-2010/aa494197(v=exchg.140)>)والبريد الإلكتروني المكتوب بلغة تمييز النص التشعبي.
+- لا بد من تعلّم القليل عن لغة تمييز النص التشعبي ويمكن أن توفر موارد [W3Schools](https://www.w3schools.com/html/) مثل نقطة انطلاق جيدة. لاحظ أيضًا أن بعض برمجيات البريد (على سبيل المثال آوتلوك) لا تسمح لك بتنزيل كامل نص البريد الإلكتروني.
+- تُعدّ ملحقات بريد الإنترنت متعددة الأغراض معيار إنترنت يُوسع تنسيق رسائل البريد الإلكتروني إلى ما وراء رسائل البريد الإلكتروني ذات النص العادي ويسمح بالنص في مجموعات أحرف بخلاف مجموعة أحرف ASCII والمرفقات غير النصية ونصوص الرسائل ذات الأجزاء المتعددة ومعلومات الرؤوس في مجموعات الأحرف التي لا تنتمي إلى مجموعة أحرف ASCII. يمكن إساءة استخدام ميزات ملحقات بريد الإنترنت متعددة الأغراض لإخفاء المحتوى وإرفاق المحتوى الضار. تُقدم مقالة ويكيبيديا[مقالة ويكيبيديا](https://en.wikipedia.org/wiki/MIME) هذه مقدمة أولية جيدة.
 
-### Identifying Potential Threats: Embedded Images and Tracking Pixels
 
-When investigating potentially malicious emails to discover attacker infrastructure, don’t just look for links and attachments. Attackers may include trackers in their emails, just like marketers do.[ This article for marketers](https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work) explains how email tracking works. Note that any resource loaded from the web, not just images, can be used for tracking. Review the types of information which can be obtained through a tracking pixel or a tracking element, including IP (geolocation) and browser fingerprinting information. Internews created a training exercise (described in the practice section below) which will help you become more familiar with trackers and some of the information they can spot.
+### التعرّف على التهديدات المحتملة: الصور المضمّنة وبكسلات التتبع
 
-### Tools and Workflow for Malicious Email Analysis
+عند فحص رسائل البريد الإلكتروني الضارة المحتملة لاكتشاف البنية التحتية للمهاجمين، لا تبحث فقط عن الروابط والمرفقات وقد يقوم المهاجمون بتضمين أجهزة التتبع في رسائل البريد الإلكتروني الخاصة بهم تمامًا كما يفعله المسوقون. تشرح هذه [ المقالة للمسوقين](https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work) كيفية عمل تتبع البريد الإلكتروني. لاحظ أنه يمكن استخدام أي مورد يتم تحميله من الويب للتتبع وليس فقط الصور. راجع أنواع المعلومات التي يمكن الحصول عليها من خلال بكسل التتبع أو عنصر التتبع بما في ذلك بروتوكول الإنترنت (الموقع الجغرافي) ومعلومات بصمات المتصفح. أنشأت إنترنيوز (Internews) تمرينًا تدريبيًا (موضحًا في قسم الممارسة أدناه) سيساعدك على التعرّف أكثر على أدوات التتبع وبعض المعلومات التي يمكنها اكتشافها.
 
-Once you understand the foundational concepts and potential threats, you need a workflow and tools for analysis.
+### أدوات وسير عمل لتحليل البريد الإلكتروني الضار
 
-- The[ Suspicious Phishing Email](https://communitydocs.accessnow.org/58-Suspicious_Phishing_Email.html) workflow by Access Now provides a systematic approach to evaluating suspicious emails. It includes a list of steps from initial observation to threat categorization and reporting.
-- [VirusTotal](https://virustotal.com/) can be used to evaluate URLs and attachments for known malicious content. Note though that submitted URLs and files can be accessed by other users, and may lead to the attacker being alerted to the analysis being performed on them. This is usually only a risk during very targeted campaigns; in others, adversaries generally assume that someone detected and is analyzing their attack patterns.
-- Check out [some of the email analysis tools outlined in this article](https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/). They can investigate email content and attachments and several of them are command line based, which is of particular help to analysts who are looking into content created by sophisticated actors, who might try to craft messages in ways that exploit security holes within email programs. The article also details some techniques threat actors use to frustrate analysis. [This article](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91) similarly looks at how to convert Outlook files to plain text ones and analyze them through a notepad or command line, so as to reduce the attack surface of malicious email which exploit Outlook bugs.
+بمجرد فهم المفاهيم الأساسية والتهديدات المحتملة، ستحتاج إلى سير عمل وأدوات للتحليل.
 
-## Practice
+- يوفر سير عمل البريد الإلكتروني المشبوه الهادف إلى التصيد الاحتيالي[ Suspicious Phishing Email](https://communitydocs.accessnow.org/58-Suspicious_Phishing_Email.html) الذي تُقدمه آكسس ناو (Access Now) نهجًا منهجيًا لتقييم رسائل البريد الإلكتروني المشبوهة، ويتضمن قائمة بالخطوات من الملاحظة الأولية إلى تصنيف التهديدات والإبلاغ عنها.
+- يمكن استخدام فايروس توتال[VirusTotal](https://virustotal.com/) لتقييم عناوين مواقع ويب والمرفقات للمحتوى الضار المعروف، ولاحظ أنه يمكن الوصول إلى عناوين مواقع ويب والملفات المقدمة من قبل مستخدمين آخرين، وقد يؤدي ذلك إلى تنبيه المهاجم إلى وجود تحليل يجري عليه. عادة ما يكون هذا خطرًا فقط أثناء الحملات المستهدفة للغاية، وفي حالات أخرى، يفترض الخصوم عمومًا أن شخصًا ما اكتشف أنماط هجومهم ويقوم بتحليلها.
+- ألقِ نظرة على[ بعض أدوات تحليل البريد الإلكتروني الموضحة في هذه المقالة](https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/). يمكنهم التحقيق في محتوى البريد الإلكتروني والمرفقات ويعتمد عدد منها على سطر الأوامر، وهو أمر مفيد بشكل خاص للمحللين الذين يبحثون في المحتوى الذي تم إنشاؤه بواسطة جهات فاعلة متطورة، والذين قد يحاولون صياغة الرسائل بطرق تستغل الثغرات الأمنية داخل برمجيات البريد الإلكتروني. تُوضح [المقالة](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91) أيضًا بعض التقنيات التي تستخدمها الجهات الفاعلة في التهديد لإحباط التحليل وتبحث هذه المقالة بالمثل في كيفية تحويل ملفات آوتلوك إلى ملفات نصية عادية وتحليلها من خلال نوتباد أو سطر الأوامر وذلك لتقليل الأجزاء المعرضة للهجوم من البريد الإلكتروني الضار الذي يستغل أخطاء آوتلوك.
 
-- Read the two case studies below completely, noting all elements which are new to you and require further practice:
-  - [Analyzing Malicious Email Files | by Josh Lemon | Medium](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91)
-  - [Analyzing Malicious Emails. An intro to analyzing a phishing email | by Kyle Bubp | Medium](https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e)
-- An Internews project which focuses on journalist security [created a simulation exercise](https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/) to help people better understand and practice working with trackers. Read through the project and complete some of the exercises.
+## الممارسة
 
-## Skill Check
+[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
 
-Ask a peer or mentor to send you an email. Ideally, the email would contain several elements such as tracking pixels, attachments, and links which would benefit from an in depth analysis. Alternatively, go into your own inbox and pick out a (hopefully) non-malicious email. Use the skills used in this module to analyze it:
+اقرأ دراستي الحالة أدناه بالكامل، مع ملاحظة جميع العناصر الجديدة بالنسبة لك والتي تتطلب تمرينًا إضافيًا:
+- [تحليل ملفات البريد الإلكتروني الضارة | تأليف جوش ليمون (Josh Lemon) | ميديم (Medium)](https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91)
+- [تحليل رسائل البريد الإلكتروني الضارة. مقدمة إلى تحليل البريد الإلكتروني للتصيد الاحتيالي | تأليف كايل بوبب (Kyle Bubp) | ميديم](https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e)
+- أنشأ مشروع إنترنيوز الذي يركز على أمن الصحفيين [تمرين محاكاة](https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/) لمساعدة الناس على فهم وممارسة العمل مع أدوات التتبع بشكل أفضل. اقرأ المشروع وأكمل بعض التمارين.
 
-- Can you read through the email headers to figure out the address of the sender?
-- Can you confirm the authenticity of the sender? Is it likely that the email was spoofed?
-- What infrastructure was used in the delivery of the message?
-- What active content (MIME, tracking pixels) is included in the email?
-- What data could be leaked by opening and interacting with the email?
-- What does the sender want you to do upon receiving the email?
+## اختبار مهارة
 
-Discuss your answers to the above questions with your peer or mentor.
+اطلب من نظير أو مُرشِد أن يرسل لك بريدًا إلكترونيًا ويفضل أن يحتوي على العديد من العناصر مثل بكسلات التتبع والمرفقات والروابط التي ستستفيد من التحليل المتعمق. انتقل بدلًا من ذلك إلى صندوق الوارد الخاص بك واختر بريدًا إلكترونيًا غير ضار. استخدم المهارات المستخدمة في هذه الوحدة لتحليله:
 
-## Learning Resources
+- هل يمكنك قراءة رؤوس البريد الإلكتروني لمعرفة عنوان المرسل؟
+- هل يمكنك تأكيد موثوقية المرسل؟ هل من المحتمل أن البريد الإلكتروني مزيف؟
+- ما هي البنية التحتية التي تم استخدامها في تسليم الرسالة؟
+- ما المحتوى النشط (ملحقات بريد الإنترنت متعددة الأغراض، بكسل التتبع) المضمن في البريد الإلكتروني؟
+- ما البيانات التي يمكن تسريبها عن طريق فتح البريد الإلكتروني والتفاعل معه؟
+- ماذا يريد المرسل منك أن تفعله عند استلام البريد الإلكتروني؟
 
-{{% resource title="Introduction to HTML email" languages="Multiple" cost="Free" description="A brief introduction to the concept of sending emails that contain HTML." url="https://en.wikipedia.org/wiki/HTML_email" %}}
+## موارد التعلّم
 
-{{% resource title="Introduction to MIME" languages="Multiple" cost="Free" description="A brief introduction to the MIME format for messages." url="https://en.wikipedia.org/wiki/MIME" %}}
+{{% resource title="مقدمة إلى البريد الإلكتروني بتنسيق لغة تمييز النص التشعبي" description="مقدمة موجزة حول مفهوم إرسال رسائل البريد الإلكتروني التي تحتوي على لغة تمييز النص التشعبي" languages="عدة" cost="مجانًا" url="https://en.wikipedia.org/wiki/HTML_email" %}}
 
-{{% resource title="How to include images in email" languages="English" cost="Free" description="Although this page is oriented towards email senders, it goes over the ways that attackers may embed images in their email." url="https://mailchimp.com/resources/embed-image-in-email/" %}}
+{{% resource title="مدخل إلى ملحقات بريد الإنترنت متعددة الأغراض" description="الوصف : مقدمة موجزة عن تنسيق ملحقات بريد الإنترنت متعددة الأغراض للرسائل" languages="عدة" cost="مجانًا" url="https://en.wikipedia.org/wiki/MIME" %}}
 
-{{% resource title="Learn HTML" languages="Multiple (auto-translated)" cost="Free" description="Most phishing malicious emails use HTML to deceive users. In order to extract URLs (and thus server addresses) from emails, you will have to learn some HTML." url="https://www.w3schools.com/html/" %}}
+{{% resource title="كيفية تضمين الصور في البريد الإلكتروني" description="على الرغم من أن هذه الصفحة موجهة لمرسلي البريد الإلكتروني، إلا أنها تتناول الطرق التي قد يقوم بها المهاجمون بتضمين الصور في بريدهم الإلكتروني" languages="الإنجليزية" cost="مجانًا" url="https://mailchimp.com/resources/embed-image-in-email/" %}}
 
-{{% resource title="Intro to tracking pixels" languages="English" cost="Free" description="When investigating potentially malicious emails to discover attacker infrastructure, don’t just look for links and attachments. Attackers may include trackers in their emails, just like marketers do. This article for marketers explains how email tracking works. Note that any resource loaded from the web can be used for tracking." url="https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work" %}}
+{{% resource title="تعلّم لغة تمييز النص التشعبي" description="تستخدم معظم رسائل البريد الإلكتروني الضارة للتصيد الاحتيالي لغة تمييز النص التشعبي لخداع المستخدمين، ومن أجل استخراج عناوين مواقع ويب (وبالتالي عناوين الخادم) من رسائل البريد الإلكتروني، سيتعين عليك تعلّم القليل عن لغة تمييز النص التشعبي" languages="عدة (ترجمة تلقائية)" cost="مجانًا" url="https://www.w3schools.com/html/" %}}
 
-{{% resource title="VirusTotal" languages="Main interface is in English" cost="Free, with some rate limitations and additional pro features" description="A tool to evaluate URLs and attachments for known malice. Note that submitted URLs and files can be accessed by other users." url="https://www.virustotal.com/gui/home/url" %}}
+{{% resource title="مقدمة إلى بكسلات التتبع" description="عند فحص رسائل البريد الإلكتروني الضارة المحتملة لاكتشاف البنية التحتية للمهاجمين، لا تبحث فقط عن الروابط والمرفقات وقد يقوم المهاجمون بتضمين أجهزة التتبع في رسائل البريد الإلكتروني الخاصة بهم تمامًا كما يفعله المسوقون. تشرح هذه المقالة للمسوقين كيفية عمل تتبع البريد الإلكتروني ولاحظ أنه يمكن استخدام أي مورد يتم تحميله من الويب بقصد التتبع" languages="الإنجليزية" cost="مجانًا" url="https://www.nutshell.com/blog/email-tracking-pixels-101-how-do-tracking-pixels-work" %}}
 
-{{% resource title="Malicious email workflow" languages="Multiple" cost="Free" description="A playbook for what to do when evaluating a suspicious email." url="https://communitydocs.accessnow.org/58-Suspicious_Phishing_Email.html" %}}
+{{% resource title="(VirusTotal) فايروستوتال" description="أداة لتقييم عناوين مواقع ويب والمرفقات بحثًا عن نية خبيثة معروفة، ولاحظ أنه يمكن الوصول إلى عناوين مواقع ويب والملفات المرسلة من المستخدمين الآخرين" languages="الواجهة الرئيسية باللغة الإنجليزية" cost="مجانًا، مع بعض القيود المتعلقة بالأسعار والميزات المدفوعة الإضافية" url="https://www.virustotal.com/gui/home/url" %}}
 
-{{% resource title="Exchange malicious email investigation playbook" languages="English" cost="Free" description="A playbook for investigating malicious emails in a Microsoft Exchange environment (where the investigator has admin access)." url="https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing" %}}
+{{% resource title="سير عمل البريد الإلكتروني الضار" description="دليل إرشادي لما يجب القيام به عند تقييم بريد إلكتروني مشبوه" languages="عدة" cost="مجانًا" url="https://communitydocs.accessnow.org/58-Suspicious_Phishing_Email.html" %}}
 
-{{% resource title="Example analyses of phishing emails, resource 1" languages="English" cost="Free" description="Analyses of sample phishing emails. Includes a look at HTML files with embedded malicious scripts and encoded content." url="https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e" %}}
+{{% resource title="(Exchange) دليل فحص رسائل البريد الإلكتروني الضارة من إكستشينج" description="دليل للتحقيق في رسائل البريد الإلكتروني الضارة في بيئة مايكروسوفت إكستشينج (حيث يتمتع المحقق بوصول مشرف)" languages="الإنجليزية" cost="مجانًا" url="https://learn.microsoft.com/en-us/security/operations/incident-response-playbook-phishing" %}}
 
-{{% resource title="Example analyses of phishing emails, resource 2" languages="English" cost="Free" description="Analyses of sample phishing emails. Includes a look at HTML files with embedded malicious scripts and encoded content." url="https://www.vadesecure.com/en/blog/m365-phishing-email-analysis-eevilcorp" %}}
+{{% resource title="أمثلة على تحليلات رسائل البريد الإلكتروني الاحتيالية" description="تحليلات لعينة من رسائل البريد الإلكتروني للتصيد الاحتيالي تتضمن نظرة على ملفات لغة تمييز النص التشعبي مع البرمجيات النصية الضارة المضمنة والمحتوى المشفر" languages="الإنجليزية" cost="مجانًا" url="https://medium.com/@kylebubp/analyzing-malicious-emails-fb4ddcf0663e" %}}
 
-{{% resource title="Example analyses of malware emails, resource 1" languages="English" cost="Free" description="Since malicious emails could exploit security holes within email programs, this guide shows how best to analyze them using command line tools and text editors." url="https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/" %}}
+{{% resource title="أمثلة على تحليلات رسائل البريد الإلكتروني الاحتيالية" description="تحليلات لعينة من رسائل البريد الإلكتروني للتصيد الاحتيالي تتضمن نظرة على ملفات لغة تمييز النص التشعبي مع البرمجيات النصية الضارة المضمنة والمحتوى المشفر" languages="الإنجليزية" cost="مجانًا" url="https://www.vadesecure.com/en/blog/m365-phishing-email-analysis-eevilcorp" %}}
 
-{{% resource title="Example analyses of malware emails" languages="English" cost="Free" description="Since malicious emails could exploit security holes within email programs, this guide shows how best to analyze them using command line tools and text editors." url="https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91" %}}
+{{% resource title="أمثلة على تحليلات رسائل البريد الإلكتروني الضارة" description="الوصف : نظرًا لأن رسائل البريد الإلكتروني الضارة يمكن أن تستغل الثغرات الأمنية داخل برمجيات البريد الإلكتروني، يوضح هذا الدليل أفضل السبل لتحليلها باستخدام أدوات سطر الأوامر ومحررات النصوص" languages="الإنجليزية" cost="مجانًا" url="https://intezer.com/blog/incident-response/automate-analysis-phishing-email-files/" %}}
 
+{{% resource title="أمثلة على تحليلات رسائل البريد الإلكتروني الضارة" description="الوصف : نظرًا لأن رسائل البريد الإلكتروني الضارة يمكن أن تستغل الثغرات الأمنية داخل برمجيات البريد الإلكتروني، يوضح هذا الدليل أفضل السبل لتحليلها باستخدام أدوات سطر الأوامر ومحررات النصوص" languages="الإنجليزية" cost="مجانًا" url="https://blog.joshlemon.com.au/analysing-malicious-email-files-d85d8ff76a91" %}}
 
