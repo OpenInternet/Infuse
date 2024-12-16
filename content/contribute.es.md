@@ -66,7 +66,7 @@ Esto le permitirá insertar una imagen ya sea navegando por una carpeta de imág
 
 ![](/media/uploads/contribute-9.png)
 
-Si prefiere insertar la imagen desde una URL, recuerde utilizar enlaces relativos. Por lo tanto, en lugar de escribir https://infuse.quest/media/uploads/CFT2\_sender\_address.png o https://github.com/OpenInternet/Infuse/blob/main/static/media/uploads/CFT2\_sender\_address.png, simplemente escriba /media/uploads/CFT2\_sender\_address.png
+Si prefiere insertar la imagen desde una URL, recuerde utilizar enlaces relativos. Por lo tanto, en lugar de escribir `https://infuse.quest/media/uploads/CFT2_sender_address.png` o `https://github.com/OpenInternet/Infuse/blob/main/static/media/uploads/CFT2_sender_address.png`, simplemente escriba `/media/uploads/CFT2_sender_address.png`
 
 ![](/media/uploads/contribute-10.png)
 
@@ -74,11 +74,11 @@ El CMS le pedirá dos cosas más cuando esté insertando imágenes: un título y
 
 Si prefiere insertar la imagen en markdown, aquí tiene el código para hacerlo:
 
-\!\[el texto alternativo va aquí\](el enlace relativo va aquí)
+`\!\[el texto alternativo va aquí\](el enlace relativo va aquí)`
 
 Así que un ejemplo de código markdown que utilizamos podría incluir:
 
-\!\[Un cuadro de texto vacío en un sitio web en el que el usuario puede insertar texto, con un botón Enviar\](/media/uploads/web\_fundamentals\_empty\_box.png)
+`\!\[Un cuadro de texto vacío en un sitio web en el que el usuario puede insertar texto, con un botón Enviar\](/media/uploads/web\_fundamentals\_empty\_box.png)`
 
 ## **Desarrollar nuevas rutas y módulos de aprendizaje**
 
