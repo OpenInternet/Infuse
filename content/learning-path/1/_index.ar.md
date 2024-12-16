@@ -1,7 +1,7 @@
 ---
 type: learning-path
 title: Detecting, Investigating and Tracking Malicious Infrastructure
-description: This learning path shows how to analyze both phishing messages and the infrastructure they link to.
+description:  كشف البنية التحتية الضارة وفحصها وتتبعها
 weight: 1
 thumbnail: "1"
 icon: infrastructure-inspector

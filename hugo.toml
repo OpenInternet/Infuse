@@ -1,5 +1,5 @@
 title = "Infuse"
-baseURL = "https://infuse.quest"
+baseURL = "https://infusedev.safetag.org"
 
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir = true
@@ -52,9 +52,9 @@ pluralizeListTitles = false
   images = ["media/images/thumbnail.png"]
 
   # Prefix of link to the git commit detail page. GitInfo must be enabled.
-  gitUrl = "https://github.com/OpenInternet/Infuse/commit/"
+  gitUrl = "https://github.com/OpenInternet/Infusedev/commit/"
 
-  githubRepo = "https://github.com/OpenInternet/Infuse"
+  githubRepo = "https://github.com/OpenInternet/Infusedev"
   githubBranch = "main"
 
   # Integrate Javascript files or stylesheets by adding the url to the external assets or by
