@@ -3,47 +3,47 @@ key:
   - id: hero-title
     translation:
       one: null
-      other: "Elevando la Especialización de los Protectores Digitales"
+      other: "Mejorar el nivel de conocimiento de los protectores digitales"
   - id: hero-subtitle
     translation:
       one: null
-      other: "En Infuse, empoderamos a las personas para lograr una mayor seguridad en línea a través de una educación integral en ciberseguridad, proporcionándoles el conocimiento para protegerse eficazmente en línea."
+      other: "En Infuse, empoderamos a las personas para que logren una mayor seguridad en línea a través de una educación integral sobre ciberseguridad, proporcionándoles los conocimientos necesarios para protegerse eficazmente en línea."
   - id: feature-one-title
     translation:
       one: null
-      other: "Aprende a tu propio ritmo con diferentes rutas de aprendizaje"
+      other: "Aprenda a su propio ritmo con diferentes rutas de aprendizaje"
   - id: feature-one-subtitle
     translation:
       one: null
-      other: "Esto enfatiza la flexibilidad y el control del usuario, lo cual es atractivo para los aprendices que prefieren la educación a su propio ritmo."
+      other: "Esto enfatiza la flexibilidad y el control del usuario, lo que resulta atractivo para los aprendices que prefieren la educación a su propio ritmo."
   - id: feature-two-title
     translation:
       one: null
-      other: "Gana insignias y guarda certificados"
+      other: "Obtenga insignias y guarde certificados"
   - id: feature-two-subtitle
     translation:
       one: null
-      other: "Esta función destaca los logros y proporciona pruebas tangibles de dominio, lo cual puede ser motivador para los usuarios."
+      other: "Esta característica resalta los logros y proporciona una prueba tangible de dominio, lo que puede resultar motivador para los usuarios."
   - id: feature-three-title
     translation:
       one: null
-      other: "Disponible en múltiples idiomas"
+      other: "Disponible en varios idiomas"
   - id: feature-three-subtitle
     translation:
       one: null
-      other: "La accesibilidad es crucial, y ofrecer contenido en múltiples idiomas asegura un mayor alcance e inclusividad."
+      other: "La accesibilidad es crucial, y ofrecer contenidos en varios idiomas garantiza un mayor alcance e inclusividad."
   - id: learning-paths-title
     translation:
       one: null
-      other: "Rutas de Aprendizaje"
+      other: "Rutas de aprendizaje"
   - id: learning-paths-subtitle
     translation:
       one: null
-      other: " "
+      other: "Escoja dónde comenzar su camino con estas rutas de aprendizaje seleccionadas de Infuse."
   - id: how-works
     translation:
       one: null
-      other: Cómo funciona
+      other: "Cómo funciona"
   - id: create-account
     translation:
       one: null
@@ -55,7 +55,7 @@ key:
   - id: username-description
     translation:
       one: null
-      other: "Esta información se utiliza como su medio principal de autenticación en la página de Infuse."
+      other: "Esta información se utiliza como su principal medio de autenticación en la página Infuse."
   - id: full-name
     translation:
       one: null
@@ -71,51 +71,51 @@ key:
   - id: avatar-description
     translation:
       one: null
-      other: "Este campo es opcional. Puede establecer una imagen de avatar (solo visual) o mantener la predeterminada."
+      other: "Este campo es opcional. Puede establecer una imagen avatar (sólo visual) o mantener la predeterminada."
   - id: upload
     translation:
       one: null
-      other: "Subir"
+      other: "Cargar"
   - id: required
     translation:
       one: null
-      other: "Los elementos marcados con * son obligatorios"
+      other: "Los campos marcados con * son obligatorios"
   - id: no-password
     translation:
       one: null
-      other: "No utilizamos autenticación por contraseña porque toda la información se almacena localmente en su navegador y no se transmite a ninguna fuente de primera o tercera parte."
+      other: "No utilizamos autenticación de contraseña porque toda la información se almacena localmente en su navegador y no se transmite a fuentes de primera o tercera parte."
   - id: signup
     translation:
       one: null
-      other: "Registrarse"
+      other: "Regístrese"
   - id: have-backup
     translation:
       one: null
-      other: "¿Tienes una copia de seguridad existente?"
+      other: "¿Ya tiene una copia de seguridad?"
   - id: have-account
     translation:
       one: null
-      other: "¿Ya tienes una cuenta?"
+      other: "¿Ya tiene una cuenta?"
   - id: import-data
     translation:
       one: null
-      other: "Importar tus datos"
+      other: "Importe sus datos"
   - id: login-header
     translation:
       one: null
-      other: "Inicia sesión en tu cuenta"
+      other: "Inicie sesión en su cuenta"
   - id: login-subheader
     translation:
       one: null
-      other: "¡Bienvenido de nuevo! Por favor, introduce tus datos."
+      other: "¡Bienvenido de nuevo! Por favor, ingrese sus datos."
   - id: sign-in
     translation:
       one: null
-      other: "Iniciar sesión"
+      other: "Regístrese"
   - id: no-account
     translation:
       one: null
-      other: "¿No tienes una cuenta?"
+      other: "¿No tiene una cuenta?"
   - id: login
     translation:
       one: null
@@ -131,11 +131,11 @@ key:
   - id: tab-delete
     translation:
       one: null
-      other: "Eliminar datos"
+      other: "Borrar datos"
   - id: profile-information
     translation:
       one: null
-      other: "Tu información de perfil"
+      other: "Perfil"
   - id: edit-details
     translation:
       one: null
@@ -147,11 +147,11 @@ key:
   - id: profile-warning
     translation:
       one: null
-      other: "Esta información puede ser accesible por otros usuarios en este ordenador, así que ten cuidado con lo que compartes."
+      other: "A esta información pueden acceder otros usuarios de esta computadora, por lo tanto, sea cuidadoso con lo que comparte."
   - id: unlock
     translation:
       one: null
-      other: "Desbloquear y editar perfil"
+      other: "Desbloquear y editar el perfil"
   - id: change
     translation:
       one: null
@@ -163,11 +163,11 @@ key:
   - id: export-information
     translation:
       one: null
-      other: "Exportar tu información"
+      other: "Exporte su información"
   - id: export-details
     translation:
       one: null
-      other: "Puedes exportar tu perfil junto con tu progreso actual e importarlo en otro dispositivo, para un aprendizaje continuo en cualquier lugar."
+      other: "Puede exportar su perfil junto con su progreso actual e importarlo a otro dispositivo, para un aprendizaje continuo mientras se desplaza."
   - id: info
     translation:
       one: null
@@ -179,7 +179,7 @@ key:
   - id: export-includes
     translation:
       one: null
-      other: "Esta exportación incluye TODA tu información de perfil y progreso en los módulos."
+      other: "Esta exportación incluye TODA la información de su perfil y su progreso en los módulos."
   - id: export-data
     translation:
       one: null
@@ -187,11 +187,11 @@ key:
   - id: delete-information
     translation:
       one: null
-      other: "Eliminar tu información"
+      other: "Eliminar su información"
   - id: delete-details
     translation:
       one: null
-      other: "Puedes eliminar tu cuenta actual y todo el progreso asociado en la siguiente sección."
+      other: "Puede eliminar su cuenta actual y todo el progreso asociado en la siguiente sección."
   - id: warning
     translation:
       one: null
@@ -199,11 +199,11 @@ key:
   - id: warning-delete
     translation:
       one: null
-      other: "Esta acción NO es reversible, y todos tus datos se perderán permanentemente a menos que tengas una copia de seguridad."
+      other: "Esta acción NO es reversible, y todos sus datos se perderán permanentemente a menos que tenga una copia de seguridad."
   - id: final-confirmation
     translation:
       one: null
-      other: "Se te pedirá una confirmación final antes de proceder."
+      other: "Se le pedirá una confirmación final antes de proceder."
   - id: delete-account
     translation:
       one: null
@@ -211,15 +211,15 @@ key:
   - id: your-profile
     translation:
       one: null
-      other: "Tu perfil"
+      other: "Su perfil"
   - id: badges
     translation:
       one: "Insignia"
-      other: "Insignias"
+      other: "Insignia"
   - id: settings
     translation:
       one: null
-      other: "Configuraciones"
+      other: "Configuración"
   - id: sign-out
     translation:
       one: null
@@ -231,11 +231,11 @@ key:
   - id: start-here
     translation:
       one: null
-      other: Empieza aquí
+      other: "Comience aquí"
   - id: what-learn
     translation:
       one: null
-      other: "Lo que aprenderás"
+      other: "Lo que aprenderá"
   - id: modules-description
     translation:
       one: null
@@ -243,7 +243,7 @@ key:
   - id: visit-site
     translation:
       one: null
-      other: "Visitar Sitio"
+      other: "Visitar el sitio"
   - id: out-of
     translation:
       one: null
@@ -267,70 +267,70 @@ key:
   - id: congratulations-introduction
     translation:
       one: null
-      other: "¡Felicidades por terminar la introducción!"
+      other: "¡Felicitaciones por haber terminado la introducción!"
   - id: congratulations-module
     translation:
       one: null
-      other: "¡Felicidades por terminar"
+      other: "Felicitaciones por haber terminado"
   - id: mark-intro-complete
     translation:
       one: null
-      other: "Marque la casilla para confirmar que ha leído la introducción y continúe al siguiente módulo."
+      other: "Marque la casilla para confirmar que ha leído la introducción y continúe con el siguiente módulo."
   - id: mark-module-complete
     translation:
       one: null
-      other: "Marque la casilla para confirmar su finalización y continúe al siguiente módulo."
+      other: "Marque la casilla para confirmar que ha finalizado y continúe con el siguiente módulo."
   - id: mark-as-complete
     translation:
       one: null
-      other: "Marcar módulo como completo"
+      other: "Marque el módulo como completado"
   - id: mark-intro-as-complete
     translation:
       one: null
-      other: "Marcar introducción como completa"
+      other: "Marque la introducción como completada"
   - id: mark-as-complete-aria
     translation:
       one: null
-      other: "Marca el módulo actual como completado y guarda el progreso para el usuario."
+      other: "Marque el módulo actual como completado y guarde el progreso para el usuario."
   - id: mark-intro-as-complete-aria
     translation:
       one: null
-      other: "Marca la introducción como completada y guarda el progreso para el usuario."
+      other: "Marque la introducción como completada y guarde el progreso para el usuario."
   - id: all-completed
     translation:
       one: null
-      other: Has completado todos los módulos en este camino de aprendizaje.
+      other: "Ha completado todos los módulos de esta ruta de aprendizaje."
   - id: only-one-module-left
     translation:
       one: null
-      other: "Solo 1 módulo más para ganar tu insignia"
+      other: "Sólo le queda 1 módulo para obtener su insignia"
   - id: multiple-modules-left
     translation:
       one: null
-      other: "Termina 'count' módulos más para ganar tu insignia"
+      other: "Termine 'count' módulos más para obtener su insignia"
   - id: modules-left
-    one: "1 módulo más para ganar tu insignia"
-    other: "'count' módulos más para ganar tu insignia"
+    one: "Le queda 1 módulo para obtener su insignia"
+    other: "'count' módulos más para obtener su insignia"
   - id: no-modules
     translation:
       one: null
-      other: "¡Aún no has completado ningún módulo!"
+      other: "¡Aún no ha completado ningún módulo!"
   - id: badge-completed
     translation:
       one: null
-      other: "¡Has ganado una insignia!"
+      other: "¡Ha ganado una insignia!"
   - id: keep-learning
     translation:
       one: null
-      other: "¡Sigue aprendiendo para ganar tu insignia!"
+      other: "¡Siga aprendiendo para obtener su insignia!"
   - id: congratulations
     translation:
       one: null
-      other: "¡Felicidades!"
+      other: "¡Felicitaciones!"
   - id: get-badge
     translation:
       one: null
-      other: "¡Consigue el insignia!"
+      other: "¡Obtenga la insignia!"
   - id: skip-link
     translation:
       one: null
@@ -342,11 +342,11 @@ key:
   - id: table-of-contents
     translation:
       one: null
-      other: "Tabla de contenidos"
+      other: "Índice"
   - id: faq
     translation:
       one: null
-      other: "Preguntas Frecuentes"
+      other: "Preguntas frecuentes"
   - id: faq-description
     translation:
       one: null
@@ -370,18 +370,18 @@ key:
   - id: next-module
     translation:
       one: null
-      other: "Próximo módulo"
+      other: "Siguiente módulo"
   - id: overview-path
     translation:
       one: null
-      other: Página de resumen
+      other: "Página Overview"
   - id: languages
     one: "Idioma"
     other: "Idiomas"
   - id: for-path
     translation:
       one: null
-      other: para
+      other: "para"
   - id: home
     translation:
       one: null
@@ -389,7 +389,7 @@ key:
   - id: close
     translation:
       one: null
-      other: "Cerrar"
+      other: "Cierre"
   - id: download-badge
     translation:
       one: null
@@ -397,11 +397,11 @@ key:
   - id: licensed-under
     translation:
       one: null
-      other: "Licenciado bajo"
+      other: "Bajo licencia de"
   - id: open-language
     translation:
       one: null
-      other: "Abrir menú de idiomas"
+      other: "Abrir menú de idioma"
   - id: open-user
     translation:
       one: null
@@ -409,7 +409,7 @@ key:
   - id: confirm-delete
     translation:
       one: null
-      other: "¿Estás seguro de que deseas eliminar tu cuenta? Esta acción no se puede deshacer."
+      other: "¿Está seguro de que desea eliminar su cuenta? Esta acción no se puede deshacer."
   - id: completed
     translation:
       one: null
@@ -435,7 +435,7 @@ key:
   - id: updated-on
     other: "Última actualización en"
   - id: git-unavailable
-    other: "La información de Git no está disponible."
+    other: "La información Git no está disponible."
   - id: edit-github
     other: "Editar esta página en GitHub"
   - id: print-pdf
@@ -445,27 +445,27 @@ key:
   - id: cookie-banner
     translation:
       one: null
-      other: Este sitio web utiliza [Clean Insights](https://cleaninsights.org/) para realizar análisis web que respetan la privacidad. Al usar el sitio, aceptas permitir la recopilación de información básica sobre el país, el idioma, la navegación y el agente de usuario.
+      other: "Este sitio web utiliza [Clean Insights](https://cleaninsights.org/) para la analítica web que preserva la privacidad. Al utilizar el sitio, usted acepta que se recopile información básica sobre el país, el idioma, la navegación y el agente de usuario."
   - id: accept
     translation:
       one: null
-      other: Aceptar
+      other: "Aceptar"
   - id: reject
     translation:
       one: null
-      other: Rechazar
+      other: "Rechazar"
   - id: upload-file
     translation:
       one: null
-      other: Subir un archivo
+      other: "Cargar un archivo"
   - id: drag-drop
     translation:
       one: null
-      other: o arrastra y suelta
+      other: "o arrastre y suelte"
   - id: json-size
     translation:
       one: null
-      other: JSON, hasta 2 MB
+      other: JSON, hasta 2MB
   - id: January
     translation:
       one: null
