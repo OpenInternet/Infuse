@@ -77,7 +77,7 @@ jobs:
       if: github.event_name == 'pull_request' && github.event.action != 'closed'
       env:
         HUGO_ENVIRONMENT: production
-        HUGO_BASEURL: "https://infuse.quest/pr-${{ github.event.pull_request.number }}/"
+        HUGO_BASEURL: "https://infusedev.safetag.org/pr-${{ github.event.pull_request.number }}/"
       run: hugo --minify -d ./public
 
     - name: Build Hugo site for Main Deployment
