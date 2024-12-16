@@ -1,8 +1,8 @@
 locale: "en"
 logo_url: ./cms-logo.svg
 
-site_url: https://infusedev.safetag.org
-display_url: https://infusedev.safetag.org
+site_url: https://infuse.quest
+display_url: https://infuse.quest
 
 backend:
   name: github
