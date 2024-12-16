@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web Application Security Fundamentals on Infuse</title><link>https://infuse.quest/ar/learning-path/4/</link><description>Recent content in Web Application Security Fundamentals on Infuse</description><generator>Hugo</generator><language>ar</language><atom:link href="https://infuse.quest/ar/learning-path/4/index.xml" rel="self" type="application/rss+xml"/><item><title>Infrastructure Vulnerabilities</title><link>https://infuse.quest/ar/learning-path/4/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-1/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>While this learning path focuses on web application security, web applications run on top of numerous pieces of software infrastructure. Any vulnerability in the application’s underlying infrastructure will compromise the application. Understanding some infrastructure security is therefore part of understanding application security.&lt;/p>
-&lt;p>When inspecting a web application either for purposes of vulnerability assessment, security monitoring, or to investigate a compromise, the practitioner must understand the underlying stack of technology which provides the necessary environment for the application to run while looking for vulnerabilities in that stack.&lt;/p></description></item><item><title>Introduction</title><link>https://infuse.quest/ar/learning-path/4/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/introduction/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web Application Security Fundamentals on Infuse</title><link>https://infusedev.safetag.org/ar/learning-path/4/</link><description>Recent content in Web Application Security Fundamentals on Infuse</description><generator>Hugo</generator><language>ar</language><atom:link href="https://infusedev.safetag.org/ar/learning-path/4/index.xml" rel="self" type="application/rss+xml"/><item><title>Infrastructure Vulnerabilities</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-1/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-1/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب، تعمل تطبيقات الويب بالإضافة إلى العديد من أجزاء البنية التحتية للبرمجيات. ستؤدي أي ثغرة أمنية في البنية التحتية الخاصة بالتطبيق إلى تعريض التطبيق للخطر، وبالتالي فإن فهم بعض أمن البنية التحتية جزءٌ من فهم أمن التطبيقات.
+عند فحص تطبيق ويب إما لأغراض تقييم الثغرات الأمنية أو الرقابة الأمنية أو لفحص ثغرة، يجب على الممارس فهم المجموعة الأساسية من التكنولوجيات التي توفر البيئة اللازمة لتشغيل التطبيق أثناء البحث عن ثغرات في تلك المجموعة.&lt;/p></description></item><item><title>Introduction</title><link>https://infusedev.safetag.org/ar/learning-path/4/introduction/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/introduction/</guid><description>&lt;h2 id="overview">Overview&lt;/h2>
 &lt;p>There are many ways in which adversaries could try to attack websites, including:&lt;/p>
 &lt;ul>
 &lt;li>Denial of expression: website takedown, website defacement, denial of service&lt;/li>
@@ -12,63 +12,67 @@
 &lt;li>Impersonation of websites: for purposes of phishing, muddying of reputation, and malware/spyware distribution&lt;/li>
 &lt;li>Traffic injection (downgrading attacks): exploiting infrastructure or communications configuration weaknesses for the purpose of inserting malicious content into otherwise good traffic&lt;/li>
 &lt;/ul>
-&lt;p>Web application security is a deep domain of technical knowledge with many areas of specialization. This learning path will provide you with a general understanding of web application vulnerabilities and how some of the more common ones work. It should help you understand the types of vulnerabilities that commonly exist in web applications, capabilities that these vulnerabilities give to attackers, and how, in general, to eliminate or mitigate these vulnerabilities.&lt;/p></description></item><item><title>Data Validation</title><link>https://infuse.quest/ar/learning-path/4/module-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-2/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>A common class of web application vulnerabilities relates to the way the app processes data supplied by users of the site. This class of vulnerabilities is commonly used by attackers to completely take over target websites, and often can be discovered via automated techniques. Understanding the mechanisms for data validation vulnerabilities is also extremely useful for demystifying complex security topics.&lt;/p>
-&lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p></description></item><item><title>Authentication</title><link>https://infuse.quest/ar/learning-path/4/module-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-3/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>In any website that has user logins, it’s important that the site protects user accounts from unauthorized access, and also that the account credentials themselves are protected. This subtopic outlines the most common areas of authentication where web application flaws appear.&lt;/p>
-&lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p>
+&lt;p>Web application security is a deep domain of technical knowledge with many areas of specialization. This learning path will provide you with a general understanding of web application vulnerabilities and how some of the more common ones work. It should help you understand the types of vulnerabilities that commonly exist in web applications, capabilities that these vulnerabilities give to attackers, and how, in general, to eliminate or mitigate these vulnerabilities.&lt;/p></description></item><item><title>Data Validation</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-2/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-2/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>تتعلق فئة شائعة من الثغرات في تطبيقات الويب بالطريقة التي يعالج بها التطبيق البيانات التي يقدمها مستخدمو الموقع، ويكثر استخدام فئة الثغرات الأمنية هذه من قبل المهاجمين للتحكم بالكامل بمواقع الويب المستهدفة، وغالبًا ما يمكن اكتشافها عبر التقنيات الآلية. يُعدّ فهم آليات ثغرات التحقق من صحة البيانات مفيدًا للغاية أيضًا لتوضيح مواضيع الأمان المعقدة.&lt;/p>
+&lt;h2 id="الأهداف">الأهداف&lt;/h2>
+&lt;p>بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:
+فهم الأنواع الشائعة من ثغرات التحقق من صحة البيانات
+فهم الآثار المحتملة لهذه الأنواع من الثغرات
+فهم آليات عمل هذه الثغرات
+فهم كيفية منع ثغرات هذه بشكل عام&lt;/p></description></item><item><title>المصادقة</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-3/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-3/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>في أي موقع ويب يشمل تسجيل دخول المستخدمين من المهم أن يحمي الموقع حسابات المستخدمين من الوصول غير المصرح به وأن تكون بيانات اعتماد الحساب نفسها محمية، ويحدد هذا الموضوع الفرعي المجالات الأكثر شيوعًا للمصادقة التي تظهر فيها عيوب تطبيقات الويب.&lt;/p>
+&lt;h2 id="الأهداف">الأهداف&lt;/h2>
+&lt;p>بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:&lt;/p>
 &lt;ul>
-&lt;li>Understand common types of authentication vulnerabilities&lt;/li>
-&lt;li>Understand the potential impacts of those types of vulnerabilities&lt;/li>
-&lt;li>Understand the mechanisms by which those vulnerabilities work&lt;/li>
-&lt;li>Understand, in broad strokes, how those vulnerabilities can be prevented&lt;/li>
+&lt;li>فهم الأنواع الشائعة من ثغرات المصادقة&lt;/li>
+&lt;li>فهم الآثار المحتملة لهذه الأنواع من الثغرات&lt;/li>
+&lt;li>فهم آليات عمل هذه الثغرات&lt;/li>
+&lt;li>فهم كيفية منع ثغرات هذه بشكل عام&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;h2 id="main-section">Main Section&lt;/h2>
-&lt;p>Authentication is the process by which a user of a system proves that they are who they claim they are. It is the foundation upon which access control is built. Typically, a user will supply a piece of information that identifies them (username, email address, phone number, etc.) and a piece of secret information that validates that identity (commonly a password or passphrase, though alternative or additional methods such as a security keys, WebAuthn, and Passkeys are gaining popularity). This subtopic will cover a few vulnerability classes that are common and high-impact in web applications.&lt;/p></description></item><item><title>Authorization</title><link>https://infuse.quest/ar/learning-path/4/module-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-4/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>In any website that has users with different levels of capabilities (e.g. viewers vs editors) or that holds confidential information for users, it’s important that the site protects these features and/or this data from people who don’t have permission to use these features and/or interact with this data.&lt;/p>
-&lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p>
+&lt;h2 id="العرض">العرض&lt;/h2>
+&lt;p>تُعدّ المصادقة هي العملية التي يُثبت من خلالها مستخدم النظام هويته، وهي الأساس الذي يستند إليه التحكم في الوصول. عادةً ما يقدم المستخدم جزءًا من المعلومات التي تُعرّف هويته (اسم المستخدم وعنوان البريد الإلكتروني ورقم الهاتف وما إلى ذلك)، ومعلومات سرية تتحقق من صحة تلك الهوية (عادةً ما تكون كلمة مرور أو عبارة مرور ولكن هناك طرق بديلة أو إضافية تكتسب شعبية مثل مفاتيح الأمان والمصادقة عبر الويب (WebAuthn) ومفاتيح المرور (Passkeys)). سيغطي هذا الموضوع الفرعي بعض فئات الثغرات الشائعة وذات التأثير العالي على تطبيقات الويب.&lt;/p></description></item><item><title>التخويل</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-4/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-4/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>في أي موقع ويب يحتوي على مستخدمين بمستويات مختلفة من القدرات (مثل المشاهدين مقابل المحررين) أو يحتوي على معلومات سرية للمستخدمين ومن المهم أن يحمي الموقع هذه الميزات و/أو هذه البيانات من الأشخاص الذين ليس لديهم إذن لاستخدام هذه الميزات و/أو التفاعل مع هذه البيانات.&lt;/p>
+&lt;h2 id="الأهداف">الأهداف&lt;/h2>
+&lt;p>بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:&lt;/p>
 &lt;ul>
-&lt;li>Understand common types of authorization vulnerabilities&lt;/li>
-&lt;li>Understand the potential impacts of those types of vulnerabilities&lt;/li>
-&lt;li>Understand the mechanisms by which those vulnerabilities work&lt;/li>
-&lt;li>Understand, in broad strokes, how those vulnerabilities can be prevented&lt;/li>
+&lt;li>فهم الأنواع الشائعة من ثغرات التخويل&lt;/li>
+&lt;li>فهم الآثار المحتملة لهذه الأنواع من الثغرات&lt;/li>
+&lt;li>فهم آليات عمل هذه الثغرات&lt;/li>
+&lt;li>فهم كيفية منع ثغرات هذه بشكل عام&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;h2 id="main-section">Main Section&lt;/h2>
-&lt;h3 id="foundation-knowledge">Foundation Knowledge&lt;/h3>
-&lt;p>Authorization is the process of making sure that a user of a system has permission to perform an action or create/read/edit/delete a piece of data in that system, and preventing these actions if the user doesn’t have permission. Generally, these are the simplest types of security controls to implement, and the simplest type of vulnerability to find. However, even though they are conceptually simple, both securing and breaking the controls are generally very tedious and error-prone.&lt;/p></description></item><item><title>Application Logic</title><link>https://infuse.quest/ar/learning-path/4/module-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-5/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>In any interactive website that puts constraints on the types of actions that users can perform, it’s important that the site properly enforces those constraints to prevent unintended (and potentially) damaging actions by malicious users.&lt;/p>
-&lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p>
+&lt;h2 id="العرض">العرض&lt;/h2>
+&lt;h3 id="المعرفة-الأساسية">المعرفة الأساسية&lt;/h3>
+&lt;p>يُعدّ التخويل عملية تأكد من أن مستخدم النظام لديه إذن لتنفيذ إجراء أو إنشاء/قراءة/تحرير/حذف جزء من البيانات في هذا النظام ومنع هذه الإجراءات إذا لم يكن لدى المستخدم إذن، وبشكل عام هذه هي أبسط أنواع الضوابط الأمنية التي يجب تنفيذها وأبسط أنواع الثغرات الأمنية التي يمكن العثور عليها. ومع ذلك على الرغم من بساطتها من الناحية المفاهيمية إلا أن تأمين عناصر التحكم وتفكيكها بشكل عام ممل للغاية وعرضة للخطأ.&lt;/p></description></item><item><title>منطق التطبيق</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-5/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>في أي موقع ويب تفاعلي يضع قيودًا على أنواع الإجراءات التي يمكن للمستخدمين تنفيذها، من المهم أن يفرض الموقع هذه القيود بشكل صحيح لمنع الإجراءات الضارة غير المقصودة (والمحتملة) من قبل المستخدمين الخبيثين.&lt;/p>
+&lt;h2 id="الأهداف">الأهداف&lt;/h2>
+&lt;p>بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:&lt;/p>
 &lt;ul>
-&lt;li>Understand the concept of application logic vulnerabilities&lt;/li>
-&lt;li>Identify and understand common subclasses of application logic vulnerabilities, including:
+&lt;li>فهم مفهوم الثغرات المنطقية في التطبيقات&lt;/li>
+&lt;li>تحديد وفهم الفئات الفرعية الشائعة لثغرات منطق التطبيق بما في ذلك:
 &lt;ul>
-&lt;li>Client-side controls&lt;/li>
-&lt;li>Lack of rate limiting/multiple submissions&lt;/li>
-&lt;li>Rounding inconsistencies&lt;/li>
-&lt;li>Skipping process steps&lt;/li>
-&lt;li>Cross-site request forgery&lt;/li>
+&lt;li>الضوابط من جانب العميل&lt;/li>
+&lt;li>عدم وجود حد لمعدل/تقديم طلبات متعددة&lt;/li>
+&lt;li>تضاربات التقريب&lt;/li>
+&lt;li>تجاوز خطوات العملية&lt;/li>
+&lt;li>تزييف الطلبات عبر المواقع&lt;/li>
 &lt;/ul>
 &lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;h2 id="main-section">Main Section&lt;/h2>
-&lt;p>Application logic vulnerabilities (frequently called business logic vulnerabilities) are a loosely assembled class of vulnerabilities that relate to the processes that the application itself performs, as opposed to underlying vulnerabilities in the technologies that the application uses. If this definition is confusing to you, you’re in good company. What constitutes a business logic vulnerability vs some other class is hotly contested. Infuse takes the position that the actual definition doesn’t matter that much, and that expediency is more important than precise definitions. We encourage you to maintain a focus on the vulnerabilities themselves, develop a view of vulnerability classes that makes sense to you, and maintain flexibility in taxonomy when discussing vulnerabilities with others.&lt;/p></description></item><item><title>Interpersonal Skills for Web Application Security</title><link>https://infuse.quest/ar/learning-path/4/module-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/ar/learning-path/4/module-6/</guid><description>&lt;h2 id="use-case">Use Case&lt;/h2>
-&lt;p>When interacting with individuals and organizations who operate web applications, self-awareness is necessary to check the nature of the digital protector relationship, provide useful and not fear-mongering advice or services. It is critical to frame your technical work within a sound risk assessment of the reality of the web application and its users.&lt;/p>
-&lt;h2 id="objectives">Objectives&lt;/h2>
-&lt;p>After completing this subtopic, practitioners should be able to do the following:&lt;/p>
+&lt;h2 id="العرض">العرض&lt;/h2>
+&lt;p>تُعدّ ثغرات منطق التطبيق (تسمى في كثير من الأحيان ثغرات منطق الأعمال) فئة من الثغرات المجمّعة على نطاق واسع والتي تتعلق بالعمليات التي يقوم بها التطبيق نفسه على عكس ثغرات الأساسية في التقنيات التي يستخدمها التطبيق. إذا شعرت بأن هذا التعريف مربك فلست الوحيد لأن ما يشكل ثغرة في منطق الأعمال مقابل فئة أخرى هو موضع نزاع محتدم. يتمثل موقف إنفيوز (Infuse) بأن التعريف الفعلي لا يهم كثيرًا وأن السرعة أكثر أهمية من التعريفات الدقيقة ونشجعك على الحفاظ على التركيز على ثغرات نفسها وتطوير رؤية لفئات الثغرات التي تكون منطقية بالنسبة لك والحفاظ على المرونة في التصنيف عند مناقشة الثغرات مع الآخرين.&lt;/p></description></item><item><title>المهارات الشخصية لأمن تطبيقات الويب</title><link>https://infusedev.safetag.org/ar/learning-path/4/module-6/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infusedev.safetag.org/ar/learning-path/4/module-6/</guid><description>&lt;h2 id="حالة-استخدام">حالة استخدام&lt;/h2>
+&lt;p>عند التفاعل مع الأفراد والمنظمات الذين يقومون بتشغيل تطبيقات الويب يكون الوعي الذاتي ضروريًا للتحقق من طبيعة علاقة المدافع الرقمي وتقديم نصائح أو خدمات مفيدة وليست مثيرة للخوف، ومن الأهمية بمكان تأطير عملك الفني ضمن تقييم سليم للمخاطر لواقع تطبيق الويب ومستخدميه.&lt;/p>
+&lt;h2 id="الأهداف">الأهداف&lt;/h2>
+&lt;p>بعد استكمال هذا الموضوع الفرعي، يجب أن يكون الممارسون قادرين على القيام بما يلي:&lt;/p>
 &lt;ul>
-&lt;li>Self reflect on the digital protector relationship with a client within web application assessment work and reporting&lt;/li>
-&lt;li>Simplify and filter findings and explain them in a way which makes sense to the needs and threat models of the organization and its stakeholders&lt;/li>
-&lt;li>Maintain an awareness of the limits of your own knowledge and ability&lt;/li>
-&lt;li>Communicate in a non fear-mongering way about vulnerabilities and weaknesses&lt;/li>
-&lt;li>Conduct a broader risk analysis of a web application based on the political, social, economic, and technical realities which surround it.&lt;/li>
+&lt;li>التفكير الذاتي في علاقة المدافع الرقمي مع العميل ضمن أعمال تقييم تطبيقات الويب وإعداد التقارير&lt;/li>
+&lt;li>تبسيط النتائج وتصفيتها وشرحها بطريقة منطقية لاحتياجات المنظمة ونماذج التهديد الخاصة بها وأصحاب المصلحة فيها&lt;/li>
+&lt;li>الحفاظ على الوعي بحدود معرفتك وقدرتك&lt;/li>
+&lt;li>التواصل بطريقة لا تتسبب بالتخويف حول الثغرات والضعف&lt;/li>
+&lt;li>إجراء تحليل أوسع للمخاطر لتطبيق ويب بناءً على الحقائق السياسية والاجتماعية والاقتصادية والتقنية المحيطة به.&lt;/li>
 &lt;/ul>
 &lt;hr>
-&lt;h2 id="main-section">Main Section&lt;/h2>
-&lt;p>Your work in web application security assessment must remain contextualized within the frame of the organization which operates or hosts the application, the people who utilize it (and of their devices), the interpersonal relationships you have with these people, the nature of the web application itself, the data stored or processed on it, the legal realities which prevail over the application, and a solid risk assessment of all these elements. Let’s unpack these elements and consider a self-critique of your role as a digital protector.&lt;/p></description></item></channel></rss>
+&lt;h2 id="العرض">العرض&lt;/h2>
+&lt;p>يجب أن يظل عملك في تقييم أمان تطبيقات الويب في سياقه ضمن إطار المنظمة التي تدير التطبيق أو تستضيفه والأشخاص الذين يستخدمونه (وأجهزتهم)، والعلاقات الشخصية التي تربطك بهؤلاء الأشخاص، وطبيعة تطبيق الويب نفسه، والبيانات المخزنة أو المعالجة عليه، والحقائق القانونية التي تسود على التطبيق وتقييم قوي للمخاطر لجميع هذه العناصر. وسنحلل هذه العناصر ونفكر في النقد الذاتي لدورك بصفتك مدافعًا رقميًا.&lt;/p></description></item></channel></rss>
