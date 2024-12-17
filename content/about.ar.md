@@ -40,8 +40,8 @@ navbar: true
 يمكنكم التواصل مع [DefendDefenders](https://defenddefenders.org/) عبر program@defenddefenders.org  
 يمكنكم التواصل مع [Internews](https://internews.org/) عبر Infuse@internews.org.
 
+##المساهمون
 شكرا للأشخاص التالية أسماؤهم على مساهماتهم في Infuse:
-
 
 [Amir Rashidi](https://www.miaan.org/) \
 [Anna e só](https://notapplicable.dev) \
