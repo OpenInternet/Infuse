@@ -13,7 +13,7 @@ This page provides an overview of ways to directly contribute to and edit Infuse
 
 The Infuse website is hosted on GitHub, so you can suggest edits by clicking where it says “Edit this Page on GitHub” on any of the learning path module pages (as shown below). Do note that this will require you to have a GitHub account.
 
-![Top of a learning path module page with an arrow pointing to a link that says "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
+![Parte superior de la página de un módulo de ruta de aprendizaje con una flecha que apunta a un enlace que dice "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
 
 The above link should take you to the GitHub page which contains the learning path you just visited. All paths are composed using Markdown (see a cheat sheet on Markdown [here](https://www.markdownguide.org/basic-syntax/)). Once you’re on the page, click the “edit” button, which has a little pencil logo.
 
@@ -25,15 +25,15 @@ When you are done editing the page, just press “save”. This should automatic
 
 An alternative method for editing Infuse in the browser with a user-friendly interface is to submit changes or new content through the content management system at <https://infuse.quest/admin>. You will then need to log-in to the backend using a GitHub account and authorize the application to read and write from your own GitHub account. If you are interested to know what is happening under the hood: this application manages the creation of a copy of the site on your own GitHub account and saves all changes to your copy, then when you are ready to submit those changes for consideration it will create a GitHub pull request which we can review.
 
-![](/media/uploads/contribute-3.png)
+![The Infuse log-in page. Two buttons are visible. One says "log in with Github" and has the GitHub logo, the other says "go back to site"](/media/uploads/contribute-3.png)
 
 Once signed in, you will be able to directly edit site content by navigating to the relevant page. From the *Collections* section you will be able to access the Learning Paths and proceed to the specific Module which you would like to edit.
 
-![](/media/uploads/contribute-4.png)
+![A page showing the list of learning paths, referred to by numbers rather than names, in the left column, and their individual modules in the right column](/media/uploads/contribute-4.png)
 
 Once you have selected the module you would like to edit, you will open the editor window, shown below. Here are some highlights to working with the editor:
 
-![](/media/uploads/contribute-5.png)
+![The editor view, showing workflow buttons that allow a user to toggle between drafts and text ready to publish, a language switcher which toggles between different language versions, and a selector that allows the user to pick if they are editing in rich text or markdown](/media/uploads/contribute-5.png)
 
 1. **Saving Workflow:** Once you have finished making changes, press the Save button. This will put the page into Draft mode. At this stage you can continue to work on the page at a later time, but the Infuse team will not be alerted to your edits. Once you are ready, you can the status to ‘*In Review’,* which will open a pull request to the main Infuse repository.  
 2. **Language Switcher:** Translations can be made or updated by selecting the appropriate language from this drop-down. If you are interested in translating a new language, email us at [contact@infuse.quest](mailto:contact@infuse.quest)!
@@ -47,25 +47,25 @@ To add images to the Infuse site, you will first need to upload them to the /sta
 
 To upload an image via GitHub, just add it to the folder above.
 
-![](/media/uploads/contribute-6.png)
+![GitHub, it has opened the Infuse repository and the static/media/uploads folder. The folder contains a series of png files, which are used by the webpage](/media/uploads/contribute-6.png)
 
 Alternatively, if you prefer to use the CMS to add files, you can use the “Media” tab (third from the left) in the upper left corner of the CMS.	
 
-![](/media/uploads/contribute-7.png)
+![The CMS used for Infuse. In the top left, there are three tabs, "Contents", "Workflow", and "Media"](/media/uploads/contribute-7.png)
 
 We can also insert images into the page content, either through the CMS or through markdown!
 
 To add an image in the CMS, just click on the little “+” when you are editing a document.
 
-![](/media/uploads/contribute-8.png)
+![The CMS used for Infuse in rich text editing mode. The editor menu has a small button shaped like a plus sign. Once pressed, it rolls out a submenu which allows the user to enter different types of content, including media and images. In the image, the cursor floats over a submenu item called "image"](/media/uploads/contribute-8.png)
 
 This will allow you to insert an image either by browsing an image folder in the CMS or by adding a link.
 
-![](/media/uploads/contribute-9.png)
+![The image selector in the CMS used for Infuse. It contains two options: to choose an image (so browse the media folder) or insert from URL](/media/uploads/contribute-9.png)
 
 If you want to insert the image from a URL, remember to use relative links. So instead of typing in `https://infuse.quest/media/uploads/CFT2_sender_address.png` or `https://github.com/OpenInternet/Infuse/blob/main/static/media/uploads/CFT2_sender_address.png`, just type in `/media/uploads/CFT2_sender_address.png`
 
-![](/media/uploads/contribute-10.png)
+![A dialog box which asks the user to input the URL of an image](/media/uploads/contribute-10.png)
 
 The CMS will ask you for two more things when you are inserting images: a title and an alt text. We typically leave the title blank. The alt text, on the other hand, should be filled in for all images save for those which serve a purely decorative purpose. It is used to describe the image in words so that people who are visually impaired or who cannot load the image for other reasons (perhaps they have lower internet bandwidth) can still understand what is going on. Check out [this article](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/), which gives a quick introduction to writing a good alt text.
 

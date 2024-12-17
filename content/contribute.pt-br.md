@@ -16,11 +16,11 @@ This page provides an overview of ways to directly contribute to and edit Infuse
 
 The Infuse website is hosted on GitHub, so you can suggest edits by clicking where it says “Edit this Page on GitHub” on any of the learning path module pages (as shown below). Do note that this will require you to have a GitHub account.
 
-![Top of a learning path module page with an arrow pointing to a link that says "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
+![Parte superior da página do módulo do caminho de aprendizagem com uma seta apontando para um link que diz "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
 
 The above link should take you to the GitHub page which contains the learning path you just visited. All paths are composed using Markdown (see a cheat sheet on Markdown [here](https://www.markdownguide.org/basic-syntax/)). Once you’re on the page, click the “edit” button, which has a little pencil logo.
 
-![GitHub page for learning path 1 module 4 with a green arrow pointing at the edit button, represented by a pencil icon](/media/uploads/contribute-2.png)
+![Página do GitHub para o módulo 4 do caminho de aprendizagem 1 com uma seta verde apontando para o botão de edição, representado por um ícone de lápis](/media/uploads/contribute-2.png)
 
 When you are done editing the page, just press “save”. This should automatically create a GitHub pull request which you can then submit for our team to look at and hopefully merge into the main site!
 
@@ -28,15 +28,15 @@ When you are done editing the page, just press “save”. This should automatic
 
 An alternative method for editing Infuse in the browser with a user-friendly interface is to submit changes or new content through the content management system at <https://infuse.quest/admin>. You will then need to log-in to the backend using a GitHub account and authorize the application to read and write from your own GitHub account. If you are interested to know what is happening under the hood: this application manages the creation of a copy of the site on your own GitHub account and saves all changes to your copy, then when you are ready to submit those changes for consideration it will create a GitHub pull request which we can review.
 
-![](/media/uploads/contribute-3.png)
+![A página de login do Infuse. Dois botões são visíveis. Um diz "log in with Github" e tem o logotipo do GitHub, o outro diz "go back to site"](/media/uploads/contribute-3.png)
 
 Once signed in, you will be able to directly edit site content by navigating to the relevant page. From the *Collections* section you will be able to access the Learning Paths and proceed to the specific Module which you would like to edit.
 
-![](/media/uploads/contribute-4.png)
+![Uma página mostrando a lista de caminhos de aprendizagem, referenciados por números em vez de nomes, na coluna da esquerda, e seus módulos individuais na coluna da direita](/media/uploads/contribute-4.png)
 
 Once you have selected the module you would like to edit, you will open the editor window, shown below. Here are some highlights to working with the editor:
 
-![](/media/uploads/contribute-5.png)
+![A visualização do editor, mostrando botões de fluxo de trabalho que permitem ao usuário alternar entre rascunhos e texto pronto para publicação, um seletor de idioma que alterna entre diferentes versões de idioma e um seletor que permite ao usuário escolher se está editando em rich text ou markdown](/media/uploads/contribute-5.png)
 
 1. **Saving Workflow:** Once you have finished making changes, press the Save button. This will put the page into Draft mode. At this stage you can continue to work on the page at a later time, but the Infuse team will not be alerted to your edits. Once you are ready, you can the status to ‘*In Review’,* which will open a pull request to the main Infuse repository.  
 2. **Language Switcher:** Translations can be made or updated by selecting the appropriate language from this drop-down. If you are interested in translating a new language, email us at [contact@infuse.quest](mailto:contact@infuse.quest)!
@@ -50,25 +50,25 @@ To add images to the Infuse site, you will first need to upload them to the /sta
 
 To upload an image via GitHub, just add it to the folder above.
 
-![](/media/uploads/contribute-6.png)
+![GitHub, ele abriu o repositório Infuse e a pasta static/media/uploads. A pasta contém uma série de arquivos png, que são usados ​​pela página da web](/media/uploads/contribute-6.png)
 
 Alternatively, if you prefer to use the CMS to add files, you can use the “Media” tab (third from the left) in the upper left corner of the CMS.	
 
-![](/media/uploads/contribute-7.png)
+![O CMS usado para Infuse. No canto superior esquerdo, há três guias, "Contents", "Workflow", e "Media](/media/uploads/contribute-7.png)
 
 We can also insert images into the page content, either through the CMS or through markdown!
 
 To add an image in the CMS, just click on the little “+” when you are editing a document.
 
-![](/media/uploads/contribute-8.png)
+![O CMS usado para Infuse no modo de edição de rich text. O menu do editor tem um pequeno botão em forma de sinal de mais. Uma vez pressionado, ele abre um submenu que permite ao usuário inserir diferentes tipos de conteúdo, incluindo mídia e imagens. Na imagem, o cursor flutua sobre um item de submenu chamado "imagem"](/media/uploads/contribute-8.png)
 
 This will allow you to insert an image either by browsing an image folder in the CMS or by adding a link.
 
-![](/media/uploads/contribute-9.png)
+![O seletor de imagens no CMS usado para Infuse. Ele contém duas opções: escolher uma imagem (então navegue na pasta de mídia) ou inserir a partir da URL](/media/uploads/contribute-9.png)
 
 If you want to insert the image from a URL, remember to use relative links. So instead of typing in `https://infuse.quest/media/uploads/CFT2_sender_address.png` or `https://github.com/OpenInternet/Infuse/blob/main/static/media/uploads/CFT2_sender_address.png`, just type in `/media/uploads/CFT2_sender_address.png`
 
-![](/media/uploads/contribute-10.png)
+![Uma caixa de diálogo que pede ao usuário para inserir o URL de uma imagem](/media/uploads/contribute-10.png)
 
 The CMS will ask you for two more things when you are inserting images: a title and an alt text. We typically leave the title blank. The alt text, on the other hand, should be filled in for all images save for those which serve a purely decorative purpose. It is used to describe the image in words so that people who are visually impaired or who cannot load the image for other reasons (perhaps they have lower internet bandwidth) can still understand what is going on. Check out [this article](https://design102.blog.gov.uk/2022/01/14/whats-the-alternative-how-to-write-good-alt-text/), which gives a quick introduction to writing a good alt text.
 

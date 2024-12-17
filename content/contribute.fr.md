@@ -14,11 +14,11 @@ Cette page fournit un aperçu des façons de contribuer directement à Infuse. I
 
 Le site Infuse est hébergé sur GitHub, vous pouvez donc suggérer des modifications en cliquant sur l'endroit qui indique « Modifier cette page sur GitHub » sur n'importe quelle page du module du parcours d'apprentissage (comme indiqué ci-dessous). Notez que cela nécessite que vous ayez un compte GitHub.
 
-![Top of a learning path module page with an arrow pointing to a link that says "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
+![Haut de la page d'un module de parcours d'apprentissage avec une flèche pointant vers un lien indiquant "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
 
 Le lien ci-dessus devrait vous conduire à la page GitHub qui contient le parcours d'apprentissage que vous venez de visiter. Tous les parcours sont composés en utilisant Markdown (vous pouvez voir une feuille de calcul sur Markdown [ici](https://www.markdownguide.org/basic-syntax/)). Une fois sur la page, cliquez sur le bouton « modifier », qui présente un petit logo de crayon.
 
-![GitHub page for learning path 1 module 4 with a green arrow pointing at the edit button, represented by a pencil icon](/media/uploads/contribute-2.png)
+![Page GitHub du parcours d'apprentissage 1 module 4 avec une flèche verte pointant vers le bouton d'édition, représenté par une icône en forme de crayon](/media/uploads/contribute-2.png)
 
 Lorsque vous terminez de modifier la page, appuyez simplement sur « enregistrer ». Cela devrait automatiquement créer une requête pull GitHub que vous pouvez ensuite soumettre à notre équipe pour qu'elle l'examine et, espérons-le, la fusionne avec le site principal !
 
@@ -26,15 +26,15 @@ Lorsque vous terminez de modifier la page, appuyez simplement sur « enregistre
 
 Une autre méthode pour éditer Infuse dans le navigateur avec une interface conviviale consiste à soumettre des modifications ou du nouveau contenu via le système de gestion de contenu à l'adresse [https://infuse.quest/admin](https://infuse.quest/admin). Vous devrez ensuite vous connecter au backend en utilisant un compte GitHub et autoriser l'application à lire et à écrire à partir de votre propre compte GitHub. Si vous voulez savoir ce qui se passe sous le capot : cette application gère la création d'une copie du site sur votre propre compte GitHub et enregistre toutes les modifications apportées à votre copie, puis, lorsque vous souhaitez soumettre ces changements à l'équipe de développement, elle créera une requête pull GitHub que nous pourrons examiner.
 
-![](/media/uploads/contribute-3.png)
+![La page de connexion d'Infuse. Deux boutons sont visibles. L'un indique « log in with Github » et porte le logo GitHub, l'autre indique « go back to site »](/media/uploads/contribute-3.png)
 
 Une fois connecté(e), vous pouvez modifier directement le contenu du site en naviguant vers la page correspondante. Dans la section des *collections*, vous pouvez accéder aux parcours d'apprentissage et passer au module spécifique que vous souhaitez modifier.
 
-![](/media/uploads/contribute-4.png)
+![Une page affichant la liste des parcours d'apprentissage, désignés par des numéros plutôt que par des noms, dans la colonne de gauche, et leurs modules individuels dans la colonne de droite](/media/uploads/contribute-4.png)
 
 Une fois que vous avez sélectionné le module que vous souhaitez modifier, vous devez ouvrir la fenêtre de l'éditeur illustrée ci-dessous. Voici quelques éléments à savoir concernant l'utilisation de l'éditeur :
 
-![](/media/uploads/contribute-5.png)
+![La vue de l'éditeur, affichant des boutons de flux de travail qui permettent à l'utilisateur de basculer entre les brouillons et le texte prêt à être publié, un sélecteur de langue qui bascule entre différentes versions linguistiques et un sélecteur qui permet à l'utilisateur de choisir s'il édite en texte enrichi ou en markdown](/media/uploads/contribute-5.png)
 
 1. **Flux de travail pour enregistrer** : une fois que vous avez terminé d'apporter des changements, appuyez sur le bouton Enregistrer. Cela mettra la page en mode Brouillon. À ce stade, vous pouvez continuer de travailler sur la page ultérieurement, mais l'équipe Infuse ne sera pas alertée de vos modifications. Dès que vous le souhaitez, vous pouvez passer au statut « *En cours d'examen* », qui ouvrira une requête pull vers le dépôt principal d'Infuse.  
 2. **Sélecteur de langue** : les traductions peuvent être faites ou mises à jour en sélectionnant la langue appropriée dans ce menu déroulant. Si vous souhaitez traduire une nouvelle langue, envoyez-nous un courrier électronique à l'adresse contact@infuse.quest !  
@@ -48,25 +48,25 @@ Pour ajouter des images au site Infuse, vous devez d'abord les importer dans le 
 
 Pour importer une image via GitHub, il suffit de l'ajouter au dossier ci-dessus.
 
-![](/media/uploads/contribute-6.png)
+![GitHub a ouvert le dépôt Infuse et le dossier static/media/uploads. Le dossier contient une série de fichiers png, qui sont utilisés par la page Web](/media/uploads/contribute-6.png)
 
 Sinon, si vous préférez utiliser le CMS pour ajouter vos fichiers, vous pouvez utiliser l'onglet « Médias » (troisième à partir de la gauche) dans le coin supérieur gauche du CMS.
 
-![](/media/uploads/contribute-7.png)
+![Le CMS utilisé pour Infuse. En haut à gauche, il y a trois onglets, "Contents", "Workflow", "Media](/media/uploads/contribute-7.png)
 
 Nous pouvons également insérer des images dans le contenu de la page, soit via le CMS ou via Markdown !
 
 Pour ajouter une image dans le CMS, cliquez simplement sur le petit « + » lorsque vous éditez un document.
 
-![](/media/uploads/contribute-8.png)
+![Le CMS utilisé pour Infuse en mode d'édition de texte enrichi. Le menu de l'éditeur comporte un petit bouton en forme de signe plus. Une fois enfoncé, il déroule un sous-menu qui permet à l'utilisateur de saisir différents types de contenu, notamment des médias et des images. Dans l'image, le curseur flotte sur un élément de sous-menu appelé « image »](/media/uploads/contribute-8.png)
 
 Cela vous permettra d'insérer une image soit en parcourant un dossier d'images dans le CMS, soit en ajoutant un lien.
 
-![](/media/uploads/contribute-9.png)
+![Le sélecteur d'images dans le CMS utilisé pour Infuse. Il contient deux options : choisir une image (parcourir le dossier multimédia) ou l'insérer à partir d'une URL](/media/uploads/contribute-9.png)
 
 Si vous voulez insérer l'image à partir d'une URL, n'oubliez pas d'utiliser des liens relatifs. Donc, au lieu de saisir `https://infuse.quest/media/uploads/CFT2_sender_address.png` ou `https://github.com/OpenInternet/Infuse/blob/main/static/media/uploads/CFT2_sender_address.png`, saisissez simplement `/media/uploads/CFT2_sender_address.png`
 
-![](/media/uploads/contribute-10.png)
+![Une boîte de dialogue qui demande à l'utilisateur de saisir l'URL d'une image](/media/uploads/contribute-10.png)
 
 Le CMS vous demandera deux choses de plus lorsque vous insérerez des images : un titre et un texte alternatif. Nous laissons généralement le titre vide. Le texte alternatif, par contre, doit être renseigné pour toutes les images, sauf pour celles qui ont un but purement décoratif. Ce texte est utilisé pour décrire l'image avec des mots afin que les personnes qui sont malvoyantes ou qui ne peuvent pas charger l'image pour d'autres raisons (en cas de bande passante Internet plus faible) puissent toujours en comprendre la nature. Consultez [cet article](https://fr.semrush.com/blog/texte-alternatif/) pour obtenir une introduction rapide à l'écriture d'un bon texte alternatif.
 
