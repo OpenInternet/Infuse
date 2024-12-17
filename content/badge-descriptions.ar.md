@@ -1,5 +1,5 @@
 ---
-title: "**وصف الشارات**"
+title: وصف الشارات
 weight: 5
 navbar: true
 footer: false
