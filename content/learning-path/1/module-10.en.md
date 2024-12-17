@@ -39,7 +39,7 @@ As we look into the email, we see the visible sender email address
 {{< /question >}}
 
 {{< question title="Answer" >}}
-The sender email is: [paypal@service.com](mailto:paypal@service.com)
+The sender email is: paypal@service.com
 {{< /question >}}
 
 ### Question 2: What is the subject of this email?
@@ -126,7 +126,7 @@ For the next few questions, we will use [VirusTotal](https://www.virustotal.com/
 
 Paste the URL from question 4 into VirusTotal (this time, you need to paste the full URL, not the defanged version). Go to “details” tab and look at the URL capture history.
 
-![A screenshot of VirusTotal history, showing three dates: first submission, last submission, last analysis](/media/uploads/CFT9_VirusTotal.png)
+![A screenshot of VirusTotal history, showing three dates: first submission, last submission, last analysis](/media/uploads/CTF9_VirusTotal.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -164,7 +164,7 @@ In order to look up information related to a domain registration, we can use a w
 {{< question title="Hints" >}}
 Here we use a whois website to extract it
 
-![A screenshot of a WHOIS lookup of the d.pr domain](/media/uploads/CTF11_whois.png "image_tooltip")
+![A screenshot of a WHOIS lookup of the d.pr domain](/media/uploads/CTF11_whois.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}
@@ -178,7 +178,7 @@ IP addresses are loosely tied to geographical locations, such as cities or distr
 
 It’s worth comparing the information you receive from a whois lookup with that you receive from IP location searches. You might learn that the IP address you are trying to investigate belongs to a VPN provider or a big tech company such as Google–if this is the case, then you will not learn much from those investigations; the IP location will likely correspond to one of those companies’ server farms and might have little to do with the location of the person or entity you’re trying to investigate.
 
-![A screenshot of a geoIP lookup of an IP address, showing that it originated in Portland, Oregon](/media/uploads/CTF12_geoIP.png "image_tooltip")
+![A screenshot of a geoIP lookup of an IP address, showing that it originated in Portland, Oregon](/media/uploads/CTF12_geoIP.png)
 {{< /question >}}
 
 {{< question title="Answer" >}}

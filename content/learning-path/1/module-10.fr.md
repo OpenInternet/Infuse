@@ -33,15 +33,15 @@ Il existe plusieurs façons de voir à quoi ressemblerait l'e-mail pour le desti
 
 Dans cette démonstration, nous allons simplement ouvrir l'e-mail (paypal.eml) dans un programme de messagerie.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![Menu contextuel de Windows affichant l'option Ouvrir avec -> Outlook](/media/uploads/CTF1_open_in_mail_program.png)
 
 En examinant l'e-mail, nous voyons l'adresse e-mail visible de l'expéditeur
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![Image d'un prétendu e-mail de Paypal indiquant une activité suspecte sur le compte avec un lien pour vérifier le compte. L'e-mail provient de paypal@service.com](/media/uploads/CTF2_sender_address.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
-L'adresse e-mail de l'expéditeur est : [paypal@service.com](mailto:paypal@service.com)
+L'adresse e-mail de l'expéditeur est : paypal@service.com
 {{< /question >}}
 
 ### Question 2 : Quel est le sujet de cet e-mail?
@@ -51,7 +51,7 @@ En continuant d'examiner l'e-mail, recherchons d'autres caractéristiques qui po
 {{< /question >}}
 
 {{< question title="Indications" >}}
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF3_email_subject.png)
 
 Voici quelques points clés à surveiller dans un e-mail de phishing :
 
@@ -72,7 +72,7 @@ Lorsque nous examinons un e-mail potentiellement malveillant, nous devons égale
 {{< /question >}}
 
 {{< question title="Indications" >}}
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF4_email_actions.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -92,13 +92,13 @@ Vous pouvez défuser un lien dans un éditeur de texte. Ici, nous utiliserons [C
 
 Dans le cadre de cet exercice, jouez avec CyberChef et défusez le lien "please confirm" de l'e-mail joint.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF5_copylink.png)
 Tout d'abord, copiez le lien hypertexte de l'e-mail.
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![alt_text](/media/uploads/CTF6_defang.png)
 Ensuite, prenez l'entrée "Defang URL" de CyberChef et faites-la glisser dans la section "Recette"
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![alt_text](/media/uploads/CTF7_defanged.png)
 
 Une fois que vous avez collé l'URL dans la section d'entrée de CyberChef, il générera automatiquement une version défusée de celle-ci.
 {{< /question >}}
@@ -116,7 +116,7 @@ Vous pouvez utiliser CyberChef pour effectuer de nombreuses tâches d'analyse di
 {{< question title="Réponse" >}}
 Vous pouvez utiliser une "recette" - ou une série d'étapes connectées - dans CyberChef pour effectuer une analyse plus complexe. Pour extraire et défuser tous les URL du message, il vous suffit d'exécuter une recette avec les flux de travail "extraire les URL" et "défuser les URL" et de coller le contenu complet de l'e-mail (copié depuis un éditeur de texte brut) en tant qu'entrée. Si vous cochez la case "unique" sous "extraire les URL", vous verrez que les résultats différeront de ceux de la capture d'écran, et qu'un seul URL sera affiché, celui que vous avez défusé ci-dessus. Le fait qu'il n'y ait qu'un seul URL, répété plusieurs fois, dans l'e-mail est une bonne nouvelle pour nous - cela rendra notre analyse beaucoup plus simple.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
 
 ## Investigation passive des URL, noms d'hôte et adresses IP
@@ -128,7 +128,7 @@ Pour les prochaines questions, nous utiliserons [VirusTotal](https://www.virusto
 
 Collez l'URL de la question 4 dans VirusTotal (cette fois, vous devez coller l'URL complète, pas la version défusée). Allez à l'onglet "détails" et regardez l'historique de capture de l'URL.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF9_VirusTotal.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -140,7 +140,7 @@ Collez l'URL de la question 4 dans VirusTotal (cette fois, vous devez coller l'U
 {{< question title="Indications" >}}
 En regardant également l'onglet "détails" dans VirusTotal, recherchez l'adresse IP de service.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF10_VirusTotalIP.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -166,7 +166,7 @@ Pour rechercher des informations liées à l'enregistrement d'un domaine, vous p
 {{< question title="Indications" >}}
 Ici, nous utilisons un site whois pour l'extraire
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF11_whois.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -180,7 +180,7 @@ Les adresses IP sont vaguement liées à des emplacements géographiques, comme 
 
 Il est intéressant de comparer les informations que vous recevez d'une recherche whois avec celles que vous recevez des recherches de localisation IP. Vous pourriez découvrir que l'adresse IP que vous essayez d'investiguer appartient à un fournisseur de VPN ou à une grande entreprise technologique comme Google - dans ce cas, vous n'apprendrez pas grand-chose de ces enquêtes ; l'emplacement IP correspondra probablement à l'un des centres de serveurs de ces entreprises et pourrait avoir peu à voir avec l'emplacement de la personne ou de l'entité que vous essayez d'investiguer.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF12_geoIP.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -198,11 +198,11 @@ Pour les questions suivantes, nous utiliserons un outil appelé [MxToolbox](http
 {{< question title="Indications" >}}
 Tout d'abord, ouvrez l'e-mail à l'aide d'un éditeur de texte de votre choix et copiez son contenu. Ensuite, collez-le dans l'outil "Analyze Headers" de MxToolbox
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF8_MX_analyzer.png)
 
 Une fois que vous avez cliqué sur "Analyze Header", vous pouvez voir le chemin de retour
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![alt_text](/media/uploads/CTF13_return_path.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -214,10 +214,10 @@ paparazi@rjttznyzjjzydnillquh.designclub.uk.com
 {{< question title="Instructions" open="true" >}}
 Allez dans le fichier "mx-toolbox-header-analysis", regardez la section des informations de relais.
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF14_relay.png)
 L'adresse du serveur de messagerie
 
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![alt_text](/media/uploads/CTF15_address.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}
@@ -241,18 +241,18 @@ CyberChef peut encoder et décoder du texte en Base64.
 
 Nous ouvrons à nouveau le code de la page de phishing (.html) joint
 
-![alt_text](/media/uploads/image1.png "image_tooltip")
+![alt_text](/media/uploads/CTF16_open_webpage_notepad.png)
 
 nous recherchons l'identifiant de la victime dans le code source
-![alt_text](/media/uploads/image2.png "image_tooltip")
+![alt_text](/media/uploads/CTF17_searchID.png)
 
 Ensuite, nous pouvons coller la valeur que nous avons découverte dans CyberChef. L'outil dispose d'une fonction baguette magique qui détecte et convertit automatiquement l'encodage - nous pourrions l'utiliser !
 
-![alt_text](/media/uploads/image3.png "image_tooltip")
+![alt_text](/media/uploads/CTF19_cyberchef_wand.png)
 
 Hourra ! La baguette magique a détecté que l'entrée est encodée avec Base64 et l'a décodée automatiquement, nous donnant la réponse !
 
-![alt_text](/media/uploads/image4.png "image_tooltip")
+![alt_text](/media/uploads/CTF18_cyberchef_result.png)
 {{< /question >}}
 
 {{< question title="Réponse" >}}

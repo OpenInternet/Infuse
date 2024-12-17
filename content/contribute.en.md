@@ -13,7 +13,7 @@ This page provides an overview of ways to directly contribute to and edit Infuse
 
 The Infuse website is hosted on GitHub, so you can suggest edits by clicking where it says “Edit this Page on GitHub” on any of the learning path module pages (as shown below). Do note that this will require you to have a GitHub account.
 
-![Parte superior de la página de un módulo de ruta de aprendizaje con una flecha que apunta a un enlace que dice "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
+![Top of a learning path module page with an arrow pointing to a link that says "Edit this Page on GitHub"](/media/uploads/contribute-1.png)
 
 The above link should take you to the GitHub page which contains the learning path you just visited. All paths are composed using Markdown (see a cheat sheet on Markdown [here](https://www.markdownguide.org/basic-syntax/)). Once you’re on the page, click the “edit” button, which has a little pencil logo.
 

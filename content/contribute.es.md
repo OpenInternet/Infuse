@@ -16,7 +16,7 @@ Esta página presenta una descripción general sobre las formas de editar y cont
 
 El sitio web de Infuse está alojado en GitHub, por lo que puede sugerir ediciones haciendo clic donde dice "Editar esta página en GitHub" en cualquiera de las páginas del módulo de rutas de aprendizaje (como se muestra a continuación). Recuerde que para ello deberá tener una cuenta en GitHub.
 
-![Top of a learning path module page with an arrow pointing to a link that says "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
+![Parte superior de la página de un módulo de ruta de aprendizaje con una flecha que apunta a un enlace que dice "Edit this Page on GitHub" ](/media/uploads/contribute-1.png)
 
 El enlace anterior debería llevarle a la página de GitHub donde se encuentra la ruta de aprendizaje que acaba de visitar. Las rutas se componen utilizando Markdown (consulte una hoja de referencia sobre Markdown [aquí](https://www.markdownguide.org/basic-syntax/)). Cuando se encuentre en la página, haga clic en el botón "editar", que tiene el logotipo de un pequeño lápiz.
 

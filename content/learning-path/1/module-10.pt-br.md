@@ -37,7 +37,7 @@ Observando o e-mail renderizado, podemos encontrar o aparente endereço de e-mai
 {{< /question >}}
 
 {{< question title="Resposta" >}}
-O endereço de e-mail exibido como endereço de e-mail do remetente é [paypal@service.com](mailto:paypal@service.com)
+O endereço de e-mail exibido como endereço de e-mail do remetente é paypal@service.com
 {{< /question >}}
 
 ### Questão 2: Qual é o assunto deste e-mail?
@@ -128,7 +128,7 @@ Para as próximas questões, usaremos o [VirusTotal](https://www.virustotal.com/
 
 Cole a URL da Questão 4 no VirusTotal (dessa vez, você vai precisar da URL inteira, e não da versão desativada). Abra a aba "Details" e leia o histórico de captura da URL.
 
-![Captura de tela do histórico do Virus Total mostrando que a primeira submissão aconteceu em 20 de agosto de 2018, às 14:20:40 UTC.](/media/uploads/CFT9_VirusTotal.png)
+![Captura de tela do histórico do Virus Total mostrando que a primeira submissão aconteceu em 20 de agosto de 2018, às 14:20:40 UTC.](/media/uploads/CTF9_VirusTotal.png)
 {{< /question >}}
 
 {{< question title="Resposta" >}}
