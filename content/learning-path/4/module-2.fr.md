@@ -31,7 +31,7 @@ Bien que cette attaque soit puissante, elle comporte des limites. Le cybercrimin
 
 Mécaniquement, cette attaque fonctionne par une application Web recevant des données utilisateur, puis intégrant ces données utilisateur directement dans une page Web. Envisagez un site de forum de discussion qui permet aux utilisateurs de choisir un nom d'affichage :
 
-![alt_text](/media/uploads/web_fundamentals_empty_box.png "image_tooltip")
+![Une zone de texte vide sur un site Web où l'utilisateur peut saisir du texte, avec un bouton cliquable intitulé « Submit » en dessous](/media/uploads/web_fundamentals_empty_box.png)
 
 Cette page Web un peu banale aura le code HTML suivant :
 
@@ -44,7 +44,7 @@ Cette page Web un peu banale aura le code HTML suivant :
 
 Lorsqu'il reçoit un nom de l'utilisateur, il l'affiche dans le formulaire :
 
-![alt_text](/media/uploads/web_fundamentals_Alice_box.png "image_tooltip")
+![La même zone de texte, mais elle contient désormais le texte « Alice »](/media/uploads/web_fundamentals_Alice_box.png)
 
 en utilisant le code HTML suivant :
 
@@ -63,7 +63,7 @@ Alice"><script>alert("0wné par Alice")</script><i q="
 
 Lorsque la page Web est générée, elle semble un peu différente :
 
-![alt_text](/media/uploads/web_fundamentals_owned_by_Alice_alert.png "image_tooltip")
+![Une alerte sur une page Web indiquant « owned by Alice »](/media/uploads/web_fundamentals_owned_by_Alice_alert.png)
 
 Que s'est-il passé ? 
 <!-- Original (see English):  Utilisons un peu de couleur pour mettre en évidence ce qui se passe. Souvenez-vous, l'application Web traite simplement l'entrée de l'utilisateur comme du texte, elle n'a aucune idée des couleurs. -->
@@ -102,7 +102,7 @@ Connectez-vous à votre DVWA et assurez-vous que le niveau de sécurité est fai
 
 _Si vous êtes bloqué sur un exercice DVWA et que vous souhaitez un indice, cliquez simplement sur le bouton « View Help » en bas à droite de l'écran pour recevoir des indices._
 
-![alt_text](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png "image_tooltip")
+![Une capture d'écran de DVWA, avec la page « Vulnerability : Reflected Cross Site Scripting (XSS) » actuellement chargée](/media/uploads/web_fundamentals_reflected_XSS_screenshot.png)
 
 ### Prévention du XSS
 
@@ -116,7 +116,7 @@ Pour empêcher le XSS, la meilleure technique à utiliser est appelée le codage
 {{< / highlight >}}
 
 qui s'afficherait comme ceci
-![alt_text](/media/uploads/web_fundamentals_Alice_script_box.png "image_tooltip")
+![Une zone de texte qui dit Alice"><script>alert("Ov](/media/uploads/web_fundamentals_Alice_script_box.png "image_tooltip")
 
 L'encodage de sortie dépend du contexte dans lequel les données seront utilisées. Pour HTML, vous devez encoder des entités HTML dans les données. Pour les données qui doivent être incluses dans un bloc de JavaScript, un codage différent sera utilisé. Si les données de l'utilisateur doivent être utilisées dans une requête de base de données, un autre type d'encodage sera utilisé. Les frameworks Web et les bibliothèques devraient avoir des fonctions pour effectuer l'encodage de sortie pour vous ; il est préférable d'utiliser ces fonctions (espérons-le) matures plutôt que d'essayer de les écrire vous-même à partir des premiers principes.
 

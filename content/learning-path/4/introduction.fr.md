@@ -71,7 +71,7 @@ Il existe plusieurs façons d'exécuter DVWA. Les meilleures instructions d'inst
 
 Avant de commencer l'un des exercices, n'oubliez pas de vous connecter à DVWA (les identifiants par défaut sont admin/mot de passe) et assurez-vous que le niveau de sécurité est défini sur « Faible ».
 
-![DVWA with Low security level configuration](/media/uploads/dvwa-setting1.png "image_tooltip")
+![DVWA avec configuration de niveau de sécurité faible](/media/uploads/dvwa-setting1.png)
 
 
 Un exercice pratique vous oblige à installer et à utiliser un outil appelé rainbowcrack. En raison de sa configuration requise élevée et du fait que l'outil ne fonctionne que sur Linux et Windows, nous avons choisi de rendre cet exercice facultatif. Puisque l'objectif principal de cet exercice est d'illustrer un concept de sécurité, les apprenants qui ne peuvent pas ou ne veulent pas le compléter seront toujours en mesure de terminer l'ensemble du parcours d'apprentissage.
