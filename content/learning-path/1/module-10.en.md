@@ -49,7 +49,7 @@ As we continue to review the email, we look for more characteristics which could
 {{< /question >}}
 
 {{< question title="Hints" >}}
-![A screenshot of the email in question, highlighting the subject line thereof](/media/uploads/CTF3_email_subject.png)
+![A screenshot of the email in question, highlighting its subject line](/media/uploads/CTF3_email_subject.png)
 
 Here are some key trigger points to watch out for in a phishing email:
 

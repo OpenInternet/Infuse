@@ -33,7 +33,7 @@ En este recorrido simplemente abriremos el correo electrónico (paypal.eml) en u
 
 Al observar el correo electrónico, vemos la dirección de correo electrónico del remitente visible
 
-![alt_text](/media/uploads/CTF2_sender_address.png)
+![Imagen de un supuesto correo electrónico de PayPal que indica una actividad sospechosa en la cuenta y que incluye un enlace para verificar la cuenta. El correo electrónico es de paypal@service.com](/media/uploads/CTF2_sender_address.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -47,7 +47,7 @@ A medida que continuamos revisando el correo electrónico, buscamos más caracte
 {{< /question >}}
 
 {{< question title="Pistas" >}}
-![alt_text](/media/uploads/CTF3_email_subject.png)
+![Una captura de pantalla del correo electrónico en cuestión, resaltando su línea de asunto.](/media/uploads/CTF3_email_subject.png)
 
 Aquí hay algunos puntos clave para detectar en un correo electrónico de phishing:
 
@@ -69,7 +69,7 @@ Cuando examinamos un correo electrónico potencialmente malicioso, también nece
 {{< /question >}}
 
 {{< question title="Pistas" >}}
-![alt_text](/media/uploads/CTF4_email_actions.png)
+![Una captura de pantalla del correo electrónico con lo siguiente subrayado: "detected suspicious activity", "payments have been suspended", "complete account verification" "resume payments"](/media/uploads/CTF4_email_actions.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -89,13 +89,13 @@ Puedes desactivar un enlace en un editor de texto. Aquí usaremos [CyberChef](gc
 
 Como parte de este ejercicio, juega con CyberChef y desactiva el enlace "por favor confirma" del correo electrónico adjunto.
 
-![alt_text](/media/uploads/CTF5_copylink.png)
+![Una captura de pantalla de cómo hacer clic derecho en un correo electrónico y luego presionar "copy link"](/media/uploads/CTF5_copylink.png)
 Primero, copiamos el hipervínculo del correo electrónico.
 
-![alt_text](/media/uploads/CTF6_defang.png)
+![Una captura de pantalla de CyberChef, con la palabra "defang" escrita en su barra de búsqueda](/media/uploads/CTF6_defang.png)
 Luego, tomamos la entrada "Defang URL" de CyberChef y la arrastramos a la sección "Receta".
 
-![alt_text](/media/uploads/CTF7_defanged.png)
+![Una captura de pantalla de CyberChef desactivando con éxito un correo electrónico](/media/uploads/CTF7_defanged.png)
 
 Una vez que hemos pegado la URL en la sección de entrada en CyberChef, automáticamente generará una versión desactivada de la misma.
 {{< /question >}}
@@ -113,7 +113,7 @@ Puedes usar CyberChef para realizar muchas tareas de análisis diferentes. Esta 
 {{< question title="Respuesta" >}}
 Puedes usar una 'receta', o una serie de pasos conectados, en CyberChef para llevar a cabo un análisis más complejo. Para obtener y desactivar todas las URLs en el mensaje, todo lo que necesitas hacer es ejecutar una receta con los flujos de trabajo "extraer URLs" y "desactivar URLs" y pegar el contenido completo del correo electrónico (copiado desde un editor de texto plano) como entrada. Si marcas la casilla "único" bajo "extraer URLs", verás que los resultados diferirán de los de la captura de pantalla, y solo se producirá una URL, la misma que desactivaste anteriormente. El hecho de que haya solo una URL, repetida muchas veces, dentro del correo electrónico es una gran noticia para nosotros: facilitará mucho nuestro análisis.
 
-![alt_text](/media/uploads/CTF9_cyberchef.png)
+![Una captura de pantalla de una receta de CyberChef que primero extrae todas las URL de un archivo de texto y luego las limpia](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
 
 ## Investigación Pasiva de URLs, Nombres de Host e IP
@@ -125,7 +125,7 @@ Para las siguientes preguntas, utilizaremos [VirusTotal](https://www.virustotal.
 
 Pega la URL de la pregunta 4 en VirusTotal (esta vez, debes pegar la URL completa, no la versión desactivada). Ve a la pestaña "detalles" y mira el historial de captura de URL.
 
-![alt_text](/media/uploads/CTF9_VirusTotal.png)
+![Una captura de pantalla del historial de VirusTotal, que muestra tres fechas: primer envío, último envío, último análisis](/media/uploads/CTF9_VirusTotal.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -137,7 +137,7 @@ Pega la URL de la pregunta 4 en VirusTotal (esta vez, debes pegar la URL complet
 {{< question title="Pistas" >}}
 También buscando a través de la pestaña "detalles" en VirusTotal, busca la dirección IP que sirve.
 
-![alt_text](/media/uploads/CTF10_VirusTotalIP.png)
+![Una captura de pantalla de VirusTotal que muestra una respuesta HTTP, con la URL final y la dirección IP de servicio proporcionadas](/media/uploads/CTF10_VirusTotalIP.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -163,7 +163,7 @@ Para buscar información relacionada con el registro de un dominio, podemos util
 {{< question title="Pistas" >}}
 Aquí utilizamos un sitio web whois para extraerlo
 
-![alt_text](/media/uploads/CTF11_whois.png)
+![Captura de pantalla de una búsqueda WHOIS del dominio d.pr](/media/uploads/CTF11_whois.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -177,7 +177,7 @@ Las direcciones IP están vagamente vinculadas a ubicaciones geográficas, como 
 
 Vale la pena comparar la información que recibes de una búsqueda whois con la que recibes de búsquedas de ubicación de IP. Podrías descubrir que la dirección IP que estás investigando pertenece a un proveedor de VPN o a una gran empresa tecnológica como Google; si este es el caso, entonces no aprenderás mucho de esas investigaciones, la ubicación IP probablemente corresponderá a una de las granjas de servidores de esas empresas y puede tener poco que ver con la ubicación de la persona o entidad que estás investigando.
 
-![alt_text](/media/uploads/CTF12_geoIP.png)
+![Captura de pantalla de una búsqueda geoIP de una dirección IP, que muestra que se originó en Portland, Oregón](/media/uploads/CTF12_geoIP.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -195,11 +195,11 @@ Para las siguientes preguntas, utilizaremos una herramienta llamada [MxToolbox](
 {{< question title="Pistas" >}}
 Primero, abre el correo electrónico con un editor de texto plano de tu elección y copia su contenido. Luego, pégalo en la herramienta "Analizar encabezados" de MxToolbox
 
-![alt_text](/media/uploads/CTF8_MX_analyzer.png)
+![Una captura de pantalla de los encabezados de correo electrónico que se pegan en MX Toolbox Analyzer](/media/uploads/CTF8_MX_analyzer.png)
 
 Una vez que presionas "Analizar encabezado", puedes ver la ruta de retorno
 
-![alt_text](/media/uploads/CTF13_return_path.png)
+![Captura de pantalla de MX Toolbox que proporciona una ruta de retorno compleja basada en los encabezados que analizó](/media/uploads/CTF13_return_path.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -211,10 +211,10 @@ paparazi@rjttznyzjjzydnillquh.designclub.uk.com
 {{< question title="Instrucciones" open="true" >}}
 Ve al archivo "mx-toolbox-header-analysis", mira la sección de información de retransmisión.
 
-![alt_text](/media/uploads/CTF14_relay.png)
+![Otra captura de pantalla del análisis de MX Toolbox, con un relé inicial resaltado](/media/uploads/CTF14_relay.png)
 La dirección del servidor de correo
 
-![alt_text](/media/uploads/CTF15_address.png)
+![Otra captura de pantalla del análisis de MX Toolbox, con la dirección de retransmisión resaltada](/media/uploads/CTF15_address.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -238,11 +238,15 @@ CyberChef puede codificar y decodificar texto en Base64.
 
 Abrimos una vez más el código adjunto de la página de phishing (.html)
 
-![alt_text](/media/uploads/CTF16_open_webpage_notepad.png)
+![Una captura de pantalla de un archivo html al que se hace clic con el botón derecho en el Explorador de Windows y luego se abre en el Bloc de notas](/media/uploads/CTF16_open_webpage_notepad.png)
+
+![Una captura de pantalla de alguien que busca en el archivo de texto sin formato abierto en el Bloc de notas y encuentra un elemento de datos llamado "victimID"](/media/uploads/CTF17_searchID.png)
+
+![Una captura de pantalla de la función de varita mágica de CyberChef](/media/uploads/CTF19_cyberchef_wand.png)
 
 Buscamos el ID de la víctima en el código fuente, después lo copiamos desde allí y lo pegamos en la receta de "decodificación Base64" de CyberChef
 
-![A screenshot of CyberChef decoding Base64 input into plain text](/media/uploads/CTF18_cyberchef_result.png)
+![Una captura de pantalla de CyberChef decodificando la entrada Base64 en texto sin formato](/media/uploads/CTF18_cyberchef_result.png)
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
