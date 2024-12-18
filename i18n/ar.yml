@@ -259,7 +259,7 @@ key:
   - id: congratulations-introduction
     translation:
       one: null
-      other: !تهانينا على إنهائك المقدمة
+      other: "!تهانينا على إنهائك المقدمة"
   - id: congratulations-module
     translation:
       one: null
