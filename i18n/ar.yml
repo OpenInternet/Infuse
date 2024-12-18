@@ -7,34 +7,31 @@ key:
   - id: hero-subtitle
     translation:
       one: null
-      other: ""
+      other:.نرحب بالمدافعين الرقميين للانضمام إلى مجتمع التعلم وتزويدهم بالموارد لتطوير خبراتهم الفنية المتخصصة. من خلال مسارات التعلم التعاوني والإرشاد ، نمكنهم من نشر هذه الخبرة وحماية المجتمعات المعرضة للخطر
   - id: feature-one-title
     translation:
       one: null
-      other: تعلم بوتيرة الخاصة مع مسارات تعلم متعددة
+      other: تتعلم بالسرعة التي تناسبك مع مسارات التعلم المختلفة
   - id: feature-one-subtitle
     translation:
       one: null
-      other: يُسلّط هذا التأكيد على المرونة والتحكم من قبل المتعلمين الذين يفضلون
-        التعليم ذات الوتيرة الذاتية.
+      other: .يؤكد ذلك على مرونة وتحكم المستخدم وهو ما يجذب المتعلمين الذين يفضلون التعليم الذاتي
   - id: feature-two-title
     translation:
       one: null
-      other: اكتساب شارات وحفظ الشهادات
+      other: اكتساب الشارات وحفظ الشهادات
   - id: feature-two-subtitle
     translation:
       one: null
-      other: تُسلّط هذه الميزة الضوء على الإنجازات وتوفير دليل ملموس على الإتقان، مما
-        يمكن أن يكون محفزًا للمستخدمين.
+      other: .تسلط هذه الميزة الضوء على الإنجازات وتوفر دليلًا ملموسًا على الإتقان مما يمكن أن يحفز المستخدمين
   - id: feature-three-title
     translation:
       one: null
-      other: متاح بلغات متعددة
+      other: متوفر بعدة لغات
   - id: feature-three-subtitle
     translation:
       one: null
-      other: الوصول هو أمر بالغ الأهمية، وتقديم المحتوى بلغات متعددة يضمن وصولًا أوسع
-        وشمولية أكبر.
+      other: .تُعدّ إمكانية الوصول أمرًا بالغ الأهمية ويضمن تقديم المحتوى بلغات متعددة تحقيق الوصول والشمولية على نطاق أوسع
   - id: learning-paths-title
     translation:
       one: null
@@ -42,11 +39,11 @@ key:
   - id: learning-paths-subtitle
     translation:
       one: null
-      other: لوريم إيبسوم دولور سيت أميت بلاه.
+      other: .اختر أين تبدأ رحلتك مع مسارات التعلّم المختارة هذه
   - id: how-works
     translation:
       one: null
-      other: كيف يعمل
+      other: آلية العمل
   - id: create-account
     translation:
       one: null
@@ -54,28 +51,27 @@ key:
   - id: username
     translation:
       one: null
-      other: اسم المستخدم*
+      other: *اسم المستخدم
   - id: username-description
     translation:
       one: null
-      other: يُستخدم هذا المعلومات كوسيلة رئيسية للمصادقة على صفحة إنفيوز.
+      other: .Infuse تستخدم هذه المعلومات كوسيلة أساسية للمصادقة على صفحة 
   - id: full-name
     translation:
       one: null
-      other: الاسم الكامل*
+      other: *الاسم الكامل
   - id: name-description
     translation:
       one: null
-      other: يُستخدم هذا المعلومات لإعداد وإصدار الشهادات عند اكتمال كل مسار تعلم.
+      other: .تُستخدم هذه المعلومات لإعداد الشهادات وإنتاجها عند الانتهاء من كل مسار تعليمي
   - id: avatar-image
     translation:
       one: null
-      other: صورة الصورة الرمزية
+      other: الصورة الرمزية
   - id: avatar-description
     translation:
       one: null
-      other: هذا الحقل اختياري. يمكنك تعيين صورة رمزية (بصري فقط) أو الاحتفاظ بالصورة
-        الافتراضية.
+      other: .هذا الحقل اختياري. يمكنك إما تعيين صورة ملف مستخدم (رمزي فقط) أو الإبقاء على صورة افتراضية
   - id: upload
     translation:
       one: null
@@ -83,20 +79,19 @@ key:
   - id: required
     translation:
       one: null
-      other: العناصر المشار إليها بـ * مطلوبة
+      other: العناصر التي بجانبها علامة * هي مطلوبة
   - id: no-password
     translation:
       one: null
-      other: نحن لا نستخدم مصادقة كلمة المرور لأن جميع المعلومات تُخزّن محليًا في
-        متصفحك ولا تُرسل إلى أي جهات أولى أو ثالثة.
+      other: .لا نستخدم مصادقة كلمة المرور لأن جميع المعلومات يتم تخزينها محليًا في متصفحك ولا تنقل إلى أي مصادر تابعة لجهة خارجية
   - id: signup
     translation:
       one: null
-      other: الاشتراك
+      other: إنشاء حساب
   - id: have-backup
     translation:
       one: null
-      other: هل لديك نسخة احتياطية موجودة؟
+      other: تحميل نسخة احتياطية موجودة؟
   - id: have-account
     translation:
       one: null
@@ -112,7 +107,7 @@ key:
   - id: login-subheader
     translation:
       one: null
-      other: مرحبًا مجددًا! يرجى إدخال تفاصيلك.
+      other: .مرحبًا بعودتك! يرجى إدخال تفاصيلك
   - id: sign-in
     translation:
       one: null
@@ -128,7 +123,7 @@ key:
   - id: tab-profile
     translation:
       one: null
-      other: بيانات الملف الشخصي
+      other: بيانات ملف المستخدم
   - id: tab-export
     translation:
       one: null
@@ -140,16 +135,15 @@ key:
   - id: profile
     translation:
       one: null
-      other: الملف الشخصي
+      other: ملف المستخدم
   - id: profile-warning
     translation:
       one: null
-      other: يمكن الوصول إلى هذه المعلومات من قبل مستخدمين آخرين على هذا الكمبيوتر،
-        لذا كن حذرًا فيما تشاركه.
+      other: .يمكن للمستخدمين الآخرين على هذا الكمبيوتر الوصول إلى هذه المعلومات، لذا يجب أن تراعي ما تقوم بمشاركته
   - id: unlock
     translation:
       one: null
-      other: إلغاء قفل وتعديل الملف الشخصي
+      other: فتح وتعديل ملف المستخدم
   - id: change
     translation:
       one: null
@@ -165,20 +159,19 @@ key:
   - id: export-details
     translation:
       one: null
-      other: يمكنك تصدير ملفك الشخصي بالإضافة إلى تقدمك الحالي واستيراده إلى جهاز آخر،
-        لتعلم متسلسل أثناء التنقل.
+      other: .يمكنك تصدير ملف المستخدم مع تقدمك الحالي واستيراده إلى جهاز آخر كي تتمكن من التعلم السلس أثناء التنقل
   - id: info
     translation:
       one: null
-      other: معلومات
+      other: المعلومات
   - id: info-export
     translation:
       one: null
-      other: الملف JSON الناتج عن هذا التصدير غير مشفر.
+      other: .الناتج عن هذا التصدير غير مشفّر JSON ملف
   - id: export-includes
     translation:
       one: null
-      other: يتضمن هذا التصدير كل معلومات ملفك الشخصي وتقدمك عبر الوحدات.
+      other: .تتضمن عملية التصدير هذه جميع معلومات ملفك المستخدم والتقدم المحرز بين الوحدات
   - id: export-data
     translation:
       one: null
@@ -190,8 +183,7 @@ key:
   - id: delete-details
     translation:
       one: null
-      other: يتم حذف جميع البيانات المخزنة على هذا الجهاز ويؤدي هذا الإجراء إلى عدم
-        القدرة على استردادها.
+      other: .يمكنك حذف حسابك الحالي وكل التقدم المرتبط به في القسم التالي
   - id: warning
     translation:
       one: null
@@ -199,12 +191,11 @@ key:
   - id: warning-delete
     translation:
       one: null
-      other: هذا الإجراء لا يمكن التراجع عنه، وسيتم فقدان جميع بياناتك بشكل دائم ما لم
-        تكن لديك نسخة احتياطية.
+      other: .لا يمكن التراجع عن هذا الإجراء حيث ستفقد جميع بياناتك بشكل دائم ما لم يكن لديك نسخة احتياطية
   - id: final-confirmation
     translation:
       one: null
-      other: سيُطلب منك التأكيد النهائي قبل المتابعة.
+      other: .سيُطلب منك التأكيد مرة أخيرة قبل المتابعة
   - id: delete-account
     translation:
       one: null
@@ -212,7 +203,7 @@ key:
   - id: your-profile
     translation:
       one: null
-      other: ملفك الشخصي
+      other: ملف المستخدم
   - id: badges
     translation:
       one: شارة
@@ -227,8 +218,8 @@ key:
       other: تسجيل الخروج
   - id: modules
     translation:
-      one: وحدة
-      other: وحدات
+      one: الوحدة
+      other: الوحدات
   - id: start-here
     translation:
       one: null
@@ -240,7 +231,7 @@ key:
   - id: modules-description
     translation:
       one: null
-      other: لوريم إيبسوم دولور سيت أميت بلاه.
+      other: null
   - id: visit-site
     translation:
       one: null
@@ -248,11 +239,11 @@ key:
   - id: out-of
     translation:
       one: null
-      other: من
+      other: من أصل
   - id: modules-completed
     translation:
       one: null
-      other: وحدة تم الانتهاء منها
+      other: وحدة مكتملة
   - id: progress-bar
     translation:
       one: null
@@ -260,87 +251,87 @@ key:
   - id: todo
     translation:
       one: null
-      other: للقيام به
+      other: أشياء يجب القيام بها
   - id: done
     translation:
       one: null
-      other: تم
+      other: أشياء منجزة
   - id: congratulations-introduction
     translation:
       one: null
-      other: تهانينا على انتهاء المقدمة!
+      other: !تهانينا على إنهائك المقدمة
   - id: congratulations-module
     translation:
       one: null
-      other: تهانينا على انتهاء
+      other: تهانينا على إنهائك
   - id: mark-intro-complete
     translation:
       one: null
-      other: وسم المربع لتأكيد قراءتك للمقدمة والمتابعة إلى الوحدة التالية.
+      other: .ضع علامة في خانة الاختيار لتأكيد أنك قرأت المقدمة وانتقل إلى الوحدة التالية
   - id: mark-module-complete
     translation:
       one: null
-      other: وسم المربع لتأكيد اكتمالك والمتابعة إلى الوحدة التالية.
+      other: .حدد خانة الاختيار لتأكيد إكمالك والمتابعة إلى الوحدة التالية
   - id: mark-as-complete
     translation:
       one: null
-      other: وسم الوحدة كمكتملة
+      other: تحديد الوحدة على أنها مكتملة
   - id: mark-intro-as-complete
     translation:
       one: null
-      other: وسم المقدمة كمكتملة
+      other: تحديد المقدمة على أنها مكتملة
   - id: mark-as-complete-aria
     translation:
       one: null
-      other: يوسم الوحدة الحالية كمكتملة ويحفظ التقدم للمستخدم.
+      other: .تحديد الوحدة الحالية على أنها مكتملة وحفظ التقدم للمستخدم
   - id: mark-intro-as-complete-aria
     translation:
       one: null
-      other: يوسم المقدمة كمكتملة ويحفظ التقدم للمستخدم.
+      other: .تحديد على المقدمة على أنها مكتملة وحفظ التقدم للمستخدم
   - id: all-completed
     translation:
       one: null
-      other: لقد أكملت جميع الوحدات في مسار التعلم هذا.
+      other: .لقد أكملت جميع الوحدات في مسار التعلم هذا
   - id: only-one-module-left
     translation:
       one: null
-      other: هناك وحدة واحدة فقط متبقية لكسب شارتك
+      other: .لم يتبقَ سوى وحدة واحدة قبل أن تحصل على شارتك
   - id: multiple-modules-left
     translation:
       one: null
-      other: انهاء 'count' وحدة أخرى لكسب شارتك
+      other: من الوحدات الإضافية كي تحصل على شارتك 'count' أكمل
   - id: modules-left
     translation:
-      one: وحدة واحدة متبقية لكسب شارتك
-      other: "'count' وحدة أخرى متبقية لكسب شارتك"
+      one: بقيت وحدة واحدة قبل أن تحصل على شارتك
+      other: من الوحدات قبل أن تحصل على شارتك 'count'
   - id: no-modules
     translation:
       one: null
-      other: لم تكمل أي وحدة حتى الآن!
+      other: !لم تكمل أي وحدة بعد
   - id: badge-completed
     translation:
       one: null
-      other: لقد كسبت شارة!
+      other: !لقد حصلت على شارة
   - id: keep-learning
     translation:
       one: null
-      other: استمر في التعلم لكسب شارتك!
+      other: !تابع التعلم لتحصل على شارتك
   - id: congratulations
     translation:
       one: null
-      other: تهانينا!
+      other: !تهانينا
   - id: get-badge
     translation:
       one: null
-      other: احصل على الشارة!
+      other: !احصل على الشارة
   - id: skip-link
     translation:
       one: null
-      other: التخطي إلى المحتوى
+      other: تخطي إلى المحتوى
   - id: search
     translation:
       one: null
-      other: بحث
+      other: البحث
   - id: table-of-contents
     translation:
       one: null
@@ -352,7 +343,7 @@ key:
   - id: faq-description
     translation:
       one: null
-      other: لا تستطيع أن تجد الإجابة التي تبحث عنها؟ تواصل مع فريق دعم العملاء لدينا
+      other: null
   - id: faq-link
     translation:
       one: null
@@ -360,11 +351,11 @@ key:
   - id: aria-language
     translation:
       one: null
-      other: "اللغة الحالية هي "
+      other: اللغة الحالية هي
   - id: aria-translation
     translation:
       one: null
-      other: "تمت الترجمة إلى "
+      other: مترجم إلى
   - id: previous-module
     translation:
       one: null
@@ -379,12 +370,12 @@ key:
       other: صفحة نظرة عامة
   - id: languages
     translation:
-      one: null
-      other: اللغة
+      one: اللغة
+      other: اللغات
   - id: for-path
     translation:
       one: null
-      other: ل
+      other: حصلت عليها من
   - id: home
     translation:
       one: null
@@ -396,35 +387,35 @@ key:
   - id: download-badge
     translation:
       one: null
-      other: تحميل الشارة
+      other: تنزيل الشارة
   - id: licensed-under
     translation:
       one: null
-      other: بموجب رخصة المشاع الإبداعي.
+      other: مرخص بموجب
   - id: open-language
     translation:
       one: null
-      other: فتح قائمة اللغات
+      other: عرض قائمة اللغات
   - id: open-user
     translation:
       one: null
-      other: فتح قائمة المستخدم
+      other: عرض قائمة المستخدم
   - id: confirm-delete
     translation:
       one: null
-      other: هل أنت متأكد من رغبتك في حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء.
+      other: .هل أنت متأكد أنك تريد حذف حسابك؟ لا يمكن التراجع عن هذا الإجراء
   - id: completed
     translation:
       one: null
-      other: مكتمل
+      other: اكتمل
   - id: readingTime
     translation:
-      one: دقيقة واحدة للقراءة
-      other: "{{ .Count }} دقائق للقراءة"
+      one: دقيقة قراءة واحدة
+      other: دقائق للقراءة {{ .Count }}
   - id: eta
     translation:
       one: null
-      other: الوقت المقدر للقراءة
+      other: وقت القراءة المقدّر
   - id: minutes
     translation:
       one: دقيقة
@@ -436,11 +427,11 @@ key:
   - id: wordCount
     translation:
       one: كلمة واحدة
-      other: "{{ .Count }} كلمات"
+      other: كلمات {{ .Count }}
   - id: publishDate
     translation:
       one: null
-      other: نشرت في
+      other: تم النشر في
   - id: updated-on
     translation:
       one: null
@@ -448,21 +439,19 @@ key:
   - id: git-unavailable
     translation:
       one: null
-      other: معلومات Git غير متاحة.
+      other: .غير متوفرة GIF معلومات
   - id: edit-github
     translation:
       one: null
-      other: تعديل هذه الصفحة على GitHub
+      other: GitHub تعديل هذه الصفحة على
   - id: print-pdf
     translation:
       one: null
-      other: الطباعة بصيغة PDF
+      other: PDF طباعة بصيغة
   - id: cookie-banner
     translation:
       one: null
-      other: يستخدم هذا الموقع [Clean Insights](https://cleaninsights.org/) لتحليلات
-        الويب التي تحافظ على الخصوصية. باستخدامك للموقع، فإنك توافق على السماح
-        بجمع المعلومات الأساسية مثل البلد، واللغة، والتنقل، ووكيل المستخدم.
+      other: .لتحليلات الويب التي تحافظ على الخصوصية. من خلال استخدامك الموقع توافق على السماح بجمع معلومات البلد واللغة والتنقل ووكيل المستخدم الأساسية [Clean Insights](https://cleaninsights.org] يستخدم هذا الموقع
   - id: accept
     translation:
       one: null
@@ -478,11 +467,11 @@ key:
   - id: drag-drop
     translation:
       one: null
-      other: أو اسحب وأفلت
+      other: أو قم بسحبه وإفلاته
   - id: json-size
     translation:
       one: null
-      other: JSON، حتى 2 ميجابايت
+      other: حتى 2 ميجابايت ،JSON
   - id: January
     translation:
       one: null
