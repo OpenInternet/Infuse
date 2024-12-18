@@ -307,7 +307,7 @@ key:
   - id: no-modules
     translation:
       one: null
-      other: !لم تكمل أي وحدة بعد
+      other: "!لم تكمل أي وحدة بعد"
   - id: badge-completed
     translation:
       one: null
@@ -315,15 +315,15 @@ key:
   - id: keep-learning
     translation:
       one: null
-      other: !تابع التعلم لتحصل على شارتك
+      other: "!تابع التعلم لتحصل على شارتك"
   - id: congratulations
     translation:
       one: null
-      other: !تهانينا
+      other: "!تهانينا"
   - id: get-badge
     translation:
       one: null
-      other: !احصل على الشارة
+      other: "!احصل على الشارة"
   - id: skip-link
     translation:
       one: null
