@@ -49,7 +49,7 @@ Les logiciels d'infrastructure comprenant des vulnérabilités sont généraleme
 
 ## Contrôle de compétence
 
-Recherchez 2 CVE qui sont répertoriées sur <https://www.opencve.io/cve> ou une autre base de données CVE. Choisissez celles qui sont décrites en profondeur (les bases de données CVE sont généralement liées à des articles externes qui contiennent de tels détails) et ont une cote de vulnérabilité. Étant donné que les CVE peuvent souvent être très techniques, sélectionnez celles qui traitent d'un sujet ou d'une technologie que vous connaissez. Répondez aux questions suivantes :  
+Recherchez 2 CVE qui sont répertoriées sur [https://www.cve.org/](https://www.cve.org/) ou une autre base de données CVE. Choisissez celles qui sont décrites en profondeur (les bases de données CVE sont généralement liées à des articles externes qui contiennent de tels détails) et ont une cote de vulnérabilité. Étant donné que les CVE peuvent souvent être très techniques, sélectionnez celles qui traitent d'un sujet ou d'une technologie que vous connaissez. Répondez aux questions suivantes :  
 
 - De façon générale, de quoi parle les CVE ? Quelle est la faille ou la vulnérabilité que les cybercriminels pourraient exploiter ?
 - Connaissez-vous des personnes ou des organisations dont un cybercriminel pourrait exploiter les systèmes en utilisant cette CVE ? Et si cette CVE est combinée avec d'autres vulnérabilités ?

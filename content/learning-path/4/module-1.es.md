@@ -63,7 +63,7 @@ El software de infraestructura con vulnerabilidades generalmente se descubre med
 
 ## Verificación de Habilidades
 
-Busque 2 CVE que figuran en [https://www.opencve.io/cve](https://www.opencve.io/cve) u otra base de datos CVE. Elija aquellos que se describan con cierta profundidad (las bases de datos CVE generalmente enlazan con artículos externos que contienen dichos detalles) y que tengan una clasificación de vulnerabilidad. Dado que los CVE a menudo pueden ser muy técnicos, seleccione aquellos que aborden un tema o tecnología con el que se sienta cómodo. Responde las siguientes preguntas:  
+Busque 2 CVE que figuran en [https://www.cve.org/](https://www.cve.org/) u otra base de datos CVE. Elija aquellos que se describan con cierta profundidad (las bases de datos CVE generalmente enlazan con artículos externos que contienen dichos detalles) y que tengan una clasificación de vulnerabilidad. Dado que los CVE a menudo pueden ser muy técnicos, seleccione aquellos que aborden un tema o tecnología con el que se sienta cómodo. Responde las siguientes preguntas:  
 
 - A grandes rasgos ¿de qué se trata el CVE? ¿Cuál es la falla o vulnerabilidad que podría aprovechar el atacante?
 - ¿Conoce alguna persona u organización cuyos sistemas un adversario podría explotar utilizando este CVE? ¿Qué pasa si este CVE se combina con otras vulnerabilidades?

@@ -65,7 +65,7 @@ description = "We introduce different types of infrastructure vulnerabilities an
 
 ## اختبار مهارة
 
-ابحث عن اثنتين من الثغرات الأمنية والتعرضات الشائعة المدرجة على https://www.opencve.io/cve أو قاعدة بيانات أخرى للثغرات الأمنية والمخاطر العامة اختر تلك التي تم وصفها بشكل متعمّق (عادة ما ترتبط قواعد بيانات الثغرات الأمنية والتعرضات الشائعة بالمقالات الخارجية التي تحتوي على مثل هذه التفاصيل) ولها تصنيف ثغرة. نظرًا لأنه يمكن أن تكون الثغرات الأمنية والتعرضات الشائعة في كثير من الأحيان تقنية للغاية، ويجب أن نحدد تلك التي تتعامل مع موضوع أو تقنية ترتاح لاستخدامها ثم حاول الإجابة على الأسئلة التالية:
+ابحث عن اثنتين من الثغرات الأمنية والتعرضات الشائعة المدرجة على [https://www.cve.org/](https://www.cve.org/) أو قاعدة بيانات أخرى للثغرات الأمنية والمخاطر العامة اختر تلك التي تم وصفها بشكل متعمّق (عادة ما ترتبط قواعد بيانات الثغرات الأمنية والتعرضات الشائعة بالمقالات الخارجية التي تحتوي على مثل هذه التفاصيل) ولها تصنيف ثغرة. نظرًا لأنه يمكن أن تكون الثغرات الأمنية والتعرضات الشائعة في كثير من الأحيان تقنية للغاية، ويجب أن نحدد تلك التي تتعامل مع موضوع أو تقنية ترتاح لاستخدامها ثم حاول الإجابة على الأسئلة التالية:
 
 بشكل عام ما هو موضوع الثغرات الأمنية والتعرضات الشائعة؟ ما هو العيب أو الثغرة الأمنية التي يمكن للمهاجم استغلالها؟
 هل تعرف أي أشخاص أو منظمات يمكن لمتطفل أن يستغل أنظمتها باستخدام الثغرات الأمنية والتعرضات الشائعة هذه؟ ماذا لو تم الجمع بين الثغرات الأمنية والتعرضات الشائعة وثغرات الأخرى؟
@@ -85,7 +85,7 @@ description = "We introduce different types of infrastructure vulnerabilities an
 
 {{% resource title="CVEs with a vulnerability score of 9.8" languages="English" cost="Free" description="Examples of CVEs with high vulnerability scores that can cause significant damage." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
 
-{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.opencve.io/welcome" %}}
+{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.cve.org/" %}}
 
 {{% resource title="SAFETAG vulnerability scanning" languages="English" cost="Free" description="Guide to vulnerability scanning using the SAFETAG methodology." url="https://safetag.org/methods/vulnerability_scanning" %}}
 
