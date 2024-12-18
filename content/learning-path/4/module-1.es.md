@@ -55,7 +55,7 @@ El software de infraestructura con vulnerabilidades generalmente se descubre med
 
 {{% resource title="CVE con una puntuación de vulnerabilidad de 9.8, recurso 2" description="A continuación se muestran dos ejemplos de CVE que tenían puntuaciones de vulnerabilidad muy altas, lo que significa que los atacantes que las explotaran podrían causar mucho daño" languages="Inglés" cost="Gratis" url="https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
 
-{{% resource title="OpenCVE" description="Un sitio web (y una herramienta independiente) que le permite suscribirse a CVE que afectan a diferentes proveedores. Tenga en cuenta que no todas las vulnerabilidades reciben CVE." languages="Inglés" cost="Gratis" url="https://www.opencve.io/welcome" %}}
+{{% resource title="CVE.org" description="Un sitio web (y una herramienta independiente) que le permite suscribirse a CVE que afectan a diferentes proveedores. Tenga en cuenta que no todas las vulnerabilidades reciben CVE." languages="Inglés" cost="Gratis" url="https://www.cve.org/" %}}
 
 {{% resource title="Escaneo de vulnerabilidades SAFETAG" description="Una guía para el escaneo de vulnerabilidades que utiliza la metodología SAFETAG y contiene muchas actividades discretas." languages="Inglés" cost="Gratis" url="https://safetag.org/methods/vulnerability_scanning" %}}
 

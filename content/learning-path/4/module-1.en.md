@@ -66,7 +66,7 @@ If possible, discuss your answers to those questions with a peer or mentor who w
 
 {{% resource title="CVEs with a vulnerability score of 9.8" languages="English" cost="Free" description="Examples of CVEs with high vulnerability scores that can cause significant damage." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
 
-{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.opencve.io/welcome" %}}
+{{% resource title="CVE.org" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.cve.org/" %}}
 
 {{% resource title="SAFETAG vulnerability scanning" languages="English" cost="Free" description="Guide to vulnerability scanning using the SAFETAG methodology." url="https://safetag.org/methods/vulnerability_scanning" %}}
 

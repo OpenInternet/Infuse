@@ -46,30 +46,29 @@ Esse é o tipo mais arquetípico de vulnerabilidade de infraestrutura. Isso ocor
 
 O software de infraestrutura com vulnerabilidades geralmente é descoberto por meio de um software de verificação de vulnerabilidades (há muitos exemplos desse tipo de software, [confira esta lista](https://owasp.org/www-community/Vulnerability_Scanning_Tools)), notificações de fornecedores ou sistemas de gerenciamento de configuração ou por meio de inspeção manual do software implantado em um servidor. Dependendo do ambiente do servidor, esse software pode ser totalmente gerenciado por terceiros, atualizado automaticamente por agentes de software ou processos de implantação, ou gerenciado manualmente. Normalmente, se uma vulnerabilidade for corrigida, os invasores podem fazer engenharia reversa da correção para descobrir o mecanismo da vulnerabilidade subjacente, por isso é importante manter o software de infraestrutura atualizado.
 
+### Teste de capacitação
+
+Pesquise 2 CVEs que estão listados em [https://www.cve.org/](https://www.cve.org/) ou em outro banco de dados de CVEs. Escolha aqueles que são descritos em detalhes (os bancos de dados de CVEs geralmente fornecem links para relatos externos que contêm tais informações) e possuem uma classificação de vulnerabilidade. Como os CVEs podem ser frequentemente muito técnicos, selecione aqueles que tratam de um tópico ou tecnologia com os quais você esteja familiarizado. Responda às seguintes perguntas:
+
+- De maneira geral, sobre o que é o CVE? Qual é a falha ou vulnerabilidade que o invasor poderia explorar?
+- Você conhece alguma pessoa ou organização cujos sistemas um invasor poderia explorar utilizando este CVE? E se este CVE for combinado com outras vulnerabilidades?
+- Por que você acha que o CVE tem a pontuação que possui?
+
+Após procurar dois CVEs que você achou interessantes, faça uma pesquisa em um banco de dados de CVEs sobre um produto tecnológico que você ou pessoas que você está auxiliando estão utilizando. Verifique os CVEs recentes relacionados a esse produto e, em seguida, responda novamente às perguntas listadas acima.
+Se você está hospedando um servidor web por conta própria, pesquise vulnerabilidades recentes. Se você estiver utilizando algo como Drupal ou WordPress por meio de um provedor terceirizado, verifique as vulnerabilidades nesses serviços também e, através do painel de controle do seu provedor (cada provedor terá um painel ligeiramente diferente), certifique-se de que está executando as versões mais recentes dessas ferramentas. 
+
+Se possível, discuta suas respostas a essas perguntas com um colega ou mentor que possa ajudar a verificar se você compreendeu corretamente o tópico.
 
 
-## Skill Check
 
-Look up 2 CVEs which are listed on [https://www.cve.org/](https://www.cve.org/) or another CVE database. Pick those which are both described in some depth (CVE databases usually link out to external writeups which contain such details) and have a vulnerability rating. Since CVEs can often be very technical, select those which deal with a topic or technology which you are comfortable with. Answer the following questions:
+## Recursos de aprendizagem
 
-- Broadly speaking, what is the CVE about? What is the flaw or vulnerability that the attacker could exploit?
-- Do you know of any people or organizations whose systems an adversary could exploit using this CVE? What if this CVE is combined with other vulnerabilities?
-- Why do you think that the CVE has the score it has?
+{{% resource title="O que é um CVE?" languages="Português" cost="Grátis" description="Uma boa introdução ao que são as CVEs (Vulnerabilidades e Exposições Comuns) e por que elas são importantes" url="https://www.redhat.com/pt-br/topics/security/what-is-cve" %}}
 
-After you have looked up two CVEs which you found interesting, do a search in a CVE database for a tech product which you or people you are supporting are running, see what recent CVEs it had, and once again answer the questions listed above.
+{{% resource title="CVEs com uma pontuação de vulnerabilidade de 9,8" languages="Inglês" cost="Grátis" description="Aqui estão dois exemplos de CVEs que tiveram pontuações de vulnerabilidade muito altas, o que significa que os invasores que os exploram podem causar muitos danos." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
 
-If you are self-hosting a web server, look up recent vulnerabilities. If you are running something like Drupal or Wordpress through a third-party provider, check up the vulnerabilities on those services as well and, through your provider’s dashboard (each provider will have a slightly different one) make sure that you are running the latest versions of those tools.
+{{% resource title="CVE.org" languages="Inglês" cost="Grátis" description="Um site (e ferramenta autônoma) que permite que você assine CVEs que afetam diferentes fornecedores. Observe que nem todas as vulnerabilidades recebem CVEs." url="https://www.opencve.io/welcome" %}}
 
-If possible, discuss your answers to those questions with a peer or mentor who will help verify that you’ve correctly understood the topic.
+{{% resource title="Varredura de vulnerabilidades SAFETAG" languages="Inglês" cost="Grátis" description="Um guia para a varredura de vulnerabilidades que usa a metodologia SAFETAG e contém muitas atividades discretas" url="https://safetag.org/methods/vulnerability_scanning" %}}
 
-## Learning Resources
-
-{{% resource title="What’s a CVE" languages="English" cost="Free" description="Introduction to CVEs (Common Vulnerabilities and Exposures) and their importance." url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
-
-{{% resource title="CVEs with a vulnerability score of 9.8" languages="English" cost="Free" description="Examples of CVEs with high vulnerability scores that can cause significant damage." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
-
-{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.opencve.io/welcome" %}}
-
-{{% resource title="SAFETAG vulnerability scanning" languages="English" cost="Free" description="Guide to vulnerability scanning using the SAFETAG methodology." url="https://safetag.org/methods/vulnerability_scanning" %}}
-
-{{% resource title="Vulnerability Scanning Tools" languages="English" cost="Free" description="List of automated tools for web app vulnerability scanning, with various use cases and pricing models." url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
+{{% resource title="Ferramentas de verificação de vulnerabilidades" languages="Inglês" cost="Grátis" description="Uma lista de ferramentas automatizadas que os protetores digitais podem usar para procurar vulnerabilidades em aplicativos web. Ferramentas diferentes funcionam para casos de uso distintos e possuem modelos de precificação variados, sendo muitas delas de código aberto." url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
