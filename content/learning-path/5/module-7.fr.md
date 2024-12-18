@@ -105,23 +105,23 @@ ZAP (Zed Attack Proxy de SSP) est une alternative open source à Burp. Bien que 
 
 Pour cet exercice pratique, nous utiliserons le module de scanner de ZAP. Pour vous faire une idée, assurez-vous d'abord d'avoir une instance de DIWA en cours d'exécution, puis ouvrez simplement ZAP et cliquez sur « Analyse automatisée », saisissez l'URL de votre page d'accueil DIWA et cliquez sur « Attaque ».
 
-![A screenshot of ZAP as it opens](/media/uploads/web_security_assessment_ZAP1.png)
+![Une capture d'écran de ZAP lors de son ouverture](/media/uploads/web_security_assessment_ZAP1.png)
 
-![A screenshot of ZAP as the user selects an automated scan. The URL to attack is 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP2.png)
+![Capture d'écran de ZAP lorsque l'utilisateur sélectionne une analyse automatisée. L'URL à attaquer est 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP2.png)
 
 Vu que DIWA est une petite application, cette analyse devrait se terminer assez rapidement. Si tout se passe bien, vous remarquerez que le scanner de ZAP a trouvé des problèmes. Cependant, à moins que ZAP ait changé de manière significative, les résultats de ZAP peuvent être quelque peu décevants. Il peut y avoir quelques petits problèmes que ZAP a trouvés et que vous avez omis, mais ZAP devrait avoir manqué la plupart des gros problèmes que vous avez trouvés.
 
 Voyons si nous pouvons améliorer ça. Cliquez sur le bouton « Démarrage rapide » dans la barre d'outils secondaire, puis sur le bouton « < » dans le volet ci-dessous. À partir de là, cliquez sur « Exploration manuelle », saisissez l'URL de votre DIWA, puis cliquez sur « Lancer le navigateur ».
 
-![A screenshot of ZAP and the "alerts" box that the service displays at the bottom](/media/uploads/web_security_assessment_ZAP3.png)
+![Une capture d'écran de ZAP et de la boîte « alertes » que le service affiche en bas](/media/uploads/web_security_assessment_ZAP3.png)
 
-![A screenshot of ZAP as it manually explores the page for vulnerable JS libraries](/media/uploads/web_security_assessment_ZAP4.png)
+![Une capture d'écran de ZAP alors qu'il explore manuellement la page à la recherche de bibliothèques JavaScript vulnérables](/media/uploads/web_security_assessment_ZAP4.png)
 
 Cliquez sur le site et assurez-vous que lorsque vous avez terminé, vous êtes connecté(e) au site en tant qu'utilisateur administrateur. Maintenant, revenez à ZAP et lancez une analyse en cliquant avec le bouton droit sur le site DIWA dans la barre de gauche et en lançant une analyse active avec la configuration par défaut.
 
-![A screenshot of ZAP as the user rights clicks on a site, and selects "attack" and "active scan"](/media/uploads/web_security_assessment_ZAP5.png)
+![Une capture d'écran de ZAP lorsque l'utilisateur clique avec le bouton droit sur un site et sélectionne « attack » et « active scan »](/media/uploads/web_security_assessment_ZAP5.png)
 
-![A screenshot of ZAP as the user gets ready to run an active scan on 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP6.png)
+![Une capture d'écran de ZAP alors que l'utilisateur se prépare à exécuter une analyse active sur 127.0.0.1:8901](/media/uploads/web_security_assessment_ZAP6.png)
 
 Cette analyse devrait prendre beaucoup plus de temps et donner de meilleurs résultats significativement différents. À quoi est-ce dû ? Le lancement de l'analyse à partir d'un site que vous avez visité dans la section « Sites » donne au scanner beaucoup plus d'informations que l'analyse entièrement automatisée. En fait, les résultats que vous obtenez du scanner peuvent différer considérablement en fonction de la façon dont vous explorez manuellement le site avant d'exécuter l'analyse.
 

@@ -64,27 +64,27 @@ Deux proxys Web d'interception populaires utilisés pour les évaluations de sé
 
 Pour commencer avec Burp, vous devez d'abord [le télécharger](https://portswigger.net/burp/releases/community/latest). Une fois que vous avez téléchargé et installé l'application, ouvrez-la. Avant de commencer à utiliser Burp, il vous sera demandé de spécifier un projet et une configuration. Les projets vous permettent de suivre vos progrès en testant un site entre les sessions, mais ne sont pas pris en charge dans l'édition gratuite, alors sélectionnez simplement « Projet temporaire ». Vous pouvez également spécifier différents ensembles de configurations. Pour l'instant, sélectionnez simplement « Utiliser les valeurs par défaut de Burp ».
 
-![A screenshot of one of Burp Suite's first screens, with "Temporary Project in Memory" selected](/media/uploads/web_security_assessment_burp1.png)
+![Capture d'écran de l'un des premiers écrans de Burp Suite, avec « Temporary Project in Memory » sélectionné](/media/uploads/web_security_assessment_burp1.png)
 
-![A screenshot of the next Burp Suite screen, with "Use Burp defaults" selected](/media/uploads/web_security_assessment_burp2.png)
+![Une capture d'écran de l'écran suivant de Burp Suite, avec « Use Burp Defaults » sélectionné](/media/uploads/web_security_assessment_burp2.png)
 
 Cela vous mènera à la fenêtre principale de Burp. Les onglets principaux que vous utiliserez sont les onglets « Proxy » et « Intrus ». Pour l'instant, passez à l'onglet Proxy et cliquez sur le bouton « Ouvrir le navigateur ». Cela ouvrira une instance Chromium entièrement configurée pour utiliser Burp. Ce navigateur intégré est configuré pour utiliser Burp comme proxy et sa configuration TLS a été modifiée pour permettre à Burp d'intercepter le trafic chiffré. Vous pouvez utiliser cette instance de navigateur pour tester des applications Web pendant que vous utilisez votre navigateur normal pour la navigation générale.
 
-![A screenshot of Burp Suite, with proxy and intercept enabled](/media/uploads/web_security_assessment_burp3.png)
+![Une capture d'écran de Burp Suite, avec proxy et interception activés](/media/uploads/web_security_assessment_burp3.png)
 
-![A screenshot of the Burp Suite intercept. A web browser has loaded the Internews web page, and the intercept is listing all the requests it makes](/media/uploads/web_security_assessment_burp4.png)
+![Capture d'écran de l'interception de Burp Suite. Un navigateur Web a chargé la page Web d'Internews et l'interception répertorie toutes les requêtes qu'il effectue](/media/uploads/web_security_assessment_burp4.png)
 
 Pour l'instant, saisissez l'URL de n'importe quel site Web dans le navigateur intégré de Burp et appuyez sur Entrée. Vous remarquerez que rien ne se passe dans le navigateur. Revenez à Burp et vous verrez la requête HTTP envoyée par le navigateur, et un bouton mis évidence indiquant « L'interception est activée ». Ce qui s'est passé, c'est que Burp a reçu la demande de votre navigateur, mais ne l'a pas transmise au serveur Web. Au lieu de cela, il vous permet d'inspecter et de modifier la requête. Pour l'instant, cliquez sur le bouton « L'interception est activée » pour désactiver l'interception. Si vous regardez l'instance Chromium intégrée à Burp, vous devriez voir la page Web chargée. Revenez à Burp et cliquez sur le sous-onglet « Historique HTTP » de l'onglet Proxy. Vous verrez un journal de toutes les requêtes HTTP envoyées par votre navigateur. Si vous cliquez sur l'une de ces requêtes, vous obtiendrez ses détails ainsi que la réponse du serveur.
 
-![A screenshot of the Burp Suite proxy, collecting HTTP history. The Internews website is in the foreground](/media/uploads/web_security_assessment_burp5.png)
+![Capture d'écran du proxy Burp Suite, qui collecte l'historique HTTP. Le site Web d'Internews est au premier plan](/media/uploads/web_security_assessment_burp5.png)
 
 Si vous voulez modifier une requête qui a déjà été envoyée, cliquez avec le bouton droit sur cette requête et sélectionnez « Envoyer au répéteur ». Passez à l'onglet Répéteur et vous verrez la requête à gauche. Une bonne pratique consiste à cliquer immédiatement sur le bouton « Envoyer » pour obtenir une réponse normale. Vous pouvez ensuite modifier la requête et envoyer la requête modifiée. Vous pouvez utiliser les boutons « &lt; » et « &gt; » pour voir les requêtes et les réponses précédentes. L'utilisation de l'onglet Répéteur est extrêmement importante lors des évaluations de sécurité, comme vous le verrez dans les sous-thèmes ultérieurs.
 
-![A screenshot of the Burp Suite proxy, as it has collected an item of HTTP history and is sending that item to the intruder feature](/media/uploads/web_security_assessment_burp6.png)
+![Une capture d'écran du proxy Burp Suite, car il a collecté un élément de l'historique HTTP et envoie cet élément à la fonction d'intrusion](/media/uploads/web_security_assessment_burp6.png)
 
 Une caractéristique importante de l'interface du répéteur est la fonction « URL-encode as you type ». Cela encodera automatiquement les caractères au fur et à mesure que vous les saisirez, en vous évitant de nombreuses erreurs et en vous faisant économiser beaucoup de temps. Selon ce que vous modifiez, vous devrez activer ou désactiver cette fonctionnalité. Pour modifier le paramètre, cliquez avec le bouton droit sur le volet Requête et sélectionnez l'élément de menu.
 
-![A screenshot of the Burp Suite proxy, as it has collected an item of HTTP history and is sending that item to the repeater feature](/media/uploads/web_security_assessment_burp7.png)
+![Une capture d'écran du proxy Burp Suite, car il a collecté un élément de l'historique HTTP et envoie cet élément à la fonction de répéteur](/media/uploads/web_security_assessment_burp7.png)
 
 Cela vous permettra de commencer avec Burp Suite. L'édition communautaire gratuite est suffisante pour ce parcours d'apprentissage, bien que la plupart des utilisateurs payés pour effectuer des évaluations de sécurité des sites Web choisissent de s'abonner à l'édition professionnelle. La version gratuite et payante comprennent un grand nombre de fonctionnalités qui sont documentées sur le [site Web de Portswigger](https://portswigger.net/burp/documentation). Vous irez beaucoup plus en profondeur dans Burp dans la plupart des sous-thèmes suivants (bien que vous puissiez utiliser n'importe quel proxy de votre préférence).
 
@@ -94,15 +94,15 @@ Pour tous les sous-thèmes portant sur les classes de vulnérabilité, la grande
 
 Dans les sous-thèmes ci-dessous, chaque sous-thème attribuera une section de lecture et de laboratoires de la PortSwigger Academy. Lorsque vous terminez ces tâches, assurez-vous de parcourir toutes les pages et de remplir tous les exercices pratiques de niveau « apprenti ». Vous devriez également essayer tous les exercices pratiques de niveau « praticien », mais essayer de ne pas vous fixer sur un exercice en particulier. Si vous êtes coincé(e) dans un exercice de praticien particulier, passez à autre chose et revenez-y avant de terminer l'exercice final de validation des compétences du parcours d'apprentissage.
 
-![A screenshot of PortSwigger academy, demonstrating an XSS proof of concept](/media/uploads/web_security_assessment_PortSwigger_screenshot1.png)
+![Une capture d'écran de l'académie PortSwigger, démontrant une preuve de concept XSS](/media/uploads/web_security_assessment_PortSwigger_screenshot1.png)
 
 Le sujet XSS de la PortSwigger Academy. Assurez-vous de passer en revue tous les sous-thèmes. « Qu'est-ce que le XSS » par les « tests » constitue une page Web, mais chaque sous-thème a sa propre page.
 
-![A screenshot of PortSwigger academy, demonstrating reflected XSS](/media/uploads/web_security_assessment_PortSwigger_screenshot2.png)
+![Une capture d'écran de l'académie PortSwigger, démontrant le XSS réfléchi](/media/uploads/web_security_assessment_PortSwigger_screenshot2.png)
 
 Sous-thème des Reflected XSS de PortSwigger Academy. Notez l'exercice pratique en lien dans le bas de la capture d'écran.
 
-![A screenshot of PortSwigger academy, demonstrating three labs in the reflected XSS subtopic](/media/uploads/web_security_assessment_PortSwigger_screenshot3.png)
+![Une capture d'écran de l'académie PortSwigger, illustrant trois laboratoires dans le sous-thème XSS reflété](/media/uploads/web_security_assessment_PortSwigger_screenshot3.png)
 
 Après avoir terminé un thème (p. ex., XSS), revérifiez l'achèvement de votre exercice pratique en cochant le lien « Afficher tous les exercices du _thème_ ». Cela vous permettra de voir tous les exercices pratiques que vous avez manqués.
 

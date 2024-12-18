@@ -31,17 +31,17 @@ Como parte de Infuse, los aprendices también pueden trabajar con mentores que v
 
 Después de trabajar a lo largo de una ruta de aprendizaje y cumplir los criterios de validación (verificaciones de habilidades) mediante la verificación de un mentor o un colega, se considera que usted ha obtenido la *insignia* correspondiente a esa ruta de aprendizaje. Cuando haya iniciado sesión en el sitio web de Infuse, usted podrá marcar cada módulo que haya completado en la parte inferior de la página del módulo. Hacer esto le permite realizar un seguimiento de su progreso.
 
-![Notice at the end of a learning path module that says “Mark module as complete” next to a check box](/media/uploads/how-to-1.png)
+![Aviso al final de un módulo de ruta de aprendizaje que dice “Marcar módulo como completo” junto a una casilla de verificación](/media/uploads/how-to-1.png)
 
 Una vez que todos los módulos de una ruta de aprendizaje hayan sido marcados como completados, usted podrá acceder a un certificado de insignia específico para esa ruta de aprendizaje yendo a la página "Insignia" que aparece en el menú desplegable en la esquina superior derecha de la página web. Recuerde que, antes de reclamar una insignia, debe asegurarse de haber pasado algún tipo de evaluación por parte de su mentor, colegas o autoevaluación.
 
-![Profile dropdown menu with an arrow pointing to the “Badges” page](/media/uploads/how-to-2.png)
+![Menú desplegable de perfil con una flecha que apunta a la página “Insignias”](/media/uploads/how-to-2.png)
 
 ## **Traducción**
 
 Infuse está dirigido a una audiencia global, y la inclusión de una diversidad de idiomas es fundamental. Las seis rutas de aprendizaje iniciales (Infraestructura maliciosa, Detección de malware, Análisis de malware, Fundamentos de aplicaciones web, Evaluación de aplicaciones web y Preparación, Análisis forense y Respuesta a incidentes de ataques a aplicaciones web) están disponibles en árabe, inglés, francés y español (seleccione un idioma haciendo clic en el icono del globo que aparece en la esquina superior derecha del sitio web). Tenga en cuenta que sólo las rutas de aprendizaje en sí están traducidas y que los recursos externos vinculados desde las rutas de aprendizaje suelen estar en inglés, aunque algunos también están disponibles en otros idiomas. Al final de cada módulo, en las secciones de recursos de aprendizaje se especifica los idiomas en los que estaba disponible cada recurso en el momento de elaborar la ruta de aprendizaje. Algunos de los recursos vinculados a las rutas de aprendizaje y otras directrices de la página web también estarán traducidos en diferentes idiomas más adelante en 2024\.
 
-![Language dropdown menu showing options for English, French, Spanish, and Arabic](/media/uploads/how-to-3.png)
+![Menú desplegable de idiomas que muestra opciones para inglés, francés, español, árabe y portugués brasileño](/media/uploads/how-to-3.png)
 
 ## **Notas sobre la integración de habilidades interpersonales y pedagógicas**
 

@@ -33,17 +33,17 @@ Dans le cadre d'Infuse, les apprenants peuvent également travailler avec des me
 
 Après avoir suivi un parcours d'apprentissage et rempli les critères de validation (vérification des compétences) par l'intermédiaire d'un mentor ou d'un pair, vous êtes considéré(e) comme ayant obtenu le *badge* correspondant à ce parcours d'apprentissage. Lorsque vous êtes connecté(e) au site Web d'Infuse, vous pouvez marquer chaque module que vous avez terminé en bas de la page du module. Cela vous permet de suivre vos progrès.
 
-![Notice at the end of a learning path module that says "Mark module as complete" next to a check box](/media/uploads/how-to-1.png)
+![Avis à la fin d'un module de parcours d'apprentissage indiquant « Marquer le module comme terminé » à côté d'une case à cocher](/media/uploads/how-to-1.png)
 
 Une fois que tous les modules d'un parcours d'apprentissage ont été marqués comme terminés, vous pouvez accéder à un badge de certification spécifique à ce parcours d'apprentissage en accédant à la page « Badge » dans le menu déroulant situé dans le coin supérieur droit du site. Veuillez noter que vous devez vous assurer d'avoir réussi une évaluation de mentor, de pair ou une autoévaluation avant de réclamer un badge.
 
-![Profile dropdown menu with an arrow pointing to the "Badges" page](/media/uploads/how-to-2.png)
+![Menu déroulant du profil avec une flèche pointant vers la page « Badges »](/media/uploads/how-to-2.png)
 
 ## Traduction
 
 Le contenu d'Infuse est destiné à un public mondial et l'inclusion de la grande diversité de locuteurs est essentielle. Les six premiers parcours d'apprentissage (infrastructure malveillante, détection des logiciels malveillants, analyse des logiciels malveillants, principes fondamentaux des applications Web, évaluation des applications Web et préparation aux attaques des applications Web, investigation et intervention en cas d'incident) sont disponibles en arabe, anglais, français et espagnol (sélectionnez une langue en cliquant sur l'icône du globe dans le coin supérieur droit du site). Veuillez noter que seuls les parcours d'apprentissage sont traduits et que les ressources externes liées aux parcours d'apprentissage sont principalement en anglais, bien qu'un grand nombre de ressources soient également disponibles dans d'autres langues. Les sections des ressources d'apprentissage à la fin de chaque module indiquent dans quelles langues chaque ressource était disponible au moment de l'élaboration du parcours d'apprentissage. Certaines ressources liées aux parcours d'apprentissage et autres conseils sur le site Web seront également traduits dans différentes langues plus tard en 2024.
 
-![Language dropdown menu showing options for English, French, Spanish, and Arabic](/media/uploads/how-to-3.png)
+![Menu déroulant de langue affichant les options pour l'anglais, le français, l'espagnol, l'arabe et le portugais brésilien](/media/uploads/how-to-3.png)
 
 ## Notes sur l'intégration des compétences interpersonnelles et pédagogiques
 
