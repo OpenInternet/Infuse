@@ -311,7 +311,7 @@ key:
   - id: badge-completed
     translation:
       one: null
-      other: !لقد حصلت على شارة
+      other: "!لقد حصلت على شارة"
   - id: keep-learning
     translation:
       one: null
