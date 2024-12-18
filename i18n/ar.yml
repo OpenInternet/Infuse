@@ -59,7 +59,7 @@ key:
   - id: full-name
     translation:
       one: null
-      other: *الاسم الكامل
+      other: "*الاسم الكامل"
   - id: name-description
     translation:
       one: null
