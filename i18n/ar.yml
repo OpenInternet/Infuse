@@ -51,7 +51,7 @@ key:
   - id: username
     translation:
       one: null
-      other: *اسم المستخدم
+      other: "*اسم المستخدم"
   - id: username-description
     translation:
       one: null
