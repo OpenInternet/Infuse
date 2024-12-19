@@ -41,4 +41,22 @@
 &lt;hr>
 &lt;h2 id="conteúdo">Conteúdo&lt;/h2>
 &lt;h3 id="conhecimentos-básicos">Conhecimentos básicos&lt;/h3>
-&lt;p>A autorização é o processo de garantir que um usuário de um sistema tenha permissão para realizar uma ação específica, como criar, ler, editar ou excluir dados, e de impedir essas ações caso o usuário não possua as permissões adequadas. Geralmente, esses são os controles de segurança mais fáceis de implementar e as vulnerabilidades mais simples de identificar. No entanto, embora sejam conceitualmente simples, tanto a implementação quanto a violação desses controles costumam ser tarefas complexas e propensas a erros.&lt;/p></description></item></channel></rss>
+&lt;p>A autorização é o processo de garantir que um usuário de um sistema tenha permissão para realizar uma ação específica, como criar, ler, editar ou excluir dados, e de impedir essas ações caso o usuário não possua as permissões adequadas. Geralmente, esses são os controles de segurança mais fáceis de implementar e as vulnerabilidades mais simples de identificar. No entanto, embora sejam conceitualmente simples, tanto a implementação quanto a violação desses controles costumam ser tarefas complexas e propensas a erros.&lt;/p></description></item><item><title>Lógica do Aplicativo</title><link>https://infuse.quest/pt-br/learning-path/4/module-5/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://infuse.quest/pt-br/learning-path/4/module-5/</guid><description>&lt;h2 id="caso-de-uso">Caso de Uso&lt;/h2>
+&lt;p>Em qualquer site interativo que imponha restrições aos tipos de ações que os usuários podem realizar, é importante que o site aplique corretamente essas restrições para evitar ações não intencionais (e potencialmente prejudiciais) por usuários maliciosos.&lt;/p>
+&lt;h2 id="objetivos">Objetivos&lt;/h2>
+&lt;p>Após concluir este subtópico, os profissionais deverão ser capazes de fazer o seguinte:&lt;/p>
+&lt;ul>
+&lt;li>Compreender o conceito de vulnerabilidades na lógica do aplicativo&lt;/li>
+&lt;li>Identificar e compreender subclasses comuns de vulnerabilidades na lógica do aplicativo, incluindo:
+&lt;ul>
+&lt;li>Controles do lado do cliente&lt;/li>
+&lt;li>Falta de limitação de taxa/envios múltiplos&lt;/li>
+&lt;li>Inconsistências de arredondamento&lt;/li>
+&lt;li>Pular etapas do processo&lt;/li>
+&lt;li>Falsificação de solicitação entre sites&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="conteúdo">Conteúdo&lt;/h2>
+&lt;p>Vulnerabilidades de lógica do aplicativo (frequentemente chamadas de vulnerabilidades de lógica de negócios) são uma classe de falhas pouco definida, que estão relacionadas aos processos realizados pelo próprio aplicativo, em vez de vulnerabilidades nas tecnologias subjacentes usadas pelo aplicativo. Se essa definição for confusa para você, saiba que você não está sozinho. O que constitui uma vulnerabilidade de lógica de negócios em comparação com outras classes de vulnerabilidades é um assunto amplamente debatido. A Infuse adota a posição de que a definição exata não é tão relevante, e que a praticidade é mais importante do que definições precisas. Incentivamos você a focar nas vulnerabilidades em si, a desenvolver uma visão das classes de vulnerabilidades que seja lógica para você e a manter flexibilidade na taxonomia ao discutir vulnerabilidades com outras pessoas.&lt;/p></description></item></channel></rss>
