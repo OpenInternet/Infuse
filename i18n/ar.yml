@@ -471,7 +471,7 @@ key:
   - id: json-size
     translation:
       one: null
-      other:  ،JSON حتى 2 ميجابايت
+      other:  JSON, حتى 2 ميجابايت
   - id: January
     translation:
       one: null
