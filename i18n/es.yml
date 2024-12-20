@@ -7,7 +7,7 @@ key:
   - id: hero-subtitle
     translation:
       one: null
-      other: "En Infuse, empoderamos a las personas para que logren una mayor seguridad en línea a través de una educación integral sobre ciberseguridad, proporcionándoles los conocimientos necesarios para protegerse eficazmente en línea."
+      other: "En Infuse, le damos la bienvenida a los defensores de la seguridad digital y les invitamos a unirse a una comunidad de aprendizaje donde les proporcionamos recursos para desarrollar su experiencia técnica especializada. Mediante las rutas de aprendizaje colaborativo y las mentorías, les capacitamos para difundir esta experiencia y proteger así a las comunidades expuestas a altos riesgos de seguridad digital."
   - id: feature-one-title
     translation:
       one: null
