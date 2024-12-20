@@ -20,7 +20,7 @@ El sitio web de Infuse está alojado en GitHub, por lo que puede sugerir edicion
 
 El enlace anterior debería llevarle a la página de GitHub donde se encuentra la ruta de aprendizaje que acaba de visitar. Las rutas se componen utilizando Markdown (consulte una hoja de referencia sobre Markdown [aquí](https://www.markdownguide.org/basic-syntax/)). Cuando se encuentre en la página, haga clic en el botón "editar", que tiene el logotipo de un pequeño lápiz.
 
-![GitHub page for learning path 1 module 4 with a green arrow pointing at the edit button, represented by a pencil icon](/media/uploads/contribute-2.png)
+![Página de GitHub para el módulo 4 de la ruta de aprendizaje 1 con una flecha verde que apunta al botón de edición, representado por un ícono de lápiz](/media/uploads/contribute-2.png)
 
 Cuando haya terminado de editar la página, presione "guardar". Esto debería crear automáticamente una solicitud de incorporación de cambios de GitHub que luego puede enviar para que nuestro equipo la revise y, con suerte, ¡integrarla en el sitio principal\!
 
@@ -28,15 +28,15 @@ Cuando haya terminado de editar la página, presione "guardar". Esto debería cr
 
 Un método alternativo para editar Infuse en el navegador con una interfaz fácil de usar es enviar cambios o nuevos contenidos mediante el sistema de gestión de contenidos en [https://infuse.quest/admin](https://infuse.quest/admin). Para ello, deberá iniciar sesión en el backend utilizando una cuenta de GitHub y autorizar a la aplicación a leer y escribir desde su propia cuenta de GitHub. Si tiene interés en saber qué sucede detrás de escena: esta aplicación gestiona la creación de una copia del sitio en su propia cuenta de GitHub y guarda todos los cambios en su copia, luego, cuando esté listo para enviar esos cambios para someterlos a consideración, creará una solicitud de incorporación de cambios de GitHub que nosotros podremos revisar.
 
-![](/media/uploads/contribute-3.png)
+![La página de inicio de sesión de Infuse. Se ven dos botones. Uno dice "log in with Github" y tiene el logotipo de GitHub, el otro dice "go back to site"](/media/uploads/contribute-3.png)
 
 Una vez que haya iniciado sesión, usted podrá editar directamente el contenido del sitio navegando a la página correspondiente. Desde la sección *Colecciones* usted podrá acceder a las rutas de aprendizaje y dirigirse al módulo específico que le gustaría editar.
 
-![](/media/uploads/contribute-4.png)
+![Una página que muestra la lista de rutas de aprendizaje, a las que se hace referencia mediante números en lugar de nombres, en la columna de la izquierda, y sus módulos individuales en la columna de la derecha.](/media/uploads/contribute-4.png)
 
 Una vez que haya seleccionado el módulo que desea editar, se abrirá la ventana del editor, que se muestra a continuación. Estos son algunos aspectos destacados de trabajar con el editor:
 
-![](/media/uploads/contribute-5.png)
+![La vista del editor, que muestra botones de flujo de trabajo que permiten al usuario alternar entre borradores y texto listo para publicar, un selector de idioma que alterna entre diferentes versiones de idioma y un selector que permite al usuario elegir si está editando en texto enriquecido o en formato Markdown.](/media/uploads/contribute-5.png)
 
 1. Guardar flujo de trabajo: Una vez que haya terminado de hacer cambios, presione el botón Guardar. Esto pondrá la página en modo Borrador. En esta fase usted puede seguir trabajando en la página en cualquier otro momento, pero al equipo de Infuse no se le avisará de sus ediciones. Una vez que esté listo, puede cambiar el estado a "*En revisión",* lo que abrirá una solicitud de incorporación de cambios al repositorio principal de Infuse.  
 2. Selector de idioma: Las traducciones se pueden realizar o actualizar seleccionando el idioma correspondiente en este menú desplegable. Si le interesa traducir un nuevo idioma, no dude en enviarnos un correo electrónico a contact@infuse.quest.  
@@ -50,7 +50,7 @@ Para añadir imágenes al sitio Infuse, primero tendrá que subirlas a la carpet
 
 Para subir una imagen a través de GitHub, sólo tiene que añadirla a la carpeta anterior.
 
-![](/media/uploads/contribute-6.png)
+![GitHub, ha abierto el repositorio Infuse y la carpeta static/media/uploads. La carpeta contiene una serie de archivos png, que son utilizados por la página web](/media/uploads/contribute-6.png)
 
 De forma alternativa, si prefiere utilizar el CMS para añadir archivos, puede utilizar la pestaña "Medios" (tercera desde la izquierda) en la esquina superior izquierda del CMS.
 
