@@ -12,6 +12,8 @@ Infuse ofrece a los protectores digitales que buscan mejorar sus habilidades rut
 
 Infuse es desarrollado por la comunidad y es propiedad de ésta. En esencia, el marco de trabajo se desarrolló en base a premisas, ideas y comentarios identificados a través de entrevistas, discusiones en grupos focales, talleres y sprints con docenas de protectores digitales y miembros de la comunidad de Internet Freedom de todo el mundo. De 2023 a 2024, una coalición de organizaciones, [Conexo](https://conexo.org/en/home/), [DefendDefenders](https://defenddefenders.org/), [Internews](https://internews.org/) y [Jordan Open Source Association (JOSA)](https://josa.ngo/), lideró el desarrollo y la prueba piloto del marco de trabajo Infuse (que comprende las seis primeras rutas de aprendizaje). Algunos de los valores fundamentales que guiaron el desarrollo de Infuse han sido la reducción de daños, la accesibilidad y la adaptabilidad a diferentes contextos.
 
+Tenemos información disponible sobre las metodologías y los resultados de nuestra investigación en preparación para el diseño de Infuse. Para conocer la investigación realizada sobre los sistemas de verificación por pares en espacios de protección digital haga clic [aquí](https://internews.org/resource/peer-verification-systems-in-digital-protector-spaces/). Para conocer la investigación realizada sobre el desarrollo y mantenimiento de recursos de seguridad digital, haga clic [aquí](https://internews.org/resource/the-development-and-maintenance-of-digital-security-community-resources-and-curricula/).
+
 *Al igual que su té favorito infusiona el agua caliente, convirtiéndose en una bebida deliciosa, aromática y reconfortante (incluso tal vez con cafeína), esperamos que Infuse sea una enriquecedora fuente de aprendizaje, crecimiento y conexión para los protectores digitales y las comunidades a las que dan apoyo. ¡Meñiques arriba!*
 
 ## **¿Qué es el conocimiento técnico especializado (STE)?**
@@ -42,10 +44,9 @@ Puede contactarse con [DefendDefenders](https://defenddefenders.org/) en: progra
 Puede contactarse con [Internews](https://internews.org/) en: Infuse@internews.org
 
 
+## Créditos
 
-
-
-Construir Infuse fue un verdadero esfuerzo en equipo. Nos gustaría expresar nuestro especial agradecimiento a las siguientes personas:
+Desarrollar Infuse fue un verdadero trabajo en equipo. Nos gustaría agradecer especialmente a las siguientes personas…
 
 [Amir Rashidi](https://www.miaan.org/) \
 [Anna e só](https://notapplicable.dev) \
