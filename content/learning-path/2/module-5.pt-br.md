@@ -27,7 +27,7 @@ O [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/) forn
 
 Após finalizar as atividades guiadas, você deverá ser capaz de:
 
-* Entender o que é o pacote [SysInternals](https://learn.microsoft.com/en-us/sysinternals/) e como usar algumas ferramentas úteis à análise pericial.
+* Entender o que é o pacote [SysInternals](https://learn.microsoft.com/pt-br/sysinternals/) e como usar algumas ferramentas úteis à análise pericial.
 * Ler e entender os resultados da ferramenta Sysinternals Autoruns, e entender quais são as diferentes localizações e métodos de persistência (entendendo as diferentes abas exibidas no dispositivo).
 * Ler e filtrar os resultados das ferramentas Sysinternals Autoruns para identificar somente as que não são Microsoft, os binários sem assinatura, e como verificar os hashes de arquivo contra VirusTotal.
 * Saber como ler e entender os resultados do Process Explorer, inclusive como checar os processos em andamento com assinaturas de arquivo não verificadas e como verificar os hashes de processos contra VirusTotal.
@@ -66,7 +66,7 @@ Leia este guia: [Guia de principiantes - Como lidar com um app de celular potenc
 
 {{% resource title="Perícia forense em dispositivos móveis" languages="Inglês" cost="Grátis" description="Um guia abrangente sobre como realizar perícia forense e triagem na maioria dos principais sistemas operacionais." url="https://pellaeon.gitbook.io/mobile-forensics/" %}}
 
-{{% resource title="Sysinternals" languages="Inglês" cost="Grátis" description="Uma série de excelentes ferramentas que os analistas podem usar para entender melhor o que está acontecendo com um sistema Windows." url="https://learn.microsoft.com/en-us/sysinternals/" %}}
+{{% resource title="Sysinternals" languages="Inglês" cost="Grátis" description="Uma série de excelentes ferramentas que os analistas podem usar para entender melhor o que está acontecendo com um sistema Windows." url="https://learn.microsoft.com/pt-br/sysinternals/" %}}
 
 {{% resource title="Ferramentas Objective-see" languages="Inglês" cost="Grátis" description="Ferramentas de segurança excelentes para macOS que podem ajudar a detectar infecções por malware ou tentativas para obter/extrair dados." url="https://objective-see.org/tools.html" %}}
 
