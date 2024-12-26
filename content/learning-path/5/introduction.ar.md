@@ -1,7 +1,7 @@
 ---
 style: introduction
 title:  "مقدمة"
-description: Read the learning path overview, objectives, associated threats, and prerequisites
+description: "اقرأ نظرة عامة على مسار التعلم وأهدافه والتهديدات المرتبطة به ومتطلباته الأساسية"
 weight: 1
 ---
 
