@@ -1,8 +1,8 @@
 +++
 style = "module"
 weight = 2
-title = "Data Validation"
-description = "We look at a very common class of vulnerabilities, in which a website parses maliciously crafted data submitted by a user"
+title = "التحقق من صحة البيانات"
+description = "تتعلق فئة شائعة من الثغرات في تطبيقات الويب بالطريقة التي يعالج بها التطبيق البيانات التي يقدمها مستخدمو الموقع"
 +++
 
 ## حالة استخدام
@@ -461,8 +461,14 @@ var</pre>
 
 ## موارد التعلّم
 
-{{% resource title="OWASP guides to vulnerabilities" languages="English" cost="Free" description="Great overviews of different vulnerabilities, including examples." url="https://owasp.org/www-community/attacks/SQL_Injection" url2="https://owasp.org/www-community/attacks/xss/" url3="https://owasp.org/www-community/attacks/Path_Traversal" url4="https://owasp.org/www-community/attacks/Command_Injection" %}}
+{{% resource title="دليل مشروع أمان تطبيق الويب المفتوح للثغرات" description="نظرة عامة رائعة على ثغرات المختلفة مع أمثلة" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/attacks/SQL_Injection" %}}
 
-{{% resource title="OS command injection cheat sheet" languages="English" cost="Free" description="Quick overview of different OS commands which could be abused for injection." url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
+{{% resource title="دليل مشروع أمان تطبيق الويب المفتوح للثغرات" description="نظرة عامة رائعة على ثغرات المختلفة مع أمثلة" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/attacks/xss/" %}}
 
-{{% resource title="Web shells" languages="English, Kurdish, Chinese, Korean, French, Lombard, Hindi, Malayalam" cost="Free" description="Overview of what a web shell is and how it could be used in attacks." url="https://en.wikipedia.org/wiki/Web_shell" %}}
+{{% resource title="دليل مشروع أمان تطبيق الويب المفتوح للثغرات" description="نظرة عامة رائعة على ثغرات المختلفة مع أمثلة" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/attacks/Path_Traversal" %}}
+
+{{% resource title="دليل مشروع أمان تطبيق الويب المفتوح للثغرات" description="نظرة عامة رائعة على ثغرات المختلفة مع أمثلة" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/attacks/Command_Injection" %}}
+
+{{% resource title="ورقة معلومات مرجعية حقن أمر نظام التشغيل" description="نظرة عامة سريعة على أوامر نظام التشغيل المختلفة التي يمكن إساءة استخدامها للحقن" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/OS_Command_Injection_Defense_Cheat_Sheet.html" %}}
+
+{{% resource title="ويب شيلز" description="نظرة عامة سريعة على ماهية ويب شيلز وكيف يمكن استخدامها في الهجمات" languages="الإنجليزية والكردية والصينية والكورية والفرنسية واللومباردية والهندية والمالايالامية" cost="مجانًا" url="https://en.wikipedia.org/wiki/Web_shell" %}}
