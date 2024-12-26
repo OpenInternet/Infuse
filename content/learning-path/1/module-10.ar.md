@@ -1,199 +1,204 @@
 ---
 style: module
-title: Capture-the-flag exercise
-description: We have also designed a capture-the-flag exercise in which learners
-  can analyze a phishing email and the infrastructure it links to. The exercise
-  can be used as an additional practice or skill verification exercise, and can
-  be found here
+title: تمرين "التقط العلم"(Catch The Flag)
+description: لقد صممنا أيضاً تمرين التقاط العلم حيث يمكن للمتعلمين تحليل رسالة بريد إلكتروني للتصيد الاحتيالي والبنية التحتية التي ترتبط بها. يمكن استخدام التمرين كتدريب إضافي أو تمرين إضافي للتحقق من المهارات، ويمكن الاطلاع عليه هنا
 weight: 10
 ---
-We have also designed a capture-the-flag exercise in which learners can analyze a phishing email and the infrastructure it links to. The exercise can be used as an additional practice or skill verification exercise, and can be found below.
+لقد صممنا أيضاً تمرين التقاط العلم حيث يمكن للمتعلمين تحليل رسالة بريد إلكتروني للتصيد الاحتيالي والبنية التحتية التي ترتبط بها. يمكن استخدام التمرين كتدريب إضافي أو تمرين إضافي للتحقق من المهارات، ويمكن الاطلاع عليه هنا.
 
-You are sitting in the bustling Press newsroom where you are working as an IT admin, sitting totally focused on your duties surrounded by glowing monitors. Your colleague Alia from Accounting rushes over with a concerned look on their face, who lets you know they forwarded an email claiming to be from PayPal which urges them to take immediate action due to suspicious account activity. The Press organization relies on PayPal for processing subscription payments. Your interest is instantly piqued as you recognize the potential of a malicious attack, and you get started on an investigation.
+تجلس/ تجلسين في غرفة الأخبار الصحفية  حيث  تعمل/ تعملين كمسؤول/ مسؤولة عن تكنولوجيا المعلومات، وتجلس/ تجلسين مركز/مركزة تماماً على واجباتك محاط/ محاطة بشاشات مختلفة. يهرع إليك زميلتك علياء من قسم المحاسبة وعلى وجهها نظرة قلق، وتخبرك أنه أرسل لها رسالة بريد إلكتروني يدّعي أنه من PayPal يحثها على اتخاذ إجراء فوري بسبب نشاط مشبوه في الحساب. تعتمد المؤسسة الصحفية على PayPal لمعالجة مدفوعات الاشتراكات. يثار اهتمامك على الفور لأنك/أنكي تدرك/تدركين احتمال وجود هجوم خبيث، وتبدأ/تبدئين في إجراء تحقيق.
 
-*This activity utilizes a sample email and landing page needed for this activity. Download the files here: {{< fontawesome "solid/download" >}} [CTF Materials](/files/ctf-materials.zip)*
+*يستخدم هذا النشاط نموذج البريد الإلكتروني والصفحة المقصودة اللازمة لهذا النشاط. قم بتنزيل الملف هنا {{< fontawesome "solid/download" >}} [CTF Materials](/files/ctf-materials.zip)*
 
-### Question 1: What is the sender address of the email?
+### السؤال 1: ما هو عنوان المرسل للبريد الإلكتروني؟
 
-{{< question title="Instructions" open="true" >}}
-Find out how the sender address would appear in the email client if the email is opened.
+{{< question title="التعليمات" open="true" >}}
+اكتشف كيف سيظهر عنوان المرسل في عميل البريد الإلكتروني إذا تم فتح البريد الإلكتروني.
 {{< /question >}}
 
-{{< question title="Hints" >}}
-There are multiple ways to view what the email would look like to the recipient. The most straightforward way is to open the file in a mail client, which is what we have done in the below examples. However in the context of a targeted threat this can be a bad idea, in case the file contains scripts which can exploit email clients, collect information about the device, or load external resources (like /media/uploads/tracking pixels) which disclose your IP to the attacker. In the case of this walkthrough it is safe to open the EML in your email client, however for live work consider some alternatives:
+{{< question title="الإرشادات" >}}
 
-* Use an email client in a virtual machine which can be rolled back to a safe snapshot
-* Open the file in a text editor and read the HTML content directly
-* Rename the file to .mht and open in a web browser (consider using a sandboxed machine and connecting to a VPN to avoid IP collection from tracking pixels)
-* Use an online service such as <https://www.emlreader.com/> or <https://www.encryptomatic.com/viewer/> to render the email. MXToolBox’s email header analyzer <https://mxtoolbox.com/EmailHeaders.aspx> (used later in this walkthrough) will also render HTML content if you include it in the pasted headers.
-* Using an eDiscovery tool which can render EML files
-* Self-host your own service to render EML files, such as <https://github.com/xme/emlrender>
+هناك عدة طرق لعرض شكل البريد الإلكتروني على المستلم. الطريقة الأكثر وضوحًا هي فتح الملف في عميل البريد، وهو ما قمنا به في الأمثلة أدناه. ولكن في سياق التهديد المستهدف، قد تكون هذه فكرة سيئة، في حالة احتواء الملف على نصوص برمجية يمكنها استغلال عملاء البريد الإلكتروني، أو جمع معلومات عن الجهاز، أو تحميل موارد خارجية (مثل الصور/بكسلات التتبع) التي تكشف عنوان IP الخاص بك للمهاجم. في حالة هذه الإرشادات، من الآمن فتح ملف EML في عميل البريد الإلكتروني الخاص بك، ولكن للعمل المباشر، فكر في بعض البدائل:
+* استخدم عميل بريد إلكتروني في جهاز افتراضي يمكن استرجاعه إلى لقطة آمنة
+* افتح الملف في محرر نصوص واقرأ محتوى HTML مباشرةً
+* إعادة تسمية الملف إلى .mht وفتحه في متصفح ويب (ضع في اعتبارك استخدام جهاز محميّ والاتصال بشبكة افتراضية خاصة لتجنب جمع عناوين IP من وحدات بكسل التتبع)
+* استخدم خدمة عبر الإنترنت مثل<https://www.emlreader.com/> أو <https://www.encryptomatic.com/viewer/> لعرض البريد الإلكتروني. سيعرض محلل رؤوس البريد الإلكتروني في https://mxtoolbox.com/EmailHeaders.aspx> MXToolBox> (يُستخدم لاحقًا في هذه الإرشادات التفصيلية) محتوى HTML أيضًا إذا قمت بتضمينه في الرؤوس الملصقة.
+* استخدام أداة eDiscovery التي يمكنها عرض ملفات EML
+* استضافة الخدمة الخاصة بك ذاتيًا لعرض ملفات EML، مثل <https://github.com/xme/emlrender>
+* 
+في هذه الإرشادات التفصيلية سنقوم فقط بفتح البريد الإلكتروني (paypal.eml) في برنامج بريد إلكتروني
 
-In this walkthrough we will just open the email (paypal.eml) in an email program
+
 
 ![Windows Right-Click menu showing Open With -> Outlook Option](/media/uploads/CTF1_open_in_mail_program.png)
 
-As we look into the email, we see the visible sender email address
+عندما ننظر إلى البريد الإلكتروني، نرى عنوان مرسل البريد الإلكتروني
 
 ![Image of an ostensible email from Paypal indicating suspicious account activity with a link to verify the account. The email is from paypal@service.com](/media/uploads/CTF2_sender_address.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
-The sender email is: [paypal@service.com](mailto:paypal@service.com)
+{{< question title="الإجابة" >}}
+البريد الإلكتروني للمرسل هو : [paypal@service.com](mailto:paypal@service.com)
 {{< /question >}}
 
-### Question 2: What is the subject of this email?
+### السؤال 2: ما هو موضوع هذا البريد الإلكتروني؟
 
-{{< question title="Instructions" open="true" >}}
-As we continue to review the email, we look for more characteristics which could be indicative of spam or malicious messages. Let’s look at the subject and some other signs within the text! If you are reading the email in a text editor, you will find it in the Subject: line.
+{{< question title="التعليمات" open="true" >}}
+بينما نستمر في مراجعة البريد الإلكتروني، نبحث عن المزيد من الخصائص التي يمكن أن تكون مؤشراً على رسائل غير مرغوب فيها أو رسائل خبيثة. لننظر إلى الموضوع وبعض العلامات الأخرى داخل النص! إذا كنت تقرأ البريد الإلكتروني في محرر نصوص، فستجده في سطر : الموضوع.
 {{< /question >}}
 
-{{< question title="Hints" >}}
+{{< question title="الإرشادات" >}}
 ![A screenshot of the email in question, highlighting the subject line thereof](/media/uploads/CTF3_email_subject.png)
 
-Here are some key trigger points to watch out for in a phishing email:
-
-* Sense of urgency
-* Weird opening, does not address you by name
-* Grammar errors
-* The sender address or URLs within the email are obfuscated or do not match the website the email claims to be from
+فيما يلي بعض النقاط الرئيسية التي يجب الانتباه إليها في رسائل التصيد الاحتيالي:
+* الإحساس بالإلحاح
+* افتتاحية غريبة، لا تخاطبك بالاسم
+* أخطاء نحوية
+* عنوان المرسل أو عناوين URL داخل البريد الإلكتروني مشوشة أو لا تتطابق مع الموقع الإلكتروني الذي يدعي البريد الإلكتروني أنه من
 {{< /question >}}
 
-{{< question title="Answer" >}}
-The email subject line is: _We called you and you didn't answer_
+{{< question title="الإجابة" >}}
+We called you and you didn't answer:سطر موضوع البريد الإلكتروني هو 
 {{< /question >}}
 
-### Question 3: What is the action requested?
+### السؤال 3: ما هو الإجراء المطلوب؟
 
-{{< question title="Instructions" open="true" >}}
-When we look at a potentially malicious email, we also need to figure out what the sender wanted us to do. What action do you assume that the sender wanted the recipient to do?
+{{< question title="التعليمات" open="true" >}}
+عندما ننظر إلى رسالة بريد إلكتروني يُحتمل أن تكون خبيثة، نحتاج أيضًا إلى معرفة ما أراد المرسل أن نفعله. ما الإجراء الذي تفترض أن المرسل أراد من المستلم القيام به؟
+
 {{< /question >}}
 
-{{< question title="Hints" >}}
+{{< question title="الإرشادات" >}}
 ![A screenshot of the email with "detected suspicious activity", "payments have been suspended", "complete account verification" and the call to action link saying "resume payments" all underlined](/media/uploads/CTF4_email_actions.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
-Click on one of the two links within the email.
+{{< question title="الإجابة" >}}
+Click on one of the two links within the email: الجواب هو
 {{< /question >}}
 
-## Recognizing the Threat
+## التعرّف على التهديد
 
-### Question 4: Defang the “Confirm” Link
+###  ؟"Confirm" السؤال 4: فكك رابط
 
-{{< question title="Instructions" open="true" >}}
-As we go deeper in the analysis, the first step to do is to understand the difference between suspicious links. When we analyze potentially suspicious links, we typically defang them–this means replacing some characters so that the link cannot be accidentally clicked or does not trigger any automated link- or virus-scanning mechanisms. Defanging links is considered best practice in security investigations. Defanged links will not automatically turn into clickable links but still retain the original link information, for instance hxxp[://]www[.]google[.]com.
+{{< question title="التعليمات" open="true" >}}
+
+عندما نتعمق في التحليل، فإن الخطوة الأولى التي يجب القيام بها هي فهم الفرق بين الروابط المشبوهة. عندما نحلل الروابط التي يُحتمل أن تكون مشبوهة، فإننا عادةً ما نقوم بإلغاء تشفيرها أو تفكيكها - وهذا يعني استبدال بعض الأحرف بحيث لا يمكن النقر على الرابط عن طريق الخطأ أو لا يؤدي إلى تشغيل أي آليات آلية لفحص الروابط أو الفيروسات. يعتبر إلغاء تغيير الروابط من أفضل الممارسات في التحقيقات الأمنية. لن تتحول الروابط التي تم إلغاء تغييرها تلقائيًا إلى روابط قابلة للنقر، ولكنها ستظل تحتفظ بمعلومات الرابط الأصلي، على سبيل المثال hxxp[://] www[.] google[.] com.
+
 {{< /question >}}
 
-{{< question title="Hints" >}}
-You can defang a link in a text editor. Here we will use [CyberChef](gchq.github.io/CyberChef) to defang the URL as we will use CyberChef for other steps as well. CyberChef is a web application with a huge number of functions which can help you with analyzing security-related data. Here’s a [very brief introduction](https://udel.codes/cyberchef.html) to its layout and functions.
+{{< question title="الإرشادات" >}}
+يمكنك إلغاء تشفير رابط في محرر النصوص. سنستخدم هنا[CyberChef](gchq.github.io/CyberChef) لإلغاء تشفير عنوان URL كما سنستخدم CyberChef لخطوات أخرى أيضًا. CyberChef هو تطبيق ويب يحتوي على عدد كبير من الوظائف التي يمكن أن تساعدك في تحليل البيانات المتعلقة بالأمان. إليك [مقدمة موجزة جداً](https://udel.codes/cyberchef.html) عن تصميمه ووظائفه. 
 
-As part of this exercise, play around with CyberChef and defang the “please confirm” link from the attached email.
+كجزء من هذا التمرين، استخدم CyberChef وقم بإلغاء رابط "please confirm" من البريد الإلكتروني المرفق
 
 ![A screenshot of how to right click on an email and then press "copy link"](/media/uploads/CTF5_copylink.png)
-First, we copy the hyperlink from the email.
+أولاً، نقوم بنسخ الرابط التشعبي (hyperlink) من البريد الإلكتروني.
 
 ![A screenshot of CyberChef, with "defang" being typed into its search bar](/media/uploads/CTF6_defang.png)
-Then, we take the “Defang URL” input from CyberChef and drag it into the “Recipe” section
+بعد ذلك، نأخذ مدخل "عنوان URL الخاص بـ "Defang URL" من CyberChef ونسحبه إلى قسم “Recipe”
 
 ![A screenshot of CyberChef successfully defanging an email](/media/uploads/CTF7_defanged.png)
 
-Once we’ve pasted the URL into the input section in CyberChef, it will automatically output a defanged version thereof.
+بمجرد أن نقوم بلصق عنوان URL في قسم الإدخال في CyberChef، سيُخرج تلقائيًا نسخة غير منقوصة منه.
 {{< /question >}}
 
-{{< question title="Answer" >}}
-hxxps[://]d[.]pr/mUxkOm
+{{< question title="الإجابة" >}}
+hxxps[://]d[.]pr/mUxkOm: الإجابة
+
 {{< /question >}}
 
-### Question 5: Use CyberChef to extract and defang all the links in the email
+### السؤال 5: استخدم CyberChef لاستخراج جميع الروابط الموجودة في البريد الإلكتروني وإلغاء تشفيرها.
 
-{{< question title="Instructions" open="true" >}}
-You can use CyberChef to perform a lot of different analysis tasks. This time, find and describe a workflow to easily extract and defang all of the links from the email.
+{{< question title="التعليمات" open="true" >}}
+يمكنك استخدام CyberChef لتنفيذ الكثير من مهام التحليل المختلفة. في هذه المرة، ابحث عن سير عمل لاستخراج جميع الروابط من البريد الإلكتروني وإلغاء تحديدها بسهولة.
 {{< /question >}}
 
-{{< question title="Answer" >}}
-You can use a ‘recipe’ – or a series of connected steps –in CyberChef to carry out a more complex analysis. To obtain and defang all the URLs in the message, all you need to do is run a recipe with the “extract URLs” and “defang URLs” workflows and paste the full content of the email (copied from a plain text editor) as input. If you were to tick the “unique” checkbox under “extract URLs”, you will see that the results will differ from those from the screenshot, and it will only output a single URL, the same one you defanged above. The fact that there is just one URL, repeated many times, within the email is great news for us–it will make our analysis much more straightforward. \
+{{< question title="الإجابة" >}}
+يمكنك استخدام "وصفة" - أو سلسلة من الخطوات المتصلة - في CyberChef لإجراء تحليل أكثر تعقيدًا. للحصول على جميع عناوين URL الموجودة في الرسالة وإلغاء تشفيرها، كل ما عليك فعله هو تشغيل وصفة باستخدام "استخراج عناوين URL" و "إلغاء تشفير عناوين URL" ولصق المحتوى الكامل للبريد الإلكتروني (المنسوخ من محرر نص عادي) كمدخلات. إذا كنت ستضع علامة اختيار "فريد" ضمن خانة الاختيار "فريد" تحت "استخراج عناوين URL"، فسترى أن النتائج ستختلف عن تلك الموجودة في لقطة الشاشة، وستخرج عنوان URL واحد فقط، وهو نفس العنوان الذي قمت بإلغاء تحديده أعلاه. حقيقة أن هناك عنوان URL واحد فقط، يتكرر عدة مرات، داخل البريد الإلكتروني هو خبر رائع بالنسبة لنا - سيجعل تحليلنا أكثر وضوحًا.
 
 ![A screenshot of a CyberChef recipe which first extracts all the URLs from a text file and then defangs them](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
 
-## Passive Investigation of URLs, Hostnames, and IP Addresses
+## التحقيق المجرد"Passive" من عناوين URL وأسماء المضيفين وعناوين IP
 
-### Question 6: When was the URL defanged in question 4 submitted to VirusTotal?
+### السؤال 6: متى تم إرسال عنوان URL الذي تم تفكيكه في السؤال 4 إلى VirusTotal؟
 
-{{< question title="Hints" >}}
-For the next few questions, we will use [VirusTotal](https://www.virustotal.com/)**.** It’s an online service that acts like a security scanner for suspicious files and URLs. Think of it as a digital inspector. You can upload a file or provide a URL, and VirusTotal scans it with antivirus engines and website checkers from dozens of different security companies. It also performs some additional analysis. This gives you a quick overview of whether the file or website is likely to be malicious. It's a valuable tool to help you identify potential threats before you open an attachment or click on a link. It also contains metadata about files which may be helpful. Here we will use the entry history to find out when a malicious indicator was first observed.
+{{< question title="الإرشادات" >}}
+ فكر في الأمر كمفتش رقمي. يمكنك تحميل ملف أو توفير عنوان URL، ويقوم [VirusTotal](https://www.virustotal.com/) بفحصه باستخدام محركات مكافحة الفيروسات وأدوات فحص المواقع الإلكترونية من عشرات الشركات الأمنية المختلفة. كما يقوم أيضاً بإجراء بعض التحليلات الإضافية. يمنحك هذا نظرة عامة سريعة حول ما إذا كان الملف أو الموقع الإلكتروني من المحتمل أن يكون خبيثاً. إنها أداة قيّمة لمساعدتك في تحديد التهديدات المحتملة قبل فتح مرفق أو النقر على رابط. كما أنه يحتوي على بيانات وصفية حول الملفات التي قد تكون مفيدة. سنستخدم هنا سجل الإدخال لمعرفة متى تم رصد مؤشر ضار لأول مرة.
 
-Paste the URL from question 4 into VirusTotal (this time, you need to paste the full URL, not the defanged version). Go to “details” tab and look at the URL capture history.
 
+{{< question title="التعليمات" open="true" >}}
+قم بلصق عنوان URL من السؤال 4 في VirusTotal (هذه المرة، تحتاج إلى لصق عنوان URL الكامل، وليس النسخة المنقوصة). انتقل إلى علامة التبويب "التفاصيل" وألقِ نظرة على سجل التقاط عناوين URL.
+{{< /question >}}
 ![A screenshot of VirusTotal history, showing three dates: first submission, last submission, last analysis](/media/uploads/CFT9_VirusTotal.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
-08/20/2018
+{{< question title="الإجابة" >}}
+ الإجابة :  08/20/2018
 {{< /question >}}
 
-### Question 7: What does VirusTotal give as the serving IP address for the URL defanged in question 4?
+### السؤال 7: ما الذي يقدمه موقع VirusTotal كعنوان IP الخاص بعنوان URL الذي تم تفكيكه في السؤال 4؟
 
-{{< question title="Hints" >}}
-Also looking through the “details” tab in VirusTotal, look up the serving IP address.
+{{< question title="الإرشادات" >}}
+
+ابحث أيضًا في علامة التبويب "details" في VirusTotal، وابحث عن عنوان IP الذي يقدم الخدمة
 
 ![A screenshot of VirusTotal showing an HTTP response, with the final URL and serving IP address given](/media/uploads/CTF10_VirusTotalIP.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
-52.89.102.146
+{{< question title="الإجابة" >}}
+الإجابة: 52.89.102.146
 {{< /question >}}
 
-### Question 8: how many vendors on VirusTotal detect this URL as malicious?
+### السؤال 8: كم عدد المزودين على موقع VirusTotal الذين اكتشفوا أن عنوان URL هذا خبيث؟ 
 
-{{< question title="Instructions" open="true" >}}
-When viewing the URL in VirusTotal, look up all the details under the “detection” tab. For a deep dive into what VirusTotal means by detection and what its methodologies are, check out [its documentation](https://docs.virustotal.com/).
+{{< question title="التعليمات" open="true" >}}
+عند عرض عنوان URL في VirusTotal، ابحث عن جميع التفاصيل تحت علامة التبويب "detection". للتعمق في ما يعنيه VirusTotal بالكشف وما هي منهجياته، راجع [وثائقه](https://docs.virustotal.com/).
 {{< /question >}}
 
-{{< question title="Answer" >}}
-5 Vendors
+{{< question title="الإجابة" >}}
+5 Vendors: الإجابة
 {{< /question >}}
 
-### Question 9: In which registrar was the domain defanged in question 4 registered?
+### السؤال 9: في أي مسجّل تم تسجيل النطاق الذي تم تغييره في السؤال 4؟
 
-{{< question title="Instructions" open="true" >}}
-In order to look up information related to a domain registration, we can use a whois lookup. You can conduct such a lookup either through a command line tool on your device or through a dedicated app.
+{{< question title="التعليمات" open="true" >}}
+من أجل البحث عن المعلومات المتعلقة بتسجيل النطاق، يمكننا استخدام البحث عن whois. يمكنك إجراء مثل هذا البحث إما من خلال أداة سطر الأوامر على جهازك أو من خلال تطبيق مخصص.
 {{< /question >}}
 
-{{< question title="Hints" >}}
-Here we use a whois website to extract it
+{{< question title="الإرشادات" >}}
+هنا نستخدم موقع whois لاستخراجها. 
 
 ![A screenshot of a WHOIS lookup of the d.pr domain](/media/uploads/CTF11_whois.png "image_tooltip")
 {{< /question >}}
 
-{{< question title="Answer" >}}
-Internet Technology Solutions
+{{< question title="الإجابة" >}}
+Internet Technology Solutions: الإجابة
 {{< /question >}}
 
-### Question 10: Where is the serving IP that you identified through VirusTotal geographically located?
+### السؤال 10: أين يقع عنوان IP المستهدف الذي حددته من خلال VirusTotal جغرافياً؟
 
-{{< question title="Instructions" open="true" >}}
-IP addresses are loosely tied to geographical locations, such as cities or districts. There are many online services where you can input an IP address and learn more about where it’s most likely located. While this type of check is not perfect and can sometimes make mistakes, it can nonetheless be an important part of malicious infrastructure investigations.
+{{< question title="التعليمات" open="true" >}}
+ترتبط عناوين IP بشكل عام بالمواقع الجغرافية، مثل المدن أو المقاطعات. هناك العديد من الخدمات عبر الإنترنت حيث يمكنك إدخال عنوان IP ومعرفة المزيد عن المكان الذي يُرجّح أن يكون موقعه. على الرغم من أن هذا النوع من الفحص ليس مثاليًا ويمكن أن يخطئ في بعض الأحيان، إلا أنه يمكن أن يكون جزءًا مهمًا من تحقيقات البنية التحتية الخبيثة.
+من المفيد مقارنة المعلومات التي تتلقاها من البحث عن هوز مع تلك التي تتلقاها من عمليات البحث عن موقع بروتوكول الإنترنت. قد تعلم أن عنوان بروتوكول الإنترنت الذي تحاول التحري عنه ينتمي إلى مزود شبكة افتراضية خاصة أو شركة تقنية كبيرة مثل جوجل - إذا كان هذا هو الحال، فلن تتعلم الكثير من تلك التحقيقات؛ من المحتمل أن يتوافق موقع بروتوكول الإنترنت مع إحدى مزارع خوادم تلك الشركات وقد لا يكون له علاقة كبيرة بموقع الشخص أو الكيان الذي تحاول التحري عنه.
 
-It’s worth comparing the information you receive from a whois lookup with that you receive from IP location searches. You might learn that the IP address you are trying to investigate belongs to a VPN provider or a big tech company such as Google–if this is the case, then you will not learn much from those investigations; the IP location will likely correspond to one of those companies’ server farms and might have little to do with the location of the person or entity you’re trying to investigate.
 
 ![A screenshot of a geoIP lookup of an IP address, showing that it originated in Portland, Oregon](/media/uploads/CTF12_geoIP.png "image_tooltip")
 {{< /question >}}
 
-{{< question title="Answer" >}}
-Portland, Oregon, United States
+{{< question title="الإجابة" >}}
+Portland, Oregon, United State: الإجابة
 {{< /question >}}
 
-## Passive Investigation of Email Headers
+## التحقيق المجرد"Passive" في رؤوس البريد الإلكتروني
 
-### Question 11: what is the return path of the initial email you looked up?
+### السؤال 11: ما هو مسار إرجاع البريد الإلكتروني الأساسي الذي بحثت عنه؟ 
 
-{{< question title="Instructions" open="true" >}}
-For the next few questions, we will be using a tool called [MxToolbox](https://mxtoolbox.com/). It’s a tool which can analyze email headers, hostnames, spam status, and much more. We will focus on its [header analyzer](https://mxtoolbox.com/EmailHeaders.aspx) feature, in which you can copy and paste all of the headers of an email (or even the whole email!) and run some basic analytics on them.
+{{< question title="التعليمات" open="true" >}}
+بالنسبة للأسئلة المقبلة، سنستخدم أداة تسمى[MxToolbox](https://mxtoolbox.com/). إنها أداة يمكنها تحليل رؤوس البريد الإلكتروني وأسماء المضيفين وحالة البريد التطفلي "spam" وغير ذلك. سنركز على خاصية محلل الرؤوس[header analyzer](https://mxtoolbox.com/EmailHeaders.aspx)، حيث يمكنك نسخ ولصق جميع رؤوس البريد الإلكتروني (أو حتى البريد الإلكتروني بأكمله!) وإجراء بعض التحليلات الأساسية عليها.
 {{< /question >}}
 
-{{< question title="Hints" >}}
+{{< question title="الإرشادات" >}}
 First, open the email using a plain text editor of your choice and copy its content. Then, paste them into the MxToolbox’s “Analyze Headers” tool
 
 ![A screenshot of email headers being pasted into MX Toolbox Analyser](/media/uploads/CTF8_MX_analyzer.png)
@@ -207,53 +212,52 @@ Once you press “Analyze Header”, you can see the return path
 paparazi@rjttznyzjjzydnillquh.designclub.uk.com
 {{< /question >}}
 
-### Question 12: What are the first hop and SMTP server address of that email?
+### السؤال 12: ما هي القفزة الأولى First hop وعنوان خادم SMTP لهذا البريد الإلكتروني؟
 
-{{< question title="Instructions" open="true" >}}
-Go to the file “mx-toolbox-header-analysis”, look into the relay information section.
+{{< question title="التعليمات" open="true" >}}
+انتقل إلى الملف "mx-toolbox-oolbox-header-ananalysis"، وانظر إلى قسم معلومات الترحيل.
 
 ![Another screenshot of the MX Toolbox analytics, with an initial relay highlighted](/media/uploads/CTF14_relay.png)
-The address of the mail server
+عنوان خادم البريد الإلكتروني
 
 ![Another screenshot of the MX Toolbox analytics, with the relay address highlighted](/media/uploads/CTF15_address.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
+{{< question title="الإجابة" >}}
 First hop: efianalytics.com 216.244.76.116
 
 SMTP: `2002:a59:ce05:0:b0:2d3:3de5:67a9`
 {{< /question >}}
 
-## Active Investigation of Malicious Web Pages
+## التحقيق النشط "Active"  في صفحات الويب الخبيثة
 
-### Question 13: What is the victim Id present in the code of the website?
+### السؤال 13: ما هو معرّف الضحية الموجود في كود الموقع الإلكتروني؟
 
-{{< question title="Instructions" open="true" >}}
-If the recipient of the email clicked on the link they would arrive at a landing page. Go to the file in the activity package to open “paypal.html”, look into the source code and search for the victimID. Use CyberChef to decode it to find a string of text.
+{{< question title="التعليمات" open="true" >}}
+إذا قام مستلم البريد الإلكتروني بالنقر على الرابط، فسيصل إلى صفحة مقصودة. انتقل إلى الملف الموجود في حزمة النشاط لفتح "paypal.html"، وابحث في الشيفرة المصدرية وابحث عن معرّف الضحية. استخدم CyberChef لفك تشفيرها للعثور على سلسلة نصية.
 {{< /question >}}
 
-{{< question title="Hints" >}}
-In this exercise, you will encounter a string of text encoded in Base64. Base64 is a technique for transforming text that has many purposes, but in this case aims to obfuscate a string of text: the string is still there, it’s just saved in a way that cannot be easily spotted by the human eye or by a simple text search. If this is the first time in your work you’ve encountered Base64, it’s worth reading [a little more about it and other obfuscation formats](https://anithaana3.medium.com/common-text-encoding-methods-for-code-obfuscation-9399757eb5c3). Malware authors like to obfuscate some text strings within their programs using a technique such as Base64 in order to make it more difficult to analyze.
+{{< question title="الإرشادات" >}}
+في هذا التمرين، ستواجه في هذا التمرين سلسلة نصية مشفرة في Base64. Base64 هي تقنية لتحويل النص لها العديد من الأغراض، لكنها في هذه الحالة تهدف إلى تشويش "obfuscation" سلسلة نصية: السلسلة لا تزال موجودة، لكنها محفوظة بطريقة لا يمكن رصدها بسهولة بالعين البشرية أو بالبحث البسيط عن النص. إذا كانت هذه هي المرة الأولى التي تصادف فيها Base64 في عملك، فمن المفيد أن تقرأ المزيد عنها وعن غيرها من صيغ التشويش[a little more about it and other obfuscation formats](https://anithaana3.medium.com/common-text-encoding-methods-for-code-obfuscation-9399757eb5c3) . يحب مؤلفو البرمجيات الخبيثة تشويش بعض السلاسل النصية داخل برامجهم باستخدام تقنية مثل Base64 من أجل جعل تحليلها أكثر صعوبة.
+يستطيع CyberChef تشفير وفك تشفير نص Base64.
 
-CyberChef can encode and decode Base64 text.
-
-We open once again the code attached of the phishing page (.html)
+نفتح مرة أخرى الكود المرفق لصفحة التصيد الاحتيالي (.html)
 
 ![A screenshot of an html file being right clicked in Windows Explorer, and then opened in Notepad](/media/uploads/CTF16_open_webpage_notepad.png)
 
-we search for the victimID in the source code
+نبحث عن معرّف الضحية victimID في الكود المصدري source code
 ![A screenshot of someone searching through the plain text file opened in Notepad and finding a data item called "victimID"](/media/uploads/CTF17_searchID.png)
 
-Then we can paste the value we discovered into CyberChef. The tool has a magic wand feature which automatically detects and converts encoding–we could use that!
+ثم يمكننا لصق القيمة التي اكتشفناها في CyberChef. تحتوي الأداة على خاصية العصا السحرية "magic wand" التي تكتشف التشفير وتحوّله تلقائيًا - يمكننا استخدام ذلك!
 
 ![A screenshot of CyberChef decoding Base64 input into plain text](/media/uploads/CTF18_cyberchef_result.png)
 
-Yay! The magic wand detected that the input is encoded with Base64 and decoded it automatically, giving us the answer!
+حسناً! اكتشفت العصا السحرية أن المدخلات مشفرة باستخدام Base64 وفكت تشفيرها تلقائيًا، مما أعطانا الإجابة!
 
 ![A screenshot of CyberChef's magic wand feature](/media/uploads/CTF19_cyberchef_wand.png)
 {{< /question >}}
 
-{{< question title="Answer" >}}
+{{< question title="الإجابة" >}}
 Th1s_1s_pH1sh1ng_Em3il
 {{< /question >}}
 
