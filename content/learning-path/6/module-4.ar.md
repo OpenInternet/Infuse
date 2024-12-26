@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 4
-title = "Hacking Incident Response"
+title = "الاستجابة لحوادث الاختراق"
 description = "في حال تعرض موقع ويب للاختراق سيكون فهم تصرفات وأساليب المهاجم أمرًا حيويًا"
 +++
 
