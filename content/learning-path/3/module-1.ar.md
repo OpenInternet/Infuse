@@ -2,7 +2,7 @@
 style = "module"
 weight = 1
 title = "الموضوع الفرعي 1: إعداد بيئة تحليل البرمجيات الضارة"
-description = "Before you analyzing any malware, you need to set up a safe environment to do so. Since malware does bad things to the systems it runs on, you do not want to run it on your primary system"
+description = " قبل البدء في تحليل أي برمجيات ضارة، تحتاج إلى إعداد بيئة آمنة للقيام بذلك لأن البرمجيات الضارة كما يتضح من اسمها تسبب ضررًا للأنظمة التي تعمل عليها"
 +++
 
  ## حالة استخدام
