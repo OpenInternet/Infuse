@@ -1,133 +1,92 @@
 ---
 style: introduction
-title: Introduction
+title:  "مقدمة"
 description: Read the learning path overview, objectives, associated threats, and prerequisites
 weight: 1
 ---
 
-## Overview
+## نظرة عامة
 
-Web applications are critical infrastructure used by media organizations and civil society to disseminate free flow of information as well as to provide functionalities to their stakeholders. Adversaries attack these web applications for various purposes, including shutting down the free flow of information, reputational damage, access to private systems, theft of sensitive information, surveillance, and device compromise. By proactively identifying vulnerabilities in web applications used by your clients and partners, you can head off potential compromises before they occur.
+تطبيقات الويب هي بنية تحتية حيوية تستخدمها المنظمات الإعلامية والمجتمع المدني لنشر التدفق الحر للمعلومات وكذلك لتوفير وظائف لأصحاب المصلحة فيها. يهاجم المتطفلون تطبيقات الويب هذه لأغراض مختلفة تشمل إيقاف تدفق المعلومات الحر وإلحاق الضرر بالسمعة والتسلل إلى الأنظمة الخاصة وسرقة المعلومات الحساسة والمراقبة واختراق الأجهزة. من خلال تحديد الثغرات بشكل استباقي في تطبيقات الويب التي يستخدمها عملاؤك وشركاؤك يمكنك تجنّب الاختراق المحتمل قبل حدوثه.
 
-This learning path covers intermediate and advanced knowledge needed to deeply understand and identify vulnerabilities in web applications. This can be used to find vulnerabilities in an application before threat actors do, to guide secure development practices, or to more effectively fix vulnerabilities in web applications. In this learning path we will cover:
+يُغطي مسار التعلّم هذا المعرفة المتوسطة والمتقدمة اللازمة لفهم عميق لثغرات تطبيقات الويب والتمكن من التعرّف عليها ويمكن استخدامها للعثور على الثغرات في أحد التطبيقات قبل قيام ممثلي التهديد بذلك أو لتوجيه ممارسات التطوير الآمنة أو لإصلاح ثغرات في تطبيقات الويب بشكل أكثر فعالية، حيث نغطي في مسار التعلّم هذا:
 
-- The reasons for performing a web application security assessment
-- The types of assessment that are effective to perform
-- How to identify various types of web application vulnerabilities
-- How to exploit those vulnerabilities
-- How to effectively and efficiently systematically test a web application for vulnerabilities
+- أسباب إجراء تقييم أمان تطبيق الويب
+- استخدام أنواع التقييم الفعّالة
+- كيفية التعرّف على أنواع مختلفة من الثغرات الأمنية في تطبيقات الويب
+- كيفية استغلال هذه الثغرات
+كيفية اختبار تطبيق الويب بشكل فعال وكفء ومنهجي بحثًا عن ثغرات
 
-### Background reading
+### قائمة القراءة المرجعية
 
-Adversaries, especially political rivals, have a history of attempting to hack into the websites of civil society groups. Some documented examples include:
+ظهر لدى المتطفلين وبالأخص السياسيين منهم تاريخ سابق شمل محاولات اختراق مواقع جماعات المجتمع المدني، وتشمل بعض الأمثلة ما يلي:
+- مارس/آذار 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
+- أكتوبر/تشرين الأول 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
+- أغسطس/آب 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
+سبتمبر/أيلول 2018[https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
 
-- March 2020 [https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/](https://www.qurium.org/alerts/nigeria/premium-times-nigeria-ddos-attack/)
-- October 2019 [https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/](https://www.qurium.org/alerts/colombia/kontacto-lacks-of-security-exposed-data-from-55-000-people/)
-- August 2019 [https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/](https://www.qurium.org/alerts/zimbabwe/the-cyberattack-against-the-zimbabwe-electoral-commission/)
-- September 2018 [https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/](https://www.qurium.org/alerts/zimbabwe/the-zimbabwe-election-commission-zec-website-what-went-wrong/)
+بالإضافة إلى ذلك، يمكن أن يتعرض أي موقع على الإنترنت لهجمات انتهازية وموجّهة من قبل الجهات الفاعلة ذات الدوافع المالية. لدى هؤلاء المتطفلين أهداف مثل سرقة كلمات مرور المستخدم أو معلومات بطاقة الدفع وما إلى ذلك لإعادة بيعها أو تعديل محتوى الموقع للتلاعب بترتيب البحث أو النقر الاحتيالي أو استخدام البنية التحتية للموقع نفسه لتعدين العملات المشفرة أو إرسال رسائل غير مرغوب فيها أو شن هجمات رفض الخدمة. على الرغم من أن العديد من هذه الهجمات قد لا تكون مستهدفة بناءً على دوافع سياسية، إلا أنها تشكل مخاطر كبيرة على السمعة والسرية لأي منظمة. لمزيد من المعلومات حول الهجمات الانتهازية والآلية على تطبيقات الويب، راجع هذا [التقرير الصادر عن مشروع أمان تطبيق الويب المفتوح (OWASP)](https://owasp.org/www-project-automated-threats-to-web-applications/).
 
-Additionally, any site on the internet is subject to opportunistic and targeted attacks by financially-motivated threat actors. These adversaries have goals such as stealing user passwords, payment card information, etc. for resale, modifying site content for search ranking manipulation or click fraud,using the site’s infrastructure itself for cryptocurrency mining, sending spam, or launching denial of service attacks. Although many of these attacks may not be targeted based on political motivations, they nonetheless pose significant reputational and confidentiality risks to any organization. For more information on opportunistic and automated attacks on web applications, see [this report by OWASP](https://owasp.org/www-project-automated-threats-to-web-applications/).
+## الهدف 
+تمكين الحاصل على الشارة من إجراء تقييمات أمنية شاملة لتطبيقات الويب بكفاءة بما في ذلك التعرّف على أعلى 10 ثغرات في مشروع أمان تطبيق الويب المفتوح.
 
-## Objective
+## ما هي التهديدات التي تخففها أو تستجيب لها هذه المهارة؟
 
-The Badge-holder should be able to efficiently perform comprehensive security assessments of web applications, including identifying the vulnerabilities in the OWASP top 10.
+يمكن أن تساعد مهارات تقييم تطبيقات الويب في الاستجابة لتهديدات الاختراق من خلال:
 
-## What threats does this skill mitigate or respond to?
+- مخترقون مستقلون تُحفزهم الدولة
+- مهاجمون ذوو دوافع مالية
 
-Web application assessment skills can help respond to hacking threats by:
+## ما هي المتطلبات المسبقة؟ 
 
-- State-motivated vigilante hackers
-- Financially motivated attackers
+- قبل بدء مسار التعلّم هذا، يجب على المتعلمين أولاً إكمال مسار تعلم أساسيات أمان موقع الويب إذا لم يكونوا على دراية بخوادم الويب والثغرات الأساسية في تطبيقات الويب، وحتى لو كانوا بالفعل على دراية بالموضوع الأوسع، فلا نزال نوصي بأن يتطرقوا إلى الموضوع الفرعي 6 لمسار تعلم الأساسيات الذي يركز على المهارات الشخصية اللازمة عند دعم الآخرين.
+- إلمام أساسي بلغة تمييز النص التشعبي مثل تخطيط المستندات والقدرة على قراءة لغة تمييز النص التشعبي البسيطة، ولأجل مقدمة رائعة يمكن الاطلاع على إم دي إن [MDN](https://developer.mozilla.org/en-US/docs/Learn).
+- مفاهيم لغة البرمجة الأساسية والقدرة على قراءة جافا سكريبت مبسطة ونوصي [MDN مقدمة](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) حول الموضوع.
+- الفهم الأساسي لكيفية عمل بروتوكول نقل النص التشعبي، وكيفية تواصل المتصفح مع موقع الويب وكيف تبدو طلبات واستجابات بروتوكول نقل النص التشعبي ضمن هذا البروتوكول ونوصي بمقدمة حول هذه المواضيع متاحة في هذه [المقالة](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) وهذه[المقالة](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
+- فهم أساسي للغة الاستعلامات البنيوية (SQL) يكفي لاستيعاب الأوامر البسيطة وكيفية صياغتها، ويمكن العثور على مقدمة في[sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
+- إلمام أساسي بكيفية عمل سطر الأوامر على نظام تشغيل تختاره وكيفية تشغيل الأوامر عليه، ويمكن الاطلاع على مقدمة جيدة على إم دي إن[MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
 
-## What are the prerequisites?
+## ما هي الأجهزة أو البرمجيات التي تحتاجها لأداء التمارين؟ 
 
-- Prior to starting this learning path, learners should first complete the Website Security Fundamentals learning path if they are not familiar with web servers and basic web application vulnerabilities. If they already are familiar with the wider topic, we still recommend that they brush up on the Fundamentals learning path’s subtopic 6, which focuses on interpersonal skills needed when supporting others.
-- A basic familiarity with HTML such as the basic layout of an HTML document and the ability to read simple HTML. For a great introduction, check out [MDN](https://developer.mozilla.org/en-US/docs/Learn).
-- Basic programming language concepts and the ability to read simple JavaScript. We recommend the [MDN introduction](https://developer.mozilla.org/en-US/docs/Learn/JavaScript) to the topic.
-- Basic understanding of how HTTP works, how a browser communicates with a website, and what HTTP requests and responses look like. For an introduction of those topics, we recommend [this piece](https://www.cloudflare.com/learning/ddos/glossary/hypertext-transfer-protocol-http/) and [this one](https://developer.mozilla.org/en-US/docs/Learn/Forms/Sending_and_retrieving_form_data).
-- A basic understanding of SQL, just enough to know what it is and how to formulate a simple command. For an introduction, see [sqlzoo](https://sqlzoo.net/wiki/SQL_Tutorial).
-- Basic familiarity with how the command line works on an operating system of your choice and how to run commands therein. For a good introduction, see [MDN](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Understanding_client-side_tools/Command_line).
 
-## What devices or software do you need for the exercises?
-
-- You will need a computer capable of running Java applications and Docker. Any macOS, Windows, or Linux device with 8GM of RAM and some free disk space should work. All of the labs here were also tested on devices running Apple Silicon, and work.
-- Many of the tools in this learning path run best on Unix-like operating systems. This means that it’s easiest to use Linux, macOS devices, or Windows devices with WSL (Windows Subsystem for Linux) installed on them.
-- If you are running macOS, it’s a good idea to install [Homebrew](https://brew.sh/) or [Macports](https://www.macports.org/); those are package managers which can automate the process of installing some of the tools outlined throughout the learning path.
-- Alternatively, if you have an installation of Kali Linux (you can use the same one you used for the Web Application Security Fundamentals learning path), most of the tools outlined below should already come pre-installed.
-- If you are running Windows, we recommend you install WSL (Windows Subsystem for Linux) to run some of the tools outlined below. While many of them can run in Docker, those which require Python might be much easier to run within WSL, which will require less fiddling with dependencies.
-  _ Here is the documentation provided by Microsoft with full details on how to install WSL 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
-  _ Open “Turn Windows features on or off” in the Windows control panel and make sure “Virtual Machine Platform” and “Windows Subsystem for Linux” are checked.
   _ Download and install WSL 2 from the [Microsoft Store](https://apps.microsoft.com/store/detail/windows-subsystem-for-linux-preview/9P9TQF7MRM4R). Once installed, restart your computer to apply the changes.
-  _ Open a Windows PowerShell or Command Prompt in administrator mode by right-clicking and selecting "Run as administrator" and run the command \
-  `wsl --set-default-version 2` \* The output from this command will look like:
 
-  ```
-  For information on key differences with WSL 2 please visit https://aka.ms/wsl2
-  The operation completed successfully.
-  ```
+- ستحتاج إلى جهاز كمبيوتر قادر على تشغيل تطبيقات جافا (Java) وداكر (Docker)، ويمكن أن يعمل على أي جهاز ماك أو إس (macOS) أو ويندوز (Windows) أو لينوكس (Linux) مزوّد بذاكرة وصول عشوائي تبلغ 8 غيغابايت وبعض المساحة الحرة على قرص تخزينه. تم اختبار جميع المختبرات هنا أيضًا على الأجهزة التي تعمل بنظام آبل سيليكون (Apple Silicon)، وتعمل.
+- تعمل العديد من الأدوات في مسار التعلّم هذا بشكل أفضل على أنظمة تشغيل مشابهة لنظام يونكس (Unix). وهذا يعني أنه من الأسهل استخدام أجهزة لينوكس (Linux) أو ماك أو إس (macOS) أو ويندوز (Windows) المثبت عليها نظام ويندوز الفرعي لنظام لينوكس (Windows Subsystem for Linux).
+- إذا كنت تعمل على ماك أو إس، فمن المستحسن تثبيت هومبرو [Homebrew](https://brew.sh/) أو ماكبورتس [Macports](https://www.macports.org/) لأنها أدوات إدارة حزم يمكنها أتمتة عملية تثبيت بعض الأدوات الموضحة خلال مسار التعلّم.
+- وبدلاً من ذلك إذا كان لديك كالي لينكس (Kali Linux) (يمكنك استخدام حزمة التثبيت التي استخدمتها لمسار تعلّم أساسيات أمان تطبيقات الويب)، فيجب أن تكون معظم الأدوات الموضحة أدناه مثبتة مسبقًا.
+- في حال كنت تعمل على نظام ويندوز، فإننا نوصيك بتثبيت نظام ويندوز الفرعي لنظام لينوكس (Windows Subsystem for Linux) لتشغيل بعض الأدوات الموضحة أدناه، في حين يمكن تشغيل العديد منها على داكر قد يكون من الأسهل بكثير تشغيل تلك التي تحتاج بايثون ضمن نظام ويندوز الفرعي لنظام لينوكس مما يقلل من الحاجة إلى قضاء الوقت في تثبيت التبعيات.
+_ فيما يلي الوثائق المقدمة من مايكروسوفت (Microsoft) التي تشمل التفاصيل الكاملة حول كيفية تثبيت نظام ويندوز الفرعي لنظام لينوكس 2: [https://docs.microsoft.com/en-us/windows/wsl/install-win10](https://docs.microsoft.com/en-us/windows/wsl/install-win10)
+_ افتح "تشغيل أو إيقاف ميزات ويندوز (Turn Windows features on or off)" في لوحة تحكم ويندوز وتأكد من اختيار "النظام الأساسي للأجهزة الظاهرية (Virtual Machine Platform)" و"نظام ويندوز الفرعي لنظام لينوكس".
+نزّل وثبّت نظام ويندوز الفرعي لنظام لينوكس 2 من متجر مايكروسوفت (Microsoft Store). بمجرد تثبيته أعد تشغيل الكمبيوتر لتطبيق التغييرات.
+_ افتح ويندوز باورشل (Windows PowerShell) أو موجه الأوامر (Command Prompt) بوضع المسؤول من خلال النقر بزر الماوس الأيمن واختيار "تشغيل كمسؤول (Run as administrator)" ثم شغّل الأمر
+wsl --set-default-version 2
+سيكون ناتج هذا الأمر كما يلي:
+لمزيد من المعلومات حول الاختلافات الرئيسية مع نظام ويندوز الفرعي لنظام لينوكس 2، يرجى زيارة (https://aka.ms/wsl2)
+تمت العملية بنجاح.
+بمجرد تثبيت نظام ويندوز الفرعي لنظام لينوكس 2، يمكنك تثبيت توزيعة لينوكس التي تفضلها من متجر مايكروسوفت أو باستخدام سطر الأوامر. ما عليك سوى البحث عن "لينوكس (Linux)" في متجر مايكروسوفت، وتحديد التوزيعة المطلوبة (على سبيل المثال، أوبنتو (Ubuntu) أو ديبيان (Debian) أو غيرهما)، والنقر على "تثبيت (Install)". بدلًا من ذلك يمكنك تثبيت توزيعة لينوكس باستخدام باورشل أو موجه الأوامر. افتح ويندوز باورشل أو موجه الأوامر واطلب سرد التوزيعات المتاحة:
+wsl --list --online
+قم بتثبيت توزيعة من هذه القائمة باستخدام أمر <اسم التوزيعة> wsl --install -d.
+wsl --install -d Ubuntu
+بعد التثبيت، سيكون لكل توزيعة لينوكس رمز في قائمة تطبيقات ويندوز، وبمجرد تثبيت نظام ويندوز الفرعي لنظام لينوكس، ستحتاج إلى إنشاء حساب مستخدم وكلمة مرور لتوزيعة لينوكس المثبتة حديثًا. 
+يجب أن تفتح نافذة جديدة في لينوكس،
+وفيما يلي مراجعة سريعة لخيارات سطر أوامر النظام ويندوز الفرعي لنظام لينوكس.
+اطبع معلومات الاستخدام وشاهد وسيطات سطر الأوامر:
+wsl --help
+سرد التوزيعات المثبتة:
+wsl --list
+سرد التوزيعات قيد التشغيل فقط:
+wsl --list --running
+إنهاء التوزيعة قيد التشغيل:
+wsl --terminate Ubuntu-22.04
+إيقاف تشغيل جميع التوزيعات قيد التشغيل:
+wsl --shutdown
+إلغاء تسجيل توزيع لينوكس وحذف نظام الملفات:
+wsl --unregister Ubuntu-22.04
+تحديث النظام ويندوز الفرعي لنظام لينوكس إلى أحدث إصدار:
+wsl --update
+ابدأ التوزيعة الافتراضية:
+wsl
 
-  Once WSL 2 is installed, you can install your preferred Linux distribution from the Microsoft Store or by using the command line. Simply search for "Linux" in the Microsoft Store, select your desired distribution (e.g., Ubuntu, Debian, or others), and click "Install". Alternatively, you can install a Linux distribution using PowerShell or Command Prompt. Open a Windows Powershell or Command Prompt and list the distributions available:
-
-  ```
-  wsl --list --online
-  ```
-  Install a distribution from this list using wsl --install -d &lt;Distribution Name> command.
-
-  ```
-  wsl --install -d Ubuntu
-  ```
-  After installation, each Linux distribution will have an icon on the Windows application menu. Once you have installed WSL, you will need to create a user account and password for your newly installed Linux distribution.
-
-  A new window should open with a Linux shell.
-
-- Here is a quick review of the WSL command line options.
-
-  Print the usage information and see the command line arguments:
-
-
-  ```
-  wsl --help
-  ```
-  List the installed distributions:
-
-  ```
-  wsl --list
-  ```
-
-  List only the running distributions:
-
-  ```
-  wsl --list --running
-  ```
-  Terminate a running distribution:
-
-  ```
-  wsl --terminate Ubuntu-22.04
-  ```
-
-  Shutdown all running distributions:
-
-  ```
-  wsl --shutdown
-  ```
-
-  Unregister the Linux distribution and delete the filesystem:
-
-  ```
-  wsl --unregister Ubuntu-22.04
-  ```
-
-  Update WSL to the latest version:
-
-
-  ```
-  wsl --update
-  ```
-  Start the default distribution:
-
-  ```
-  wsl
-
-## Related learning paths
-
-After completing this learning path, we would recommend that learners work on Web Application Hardening, Forensics, and Incident Response.
+## مسارات التعلّم ذات الصلة 
+بعد استكمال مسار التعلّم هذا، نوصي بأن يعمل المتعلمون على تعزيز حماية تطبيقات الويب والتحليل الجنائي والاستجابة للحوادث.
