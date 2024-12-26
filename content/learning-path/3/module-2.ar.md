@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 2
-title = "Basic file analysis"
+title = "تحليل الملف الأساسي"
 description = "بمجرد أن يكون لديك برمجية ضارة على جهازك الظاهري المخصص للتحليل، تكمن الخطوة التالية في معرفة ما يحتويه. يمكن أن تستخدم البرمجية الضارة عدة ملفات، وفي هذه الحالة ستستخدم التقنيات الواردة في هذا القسم لكل ملف. هناك عدة طرق مختلفة للتعرف على نوع الملف الذي تتعامل معه."
 +++
 
@@ -76,20 +76,20 @@ For a more advanced guide on how to capture and do preliminary analysis on an An
 
 ## موارد التعلّم
 
-{{% resource title="Common file name extensions in Windows" languages="English" cost="Free" description="Guide by Microsoft outlining commonly encountered file extensions in Windows." url="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01" %}}
+{{% resource title="ملحقات اسم الملف الشائعة في ويندوز" description="دليل أنشأته مايكروسوفت يُحدد بعض ملحقات أسماء الملفات الأكثر شيوعًا في نظام تشغيل ويندوز" languages="اللغة الإنجليزية" cost="مجاني" url="https://support.microsoft.com/en-us/windows/common-file-name-extensions-in-windows-da4a4430-8e76-89c5-59f7-1cdbbc75cb01" %}}
 
-{{% resource title="List of filename extensions | Wikipedia" languages="English, Japanese, Korean" cost="Free" description="Comprehensive list of file extensions used by various software." url="https://en.wikipedia.org/wiki/List_of_filename_extensions" %}}
+{{% resource title="قائمة ملحقات أسماء الملف | ويكيبيديا" description="قائمة أطول وأكثر شمولاً بملحقات أسماء الملفات المستخدمة في مختلف البرامج" languages="الإنجليزية واليابانية والكورية" cost="مجاني" url="https://en.wikipedia.org/wiki/List\_of\_filename\_extensions" %}}
 
-{{% resource title="TrID" languages="English" cost="Free" description="Program for Windows and Linux to identify file types based on binary signatures." url="https://mark0.net/soft-trid-e.html" %}}
+{{% resource title="برنامج TrID" description="برنامج على ويندوز لينوكس التعرّف على أنواع الملفات المختلفة بناءً على توقيعاتهم الثنائية" languages="اللغة الإنجليزية" cost="مجاني" url="https://mark0.net/soft-trid-e.html" %}}
 
-{{% resource title="File extensions and file type definitions" languages="English" cost="Free" description="TrID’s list of over 16,000 known file extensions." url="https://mark0.net/soft-trid-deflist.html" %}}
+{{% resource title="ملحقات أسماء الملفات وتعريفات أنواع الملفات" description="قائمة TrID لملحقات الملفات المعروفة، التي يبلغ عددها الآن أكثر من 16,000" languages="اللغة الإنجليزية" cost="مجاني" url="https://mark0.net/soft-trid-deflist.html" %}}
 
-{{% resource title="File" languages="English" cost="Free" description="Command line program for Unix-like systems to identify files by type." url="https://github.com/file/file" %}}
+{{% resource title="أمر File" description="برنامج سطر أوامر للأنظمة الشبيهة بنظام يونيكس يُحدد الملفات حسب النوع" languages="اللغة الإنجليزية" cost="مجاني" url="https://github.com/file/file" %}}
 
-{{% resource title="Comparison of hex editors" languages="English, Simplified Chinese, Croatian, Spanish" cost="Free" description="List and comparison of hex editors for directly editing binary files." url="https://en.wikipedia.org/wiki/Comparison_of_hex_editors" %}}
+{{% resource title="مقارنة بين المحررات السداسية العشرية" description="قائمة ومقارنة بين المحررات السداسية العشرية، أو البرامج التي تسمح لك بتحرير الملفات الثنائية مباشرة" languages="الإنجليزية والصينية المبّسطة والكرواتية والإسبانية" cost="مجاني" url="https://en.wikipedia.org/wiki/Comparison\_of\_hex\_editors" %}}
 
-{{% resource title="wxHexEditor" languages="English" cost="Free" description="Official webpage of the hex editor supplied with REMnux." url="https://www.wxhexeditor.org/home.php" %}}
+{{% resource title="أداة wxHexEditor" description="الوصف:صفحة الويب الرسمية للمحرر السداسي العشري المرفق مع كل توزيعات ريمنوكس" languages="اللغة:اللغة الإنجليزية" cost="التكلفة: مجاني" url="https://www.wxhexeditor.org/home.php" %}}
 
-{{% resource title="Wikibooks/ Reverse Engineering File Formats" languages="English" cost="Free" description="Comprehensive guide to reverse engineering file formats." url="https://en.wikibooks.org/wiki/Reverse_Engineering/File_Formats" %}}
+{{% resource title="Wikibooks الهندسة العكسية لتنسيقات الملفات" description="دليل شامل للهندسة العكسية لتنسيقات الملفات. تأكد من فهمك لها قبل المتابعة إلى الأقسام الأخرى من مسار التعلّم هذا" languages="اللغة الإنجليزية" cost="مجاني" url="https://en.wikibooks.org/wiki/Reverse\_Engineering/File\_Formats" %}}
 
-{{% resource title="Beginner guide: how to handle a potentially malicious mobile app" languages="English" cost="Free" description="Introduction to handling suspicious Android apps with initial data collection and analysis steps." url="https://pts-project.org/guides/g3/" %}}
+{{% resource title="دليل المبتدئين: كيفية التعامل مع تطبيق جوال يحتمل أن يكون ضارًا" description="مقدمة للتعامل مع تطبيق أندرويد مشبوه وجميع الخطوات الأولية لجمع البيانات وتحليلها التي يمكننا اتخاذها" languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/guides/g3/" %}}
