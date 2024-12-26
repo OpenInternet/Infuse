@@ -78,7 +78,7 @@ Click on one of the two links within the email: الجواب هو
 
 ## التعرّف على التهديد
 
-###  ؟"Confirm" السؤال 4: فكك رابط
+### السؤال 4: فكك رابط "Confirm"  ؟ 
 
 {{< question title="التعليمات" open="true" >}}
 
@@ -261,7 +261,7 @@ SMTP: `2002:a59:ce05:0:b0:2d3:3de5:67a9`
 Th1s_1s_pH1sh1ng_Em3il
 {{< /question >}}
 
-## Other resources and links
+## موارد وروابط أخرى
 
 {{% resource title="Access Now helpline community documentation for responding to suspicious/phishing emails" languages="English" cost="Free" description="Client Receives a Suspicious/Phishing Email" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
