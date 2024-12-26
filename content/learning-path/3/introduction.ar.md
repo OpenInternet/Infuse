@@ -1,52 +1,55 @@
 ---
 style: introduction
-title: Introduction
-description: Read the learning path overview, objectives, associated threats, and prerequisites
+title: مقدمة
+description: سيُعدّك مسار التعلّم هذا للبدء في رحلة تحليل البرمجيات الضارة.
 weight: 1
 ---
 
-## Overview
+## نظرة عامة
 
-This learning path will prepare you to start on the journey of analyzing malware. Note that this is one of the hardest areas of security to master, but incremental progress will give results. The general goal of malware analysis is to characterize new malware, both brand new malware and variants of existing ones. The desired end result is a characterization of the capabilities of the malware, a guess at what threat actor(s) is using it, and a set of IoCs (indicators of compromise) that will allow others to detect the malware.
+ سيُعدّك مسار التعلّم هذا للبدء في رحلة تحليل البرمجيات الضارة. اعلم أن هذا المسار من أصعب مجالات الأمان التي يجب إتقانها، ولكن التقدم التدريجي في دراسته سيعطي نتائج ملموسة. يُعدّ الهدف العام من تحليل البرمجيات الضارة هو توصيف الجديد منها التي تتضمن أنواعًا جديدة بالكامل أو أنواعًا معدّلة من تلك الموجودة بالفعل. تُعدّ النتيجة النهائية المرجوة هي توصيف قدرات البرمجيات الضارة وتخمين جهة أو جهات التهديد الذي تستخدمها ومجموعة مؤشرات الاختراق التي ستسمح للآخرين باكتشاف البرمجيات الضارة.
+ 
+هناك عدة نقاط ينبغي وضعها في الاعتبار خلال متابعتك لمسار التعلّم هذا:
 
-A few things to keep in mind as you go through this learning path:
+- مراعاة أهمية المتطلبات السابقة. حيث يجب أن يكون لديك قاعدة معرفية متينة للاستناد عليها.
+- يغطي مسار التعلّم هذا منصتين هما ويندوز (Windows) وأندرويد (Android). وقد يكون من الأفضل التركيز على منصة واحدة في وقت واحد. وعلى الرغم من أن المفاهيم العامة تنطبق على جميع المنصات، يمكن أن تختلف التقنيات والأدوات الخاصة اختلافًا كبيرًا. إذا لم يكن لديك الكثير من الخبرة في الهندسة العكسية وتصحيح الأخطاء منخفضة المستوى، نوصي بالبدء بنظام ويندوز نظرًا لتوفر العديد من الموارد لتحليل برنامج ويندوز.
+- لا تخشَ طلب المساعدة يمكن لمؤسسات مثل سيفيسيرت (CiviCert) مساعدتك في التواصل مع الآخرين الذين يمكنهم التعاون معك في تحليل البرمجيات الضارة الجديدة.
 
-- Take the prerequisites seriously. You must have a solid base of knowledge to build on.
-- This learning path covers two platforms (Windows, Android). It’s probably best to focus on one platform at once. Although the general concepts apply across all platforms, the specific techniques and tools can differ greatly. If you don’t have much reverse engineering and low-level debugging experience, we recommend getting started with Windows, because there are many more resources for Windows program analysis.
-- Don’t be afraid to ask for help. Organizations like CiviCERT can help you connect with others who can collaborate with you in analyzing novel malware.
 
-## Objective
+## الهدف
 
-Practitioners will learn how to:
+ سيتعلم الممارسون كيفية:
+ 
+- إعداد بيئة تحليل البرمجيات الضارة.
+- التمييز بين مختلف أنواع الملفات
+- إجراء تحليل ديناميكي أساسي في بيئة اختبار معزولة.
+- إجراء تحليل أساسي للتعليمات البرمجية بحالتها الثابتة.
+- كتابة النتائج ومشاركة مؤشرات الاختراق.
 
-- Set up a malware analysis environment
-- Distinguish between different types of files
-- Conduct basic dynamic analysis in a sandbox
-- Conduct basic static analysis
-- Write up findings and share indicators of compromise
+## ما هي التهديدات التي تساهم هذه المهارة في تخفيفها أو الاستجابة لها؟
 
-## What threats does this skill mitigate or respond to?
+ اختراق الجهاز وتسريب البيانات من خلال البرمجيات الضارة على جهاز سطح المكتب والهاتف المحمول.
 
-Device compromises and data exfiltration through desktop and mobile malware
+## ما هي المتطلبات السابقة؟
 
-## What are the prerequisites?
+ مسار التعلّم هذا هو مسار متقدم ولذلك قبل الالتزام به يجب على المتعلمين:
+ 
+- إكمال مسار تعلّم كشف البرمجيات الضارة الذي يغطي أساسيات البرمجيات الضارة. عادةً ما تستخدم المعلومات التي تتعلّمها أدناه فقط لإجراء تحليل إضافي حول البرمجيات الضارة المشتبه بها التي لم تُكتشف باستخدام مؤشرات الاختراق الحالية، وبالتالي يمكن اعتبار مسار التعلّم هذا على أنه متابعة لمسار كشف البرمجيات الضارة.
+- إكمال مسار تعلّم فحص البنية الأساسية الضارة وتتبعها وكشفها الذي يعلمك أساسيات نظام اسم المجال والبريد الإلكتروني وHTTP التي ستحتاجها لفهم سلوك البرمجيات الضارة
+- حسب كل من النظام الأساسي البرمجيات الضارة التي تقوم بتحليلها، من المحتمل أن تحتاج إلى معرفة الأساسيات المتعلقة بالبرمجة وأنظمة التشغيل. بالإضافة إلى مهارات سطر الأوامر الأساسية، يجب أن يكون لديك معرفة بأساسيات لغات البرمجة وهندسات الأمان الموجودة على أنظمة التشغيل الرئيسية. يمكن أن تشمل الأمثلة تجميع التعليمات البرمجية للغة C++/C وx86 أنظمة تشغيل ويندوز أو جافا (Java) أو كوتلين (Kotlin) لنظام أندرويد، وما إلى ذلك.
+- (اختياري) حسب أنواع البرمجيات الضارة، قد تحتاج أيضًا إلى أن تكون قادرًا على قراءة لغات البرمجة النصية مثل بيرل (Perl) و بارو شيل (PowerShell) و باش (BASH) وما إلى ذلك. يجب أن تتضمن أقسام كل منصة روابط إلى بعض الموارد التي تدعم ذلك ولكن قد تحتاج إلى إجراء بحث ودراسة خارج مسار التعلّم حسب ما تقوم بتحليله.
 
-This learning path is an advanced one. Prior to undertaking it, learners should:
+## ما الأجهزة أو البرامج التي تحتاجها للتمارين؟
 
-- Complete the _Detecting Malware_ learning path, which covers the fundamentals of malware. Typically, you would only use the information you will learn below to perform further analysis on suspected malware that was not detected using existing IoCs, so this learning path can be viewed as a continuation of Detecting Malware.
-- Complete the _[Investigating, Tracking, Detecting Malicious Infrastructure](/en/learning-path/1/) learning path_, which teaches fundamentals about DNS, email, and HTTP that you will need to understand malware behavior
-- Based on both the platform and malware you’re analyzing, you are likely to need some programming and operating system knowledge. In addition to basic command line skills, you will need to know a bit about the programming languages and security architectures present on major operating systems. Examples may include C/C++ and x86 assembly for Windows, Java or Kotlin for Android, etc.
-- (optional) Depending on the malware, you might also need to be able to read scripting languages such as Perl, PowerShell, bash, etc. The sections for each platform should include links to some resources to support this, but you may need to do research and study outside of the learning path depending on what you’re analyzing.
+سوف تحتاج إلى جهاز قوي بما يكفي لتشغيل جهاز ظاهري. نوصي باستخدام جهاز مزود بمعالج x86 وذاكرة وصول عشوائي بسعة 8 غيغابايت على الأقل.
 
-## What devices or software do you need for the exercises?
+سوف تحتاج إلى مساحة كافية على القرص ونطاق ترددي كافٍ حتى تتمكن من تشغيل جهاز لينوكس (Linux) وتثبيته. من المثالي استخدام نسختي ريمنوكس (REMNux) وكالي لينوكس (Kali Linux) ولكن يمكن أن تعمل التوزيعات الأخرى أيضًا، على الرغم من أنها قد تتطلب عملًا إضافيًا باستخدام أدوات التثبيت اليدوي.
 
-You will require a device which is powerful enough to run a virtual machine. We recommend using a machine with an x86 processor and at least 8GB of RAM.
+إذا كان لديك بالفعل إعداد تنصيب بيئة جهاز ظاهري لتحليل البرمجيات الضارة، فيمكنك استخدامه. وإذا لم يتوفر ذلك، فسنرشدك خلال عملية الإعداد في الموضوع الفرعي 1.
 
-You will require sufficient free disk space and bandwidth to be able to run and install a Linux virtual machine. While REMNux and Kali Linux are ideal, other distributions could also work, though they might require additional work with manually installing tools.
+## مسارات التعلّم ذات الصلة
 
-If you already have your own malware analysis virtual machine environment set up, you can use it. If not, we will guide you through the setup process in subtopic 1.
+نوصي بشدة باعتبار مساري تعلّم كشف البرمجيات الضارة وفحص البنية الأساسية الضارة وتتبعها وكشفها على أنهما متطلبان سابقين لهذا المسار.
 
-## Related learning paths
+تُنقل بعض البرمجيات الضارة على شكل تطبيق ويب أو ثغرة في المتصفح، وستساعدك بعض المهارات التي يغطيها مسار تعلّم أساسيات أمان الويب في تحليل البرمجيات الضارة القائمة على الويب.
 
-We strongly recommend treating the Detecting Malware and Detecting, Tracking, Investigating Malicious Infrastructure learning paths as prerequisites to this one.
-Some malware is delivered as a web application or a browser exploit. Some of the skills covered in the Web Security Fundamentals learning path will help you with web-based malware analysis.
