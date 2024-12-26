@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 4
-title = "Static analysis"
+title = " تحليل التعليمات البرمجية بحالتها الثابتة"
 description = "يعد تحليل التعليمات البرمجية بحالتها الثابتة عملية تفكيك ملف ثنائي من أجل فهم ما بداخله وهي تتطلب الكثير من العمل وتتطلب معرفة بهندسة البرمجيات. لهذا السبب يُفضل معظم المحللين إجراء تحليل ديناميكي (والذي نركز عليه في الموضوع الفرعي 3) بدلاً من ذلك. هناك العديد من الأسباب التي قد تدفعك إلى إجراء تحليل التعليمات البرمجية بحالتها الثابتة، بما في ذلك عدم جدوى التحليل الديناميكي أو إذا كنت لا تريد أن يعرف المت"
 +++
 
@@ -36,13 +36,14 @@ description = "يعد تحليل التعليمات البرمجية بحالت�
 للبدء في التحليل الثابت لنظام ويندوز، سنترك ريمنوكس وننتقل إلى مجموعة من البرامج التعليمية حول الهندسة العكسية البرمجيات الضارة لنظام ويندوز، علمًا أن هذا الدليل التعليمي يتضمن القليل من التحليل الديناميكي ولكنه يركز بشكل كبير على التحليل الثابت. من أجل الاتساق عليك استكمال التمارين الموضحة أدناه. تذكر أنه إذا وجدت أي أدوات تحبها وليست جزءًا من ريمنوكس فيمكنك إضافتها إلى الجهاز الظاهري الذي يعمل عليه نظام ريمنوكس. (يمكنك أيضًا البدء من جديد في أي وقت باستخدام جهاز ظاهري فارغ إذا كنت ترغب بذلك.)
 
 **نظام ويندوز: موارد التعلّم**
-{{% resource title="Windows malware reverse engineering 101 and 102" languages="English" cost="Free" description="Comprehensive courses on reverse engineering Windows malware." url="https://malwareunicorn.org/workshops/re101.html" url2="https://malwareunicorn.org/workshops/re102.html" %}}
 
-{{% resource title="OpenSecurityTraining2 courses" languages="English" cost="Free, paid with instructor support" description="Courses on low-level system architecture and reversing." url="https://p.ost2.fyi/courses" %}}
+{{% resource title="الهندسة العكسية 101 و102 للبرمجيات الضارة على ويندوز" description="دورة ممتازة وشاملة حول الهندسة العكسية للبرمجيات الضارة في ويندوز. لاحظ أن هذه التمارين هي مقدمة ليست بسهلة وقد تضطر إلى إجراء دراسة إضافية (الموارد أدناه) من أجل فهم تمارين معينة وقد يستغرق إكمالها عدة أيام." languages="اللغة الإنجليزية" cost="مجاني" url="https://malwareunicorn.org/workshops/re101.html" %}}
 
-{{% resource title="OpenSecurity’s learning path for malware analysis" languages="English" cost="Free" description="Learning path for malware analysis." url="https://opensecuritytraining.info/Malware%20Analysis.html" %}}
+{{% resource title="دورات OpenSecurityTraining2" description="دورات تُوفر دراسة متعمّقة جدًا لهندسة النظام منخفضة المستوى وعكسها." languages="اللغة الإنجليزية" cost="مجانًا، مدفوع مع دعم المدرس" url="https://p.ost2.fyi/courses" %}}
 
-{{% resource title="Windows reversing using x64dbg" languages="Spanish" cost="Free" description="Video series on using x64dbg for reversing Windows malware." url="https://www.youtube.com/watch?v=Af5pvCl0CBE&list=PLn__CHOEZR1Ymxi2n4Q9G9I9kBYr6B4Ft" %}}
+{{% resource title="مسار تعلّم OpenSecurity لتحليل البرمجيات الضارة" description="" languages="اللغة الإنجليزية" cost="مجاني" url="https://opensecuritytraining.info/Malware%20Analysis.html" %}}
+
+{{% resource title="الهندسة العكسية لنظام ويندوز باستخدام x64dbg" description="تُركز سلسلة الفيديو هذه بشكل خاص على استخدام x64dbg وهي أداة تصحيح أخطاء مفتوحة المصدر لعكس هندسة البرمجيات الضارة في ويندوز" languages="اللغة الإسبانية" cost="مجاني" url="https://www.youtube.com/watch?v=Af5pvCl0CBE&list=PLn__CHOEZR1Ymxi2n4Q9G9I9kBYr6B4Ft" %}}
 
 ### نظام أندرويد
 
@@ -54,15 +55,14 @@ description = "يعد تحليل التعليمات البرمجية بحالت�
 كما هو الحال مع قسم التحليل الثابت لنظام ويندوز، يرتكز هذا القسم حول التحليل الثابت لنظام أندرويد على مسار ممتاز وشامل ولكن ليس سهلًا. ستحتاج على الأرجح إلى دراسة المزيد من أجل فهم المادة في المقرر الأساسي.
 
 **نظام أندرويد: موارد التعلّم**
-{{% resource title="Android App Reverse Engineering 101" languages="English" cost="Free" description="Comprehensive course on reverse engineering Android applications." url="https://www.ragingrock.com/AndroidAppRE/" %}}
 
-{{% resource title="How to statically analyze a suspicious Android app" languages="English" cost="Free" description="Intermediate introduction to static analysis of Android apps." url="https://pts-project.org/guides/g5/" %}}
+{{% resource title="الهندسة العكسية 101 لتطبيقات أندرويد" description="دورة ممتازة وشاملة حول الهندسة العكسية لتطبيقات أندرويد. لاحظ أن هذه التمارين هي مقدمة ليست بسهلة لذا قد تضطر إلى إجراء دراسة إضافية (الموارد أدناه) من أجل فهم تمارين معينة وقد يستغرق إكمالها عدة أيام. قد تساعدك الموارد أدناه على استيعاب أقسام الدورة التدريبية." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.ragingrock.com/AndroidAppRE/" %}}
 
-{{% resource title="Codecademy’s Learn Java course" languages="English" cost="Free" description="Basic introduction to Java programming." url="https://www.codecademy.com/enrolled/courses/learn-java" %}}
+{{% resource title="كيفية التحليل الثابت لتطبيق أندرويد مشبوه" description="مقدمة متوسطة المستوى ممتازة للتحليل الثابت لتطبيقات أندرويد." languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/guides/g5/" %}}
 
-{{% resource title="Build Your First Android App in Java" languages="English, Chinese, Indonesian, Japanese, Korean, Portuguese, Spanish" cost="Free" description="Basic course on building Android apps using Java." url="https://developer.android.com/codelabs/build-your-first-android-app" %}}
+{{% resource title="دورة تعلم جافا من Codecademy" description="مقدمة أساسية حول لغة جافا. حيث تحتاج إلى فهمها من أجل العمل مع برامج أندرويد." languages="اللغة الإنجليزية" cost="مجاني" url="https://www.codecademy.com/enrolled/courses/learn-java" %}}
 
-
+{{% resource title="أنشئ أول تطبيق أندرويد في جافا." description="دورة أساسية حول بناء التطبيقات من Google. يجب أن تمنحك فكرة عن طريقة عمل تطبيقات أندرويد وتُحضرك للتعرف على التفاصيل الداخلية لتطبيقات أندرويد." languages="اللغة الإنجليزية" cost="مجاني" url="https://developer.android.com/codelabs/build-your-first-android-app" %}}
 ## اختبار مهارة
 
 اجلس مع أحد النظراء أو مُرشِد لديه خبرة كبيرة في الفحص غير النشط ضد الخوادم على الإنترنت وبعدها:
