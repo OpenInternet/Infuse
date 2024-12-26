@@ -2,7 +2,7 @@
 style = "الموضوع الفرعي"
 weight = 5
 title = "منطق التطبيق"
-description = "Here we learn about application logic vulnerabilities, what they are, and how to protect our website against them"
+description = "في أي موقع ويب تفاعلي يضع قيودًا على أنواع الإجراءات التي يمكن للمستخدمين تنفيذها"
 +++
 
 ## حالة استخدام
@@ -102,8 +102,7 @@ description = "Here we learn about application logic vulnerabilities, what they 
 إذا كنت لا تزال ترغب في إجراء نوع من تمرين اختبار المهارة فجرّب مختبر دي في دبليو إيه الموجود رابطه أعلاه لمعرفة ما إذا كان يعمل، ولكن إذا لم يعمل ناقش بإيجاز مع أحد الزملاء أو المرشد سبب كون التغييرات في الإعدادات الافتراضية لمتصفحات الويب تعني أن المختبر لم يعد يعمل واطلب منهم التحقق من فهمك للموضوع بشكل صحيح
 
 ## موارد التعلّم
-[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
 
-{{% resource title="Cross-site request forgery" languages="English" cost="Free" description="Guide to CSRF vulnerability, how it works, and preventive measures." url="https://owasp.org/www-community/attacks/csrf" %}}
 
-{{% resource title="Cross-Site Request Forgery Prevention Cheat Sheet" languages="English" cost="Free" description="List of CSRF mitigations, recommended and discouraged practices." url="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" %}}
+{{% resource title="تزييف الطلبات عبر المواقع" description="دليل مشروع أمان تطبيق الويب المفتوح حول الثغرة وكيفية عمله والتدابير الوقائية التي تعمل ولا تعمل" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/attacks/csrf" %}}
+{{% resource title="ورقة معلومات مرجعية للوقاية من تزييف طلب المواقع المشتركة" description="قائمة بالتخفيفات المحتملة لتزييف طلب مواقع مشتركة التي يُنصح بها أو ويُنصح بعدم استخدامها" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html" %}}
