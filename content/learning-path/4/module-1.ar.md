@@ -1,8 +1,8 @@
 +++
 style = "module"
 weight = 1
-title = "Infrastructure Vulnerabilities"
-description = "We introduce different types of infrastructure vulnerabilities and what impact they could have"
+title = " ثغرات البنية التحتية"
+description = "بينما يركز مسار التعلّم هذا على أمان تطبيقات الويب"
 +++
 
 ## حالة استخدام
@@ -79,14 +79,15 @@ description = "We introduce different types of infrastructure vulnerabilities an
 
 
 ## موارد التعلّم
-[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
 
-{{% resource title="What’s a CVE" languages="English" cost="Free" description="Introduction to CVEs (Common Vulnerabilities and Exposures) and their importance." url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
+{{% resource title="ما هي الثغرات الأمنية والتعرضات الشائعة" description="مقدمة جيدة لماهية الثغرات الأمنية والتعرضات الشائعة وسبب أهميتها" languages="الإنجليزية" cost="مجانًا" url="https://www.redhat.com/en/topics/security/what-is-cve" %}}
 
-{{% resource title="CVEs with a vulnerability score of 9.8" languages="English" cost="Free" description="Examples of CVEs with high vulnerability scores that can cause significant damage." url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices, https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
+{{% resource title="الثغرات الأمنية والتعرضات الشائعة ذات مستويات بلغت 9.8" description="فيما يلي مثالان على ثغرات أمنية وتعرضات شائعة كان عند مستويات مرتفعة مما يعني أن المهاجمين الذين يستغلونها يمكن أن يتسببوا بالكثير من الضرر" languages="الإنجليزية" cost="مجانًا" url="https://www.bleepingcomputer.com/news/security/fortinet-warns-of-critical-rce-flaw-in-fortios-fortiproxy-devices" %}}
 
-{{% resource title="OpenCVE" languages="English" cost="Free" description="Website and tool for subscribing to CVEs affecting different vendors." url="https://www.opencve.io/welcome" %}}
+{{% resource title="الثغرات الأمنية والتعرضات الشائعة ذات مستويات بلغت 9.8" description="فيما يلي مثالان على ثغرات أمنية وتعرضات شائعة كان عند مستويات مرتفعة مما يعني أن المهاجمين الذين يستغلونها يمكن أن يتسببوا بالكثير من الضرر" languages="الإنجليزية" cost="مجانًا" url="https://thehackernews.com/2023/05/critical-flaws-in-cisco-small-business.html" %}}
 
-{{% resource title="SAFETAG vulnerability scanning" languages="English" cost="Free" description="Guide to vulnerability scanning using the SAFETAG methodology." url="https://safetag.org/methods/vulnerability_scanning" %}}
+{{% resource title="(OpenCVE)أوبن سي في إي" description="موقع ويب (وأداة مستقلة) يسمح لك بالاشتراك في أخبار الثغرات الأمنية والتعرضات الشائعة التي تؤثر على بائعين مختلفين لاحظ أنه لا تُنشر معلومات عن جميع الثغرات الأمنية والتعرضات الشائعة." languages="الإنجليزية" cost="مجانًا" url="https://www.opencve.io/welcome" %}}
 
-{{% resource title="Vulnerability Scanning Tools" languages="English" cost="Free" description="List of automated tools for web app vulnerability scanning, with various use cases and pricing models." url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
+{{% resource title="(SAFETAG) فحص ثغرات سيفتاغ" description="دليل لفحص الثغرات يستخدم منهجية سيفتاغ ويحتوي على العديد من الأنشطة المنفصلة" languages="الإنجليزية" cost="مجانًا" url="https://safetag.org/methods/vulnerability_scanning" %}}
+
+{{% resource title="(Vulnerability Scanning Tools) أدوات فحص الثغرات" description="قائمة بالأدوات الآلية التي يمكن للمدافعين الرقميين استخدامها للبحث عن الثغرات في تطبيقات الويب، وتعمل أدوات مختلفة لحالات استخدام مختلفة ولها نماذج تسعير مختلفة والعديد منها مفتوح المصدر." languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-community/Vulnerability_Scanning_Tools" %}}
