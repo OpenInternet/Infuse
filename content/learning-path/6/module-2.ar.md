@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 2
-title = "Website Logging for Security"
+title = " تسجيل أحداث موقع الويب للأمان"
 description = "يُعدّ أي موقع ويب على الإنترنت معرضًا لشكل مستمر للهجوم، وعلى أقل تقدير تغرق بهجمات غير موجّهة من أعداد كبيرة من روبوتات تُديرها جهات إجرامية"
 +++
 
@@ -579,13 +579,23 @@ while i < len(target):
 
 
 {{% resource title="ملفات السجل - أباتشي" description="نظرة عامة على كيفية قراءة ملفات السجل في خادم ويب أباتشي" languages="الإنجليزية" cost="مجانًا" url="https://httpd.apache.org/docs/2.4/logs.html#accesslog" %}}
+
 {{% resource title="فهم الوصول إلى أباتشي وسجل الأخطاء" description="مقالتان أخريان حول كيفية قراءة سجلات خادم ويب أباتشي" languages="الإنجليزية" cost="مجانًا" url="https://www.keycdn.com/support/apache-access-log" %}}
+
 {{% resource title="فهم الوصول إلى أباتشي وسجل الأخطاء" description="مقالتان أخريان حول كيفية قراءة سجلات خادم ويب أباتشي" languages="الإنجليزية" cost="مجانًا" url="https://www.dataset.com/blog/apache-error-log-detail/" %}}
+
 {{% resource title="تسجيل الأحداث من جانب الخادم" description="تحليل السجلات داخل خادم مايكروسوفت إنترنت إنفورميشن سيرفيسيز" languages="الإنجليزية" cost="مجانًا" url="https://learn.microsoft.com/en-us/windows/win32/http/server-side-logging-in-http-version-2-0" %}}
+
 {{% resource title="(ASP.Net) الفاشلة  سجلات أخطاء إنترنت إنفورميشن سيرفيسيز والطرق الأخرى للعثور على طلبات إيه إس ب دوت نت" description="الوصف : نظرة أخرى على سجلات إنترنت إنفورميشن سيرفيسيز وكيف يمكننا البحث عن أخطاء التطبيق فيها" languages="الإنجليزية" cost="مجانًا" url="https://stackify.com/beyond-iis-logs-find-failed-iis-asp-net-requests/" %}}
+
 {{% resource title="تكوين تسجيل الأحداث على إن جي آي إن إكس" description="وثائق خادم الويب إن جي آي إن إكس حول كيفية تكوين السجلات والعمل معها" languages="الإنجليزية" cost="مجانًا" url="https://docs.nginx.com/nginx/admin-guide/monitoring/logging/" %}}
+
 {{% resource title="دليل لسجلات إن جي آي إن إكس" description="نظرة عامة على مختلف سجلات إن جي آي إن إكس وصيغها" languages="الإنجليزية" cost="مجانًا" url="https://trunc.org/learning/nginx-log-analysis" %}}
-{{% resource title="سجل الأمان: أفضل الممارسات لتسجيل الأحداث وإدارتها" description="تحليل متى تكون السجلات مفيدة وكيف يمكننا تحليلها والسياسات التي يمكننا إنشاؤها حولها" languages="الإنجليزية" cost="مجانًا" url="https://www.dnsstuff.com/security-log-best-practices" %}}
+
+{{% resource title="سجل الأمان: أفضل الممارسات لتسجيل الأحداث وإدارتها" description="تحليل متى تكون السجلات مفيدة وكيف يمكننا تحليلها والسياسات التي يمكننا إنشاؤها حولها" languages="الإنجليزية" cost="مجانًا"url="https://www.dnsstuff.com/security-log-best-practices" %}}
+
 {{% resource title="ورقة معلومات مرجعية والمفردات لتسجيل أحداث مشروع أمان تطبيق الويب المفتوح" description="دليل من مشروع أمان تطبيق الويب المفتوح حول الغرض الذي يجب أن تخدمه سجلات الأحداث وكيف يجب أن نحللها بالإضافة إلى المفردات القياسية لها" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Cheat_Sheet.html" %}}
-{{% resource title="ورقة معلومات مرجعية والمفردات لتسجيل أحداث مشروع أمان تطبيق الويب المفتوح" description="دليل من مشروع أمان تطبيق الويب المفتوح حول الغرض الذي يجب أن تخدمه سجلات الأحداث وكيف يجب أن نحللها بالإضافة إلى المفردات القياسية لها" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+
+{{% resource title="ورقة معلومات مرجعية والمفردات لتسجيل أحداث مشروع أمان تطبيق الويب المفتوح" description="دليل من مشروع أمان تطبيق الويب المفتوح حول الغرض الذي يجب أن تخدمه سجلات الأحداث وكيف يجب أن نحللها بالإضافة إلى المفردات القياسية لها" languages="الإنجليزية" cost="مجانًا"url="https://cheatsheetseries.owasp.org/cheatsheets/Logging_Vocabulary_Cheat_Sheet.html" %}}
+
 {{% resource title="أبق البيانات الحساسة خارج سجلاتك: أفضل 9 ممارسات" description="يمكن أن يتسبب تسجيل الأحداث الشامل أيضًا بتضمين بيانات حساسة مما قد يعرض المستخدمين للخطر. يبحث هذا الدليل في كيفية تكييف ممارسات التسجيل الخاصة بنا لاستبعاد البيانات الحساسة من السجلات." languages="الإنجليزية" cost="مجانًا" url="https://www.skyflow.com/post/how-to-keep-sensitive-data-out-of-your-logs-nine-best-practices" %}}
