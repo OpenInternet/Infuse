@@ -139,18 +139,18 @@ description = "بمجرد تحليل البرمجية الضار، يمكنك م
 
 ## موارد التعلّم
 
-{{% resource title="What is hashing and how does it work?" languages="English" cost="Free" description="Introduction to file hashes and their role in malware detection." url="https://www.sentinelone.com/cybersecurity-101/hashing/" %}}
+{{% resource title="ما هي شفرة التجزئة وكيف تعمل؟" description="مقدمة موجزة حول موضوع شفرات تجزئة الملفات والدور الذي تؤديه في الكشف عن البرمجيات الضارة والتحقيق فيها" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.sentinelone.com/cybersecurity-101/hashing/" %}}
 
-{{% resource title="YARA" languages="English" cost="Free" description="Official homepage of YARA, used for pattern matching in malware research." url="https://virustotal.github.io/yara/" %}}
+{{% resource title="قواعد يارا" description="الصفحة الرئيسية الرسمية لأداة يارا والتي تُستخدم لمطابقة الأنماط المتعلقة في الغالب بالأبحاث التي تجري حول البرمجيات الضارة" languages="اللغة الإنجليزية" cost="مجاني" url="https://virustotal.github.io/yara/*]" %}}
 
-{{% resource title="Threat hunting 101 with Yara rules" languages="English" cost="Free" description="Using YARA rules to detect malicious files." url="https://medium.com/@laroshkhanpk/threat-hunting-101-hunting-with-yara-rules-82aff0898674" %}}
+{{% resource title="صيد التهديدات 101 مع قواعد يارا" description="يبحث هذا المنشور كيفية إنشاء قواعد يارا واستخدامها للكشف عن الملفات الضارة." languages="اللغة الإنجليزية" cost="مجاني" url="https://medium.com/@laroshkhanpk/threat-hunting-101-hunting-with-yara-rules-82aff0898674" %}}
 
-{{% resource title="yarGen" languages="English" cost="Free" description="Tool to automate string generation for YARA rules." url="https://github.com/Neo23x0/yarGen" %}}
+{{% resource title="أداة يارجن" description="أداة يمكنها أتمتة إنشاء بعض السلاسل لقواعد يارا" languages="اللغة الإنجليزية" cost="مجاني" url="https://github.com/Neo23x0/yarGen" %}}
 
-{{% resource title="Snort rules" languages="English" cost="Free" description="Introduction to Snort rules for network intrusion detection." url="https://docs.snort.org/start/rules" %}}
+{{% resource title="قواعد سنورت" description="أسهل طريقة لفهم سنورت هي بأنه أقرب إلى يارا ولكن بالنسبة للشبكات حيث تستخدم أنماطًا للكشف عن التطفل وإيقافه ويقدم هذا المنشور بعض قواعدها الأساسية." languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.snort.org/start/rules" %}}
 
-{{% resource title="Snort rules examples and usage" languages="English" cost="Free" description="Examples of Snort rules for beginners." url="https://www.sapphire.net/security/snort-rules-examples/" %}}
+{{% resource title="أمثلة على قواعد سنورت واستخداماتها" description="بعض قواعد سنورت الجيدة للمبتدئين" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.sapphire.net/security/snort-rules-examples/" %}}
 
-{{% resource title="What to include in a malware analysis report" languages="English" cost="Free" description="Guide on essential elements for a malware analysis report." url="https://zeltser.com/malware-analysis-report/" %}}
+{{% resource title="ما يجب تضمينه في تقرير تحليل البرمجيات الضارة" description="قائمة مهام جيّدة لجميع الأشياء الرئيسية التي يجب أن تراعيها وتدونها عند إنشاء تقرير تحليل البرمجيات الضارة لمشاركته مع الآخرين" languages="اللغة الإنجليزية" cost="مجاني" url="https://zeltser.com/malware-analysis-report/" %}}
 
-{{% resource title="Writing malware reports" languages="English" cost="Free" description="Guide on best practices for writing malware reports." url="https://www.sans.org/blog/writing-malware-reports/" %}}
+{{% resource title="كتابة تقارير البرمجيات الضارة" description="دليل أقدم ألفه معهد سانز التكنولوجي يعود إلى عام 2012 ولكنه لا يزال مفيدًا للغاية حول أفضل الممارسات عند كتابة تقارير البرمجيات الضارة" languages="اللغة الإنجليزية" cost="مجاني" url="https://www.sans.org/blog/writing-malware-reports/" %}}
