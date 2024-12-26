@@ -2,7 +2,7 @@
 style = "module"
 weight = 3
 title = "المصادقة"
-description = "In any website that has user logins, it’s important that the site protects user accounts from unauthorized access. We outline the most common areas of authentication where web application flaws appear"
+description = "في أي موقع ويب يشمل تسجيل دخول المستخدمين من المهم أن يحمي الموقع حسابات المستخدمين من الوصول غير المصرح به وأن تكون بيانات اعتماد الحساب نفسها محمية"
 +++
 
 ## حالة استخدام
@@ -675,49 +675,48 @@ ______
 
 
 
+## موارد التعلّم
 
+{{% resource title="حشو بيانات الاعتماد" description="لمحة عامة على هجوم يختبر فيه المتطفل العديد من مجموعات تسجيل الدخول على سبيل المثال تلك التي جاءت من خرق البيانات" languages="الإنجليزية والعربية والصينية والإسبانية والفرنسية" cost="مجانًا" url="https://en.wikipedia.org/wiki/Credential_stuffing" %}}
 
+{{% resource title="دالة شفرة التجزئة التشفيرية" description="نظرة عامة على ماهية دالات شفرة التجزئة التشفيرية وسبب أهميتها الكبير للأمن" languages="31 لغة" cost="مجانًا" url="https://en.wikipedia.org/wiki/Cryptographic_hash_function" %}}
 
+{{% resource title="جدول قوس قزح" description="قائمة بدوال التجزئة المحسوبة مسبقًا والتي يمكن استخدامها عند محاولة استخدام القوة الغاشمة لتفكيك المحتوى المشفّر" languages="21 لغة" cost="مجانًا" url="https://en.wikipedia.org/wiki/Rainbow_table" %}}
 
+{{% resource title="التمليح" description="يتكون التمليح من جزء من البيانات المضافة إلى كلمة مرور أو جزء آخر من المعلومات قبل تشفيرها، ويجعل استخدامه من الصعب على المتطفل استخدام جداول قوس قزح" languages="23 لغة" cost="مجانًا" url="https://en.wikipedia.org/wiki/Salt_(cryptography)" %}}
 
-## Learning Resources
+{{% resource title="تشفير تقليدي" description="الوصف : نظرة سريعة على الخوارزميات الأولى المستخدمة لتشفير كلمات المرور في السبعينيات ولم تعد قيد الاستخدام" languages="الإنجليزية" cost="مجانًا" url="https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html" %}}
 
-{{% resource title="Credential stuffing" languages="English, Arabic, Chinese, Spanish, French" cost="Free" description="Overview of an attack where adversaries test many login combinations, often from data breaches." url="https://en.wikipedia.org/wiki/Credential_stuffing" %}}
+{{% resource title="الإجابات الصحيحة للتشفير" description="الوصف : قائمة بحلول التشفير التي سيكون من الحكمة استخدامها في يومنا هذا" languages="الإنجليزية" cost="مجانًا" url="https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/" %}}
 
-{{% resource title="Cryptographic hash function" languages="31 languages" cost="Free" description="Overview of cryptographic hash functions and their importance to security." url="https://en.wikipedia.org/wiki/Cryptographic_hash_function" %}}
+{{% resource title="بحث شفرة التجزئة" description="أداة تعمل على عكس عمليات البحث شفرات التجزئة ويمكن أن تكون مفيدة للعمل مع دي في دبليو إيه والأدوات المماثلة" languages="الإنجليزية" cost="مجانًا" url="https://www.whatsmyip.org/hash-lookup/" %}}
 
-{{% resource title="Rainbow table" languages="21 languages" cost="Free" description="List of precomputed hash functions used in brute-forcing encrypted content." url="https://en.wikipedia.org/wiki/Rainbow_table" %}}
+{{% resource title="ورقة معلومات مرجعية حول تخزين كلمات المرور وورقة معلومات مرجعية متعلق بنسيان كلمات المرور" description="سلسلة حول أفضل ممارسات كيفية تخزين كلمات المرور المشفرة وكيفية إدارة استعادة كلمة المرور" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" %}}
 
-{{% resource title="Salt" languages="23 languages" cost="Free" description="Explanation of a salt added to passwords before encryption to prevent rainbow table attacks." url="https://en.wikipedia.org/wiki/Salt_(cryptography)" %}}
+{{% resource title="ورقة معلومات مرجعية حول تخزين كلمات المرور وورقة معلومات مرجعية متعلق بنسيان كلمات المرور" description="سلسلة حول أفضل ممارسات كيفية تخزين كلمات المرور المشفرة وكيفية إدارة استعادة كلمة المرور" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
 
-{{% resource title="Traditional crypt" languages="English" cost="Free" description="Overview of early password encryption algorithms from the 1970s, no longer in use." url="https://www.usenix.org/legacy/publications/library/proceedings/usenix99/full_papers/provos/provos_html/node9.html" %}}
+{{% resource title="الاحتيال الدولي عبر الرسائل النصية القصيرة" description="مثال على كيفية إساءة استخدام الرسائل النصية القصيرة من قبل المتطفلين ودراسة حالة جيدة حول سبب عدم وجوب الرد على الرسائل النصية القصيرة للمصادقة" languages="الإنجليزية" cost="مجانًا" url="https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/" %}}
 
-{{% resource title="Cryptographic right answers" languages="English" cost="Free" description="List of recommended cryptographic solutions for modern use." url="https://www.latacora.com/blog/2018/04/03/cryptographic-right-answers/" %}}
+{{% resource title="(Selenium) سيلينيوم" description="أداة لأتمتة مهام متصفح الويب والتي يمكن استخدامها للاختبار" languages="الإنجليزية" cost="مجانًا" url="https://www.selenium.dev/" %}}
 
-{{% resource title="Hash lookup" languages="English" cost="Free" description="Tool for reverse lookup of hashes, useful for working with tools like DVWA." url="https://www.whatsmyip.org/hash-lookup/" %}}
+{{% resource title="اختبار تعداد الحسابات وحساب المستخدم الممكن تخمينه" description="سير عمل آخر لاختبار أمان تطبيق الويب هذه المرة لمعرفة ما إذا كان من الممكن التسبب بقيام تطبيق بتعداد أسماء المستخدمين" languages="الإنجليزية" cost="مجانًا" url="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account" %}}
 
-{{% resource title="Password storage cheat sheet & Forgot password cheat sheet" languages="English" cost="Free" description="Best practices for storing encrypted passwords and managing password recovery." url="https://cheatsheetseries.owasp.org/cheatsheets/Password_Storage_Cheat_Sheet.html" url2="https://cheatsheetseries.owasp.org/cheatsheets/Forgot_Password_Cheat_Sheet.html" %}}
+{{% resource title="(Have I Been Pwned)  هاف آي بن بوند" description="خدمة رائعة وذات سمعة طيبة لمعرفة ما إذا كان اسم مستخدم معين قد ظهر في أي خروقات للبيانات" languages="الإنجليزية" cost="مجانًا" url="https://haveibeenpwned.com/" %}}
 
-{{% resource title="International SMS Fraud" languages="English" cost="Free" description="Case study on SMS abuse by adversaries and reasons not to rely on SMS for authentication." url="https://www.openmindnetworks.com/blog/international-sms-fraud-by-brian-kelly-cto-and-co-founder/" %}}
+{{% resource title="نقدم لكم 306 مليون كلمة مرور مسروقة يمكن تنزيلها مجانًا" description="منشور مدونة من تأليف تروي هانت مؤسس هاف آي بن بوند حول كيفية عثوره على ملايين كلمات المرور المسربة وما يمكن استخدام قاعدة البيانات المسربة من أجله" languages="الإنجليزية" cost="مجانًا" url="https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/" %}}
 
-{{% resource title="Selenium" languages="English" cost="Free" description="Tool for automating web browser tasks, useful for testing." url="https://www.selenium.dev/" %}}
+{{% resource title="بيانات الاعتماد المشتركة" description="قوائم بيانات الاعتماد شائعة الاستخدام مثل كلمات المرور" languages="الإنجليزية" cost="مجانًا" url="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials" %}}
 
-{{% resource title="Testing for Account Enumeration and Guessable User Account" languages="English" cost="Free" description="Workflow for testing web app security to see if it's possible to enumerate usernames." url="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account" %}}
+{{% resource title="إرشادات كلمة المرور المعهد الوطني للمعايير والتكنولوجيا" description="منشور مدونة يوضح بعض إرشادات كلمات المرور من المعهد الوطني للمعايير والتكنولوجيا والأسباب الكامنة وراءها" languages="الإنجليزية" cost="مجانًا" url="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/" %}}
 
-{{% resource title="Have I Been Pwned" languages="English" cost="Free for low volumes of queries" description="Service to check if a username has been featured in any data breaches." url="https://haveibeenpwned.com/" %}}
+{{% resource title="التصيد الاحتيالي" description="نظرة عامة سريعة على هجمات التصيد الاحتيالي وتاريخها والأساليب التي يستخدمها المتطفلون بشكل متكرر" languages="76 لغة" cost="مجانًا" url="https://en.wikipedia.org/wiki/Phishing" %}}
 
-{{% resource title="Introducing 306 Million Freely Downloadable Pwned Passwords" languages="English" cost="Free" description="Blog post by Troy Hunt on finding millions of leaked passwords and their implications." url="https://www.troyhunt.com/introducing-306-million-freely-downloadable-pwned-passwords/" %}}
+{{% resource title="عملية احتيال مبادلة بطاقة سيم" description="نوع احتيال يتحكم فيه المهاجم ببطاقة سيم تخص الشخص المستهدف وهي سبب رئيسي لعدم الاعتماد على المصادقة المستندة إلى الرسائل النصية القصيرة" languages="الإنجليزية والصينية واليابانية والمالايالامية والألمانية والإسبانية" cost="مجانًا" url="https://en.wikipedia.org/wiki/SIM_swap_scam" %}}
 
-{{% resource title="Common credentials" languages="English" cost="Free" description="Lists of commonly used credentials, like passwords." url="https://github.com/danielmiessler/SecLists/tree/master/Passwords/Common-Credentials" %}}
+{{% resource title="لمحة عامة فنية حول المعامل الثاني الشامل" description="نظرة أعمق في كيفية عمل المعامل الثاني الشامل وهي طريقة مصادقة شائعة تعتمد على أدوات مثل مفاتيح الأمان المادية" languages="الإنجليزية" cost="مجانًا" url="https://developers.yubico.com/U2F/Protocol_details/Overview.html" %}}
 
-{{% resource title="NIST password guidelines" languages="English" cost="Free" description="Blog post outlining NIST password guidelines and their rationale." url="https://blog.netwrix.com/2022/11/14/nist-password-guidelines/" %}}
+{{% resource title="الرموز الاحتياطية للمصادقة ثنائية العوامل" description="الوصف : في بعض الأحيان يضيع أو تتلف الطريقة الأساسية للمصادقة ثنائية العوامل وفي مثل هذه الحالات سيحتاج المستخدم إلى استخدام الطريقة الاحتياطية. تُوضح هذه المقالات كيف تدير غوغل وغت هب هذه النسخ الاحتياطية." languages="الإنجليزية" cost="مجانًا" url="https://support.google.com/accounts/answer/1187538?hl=en" %}}
 
-{{% resource title="Phishing" languages="76 languages" cost="Free" description="Overview of phishing attacks, their history, and methods used by adversaries." url="https://en.wikipedia.org/wiki/Phishing" %}}
+{{% resource title="الرموز الاحتياطية للمصادقة ثنائية العوامل" description="الوصف : في بعض الأحيان يضيع أو تتلف الطريقة الأساسية للمصادقة ثنائية العوامل وفي مثل هذه الحالات سيحتاج المستخدم إلى استخدام الطريقة الاحتياطية. تُوضح هذه المقالات كيف تدير غوغل وغت هب هذه النسخ الاحتياطية." languages="الإنجليزية" cost="مجانًا" url="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
 
-{{% resource title="SIM swap scam" languages="English, Chinese, Japanese, Malayalam, German, Spanish" cost="Free" description="Overview of SIM swap scams and reasons not to rely on SMS-based authentication." url="https://en.wikipedia.org/wiki/SIM_swap_scam" %}}
-
-{{% resource title="U2F Technical Overview" languages="English" cost="Free" description="Detailed look at U2F authentication method using physical security keys." url="https://developers.yubico.com/U2F/Protocol_details/Overview.html" %}}
-
-{{% resource title="Two factor authentication backup codes" languages="English" cost="Free" description="Guides on managing backup methods for two factor authentication by Google and GitHub." url="https://support.google.com/accounts/answer/1187538?hl=en&co=GENIE.Platform%3DDesktop" url2="https://docs.github.com/en/authentication/securing-your-account-with-two-factor-authentication-2fa/configuring-two-factor-authentication-recovery-methods" %}}
-
-{{% resource title="Multifactor authentication cheat sheet" languages="English" cost="Free" description="Overview of multifactor authentication and best practices for implementation." url="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html" %}}
+{{% resource title="ورقة معلومات مرجعية حول المصادقة متعددة العوامل" description="نظرة عامة على ماهية المصادقة متعددة العوامل وأفضل الممارسات التي يجب أن نتبعها عند تنفيذها" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Multifactor_Authentication_Cheat_Sheet.html" %}}
