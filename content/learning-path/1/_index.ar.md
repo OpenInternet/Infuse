@@ -1,6 +1,6 @@
 ---
 type: learning-path
-title: Detecting, Investigating and Tracking Malicious Infrastructure
+title: كشف البنية التحتية الضارة وفحصها وتتبعها
 description:  كشف البنية التحتية الضارة وفحصها وتتبعها
 weight: 1
 thumbnail: "1"
