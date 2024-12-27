@@ -1,11 +1,7 @@
 ---
 type: learning-path
 title: Analyzing Malware
-description: This learning path will prepare you to start on the journey of
-  analyzing malware. Note that this is one of the hardest areas of security to
-  master, but incremental progress will give results. The general goal of
-  malware analysis is to characterize new malware, both brand new malware and
-  variants of existing ones.
+description: سيُعدّك مسار التعلّم هذا للبدء في رحلة تحليلسيُعدّك مسار التعلّم هذا للبدء في رحلة تحليل البرمجيات الضارة. اعلم أن هذا المسار من أصعب مجالات الأمان التي يجب إتقانها، ولكن التقدم التدريجي في دراسته سيعطي نتائج ملموسة. يُعدّ الهدف العام من تحليل البرمجيات الضارة هو توصيف الجديد منها التي تتضمن أنواعًا جديدة بالكامل أو أنواعًا معدّلة من تلك الموجودة بالفعل. تُعدّ النتيجة النهائية المرجوة هي توصيف قدرات البرمجيات الضارة وتخمين جهة أو جهات التهديد الذي تستخدمها ومجموعة مؤشرات الاختراق التي ستسمح للآخرين باكتشاف البرمجيات الضارة.
 weight: 3
 thumbnail: "3"
 icon: forensics-fanatic
