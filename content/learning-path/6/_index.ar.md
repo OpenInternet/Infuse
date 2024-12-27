@@ -1,10 +1,10 @@
-+++
-type = "learning-path"
-title = "Web Application Hardening, Forensics, and Incident Response"
-description = "This learning path looks at DoS attacks against websites, how to protect your or your beneficiaries' web applications from them, as well as how to collect and analyze website logs to detect attempted attacks."
+---
+type = learning-path
+title =  تعزيز حماية تطبيقات الويب والتحليل الجنائي والاستجابة للحوادث
+description =  تعزيز حماية تطبيقات الويب والتحليل الجنائي والاستجابة للحوادث
 weight = 6
 thumbnail = "6"
 icon = "gateway-guardian"
 badge = "Gateway Guardian"
 color = "#BDB4FE"
-+++
+---
