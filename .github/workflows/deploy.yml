@@ -138,24 +138,6 @@ jobs:
 
           echo "INSTALLATION_TOKEN=${INSTALLATION_TOKEN}" >> $GITHUB_ENV
 
-      - name: Deploy PR Preview to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ env.INSTALLATION_TOKEN }}
-          publish_dir: ./public
-          destination_dir: pr-${{ github.event.pull_request.number }}
-
-      - name: Post Preview URL in PR Comments
-        run: |
-          PR_NUMBER=${{ github.event.pull_request.number }}
-          BASE_URL="https://infuse.quest/pr-${PR_NUMBER}"
-          COMMENT="🌐 Preview your changes here:\n"
-          COMMENT="${COMMENT}: [${BASE_URL}/en](${BASE_URL}/en)\n"
-          curl -X POST \
-            -H "Authorization: token ${{ env.INSTALLATION_TOKEN }}" \
-            -H "Content-Type: application/json" \
-            -d "{\"body\": \"${COMMENT}\"}" \
-            "https://api.github.com/repos/${{ github.repository }}/issues/${PR_NUMBER}/comments"
 
   cleanup:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
