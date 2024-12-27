@@ -64,7 +64,7 @@ This subtopic will allow the practitioner to ensure the security of the process 
 يشير هذا المصطلح الأخير في سلسلة العُهدة إلى أفضل الممارسات في التحليل الجنائي الرقمي والاستجابة للحوادث لتسجيل التعامل مع الجهاز من أجل الحفاظ على الأدلة والسماح باستخدام الأدلة التي تم جمعها في أي إجراءات قانونية محتملة. تُوفر المقالة الموفر رابطها مقدمة جيدة إلى أفضل الممارسات للأغراض العامة التي يمكنك اتباعها في حال كنت في وضع يسمح لك بالتعامل مع الأدلة التي يمكن استخدامها في سيناريو مع عبء إثبات أعلى على الأدلة.
 ## الممارسة
 
-إعداد جهاز افتراضي يعمل بنظام ريمنوكس، مع الخطوات الموضحة في [الدليل الميداني للاستجابة لحوادث المجتمع المدني ووسائل الإعلام (الفصل 6، بدءًا من الصفحة 30).](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+إعداد جهاز افتراضي يعمل بنظام ريمنوكس، مع الخطوات الموضحة في [الدليل الميداني للاستجابة لحوادث المجتمع المدني ووسائل الإعلام (الفصل 6، بدءًا من الصفحة 30).](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/).
 
 ## اختبار مهارة
 
@@ -80,8 +80,8 @@ This subtopic will allow the practitioner to ensure the security of the process 
 
 {{% resource title="دليل متوسط - كيفية التعامل مع جهاز يُحتمل أنه مُخترق" description="دليل خطوة بخطوة حول كيفية التعامل مع الأجهزة التي تعمل بنظام آي أو إس أو أندرويد والتي يُشتبه بإصابتها ببرمجيات ضارة قبل بدء أعمال الكشف" languages="اللغة الإنجليزية" cost="مجاني" url="https://pts-project.org/guides/g6/" %}}
 
-{{% resource title="فصل الجهاز الظاهري من الدليل الميداني للاستجابة لحوادث المجتمع المدني ووسائل الإعلام (الفصل 6)" description="نظرة عامة تمهيدية حول كيفية بدء محللي البرمجيات الضارة في العمل على الأجهزة الافتراضية وتثبيت توزيعة لينوكس" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="فصل الجهاز الظاهري من الدليل الميداني للاستجابة لحوادث المجتمع المدني ووسائل الإعلام (الفصل 6)" description="نظرة عامة تمهيدية حول كيفية بدء محللي البرمجيات الضارة في العمل على الأجهزة الافتراضية وتثبيت توزيعة لينوكس" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 
-{{% resource title="محاكاة فنية باستخدام الرمز المميز لقيمة الكاناري" description="دليل حول كيفية استخدام الرمز المميز لقيمة الكاناري، وهي أداة أمان هجومية تحاكي متتبعات البرمجيات الضارة. يمكن أن تكون مفيدة جدًا في تثقيف المدافعين حول البيانات التي يمكن تسريبها بسهولة" languages="اللغة الإنجليزية" cost="مجاني" url="https://docs.google.com/document/d/14YViryXq2id2PaLeT91KxS-u67-26BDuLPTP\_O5BHTM/edit?usp=sharing*](https://docs.google.com/document/d/14YViryXq2id2PaLeT91KxS-u67-26BDuLPTP_O5BHTM/edit?usp=sharing" %}}
+{{% resource title="محاكاة فنية باستخدام الرمز المميز لقيمة الكاناري" description="دليل حول كيفية استخدام الرمز المميز لقيمة الكاناري، وهي أداة أمان هجومية تحاكي متتبعات البرمجيات الضارة. يمكن أن تكون مفيدة جدًا في تثقيف المدافعين حول البيانات التي يمكن تسريبها بسهولة" languages="اللغة الإنجليزية" cost="مجاني" url="https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/" %}}
 
 
