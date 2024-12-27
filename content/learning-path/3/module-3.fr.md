@@ -44,7 +44,7 @@ De nombreux logiciels malveillants disposent de fonctionnalités anti-bac à sab
 
 Il est important de garder à l'esprit lors de la lecture d'un rapport de bac à sable qu'un manque d'activité malveillante ne signifie pas automatiquement que le fichier ou l'URL n'est pas malveillant. D'autre part, si une activité malveillante est détectée, vous pouvez être certain que le fichier ou l'URL est de nature malveillante.
 
-Consultez le [chapitre 10 du Guide d'intervention sur le terrain pour la société civile et les médias](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) pour obtenir une introduction plus approfondie aux bacs à sable.
+Consultez le [chapitre 10 du Guide d'intervention sur le terrain pour la société civile et les médias](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-FR.pdf) pour obtenir une introduction plus approfondie aux bacs à sable.
 
 Il est possible d'exécuter un bac à sable localement. [Cuckoo](https://cuckoosandbox.org/) est un bac à sable open source qui existe depuis de nombreuses années. Une [nouvelle version](https://github.com/cert-ee/cuckoo3) est en cours de développement, mais n'est pas encore disponible au moment de la rédaction (février 2024).
 
@@ -73,7 +73,7 @@ Effectuez une analyse dynamique sur un morceau de logiciel Windows non malveilla
 
 ## Ressources d'apprentissage
 
-{{% resource title="Chapitre 10, Guide d'intervention sur le terrain pour la société civile et les médias" description="Les premières pages de ce chapitre fournissent un aperçu détaillé de la façon dont nous pouvons utiliser des bacs à sable pour analyser les charges utiles des e-mails." languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Chapitre 10, Guide d'intervention sur le terrain pour la société civile et les médias" description="Les premières pages de ce chapitre fournissent un aperçu détaillé de la façon dont nous pouvons utiliser des bacs à sable pour analyser les charges utiles des e-mails." languages="Multiple" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-FR.pdf" %}}
 {{% resource title="Any.run" description="Un bac à sable commercial" languages="Anglais" cost="Gratuit uniquement pour un usage non commercial" url="https://any.run/" %}}
 {{% resource title="Joe Sandbox" description="Un autre bac à sable commercial" languages="Anglais" cost="Gratuit pour les comptes publics (les résultats de l'analyse seront publiés sur le site Web)" url="https://www.joesandbox.com/#windows" %}}
 {{% resource title="Cuckoo Sandbox" description="Un service de bac à sable géré par le CERT (Computer Emergency Response Team) estonien" languages="Anglais" cost="Gratuit" url="https://cuckoo.cert.ee/" %}}

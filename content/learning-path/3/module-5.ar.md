@@ -125,7 +125,7 @@ description = "بمجرد تحليل البرمجية الضار، يمكنك م
 أخيرًا، إذا كان لديك عينات من البرمجيات الضارة، فيمكنك إرسالها إلى كبرى شركات مكافحة الفيروسات. من غير المرجح أن يقرؤوا تقريرًا ولكنهم قد يحللون البرمجيات الضارة ويدرجون توقيعاتها في منتجهم. لمزيد من المعلومات حول إرسال البرمجيات الضارة، تُوفر هذه الصفحة روابط تضم معلومات الإرسال لمختلف الشركات[this page provides links to the submission information for various companies](https://www.thewindowsclub.com/malware-submission-where-to-submit-malware-and-suspicious-files-to-microsoft)..
 ## الممارسة
 
-أجب عن السؤال 7.3 وأكمل التمرين 7.3 من الدليل الميداني للاستجابة للحوادث [the field guide to incident response](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+أجب عن السؤال 7.3 وأكمل التمرين 7.3 من الدليل الميداني للاستجابة للحوادث [the field guide to incident response](http://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-AR.pdf).
 
 ## اختبار مهارة
 

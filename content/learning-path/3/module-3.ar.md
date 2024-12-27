@@ -63,7 +63,7 @@ description = "يُعدّ التحليل الديناميكي عملية لتش�
 
 ### عام
 
-1- انتقل إلى قسم "بيئة الاختبار المعزولة" في الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلامField Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) وأكمل التمارين 10.2 حتى 10.4. في التمرين الأخير، تأكد من تشغيل عينة واحدة على الأقل من ر الضارة لنظامي التشغيل ماك أو إس (macOS) وأندرويد. 
+1- انتقل إلى قسم "بيئة الاختبار المعزولة" في الفصل 10 من الدليل الميداني للاستجابة للحوادث للمجتمع المدني ووسائل الإعلام[Field Guide to incident response for civil society and media](http://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-AR.pdf) وأكمل التمارين 10.2 حتى 10.4. في التمرين الأخير، تأكد من تشغيل عينة واحدة على الأقل من ر الضارة لنظامي التشغيل ماك أو إس (macOS) وأندرويد. 
 2- في نفس الفصل، انتقل إلى القسم الفرعي "تحليل الروابط" وأكمل التمرين 10.12.
    
 ### خاص بنظام ويندوز
@@ -72,7 +72,7 @@ description = "يُعدّ التحليل الديناميكي عملية لتش�
 
 ## موارد التعلّم
 
-{{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="http://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-AR.pdf" %}}
 
 {{% resource title="Any.run" languages="English" cost="Free only for non-commercial use" description="Commercial sandbox for analyzing malware." url="https://any.run/" %}}
 

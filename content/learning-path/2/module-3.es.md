@@ -37,7 +37,7 @@ La lista anterior no es exhaustiva, pero describe las capacidades de malware má
 
 Quizás una de las piezas de Malware más notoriamente capaz es el paquete Pegasus de NSO Group, que está diseñado específicamente para la vigilancia encubierta. Sus capacidades se enumeran en este [documento de ventas de NSO Group](https://www.documentcloud.org/documents/4599753-NSO-Pegasus.html).
 
-Recomendamos mucho la lectura del [Capítulo 5](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) de la Guía de Campo sobre respuesta a incidentes para la sociedad civil y medios para obtener una visión general temáticamente relevante del malware y conceptos relacionados, que incluyen:
+Recomendamos mucho la lectura del [Capítulo 5](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) de la Guía de Campo sobre respuesta a incidentes para la sociedad civil y medios para obtener una visión general temáticamente relevante del malware y conceptos relacionados, que incluyen:
 
 - Ofuscación de código.
 - Tipos de malware.
@@ -81,7 +81,7 @@ Algunos malware no buscarán la persistencia. En su lugar, se ejecutará, extrae
 
 En el proceso de instalación y realización de actividades maliciosas, el malware deja IoCs o Indicadores de Compromiso. Se utilizan con frecuencia para identificar piezas específicas de malware. Los IoCs podrían incluir hashes cifrados (los cubriremos más adelante en esta ruta de aprendizaje) que representan archivos ejecutables específicos, pero también pueden ser conexiones a servicios de red o tráfico de red privada, patrones de ejecución, etc.
 
-Para obtener un breve resumen de qué son los IoCs y cómo podrían verse, [consulta las páginas 37-40](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) (desde indicadores de compromiso hasta neutralización) de la Guía de Campo para Respuesta a Incidentes para la Sociedad Civil y Medios
+Para obtener un breve resumen de qué son los IoCs y cómo podrían verse, [consulta las páginas 2-4](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-ES.pdf) (desde indicadores de compromiso hasta neutralización) de la Guía de Campo para Respuesta a Incidentes para la Sociedad Civil y Medios
 
 Para una discusión extensa sobre los IoC y sus usos en la respuesta a incidentes, echa un vistazo a [este seminario web de CISA](https://www.youtube.com/watch?v=zs-AEaSd2vk) (inglés, 46 minutos).
 
@@ -122,7 +122,7 @@ Discute tus respuestas a todas esas preguntas con tu colega o mentor.
 
 ## Recursos Educativos
 
-{{% resource title="Capítulo sobre malware en la Guía de Campo para Threat Labs (Capítulo 5)" description="Buena introducción al malware desde la perspectiva de un protector digital que necesita comprender" languages="Inglés" cost="Gratis" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Capítulo sobre malware en la Guía de Campo para Threat Labs (Capítulo 5)" description="Buena introducción al malware desde la perspectiva de un protector digital que necesita comprender" languages="Varios idiomas" cost="Gratis" url="https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-ES.pdf" %}}
 {{% resource title="Malware - Wikipedia" description="Una buena introducción básica al tema que explica algunos de los conceptos básicos y moderadamente avanzados necesarios" languages="Varios idiomas" cost="Gratis" url="https://es.wikipedia.org/wiki/Malware" %}}
 {{% resource title="El Malware para Mac de 2023" description="Una visión general importante del malware para macOS detectado en 2023. Incluye tipos de malware, vectores de infección, mecanismos de persistencia y objetivos." languages="Inglés" cost="Gratis" url="https://objective-see.org/blog/blog_0x77.html" %}}
 {{% resource title="Documento de ventas de Pegasus de NSO group" description="Este documento filtrado describe algunas de las capacidades de Pegasus, un artículo sobre spyware dirigido a activistas de derechos humanos, entre otros. Ofrece una buena introducción a cómo se vende y comercializa el spyware" languages="Inglés" cost="Gratis" url="https://www.documentcloud.org/documents/4599753-NSO-Pegasus.html" %}}

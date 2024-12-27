@@ -62,7 +62,7 @@ Este último término cadena de custodia se refiere a las mejores prácticas en 
 
 ## Práctica
 
-Configura una máquina virtual que ejecute REmnux, siguiendo [los pasos descritos en la Guía de Campo para respuesta a incidentes para la sociedad civil y medios (capítulo 6, comienza en la página 30).](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf)
+Configura una máquina virtual que ejecute REmnux, siguiendo [los pasos descritos en la Guía de Campo para respuesta a incidentes para la sociedad civil y medios (capítulo 6, comienza en la página 30).](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/)
 
 ## Verificación de habilidades
 
@@ -75,5 +75,5 @@ Habla con tu colega/mentor sobre qué datos permanecen en tu VM y cuáles no. Si
 ## Recursos Educativos
 
 {{% resource title="Guía intermedia - Cómo manejar un dispositivo potencialmente comprometido" description="Una guía paso a paso sobre cómo manejar dispositivos con iOS o Android que sospechas que pueden tener malware antes de comenzar el trabajo de detección" languages="Inglés" cost="Gratis" url="https://pts-project.org/guides/g6/" %}}
-{{% resource title="Capítulo de máquina virtual de la Guía de Campo para respuesta a incidentes para la sociedad civil y medios (capítulo 6)" description="Una visión general introductoria de cómo los analistas de malware pueden comenzar a trabajar con máquinas virtuales y una instalación de la distribución de Linux" languages="Inglés" cost="Gratis" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Capítulo de máquina virtual de la Guía de Campo para respuesta a incidentes para la sociedad civil y medios (capítulo 6)" description="Una visión general introductoria de cómo los analistas de malware pueden comenzar a trabajar con máquinas virtuales y una instalación de la distribución de Linux" languages="Inglés" cost="Gratis" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 {{% resource title="Simulación técnica con canary tokens." description="Una guía sobre cómo utilizar tokens canary, una herramienta de seguridad ofensiva, para simular rastreadores de malware. Puede resultar muy útil para enseñar a los defensores qué datos se pueden exfiltrar fácilmente" languages="Inglés" cost="Gratis" url="https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/" %}}

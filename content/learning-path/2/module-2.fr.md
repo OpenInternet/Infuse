@@ -61,7 +61,7 @@ Ce dernier terme sur la chaîne de contrôle fait référence aux meilleures pra
 
 ## Pratique
 
-Mettre en place une machine virtuelle exécutant REmnux, avec [les étapes décrites dans le Guide d'intervention sur le terrain pour la société civile et les médias (chapitre 6, à partir de la page 30).](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf)
+Mettre en place une machine virtuelle exécutant REmnux, avec [les étapes décrites dans le Guide d'intervention sur le terrain pour la société civile et les médias (chapitre 6, à partir de la page 30).](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/)
 
 ## Contrôle de compétence
 
@@ -74,5 +74,5 @@ Parlez à votre pair ou mentor des données qui restent dans votre machine virtu
 ## Ressources d'apprentisage
 
 {{% resource title="Guide intermédiaire : Comment gérer un appareil potentiellement compromis" description="Un guide étape par étape sur la façon de gérer les appareils avec iOS ou Android qui, selon vous, pourraient contenir des logiciels malveillants avant de commencer le travail de détection" languages="Anglais" cost="Gratuit" url="https://pts-project.org/guides/g6/" %}}
-{{% resource title="Chapitre sur les machines virtuelles du Guide d'intervention sur le terrain pour la société civile et les médias (chapitre 6)" description="Une introduction générale à la façon dont les analystes de logiciels malveillants peuvent travailler avec des machines virtuelles et une installation de la distribution Linux" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Chapitre sur les machines virtuelles du Guide d'intervention sur le terrain pour la société civile et les médias (chapitre 6)" description="Une introduction générale à la façon dont les analystes de logiciels malveillants peuvent travailler avec des machines virtuelles et une installation de la distribution Linux" languages="Anglais" cost="Plusieurs langues" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 {{% resource title="Simulation technique avec des jetons canaris" description="Un guide sur l'utilisation des jetons canaris, un outil de sécurité offensif, pour simuler les traqueurs de logiciels malveillants. Peut être très utile pour enseigner aux défenseurs quelles données peuvent être facilement exfiltrées" languages="Anglais" cost="Gratuit" url="https://docs.google.com/document/d/14YViryXq2id2PaLeT91KxS-u67-26BDuLPTP_O5BHTM/edit?usp=sharing" %}}

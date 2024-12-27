@@ -37,7 +37,7 @@ La liste ci-dessus n'est pas exhaustive, mais décrit les capacités de logiciel
 
 L'un des logiciels malveillants les plus connus est peut-être le pack NSO Group Pegasus, spécialement conçu pour la surveillance secrète. Ses capacités sont énumérées dans ce [document de vente du NSO Group](https://www.documentcloud.org/documents/4599753-NSO-Pegasus.html).
 
-Nous vous recommandons fortement de lire le [chapitre 5](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) du Guide d'intervention sur le terrain pour la société civile et les médias afin d'obtenir un aperçu thématique pertinent des logiciels malveillants et des concepts connexes, notamment :
+Nous vous recommandons fortement de lire le [chapitre 5](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) du Guide d'intervention sur le terrain pour la société civile et les médias afin d'obtenir un aperçu thématique pertinent des logiciels malveillants et des concepts connexes, notamment :
 
 - Brouillage de code
 - Types de logiciels malveillants
@@ -81,7 +81,7 @@ Certains logiciels malveillants ne visent pas la persistance. Au lieu de cela, i
 
 Dans le processus d'installation et d'exécution d'activités malveillantes, les logiciels malveillants laissent des IoC, ou des indicateurs de compromission (IoC). Ceux-ci sont fréquemment utilisés pour identifier des éléments particuliers de logiciels malveillants. Les IoC peuvent inclure des hachages cryptographiques (nous les abordons plus tard dans ce parcours d'apprentissage) qui représentent des fichiers exécutables spécifiques, mais ils peuvent également être des connexions à des services réseau ou un trafic réseau particulier, des modèles d'exécution, etc.
 
-Pour obtenir un bref résumé de ce que sont les IoC et à quoi ils pourraient ressembler, [consultez les pages 37 à 40](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) (des indicateurs d'infection à la neutralisation) du Guide d'intervention sur le terrain pour la société civile et les médias.
+Pour obtenir un bref résumé de ce que sont les IoC et à quoi ils pourraient ressembler, [consultez les pages 2 à 4](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-FR.pdf) (des indicateurs d'infection à la neutralisation) du Guide d'intervention sur le terrain pour la société civile et les médias.
 
 Pour obtenir une longue discussion sur les IoC et leurs utilisations dans les interventions en cas d'incident, consultez [ce webinaire de la CISA](https://www.youtube.com/watch?v=zs-AEaSd2vk) (en anglais, 46 minutes).
 
@@ -122,7 +122,7 @@ Discutez de vos réponses à toutes ces questions avec votre pair ou votre mento
 
 ## Ressources d'apprentissage
 
-{{% resource title="Chapitre sur les logiciels malveillants du Guide de terrain des laboratoires sur les menaces (chapitre 5)" description="Bonne introduction aux logiciels malveillants du point de vue d'un protecteur numérique qui doit les comprendre" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Chapitre sur les logiciels malveillants du Guide de terrain des laboratoires sur les menaces (chapitre 5)" description="Bonne introduction aux logiciels malveillants du point de vue d'un protecteur numérique qui doit les comprendre" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-FR.pdf" %}}
 {{% resource title="Logiciel malveillant - Wikipédia" description="Une bonne introduction fondamentale sur le sujet qui explique certains des concepts de base et modérément avancés nécessaires" languages="Multiple" cost="Gratuit" url="https://fr.wikipedia.org/wiki/Logiciel_malveillant" %}}
 {{% resource title="Le logiciel malveillant Mac de 2023" description="Un aperçu important des logiciels malveillants macOS repérés en 2023. Il comprend les types de logiciels malveillants, les vecteurs d'infection, les mécanismes de persistance et les objectifs." languages="Anglais" cost="Gratuit" url="https://objective-see.org/blog/blog_0x77.html" %}}
 {{% resource title="Document de vente Pegasus du NSO Group" description="Ce document divulgué décrit certaines des capacités de Pegasus, un logiciel espion qui cible entre autres les militants des droits humains. Il fournit une bonne introduction à la façon dont les logiciels espions sont vendus et commercialisés" languages="Anglais" cost="Gratuit" url="https://www.documentcloud.org/documents/4599753-NSO-Pegasus.html" %}}

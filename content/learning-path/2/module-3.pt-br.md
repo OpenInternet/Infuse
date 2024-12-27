@@ -81,7 +81,7 @@ Alguns malwares não visam a persistência. Em vez disso, eles executarão, extr
 
 Ao ser instalado e ao realizar atividades maliciosas, o malware deixa IoCs, ou Indicadores de Comprometimento. Eles são frequentemente utilizados para identificar malwares específicos. Os IoCs incluem hashes criptográficas (vamos falar mais tarde sobre isso nesta trilha de aprendizagem) que representam arquivos executáveis específicos, mas também podem ser conexões a serviços de rede ou ao tráfego particular da rede, os padrões de execução, etc.
 
-Para um breve resumo sobre o que são os IoCs e sob que forma se apresentam, [consulte o pp. 37-40](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) (de indicadores de comprometimento até neutralização) do Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia.
+Para um breve resumo sobre o que são os IoCs e sob que forma se apresentam, [consulte o pp. 37-40](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) (de indicadores de comprometimento até neutralização) do Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia.
 
 Para uma longa exposição sobre os IoCs e a sua utilização na resposta aos incidentes, veja [este webinário da CISA](https://www.youtube.com/watch?v=zs-AEaSd2vk) (Inglês, 46 minutos).
 
@@ -122,7 +122,7 @@ Fale sobre as suas respostas a todas essas perguntas com o seu colega ou mentor.
 
 ## Recursos de aprendizagem
 
-{{% resource title="Capítulo sobre Malwares do Guia Prático para os Laboratórios de Ameaças (Capítulo 5)" languages="Inglês" cost="Grátis" description="Uma boa introdução acerca dos malwares, da perspectiva de um protetor digital para conhecer o que é um malware" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Capítulo sobre Malwares do Guia Prático para os Laboratórios de Ameaças (Capítulo 5)" languages="Inglês" cost="Grátis" description="Uma boa introdução acerca dos malwares, da perspectiva de um protetor digital para conhecer o que é um malware" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 
 {{% resource title="Malware - Wikipedia" languages="múltiplos" cost="Grátis" description="Uma boa introdução fundamental sobre o assunto, que explica alguns elementos básicos e os conceitos moderadamente avançados necessários" url="https://pt.wikipedia.org/wiki/Malware" %}}
 

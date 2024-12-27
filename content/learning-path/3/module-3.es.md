@@ -44,7 +44,7 @@ Una gran cantidad de malware tiene funciones anti-sandbox integradas: cuando el 
 
 Es importante tener esto en cuenta al leer un informe de sandbox: la falta de actividad maliciosa no significa automáticamente que el archivo o la URL no sean maliciosos. Por otro lado, si se mostró actividad maliciosa, puede estar seguro de que el archivo o la URL eran maliciosos.
 
-Consulte el [Capítulo 10 de la Guía de Campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) para obtener una introducción más detallada a los sandboxes.
+Consulte el [Capítulo 10 de la Guía de Campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-ES.pdf) para obtener una introducción más detallada a los sandboxes.
 
 Es posible ejecutar un sandbox localmente. [Cuckoo](https://cuckoosandbox.org/) es un sandbox de código abierto que ha existido durante muchos años. Se está desarrollando una [nueva versión](https://github.com/cert-ee/cuckoo3), pero aún no está disponible en el momento de escribir este artículo (febrero de 2024).
 
@@ -73,7 +73,7 @@ Realice un análisis dinámico en una pieza de software no malicioso de Windows.
 
 ## Recursos de aprendizaje
 
-{{% resource title="Capítulo 10, Guía de campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación" description="Las primeras páginas de este capítulo proporcionan una visión en profundidad de cómo podemos usar sandboxes para analizar las cargas útiles de correo electrónico." languages="Inglés" cost="Gratis" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Capítulo 10, Guía de campo para la respuesta a incidentes para la sociedad civil y los medios de comunicación" description="Las primeras páginas de este capítulo proporcionan una visión en profundidad de cómo podemos usar sandboxes para analizar las cargas útiles de correo electrónico." languages="Varios idiomas" cost="Gratis" url="https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-10-ES.pdf" %}}
 
 {{% resource title="Any.run" description="Un sandbox comercial" languages="Inglés" cost="Gratis sólo para uso no comercial" url="https://any.run/" %}}
 

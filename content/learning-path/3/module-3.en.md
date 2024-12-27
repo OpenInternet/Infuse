@@ -44,7 +44,7 @@ A lot of malware has anti-sandbox features built in: when the malware detects it
 
 This is important to keep in mind when reading a sandbox report: a lack of malicious activity doesn’t automatically mean the file or URL isn’t malicious. On the other hand, if malicious activity was shown, you can be certain that the file or URL was malicious.
 
-Check out [Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) for a more in-depth introduction to sandboxes.
+Check out [Chapter 10 of the Field Guide to incident response for civil society and media](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) for a more in-depth introduction to sandboxes.
 
 It is possible to run a sandbox locally. [Cuckoo](https://cuckoosandbox.org/) is an open source sandbox that has been around for many years. A [new version](https://github.com/cert-ee/cuckoo3) is being developed but is not yet recommended for production use at the time of writing (July 2024).
 
@@ -73,7 +73,7 @@ Perform dynamic analysis on a piece of non-malicious Windows software. It probab
 
 ## Learning Resources
 
-{{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Chapter 10, Field Guide to incident response for civil society and media" languages="English" cost="Free" description="In-depth look at using sandboxes to analyze email payloads." url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 
 {{% resource title="Any.run" languages="English" cost="Free only for non-commercial use" description="Commercial sandbox for analyzing malware." url="https://any.run/" %}}
 

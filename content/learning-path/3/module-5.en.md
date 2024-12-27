@@ -116,7 +116,7 @@ Lastly, if you have malware samples, you can submit them to the major antivirus 
 
 ## Practice
 
-Answer question 7.3 and complete exercise 7.3 from [the field guide to incident response](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+Answer question 7.3 and complete exercise 7.3 from [the field guide to incident response](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/).
 
 ## Skill Check
 

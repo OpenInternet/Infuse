@@ -37,7 +37,7 @@ This list above is not exhaustive, but outlines the most common malware capabili
 
 Perhaps one of the most notoriously capable pieces of malware is the NSO Group Pegasus package, which is purpose-built for covert surveillance. Its capabilities are listed in this [sales document from the NSO Group](https://www.documentcloud.org/documents/4599753-NSO-Pegasus.html).
 
-We highly recommend reading [Chapter 5](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) of the Field Guide to incident response for civil society and media for thematically relevant overview of malware and related concepts, including:
+We highly recommend reading [Chapter 5](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) of the Field Guide to incident response for civil society and media for thematically relevant overview of malware and related concepts, including:
 
 - Code obfuscation
 - Types of malware
@@ -81,7 +81,7 @@ Some malware will not aim for persistence. Instead it will run, extract data, an
 
 In the process of being installed and performing malicious activities, malware leaves IoCs, or Indicators of Compromise. These are frequently used to identify particular pieces of malware. IoCs could include cryptographic hashes (we cover them later on this learning path) which represent specific executable files, but they can also be connections to network services or particular network traffic, patterns of execution, etc.
 
-For a short summary of what IoCs are and how they could look like, [check out pp. 37-40](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf) (from indicators of compromise to defanging) of the Field Guide to Incident Response for Civil Society and Media.
+For a short summary of what IoCs are and how they could look like, [check out pp. 37-40](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/) (from indicators of compromise to defanging) of the Field Guide to Incident Response for Civil Society and Media.
 
 For a long discussion on IoCs and their uses in incident response, see [this webinar by CISA](https://www.youtube.com/watch?v=zs-AEaSd2vk) (English, 46 minutes).
 
@@ -122,7 +122,7 @@ Discuss your answers to all those questions with your peer or mentor.
 
 ## Learning Resources
 
-{{% resource title="Malware chapter on Field Guide for Threat Labs (Chapter 5)" languages="English" cost="Free" description="Good introduction to malware from the perspective of a digital protector needing to understand" url="https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf" %}}
+{{% resource title="Malware chapter on Field Guide for Threat Labs (Chapter 5)" languages="English" cost="Free" description="Good introduction to malware from the perspective of a digital protector needing to understand" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
 
 {{% resource title="Malware - Wikipedia" languages="multiple" cost="Free" description="A good fundamental introduction to the topic which explains some of the basic and moderately advanced concepts needed" url="https://en.wikipedia.org/wiki/Malware" %}}
 

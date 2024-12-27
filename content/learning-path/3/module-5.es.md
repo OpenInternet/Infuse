@@ -116,7 +116,7 @@ Por último, si tienes muestras de malware, puedes enviarlas a las principales c
 
 ## Práctica
 
-Responda la pregunta 7.3 y complete el ejercicio 7.3 de la [guía de campo para la respuesta a incidentes](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+Responda la pregunta 7.3 y complete el ejercicio 7.3 de la [guía de campo para la respuesta a incidentes](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-ES.pdf).
 
 ## Verificación de Habilidades
 

@@ -117,7 +117,7 @@ Enfin, si vous avez des échantillons de logiciels malveillants, vous pouvez les
 
 ## Exercice pratique
 
-Répondez à la question 7.3 et complétez l'exercice 7.3 du [guide d'intervention sur le terrain](https://internews.org/wp-content/uploads/2023/11/Field-Guide-to-Threat-Labs.pdf).
+Répondez à la question 7.3 et complétez l'exercice 7.3 du [guide d'intervention sur le terrain](https://internews.org/wp-content/uploads/2024/12/Field-Guide-to-Incident-Response-for-Civil-Society-and-Media-Chapter-7-FR.pdf).
 
 ## Contrôle de compétence
 
