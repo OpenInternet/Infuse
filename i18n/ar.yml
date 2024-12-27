@@ -231,7 +231,7 @@ key:
   - id: modules-description
     translation:
       one: null
-      other: null
+      other: " "
   - id: visit-site
     translation:
       one: null
