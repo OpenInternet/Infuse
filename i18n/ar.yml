@@ -34,7 +34,7 @@ key:
       other: تُعدّ إمكانية الوصول أمرًا بالغ الأهمية ويضمن تقديم المحتوى بلغات متعددة تحقيق الوصول والشمولية على نطاق أوسع.
   - id: learning-paths-title
     translation:
-      one: مسارات التعلم
+      one: null
       other: مسارات التعلم
   - id: learning-paths-subtitle
     translation:
