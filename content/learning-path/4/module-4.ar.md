@@ -2,7 +2,7 @@
 style = "الموضوع الفرعي"
 weight = 4
 title = "التخويل"
-description = "Logged in users do not have access to all other users' data. Here we look at how to make sure no user exceeds their level of access or capability"
+description = "في أي موقع ويب يحتوي على مستخدمين بمستويات مختلفة من القدرات (مثل المشاهدين مقابل المحررين) أو يحتوي على معلومات سرية للمستخدمين ومن المهم أن يحمي الموقع هذه الميزات"
 +++
 
 ## حالة استخدام
@@ -250,8 +250,7 @@ print(result)
 
 
 ## موارد التعلّم
-[تلخص جميع الروابط في العرض بالإضافة إلى أي موارد إضافية لتضمينها]
 
-{{% resource title="Authorization cheat sheet" languages="English" cost="Free" description="Best practices for authorization in web applications." url="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" %}}
+{{% resource title="ورقة معلومات مرجعية للتخويل" description="نظرة على بعض أفضل ممارسات التخويل" languages="الإنجليزية" cost="مجانًا" url="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html" %}}
 
-{{% resource title="Honda eCommerce hack" languages="English" cost="Free" description="Demonstration of vulnerabilities in websites with poor authentication or authorization practices." url="https://eaton-works.com/2023/06/06/honda-ecommerce-hack/" %}}
+{{% resource title="اختراق التجارة الإلكترونية لهوندا" description="مقالة توضح كيفية العثور على ثغرات معينة في مواقع الويب ذات المصادقة أو التخويل الضعيف" languages="الإنجليزية" cost="مجانًا" url="https://eaton-works.com/2023/06/06/honda-ecommerce-hack/" %}}

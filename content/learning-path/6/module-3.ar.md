@@ -1,7 +1,7 @@
 +++
 style = "module"
 weight = 3
-title = "Denial of Service Incident Response"
+title = "الاستجابة لحادث حجب الخدمة"
 description = "إذا تعرض موقع ويب لهجوم حجب خدمة مستمر فقد يكون من الضروري التصرف بسرعة لإعادة تشغيل الموقع وتفعيله. يصف مسار التعلّم هذا بعض الممارسات التي تسمح لمالكي الموقع التعافي من هجوم حجب الخدمة."
 +++
 
@@ -34,21 +34,6 @@ description = "إذا تعرض موقع ويب لهجوم حجب خدمة مست
 3. تعزيز حماية الموقع بشكل استباقي ضد الهجمات المستقبلية
 
 ### تحديد نوع الهجوم
-
-Generally, a DoS attack will be noticed when users note that the site becomes unavailable or shows degraded performance. In some cases, performance monitoring systems for the site may proactively notify site owners. In any case, the first step is to determine why the site is down. Note that degraded site performance or a site being unavailable may not be due to an attack, but due to equipment failures, misconfiguration, ill-conceived site changes, and [something on the site going viral](https://en.wikipedia.org/wiki/Slashdot_effect). When investigating site degradation, keep in mind the types of DoS attacks, and their symptoms:
-
-- Network-Level
-  - Volumetric - Network diagnostic tools such as ping will show high packet loss and long round trip times. If the website is hosted at an ISP or web hosting service, other sites hosted by that ISP/hosting service will also be unavailable.
-  - Exploit-based - Network diagnostic tools will tend to show high packet loss, but often will show normal round trip times. If the website is hosted at an ISP/hosting provider, other sites hosted by them will also be unavailable.
-- Protocol-Level
-  - Volumetric - Network diagnostic tools will typically show elevated packet loss and round trip times. Browser requests to the site will typically take a long time, and usually time out. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work. Note that volumetric protocol level DoS attacks will find any bottleneck, be it in the network or server. For instance, a protocol-level attack against a powerful server on an underpowered network will affect the network more than the server.
-  - Exploit-based - Network diagnostic tools will typically show normal packet loss and round trip times. Browser requests to the site may either be very slow, or may quickly return an error. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work.
-- Application-Level
-  - Network diagnostic tools will typically show normal packet loss and round trip times. Static content served by the site may behave normally, or may also be degraded. If the website is hosted at a web hosting provider, other sites hosted on the same server will likely be unavailable, while ones hosted on other servers will typically work.
-
-Knowing what kind of attack is happening will help guide site owners’ response. If any sort of network or protocol level attack is suspected, it’s important to reach out to the sites’ ISP/hosting provider to help diagnose the problem. They will usually have access to better diagnostic and response tools for network and protocol level attacks.
-
-A word of warning, a DoS attack against a website is usually necessarily an attack against that site’s ISP/hosting provider as well. Especially for network level attacks, the ISP may be impacted just as much as the target website. For this reason, [ISPs or hosting providers will sometimes shut down websites that are targeted by DoS attacks](https://www.qurium.org/alerts/azerbaijan/ddos-the-inconvenient-business-visitor/), so as to protect the provider itself. Engaging with the site’s ISP/hosting provider early may hopefully provide you with some negotiation possibilities or coordination if the provider does decide to shut a site down.
 
 بشكل عام، يُلحظ هجوم حجب الخدمة عندما يلاحظ المستخدمون أن الموقع يصبح غير متاحًا أو يكونه أدائه متدهورًا، وفي بعض الحالات قد تقوم أنظمة مراقبة الأداء للموقع بإخطار مالكي الموقع بشكل استباقي. على أي حال تتمثل الخطوة الأولى في تحديد سبب تعطل الموقع. لاحظ أن أداء الموقع المتدهور أو عدم توفر الموقع قد لا يكون بسبب هجوم، ولكن بسبب أعطال المعدات والتكوين الخاطئ وتغييرات الموقع غير المدروسة أو عندما يصبح شيء ما على الموقع [أمرًا سريع الانتشار](https://en.wikipedia.org/wiki/Slashdot_effect). عند التحقيق في تدهور الموقع، يجب أن تراعي أنواع هجمات حجب الخدمة وأعراضها:
 

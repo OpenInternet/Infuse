@@ -2,7 +2,7 @@
 style = "الموضوع الفرعي"
 weight = 6
 title = "المهارات الشخصية لأمن تطبيقات الويب"
-description = "When working on web application security (or any security!), it's important to check the nature of the digital protector relationship, provide useful advice, not fear-monger, and give solid risk assessments"
+description = "ند التفاعل مع الأفراد والمنظمات الذين يقومون بتشغيل تطبيقات الويب يكون الوعي الذاتي ضروريًا للتحقق من طبيعة علاقة المدافع الرقمي"
 +++
 
 ## حالة استخدام
