@@ -2,7 +2,7 @@
 style = "module"
 weight = 7
 title = "اكتشاف الثغرات التلقائي"
-description = "In past subtopics, we looked at how to discover vulnerabilities by hand. Here, we explore tools that can help automate that process"
+description = "يركّز مسار التعلّم هذا على الاكتشاف اليدوي للثغرات في تطبيقات الويب،"
 +++
 
 ## حالة استخدام
