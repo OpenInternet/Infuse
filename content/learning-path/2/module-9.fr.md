@@ -27,13 +27,13 @@ _Greater Internet Freedom_, un projet d'Internews, a récemment créé un petit 
 
 Veuillez noter que certains des outils inclus dans ce guide nécessitent l'installation de Python sur votre système. Les systèmes MacOS et Linux peuvent comprendre une installation de Python par défaut. Si vous utilisez Windows, nous vous recommandons de configurer [WSL (Windows Subsystem pour Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) et d'exécuter les outils à partir de là.
 
-[Partie 1 : Introduction et MV, Greater Internet Freedom d'Internews](https://greaterinternetfreedom.org/course/part01-intro-and-vms/)
+[Partie 1 : Introduction et MV, Greater Internet Freedom d'Internews](https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-1-FR.pdf)
 
-[Partie 2 : Documents PDF](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-02-pdf-documents/)
+[Partie 2 : Documents PDF](https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-2-FR.pdf)
 
-[Partie 3 : Documents Microsoft Office](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-03-microsoft-office-documents/)
+[Partie 3 : Documents Microsoft Office](https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-3-FR.pdf)
 
-[Partie 4 : Mesures défensives et étapes suivantes](https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-04-defensive-measures-next-steps-and-closure/)
+[Partie 4 : Mesures défensives et étapes suivantes](https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-4-FR.pdf)
 
 ## Contrôle de compétence
 
@@ -41,9 +41,9 @@ Complétez tous les défis du cours lié ci-dessus.
 
 ## Ressources d'apprentissage
 
-{{% resource title="Analyse de documents malveillants (Partie 1) : Introduction et MV" description="Présente le sujet de l'analyse des documents malveillants et montre aux apprenants comment configurer une machine virtuelle appropriée pour réaliser cette tâche" languages="Anglais" cost="Gratuit" url="https://greaterinternetfreedom.org/course/part01-intro-and-vms/" %}}
-{{% resource title="Analyse de documents malveillants (Partie 2) : Documents PDF" description="Montre comment des outils tels que des éditeurs de texte et des désassembleurs PDF spécialisés peuvent être utilisés pour analyser des fichiers dans ce format afin de rechercher des éléments tels que des scripts exécutables" languages="Anglais" cost="Gratuit" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-02-pdf-documents/" %}}
-{{% resource title="Analyse de documents malveillants (Partie 3) : Documents Microsoft Office" description="Examine la structure des documents Microsoft Office et la façon dont ils peuvent intégrer du contenu actif" languages="Anglais" cost="Gratuit" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-03-microsoft-office-documents/" %}}
-{{% resource title="Analyse de documents malveillants (Partie 4) : Mesures défensives, étapes suivantes et conclusion" description="Démontre certaines mesures et contre-mesures que nous pouvons prendre lorsque nous travaillons avec des documents provenant de sources inconnues ou de fichiers potentiellement malveillants" languages="Anglais" cost="Gratuit" url="https://greaterinternetfreedom.org/course/analysis-of-malicious-documents-part-04-defensive-measures-next-steps-and-closure/" %}}
+{{% resource title="Analyse de documents malveillants (Partie 1) : Introduction et MV" description="Présente le sujet de l'analyse des documents malveillants et montre aux apprenants comment configurer une machine virtuelle appropriée pour réaliser cette tâche" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-1-FR.pdf" %}}
+{{% resource title="Analyse de documents malveillants (Partie 2) : Documents PDF" description="Montre comment des outils tels que des éditeurs de texte et des désassembleurs PDF spécialisés peuvent être utilisés pour analyser des fichiers dans ce format afin de rechercher des éléments tels que des scripts exécutables" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-2-FR.pdf" %}}
+{{% resource title="Analyse de documents malveillants (Partie 3) : Documents Microsoft Office" description="Examine la structure des documents Microsoft Office et la façon dont ils peuvent intégrer du contenu actif" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-3-FR.pdf" %}}
+{{% resource title="Analyse de documents malveillants (Partie 4) : Mesures défensives, étapes suivantes et conclusion" description="Démontre certaines mesures et contre-mesures que nous pouvons prendre lorsque nous travaillons avec des documents provenant de sources inconnues ou de fichiers potentiellement malveillants" languages="Anglais" cost="Gratuit" url="https://internews.org/wp-content/uploads/2024/12/Analyse-de-documents-malveillants-partie-4-FR.pdf" %}}
 {{% resource title="Analyse de fichiers PDF malveillants" description="Une série d'outils que nous pouvions utiliser pour effectuer une analyse encore plus approfondie des fichiers PDF" languages="Anglais" cost="Gratuit" url="https://resources.infosecinstitute.com/topics/hacking/analyzing-malicious-pdf/" %}}
 {{% resource title="Comment analyser les fichiers Microsoft Office malveillants" description="Une ressource supplémentaire qui examine comment les fichiers Microsoft Office pourraient servir des charges utiles malveillantes et comment nous pouvons les détecter" languages="Anglais" cost="Gratuit" url="https://intezer.com/blog/malware-analysis/analyze-malicious-microsoft-office-files/" %}}
