@@ -2,7 +2,7 @@
 style = "module"
 weight = 6
 title = "تحسين عملية اختبار تطبيق الويب الخاص بك"
-description = "Once you’ve figured out the fundamentals of finding vulnerabilities in websites, this subtopic will teach you a process to find those vulnerabilities more quickly and efficiently"
+description = "ذا كنت مثل معظم الناس ستكون قد واجهت صعوبة في التمرين الآخير، وربما استغرق الأمر منك وقتًا طويلًا أو ربما فاتتك مجموعة من الثغرات"
 +++
 
 ## حالة استخدام

@@ -2,7 +2,7 @@
 style = "module"
 weight = 5
 title = "العثور على ثغرات تطبيق الويب"
-description = "Once you have learned about different types of vulnerabilities, it's time to look for them in the web applications you are testing! To start with and get some initial practice, you will test a deliberately vulnerable web application"
+description = "بطريقة أو بأخرى يقبل كل تطبيق ويب المدخلات غير الموثوقة ويعالجها،"
 +++
 
 ## حالة استخدام

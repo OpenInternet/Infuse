@@ -2,7 +2,7 @@
 style = "module"
 weight = 3
 title = "المصادقة والتخويل"
-description = "Many web apps will only allow particular users to view certain pieces of content and require them to log in or prove their identity in other ways. This subtopic looks into authentication and authorization, and possible vulnerabilities therein"
+description = "ستسمح العديد من تطبيقات الويب لمستخدمين معينين فقط بمشاهدة أجزاء معينة من المحتوى وتطلب منهم تسجيل الدخول أو إثبات هويتهم بطرق أخرى"
 +++
 
 ## حالة استخدام

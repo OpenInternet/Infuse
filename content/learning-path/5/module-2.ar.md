@@ -1,8 +1,8 @@
 +++
 style = "module"
 weight = 2
-title = "Data Validation"
-description = "Every web application accepts and processes untrusted input. Here we learn how to discover common vulnerabilities that take advantage thereof"
+title = " التحقق من صحة البيانات"
+description = "بطريقة أو بأخرى يقبل كل تطبيق ويب المدخلات غير الموثوقة ويعالجها، وعادة ما يأتي هذا الإدخال من المستخدمين النهائيين"
 +++
 
 ## حالة استخدام

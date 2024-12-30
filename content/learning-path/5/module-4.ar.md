@@ -2,7 +2,7 @@
 style = "module"
 weight = 4
 title = "منطق التطبيق والثغرات ذات الصلة"
-description = "There exist other types of vulnerabilities not covered in the above subtopics which could nonetheless be used to damage or gain unauthorized entry into a web app. We look at several of those"
+description = "هناك أنواع أخرى من الثغرات الأمنية لم تتم تغطيتها في المواضيع الفرعية المذكورة أعلاه ولكن من الممكن استخدامها لإلحاق الضرر أو الوصول إلى تطبيق ويب دون تخويلهم بذلك"
 +++
 
 ## حالة استخدام

@@ -2,7 +2,7 @@
 style = "module"
 weight = 8
 title = "الخطوات التالية"
-description = "How to continue practicing and honing your web security assessment skills"
+description = "يجب أن تكون في هذه المرحلة قادرًا على إجراء تقييمات أمنية عالية الجودة لمواقع الويب،"
 +++
 
 ## حالة استخدام
