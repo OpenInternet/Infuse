@@ -65,7 +65,7 @@ Este último termo na cadeia de custódia refere-se às melhores práticas em te
 
 ## Prática
 
-Configurar uma VM com REMnux, conforme as [etapas destacadas no Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia (capítulo 6, começando na página 30)](https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/).
+Configurar uma VM com REMnux, conforme as [etapas destacadas no Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia (capítulo 6)](https://tecnologia-humanista.gitbook.io/field-guide-chapter-6-pt-br/capitulo-6-maquinas-virtuais-e-remnux).
 
 ## Teste de capacitação
 
@@ -79,6 +79,6 @@ Fale com o seu colega / mentor sobre quais dados ficarão na sua VM e quais não
 
 {{% resource title="Guia intermediário - Como manusear um dispositivo potencialmente comprometido" languages="Inglês" cost="Grátis" description="Um guia passo a passo sobre como manusear dispositivos Android ou iOS para os quais suspeita a presença de um malware, antes de iniciar o processo de detecção" url="https://pts-project.org/guides/g6/" %}}
 
-{{% resource title="Capítulo sobre as máquinas virtuais no Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia (capítulo 6)" languages="Vários idiomas" cost="Grátis" description="Um resumo introdutório sobre como os analistas de malware podem começar a trabalhar com máquinas virtuais e a instalação da distribuição Linux" url="https://internews.org/resource/field-guide-to-incident-response-for-civil-society-and-media/" %}}
+{{% resource title="Capítulo sobre as máquinas virtuais no Guia Prático de Resposta a Incidentes para Sociedade Civil e Mídia (capítulo 6)" languages="Vários idiomas" cost="Grátis" description="Um resumo introdutório sobre como os analistas de malware podem começar a trabalhar com máquinas virtuais e a instalação da distribuição Linux" url="https://tecnologia-humanista.gitbook.io/field-guide-chapter-6-pt-br/capitulo-6-maquinas-virtuais-e-remnux" %}}
 
 {{% resource title="Simulação técnica com canarytokens" languages="Inglês" cost="Grátis" description="Um guia sobre como usar canarytokens, uma ferramenta de segurança ofensiva, para simular rastreadores de malwares. Pode ser muito útil para ensinar os defensores sobre quais dados podem ser facilmente extraídos" url="https://internews.org/resource/guide-to-facilitating-a-technical-simulation-with-canary-tokens/" %}}
