@@ -2,7 +2,7 @@
 style = "module"
 weight = 11
 title = "التنظيف والرعاية اللاحقة وإدارة مخاطر ما بعد الحادثة ومشاركة المعلومات"
-description = "Removing malware and supporting people post-infection can prove challenging. We look at some of the best ways to do so"
+description = "إذا تم العثور على برمجيات ضارة أو حركة مرور ضارة على جهاز شخص مستهدف، فنحن بحاجة إلى تقديم توصيات علاجية لاحقة للرعاية"
 +++
 
 
