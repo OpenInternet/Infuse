@@ -1,7 +1,10 @@
 ---
 style: module
-title: "Interpersonal Skills for Malicious Infrastructure/Phishing Response"
-description: "After completing this subtopic, practitioners will be able to support those who might have received or clicked on malicious emails or links in a responsible way, embodying empathy and focusing on harm reduction informed by the targeted person’s own threat model"
+title: Interpersonal Skills for Malicious Infrastructure/Phishing Response
+description: After completing this subtopic, practitioners will be able to
+  support those who might have received or clicked on malicious emails or links
+  in a responsible way, embodying empathy and focusing on harm reduction
+  informed by the targeted person’s own threat model
 weight: 2
 ---
 ## Use Case
