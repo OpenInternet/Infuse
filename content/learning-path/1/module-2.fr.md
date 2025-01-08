@@ -1,7 +1,12 @@
 ---
 style: module
-title: "Compétences interpersonnelles pour la réponse à l'infrastructure malveillante/hameçonnage"
-description: "Après avoir terminé ce sous-thème, les praticiens seront en mesure de soutenir ceux qui pourraient avoir reçu ou cliqué sur des e-mails ou des liens malveillants de manière responsable, en faisant preuve d'empathie et en se concentrant sur la réduction des dommages, éclairés par le modèle de menace de la personne ciblée."
+title: Compétences interpersonnelles pour la réponse à l'infrastructure
+  malveillante/hameçonnage
+description: Après avoir terminé ce sous-thème, les praticiens seront en mesure
+  de soutenir ceux qui pourraient avoir reçu ou cliqué sur des e-mails ou des
+  liens malveillants de manière responsable, en faisant preuve d'empathie et en
+  se concentrant sur la réduction des dommages, éclairés par le modèle de menace
+  de la personne ciblée.
 weight: 2
 ---
 
