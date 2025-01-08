@@ -1,7 +1,13 @@
 ---
 style: module
 title: "Triage : décider quand enquêter"
-description: "Lorsque vous recevez un message suspect, effectuez un triage initial afin de déterminer s'il est effectivement alveillant, de déterminer la meilleure réponse rapide pour le ou les destinataires ciblés, le cas échéant, et de déterminer si une enquête plus approfondie est nécessaire. Pour la plupart des messages, il suffit de mener des heuristiques de base pour séparer les menaces non iblées des menaces ciblées et identifier les actions de réduction des risques."
+description: Lorsque vous recevez un message suspect, effectuez un triage
+  initial afin de déterminer s'il est effectivement alveillant, de déterminer la
+  meilleure réponse rapide pour le ou les destinataires ciblés, le cas échéant,
+  et de déterminer si une enquête plus approfondie est nécessaire. Pour la
+  plupart des messages, il suffit de mener des heuristiques de base pour séparer
+  les menaces non iblées des menaces ciblées et identifier les actions de
+  réduction des risques.
 weight: 1
 ---
 
