@@ -1,39 +1,43 @@
 ---
 style: module
-title: "Investigación Pasiva - Análisis de URL, los nombres de host y direcciones IP"
-description: "Un profesional puede usar las habilidades descritas en este subtema para comenzar una investigación pasiva contra los servidores en Internet. Una investigación pasiva es aquella que no carga ningún sitio web, sino que solo busca datos disponibles públicamente en ellos. Como tal, el atacante no será alertado de que su sitio web recibió visitas adicionales, lo que podría indicarle que se está llevando a cabo una investigación."
+title: Investigación Pasiva - Análisis de URL, los nombres de host y direcciones IP
+description: Un profesional puede usar las habilidades descritas en este subtema
+  para comenzar una investigación pasiva contra los servidores en Internet. Una
+  investigación pasiva es aquella que no carga ningún sitio web, sino que solo
+  busca datos disponibles públicamente en ellos. Como tal, el atacante no será
+  alertado de que su sitio web recibió visitas adicionales, lo que podría
+  indicarle que se está llevando a cabo una investigación.
 weight: 4
 ---
 
-## Estudios de caso
+## Estudio de caso
 
-Un profesional puede usar las habilidades descritas en este subtema para **comenzar una investigación pasiva contra los servidores en Internet**. Una investigación pasiva es aquella que no carga ningún sitio web, sino que solo busca datos disponibles públicamente en ellos. Como tal, el atacante no será alertado de que su sitio web recibió visitas adicionales, lo que podría indicarle que se está llevando a cabo una investigación. Al evaluar la información de dominio e IP, un investigador puede trabajar para **generar información técnica enriquecida sobre el ataque, útil para la** educación de la comunidad, el intercambio de información sobre amenazas, el descubrimiento de la infraestructura de atacantes asociada y para colocar los ataques en el contexto de patrones de ataque más amplios.
-
-Algunas de esas habilidades pueden ser necesarias como parte de un proceso de clasificación inicial, por ejemplo, para ayudar a un analista a decidir si un enlace es sospechoso. También resultarán muy útiles durante un análisis en profundidad de los encabezados de correo electrónico, que se describe en la siguiente sección.
+Un profesional puede usar las habilidades descritas en este módulo para comenzar una investigación pasiva contra los servidores en Internet. Una investigación pasiva es aquella que no carga ningún sitio web, sino que solo busca datos disponibles públicamente en ellos. Como tal, el atacante no será alertado de que su sitio web recibió visitas adicionales, lo que podría darle indicios de que lo están investigando. Al evaluar los datos del dominio y la IP, un investigador puede trabajar con miras a generar información técnica valiosa sobre el ataque. Esta información es útil para educar a  la comunidad, intercambiar información sobre amenazas, descubrir la infraestructura asociada del atacante y analizar los ataques en un contexto más amplio de patrones.
+Algunas de esas habilidades pueden ser necesarias como parte de un proceso de clasificación inicial, por ejemplo, para ayudar a un analista a decidir si un enlace es sospechoso. También resultarán muy útiles durante un análisis en profundidad de los encabezados de correos electrónicos que se describe en el siguiente módulo.
 
 ## Objetivos
 
-Después de completar esta subtarea, el profesional debe ser capaz de hacer lo siguiente:
+Después de completar este módulo, el profesional debe ser capaz de:
 
-- Comprender cómo está estructurada una URL;
-- Comprender los tipos de registros DNS, WHOIS y la diferencia entre IPv4 e IPv6;
+- Entender cómo está estructurada una URL;
+- Entender los tipos de registros DNS, WHOIS y la diferencia entre IPv4 e IPv6;
 - Llevar a cabo un reconocimiento básico en los dominios;
-- Reconocer proxies inversos comunes que protejan las direcciones IP de origen con fines de protección contra DDoS u optimización de la entrega de contenido, como CloudFlare, Akamai y Fastly;
-- Descubrir subdominios fácilmente observables en el dominio.
+- Reconocer proxies inversos comunes que blinden las direcciones IP de origen con fines de protección contra DDoS u optimización de la entrega de contenido, como CloudFlare, Akamai y Fastly;
+- Descubrir o enumerar subdominios adjuntos a un dominio.
 
 ---
 ## Sección Principal
 
-La investigación pasiva utiliza herramientas y recursos de inteligencia de código abierto (OSINT) que pueden darnos muchos detalles sobre la huella digital de la infraestructura de ataque sin que un atacante se dé cuenta de que estamos investigando.
+La investigación pasiva usa herramientas y recursos de inteligencia de código abierto (OSINT) que pueden darnos muchos detalles sobre la huella digital de la infraestructura de ataque sin que su perpetrador se dé cuenta de que lo estamos investigando.
 
-### Conocimiento Fundamental
+### Conocimiento Básico
 
-Esta subtarea profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se siente cómodo con esos conceptos, ¡excelente! Vaya y salte a la sección ‘flujos de trabajo’. De lo contrario, revise los documentos y recursos a continuación:
+Este módulo profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se siente cómodo con esos conceptos, ¡excelente! Vaya directamente a la sección ‘flujos de trabajo’. De lo contrario, revise los documentos y recursos que detallamos a continuación:
 
 - Construcción de URL
-  - Debería poder leer una URL y comprender el significado de sus partes, incluida la identificación del esquema, los subdominios, el dominio principal, los dominios de nivel superior y cualquier característica de identificación del itinerario o los parámetros en la URL. Si necesita repasar este conocimiento, [este documento de MDN](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL).
-- Reductores de URL
-  - Algunos mensajes maliciosos pueden usar un reductor de URL para ocultar el enlace malicioso real. Si desea ver el destino final del enlace, puede utilizar un servicio en línea como [unshorten.me](https://unshorten.me/) para ver la URL completa. Tenga en cuenta, no obstante, que el hecho de no reducir una URL puede alertar al atacante de que está llevando a cabo una investigación y debe considerarse un análisis activo;
+  - Debería poder leer una URL y comprender el significado de sus partes, incluida la identificación del esquema, los subdominios, el dominio principal, los dominios de nivel superior y cualquier característica de identificación del itinerario o los parámetros en la URL. Si necesita repasar este conocimiento, revise [este documento de MDN](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/Web_mechanics/What_is_a_URL).
+- Acortadores de URL
+  - Algunos mensajes maliciosos pueden usar un acortador de URL para ocultar el enlace malicioso real. Si desea ver el destino final del enlace, puede utilizar un servicio en línea como [unshorten.me](https://unshorten.me/) para ver la URL completa. No obstante, tenga en cuenta, que volver a ver la URL completa puede alertar al atacante de que está llevando a cabo una investigación por lo que se considera un análisis activo;
 - DNS
   - [Introduction to Domain Name System](https://aws.amazon.com/route53/what-is-dns/)
   - [DNS record types](https://www.cloudflare.com/learning/dns/dns-records/)
@@ -43,26 +47,26 @@ Esta subtarea profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si s
 
 <https://bluecatnetworks.com/glossary/what-is-ipv4/>
 
-- - Comprender las diferencias entre IPv4 e IPv6
+- - Conocer las diferencias entre IPv4 e IPv6
 
 [https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6](https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/)
 
-- - Comprender las direcciones IP  
+- - Entender las direcciones IP  
         <https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/>
 
 ● Además de las direcciones IP, es útil leer sobre los [números de puerto](https://www.techtarget.com/searchnetworking/definition/port-number).
 
-### Flujo de trabajo: Herramientas y capacidades
+### Flujo de trabajo: herramientas y capacidades
 
 Las investigaciones pasivas de IP/DNS se pueden dividir en varias categorías.
 
-#### Obtener información esencial de IP/DNS
+#### Obtener información imprescindible de IP/DNS
 
-Una de las primeras cosas que debemos hacer en nuestra investigación es obtener información inicial sobre dominios y hosts. Varias herramientas y categorías de herramientas que pueden ayudar con eso.
+Una de las primeras cosas que debemos hacer en nuestra investigación es obtener información sobre dominios y hosts. Aquí enumeramos varias herramientas y categorías de herramientas que pueden ser útiles: 
 
 - WHOIS
 
-Los registros WHOIS son de acceso público y contienen información útil sobre un dominio. Aprenda a usar utilidades basadas en la web (por ejemplo, [ARIN whois](https://search.arin.net/rdap/) o[who.is](https://who.is/)) o [de línea de comandos](https://www.arin.net/resources/registry/whois/rws/cli/) para ver un registro WHOIS y aprender a leer la información del registrante (si se revela), el registrador, la fecha de registro y los servidores de nombres DNS que indican dónde están alojados los registros fidedignos para esa zona DNS.
+Los registros WHOIS son de acceso público y contienen información útil sobre un dominio. Aprenda a usar herramientas basadas en la web (por ejemplo, [ARIN whois](https://search.arin.net/rdap/) o[who.is](https://who.is/)) o [de línea de comandos](https://www.arin.net/resources/registry/whois/rws/cli/) para ver un registro WHOIS y aprender a leer la información de la persona que registra un dominio (si se llega a revelar), el registrador, la fecha del registro y los servidores de nombres DNS que indican dónde están alojados los registros fidedignos para esa zona DNS.
 
 WHOIS también se puede ejecutar en una dirección IP con el fin de averiguar la empresa responsable de la IP, por lo que potencialmente le indica la empresa de alojamiento que sirve a un sitio web.
 
@@ -70,11 +74,11 @@ WHOIS también se puede ejecutar en una dirección IP con el fin de averiguar la
 
 **dig** es una herramienta de línea de comandos preinstalada o disponible para los principales sistemas operacionales. Permite buscar fácilmente (siga el [tutorial aquí](https://phoenixnap.com/kb/linux-dig-command-examples)) los registros DNS de cualquier dominio y distingue entre distintos tipos de registros. Si bien el tutorial vinculado contiene muchos elementos de sintaxis **dig**, los usos más comunes son buscar tipos de registros A y MX. dig es bastante popular entre los analistas, ya que es simple y fácil de automatizar. **host** (ver [enlace tutorial](https://www.geeksforgeeks.org/host-command-in-linux-with-examples/)) es una herramienta alternativa de línea de comandos que convierte rápidamente un nombre de host en una dirección IP con una sintaxis más simple. También hay muchas alternativas a dig con más funciones o mejor legibilidad, [como doggo](https://github.com/mr-karan/doggo).
 
-Busque servidores de nombres proxy inversos de distribución de contenido comunes, como los ofrecidos por Akamai (por ejemplo, a1-64.akam.net), CloudFlare (por ejemplo, eve.ns.cloudflare.com), Fastly (por ejemplo, ns3.fastly.net), ya que ocultarán la IP real del servidor de origen. Si pasa algún tiempo buscando servidores de nombres, podrá reconocer fácilmente muchos de esos proxies. Si, por ejemplo, ejecuta el comando dig para buscar theguardian.com, verá que se resuelve en los servidores Fastly (al menos en el momento de escribir).  
+Busque servidores de nombres proxy inversos de distribución de contenido comunes, como los ofrecidos por Akamai (por ejemplo, a1-64.akam.net), CloudFlare (por ejemplo, eve.ns.cloudflare.com), Fastly (por ejemplo, ns3.fastly.net), ya que ocultarán la IP real del servidor de origen. Si pasa algún tiempo buscando servidores de nombres, podrá reconocer fácilmente muchos de esos proxies. Si, por ejemplo, ejecuta el comando dig para buscar theguardian.com, verá que se resuelve en los servidores Fastly (al menos así era al momento de escribir este texto).  
 
 - geoIP
 
-Las direcciones IP están más o menos vinculadas a geografías físicas. Esto significa que, si conoce una dirección IP, [puede averiguar](https://www.maxmind.com/en/geoip-demo) (MaxMind GeoIP lookup demo linked)) con cierto grado de certeza en qué parte del mundo (país, región) se encuentra el dispositivo que utiliza esta dirección. Hay muchas bases de datos, conocidas como geoIP, que te permiten buscarlas. Tenga en cuenta que la precisión de las búsquedas basadas en IP puede ser extremadamente variada: a veces, es posible rastrear una dirección IP a una organización específica, mientras que en otras ocasiones solo se obtiene granularidad a nivel de país.
+Las direcciones IP están más o menos vinculadas a geografías físicas. Esto significa que, si conoce una dirección IP, se [puede averiguar](https://www.maxmind.com/en/geoip-demo) (MaxMind GeoIP lookup demo linked)) con cierto grado de precisión en qué parte del mundo (país, región) se encuentra el dispositivo que utiliza esa dirección. Hay muchas bases de datos, conocidas como geoIP, que te permiten ubicar las direcciones de IP Tenga en cuenta que la precisión de las búsquedas basadas en la IP puede ser muy variada: unas veces es posible rastrear una dirección IP hasta llegar a una organización específica, mientras que en otras ocasiones solo se obtienen datos generales del país donde se encuentra dicha dirección.
 
 🛠️Tómese un momento para practicar el uso de estos servicios. Podría, por ejemplo, usarlos para buscar su sitio web o el de su organización.
 
@@ -86,59 +90,59 @@ Hay varias formas de obtener información adicional sobre los hosts de un domini
 - Subdominios de fuerza bruta. Uno puede simplemente adivinar subdominios usando una lista de prefijos de subdominios comunes y pedirle al servidor DNS las direcciones IP de esos servidores. (por ejemplo, webmail.attacker.com, vpn.attacker.com, remoteaccess.attacker.com, etc.) Siempre que el servidor dé una respuesta NXDOMAIN (sin dicho dominio) para nombres de host inexistentes, se pueden encontrar dominios ocultos de esta manera. La [guía sobre la enumeración de subdominios](https://0xffsec.com/handbook/information-gathering/subdomain-enumeration/) enlazada anteriormente también enumera algunas herramientas de fuerza bruta.
 - Búsqueda inversa de direcciones IP adyacentes. Algunos servidores DNS te permitirán buscar el nombre de host para una dirección IP. Es común que la infraestructura autoalojada exista en un pequeño bloque de direcciones IP. En vista de ello, a veces es posible, dada la dirección IP de un nombre de host (por ejemplo, 127.0.0.5), buscar los nombres de host de las direcciones IP cercanas (por ejemplo, 127.0.0.1-127.0.0.254).
 
-There exist tools that use these and other techniques to try to discover additional network resources. One of the first of these, still under development, is called [Fierce](https://www.kali.org/tools/fierce/). Another popular tool is [DNS Recon](https://securitytrails.com/blog/dnsrecon-tool). This [blog post describing DNSRecon](https://securitytrails.com/blog/dnsrecon-tool#content-alternatives-to-dnsrecon) also includes a list of other popular DNS enumeration tools.
+Existen herramientas que usan estas y otras técnicas para tratar de descubrir recursos de red adicionales. Una de estas herramientas, aún en desarrollo, se llama [Fierce](https://www.kali.org/tools/fierce/). Otra herramienta popular es [DNS Recon](https://securitytrails.com/blog/dnsrecon-tool). Esta entrada de blog que describe a [DNSRecon](https://securitytrails.com/blog/dnsrecon-tool#content-alternatives-to-dnsrecon) también incluye una lista de otras herramientas de enumeración DNS.
 
 #### Enriquecimiento de la información IP/DNS mediante los Servicios de Escáner de Internet
 
 Una vez que haya obtenido la información del identificador (dominios e IP), puede buscar estos datos con mayor profundidad utilizando algunos servicios que te permiten investigar información adicional sobre el host y cualquier actividad asociada a su alrededor.
 
-Aprenda a ver puertos abiertos, servicios activos y banners de servicio desde una IP determinada utilizando uno de los numerosos servicios de escaneo de inteligencia web. Tenga en cuenta que esta sigue siendo una técnica de investigación pasiva, ya que estos servicios escanean repetidamente la web en busca de sus conjuntos de datos y no iniciará una nueva actividad en la infraestructura de interés:
+Aprenda a ver puertos abiertos, servicios activos y banners de servicio desde una IP determinada utilizando uno de los muchos servicios de escaneo de inteligencia web. Tenga en cuenta que esta es una técnica de investigación pasiva. Estos servicios escanean repetidamente la web en busca de un conjunto de datos; no iniciarán una nueva actividad en la infraestructura objeto de su interés:
 
-- Utilice [Censys Search](https://search.censys.io/) para observar puertos abiertos, servicios en ejecución, certificados TLS y más para una IP determinada.
-- Utilice [Shodan](https://www.shodan.io/) (se requiere suscripción para algunas funciones y se requiere la utilización de filtros Shodan en las consultas, vea la [referencia](https://www.shodan.io/search/filters) y [los ejemplos](https://www.shodan.io/search/examples)) para buscar información sobre los servicios que se ejecutan en un servidor por dirección IP. Shodcan también puede buscar todos los servidores que ejecutan un servicio con un banner en particular.
-- Utilice el [DNS Dumpster](https://dnsdumpster.com/) para buscar las posibles superficies de ataque de los servicios orientados a Internet.
+- Use [Censys Search](https://search.censys.io/) para observar puertos abiertos, servicios en ejecución, certificados TLS y más para una IP determinada.
+- Use [Shodan](https://www.shodan.io/) (se requiere suscripción para algunas funciones y la utilización de filtros Shodan en las consultas, vea la [referencia](https://www.shodan.io/search/filters) y [los ejemplos](https://www.shodan.io/search/examples)) para buscar información sobre los servicios que se ejecutan en un servidor por dirección IP. Shodcan también puede buscar todos los servidores que ejecutan un servicio con un banner en particular.
+- Use el [DNS Dumpster](https://dnsdumpster.com/) para buscar las posibles superficies de ataque de los servicios orientados a Internet.
 
 Estos y otros servicios y bases de datos similares pueden ayudarle a identificar las actividades y el historial de un servidor/servicio específico.
 
-Otros servicios de escáner también recopilan el **historial de DNS**, lo que le permite mirar hacia atrás en el tiempo para saber qué otras resoluciones de dominio han aparecido para una IP determinada, cuándo aparecieron/desaparecieron, así como subdominios para un dominio determinado.
+Otros servicios de escáner también recopilan el historial de DNS. Esto le permite ver qué otras resoluciones de dominio han aparecido para una IP determinada, cuándo aparecieron odesaparecieron, así como subdominios para un dominio determinado.
 
 - [Senderos de seguridad](https://securitytrails.com/)
-- [Microsoft XDR](https://www.microsoft.com/es-es/security/business/siem-and-xdr/microsoft-defender-xdr) (anteriormente RiskIQ) proporciona historial de DNS limitado y datos de resoluciones a clientes de nivel gratuito.
+- [Microsoft XDR](https://www.microsoft.com/es-es/security/business/siem-and-xdr/microsoft-defender-xdr)(anteriormente RiskIQ) proporciona a clientes de la subscripción gratuita un historial de DNS limitado y datos de resoluciones.
 
 #### Enriquecimiento de la información IP/DNS mediante bases de datos de inteligencia de amenazas
 
-Varios servicios recopilarán indicadores de amenazas e historial de comportamiento malicioso. Si necesita asegurarse de que no se inicie una nueva actividad de escaneo (lo que sería una investigación activa), asegúrese de que no está iniciando un nuevo análisis con su búsqueda (por ejemplo, aunque VirusTotal le permite comprobar una URL, lanzará un nuevo escaneo contra la URL, iniciando así una actividad que podría ser detectada como una investigación).
+Varios servicios recopilarán indicadores de amenazas e historial de comportamiento malicioso. Si necesita evitar un nuevo escaneo (una investigación activa), asegúrese de no iniciar un nuevo análisis con su búsqueda. or ejemplo, aunque VirusTotal le permite comprobar una URL, lanzará un nuevo escaneo contra la URL, iniciando así una actividad que podría ser detectada como una investigación.
 
 - [Alienvault OTX](https://otx.alienvault.com/) es un recurso abierto impulsado por la comunidad para indicadores maliciosos. La búsqueda de una IP o un nombre de host mostrará información útil de OSINT, así como registros de cualquier actividad maliciosa obtenida previamente.
-- [Mandiant Advantage](https://www.mandiant.com/multi-vendor-security-platform-free-access) (propiedad de Google) proporciona una funcionalidad de búsqueda limitada en su nivel gratuito.
+- [Mandiant Advantage](https://www.mandiant.com/multi-vendor-security-platform-free-access) (propiedad de Google) proporciona una funcionalidad de búsqueda limitada en su nivel de subscripción gratuito.
 
 #### Usando la búsqueda de certificados
 
-En la actualidad, casi todos los sitios web que visita un usuario utilizan HTTPS, que emplea una tecnología conocida como TLS (Transport Layer Security). Los sitios web maliciosos también lo utilizan, en parte jugando con la creencia de los usuarios de que HTTPS y un candado que aparece en la barra de URL del navegador significa que el sitio web es por tanto seguro, independientemente de otros factores.
+En la actualidad, casi todos los sitios web que visita un usuario utilizan HTTPS, que emplea una tecnología conocida como TLS (Transport Layer Security). Los sitios web maliciosos también lo utilizan; apuestan a la creencia que tienen los usuarios de que HTTPS y el signo de un candado que aparece en la barra de URL del navegador significan que el sitio web es seguro, sin tomar en cuenta otros factores.
 
 Como los certificados TLS deben estar firmados por una Autoridad de Certificación (CA) de confianza para que el navegador confíe en ellos, es posible que haya una cantidad sustancial de datos sobre el dominio disponibles para su investigación mientras busca infraestructura, subdominios, identificadores y otros activos compartidos.
 
-Los datos enriquecidos de certificados están disponibles públicamente debido a la práctica de Transparencia de Certificados, en la que las Autoridades de certificación agregan todos los certificados emitidos a un registro público a prueba de manipulaciones. Puede ser útil comprender este sistema: consulte una breve descripción general en el [sitio web de Certificate Transparency](https://certificate.transparency.dev/) o profundice en su descripción técnica en [How CT Works](https://certificate.transparency.dev/howctworks/). Es útil para los alumnos que desean obtener más información sobre el rastreo y la detección de infraestructuras maliciosas tener una amplia comprensión de este sistema.
+Los datos enriquecidos de certificados son de dominio público. Esto se debe a la práctica de Transparencia de Certificados, en la que las Autoridades de certificación agregan todos los certificados emitidos a un registro público a prueba de manipulaciones. Puede ser útil comprender este sistema: consulte una breve descripción general en el [sitio web de Certificate Transparency](https://certificate.transparency.dev/) o profundice en su descripción técnica en [How CT Works](https://certificate.transparency.dev/howctworks/). Es útil para los alumnos que desean obtener más información sobre el rastreo y la detección de infraestructuras maliciosas.
 
-Hacer uso práctico de la búsqueda de certificados implica buscar dominios, subdominios, IP, identificar información interesante, como las fechas de emisión, y correlacionar la información que se encuentra en los certificados emitidos.
+La búsqueda de certificados debe ser práctica. Esto implica buscar dominios, subdominios e IP Asímismo hay que identificar información interesante, como las fechas de emisión y correlacionar la información que se encuentra en los certificados emitidos.
 
-Lea la guía en [Certificados: The OSINT Gih that Keeps on Giving…](https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/) que describe los campos de investigación clave y las búsquedas utilizando Censys y Shodan, y vea el [video adjunto de 10 minutos en YouTube](https://www.youtube.com/watch?v=XHltHamQVoA) que lleva a cabo la misma búsqueda utilizando [crt.sh](https://crt.sh/). Es útil poder emplear las tres utilidades de búsqueda. En particular, asegúrese de comprender:
+Lea la guía en [Certificados: The OSINT Gih that Keeps on Giving…](https://www.osintcurio.us/2019/03/12/certificates-the-osint-gift-that-keeps-on-giving/) que describe los campos de investigación clave y las búsquedas utilizando Censys y Shodan, y vea el [video adjunto de 10 minutos en YouTube](https://www.youtube.com/watch?v=XHltHamQVoA) que lleva a cabo la misma búsqueda utilizando [crt.sh](https://crt.sh/). Es útil poder emplear las tres herramientas de búsqueda. En particular, asegúrese de comprender:
 
-- ¿Cuáles son algunos de los campos 'interesantes' dentro de un certificado al realizar una investigación?
+- Cuáles son algunos de los campos 'interesantes' dentro de un certificado al realizar una investigación
 - Cómo buscar dentro de esos campos en las diversas plataformas
 - Cómo identificar subdominios, direcciones IP de host y dominios alternativos emitidos para un certificado.
 
-Tenga en cuenta que la sintaxis de la API de búsqueda de Censys cambió en 2021 y algunas de las búsquedas en los tutoriales anteriores no funcionarán. Por ejemplo, en lugar de “parsed.names:”simplemente use “names:” en la nueva sintaxis.
+Tenga en cuenta que la sintaxis de la API de búsqueda de Censys cambió en 2021, por lo tanto algunas de las búsquedas en los tutoriales anteriores no funcionarán. Por ejemplo, en lugar de “parsed.names:”simplemente use “names:” en la nueva sintaxis.
 
 Se han creado muchas herramientas en torno a los registros de transparencia de certificados. Por ejemplo, intente enumerar los subdominios usando [MassDNS](https://github.com/blechschmidt/massdns#reconnaissance-by-brute-forcing-subdomains) (consulte las instrucciones para usar scripts/ct.py en la página READMe).
 
-Censys ofrece más información sobre técnicas avanzadas para el rastreo y la búsqueda de actores de amenazas utilizando su plataforma en [Advanced Persistent Infrastructure Tracking](https://censys.com/advanced-persistent-infrastructure-tracking/).
+Censys ofrece más información sobre técnicas avanzadas para el rastreo y la búsqueda de agentes de amenazas utilizando su plataforma en [Advanced Persistent Infrastructure Tracking](https://censys.com/advanced-persistent-infrastructure-tracking/).
 
 **Aspectos a destacar**
 
-- Cuando utiliza una herramienta como WHOIS, encontrará muchas direcciones ocultas detrás de Cloudflare o servicios similares. Esto significa que los administradores de esta dirección la alojan parcialmente utilizando un importante servicio de terceros, por ejemplo, para mantener un mayor anonimato o para protección contra DDoS. Del mismo modo, muchos dominios utilizan servicios de privacidad para asegurarse de que sus datos no aparezcan en WHOIS. Algunas personas también ponen datos falsos en WHOIS. Si este es el caso, analizar la dirección a través de WHOIS no arrojará mucha información buena (excepto tal vez para la fecha de creación del dominio) y deberá utilizar formas alternativas de análisis
-- Muchas URL maliciosas utilizadas en correos electrónicos de phishing utilizan redireccionamientos (a veces múltiples), lo que significa que la URL inicial puede ser menos relevante para el análisis. La identificación de redireccionamientos y otras IP involucradas requerirá una interacción activa con la URL, que está cubierta en la habilidad de Investigación Activa.
-- Los atacantes pueden alojar su propio servidor DNS y realizar un seguimiento de las solicitudes. En este caso, las solicitudes de DNS pueden no ser “pasivas” y pueden alertar al atacante de la investigación. Especialmente busque nombres de host que puedan tener identificadores, como r2378r233yr39wjwr.example.com..
+- Al usar una herramienta como WHOIS, encontrará muchas direcciones ocultas detrás de Cloudflare o servicios similares. Esto significa que los administradores de esta dirección la alojan parcialmente usando un importante servicio de terceros, por ejemplo, para mantener un mayor anonimato o para protección contra DDoS. Del mismo modo, muchos dominios usan servicios de privacidad para asegurarse de que sus datos no aparezcan en WHOIS. Algunas personas también ponen datos falsos en WHOIS. Si este es el caso, la opción de analizar la dirección a través de WHOIS no arrojará mucha información (excepto quizá para la fecha de creación del dominio) y entonces deberá utilizar formas alternativas de análisis.
+- Muchas URLs maliciosas utilizadas en correos electrónicos de phishing utilizan redireccionamientos (a veces múltiples), lo que significa que la URL inicial puede ser menos relevante para el análisis. La identificación de redireccionamientos y otras IP involucradas requerirá una interacción activa con la URL, un tema que cubrios en el módulo sobre Investigación Activa.
+- Los atacantes pueden alojar su propio servidor DNS y realizar un seguimiento de las solicitudes. En este caso, las solicitudes de DNS pueden no ser “pasivas” y pueden alertar al atacante de la investigación. Especialmente busque nombres de host que puedan tener identificadores tales como r2378r233yr39wjwr.example.com.
 
 ## Practique
 
@@ -147,18 +151,17 @@ Elija un nombre de dominio aleatorio, asegurándose de que no está alojado detr
 - ¿Dónde está registrado el dominio y, si está disponible, quién lo registró?
 - ¿Cuál es la dirección IP del dominio?
 - ¿Quién gestiona esa dirección IP?
-- ¿Cuál es la dirección IP del dominio?
 - (Si los profesionales tienen acceso a Shodan o Censys) ¿Qué servicios se están ejecutando en ese servidor?
 - ¿Qué otros dominios están alojados en la misma IP?
 - ¿Puedes encontrar algún subdominio para ese dominio?
 
-## Comprobación de Habilidades
+## Comprobación de habilidades
 
-Siéntese con un compañero o un mentor que tenga una experiencia significativa en la investigación pasiva contra servidores en Internet. Entonces:
+Siéntese con un compañero o un mentor que tenga una experiencia significativa en la investigación pasiva contra servidores en Internet. Y ahora haga esto:
 
-- Completa la [sala de reconocimiento pasivo](https://tryhackme.com/room/passiverecon) en TryHackMe.
-- Realice los Ejercicios de Práctica anteriores, idealmente en un dominio diferente, y repase su proceso y hallazgos con su compañero o mentor. Pídales que revisen su trabajo y le den su opinión tanto sobre el proceso como sobre los resultados. Puede ser un buen ejercicio discutir específicamente cómo encontrar subdominios que se ejecutan en ese dominio y discutir la exactitud de las búsquedas geoIP relativas a esos dominios. Como extra opcional, siéntese con el mentor o compañero para revisar algunas configuraciones avanzadas de dig y configurar una automatización básica juntos, por ejemplo, pedirle a dig que cargue una lista de dominios de un archivo de texto y proporcione información sobre ellos.
-- Si tiene un mensaje de phishing del mundo real (o, alternativamente, tome un dominio de phishing de [PhishTank](https://phishtank.org/) analícelo, tenga en cuenta que el sitio web recopila dominios en lugar de mensajes), lleve a cabo la investigación pasiva descrita en el ejercicio de práctica (¡con cuidado!) mientras consulta con un compañero o mentor. Documente sus hallazgos y su proceso. Pídales que revisen su trabajo y le den su opinión tanto sobre el proceso como sobre los resultados.
+- Complete la [sala de reconocimiento pasivo](https://tryhackme.com/room/passiverecon) en TryHackMe.
+- Realice los ejercicios de práctica anteriores, idealmente en un dominio diferente, y repase su proceso y hallazgos con su compañero/a o mentor/a. Pídales que revisen su trabajo y le den su opinión sobre el proceso y los resultados. Puede ser un buen ejercicio discutir específicamente cómo encontrar subdominios que se ejecutan en ese dominio y discutir la exactitud de las búsquedas geoIP relativas a esos dominios. Como actividad opcional, siéntese con el mentor/a o compañero/a para revisar algunas configuraciones avanzadas de dig y configurar una automatización básica juntos, por ejemplo, pedirle a dig que cargue una lista de dominios de un archivo de texto y proporcione información sobre ellos.
+- Si tiene un mensaje de phishing del mundo real (o, alternativamente, tome un dominio de phishing de [PhishTank](https://phishtank.org/) y analícelo; tenga en cuenta que el sitio web recopila dominios en lugar de mensajes). Llleve a cabo la investigación pasiva descrita en el ejercicio de práctica (¡con cuidado!) mientras consulta con un compañero/a o mentor/a. Documente sus hallazgos y todo el proceso.
 
 ## Recursos de Aprendizaje
 
