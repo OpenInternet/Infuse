@@ -4,8 +4,7 @@ title: Passive Investigation - Analyze email headers
 description: The subtopic will teach you how to analyze the extensive metadata
   which documents an email’s origin, the servers it traveled through,
   information about possible spam checks, and much more. This metadata can form
-  a crucial part of any in-depth investigation into potentially malicious
-  emails
+  a crucial part of any in-depth investigation into potentially malicious emails
 weight: 5
 ---
 
