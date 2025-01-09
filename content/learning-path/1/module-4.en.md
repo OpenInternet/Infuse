@@ -1,7 +1,13 @@
 ---
 style: module
-title: "Passive Investigation - Analyze URLs, hostnames, and IP addresses"
-description: "A practitioner can use the skills outlined in this subtopic to begin a passive investigation against servers on the internet. A passive investigation is one that does not load any websites, but only looks up publicly available data on them. It utilizes open source intelligence (OSINT) tools and resources which can give us many details about the digital footprint of attack infrastructure without an attacker noticing that we are investigating"
+title: Passive Investigation - Analyze URLs, hostnames, and IP addresses
+description: A practitioner can use the skills outlined in this subtopic to
+  begin a passive investigation against servers on the internet. A passive
+  investigation is one that does not load any websites, but only looks up
+  publicly available data on them. It utilizes open source intelligence (OSINT)
+  tools and resources which can give us many details about the digital footprint
+  of attack infrastructure without an attacker noticing that we are
+  investigating
 weight: 4
 ---
 
