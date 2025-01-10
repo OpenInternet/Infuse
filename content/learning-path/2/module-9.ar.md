@@ -27,10 +27,10 @@ description = "حين يعرف العديد من الأشخاص أنه يجب ا
 
 يرجى ملاحظة أن بعض الأدوات المضمّنة في هذا الدليل تتطلب تثبيت بايثون على نظامك وقد تحتوي أنظمة ماك أو إس ولينوكس على بايثون مثبتة بشكل افتراضي. إذا كنت تعمل على نظام ويندوز، فإننا نوصي بإعداد نظام ويندوز الفرعي لنظام لينوكس [WSL (Windows Subsystem for Linux)](https://learn.microsoft.com/en-us/windows/wsl/install) وتشغيل الأدوات من هناك.
 
-الجزء 1 - مقدمة والأجهزة الظاهرية حرية أكبر للإنترنت من إنترنيوز[Part 1 - Introduction and VMs - Internews Greater Internet Freedom](https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-1-AR.pdf)\
-الجزء 2 - مستندات  [Part 2 - PDF Documents](https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-2-AR.pdf)\
-الجزء 3 - مستندات مايكروسوفت أوفيس [Part 3 - Microsoft Office Documents](https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-3-AR.pdf)\
-الجزء 4 التدابير الدفاعية والخطوات التالية [Part 4 - Defensive Measures and Next Steps](https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-4-AR.pdf)
+الجزء 1 - مقدمة والأجهزة الظاهرية حرية أكبر للإنترنت من إنترنيوز[Part 1 - Introduction and VMs - Internews Greater Internet Freedom](http://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-1-AR.pdf)\
+الجزء 2 - مستندات  [Part 2 - PDF Documents](http://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-2-AR.pdf)\
+الجزء 3 - مستندات مايكروسوفت أوفيس [Part 3 - Microsoft Office Documents](http://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-3-AR.pdf)\
+الجزء 4 التدابير الدفاعية والخطوات التالية [Part 4 - Defensive Measures and Next Steps](http://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-4-AR.pdf)
 
 
 ## اختبار مهارة
@@ -40,13 +40,13 @@ description = "حين يعرف العديد من الأشخاص أنه يجب ا
 
 ## مصادر التعلّم
 
-{{% resource title="تحليل المستندات الضارة – الجزء 01 – مقدمة والأجهزة الظاهرية" description="يُقدم موضوع تحليل المستندات الضارة ويوضح للمتعلمين كيفية إعداد جهاز ظاهري مناسب للمهمة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-1-AR.pdf" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 01 – مقدمة والأجهزة الظاهرية" description="يُقدم موضوع تحليل المستندات الضارة ويوضح للمتعلمين كيفية إعداد جهاز ظاهري مناسب للمهمة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-1-AR.pdf" %}}
 
-{{% resource title="تحليل المستندات الضارة – الجزء 02 – مستندات PDF" description="يوضح كيف يمكن استخدام أدوات مثل محررات النصوص وأجهزة تفكيك ملفات PDF المتخصصة لتحليل الملفات بهذا التنسيق للبحث عن أشياء مثل البرمجيات النصية القابلة للتنفيذ" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-2-AR.pdf" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 02 – مستندات PDF" description="يوضح كيف يمكن استخدام أدوات مثل محررات النصوص وأجهزة تفكيك ملفات PDF المتخصصة لتحليل الملفات بهذا التنسيق للبحث عن أشياء مثل البرمجيات النصية القابلة للتنفيذ" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-2-AR.pdf" %}}
 
-{{% resource title="تحليل المستندات الضارة – الجزء 03 – مستندات مايكروسوفت أوفيس" description="نظرة على بنية مستندات مايكروسوفت أوفيس وكيف يمكنها تضمين المحتوى النشط" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-3-AR.pdf" %}}
+{{% resource title="تحليل المستندات الضارة – الجزء 03 – مستندات مايكروسوفت أوفيس" description="نظرة على بنية مستندات مايكروسوفت أوفيس وكيف يمكنها تضمين المحتوى النشط" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-3-AR.pdf" %}}
 
-{{% resource title="تحليل الوثائق الضارة – الجزء 04 – التدابير الدفاعية والخطوات التالية والإغلاق" description="توضيح لبعض الخطوات والتدابير المضادة التي يمكننا اتخاذها عند العمل مع مستندات من مصادر غير معروفة أو ملفات يحتمل أن تكون ضارة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2024/12/Analyzing-malicious-documents-part-4-AR.pdf" %}}
+{{% resource title="تحليل الوثائق الضارة – الجزء 04 – التدابير الدفاعية والخطوات التالية والإغلاق" description="توضيح لبعض الخطوات والتدابير المضادة التي يمكننا اتخاذها عند العمل مع مستندات من مصادر غير معروفة أو ملفات يحتمل أن تكون ضارة" languages="اللغة الإنجليزية" cost="مجانًا" url="https://internews.org/wp-content/uploads/2025/01/Analyzing-malicious-documents-part-4-AR.pdf" %}}
 
 {{% resource title="تحليل ملفات PDF الضارة" description="سلسلة من الأدوات التي يمكننا استخدامها لتحليل أكثر عمقًا لملفات PDF" languages="اللغة الإنجليزية" cost="مجانًا" url="https://resources.infosecinstitute.com/topics/hacking/analyzing-malicious-pdf/" %}}
 
