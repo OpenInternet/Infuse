@@ -1,15 +1,13 @@
 ---
 style: module
 title: Habilidades interpersonales para detectar malware
-description: Antes de comenzar a analizar cualquier malware, debe configurar un
-  entorno seguro para hacerlo. El malware daña los sistemas en los que se
-  ejecuta. No desea ejecutarlo en su sistema principal.
+description: En casi todos los casos de intervención o apoyo, los profesionales trabajarán directamente con las personas afectadas por un ataque o intento de ataque. Esta puede ser una experiencia estresante que puede causar ansiedad a los afectados, por lo que cada profesional debe saber cómo mitigar esas presiones.
 weight: 1
 ---
 
 ## Caso de Uso
 
-Antes de comenzar a analizar cualquier malware, debes configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta. No deseas ejecutarlo en tu sistema principal. Además, probablemente querrás evitar que el malware realmente establezca conexiones con los servidores de C&C (comando y control) del autor de amenazas. Ambos significan que debes configurar una máquina virtual para utilizarla al realizar análisis de malware.
+En casi todos los casos de intervención o apoyo, los profesionales trabajarán directamente con las personas afectadas por un ataque o intento de ataque. Esta puede ser una experiencia estresante que puede causar ansiedad a los afectados, por lo que cada profesional debe saber cómo mitigar esas presiones.
 
 ## Objetivos
 

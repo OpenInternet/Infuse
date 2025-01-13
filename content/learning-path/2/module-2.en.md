@@ -7,7 +7,7 @@ description: When you set up your malware detection environment, it's a good ide
 
 ## Use Case
 
-This subtopic will allow the practitioner to ensure the security of the process and the individuals involved and implement a security policy within the computing environment the practitioner uses for malware detection.
+Before you start analyzing any malware, you need to set up a safe environment to do so. Definitionally, malware does bad things to the systems it runs on. You do not want to run it on your primary system. Additionally, you likely will want to prevent the malware from actually making connections to the threat actor’s C&C (command and control) servers. Both of these mean that you should set up a virtual machine to use when performing malware analysis.
 
 ## Objectives
 

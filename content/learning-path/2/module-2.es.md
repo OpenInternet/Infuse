@@ -6,7 +6,7 @@ weight: 2
 
 ## Caso de Uso
 
-Este subtema permitirá al profesional garantizar la seguridad del proceso y de las personas involucradas e implementar una política de seguridad dentro del entorno informático que el profesional utiliza para la detección de malware.
+Antes de comenzar a analizar cualquier malware, debes configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta. No deseas ejecutarlo en tu sistema principal. Además, probablemente querrás evitar que el malware realmente establezca conexiones con los servidores de C&C (comando y control) del autor de amenazas. Ambos significan que debes configurar una máquina virtual para utilizarla al realizar análisis de malware.
 
 ## Objetivos
 

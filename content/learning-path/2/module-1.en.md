@@ -1,14 +1,12 @@
 ---
 style: module
 title: Interpersonal skills for detecting malware
-description: Before you start looking into any malware, you need to set up a
-  safe environment to do so. Since malware does bad things to the systems it
-  runs on, you do not want to run it on your primary system
+description: In almost every intervention or support case, practitioners will be working directly with persons affected by an attack or attempted attack. This can often be a stressful and anxiety-inducing experience for targeted persons, and every practitioner should know how to mitigate those pressures.
 weight: 1
 ---
 ## Use Case
 
-Before you start analyzing any malware, you need to set up a safe environment to do so. Definitionally, malware does bad things to the systems it runs on. You do not want to run it on your primary system. Additionally, you likely will want to prevent the malware from actually making connections to the threat actor’s C&C (command and control) servers. Both of these mean that you should set up a virtual machine to use when performing malware analysis.
+In almost every intervention or support case, practitioners will be working directly with persons affected by an attack or attempted attack. This can often be a stressful and anxiety-inducing experience for targeted persons, and every practitioner should know how to mitigate those pressures.
 
 ## Objectives
 

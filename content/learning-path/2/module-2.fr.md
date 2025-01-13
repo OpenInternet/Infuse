@@ -5,7 +5,7 @@ weight: 2
 ---
 ## Cas d'utilisation
 
-Ce sous-thème permettra au participant d'assurer la sécurité du processus et des personnes impliquées, et de mettre en œuvre une politique de sécurité dans l'environnement informatique que le participant utilise pour la détection de logiciels malveillants.
+Avant de commencer à analyser un logiciel malveillant, vous devez configurer un environnement sûr pour le faire. En définitive, les logiciels malveillants font de mauvaises choses aux systèmes sur lesquels ils fonctionnent. Vous ne voulez pas l'exécuter sur votre système principal. De plus, vous voudrez probablement empêcher le logiciel malveillant de se connecter aux serveurs C&C (commande et contrôle) de l'auteur de la menace. Les deux conditions signifient que vous devez configurer une machine virtuelle à utiliser lors de l'analyse des logiciels malveillants.
 
 ## Objectifs
 

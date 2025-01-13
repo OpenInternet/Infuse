@@ -1,16 +1,13 @@
 ---
 style: module
 title: Compétences interpersonnelles pour détecter les logiciels malveillants
-description: Avant de commencer à analyser un logiciel malveillant, vous devez
-  configurer un environnement sûr pour le faire. En définitive, les logiciels
-  malveillants font de mauvaises choses aux systèmes sur lesquels ils
-  fonctionnent.
+description: Dans presque tous les cas d'intervention ou de soutien, les participants travailleront directement avec les personnes touchées par une attaque ou une tentative d'attaque. Cela peut souvent être une expérience stressante et anxiogène pour les personnes ciblées, et chaque participant devrait savoir comment atténuer ces pressions.
 weight: 1
 ---
 
 ## Cas d'utilisation
 
-Avant de commencer à analyser un logiciel malveillant, vous devez configurer un environnement sûr pour le faire. En définitive, les logiciels malveillants font de mauvaises choses aux systèmes sur lesquels ils fonctionnent. Vous ne voulez pas l'exécuter sur votre système principal. De plus, vous voudrez probablement empêcher le logiciel malveillant de se connecter aux serveurs C&C (commande et contrôle) de l'auteur de la menace. Les deux conditions signifient que vous devez configurer une machine virtuelle à utiliser lors de l'analyse des logiciels malveillants.
+Dans presque tous les cas d'intervention ou de soutien, les participants travailleront directement avec les personnes touchées par une attaque ou une tentative d'attaque. Cela peut souvent être une expérience stressante et anxiogène pour les personnes ciblées, et chaque participant devrait savoir comment atténuer ces pressions.
 
 ## Objectifs
 
