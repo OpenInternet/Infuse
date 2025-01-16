@@ -49,14 +49,14 @@ Este módulo profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se
 
 <https://bluecatnetworks.com/glossary/what-is-ipv4/>
 
-- - Conocer las diferencias entre IPv4 e IPv6
+  - Conocer las diferencias entre IPv4 e IPv6
 
 [https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6](https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/)
 
-- - Entender las direcciones IP  
+  - Entender las direcciones IP  
         <https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/>
 
-● Además de las direcciones IP, es útil leer sobre los [números de puerto](https://www.techtarget.com/searchnetworking/definition/port-number).
+- Además de las direcciones IP, es útil leer sobre los [números de puerto](https://www.techtarget.com/searchnetworking/definition/port-number).
 
 ### Flujo de trabajo: herramientas y capacidades
 
