@@ -4,9 +4,11 @@ title: Investigación Pasiva - Análisis de URL, los nombres de host y direccion
 description: Un profesional puede usar las habilidades descritas en este subtema
   para comenzar una investigación pasiva contra los servidores en Internet. Una
   investigación pasiva es aquella que no carga ningún sitio web, sino que solo
-  busca datos disponibles públicamente en ellos. Como tal, el atacante no será
-  alertado de que su sitio web recibió visitas adicionales, lo que podría
-  indicarle que se está llevando a cabo una investigación.
+  busca en ellos datos disponibles públicamente. Asimismo, utiliza herramientas
+  y recursos de inteligencia de fuentes abiertas (OSINT en sus siglas en inglés)
+  los cuales pueden proporcionar muchos detalles sobre la huella digital de la
+  infraestructura objeto del ataque sin que el agresor se dé cuenta de que lo
+  están investigando.
 weight: 4
 ---
 
