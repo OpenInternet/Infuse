@@ -9,7 +9,7 @@ description: En casi todos los casos de intervención o apoyo, los profesionales
 weight: 1
 ---
 
-## Estadio de Caso
+## Estudio de Caso
 
 En casi todos los casos de intervención o apoyo, los profesionales trabajarán directamente con las personas afectadas por un ataque o intento de ataque. Esta puede ser una experiencia estresante que puede causar ansiedad a los afectados, por lo que cada profesional debe saber cómo mitigar esas presiones.
 
