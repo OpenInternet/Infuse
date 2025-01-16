@@ -43,6 +43,14 @@ En otros casos, la aplicación puede procesar datos confidenciales y de misión 
 
 Informar las vulnerabilidades que ha descubierto puede resultar difícil, especialmente si es nuevo en esto. Hemos creado una breve descripción general del proceso de generación de informes en el [Subtema 5 de la Ruta de Aprendizaje de Evaluación de Seguridad de Aplicaciones Web](/es/learning-path/5/module-5) y alentamos a todos los estudiantes que necesitan redactar informes para los clientes a que lo revisen.
 
+## Vídeos de becarios de Infuse
+
+Dos de nuestros becarios de Infuse, LF y Nanbaan, produjeron vídeos que demuestran cómo los protectores digitales pueden ayudar a las demás personas de forma profesional y empática. ¡Recomendamos que los vean!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en inglés, subtítulos en inglés, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en español, subtítulos y diapositivas en español, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en español, subtítulos y diapositivas en inglés,  posiblemente traducción automática)
+
 ## Verificación de Habilidades
 
 Inicie sesión en DVWA nuevamente y abra una de sus páginas. Configúrela en seguridad baja o media. Imagine que esta página pertenece a un cliente suyo y necesita informarle sobre las vulnerabilidades, su impacto potencial y las mitigaciones necesarias. Puedes hacer este ejercicio:
