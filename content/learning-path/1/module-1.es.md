@@ -1,7 +1,13 @@
 ---
 style: module
 title: Clasificación/Triaje - Decidir cuando investigar
-description: Clasificación - Decidir cuándo investigar
+description: "Cuando reciba o le reenvíen un mensaje sospechoso, haga una
+  clasificación inicial (triaje) para determinar si efectivamente es malicioso,
+  averiguar cuál es la mejor respuesta y la más rápida por parte del
+  destinatario(s), y decidir si es necesaria una investigación adicional. Para
+  la mayoría de los mensajes, con realizar heurísticas básicas para separar las
+  amenazas no dirigidas de las dirigidas e identificar acciones que reduzcan el
+  daño, es suficiente.  "
 weight: 1
 ---
 ## Estudios de caso

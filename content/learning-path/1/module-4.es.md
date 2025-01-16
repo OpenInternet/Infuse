@@ -4,9 +4,11 @@ title: Investigación Pasiva - Análisis de URL, los nombres de host y direccion
 description: Un profesional puede usar las habilidades descritas en este subtema
   para comenzar una investigación pasiva contra los servidores en Internet. Una
   investigación pasiva es aquella que no carga ningún sitio web, sino que solo
-  busca datos disponibles públicamente en ellos. Como tal, el atacante no será
-  alertado de que su sitio web recibió visitas adicionales, lo que podría
-  indicarle que se está llevando a cabo una investigación.
+  busca en ellos datos disponibles públicamente. Asimismo, utiliza herramientas
+  y recursos de inteligencia de fuentes abiertas (OSINT en sus siglas en inglés)
+  los cuales pueden proporcionar muchos detalles sobre la huella digital de la
+  infraestructura objeto del ataque sin que el agresor se dé cuenta de que lo
+  están investigando.
 weight: 4
 ---
 
@@ -47,14 +49,14 @@ Este módulo profundiza en los conceptos básicos de URL, DNS e IPv4/IPv6. Si se
 
 <https://bluecatnetworks.com/glossary/what-is-ipv4/>
 
-- - Conocer las diferencias entre IPv4 e IPv6
+  - Conocer las diferencias entre IPv4 e IPv6
 
 [https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6](https://www.geeksforgeeks.org/differences-between-ipv4-and-ipv6/)
 
-- - Entender las direcciones IP  
+  - Entender las direcciones IP  
         <https://www.enterprisenetworkingplanet.com/standards-protocols/understanding-ip-addresses/>
 
-● Además de las direcciones IP, es útil leer sobre los [números de puerto](https://www.techtarget.com/searchnetworking/definition/port-number).
+- Además de las direcciones IP, es útil leer sobre los [números de puerto](https://www.techtarget.com/searchnetworking/definition/port-number).
 
 ### Flujo de trabajo: herramientas y capacidades
 

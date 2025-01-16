@@ -2,11 +2,11 @@
 style: module
 title: Habilidades Interpersonales para Infraestructura Maliciosa/Respuesta al
   Phishing
-description: En casi todos los casos de intervención o apoyo, los profesionales
-  trabajarán directamente con las personas afectadas por un ataque o intento de
-  ataque. Esto puede ser una experiencia estresante e inductora de ansiedad para
-  las personas objetivo, y cada profesional debe saber cómo mitigar esas
-  presiones.
+description: Al completar este módulo, los especialistas podrán apoyar a
+  aquellas personas que puedan haber recibido o hayan hecho clic de manera
+  responsable en enlaces o mensajes de correo electrónico maliciosos, mostrando
+  empatía y enfocándose en reducir el daño ocasionado, tomando en cuenta el
+  modelo de amenaza recibida por la persona objeto del ataque.
 weight: 2
 ---
 

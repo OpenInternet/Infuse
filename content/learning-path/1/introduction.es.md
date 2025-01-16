@@ -1,8 +1,8 @@
 ---
 style: introduction
 title: Introducción
-description: Lea la descripción general del camino de aprendizaje, los
-  objetivos, las amenazas asociadas y los requisitos previos.
+description: Lea la descripción general del ruta de aprendizaje, los objetivos,
+  las amenazas asociadas y los requisitos previos.
 weight: 1
 ---
 ## Resumen
