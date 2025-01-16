@@ -23,15 +23,15 @@ Dado que los encabezados de correos electrónicos pueden contener referencias a 
 
 Después de completar este módulo, el profesional debe ser capaz de:
 
-● Extraer encabezados completos de un correo electrónico que han recibido o están analizando;
+- Extraer encabezados completos de un correo electrónico que han recibido o están analizando;
 
-● Analizar los encabezados extraídos, prestando especial atención a
+- Analizar los encabezados extraídos, prestando especial atención a
 
-○ La identidad del servidor o servidores que enviaron el correo electrónico;
+  - La identidad del servidor o servidores que enviaron el correo electrónico;
 
-○ Cualquier información sobre los datos SPF o DKIM contenidos en esos encabezados;
+  - Cualquier información sobre los datos SPF o DKIM contenidos en esos encabezados;
 
-○La posibilidad de que alguna de la información en el encabezado haya sido falsificada
+  - La posibilidad de que alguna de la información en el encabezado haya sido falsificada
 
 ---
 
