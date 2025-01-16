@@ -1,20 +1,24 @@
 ---
 style: module
 title: Ejercicio de captura de bandera
-description: También hemos diseñado un ejercicio de captura de banderas en el que los alumnos pueden analizar un correo electrónico de phishing y la infraestructura a la que se vincula. El ejercicio se puede utilizar como práctica adicional o como ejercicio de verificación de habilidades y se puede encontrar aquí.
+description: También hemos diseñado un ejercicio de captura de banderas en el
+  que los alumnos pueden analizar un correo electrónico de phishing y la
+  infraestructura a la que se vincula. El ejercicio se puede utilizar como
+  práctica adicional o como ejercicio de verificación de habilidades y se puede
+  encontrar aquí.
 weight: 10
 ---
 
-También hemos diseñado un ejercicio de captura de bandera en el cual los estudiantes pueden analizar un correo electrónico de phishing y la infraestructura a la que enlaza. El ejercicio se puede utilizar como práctica adicional o como ejercicio de verificación de habilidades, y se puede encontrar a continuación.
+También hemos diseñado un ejercicio de captura de bandera en el cual los estudiantes pueden analizar un correo electrónico de phishing y la infraestructura a la que enlaza. El ejercicio se puede utilizar como práctica adicional o como ejercicio de verificación de habilidades, y lo encontrará a continuación.
 
-Estás sentado en la bulliciosa redacción de la prensa donde trabajas como administrador de IT, totalmente concentrado en tus deberes rodeado de monitores brillantes. Tu colega Alia del departamento de Contabilidad se acerca corriendo con una expresión preocupada, y te informa que reenvió un correo electrónico que afirmaba ser de PayPal y que les urgía a tomar medidas inmediatas debido a una actividad sospechosa en su cuenta. La organización de prensa depende de PayPal para procesar los pagos de suscripción. Tu interés se despierta instantáneamente al reconocer el potencial de un ataque malicioso, y comienzas una investigación.
+Estás sentado en la bulliciosa redacción de noticias donde trabajas como administrador de IT, totalmente concentrado en tus deberes y rodeado de monitores brillantes. Tu colega Alia, del departamento de Contabilidad, se acerca corriendo con una expresión de preocupación en su rostro, y te informa que reenvió un correo electrónico que afirmaba ser de PayPal y que les urgía a tomar medidas inmediatas debido a una actividad sospechosa en su cuenta. La empresadepende de PayPal para procesar los pagos de suscripción. Te interesas en el caso al darte cuenta de que podría tratarse de un ataque mailicoso y, de inmediato, comienzas una investigación.
 
 _Esta actividad utiliza un correo electrónico y una página de destino de muestra necesarios para la actividad. Descarga los archivos aquí: {{< fontawesome "solid/download" >}} [Materiales CTF](/files/ctf-materials.zip)_
 
 ### Pregunta 1: ¿Cuál es la dirección del remitente del correo electrónico?
 
 {{< question title="Instrucciones" open="true" >}}
-Descubre cómo aparecería la dirección del remitente en el cliente de correo electrónico si se abre el correo electrónico.
+Descubre cómo aparecería la dirección del remitente en el correo electrónico del cliente si lo abre.
 {{< /question >}}
 
 {{< question title="Pistas" >}}
@@ -65,7 +69,7 @@ La línea de asunto del correo electrónico es: _Te llamamos y no contestaste_
 ### Pregunta 3: ¿Qué acción se solicita?
 
 {{< question title="Instrucciones" open="true" >}}
-Cuando examinamos un correo electrónico potencialmente malicioso, también necesitamos averiguar qué acción quería que hiciera el remitente. ¿Qué acción asumes que el remitente quería que hiciera el destinatario?
+Cuando examinamos un correo electrónico potencialmente malicioso, también necesitamos averiguar qué acción se requiere del remitente. ¿Qué acción asumes que el remitente querría que hiciera el destinatario?
 {{< /question >}}
 
 {{< question title="Pistas" >}}
@@ -76,12 +80,12 @@ Cuando examinamos un correo electrónico potencialmente malicioso, también nece
 Haz clic en uno de los dos enlaces dentro del correo electrónico.
 {{< /question >}}
 
-## Reconocimiento de la Amenaza
+## Reconocimiento de la amenaza
 
 ### Pregunta 4: Desactiva el enlace "Confirmar"
 
 {{< question title="Instrucciones" open="true" >}}
-A medida que avanzamos en el análisis, el primer paso que debemos hacer es comprender la diferencia entre los enlaces sospechosos. Cuando analizamos enlaces potencialmente sospechosos, típicamente los desactivamos; esto significa reemplazar algunos caracteres para que el enlace no se pueda hacer clic accidentalmente ni desencadene mecanismos de escaneo de enlaces automáticos o de virus. Desactivar los enlaces se considera una buena práctica en las investigaciones de seguridad. Los enlaces desactivados no se convertirán automáticamente en enlaces clicables, pero aún conservarán la información del enlace original, por ejemplo, hxxp[://]www[.]google[.]com.
+A medida que avanzamos en el análisis, el primer paso que debemos seguir es comprender la diferencia entre los enlaces sospechosos. Cuando analizamos enlaces potencialmente sospechosos, típicamente los desactivamos; esto significa reemplazar algunos caracteres para que el enlace no pueda hacer clic accidentalmente ni desencadene mecanismos de escaneo de enlaces automáticos o de virus. Desactivar los enlaces se considera una buena práctica en las investigaciones de seguridad. Los enlaces desactivados no se convertirán automáticamente en enlaces en los que se pueda hacer clic, pero aún conservarán la información del enlace original, por ejemplo, hxxp[://]www[.]google[.]com.
 {{< /question >}}
 
 {{< question title="Pistas" >}}
@@ -107,7 +111,7 @@ hxxps[://]d[.]pr/mUxkOm
 ### Pregunta 5: Usa CyberChef para extraer y desactivar todos los enlaces en el correo electrónico
 
 {{< question title="Instrucciones" open="true" >}}
-Puedes usar CyberChef para realizar muchas tareas de análisis diferentes. Esta vez, encuentra y describe un flujo de trabajo para extraer fácilmente y desactivar todos los enlaces del correo electrónico.
+Puede usar CyberChef para realizar muchas tareas de análisis diferentes. Esta vez, encuentre y describa un flujo de trabajo para extraer fácilmente y desactivar todos los enlaces del correo electrónico.
 {{< /question >}}
 
 {{< question title="Respuesta" >}}
@@ -116,7 +120,7 @@ Puedes usar una 'receta', o una serie de pasos conectados, en CyberChef para lle
 ![Una captura de pantalla de una receta de CyberChef que primero extrae todas las URL de un archivo de texto y luego las limpia](/media/uploads/CTF9_cyberchef.png)
 {{< /question >}}
 
-## Investigación Pasiva de URLs, Nombres de Host e IP
+## Investigación pasiva de URLs, Nombres de Host e IP
 
 ### Pregunta 6: ¿Cuándo se envió la URL desactivada en la pregunta 4 a VirusTotal?
 
@@ -170,12 +174,12 @@ Aquí utilizamos un sitio web whois para extraerlo
 Internet Technology Solutions
 {{< /question >}}
 
-### Pregunta 10: ¿Dónde se encuentra geográficamente ubicada la IP de servidor que identificaste a través de VirusTotal?
+### Pregunta 10: ¿Dónde se encuentra geográficamente ubicada la IP del servidor que identificaste a través de VirusTotal?
 
 {{< question title="Instrucciones" open="true" >}}
-Las direcciones IP están vagamente vinculadas a ubicaciones geográficas, como ciudades o distritos. Hay muchos servicios en línea donde puedes ingresar una dirección IP y aprender más sobre dónde probablemente esté ubicada. Aunque este tipo de verificación no es perfecta y a veces puede cometer errores, sigue siendo una parte importante de las investigaciones de infraestructura maliciosa.
+Las direcciones IP están vagamente vinculadas a ubicaciones geográficas, como ciudades o distritos. Hay muchos servicios en línea donde puedes ingresar una dirección IP y aprender más sobre dónde está ubicada. Aunque este tipo de verificación no es perfecta y a veces puede cometer errores, sigue siendo una parte importante de las investigaciones de infraestructura maliciosa.
 
-Vale la pena comparar la información que recibes de una búsqueda whois con la que recibes de búsquedas de ubicación de IP. Podrías descubrir que la dirección IP que estás investigando pertenece a un proveedor de VPN o a una gran empresa tecnológica como Google; si este es el caso, entonces no aprenderás mucho de esas investigaciones, la ubicación IP probablemente corresponderá a una de las granjas de servidores de esas empresas y puede tener poco que ver con la ubicación de la persona o entidad que estás investigando.
+Vale la pena comparar la información que recibes de una búsqueda whois con la que recibes de búsquedas de ubicación de IP. Podrías descubrir que la dirección IP que estás investigando pertenece a un proveedor de VPN o a una gran empresa tecnológica como Google; si este es el caso, entonces no aprenderás mucho de esas investigaciones, la ubicación IP probablemente corresponderá a una de las granjas de servidores *(server farms)* de esas empresas y puede tener poco que ver con la ubicación de la persona o entidad que estás investigando.
 
 ![Captura de pantalla de una búsqueda geoIP de una dirección IP, que muestra que se originó en Portland, Oregón](/media/uploads/CTF12_geoIP.png)
 {{< /question >}}
@@ -184,7 +188,7 @@ Vale la pena comparar la información que recibes de una búsqueda whois con la 
 Portland, Oregon, Estados Unidos
 {{< /question >}}
 
-## Investigación Pasiva de Encabezados de Correo Electrónico
+## Investigación pasiva de encabezados de correo electrónico
 
 ### Pregunta 11: ¿Cuál es la ruta de retorno del correo electrónico inicial que investigaste?
 
@@ -223,7 +227,7 @@ Primer salto: efianalytics.com 216.244.76.116
 SMTP: 2002:a59:ce05:0:b0:2d3:3de5:67a9
 {{< /question >}}
 
-## Investigación Activa de Páginas Web Maliciosas
+## Investigación activa de páginas web waliciosas
 
 ### Pregunta 13: ¿Cuál es el ID de la víctima presente en el código del sitio web?
 
@@ -257,6 +261,6 @@ Th1s_1s_pH1sh1ng_Em3il
 
 {{% resource title="Documentación comunitaria de la línea de ayuda de Access Now para responder a correos electrónicos sospechosos o de phishing" languages="Inglés" cost="Gratis" description="El cliente recibe un correo electrónico sospechoso o de phishing" url="https://accessnowhelpline.gitlab.io/community-documentation/58-Suspicious_Phishing_Email.html#" %}}
 
-{{% resource title="Lista de todos los tipos de registros DNS" languages="Inglés, Chino, Japonés, Coreano, Ruso, Serbio, Ucraniano, Esperanto, Húngaro, Vietnamita, Italiano, Español, Francés" cost="Gratis" description="Incluye (casi?) todos los tipos de registros DNS." url="https://es.wikipedia.org/wiki/Anexo:Tipos_de_registros_DNS" %}}
+{{% resource title="Lista de todos los tipos de registros DNS" languages="Inglés, Chino, Japonés, Coreano, Ruso, Serbio, Ucraniano, Esperanto, Húngaro, Vietnamita, Italiano, Español, Francés" cost="Gratis" description="Incluye casi todos los tipos de registros DNS." url="https://es.wikipedia.org/wiki/Anexo:Tipos_de_registros_DNS" %}}
 
-{{% resource title="Informes de Amnesty sobre campañas de phishing" languages="Varios, dependiendo del informe" cost="Gratis" description="Una lista de ejemplos de cómo se ve una campaña de phishing dirigida contra defensores de derechos humanos, activistas y periodistas." url="https://www.amnesty.org/en/search/phishing/" %}}
+{{% resource title="Informes de Amnistía sobre campañas de phishing" languages="Varios, dependiendo del informe" cost="Gratis" description="Una lista de ejemplos de cómo se ve una campaña de phishing dirigida contra defensores de derechos humanos, activistas y periodistas." url="https://www.amnesty.org/en/search/phishing/" %}}
