@@ -41,6 +41,14 @@ In other cases confidential and mission-critical data may be processed by the ap
 
 Reporting vulnerabilities you’ve discovered can be difficult, especially if you’re new to it. We have created a brief overview of the reporting process in [Subtopic 5 of the Web Application Security Assessment learning path](/en/learning-path/5/module-5/) and encourage all learners who need to write up reports to clients to look through it.
 
+## Videos by Infuse fellows
+ 
+Two of our Infuse fellows, LF and Nanbaan, have produced videos demonstrating how digital protectors could support others in a professional and empathetic manner. We recommend checking both of them out!
+ 
+* [Nanbaan's video](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (English audio, English subtitles, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=SbALgt0oZIo) (Spanish audio, Spanish subtitles and slides, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=ouKS7s4GAPs) (Spanish audio, English subtitles and slides, auto-translation possible)
+
 ## Skill Check
 
 Log in to DVWA again and open one of its pages. Set it to either low or medium security. Imagine that this page belongs to a client of yours and you need to brief them on the vulnerabilities, their potential impact, and necessary mitigations. You can do this exercise either:

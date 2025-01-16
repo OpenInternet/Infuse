@@ -95,6 +95,16 @@ While performing malware analysis, you may find that you want additional tools i
 
 In order to move malware files around, the standard practice is to put them in encrypted ZIP files. In this case, the encryption quality doesn’t matter. The point is not to keep the malware secret, so much as to prevent inadvertently unleashing it on other systems and to prevent anti-malware systems from detecting or deleting it. Feel free to include the password in the ZIP file name.
 
+
+## Videos by Infuse fellows
+ 
+Two of our Infuse fellows, LF and Nanbaan, have produced videos demonstrating how digital protectors could support others in a professional and empathetic manner. We recommend checking both of them out!
+ 
+* Nanbaan's video (English audio, English subtitles, auto-translation possible)
+* LF's video (Spanish audio, Spanish subtitles and slides, auto-translation possible)
+* LF's video (Spanish audio, English subtitles and slides, auto-translation possible)
+
+
 ## Practice
 
 Reflect on and answer/discuss the following with peers, colleagues, friends, or a mentor. If available and if appropriate, talk to a ‘client’ you have worked with before to ask their input and experiences on some of these questions.

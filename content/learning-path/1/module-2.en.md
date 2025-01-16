@@ -52,6 +52,14 @@ The answers to these questions will both help provide useful harm reduction supp
 
 For operational security to protect yourself while working with malicious emails, check out the next subtopic.
 
+## Videos by Infuse fellows
+ 
+Two of our Infuse fellows, LF and Nanbaan, have produced videos demonstrating how digital protectors could support others in a professional and empathetic manner. We recommend checking both of them out!
+ 
+* [Nanbaan's video](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (English audio, English subtitles, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=SbALgt0oZIo) (Spanish audio, Spanish subtitles and slides, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=ouKS7s4GAPs) (Spanish audio, English subtitles and slides, auto-translation possible)
+
 ## Practice
 
 Reflect on and answer/discuss the following with peers, colleagues, friends, or a mentor. If available and if appropriate, talk to a ‘client’ you have worked with before to ask their input and experiences on some of these questions.
