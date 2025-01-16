@@ -42,6 +42,15 @@ Dans d'autres cas, des données confidentielles et critiques peuvent être trait
 
 Il peut être difficile de signaler les vulnérabilités que vous découvrez, surtout si vous débutez. Nous avons créé un bref aperçu du processus de production de rapports dans le [sous-thème 5 du parcours d'apprentissage sur l'évaluation de la sécurité des applications Web](https://docs.google.com/document/d/19v34droskAFgkp_qqcwiQLpc1hI1W-FjzHNV2QRBsaA/edit#heading=h.3b8ncrmhhmwt) et nous encourageons tous les apprenants qui doivent rédiger des rapports pour les clients à le consulter.
 
+## Vidéos des membres d'Infuse
+
+Deux de nos membres d'Infuse, LF et Nanbaan, ont produit des vidéos démontrant comment les protecteurs numériques pourraient aider les autres de manière professionnelle et empathique. Nous vous recommandons de les regarder tous les deux !
+
+* [Vidéo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en anglais, sous-titres en anglais, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en espagnol, sous-titres et diapositives en espagnol, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en espagnol, sous-titres et diapositives en anglais, traduction automatique possible)
+
+
 ## Contrôle de compétence
 
 Connectez-vous à nouveau à DVWA et ouvrez l'une de ses pages. Réglez-la sur une sécurité faible ou moyenne. Imaginez que cette page appartient à l'un de vos clients et que vous devez l'informer de ses vulnérabilités, de leur impact potentiel et des mesures d'atténuation nécessaires. Vous pouvez faire cet exercice :

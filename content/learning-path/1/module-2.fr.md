@@ -66,6 +66,15 @@ Réfléchissez à ce qui suit et discutez-en avec des pairs, des collègues, des
 - Décrivez vos propres capacités et limites dans l'exécution des travaux d'analyse de l'infrastructure. Après avoir fait une première tentative de description, essayez d'ajouter plus de nuances et d'exactitude à votre description.
 - Quels pourraient être les risques si vous procédez sans cette reconnaissance de vos limites?
 
+## Vidéos des membres d'Infuse
+
+Deux de nos membres d'Infuse, LF et Nanbaan, ont produit des vidéos démontrant comment les protecteurs numériques pourraient aider les autres de manière professionnelle et empathique. Nous vous recommandons de les regarder tous les deux !
+
+* [Vidéo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en anglais, sous-titres en anglais, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en espagnol, sous-titres et diapositives en espagnol, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en espagnol, sous-titres et diapositives en anglais, traduction automatique possible)
+
+
 ## Contrôle de compétence
 
 Faites un exercice de jeu de rôle avec un pair ou un mentor, dans lequel vous jouez le rôle du protecteur numérique, et où votre pair ou mentor joue le rôle d'une personne qui a reçu un e-mail d'hameçonnage qui se trouve toujours dans sa boîte de réception. La personne a reçu l'e-mail il y a plusieurs heures, ne se souvient pas si elle a cliqué dessus, et a seulement pensé que c'était peut-être suspect et qu'il convenait d'alerter quelqu'un. La personne est très stressée et craint de mettre ses collègues et son organisation en danger. Voici quelques-uns des sujets que la conversation pourrait aborder :

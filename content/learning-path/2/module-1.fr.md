@@ -107,6 +107,15 @@ Réfléchissez à ce qui suit et discutez-en avec des pairs, des collègues, des
   - Quels pourraient être les risques si vous procédez sans cette reconnaissance de vos limites ?
 - Jouez une interaction dans laquelle vous signalez à un client la recherche de logiciels malveillants actifs sur un appareil.
 
+## Vidéos des membres d'Infuse
+
+Deux de nos membres d'Infuse, LF et Nanbaan, ont produit des vidéos démontrant comment les protecteurs numériques pourraient aider les autres de manière professionnelle et empathique. Nous vous recommandons de les regarder tous les deux !
+
+* [Vidéo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en anglais, sous-titres en anglais, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en espagnol, sous-titres et diapositives en espagnol, traduction automatique possible)
+* [Vidéo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en espagnol, sous-titres et diapositives en anglais, traduction automatique possible)
+
+
 ### Contrôle de compétence
 
 Avec un mentor ou un pair
