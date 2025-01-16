@@ -1,12 +1,9 @@
 ---
 style: module
 title: Investigación activa - Análisis de páginas web maliciosas
-description: Los correos electrónicos de phishing suelen ser solo el primer paso
-  en un ataque. La mayoría intenta que la persona objetivo visite una página web
-  con el propósito específico de atacar. Este módulo de habilidades le enseñará
-  a observar los sitios web controlados por atacantes para comprender sus
-  acciones y descubrir potencialmente más infraestructura controlada por ellos o
-  vectores empleados en los ataques.
+description: Este módulo le enseñará a observar los sitios web controlados por
+  atacantes para comprender sus acciones y potencialmente desvelar más
+  infraestructura controlada por ellos o vectores empleados en los ataques.
 weight: 7
 ---
 ## Estudio de caso
