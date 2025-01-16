@@ -1,10 +1,10 @@
 ---
 style: module
 title: Respuesta - desmontaje de la infraestructura
-description: Aquí, cubrimos la denuncia de abusos y otros mecanismos de
+description: En este módulo cubrimos la denuncia de abusos y otros mecanismos de
   navegación segura y de sumideros. Esto incluye ponerse en contacto con el
-  proveedor de infraestructura para informar sobre la infraestructura maliciosa
-  y poder eliminarla.
+  proveedor de la infraestructura para informar sobre la presencia de elementos
+  maliciosos para que puedan desmontarla.
 weight: 9
 ---
 
