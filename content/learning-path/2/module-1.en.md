@@ -1,7 +1,10 @@
 ---
 style: module
 title: Interpersonal skills for detecting malware
-description: In almost every intervention or support case, practitioners will be working directly with persons affected by an attack or attempted attack. This can often be a stressful and anxiety-inducing experience for targeted persons, and every practitioner should know how to mitigate those pressures.
+description: In almost every intervention or support case, practitioners will be
+  working directly with persons affected by an attack or attempted attack. This
+  can often be a stressful and anxiety-inducing experience for targeted persons,
+  and every practitioner should know how to mitigate those pressures.
 weight: 1
 ---
 ## Use Case

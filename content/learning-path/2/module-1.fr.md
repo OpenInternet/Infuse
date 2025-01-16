@@ -1,7 +1,11 @@
 ---
 style: module
 title: Compétences interpersonnelles pour détecter les logiciels malveillants
-description: Dans presque tous les cas d'intervention ou de soutien, les participants travailleront directement avec les personnes touchées par une attaque ou une tentative d'attaque. Cela peut souvent être une expérience stressante et anxiogène pour les personnes ciblées, et chaque participant devrait savoir comment atténuer ces pressions.
+description: Dans presque tous les cas d'intervention ou de soutien, les
+  participants travailleront directement avec les personnes touchées par une
+  attaque ou une tentative d'attaque. Cela peut souvent être une expérience
+  stressante et anxiogène pour les personnes ciblées, et chaque participant
+  devrait savoir comment atténuer ces pressions.
 weight: 1
 ---
 
