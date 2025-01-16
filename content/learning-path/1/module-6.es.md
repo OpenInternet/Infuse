@@ -1,13 +1,10 @@
 ---
 style: module
 title: Investigación activa - analiza correos electrónicos maliciosos
-description: Este módulo de habilidades le enseñará a interpretar y comprender
-  los correos electrónicos maliciosos y a encontrar la infraestructura a la que
-  se vinculan. Ya se trate de ingeniería social pura, phishing o envío de
+description: "Ya se trate de ingeniería social pura, phishing o envío de
   malware, los correos electrónicos maliciosos pueden ser bastante complejos.
-  Estas habilidades avanzadas para revertir correos electrónicos complejos
-  también son una buena preparación para comprender las campañas de atacantes, y
-  son una buena introducción para analizar más complicado.
+  Este módulo le enseñará cómo interpretar y comprender los correos electrónicos
+  maliciosos y a encontrar la infraestructura a la que se vinculan. "
 weight: 6
 ---
 
