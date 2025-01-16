@@ -1,10 +1,12 @@
 ---
 style: module
 title: Investigación pasiva - Análisis de los encabezados de correo electrónico
-description: Una investigación pasiva es aquella que no carga ningún sitio web,
-  sino que solo busca datos disponibles públicamente en ellos. Como tal, el
-  atacante no será alertado de que su sitio web recibió visitas adicionales, lo
-  que podría indicarle que se está llevando a cabo una investigación.
+description: "Este módulo le enseñará cómo analizar los numerosos metadatos que
+  documentan el origen de un correo electrónico, los servidores a través de los
+  cuales viaja, la información sobre posibles revisiones de correo basura (spam)
+  y mucho más. Estos metadatos pueden ser una parte crucial de cualquier
+  investigación a fondo que se realice sobre correos electrónicos potencialmente
+  maliciosos. "
 weight: 5
 ---
 
