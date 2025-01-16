@@ -1,13 +1,12 @@
 ---
 style: module
 title: Seguridad Operacional - Manejo Seguro de enlaces e infraestructura
-description: A medida que vaya investigando correos electrónicos, archivos
-  adjuntos, sitios web y otras infraestructuras de phishing malintencionado,
-  tendrá que tomar algunas medidas proactivas para asegurarse de que tanto usted
-  como las personas a las que ayuda están a salvo. También tendrá que saber qué
-  aconsejar al destinatario de los mensajes cuando se enfrente a este tipo de
-  incidentes, y cómo puede informarle con seguridad para que se ocupe de ello
-  sin comprometerse.
+description: "A medida que vaya investigando correos electrónicos, archivos
+  adjuntos, sitios web y otras infraestructuras de phishing malicioso, tendrá
+  que tomar algunas medidas proactivas para garantizar que tanto usted como las
+  personas a las que apoye estén seguras. Asegúrese de estudiar esta habilidad
+  y, si es necesario, establecer un entorno seguro antes de interactuar con
+  correos electrónicos o sitios web maliciosos. "
 weight: 3
 ---
 
