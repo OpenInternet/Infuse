@@ -125,7 +125,17 @@ Com um Mentor ou Colega
   * Informação acerca de uma descoberta positiva (presença de malware)
 * Se possível, peça que alguém assista as suas interações atuais e o seu processo de resposta a incidentes com o cliente e forneça um feedback sobre a sua forma de oscilar entre os diferentes elementos interpessoais da interação
 
-## Learning Resources
+
+## Vídeos de fellows do Infuse	
+
+Dois fellows do Infuse, LF e Nanbaan, fizeram vídeos demonstrando como protetores digitais podem dar suporte a outros de forma profissional e com empatia. Confira os dois!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (áudio em inglês, legendas em inglês, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (áudio em espanhol, legendas e slides em espanhol, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (áudio em espanhol, legendas e slides em inglês, tradução automática disponível)
+
+
+## Recursos de aprendizagem
 
 {{% resource title="Security Education 101" languages="Inglês" cost="Grátis" description="Um recurso popular sobre como ensinar e falar sobre segurança digital" url="https://www.securityeducationcompanion.org/articles" %}}
 

@@ -43,6 +43,14 @@ Em outros casos, dados confidenciais e de missão crítica podem ser processados
 
 Relatar vulnerabilidades que você descobriu pode ser difícil, especialmente se você for novo nisso. Criamos uma visão geral do processo de relatórios no [Subtópico 5 da Trilha de Aprendizagem de Avaliação de Segurança de Aplicativos Web](/en/learning-path/5/module-5/) e incentivamos todos os alunos que precisam redigir relatórios para clientes a consultá-la. 
 
+## Vídeos de fellows do Infuse	
+
+Dois fellows do Infuse, LF e Nanbaan, fizeram vídeos demonstrando como protetores digitais podem dar suporte a outros de forma profissional e com empatia. Confira os dois!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (áudio em inglês, legendas em inglês, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (áudio em espanhol, legendas e slides em espanhol, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (áudio em espanhol, legendas e slides em inglês, tradução automática disponível)
+
 ## Teste de capacitação
 
 Faça login no DVWA novamente e abra uma de suas páginas. Defina a segurança como baixa ou média. Imagine que essa página pertence a um cliente seu e que você precisa informá-lo sobre as vulnerabilidades, seu possível impacto e as atenuações necessárias. Você também pode fazer esse exercício:

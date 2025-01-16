@@ -51,8 +51,15 @@ As respostas a essas perguntas ajudarão no apoio de redução de danos e nas in
 
 Para que haja segurança operacional durante o trabalho com e-mails maliciosos, consulte o próximo módulo.
 
-## Atividade prática
+## Vídeos de fellows do Infuse	
 
+Dois fellows do Infuse, LF e Nanbaan, fizeram vídeos demonstrando como protetores digitais podem dar suporte a outros de forma profissional e com empatia. Confira os dois!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (áudio em inglês, legendas em inglês, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (áudio em espanhol, legendas e slides em espanhol, tradução automática disponível)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (áudio em espanhol, legendas e slides em inglês, tradução automática disponível)
+
+## Atividade prática
 
 Reflita e responda às perguntas a seguir/discuta com pares, colegas, amizades ou mentores. Se houver disponibilidade e for apropriado, converse com uma pessoa “cliente” com quem tenha trabalhado anteriormente para pedir sua opinião e experiências.
 
