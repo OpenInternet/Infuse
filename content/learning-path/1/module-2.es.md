@@ -55,6 +55,14 @@ Las respuestas a estas preguntas ayudarán a proporcionar un apoyo útil para la
 
 Para protegerse usted mismo a nivel de su seguridad operacional mientras trabaja con correos electrónicos maliciosos, consulte el siguiente módulo.
 
+## Vídeos de becarios de Infuse
+
+Dos de nuestros becarios de Infuse, LF y Nanbaan, produjeron vídeos que demuestran cómo los protectores digitales pueden ayudar a las demás personas de forma profesional y empática. ¡Recomendamos que los vean!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en inglés, subtítulos en inglés, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en español, subtítulos y diapositivas en español, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en español, subtítulos y diapositivas en inglés,  posiblemente traducción automática)
+
 ## Practique
 
 Reflexione y responda/discuta lo siguiente con sus compañeros, colegas, amigos o un mentor. Si está disponible y es apropiado, hable con un ʻclienteʼ con el que haya trabajado antes para pedirle su opinión y experiencias sobre algunas de estas preguntas

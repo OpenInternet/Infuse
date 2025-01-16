@@ -103,6 +103,14 @@ Mientras realiza un análisis de malware, es posible que desee utilizar herramie
 
 Para mover archivos de malware, la práctica estándar es colocarlos en archivos ZIP cifrados. En este caso, la calidad del cifrado no importa. El objetivo no es tanto mantener en secreto el malware, sino más bien evitar liberarlo involuntariamente en otros sistemas y prevenir que los sistemas antimalware lo detecten o lo eliminen. Tomate la libertad de incluir la contraseña en el nombre del archivo ZIP.
 
+## Vídeos de becarios de Infuse
+
+Dos de nuestros becarios de Infuse, LF y Nanbaan, produjeron vídeos que demuestran cómo los protectores digitales pueden ayudar a las demás personas de forma profesional y empática. ¡Recomendamos que los vean!
+
+* [Vídeo de Nanbaan](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (audio en inglés, subtítulos en inglés, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=SbALgt0oZIo) (audio en español, subtítulos y diapositivas en español, posiblemente traducción automática)
+* [Vídeo de LF](https://www.youtube.com/watch?v=ouKS7s4GAPs) (audio en español, subtítulos y diapositivas en inglés,  posiblemente traducción automática)
+
 ## Práctica
 
 Reflexione y comparta las siguientes consideraciones con sus compañeros, colegas, amigos/as o un mentor/a. Si está disponible y es apropiado, hable con un cliente con el que hayas trabajado anteriormente para pedirle que comparta su opinión y sus experiencias sobre algunas de estas cuestiones:
