@@ -103,9 +103,9 @@ In order to move malware files around, the standard practice is to put them in e
  
 Two of our Infuse fellows, LF and Nanbaan, have produced videos demonstrating how digital protectors could support others in a professional and empathetic manner. We recommend checking both of them out!
  
-* Nanbaan's video (English audio, English subtitles, auto-translation possible)
-* LF's video (Spanish audio, Spanish subtitles and slides, auto-translation possible)
-* LF's video (Spanish audio, English subtitles and slides, auto-translation possible)
+* [Nanbaan's video](https://www.youtube.com/watch?v=oSR_EL-6qAQ) (English audio, English subtitles, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=SbALgt0oZIo) (Spanish audio, Spanish subtitles and slides, auto-translation possible)
+* [LF's video](https://www.youtube.com/watch?v=ouKS7s4GAPs) (Spanish audio, English subtitles and slides, auto-translation possible)
 
 
 ## Practice
