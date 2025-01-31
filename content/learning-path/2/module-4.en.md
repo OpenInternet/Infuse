@@ -1,9 +1,10 @@
-+++
-style = "module"
-weight = 4
-title = "Initial steps and checks for detecting malware"
-description = "This subtopic looks at the ways in which we can conduct initial triage and check for malware when we are handed a potentially infected device"
-+++
+---
+style: module
+title: Initial steps and checks for detecting malware
+description: This subtopic looks at the ways in which we can conduct initial
+  triage and check for malware when we are handed a potentially infected device
+weight: 4
+---
 
 ## Use Case
 
