@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 3
-title = "How malware works and different types of malware"
-description = "Viruses, spyware, backdoors, ransomware, and adware all behave differently. Here, we study different types of malware and understand how infections begin"
-+++
+---
+style: module
+title: How malware works and different types of malware
+description: Viruses, spyware, backdoors, ransomware, and adware all behave
+  differently. Here, we study different types of malware and understand how
+  infections begin
+weight: 3
+---
 
 ## Use Case
 
