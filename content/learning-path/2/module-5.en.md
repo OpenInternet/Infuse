@@ -1,9 +1,11 @@
-+++
-style = "module"
-weight = 5
-title = "Forensic methods on live Windows and macOS systems"
-description = "Sometimes, it's necessary to dig deeper into a system to figure out what's wrong. We can do this by investigating processes, persistence mechanisms, and network traffic"
-+++
+---
+style: module
+title: Forensic methods on live Windows and macOS systems
+description: Sometimes, it's necessary to dig deeper into a system to figure out
+  what's wrong. We can do this by investigating processes, persistence
+  mechanisms, and network traffic
+weight: 5
+---
 
 ## Use Case
 

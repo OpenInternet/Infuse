@@ -1,8 +1,8 @@
-+++
-style = "module"
-weight = 5
-title = "Méthodes d'investigation sur les systèmes Windows et macOS"
-+++
+---
+style: module
+title: Méthodes d'investigation sur les systèmes Windows et macOS
+weight: 5
+---
 
 ## Cas d'utilisation
 
