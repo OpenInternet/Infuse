@@ -1,8 +1,8 @@
-+++
-style = "module"
-weight = 4
-title = "Étapes initiales et vérifications de la détection des logiciels malveillants"
-+++
+---
+style: module
+title: Étapes initiales et vérifications de la détection des logiciels malveillants
+weight: 4
+---
 
 ### Cas d'utilisation
 
