@@ -22,7 +22,7 @@ description = "قد يكون الفحص المباشر للجهاز ضروريً
 
 ### ويندوز
 
-يوفر دليل التحليل الجنائي السريعGuide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/)  مقدمة جيدة لمناهج التحليل الجنائي لفحص الجهاز  ويتضمن الدليل مقدمة إلى المجموعة المهمة من أدوات سيس إنترنالز(Sysinternals) المتاحة من مايكروسوفت. أكمل أقسام الدليل حول أوتورنز [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/windows/autoruns) وبروسس اكسبلورر [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/windows/processes) وتي سي ب فيو [TCPView](https://pellaeon.gitbook.io/mobile-forensics/windows/network).
+يوفر دليل التحليل الجنائي السريعGuide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/)  مقدمة جيدة لمناهج التحليل الجنائي لفحص الجهاز  ويتضمن الدليل مقدمة إلى المجموعة المهمة من أدوات سيس إنترنالز(Sysinternals) المتاحة من مايكروسوفت. أكمل أقسام الدليل حول أوتورنز [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/autoruns) وبروسس اكسبلورر [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/processes) وتي سي ب فيو [TCPView](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/network).
 
 بعد الانتهاء من الأنشطة في هذا الفصل، يجب أن تكون قادرًا:
 
@@ -49,10 +49,10 @@ description = "قد يكون الفحص المباشر للجهاز ضروريً
 ### ويندوز وماك أو إس
 
 1. Open your operating system’s process manager and read through its outputs. Do you notice any processes which look out of place or which consume a weirdly high or low amount of resources? Note them down and search the web for them to learn more about them.
-2. While tracking network connections as described in the Mobile Forensics Guide (articles for [Windows](https://pellaeon.gitbook.io/mobile-forensics/windows/network) and [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), open one or two apps which connect to the internet and note which IP addresses they connect to. Is there anything surprising about any of those connections or IP addresses?
+2. While tracking network connections as described in the Mobile Forensics Guide (articles for [Windows](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/network) and [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), open one or two apps which connect to the internet and note which IP addresses they connect to. Is there anything surprising about any of those connections or IP addresses?
 3. Look through startup items and separate them between those which come from your operating system vendor, those which come from other vendors. Look up three of them online to learn more about what they do. If you are working with a peer or mentor, discuss the findings with them.
 1.افتح مدير عمليات نظام التشغيل الخاص بك واقرأ معطياته، هل تلاحظ أي عمليات تبدو غير طبيعية أو تستهلك كمية عالية أو منخفضة من الموارد بشكل غريب؟ سجّل أسمائها وابحث عنها على الويب لمعرفة المزيد عنها.
-2.أثناء تتبع اتصالات الشبكة كما هو موضح في دليل الأدلة الجنائية للجوال (مقالات لنظامي التشغيل ويندوز[Windows](https://pellaeon.gitbook.io/mobile-forensics/windows/network) وماك أو إس[macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network))، افتح تطبيقًا أو تطبيقين يتصلان بالإنترنت وسجّل عناوين بروتوكول الإنترنت التي يتصلان بها. هل هناك أي شيء يثير العجب حول أي من هذه الاتصالات أو عناوين بروتوكول إنترنت؟
+2.أثناء تتبع اتصالات الشبكة كما هو موضح في دليل الأدلة الجنائية للجوال (مقالات لنظامي التشغيل ويندوز[Windows](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/network) وماك أو إس[macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network))، افتح تطبيقًا أو تطبيقين يتصلان بالإنترنت وسجّل عناوين بروتوكول الإنترنت التي يتصلان بها. هل هناك أي شيء يثير العجب حول أي من هذه الاتصالات أو عناوين بروتوكول إنترنت؟
 3.ابحث في عناصر بدء التشغيل وافصلها بين تلك التي تأتي من مورّد نظام التشغيل الخاص بك وتلك التي تأتي من مورّدين آخرين. ابحث عن ثلاثة منها على الإنترنت لمعرفة المزيد حول ما تفعله وإذا كنت تعمل مع زميل أو مرشِد، ناقش النتائج معهم.
 
 ### نظام أندرويد

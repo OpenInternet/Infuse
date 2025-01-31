@@ -23,7 +23,7 @@ Les méthodes d'investigation nécessitent plus de connaissances sur les opérat
 
 ### Windows
 
-Le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/) fournit une bonne introduction aux approches d'analyse pour l'inspection des appareils. Le guide comprend une introduction à l'importante suite d'outils Sysinternals mis à disposition par Microsoft. Remplissez les sections du guide sur [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/windows/processes) et [TCPView](https://pellaeon.gitbook.io/mobile-forensics/windows/network)[^1]
+Le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/) fournit une bonne introduction aux approches d'analyse pour l'inspection des appareils. Le guide comprend une introduction à l'importante suite d'outils Sysinternals mis à disposition par Microsoft. Remplissez les sections du guide sur [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/processes) et [TCPView](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/network)[^1]
 
 Après avoir terminé les activités guidées, vous devriez être en mesure de :
 
@@ -48,7 +48,7 @@ Il existe [des outils macOS](https://objective-see.org/tools.html) créés par O
 ### Windows et macOS
 
 1. Ouvrez le gestionnaire de processus de votre système d'exploitation et lisez ses résultats. Remarquez-vous des processus qui semblent déplacés ou qui consomment une quantité anormalement élevée ou faible de ressources ? Notez-les et recherchez-les sur le Web pour en savoir plus à leur sujet.
-2. Lors du suivi des connexions réseau tel que décrit dans le Guide d'investigation mobile (articles pour [Windows](https://pellaeon.gitbook.io/mobile-forensics/windows/network) et [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), ouvrez une ou deux applications qui se connectent à Internet et notez les adresses IP auxquelles elles se connectent. Y a-t-il des éléments curieux concernant ces connexions ou adresses IP ?
+2. Lors du suivi des connexions réseau tel que décrit dans le Guide d'investigation mobile (articles pour [Windows](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/network) et [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), ouvrez une ou deux applications qui se connectent à Internet et notez les adresses IP auxquelles elles se connectent. Y a-t-il des éléments curieux concernant ces connexions ou adresses IP ?
 3. Parcourez les éléments de démarrage et divisez-les entre ceux qui proviennent de votre fournisseur de système d'exploitation et ceux qui proviennent d'autres fournisseurs. Consultez trois d'entre eux en ligne pour en savoir plus sur leur utilisation. Si vous travaillez avec un pair ou un mentor, discutez-en ensemble.
 
 ### Android

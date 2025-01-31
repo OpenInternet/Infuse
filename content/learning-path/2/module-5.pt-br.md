@@ -23,7 +23,7 @@ Os métodos de perícia requerem um conhecimento maior sobre as operações inte
 
 ### Windows
 
-O [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/) fornece uma boa introdução acerca das abordagens periciais na inspeção de um dispositivo.  O guia inclui uma introdução às importantes ferramentas Sysinternals, disponibilizadas pela Microsoft. Conclua as seções do guia sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/windows/processes), e [TCPView](https://pellaeon.gitbook.io/mobile-forensics/windows/network).[^1]
+O [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/) fornece uma boa introdução acerca das abordagens periciais na inspeção de um dispositivo.  O guia inclui uma introdução às importantes ferramentas Sysinternals, disponibilizadas pela Microsoft. Conclua as seções do guia sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/processes), e [TCPView](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/network).[^1]
 
 Após finalizar as atividades guiadas, você deverá ser capaz de:
 
@@ -48,7 +48,7 @@ Existem [algumas ferramentas macOS](https://objective-see.org/tools.html) criada
 ### Windows e macOS
 
 1. Abra o gerenciador de processos do seu sistema operacional e leia os seus resultados. Você nota algum processo que possa parecer fora do lugar ou que consuma uma quantidade estranhamente alta de recursos? Anote-os e pesquise na internet para saber mais sobre eles.
-2. Ao buscar conexões de rede conforme descrito no Guia de Perícia Forense para Dispositivos Móveis (artigos para [Windows](https://pellaeon.gitbook.io/mobile-forensics/windows/network) e [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), abra um ou dois aplicativos que se conectam à internet e anote a quais endereços IP eles se conectam. Existe algo surpreendente sobre alguma dessas conexões ou endereços IP?
+2. Ao buscar conexões de rede conforme descrito no Guia de Perícia Forense para Dispositivos Móveis (artigos para [Windows](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/network) e [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), abra um ou dois aplicativos que se conectam à internet e anote a quais endereços IP eles se conectam. Existe algo surpreendente sobre alguma dessas conexões ou endereços IP?
 3. Busque entre os itens que são lançados na inicialização e separe-os entre os que já vieram de fábrica no seu sistema operacional e os que vieram de outras fontes. Procure por três deles online para saber mais sobre o que fazem. Se você estiver trabalhando com um colega ou mentor, fale sobre as suas descobertas com eles.
 
 ### Android

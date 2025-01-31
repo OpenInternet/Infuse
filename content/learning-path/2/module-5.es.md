@@ -23,7 +23,7 @@ Los métodos forenses requieren un mayor conocimiento sobre las operaciones inte
 
 ### Windows
 
-La [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/) proporciona una buena introducción a los enfoques forenses para la inspección de dispositivos. La guía incluye una introducción al importante conjunto de herramientas _Sysinternals_ que Microsoft ofrece. Complete las secciones de la guía sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/windows/processes), y [TCPView](https://pellaeon.gitbook.io/mobile-forensics/windows/network).[^1]
+La [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/) proporciona una buena introducción a los enfoques forenses para la inspección de dispositivos. La guía incluye una introducción al importante conjunto de herramientas _Sysinternals_ que Microsoft ofrece. Complete las secciones de la guía sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/es/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/es/windows/processes), y [TCPView](https://pellaeon.gitbook.io/mobile-forensics/es/windows/network).[^1]
 
 Después de completar las actividades guiadas, deberías poder:
 
@@ -48,7 +48,7 @@ Existen [algunas herramientas para macOS](https://objective-see.org/tools.html) 
 ### Windows y macOS
 
 1. Abre el administrador de procesos de tu sistema operativo y revisa sus salidas. ¿Observas algún proceso que parezca fuera de lugar o que consuma una cantidad inusualmente alta o baja de recursos? Anótalos y búscalos en la web para obtener más información sobre ellos.
-2. Mientras rastreas las conexiones de red según se describe en la Guía de Forense Móvil (artículos para [Windows](https://pellaeon.gitbook.io/mobile-forensics/windows/network) y [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), abre una o dos aplicaciones que se conecten a internet y anota a qué direcciones IP se conectan. ¿Hay algo sorprendente sobre alguna de esas conexiones o direcciones IP?
+2. Mientras rastreas las conexiones de red según se describe en la Guía de Forense Móvil (artículos para [Windows](https://pellaeon.gitbook.io/mobile-forensics/es/windows/network) y [macOS](https://pellaeon.gitbook.io/mobile-forensics/mac/network)), abre una o dos aplicaciones que se conecten a internet y anota a qué direcciones IP se conectan. ¿Hay algo sorprendente sobre alguna de esas conexiones o direcciones IP?
 3. Revisa los ítems de inicio y sepáralos entre los que provienen del proveedor de tu sistema operativo y los que provienen de otros proveedores. Busca en línea tres de ellos para aprender más sobre lo que hacen. Si estás trabajando con un compañero o mentor, discute los hallazgos con ellos.
 
 ### Android

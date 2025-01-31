@@ -65,7 +65,7 @@ Uma vez que a infecção inicial é realizada, a maioria dos malwares passarão 
 
 #### Métodos para infectar iOS e Android
 
-Os sistemas operacionais de laptops são um pouco diferentes dos desktops. Eles são normalmente mais fechados e restringem quais códigos podem ser executados neles. Isto significa que o malware também tem caminhos e métodos diferentes de infecção. Consulte a seção [arquitetura dos sistemas de smartphone](https://pellaeon.gitbook.io/mobile-forensics/smartphones/smartphone-system-architecture) do Guia de Perícia de Celulares para ter um bom resumo sobre o assunto.
+Os sistemas operacionais de laptops são um pouco diferentes dos desktops. Eles são normalmente mais fechados e restringem quais códigos podem ser executados neles. Isto significa que o malware também tem caminhos e métodos diferentes de infecção. Consulte a seção [arquitetura dos sistemas de smartphone](https://pellaeon.gitbook.io/mobile-forensics/pt-br/smartphones/smartphone-system-architecture) do Guia de Perícia de Celulares para ter um bom resumo sobre o assunto.
 
 As configurações de base do iOS e do Android somente permitem que o usuário execute os softwares baixados nas App Stores oficiais. Os malwares nessas plataformas foram instalados através de uma App Store (o que significa que não foram identificados durante as auditorias de segurança da Apple ou da Google) ou pela exploração de lacunas no iOS ou no Android que normalmente impedem a execução de códigos não autorizados. Alternativamente, alguns autores de malware também usam a engenharia social para convencer as pessoas alvo a instalarem perfis maliciosos ou outras configurações no dispositivo.
 
@@ -136,7 +136,7 @@ Fale sobre as suas respostas a todas essas perguntas com o seu colega ou mentor.
 
 {{% resource title="Guia de Prevenção e Manejo de Incidentes de Malware para Desktops e Laptops" languages="Inglês" cost="Grátis" description="Um guia antigo (2013) do US NIST que trata do assunto de forma bem abrangente." url="https://nvlpubs.nist.gov/nistpubs/specialpublications/nist.sp.800-83r1.pdf" %}}
 
-{{% resource title="Arquitetura dos sistemas de smartphone" languages="Inglês" cost="Grátis" description="Veja como funcionam os sistemas operacionais dos smartphones e de que forma os malwares tomam conta deles." url="https://pellaeon.gitbook.io/mobile-forensics/smartphones/smartphone-system-architecture" %}}
+{{% resource title="Arquitetura dos sistemas de smartphone" languages="Inglês" cost="Grátis" description="Veja como funcionam os sistemas operacionais dos smartphones e de que forma os malwares tomam conta deles." url="https://pellaeon.gitbook.io/mobile-forensics/pt-br/smartphones/smartphone-system-architecture" %}}
 
 {{% resource title="Os Arquivos Predator" languages="Inglês" cost="Grátis" description="Uma investigação de malware realizada pela Amnesty Tech; inclui listas de IoCs na página 52." url="https://www.amnesty.org/en/documents/act10/7245/2023/en/" %}}
 
