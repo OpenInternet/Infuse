@@ -1,8 +1,9 @@
-+++
-style = "module"
-weight = 3
-title = "Fonctionnement des logiciels malveillants et différents types de logiciels malveillants"
-+++
+---
+style: module
+title: Fonctionnement des logiciels malveillants et différents types de
+  logiciels malveillants
+weight: 3
+---
 
 ## Cas d'utilisation
 
