@@ -23,7 +23,7 @@ Les méthodes d'investigation nécessitent plus de connaissances sur les opérat
 
 ### Windows
 
-Le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/) fournit une bonne introduction aux approches d'analyse pour l'inspection des appareils. Le guide comprend une introduction à l'importante suite d'outils Sysinternals mis à disposition par Microsoft. Remplissez les sections du guide sur [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/processes) et [TCPView](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/network)[^1]
+Le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/fr) fournit une bonne introduction aux approches d'analyse pour l'inspection des appareils. Le guide comprend une introduction à l'importante suite d'outils Sysinternals mis à disposition par Microsoft. Remplissez les sections du guide sur [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/processes) et [TCPView](https://pellaeon.gitbook.io/mobile-forensics/fr/windows/network)[^1]
 
 Après avoir terminé les activités guidées, vous devriez être en mesure de :
 
@@ -32,7 +32,7 @@ Après avoir terminé les activités guidées, vous devriez être en mesure de :
 - Lire et filtrer les résultats des outils SysInternals Autoruns pour identifier uniquement les binaires non Microsoft et non signés, et vérifier les hachages de fichiers par rapport à VirusTotal
 - Lire et comprendre les résultats de Process Explorer, notamment en vérifiant l'exécution de processus avec des signatures de fichiers non vérifiées, et vérifier les hachages de processus par rapport à VirusTotal.
 
-Les outils SysInternal de Microsoft sont largement utilisés et vous pourrez trouver des tutoriels supplémentaires sur le Web, mais le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/) fournit une bonne introduction ciblée.
+Les outils SysInternal de Microsoft sont largement utilisés et vous pourrez trouver des tutoriels supplémentaires sur le Web, mais le [Guide d'investigation rapide](https://pellaeon.gitbook.io/mobile-forensics/fr) fournit une bonne introduction ciblée.
 
 ### MacOS
 

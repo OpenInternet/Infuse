@@ -23,7 +23,7 @@ Los métodos forenses requieren un mayor conocimiento sobre las operaciones inte
 
 ### Windows
 
-La [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/) proporciona una buena introducción a los enfoques forenses para la inspección de dispositivos. La guía incluye una introducción al importante conjunto de herramientas _Sysinternals_ que Microsoft ofrece. Complete las secciones de la guía sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/es/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/es/windows/processes), y [TCPView](https://pellaeon.gitbook.io/mobile-forensics/es/windows/network).[^1]
+La [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/es) proporciona una buena introducción a los enfoques forenses para la inspección de dispositivos. La guía incluye una introducción al importante conjunto de herramientas _Sysinternals_ que Microsoft ofrece. Complete las secciones de la guía sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/es/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/es/windows/processes), y [TCPView](https://pellaeon.gitbook.io/mobile-forensics/es/windows/network).[^1]
 
 Después de completar las actividades guiadas, deberías poder:
 
@@ -32,7 +32,7 @@ Después de completar las actividades guiadas, deberías poder:
 - Leer y filtrar resultados de la herramienta Sysinternals Autoruns para identificar solo binarios sin firmar de Microsoft, y cómo verificar los hashes de archivos en VirusTotal.
 - Saber cómo leer y entender los resultados de Process Explorer, incluyendo cómo verificar los procesos en ejecución con firmas de archivos no verificadas y cómo verificar los hashes de procesos en VirusTotal.
 
-Las herramientas de SysInternal de Microsoft son ampliamente utilizadas y podrás encontrar tutoriales adicionales sobre su uso en la web, sin embargo, la [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/) proporciona una buena introducción objetiva.
+Las herramientas de SysInternal de Microsoft son ampliamente utilizadas y podrás encontrar tutoriales adicionales sobre su uso en la web, sin embargo, la [Guía Breve de Análisis Forense](https://pellaeon.gitbook.io/mobile-forensics/es) proporciona una buena introducción objetiva.
 
 ### Mac OS
 

@@ -23,7 +23,7 @@ Os métodos de perícia requerem um conhecimento maior sobre as operações inte
 
 ### Windows
 
-O [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/) fornece uma boa introdução acerca das abordagens periciais na inspeção de um dispositivo.  O guia inclui uma introdução às importantes ferramentas Sysinternals, disponibilizadas pela Microsoft. Conclua as seções do guia sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/processes), e [TCPView](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/network).[^1]
+O [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/pt-br) fornece uma boa introdução acerca das abordagens periciais na inspeção de um dispositivo.  O guia inclui uma introdução às importantes ferramentas Sysinternals, disponibilizadas pela Microsoft. Conclua as seções do guia sobre [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/autoruns), [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/processes), e [TCPView](https://pellaeon.gitbook.io/mobile-forensics/pt-br/windows/network).[^1]
 
 Após finalizar as atividades guiadas, você deverá ser capaz de:
 
@@ -32,7 +32,7 @@ Após finalizar as atividades guiadas, você deverá ser capaz de:
 * Ler e filtrar os resultados das ferramentas Sysinternals Autoruns para identificar somente as que não são Microsoft, os binários sem assinatura, e como verificar os hashes de arquivo contra VirusTotal.
 * Saber como ler e entender os resultados do Process Explorer, inclusive como checar os processos em andamento com assinaturas de arquivo não verificadas e como verificar os hashes de processos contra VirusTotal.
 
-As ferramentas SysInternal da Microsoft são amplamente usadas e você poderá encontrar na internet tutoriais adicionais que as utilizam, contudo, o [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/) fornece uma boa introdução.
+As ferramentas SysInternal da Microsoft são amplamente usadas e você poderá encontrar na internet tutoriais adicionais que as utilizam, contudo, o [Guia Rápido de Perícia](https://pellaeon.gitbook.io/mobile-forensics/pt-br) fornece uma boa introdução.
 
 ### MacOS
 

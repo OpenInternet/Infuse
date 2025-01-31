@@ -22,7 +22,7 @@ description = "قد يكون الفحص المباشر للجهاز ضروريً
 
 ### ويندوز
 
-يوفر دليل التحليل الجنائي السريعGuide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/)  مقدمة جيدة لمناهج التحليل الجنائي لفحص الجهاز  ويتضمن الدليل مقدمة إلى المجموعة المهمة من أدوات سيس إنترنالز(Sysinternals) المتاحة من مايكروسوفت. أكمل أقسام الدليل حول أوتورنز [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/autoruns) وبروسس اكسبلورر [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/processes) وتي سي ب فيو [TCPView](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/network).
+يوفر دليل التحليل الجنائي السريعGuide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/ar)  مقدمة جيدة لمناهج التحليل الجنائي لفحص الجهاز  ويتضمن الدليل مقدمة إلى المجموعة المهمة من أدوات سيس إنترنالز(Sysinternals) المتاحة من مايكروسوفت. أكمل أقسام الدليل حول أوتورنز [Autoruns](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/autoruns) وبروسس اكسبلورر [Process Explorer](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/processes) وتي سي ب فيو [TCPView](https://pellaeon.gitbook.io/mobile-forensics/ar/windows/network).
 
 بعد الانتهاء من الأنشطة في هذا الفصل، يجب أن تكون قادرًا:
 
@@ -31,7 +31,7 @@ description = "قد يكون الفحص المباشر للجهاز ضروريً
 - قراءة وتصفية النتائج من أداة أوتورنز من سيس إنترنالز لتحديد الثنائيات غير الموقّعة من مايكروسوفت فقط، وكيفية التحقق من شفرة تجزئة الملفات مقابل فايروستوتال
 - معرفة كيفية قراءة وفهم النتائج من بروسس إكسبلورر، بما في ذلك كيفية التحقق من العمليات الجارية ذات توقيعات الملفات التي لم يتم التحقق منها وكيفية التحقق من شفرة تجزئة العملية مقابل فايروستوتال.
   
-تُستخدم أدوات مايكروسوفت إنترنتالز على نطاق واسع وستتمكن من العثور على برامج تعليمية إضافية تستخدمها عبر الويب ولكن يُقدم دليل التحليل الجنائي السريع [Guide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/) مقدمة مستهدفة جيدة.
+تُستخدم أدوات مايكروسوفت إنترنتالز على نطاق واسع وستتمكن من العثور على برامج تعليمية إضافية تستخدمها عبر الويب ولكن يُقدم دليل التحليل الجنائي السريع [Guide to Quick Forensics](https://pellaeon.gitbook.io/mobile-forensics/ar) مقدمة مستهدفة جيدة.
 
 
 ### نظام ماك أو إس
