@@ -83,8 +83,7 @@ body {
 
 .anchor-link {
   top: 0.2em;
-  left: -2rem;
-  @apply absolute m-auto flex items-center justify-center opacity-0;
+  @apply absolute m-auto flex items-center justify-center opacity-0 -left-8;
 }
 
 .prose h1:hover .anchor-link,
