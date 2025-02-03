@@ -1,8 +1,8 @@
-+++
-style = "module"
-weight = 6
-title = "Détection de logiciels malveillants par l'analyse du trafic"
-+++
+---
+style: module
+title: Détection de logiciels malveillants par l'analyse du trafic
+weight: 6
+---
 
 
 ## Cas d'utilisation

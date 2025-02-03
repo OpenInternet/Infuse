@@ -1,9 +1,10 @@
-+++
-style = "module"
-weight = 6
-title = "Detecting malware through traffic analysis"
-description = "This optional subtopic teaches you to use a Raspberry Pi to conduct traffic analysis while searching for potential malware"
-+++
+---
+style: module
+title: Detecting malware through traffic analysis
+description: This optional subtopic teaches you to use a Raspberry Pi to conduct
+  traffic analysis while searching for potential malware
+weight: 6
+---
 
 ## Use Case
 
