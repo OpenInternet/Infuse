@@ -1,6 +1,7 @@
 ---
 style: module
 title: Pasos iniciales y comprobaciones para detectar malware
+description: Hay un dispositivo cuyo estado de seguridad es desconocido y el propietario quiere investigar la posibilidad de una infección o una vulneración previa. Utilice diferentes herramientas para detectar una vulneración o un determinado malware sospechoso.
 weight: 4
 ---
 
