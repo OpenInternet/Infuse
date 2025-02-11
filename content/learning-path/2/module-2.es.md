@@ -1,6 +1,7 @@
 ---
 style: module
 title: Prerrequisitos OPSEC para detectar malware
+description: Antes de comenzar a analizar cualquier malware, debes configurar un entorno seguro para hacerlo. Definitivamente, el malware daña los sistemas en los que se ejecuta. No deseas ejecutarlo en tu sistema principal.
 weight: 2
 ---
 
