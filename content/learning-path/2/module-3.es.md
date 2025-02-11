@@ -1,6 +1,7 @@
 ---
 style: module
 title: Cómo funciona el malware y los diferentes tipos de malware
+description: Para empezar a trabajar con malware, primero debemos conocer sus diferentes tipos. Virus, spyware, backdoors, ransomware y adware se comportan de manera diferente y tienen diferentes motivaciones.
 weight: 3
 ---
 ## Estudio de caso
