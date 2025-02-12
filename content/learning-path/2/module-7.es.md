@@ -2,6 +2,7 @@
 style = "module"
 weight = 7
 title = "Detección de malware mediante adquisición de imagen (iOS, Android)"
+description = "El primer paso para detectar malware es recopilar datos del propio dispositivo para su análisis."
 +++
 
 ## Estudio de Caso

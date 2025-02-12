@@ -2,6 +2,7 @@
 style = "module"
 weight = 10
 title = "Descubrir de dónde vino el malware"
+description = "Ningún malware aparece espontáneamente en el dispositivo de la persona objetivo. Saber de dónde provino la infección puede ser importante para gestionar riesgos futuros."
 +++
 
 ## Caso de Uso

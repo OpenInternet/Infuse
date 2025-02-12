@@ -1,6 +1,7 @@
 ---
 style: module
 title: Detección de malware mediante análisis de tráfico
+description: Este subtema opcional le enseña a usar una Raspberry Pi para realizar análisis de tráfico mientras busca malware potencial.
 weight: 6
 ---
 

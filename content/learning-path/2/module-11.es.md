@@ -2,6 +2,7 @@
 style = "module"
 weight = 11
 title = "Limpieza, cuidados posteriores, gestión de riesgos posteriores al incidente e intercambio de información"
+description = "Si se encuentra malware o tráfico malicioso en el dispositivo de una persona objetivo, necesitamos proporcionar cuidado posterior correctivo o recomendaciones específicas."
 +++
 
 ## Caso de Uso

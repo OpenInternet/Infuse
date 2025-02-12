@@ -2,6 +2,7 @@
 style = "module"
 weight = 8
 title = "Detección y determinación basadas en muestras"
+description = "Imagine que tiene una muestra de un archivo y necesita determinar si es malicioso. El objetivo principal es determinar si el archivo es malicioso. Además, es posible que pueda hallar información adicional útil para caracterizarlo."
 +++
 
 ## Estudio de Caso

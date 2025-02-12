@@ -1,6 +1,7 @@
 ---
 style: module
 title: Métodos forenses en sistemas en vivo de Windows y macOS
+description: La inspección directa de un dispositivo puede ser necesaria para comprender lo que está sucediendo en el mismo e identificar procesos, artefactos o tráfico sospechosos.
 weight: 5
 ---
 

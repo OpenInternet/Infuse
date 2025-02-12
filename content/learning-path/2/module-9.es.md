@@ -2,6 +2,7 @@
 style = "module"
 weight = 9
 title = "Análisis de documentos maliciosos"
+description = "Aprendemos a analizar documentos sospechosos y potencialmente maliciosos"
 +++
 
 ## Caso de Uso
