@@ -80,7 +80,7 @@ Las habilidades en investigación, abordaje y detección de infraestructuras mal
 
 * No necesita ningún hardware potente o especializado para esta ruta de aprendizaje. Cualquier computadora moderna debe funcionar. Aunque las herramientas de esta ruta de aprendizaje solo se han probado en sistemas basados en x86, la mayoría, si no todos, también deben funcionar en sistemas ARM como los ordenadores Raspberry Pi o Apple Silicon.
 * Muchas de las herramientas de esta ruta de aprendizaje funcionan mejor en sistemas operativos con distribuciones Unix. Esto significa que es más fácil usar dispositivos Linux, macOS o Windows con WSL (Subsistema de Windows para Linux) instalado.
-* Si está ejecutando Windows, necesitará instalar WSL (Subsistema de Windows para Linux) para ejecutar algunas de las herramientas que se describen a continuación.
+* Si está ejecutando Windows, necesitará instalar WSL (Subsistema de Windows para Linux), puedes mirar esta [documentación](https://learn.microsoft.com/es-es/windows/wsl/) para ejecutar algunas de las herramientas que se describen a continuación.
 * Si está ejecutando macOS, es una buena idea instalar [Homebrew](https://brew.sh/) o [Macports](https://www.macports.org/); estos son administradores de paquetes que pueden automatizar el proceso de instalación de algunas de las herramientas descritas a lo largo del ruta de aprendizaje.
 * Tanto WSL como Linux deben tener gestores de paquetes integrados que puede utilizar para instalar las herramientas descritas a continuación.
 
