@@ -62,9 +62,9 @@ Passive IP/DNS investigations can be divided into several categories.
 
 One of the first things we should do in our investigation is gain some initial information on domains and hosts. Several tools and tool categories that can help with that.
 
-- WHOIS
+- RDAP/ WHOIS
 
-  WHOIS records are publicly accessible and contain useful information on a domain. Learn how to use web-based (for example [ARIN whois](https://search.arin.net/rdap/) or [who.is](https://who.is/)) or [command-line utilities](https://www.arin.net/resources/registry/whois/rws/cli/) to view a WHOIS record and learn to read the registrant information (if disclosed), the registrar, the date of registry, and the DNS nameservers which indicate where the authoritative records for that DNS zone are hosted.
+  RDAP records are publicly accessible and contain useful information on a domain. In the past, they used a protocol called WHOIS. Many services that provide such records still market them as WHOIS lookups, even if they use a newer protocol, which can lead to some naming confusion. Learn how to use web-based (for example [ARIN whois](https://search.arin.net/rdap/) or [who.is](https://who.is/)) or [command-line utilities](https://www.arin.net/resources/registry/whois/rws/cli/) to view a WHOIS record and learn to read the registrant information (if disclosed), the registrar, the date of registry, and the DNS nameservers which indicate where the authoritative records for that DNS zone are hosted.
 
   WHOIS can also be run on an IP address in order to attempt to identify the company responsible for the IP, thereby potentially telling you the hosting company serving a website.
 
